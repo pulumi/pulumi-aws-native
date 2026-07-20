@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package naming
 
 import (
@@ -67,7 +68,9 @@ func TestCfnToSdkV2(t *testing.T) {
 				map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "s3:GetObject"}}},
 			},
 			"NamedPolicies": map[string]interface{}{
-				"AdminPolicy": map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "*"}}},
+				"AdminPolicy": map[string]interface{}{
+					"Statement": []interface{}{map[string]interface{}{"Action": "*"}},
+				},
 			},
 			"UnknownObject": map[string]interface{}{"NestedKey": "value"},
 		}
@@ -86,7 +89,9 @@ func TestCfnToSdkV2(t *testing.T) {
 				map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "s3:GetObject"}}},
 			},
 			"namedPolicies": map[string]interface{}{
-				"AdminPolicy": map[string]interface{}{"Statement": []interface{}{map[string]interface{}{"Action": "*"}}},
+				"AdminPolicy": map[string]interface{}{
+					"Statement": []interface{}{map[string]interface{}{"Action": "*"}},
+				},
 			},
 			"unknownObject": map[string]interface{}{"nestedKey": "value"},
 		}, actual)
@@ -435,7 +440,9 @@ func TestDiffToPatch(t *testing.T) {
 				"loadBalancers": {
 					New: resource.NewArrayProperty([]resource.PropertyValue{
 						resource.NewObjectProperty(resource.PropertyMap{
-							resource.PropertyKey("targetGroupArn"): resource.MakeSecret(resource.NewStringProperty("arn:mytargetgroup")),
+							resource.PropertyKey("targetGroupArn"): resource.MakeSecret(
+								resource.NewStringProperty("arn:mytargetgroup"),
+							),
 						}),
 					}),
 				},

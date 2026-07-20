@@ -31,7 +31,8 @@ type CloudAPIResource struct {
 	// e.g.
 	// - ReadOnly: [
 	//     'arn', // top level
-	//     'someObjectProp/arn', // the arn value of someObjectProp is an output (but not the other properties of someObjectProp)
+	// 'someObjectProp/arn', // the arn value of someObjectProp is an output (but not the other properties of
+	// someObjectProp)
 	//     'someArrayProp/*/someObjectProp/arn'
 	//   ]
 	//
@@ -111,6 +112,8 @@ type ListHandlerProperty struct {
 
 // ExtensionResourceToken is a Pulumi token for the resource to deploy
 // custom third-party CloudFormation types.
+//
+//nolint:gosec // Pulumi resource token, not a credential.
 const ExtensionResourceToken = "aws-native:index:ExtensionResource"
 
 // CfnCustomResourceToken is a Pulumi token for the resource to deploy

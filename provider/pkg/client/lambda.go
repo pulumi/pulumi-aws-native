@@ -24,18 +24,22 @@ type LambdaClient interface {
 }
 
 type LambdaApi interface {
-	Invoke(ctx context.Context, params *lambda.InvokeInput, optFns ...func(*lambda.Options)) (*lambda.InvokeOutput, error)
+	Invoke(
+		ctx context.Context,
+		params *lambda.InvokeInput,
+		optFns ...func(*lambda.Options),
+	) (*lambda.InvokeOutput, error)
 	GetFunction(context.Context, *lambda.GetFunctionInput, ...func(*lambda.Options)) (*lambda.GetFunctionOutput, error)
 }
 
 type lambdaClientImpl struct {
-	api LambdaApi
+	api                       LambdaApi
 	functionActivationTimeout time.Duration
 }
 
 func NewLambdaClient(api LambdaApi) LambdaClient {
 	return &lambdaClientImpl{
-		api: api,
+		api:                       api,
 		functionActivationTimeout: DefaultFunctionActivationTimeout,
 	}
 }

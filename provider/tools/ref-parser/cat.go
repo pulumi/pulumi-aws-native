@@ -37,7 +37,9 @@ var categorizationRules = []categorizationRule{
 	},
 	{
 		Category: RefReturnsArn,
-		Pattern:  regexp.MustCompile("When you pass the logical ID of this resource to the intrinsic .Ref..?function, .Ref.?.?returns the ARN"),
+		Pattern: regexp.MustCompile(
+			"When you pass the logical ID of this resource to the intrinsic .Ref..?function, .Ref.?.?returns the ARN",
+		),
 	},
 	{
 		Category: ShouldNotBeUsed,
@@ -45,47 +47,73 @@ var categorizationRules = []categorizationRule{
 	},
 	{
 		Category: RefReturnsArn,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the Arn of the .* that is created by the"),
+		Pattern: regexp.MustCompile(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the Arn of the .* that is created by the",
+		),
 	},
 	{
 		Category: RefReturnsArn,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the .* ARN"),
+		Pattern: regexp.MustCompile(
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the .* ARN",
+		),
 	},
 	{
 		Category: RefReturnsArn,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the resource ARN"),
+		Pattern: regexp.MustCompile(
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the resource ARN",
+		),
 	},
 	{
 		Category: RefReturnsArn,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the Amazon Resource Name"),
+		Pattern: regexp.MustCompile(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the Amazon Resource Name",
+		),
 	},
 	{
 		Category: RefReturnsArn,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of .* resource to the intrinsic .Ref.?.?function, the function returns the Amazon Resource Name"),
+		Pattern: regexp.MustCompile(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"^When you pass the logical ID of .* resource to the intrinsic .Ref.?.?function, the function returns the Amazon Resource Name",
+		),
 	},
 	{
 		Category: RefReturnsName,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the value of [`][^`]*Name[`]"),
+		Pattern: regexp.MustCompile(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the value of [`][^`]*Name[`]",
+		),
 	},
 	{
 		Category: RefReturnsName,
-		Pattern:  regexp.MustCompile("When the logical ID of this resource is provided to the Ref intrinsic function, .Ref. returns the .* name"),
+		Pattern: regexp.MustCompile(
+			"When the logical ID of this resource is provided to the Ref intrinsic function, .Ref. returns the .* name",
+		),
 	},
 	{
 		Category: RefReturnsName,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the name"),
+		Pattern: regexp.MustCompile(
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the name",
+		),
 	},
 	{
 		Category: RefReturnsName,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the .* name"),
+		Pattern: regexp.MustCompile(
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the .* name",
+		),
 	},
 	{
 		Category: RefReturnsID,
-		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the.*ID"),
+		Pattern: regexp.MustCompile(
+			"^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the.*ID",
+		),
 	},
 	{
 		Category: RefReturnsID,
-		Pattern:  regexp.MustCompile("When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns a .* ID"),
+		Pattern: regexp.MustCompile(
+			"When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns a .* ID",
+		),
 	},
 }
 

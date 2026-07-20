@@ -119,7 +119,7 @@ type resourceFile struct {
 	Category   Category
 }
 
-var resourceIdPattern = regexp.MustCompile(`^[#]\s*([^<\n]+)`)
+var resourceIDPattern = regexp.MustCompile(`^[#]\s*([^<\n]+)`)
 var refPattern = regexp.MustCompile(`(?m)^[#]+[ ]*Ref[^\n]*[\n]([^#]+)`)
 
 func parseResourceFile(file string) (resourceFile, error) {
@@ -129,11 +129,11 @@ func parseResourceFile(file string) (resourceFile, error) {
 	}
 	rf := resourceFile{}
 
-	if m := resourceIdPattern.FindSubmatch(fbytes); m != nil {
+	if m := resourceIDPattern.FindSubmatch(fbytes); m != nil {
 		rf.ResourceID = string(m[1])
 	}
 	if rf.ResourceID == "" {
-		return resourceFile{}, fmt.Errorf("Could not parse ResourceID from %q", file)
+		return resourceFile{}, fmt.Errorf("could not parse ResourceID from %q", file)
 	}
 
 	if m := refPattern.FindSubmatch(fbytes); m != nil {

@@ -21,16 +21,19 @@ const (
 	// TagsStyleKeyValueArrayCreateOnly is a style where the tags are represented as an array of key-value pairs, but
 	// the tags are create-only.
 	TagsStyleKeyValueArrayCreateOnly TagsStyle = tagStyleKeyValueArrayPrefix + "CreateOnly"
-	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value pairs
+	// TagsStyleKeyValueArrayWithExtraProperties is a style where the tags are represented as an array of key-value
+	// pairs
 	// but can have extra properties.
 	TagsStyleKeyValueArrayWithExtraProperties TagsStyle = tagStyleKeyValueArrayPrefix + "WithExtraProperties"
 	// TagsStyleKeyValueArrayWithAlternateType is a style where the tags are represented as an array of key-value pairs
 	// but the value can also be of a different type.
 	TagsStyleKeyValueArrayWithAlternateType TagsStyle = tagStyleKeyValueArrayPrefix + "WithAlternateType"
-	// TagsStyleKeyValueArrayUpperCase is a style where the tags are represented as an array of key-value pairs but the "Key" and "Value" properties are uppercase.
+	// TagsStyleKeyValueArrayUpperCase is a style where the tags are represented as an array of key-value pairs but the
+	// "Key" and "Value" properties are uppercase.
 	TagsStyleKeyValueArrayUpperCase TagsStyle = tagStyleKeyValueArrayPrefix + "UpperCase"
-	// TagsStyleObjectArrayWithResourceType is a style where the tags are represented as an array of objects with a "resourceType" property
-	// for example { tagSpecification: [ { resourceType: 'capacity-reservation' }, tags: [ { key: 'Key', value: 'Value' }]]}
+	// TagsStyleObjectArrayWithResourceType is a style where the tags are represented as an array of objects with a
+	// "resourceType" property for example { tagSpecification: [ { resourceType: 'capacity-reservation' }, tags: [ {
+	// key: 'Key', value: 'Value' }]]}
 	TagsStyleNestedKeyValueArrayWithResourceType TagsStyle = "nestedKeyValueArrayWithResourceType"
 )
 
@@ -43,5 +46,6 @@ func (ts TagsStyle) IsKeyValueArray() bool {
 }
 
 func (ts TagsStyle) IsValid() bool {
-	return ts == TagsStyleUnknown || ts == TagsStyleNone || ts == TagsStyleUntyped || ts.IsStringMap() || ts.IsKeyValueArray()
+	return ts == TagsStyleUnknown || ts == TagsStyleNone || ts == TagsStyleUntyped || ts.IsStringMap() ||
+		ts.IsKeyValueArray()
 }

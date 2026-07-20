@@ -1,5 +1,6 @@
 // Copyright 2016-2024, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package client
 
 import (
@@ -95,7 +96,10 @@ func TestWaitForResourceOpCompletion_InitialFailedStatusIncludesHookFailureDetai
 
 	requestStatusCalls := 0
 	mockAPI := &awaiterTestAPI{
-		getResourceRequestStatusWithHooksFunc: func(ctx context.Context, token string) (*types.ProgressEvent, []types.HookProgressEvent, error) {
+		getResourceRequestStatusWithHooksFunc: func(
+			_ context.Context,
+			token string,
+		) (*types.ProgressEvent, []types.HookProgressEvent, error) {
 			requestStatusCalls++
 			assert.Equal(t, requestToken, token)
 
@@ -151,22 +155,29 @@ func TestHasFinishedWithHooks_FailedWithoutHookEvents(t *testing.T) {
 }
 
 type awaiterTestAPI struct {
-	getResourceRequestStatusWithHooksFunc func(ctx context.Context, requestToken string) (*types.ProgressEvent, []types.HookProgressEvent, error)
+	getResourceRequestStatusWithHooksFunc func(
+		ctx context.Context,
+		requestToken string,
+	) (*types.ProgressEvent, []types.HookProgressEvent, error)
 }
 
-func (*awaiterTestAPI) CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+func (*awaiterTestAPI) CreateResource(_ context.Context, _, _ string) (*types.ProgressEvent, error) {
 	panic("unexpected CreateResource call")
 }
 
-func (*awaiterTestAPI) UpdateResource(ctx context.Context, cfType, id string, patches []jsonpatch.JsonPatchOperation) (*types.ProgressEvent, error) {
+func (*awaiterTestAPI) UpdateResource(
+	_ context.Context,
+	_, _ string,
+	_ []jsonpatch.JsonPatchOperation,
+) (*types.ProgressEvent, error) {
 	panic("unexpected UpdateResource call")
 }
 
-func (*awaiterTestAPI) DeleteResource(ctx context.Context, cfType, id string) (*types.ProgressEvent, error) {
+func (*awaiterTestAPI) DeleteResource(_ context.Context, _, _ string) (*types.ProgressEvent, error) {
 	panic("unexpected DeleteResource call")
 }
 
-func (*awaiterTestAPI) GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+func (*awaiterTestAPI) GetResource(_ context.Context, _, _ string) (map[string]interface{}, error) {
 	panic("unexpected GetResource call")
 }
 
@@ -180,11 +191,17 @@ func (*awaiterTestAPI) ListResources(
 	panic("unexpected ListResources call")
 }
 
-func (*awaiterTestAPI) GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error) {
+func (*awaiterTestAPI) GetResourceRequestStatus(
+	_ context.Context,
+	_ string,
+) (*types.ProgressEvent, error) {
 	panic("unexpected GetResourceRequestStatus call")
 }
 
-func (m *awaiterTestAPI) GetResourceRequestStatusWithHooks(ctx context.Context, requestToken string) (*types.ProgressEvent, []types.HookProgressEvent, error) {
+func (m *awaiterTestAPI) GetResourceRequestStatusWithHooks(
+	ctx context.Context,
+	requestToken string,
+) (*types.ProgressEvent, []types.HookProgressEvent, error) {
 	if m.getResourceRequestStatusWithHooksFunc == nil {
 		panic("unexpected GetResourceRequestStatusWithHooks call")
 	}

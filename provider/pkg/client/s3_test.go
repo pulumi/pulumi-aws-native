@@ -17,6 +17,11 @@ import (
 	gomock "go.uber.org/mock/gomock"
 )
 
+const (
+	testBucketName = "test-bucket"
+	testObjectKey  = "test-key"
+)
+
 func TestPresignPutObject(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
@@ -27,8 +32,8 @@ func TestPresignPutObject(t *testing.T) {
 	}
 
 	ctx := context.Background()
-	bucket := "test-bucket"
-	key := "test-key"
+	bucket := testBucketName
+	key := testObjectKey
 	expiration := 15 * time.Minute
 	expectedURL := "https://example.com/presigned-url"
 
@@ -54,8 +59,8 @@ func TestPresignPutObject_Error(t *testing.T) {
 	}
 
 	ctx := context.Background()
-	bucket := "test-bucket"
-	key := "test-key"
+	bucket := testBucketName
+	key := testObjectKey
 	expiration := 15 * time.Minute
 	expectedError := errors.New("presign error")
 
@@ -85,8 +90,8 @@ func TestWaitForObject_Success(t *testing.T) {
 	ctrl, client, ctx := s3Setup(t)
 	defer ctrl.Finish()
 
-	bucket := "test-bucket"
-	key := "test-key"
+	bucket := testBucketName
+	key := testObjectKey
 	timeout := 2 * time.Second
 	expectedBody := "test content"
 
@@ -117,8 +122,8 @@ func TestWaitForObject_Timeout(t *testing.T) {
 	ctrl, client, ctx := s3Setup(t)
 	defer ctrl.Finish()
 
-	bucket := "test-bucket"
-	key := "test-key"
+	bucket := testBucketName
+	key := testObjectKey
 	timeout := 2 * time.Second
 
 	mockApi := client.api.(*MockS3Api)
@@ -138,8 +143,8 @@ func TestWaitForObject_Deleted(t *testing.T) {
 	ctrl, client, ctx := s3Setup(t)
 	defer ctrl.Finish()
 
-	bucket := "test-bucket"
-	key := "test-key"
+	bucket := testBucketName
+	key := testObjectKey
 	timeout := 2 * time.Second
 	expectedError := &s3Types.NoSuchKey{}
 
@@ -165,8 +170,8 @@ func TestWaitForObject_GetObjectError(t *testing.T) {
 	ctrl, client, ctx := s3Setup(t)
 	defer ctrl.Finish()
 
-	bucket := "test-bucket"
-	key := "test-key"
+	bucket := testBucketName
+	key := testObjectKey
 	timeout := 2 * time.Second
 	expectedError := errors.New("get object error")
 

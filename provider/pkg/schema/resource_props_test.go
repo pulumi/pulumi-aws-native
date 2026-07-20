@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package schema
 
 import (
@@ -106,7 +107,7 @@ func TestReadPropertyTransforms(t *testing.T) {
 		schema := &jsschema.Schema{
 			Extras: map[string]interface{}{
 				"propertyTransform": map[string]interface{}{
-					"/properties/Engine":                      "$lowercase(Engine)",
+					"/properties/Engine":                           "$lowercase(Engine)",
 					"/properties/SecurityGroupEgress/*/IpProtocol": "$lowercase(IpProtocol)",
 				},
 			},
@@ -134,7 +135,7 @@ func TestReadPropertyTransforms(t *testing.T) {
 		schema := &jsschema.Schema{
 			Extras: map[string]interface{}{
 				"propertyTransform": map[string]interface{}{
-					"/properties/Valid":   "$lowercase(Valid)",
+					"/properties/Valid":    "$lowercase(Valid)",
 					"/definitions/Invalid": "$lowercase(Invalid)", // Invalid path
 				},
 			},

@@ -9,6 +9,7 @@ import (
 	"io"
 
 	"github.com/pkg/errors"
+
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
@@ -31,7 +32,11 @@ func DecompressSchema(compressedSchema []byte) ([]byte, error) {
 		return nil, errors.Wrap(err, "expand compressed schema")
 	}
 	uncompressedBuf := bytes.Buffer{}
-	if _, err = io.Copy(&uncompressedBuf, uncompressed); err != nil {
+	//nolint:gosec // Reads trusted provider schema data.
+	if _, err = io.Copy(
+		&uncompressedBuf,
+		uncompressed,
+	); err != nil {
 		return nil, err
 	}
 	if err = uncompressed.Close(); err != nil {

@@ -1,5 +1,6 @@
 // Copyright 2024, Pulumi Corporation.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package resources
 
 import (
@@ -7,13 +8,14 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/pulumi/pulumi-go-provider/resourcex"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-go-provider/resourcex"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 type AutoNaming struct {
@@ -39,13 +41,14 @@ type extensionResource struct {
 // Check extensionResource implements CustomResource
 var _ CustomResource = (*extensionResource)(nil)
 
+//nolint:revive // The concrete return type is used by package tests and internal configuration.
 func NewExtensionResource(client client.CloudControlClient) *extensionResource {
 	return &extensionResource{
 		client: client,
 	}
 }
 
-func (r *extensionResource) Check(ctx context.Context, urn resource.URN,
+func (r *extensionResource) Check(_ context.Context, urn resource.URN,
 	engineAutonaming autonaming.EngineAutoNamingConfig, inputs, state resource.PropertyMap,
 	defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
 	var typedInputs ExtensionResourceInputs
@@ -72,7 +75,8 @@ func (r *extensionResource) Check(ctx context.Context, urn resource.URN,
 	}
 
 	// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
-	if len(defaultTags) > 0 && typedInputs.TagsProperty != "" && typedInputs.TagsStyle != default_tags.TagsStyleUnknown {
+	if len(defaultTags) > 0 && typedInputs.TagsProperty != "" &&
+		typedInputs.TagsStyle != default_tags.TagsStyleUnknown {
 		tagsKey := resource.PropertyKey(typedInputs.TagsProperty)
 		inputProperties := resource.NewPropertyMapFromMap(typedInputs.Properties)
 		tagsStyle := typedInputs.TagsStyle
@@ -108,14 +112,20 @@ func ApplyDefaults(typedInputs ExtensionResourceInputs) (ExtensionResourceInputs
 
 	// If the tags property is unset then we'll default to "Tags" which is the most common property name.
 	// Except if the tags style is explicitly set to none, in which case we'll ignore the tags property.
-	if typedInputs.TagsProperty == "" && typedInputs.TagsStyle != default_tags.TagsStyleNone && typedInputs.TagsStyle != default_tags.TagsStyleUnknown {
+	if typedInputs.TagsProperty == "" && typedInputs.TagsStyle != default_tags.TagsStyleNone &&
+		typedInputs.TagsStyle != default_tags.TagsStyleUnknown {
 		typedInputs.TagsProperty = "Tags"
 	}
 
 	return typedInputs, nil
 }
 
-func (r *extensionResource) Create(ctx context.Context, urn resource.URN, inputs resource.PropertyMap, timeout time.Duration) (identifier *string, outputs resource.PropertyMap, err error) {
+func (r *extensionResource) Create(
+	ctx context.Context,
+	urn resource.URN,
+	inputs resource.PropertyMap,
+	_ time.Duration,
+) (identifier *string, outputs resource.PropertyMap, err error) {
 	var typedInputs ExtensionResourceInputs
 	_, err = resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -131,7 +141,12 @@ func (r *extensionResource) Create(ctx context.Context, urn resource.URN, inputs
 	return id, CheckpointObject(inputs, rawOutputs), nil
 }
 
-func (r *extensionResource) Read(ctx context.Context, urn resource.URN, id string, oldInputs, oldState resource.PropertyMap) (outputs resource.PropertyMap, inputs resource.PropertyMap, exists bool, err error) {
+func (r *extensionResource) Read(
+	ctx context.Context,
+	_ resource.URN,
+	id string,
+	oldInputs, oldState resource.PropertyMap,
+) (outputs resource.PropertyMap, inputs resource.PropertyMap, exists bool, err error) {
 	if len(oldState) == 0 {
 		// We can't yet support import because the type would not be known.
 		return nil, nil, false, fmt.Errorf("ExtensionResource import not implemented")
@@ -169,7 +184,13 @@ func (r *extensionResource) Read(ctx context.Context, urn resource.URN, id strin
 	return CheckpointObject(newInputs, rawState), newInputs, true, nil
 }
 
-func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id string, inputs, oldInputs, state resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
+func (r *extensionResource) Update(
+	ctx context.Context,
+	urn resource.URN,
+	id string,
+	inputs, oldInputs, _ resource.PropertyMap,
+	_ time.Duration,
+) (resource.PropertyMap, error) {
 	var typedOldInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedOldInputs, oldInputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -200,7 +221,13 @@ func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id str
 	return CheckpointObject(inputs, rawState), nil
 }
 
-func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id string, inputs, state resource.PropertyMap, timeout time.Duration) error {
+func (r *extensionResource) Delete(
+	ctx context.Context,
+	urn resource.URN,
+	id string,
+	inputs, _ resource.PropertyMap,
+	_ time.Duration,
+) error {
 	var typedInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -215,7 +242,7 @@ func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id str
 	return nil
 }
 
-const AutoNamingTypeToken = "aws-native:index:AutoNaming"
+const AutoNamingTypeToken = "aws-native:index:AutoNaming" //nolint:gosec // Pulumi type token, not a credential.
 
 func AutoNamingTypeSpec() pschema.ObjectTypeSpec {
 	return pschema.ObjectTypeSpec{
@@ -241,6 +268,7 @@ func AutoNamingTypeSpec() pschema.ObjectTypeSpec {
 func ExtensionResourceSpec() pschema.ResourceSpec {
 	return pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			//nolint:lll // Preserve the exact fixture or documentation text.
 			Description: "A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.",
 			Properties: map[string]pschema.PropertySpec{
 				"outputs": {
@@ -257,6 +285,7 @@ func ExtensionResourceSpec() pschema.ResourceSpec {
 		},
 		InputProperties: map[string]pschema.PropertySpec{
 			"type": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "CloudFormation type name. This has three parts, each separated by two colons. For AWS resources this starts with `AWS::` e.g. `AWS::Logs::LogGroup`. Third party resources should use a namespace prefix e.g. `MyCompany::MyService::MyResource`.",
 				TypeSpec: pschema.TypeSpec{
 					Type: "string",
@@ -264,6 +293,7 @@ func ExtensionResourceSpec() pschema.ResourceSpec {
 				ReplaceOnChanges: true,
 			},
 			"properties": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "Property bag containing the properties for the resource. These should be defined using the casing expected by the CloudControl API as these values are sent exact as provided.",
 				TypeSpec: pschema.TypeSpec{
 					Type: "object",
@@ -273,6 +303,7 @@ func ExtensionResourceSpec() pschema.ResourceSpec {
 				},
 			},
 			"createOnly": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "Property names as defined by `createOnlyProperties` in the CloudFormation schema. Create-only properties can't be set during updates, so will not be included in patches even if they are also marked as write-only, and will cause an error if attempted to be updated. Therefore any property here should also be included in the `replaceOnChanges` resource option too.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
 				TypeSpec: pschema.TypeSpec{
 					Type: "array",
@@ -282,6 +313,7 @@ func ExtensionResourceSpec() pschema.ResourceSpec {
 				},
 			},
 			"writeOnly": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "Property names as defined by `writeOnlyProperties` in the CloudFormation schema. Write-only properties are not returned during read operations and have to be included in all update operations as CloudControl itself can't read their previous values.\nIn the CloudFormation schema these are fully qualified property paths (e.g. `/properties/AccessToken`) whereas here we only include the top-level property name (e.g. `AccessToken`).",
 				TypeSpec: pschema.TypeSpec{
 					Type: "array",
@@ -291,18 +323,21 @@ func ExtensionResourceSpec() pschema.ResourceSpec {
 				},
 			},
 			"tagsProperty": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "Optional name of the property containing the tags. Defaults to \"Tags\" if the `tagsStyle` is set to either \"stringMap\" or \"keyValueArray\". This is used to apply default tags to the resource and can be ignored if not using default tags.",
 				TypeSpec: pschema.TypeSpec{
 					Type: "string",
 				},
 			},
 			"tagsStyle": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "Optional style of tags this resource uses. Valid values are \"stringMap\", \"keyValueArray\" or \"none\". Defaults to `keyValueArray` if `tagsProperty` is set. This is used to apply default tags to the resource and can be ignored if not using default tags.",
 				TypeSpec: pschema.TypeSpec{
 					Type: "string",
 				},
 			},
 			"autoNaming": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "Optional auto-naming specification for the resource.\nIf provided and the name is not specified manually, the provider will automatically generate a name based on the Pulumi resource name and a random suffix.",
 				TypeSpec:    pschema.TypeSpec{Ref: fmt.Sprint("#/types/", AutoNamingTypeToken)},
 			},

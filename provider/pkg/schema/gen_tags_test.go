@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package schema
 
 import (
@@ -6,11 +7,13 @@ import (
 	"path"
 	"testing"
 
-	jsschema "github.com/pulumi/jsschema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 )
 
 func TestGetTagsStyle(t *testing.T) {
@@ -157,5 +160,10 @@ func TestNoUnexpectedTagsShapes(t *testing.T) {
 	var unexpectedTagsShapes map[string]interface{}
 	err = json.Unmarshal(bytes, &unexpectedTagsShapes)
 	require.NoError(t, err)
-	assert.Empty(t, unexpectedTagsShapes, "reports/unexpectedTagsShapes.json should be empty, which means that we need to update getTagsStyle in gen_tags.go to cover new tags variations.")
+	assert.Empty(
+		t,
+		unexpectedTagsShapes,
+		//nolint:lll // Preserve the exact fixture or documentation text.
+		"reports/unexpectedTagsShapes.json should be empty, which means that we need to update getTagsStyle in gen_tags.go to cover new tags variations.",
+	)
 }

@@ -1,15 +1,23 @@
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package schema
 
 import (
 	"strings"
 
 	jsschema "github.com/pulumi/jsschema"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
-func (ctx *cfSchemaContext) ApplyTagsTransformation(propName string, propertySpec *pschema.PropertySpec, spec *jsschema.Schema) default_tags.TagsStyle {
+const jsonStringType = "string"
+
+func (ctx *cfSchemaContext) ApplyTagsTransformation(
+	propName string,
+	propertySpec *pschema.PropertySpec,
+	spec *jsschema.Schema,
+) default_tags.TagsStyle {
 	tagsStyle := ctx.getTagsStyle(propName, &propertySpec.TypeSpec)
 	switch tagsStyle {
 	case default_tags.TagsStyleUntyped:
@@ -17,10 +25,10 @@ func (ctx *cfSchemaContext) ApplyTagsTransformation(propName string, propertySpe
 		// Nothing to do
 	case default_tags.TagsStyleKeyValueArray:
 		// Swap referenced type to shared definition and remove custom type.
-		propertySpec.TypeSpec.Items.Ref = "#/types/" + globalTagToken
+		propertySpec.Items.Ref = "#/types/" + globalTagToken
 	case default_tags.TagsStyleKeyValueArrayCreateOnly:
 		// Swap referenced type to shared definition and remove custom type.
-		propertySpec.TypeSpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
+		propertySpec.Items.Ref = "#/types/" + globalCreateOnlyTagToken
 	case default_tags.TagsStyleKeyValueArrayWithExtraProperties:
 		// Keep custom type
 	case default_tags.TagsStyleKeyValueArrayWithAlternateType:
@@ -72,7 +80,7 @@ func (ctx *cfSchemaContext) getTagsStyle(propName string, typeSpec *pschema.Type
 		return default_tags.TagsStyleUntyped
 	}
 
-	if typeSpec.AdditionalProperties != nil && typeSpec.AdditionalProperties.Type == "string" {
+	if typeSpec.AdditionalProperties != nil && typeSpec.AdditionalProperties.Type == jsonStringType {
 		return default_tags.TagsStyleStringMap
 	}
 
@@ -88,7 +96,10 @@ func (ctx *cfSchemaContext) getTagsStyle(propName string, typeSpec *pschema.Type
 	return default_tags.TagsStyleUnknown
 }
 
-func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *pschema.TypeSpec) (bool, default_tags.TagsStyle) {
+func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(
+	_ string,
+	typeSpec *pschema.TypeSpec,
+) (bool, default_tags.TagsStyle) {
 	if typeSpec == nil || typeSpec.Items == nil {
 		return false, default_tags.TagsStyleUnknown
 	}
@@ -106,7 +117,9 @@ func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *p
 				}
 				return true, default_tags.TagsStyleKeyValueArray
 			}
-			if hasNestedTagsPropertyAndResourceType := hasNestedTagsPropertyAndResourceTypeProperty(&refType); hasNestedTagsPropertyAndResourceType {
+			if hasNestedTagsPropertyAndResourceType := hasNestedTagsPropertyAndResourceTypeProperty(
+				&refType,
+			); hasNestedTagsPropertyAndResourceType {
 				return true, default_tags.TagsStyleNestedKeyValueArrayWithResourceType
 			}
 		}
@@ -133,10 +146,11 @@ func (ctx *cfSchemaContext) isPropCreateOnly(propName string) bool {
 	return createOnlyProps.Has(naming.ToSdkName(propName))
 }
 
-// hasNestedTagsPropertyAndResourceTypeProperty checks if the type has a "Tags" property that is an array, and a "ResourceType" property that is a string.
-// These type of tags cannot be part of the "defaultTags" functionality because you have to specify the specific "ResourceType"
-// that you want to apply tags to. If you specify an invalid type it will error. An example of this is things like LaunchTemplates which might end
-// up creating multiple resources of different types. It will create an EC2 Instance and that instance will have Volumes, etc. The tag
+// hasNestedTagsPropertyAndResourceTypeProperty checks if the type has a "Tags" property that is an array, and a
+// "ResourceType" property that is a string. These type of tags cannot be part of the "defaultTags" functionality
+// because you have to specify the specific "ResourceType" that you want to apply tags to. If you specify an invalid
+// type it will error. An example of this is things like LaunchTemplates which might end up creating multiple resources
+// of different types. It will create an EC2 Instance and that instance will have Volumes, etc. The tag
 // specification can control the tag values per resource type
 func hasNestedTagsPropertyAndResourceTypeProperty(typeSpec *pschema.ComplexTypeSpec) bool {
 	if typeSpec == nil || typeSpec.Properties == nil {
@@ -144,17 +158,21 @@ func hasNestedTagsPropertyAndResourceTypeProperty(typeSpec *pschema.ComplexTypeS
 	}
 	tagsProp, tagsPropExists := typeSpec.Properties["tags"]
 	resourceTypeProp, resourceTypePropExists := typeSpec.Properties["resourceType"]
-	return tagsPropExists && resourceTypePropExists && tagsProp.Type == "array" && resourceTypeProp.Type == "string"
+	return tagsPropExists && resourceTypePropExists && tagsProp.Type == "array" &&
+		resourceTypeProp.Type == jsonStringType
 }
 
-func hasKeyValueStringPropertiesAndAdditions(typeSpec *pschema.ComplexTypeSpec) (hasKeyValueStringProperties bool, hasExtraProperties bool) {
+func hasKeyValueStringPropertiesAndAdditions(
+	typeSpec *pschema.ComplexTypeSpec,
+) (hasKeyValueStringProperties bool, hasExtraProperties bool) {
 	if typeSpec == nil || typeSpec.Properties == nil {
 		return false, false
 	}
 	keyProp, keyPropExists := typeSpec.Properties["key"]
 	valueProp, valuePropExists := typeSpec.Properties["value"]
 	// Check if the type has exactly two properties, "key" and "value", both of type "string"
-	hasKeyValueStrings := keyPropExists && valuePropExists && keyProp.Type == "string" && valueProp.Type == "string"
+	hasKeyValueStrings := keyPropExists && valuePropExists && keyProp.Type == jsonStringType &&
+		valueProp.Type == jsonStringType
 	if !hasKeyValueStrings {
 		return false, false
 	}

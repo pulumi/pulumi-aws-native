@@ -1,12 +1,15 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package outputs
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/stretchr/testify/assert"
+
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/stretchr/testify/assert"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func TestPreviewOutputs(t *testing.T) {
@@ -17,10 +20,10 @@ func TestPreviewOutputs(t *testing.T) {
 			}),
 			map[string]metadata.CloudAPIType{},
 			map[string]schema.PropertySpec{
-				"name": schema.PropertySpec{
+				"name": {
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
-				"arn": schema.PropertySpec{
+				"arn": {
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
 			},
@@ -46,10 +49,10 @@ func TestPreviewOutputs(t *testing.T) {
 			}),
 			map[string]metadata.CloudAPIType{},
 			map[string]schema.PropertySpec{
-				"name": schema.PropertySpec{
+				"name": {
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
-				"arn": schema.PropertySpec{
+				"arn": {
 					TypeSpec: schema.TypeSpec{Type: "string"},
 				},
 			},
@@ -117,10 +120,12 @@ func Test_previewResourceOutputs(t *testing.T) {
 		)
 		assert.Equal(t, resource.PropertyMap{
 			"alias": resource.MakeComputed(resource.NewStringProperty("")),
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"allowedFeatures":          []string{"GetObject-Range"},
-				"cloudWatchMetricsEnabled": true,
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"allowedFeatures":          []string{"GetObject-Range"},
+					"cloudWatchMetricsEnabled": true,
+				}),
+			),
 		}, result)
 	})
 
@@ -159,10 +164,12 @@ func Test_previewResourceOutputs(t *testing.T) {
 			},
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"allowedFeatures":          []string{"GetObject-Range"},
-				"cloudWatchMetricsEnabled": resource.MakeComputed(resource.NewStringProperty("")),
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"allowedFeatures":          []string{"GetObject-Range"},
+					"cloudWatchMetricsEnabled": resource.MakeComputed(resource.NewStringProperty("")),
+				}),
+			),
 		}, result)
 	})
 
@@ -187,9 +194,11 @@ func Test_previewResourceOutputs(t *testing.T) {
 			[]string{},
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"allowedFeatures": "GetObject-Range",
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"allowedFeatures": "GetObject-Range",
+				}),
+			),
 		}, result)
 	})
 
@@ -367,7 +376,9 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 		)
 		assert.Equal(t, resource.PropertyMap{
 			"input": resource.NewStringProperty("value"),
-			"arn":   resource.NewStringProperty("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/my-access-point"),
+			"arn": resource.NewStringProperty(
+				"arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/my-access-point",
+			),
 		}, result)
 	})
 
@@ -402,10 +413,12 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 			"alias": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
 				"status": resource.MakeComputed(resource.NewStringProperty("")),
 			})),
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"allowedFeatures": []string{"GetObject-Range"},
-				"accessPointArn":  "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/my-access-point",
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"allowedFeatures": []string{"GetObject-Range"},
+					"accessPointArn":  "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/my-access-point",
+				}),
+			),
 		}, result)
 	})
 
@@ -427,9 +440,11 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 			"AccessPoint",
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"arn": resource.MakeComputed(resource.NewStringProperty("")),
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"arn": resource.MakeComputed(resource.NewStringProperty("")),
+				}),
+			),
 		}, result)
 	})
 
@@ -451,9 +466,11 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 			"AccessPoint",
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"id": resource.MakeComputed(resource.NewStringProperty("")),
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"id": resource.MakeComputed(resource.NewStringProperty("")),
+				}),
+			),
 		}, result)
 	})
 
@@ -475,9 +492,11 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 			"AccessPoint",
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"accessPointId": "my-access-point",
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"accessPointId": "my-access-point",
+				}),
+			),
 		}, result)
 	})
 
@@ -499,9 +518,11 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 			"AccessPoint",
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"accessPointName": "my-access-point",
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"accessPointName": "my-access-point",
+				}),
+			),
 		}, result)
 	})
 
@@ -523,9 +544,11 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 			"AccessPoint",
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"name": resource.MakeComputed(resource.NewStringProperty("")),
-			})),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"name": resource.MakeComputed(resource.NewStringProperty("")),
+				}),
+			),
 		}, result)
 	})
 
@@ -573,14 +596,16 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 			"AccessPoint",
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-				"arrayValue": []map[string]interface{}{
-					{
-						"allowedFeatures": []string{"GetObject-Range"},
-						"arn":             resource.MakeComputed(resource.NewStringProperty("")),
+			"objectLambdaConfiguration": resource.NewObjectProperty(
+				resource.NewPropertyMapFromMap(map[string]interface{}{
+					"arrayValue": []map[string]interface{}{
+						{
+							"allowedFeatures": []string{"GetObject-Range"},
+							"arn":             resource.MakeComputed(resource.NewStringProperty("")),
+						},
 					},
-				},
-			})),
+				}),
+			),
 		}, result)
 
 	})

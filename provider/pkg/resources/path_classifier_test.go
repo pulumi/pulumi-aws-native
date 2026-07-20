@@ -1,13 +1,16 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package resources
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func TestPathClassifierProjectWritableOutputState(t *testing.T) {
@@ -359,7 +362,12 @@ func TestPathHelpersSetPathWithShapeUsesArrayGuide(t *testing.T) {
 		}),
 	}
 	m := resource.PropertyMap{}
-	SetPathWithShape(m, shape, "defaultActions/0/authenticateOidcConfig/clientSecret", resource.NewStringProperty("secret"))
+	SetPathWithShape(
+		m,
+		shape,
+		"defaultActions/0/authenticateOidcConfig/clientSecret",
+		resource.NewStringProperty("secret"),
+	)
 
 	require.True(t, m["defaultActions"].IsArray())
 	secret, ok := GetPath(m, "defaultActions/0/authenticateOidcConfig/clientSecret")
@@ -413,7 +421,9 @@ func TestPathClassifierWriteOnlyWildcardFallback(t *testing.T) {
 		"aws-native:test:Action": {
 			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
-				"authenticateOidcConfig": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:AuthenticateOidcConfig"}},
+				"authenticateOidcConfig": {
+					TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:AuthenticateOidcConfig"},
+				},
 			},
 		},
 		"aws-native:test:AuthenticateOidcConfig": {
@@ -478,7 +488,9 @@ func TestPathClassifierWriteOnlyOutputFallbackPreservesCreateOnlyAndArrayShape(t
 		"aws-native:test:Action": {
 			Type: "object",
 			Properties: map[string]pschema.PropertySpec{
-				"authenticateOidcConfig": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:AuthenticateOidcConfig"}},
+				"authenticateOidcConfig": {
+					TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:AuthenticateOidcConfig"},
+				},
 			},
 		},
 		"aws-native:test:AuthenticateOidcConfig": {

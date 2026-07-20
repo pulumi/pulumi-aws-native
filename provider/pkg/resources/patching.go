@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package resources
 
 import (
@@ -6,14 +7,21 @@ import (
 	"strings"
 
 	"github.com/mattbaird/jsonpatch"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	"github.com/wI2L/jsondiff"
+
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/wI2L/jsondiff"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 )
 
-func CalcPatch(oldInputs resource.PropertyMap, newInputs resource.PropertyMap, spec metadata.CloudAPIResource, types map[string]metadata.CloudAPIType) ([]jsonpatch.JsonPatchOperation, error) {
+func CalcPatch(
+	oldInputs resource.PropertyMap,
+	newInputs resource.PropertyMap,
+	spec metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+) ([]jsonpatch.JsonPatchOperation, error) {
 	return calcPatchFromBaseline(oldInputs, oldInputs, newInputs, spec, types, "", nil)
 }
 
@@ -48,7 +56,15 @@ func calcPatchFromBaseline(
 ) ([]jsonpatch.JsonPatchOperation, error) {
 	diff := baseline.Diff(newInputs)
 	if resourceToken != "" {
-		diff = SuppressAWSManagedDiffsWithContext(resourceToken, &spec, diff, oldInputs, baseline, newInputs, transformCache)
+		diff = SuppressAWSManagedDiffsWithContext(
+			resourceToken,
+			&spec,
+			diff,
+			oldInputs,
+			baseline,
+			newInputs,
+			transformCache,
+		)
 	}
 
 	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
@@ -97,7 +113,10 @@ func calcPatchFromBaseline(
 	return naming.DiffToPatch(&spec, types, diff)
 }
 
-func CalculateUntypedPatch(typedOldInputs ExtensionResourceInputs, typedInputs ExtensionResourceInputs) ([]jsonpatch.JsonPatchOperation, error) {
+func CalculateUntypedPatch(
+	typedOldInputs ExtensionResourceInputs,
+	typedInputs ExtensionResourceInputs,
+) ([]jsonpatch.JsonPatchOperation, error) {
 	jsonDiffPatch, err := jsondiff.Compare(typedOldInputs.Properties, typedInputs.Properties)
 	if err != nil {
 		return nil, fmt.Errorf("failed to compare properties: %w", err)

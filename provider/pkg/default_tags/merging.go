@@ -7,7 +7,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-func MergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string, tagsStyle TagsStyle) (resource.PropertyValue, error) {
+func MergeDefaultTags(
+	tags resource.PropertyValue,
+	defaultTags map[string]string,
+	tagsStyle TagsStyle,
+) (resource.PropertyValue, error) {
 	if len(defaultTags) == 0 {
 		return tags, nil
 	}
@@ -20,7 +24,12 @@ func MergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 			return resource.NewPropertyValue(defaultTags), nil
 		}
 		if !tags.IsObject() {
-			return resource.NewObjectProperty(nil), fmt.Errorf("expected tags to be an object but found %v", tags.TypeString())
+			return resource.NewObjectProperty(
+					nil,
+				), fmt.Errorf(
+					"expected tags to be an object but found %v",
+					tags.TypeString(),
+				)
 		}
 		asObject := tags.ObjectValue()
 		for k, v := range defaultTags {
@@ -44,7 +53,12 @@ func MergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 		if tags.IsArray() {
 			asArray = tags.ArrayValue()
 		} else if !tags.IsNull() {
-			return resource.NewArrayProperty(nil), fmt.Errorf("expected tags to be an array but found %v", tags.TypeString())
+			return resource.NewArrayProperty(
+					nil,
+				), fmt.Errorf(
+					"expected tags to be an array but found %v",
+					tags.TypeString(),
+				)
 		}
 		existingKeys := make(map[string]bool)
 		for _, tag := range asArray {
@@ -53,7 +67,12 @@ func MergeDefaultTags(tags resource.PropertyValue, defaultTags map[string]string
 			}
 			asObject := tag.ObjectValue()
 			if !asObject.HasValue(keyProp) || !asObject.HasValue(valueProp) {
-				return tags, fmt.Errorf("expected tags to be an array of objects with '%s' and '%s' properties but found %v", keyProp, valueProp, tag.TypeString())
+				return tags, fmt.Errorf(
+					"expected tags to be an array of objects with '%s' and '%s' properties but found %v",
+					keyProp,
+					valueProp,
+					tag.TypeString(),
+				)
 			}
 			key := asObject[keyProp]
 			if key.IsString() {

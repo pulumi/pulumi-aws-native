@@ -1,14 +1,17 @@
 // Copyright 2024, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package resources
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 // Integration tests for propertyTransform support.
@@ -177,6 +180,7 @@ func TestIntegration_EFS_FileSystem_ReplicationTransform(t *testing.T) {
 	spec := &metadata.CloudAPIResource{
 		CfType: "AWS::EFS::FileSystem",
 		PropertyTransforms: map[string]string{
+			//nolint:lll // Preserve the exact fixture or documentation text.
 			"fileSystemProtection/replicationOverwriteProtection": "$uppercase(ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(ReplicationOverwriteProtection)",
 		},
 	}

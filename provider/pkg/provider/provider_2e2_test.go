@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.  All rights reserved.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package provider_test
 
 import (
@@ -12,20 +13,23 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	grpcmetadata "google.golang.org/grpc/metadata"
+	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/types/known/structpb"
+
 	"github.com/pulumi/providertest"
 	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-	grpcmetadata "google.golang.org/grpc/metadata"
-	"google.golang.org/protobuf/types/known/structpb"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 )
 
 func TestE2eSnapshots(t *testing.T) {
@@ -53,7 +57,8 @@ func TestAutonaming(t *testing.T) {
 	fifoQueueName, ok := up.Outputs["fifoQueueName"].Value.(string)
 	assert.True(t, ok)
 
-	// Check that the queue name matches pattern: ${name}-${alphanum(6)}.fifo (.fifo is the resource's autonaming trivia suffix)
+	// Check that the queue name matches pattern: ${name}-${alphanum(6)}.fifo (.fifo is the resource's autonaming trivia
+	// suffix)
 	assert.Regexp(t, `^queue-[a-zA-Z0-9]{6}\.fifo$`, fifoQueueName)
 }
 
@@ -64,7 +69,7 @@ func TestThrottling(t *testing.T) {
 	skipIfShort(t)
 
 	// Pick a slightly random name so as to not conflict with concurrent CI runs.
-	name := fmt.Sprintf("throttling-queue-%d", rand.Intn(1000))
+	name := fmt.Sprintf("throttling-queue-%d", rand.Intn(1000)) //nolint:gosec // Test resource uniqueness only.
 	test := newAwsTest(t, filepath.Join("testdata", "throttling"))
 	test.SetConfig(t, "queueName", name)
 	_ = test.Up(t)
@@ -95,6 +100,7 @@ func TestListLogStreamsLive(t *testing.T) {
 	})
 	require.NoError(t, err)
 
+	//nolint:gosec // The request contains a resource type token, not a credential.
 	listedIDs, err := listAllForTest(t, server, &pulumirpc.ListRequest{
 		Token:    "aws-native:logs:LogStream",
 		Query:    listQueryForTest(t, resource.PropertyMap{"logGroupName": resource.NewStringProperty(logGroupName)}),
@@ -244,7 +250,7 @@ func TestRdsLowercaseTransforms(t *testing.T) {
 	skipIfShort(t)
 
 	// Use a random suffix to avoid naming conflicts
-	clusterSuffix := fmt.Sprintf("%d", rand.Intn(10000))
+	clusterSuffix := fmt.Sprintf("%d", rand.Intn(10000)) //nolint:gosec // Test resource uniqueness only.
 
 	pt := pulumitest.NewPulumiTest(t, filepath.Join("testdata", "rds-lowercase-transforms"),
 		opttest.Env("PULUMI_DEBUG_GRPC", "true"),
@@ -329,9 +335,12 @@ func newAwsTest(t *testing.T, source string, opts ...opttest.Option) *pulumitest
 }
 
 func attachProvider() opttest.Option {
-	return opttest.AttachProviderServer("aws-native", func(pt providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
-		return testProviderServer()
-	})
+	return opttest.AttachProviderServer(
+		"aws-native",
+		func(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
+			return testProviderServer()
+		},
+	)
 }
 
 func testProviderServer() (pulumirpc.ResourceProviderServer, error) {
@@ -400,10 +409,10 @@ func listAllForTest(
 	var ids []string
 	continuation := ""
 	for {
-		pageReq := *req
+		pageReq := proto.Clone(req).(*pulumirpc.ListRequest)
 		pageReq.ContinuationToken = continuation
 		stream := &listLiveTestStream{}
-		if err := server.List(&pageReq, stream); err != nil {
+		if err := server.List(pageReq, stream); err != nil {
 			return nil, err
 		}
 

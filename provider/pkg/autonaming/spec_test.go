@@ -1,12 +1,15 @@
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package autonaming
 
 import (
 	"testing"
 
-	jsschema "github.com/pulumi/jsschema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
+
+	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func TestCreateAutoNamingSpec(t *testing.T) {
@@ -17,7 +20,12 @@ func TestCreateAutoNamingSpec(t *testing.T) {
 		semanticsSpec        metadata.SemanticsSpec
 	}
 	create := func(args args) *metadata.AutoNamingSpec {
-		return CreateAutoNamingSpec(args.inputProperties, args.resourceTypeName, args.jsonSchemaProperties, args.semanticsSpec)
+		return CreateAutoNamingSpec(
+			args.inputProperties,
+			args.resourceTypeName,
+			args.jsonSchemaProperties,
+			args.semanticsSpec,
+		)
 	}
 
 	t.Run("literal name", func(t *testing.T) {

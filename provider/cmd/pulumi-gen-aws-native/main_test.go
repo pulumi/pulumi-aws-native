@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package main
 
 import (
@@ -19,9 +20,10 @@ import (
 	"os"
 	"testing"
 
-	jsschema "github.com/pulumi/jsschema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	jsschema "github.com/pulumi/jsschema"
 )
 
 func TestCleanDir(t *testing.T) {
@@ -133,7 +135,7 @@ func Test_mergeAutoNaming(t *testing.T) {
 	})
 }
 
-func Test_readJsonSchema_convertsExclusiveBounds(t *testing.T) {
+func Test_readJSONSchema_convertsExclusiveBounds(t *testing.T) {
 	tempDir := t.TempDir()
 	schemaPath := tempDir + "/schema.json"
 	err := os.WriteFile(schemaPath, []byte(`
@@ -148,7 +150,7 @@ func Test_readJsonSchema_convertsExclusiveBounds(t *testing.T) {
 }`), 0o600)
 	require.NoError(t, err)
 
-	schema := readJsonSchema(schemaPath, nil)
+	schema := readJSONSchema(schemaPath, nil)
 	size := schema.Properties["Size"]
 	require.NotNil(t, size)
 	assert.Equal(t, float64(10), size.Maximum.Val)

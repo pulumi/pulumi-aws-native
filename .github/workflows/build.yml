@@ -555,3 +555,7 @@ jobs:
         status: ${{ job.status }}
       env:
         SLACK_WEBHOOK_URL: ${{ steps.esc-secrets.outputs.SLACK_WEBHOOK_URL }}
+  lint:
+    name: lint
+    uses: ./.github/workflows/lint.yml
+    secrets: inherit

@@ -1,13 +1,14 @@
 # Contributing to pulumi-aws-native
 
 ## Prerequisites
-Use the same toolchain contract as CI:
+Use the same toolchain contract as CI and prepare local generated artifacts:
 
 ```bash
-mise install
+mise exec -- make prepare_local_workspace
 ```
 
-Tool versions are pinned in `.config/mise.toml`.
+This installs the tools pinned in `.config/mise.toml`, downloads Go modules, initializes submodules, and creates the
+ignored schema/metadata artifacts required by local builds and tests.
 
 ## Quick Flow
 1. Review `AGENTS.md` (agent instructions) and `ARCHITECTURE.md` (module map and system boundaries).

@@ -22,11 +22,15 @@ type RefDB struct {
 }
 
 // See [RefDB].
+//
+//nolint:revive // The explicit prefix distinguishes persisted RefDB records from resource metadata.
 type RefDBResource struct {
 	RefReturns RefDBRecord `json:"refReturns"`
 }
 
 // See [RefDB].
+//
+//nolint:revive // The explicit prefix distinguishes persisted RefDB records from resource metadata.
 type RefDBRecord struct {
 	metadata.CfRefBehavior
 

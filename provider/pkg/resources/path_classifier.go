@@ -169,7 +169,15 @@ func SuppressBaselineDiffs(
 	transformCache *TransformCache,
 ) resource.PropertyMap {
 	diff := oldDesired.Diff(baseline)
-	diff = SuppressAWSManagedDiffsWithContext(resourceToken, spec, diff, oldDesired, oldDesired, baseline, transformCache)
+	diff = SuppressAWSManagedDiffsWithContext(
+		resourceToken,
+		spec,
+		diff,
+		oldDesired,
+		oldDesired,
+		baseline,
+		transformCache,
+	)
 	return ApplyDiff(oldDesired, diff)
 }
 
@@ -238,7 +246,11 @@ func (c *PathClassifier) classifyType(
 
 // projectValue recursively projects one output value through an input type
 // shape, dropping read-only and write-only child paths along the way.
-func (c *PathClassifier) projectValue(path string, typ pschema.TypeSpec, value resource.PropertyValue) (resource.PropertyValue, bool) {
+func (c *PathClassifier) projectValue(
+	path string,
+	typ pschema.TypeSpec,
+	value resource.PropertyValue,
+) (resource.PropertyValue, bool) {
 	if typ.Ref != "" && typ.Ref != anyRef {
 		if !value.IsObject() {
 			return value, true

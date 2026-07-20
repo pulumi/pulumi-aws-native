@@ -5,17 +5,14 @@ package main
 import (
 	"bytes"
 	"compress/gzip"
-	_ "embed"
 	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"strings"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
-	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
+	_ "embed"
+
 	"github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
@@ -23,6 +20,11 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
+	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 )
 
 //go:embed schema.json.gz
@@ -55,7 +57,9 @@ func main() {
 		log.Fatalf("failed to render template: %v", err)
 	}
 	if len(diags) > 0 {
-		syntax.NewDiagnosticWriter(os.Stderr, nil, 0, true).WriteDiagnostics(diags)
+		if err := syntax.NewDiagnosticWriter(os.Stderr, nil, 0, true).WriteDiagnostics(diags); err != nil {
+			log.Printf("failed to write render diagnostics: %v", err)
+		}
 	}
 
 	cf2pulumi.FormatBody(template)
@@ -67,7 +71,9 @@ func main() {
 	}
 	if parser.Diagnostics.HasErrors() {
 		fmt.Print(programText)
-		parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
+		if err := parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics); err != nil {
+			log.Printf("failed to write parser diagnostics: %v", err)
+		}
 		os.Exit(-1)
 	}
 
@@ -75,7 +81,12 @@ func main() {
 	// The aws-native schema is self-contained, so binding it does not need to resolve any external
 	// packages. As of pulumi/pkg v3.253.0 ImportSpec requires a non-nil loader argument (it
 	// previously constructed a plugin loader when passed nil), so pass a null loader here.
-	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.NewNullLoader(), schema.ValidationOptions{AllowDanglingReferences: true})
+	pkg, err := schema.ImportSpec(
+		*pkgSpec,
+		nil,
+		schema.NewNullLoader(),
+		schema.ValidationOptions{AllowDanglingReferences: true},
+	)
 	if err != nil {
 		log.Fatalf("failed to parse import the spec: %v", err)
 	}
@@ -89,7 +100,9 @@ func main() {
 	}
 	if diags.HasErrors() {
 		fmt.Print(programText)
-		program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
+		if err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags); err != nil {
+			log.Printf("failed to write program diagnostics: %v", err)
+		}
 		os.Exit(-1)
 	}
 
@@ -110,7 +123,9 @@ func main() {
 		log.Fatalf("failed to generate program: %v", err)
 	}
 	if diags.HasErrors() {
-		program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
+		if err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags); err != nil {
+			log.Printf("failed to write generation diagnostics: %v", err)
+		}
 		os.Exit(-1)
 	}
 

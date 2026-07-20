@@ -12,6 +12,8 @@ import (
 	gomock "go.uber.org/mock/gomock"
 )
 
+const testFunctionName = "test-function"
+
 func lambdaSetup(t *testing.T) (*gomock.Controller, *lambdaClientImpl, *MockLambdaApi) {
 	ctrl := gomock.NewController(t)
 	mockLambdaApi := NewMockLambdaApi(ctrl)
@@ -28,7 +30,7 @@ func TestInvokeAsync_SuccessfulInvocation(t *testing.T) {
 	defer ctrl.Finish()
 
 	ctx := context.Background()
-	functionName := "test-function"
+	functionName := testFunctionName
 	payload := []byte(`{"key": "value"}`)
 
 	mockLambdaApi.EXPECT().Invoke(ctx, gomock.Any()).Return(&lambda.InvokeOutput{
@@ -45,7 +47,7 @@ func TestInvokeAsync_FunctionNotReadyInitiallyButBecomesReady(t *testing.T) {
 	defer ctrl.Finish()
 
 	ctx := context.Background()
-	functionName := "test-function"
+	functionName := testFunctionName
 	payload := []byte(`{"key": "value"}`)
 
 	mockLambdaApi.EXPECT().Invoke(ctx, gomock.Any()).Return(nil, &lambdaTypes.ResourceNotReadyException{})
@@ -79,7 +81,7 @@ func TestInvokeAsync_FunctionNotReadyAndFailsToBecomeReady(t *testing.T) {
 	defer ctrl.Finish()
 
 	ctx := context.Background()
-	functionName := "test-function"
+	functionName := testFunctionName
 	payload := []byte(`{"key": "value"}`)
 
 	mockLambdaApi.EXPECT().Invoke(ctx, gomock.Any()).Return(nil, &lambdaTypes.ResourceNotReadyException{})
@@ -103,7 +105,7 @@ func TestInvokeAsync_InvocationFailsWithNon202StatusCode(t *testing.T) {
 	defer ctrl.Finish()
 
 	ctx := context.Background()
-	functionName := "test-function"
+	functionName := testFunctionName
 	payload := []byte(`{"key": "value"}`)
 
 	mockLambdaApi.EXPECT().Invoke(ctx, gomock.Any()).Return(&lambda.InvokeOutput{
@@ -121,7 +123,7 @@ func TestInvokeAsync_FunctionNotReadyInitiallyButBecomesReadyAndThenFails(t *tes
 	defer ctrl.Finish()
 
 	ctx := context.Background()
-	functionName := "test-function"
+	functionName := testFunctionName
 	payload := []byte(`{"key": "value"}`)
 
 	mockLambdaApi.EXPECT().Invoke(ctx, gomock.Any()).Return(nil, &lambdaTypes.ResourceNotReadyException{})

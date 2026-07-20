@@ -34,7 +34,11 @@ type S3Api interface {
 }
 
 type S3PresignApi interface {
-	PresignPutObject(ctx context.Context, params *s3.PutObjectInput, optFns ...func(*s3.PresignOptions)) (*signerV4.PresignedHTTPRequest, error)
+	PresignPutObject(
+		ctx context.Context,
+		params *s3.PutObjectInput,
+		optFns ...func(*s3.PresignOptions),
+	) (*signerV4.PresignedHTTPRequest, error)
 }
 
 type s3ClientImpl struct {
@@ -49,7 +53,12 @@ func NewS3Client(api S3Api, presignApi S3PresignApi) S3Client {
 	}
 }
 
-func (c *s3ClientImpl) PresignPutObject(ctx context.Context, bucket string, key string, expiration time.Duration) (string, error) {
+func (c *s3ClientImpl) PresignPutObject(
+	ctx context.Context,
+	bucket string,
+	key string,
+	expiration time.Duration,
+) (string, error) {
 	request, err := c.presignApi.PresignPutObject(ctx, &s3.PutObjectInput{
 		Bucket: aws.String(bucket),
 		Key:    aws.String(key),
@@ -62,7 +71,12 @@ func (c *s3ClientImpl) PresignPutObject(ctx context.Context, bucket string, key 
 	return request.URL, nil
 }
 
-func (c *s3ClientImpl) WaitForObject(ctx context.Context, bucket string, key string, timeout time.Duration) (io.ReadCloser, error) {
+func (c *s3ClientImpl) WaitForObject(
+	ctx context.Context,
+	bucket string,
+	key string,
+	timeout time.Duration,
+) (io.ReadCloser, error) {
 	err := s3.NewObjectExistsWaiter(c.api, func(o *s3.ObjectExistsWaiterOptions) {
 		// We already aggressively retry SDK errors with plenty retry attempts and
 		// throttling exceptions will be taken care of by the SDK
@@ -87,9 +101,8 @@ func (c *s3ClientImpl) WaitForObject(ctx context.Context, bucket string, key str
 		if errors.As(err, &noKey) {
 			// this could happen if the response object got deleted before we can read it
 			return nil, fmt.Errorf("object %q in bucket %q was deleted before it was retrieved", key, bucket)
-		} else {
-			return nil, errors.Wrapf(err, "failed to get object %q from bucket %q", key, bucket)
 		}
+		return nil, errors.Wrapf(err, "failed to get object %q from bucket %q", key, bucket)
 	}
 
 	return getResponse.Body, nil

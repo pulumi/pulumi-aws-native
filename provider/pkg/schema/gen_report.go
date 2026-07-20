@@ -12,7 +12,8 @@ import (
 )
 
 type Reports struct {
-	// UnexpectedTagsShapes is a map of the resource token of resources which have a `Tags` field but don't match an expected pattern.
+	// UnexpectedTagsShapes is a map of the resource token of resources which have a `Tags` field but don't match an
+	// expected pattern.
 	UnexpectedTagsShapes map[string]interface{}
 	// MissedAutonaming is a map of the resource token of resources we haven't identified as autonameable.
 	MissedAutonaming map[string]interface{}

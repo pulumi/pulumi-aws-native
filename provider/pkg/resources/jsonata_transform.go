@@ -12,8 +12,10 @@ import (
 
 	"github.com/blues/jsonata-go"
 	"github.com/golang/glog"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 // TransformCache holds compiled JSONata expressions per resource type.
@@ -166,7 +168,11 @@ func (tc *TransformCache) compile(resourceToken string, transformSpecs map[strin
 // Returns the transformed value and any error. ErrUndefined from JSONata is treated
 // as "no transformation needed" and returns the original value. Nil results are also
 // treated as "no transformation" since functions like $lookup return nil for missing keys.
-func EvaluateTransform(transform CompiledTransform, value interface{}, context map[string]interface{}) (interface{}, error) {
+func EvaluateTransform(
+	transform CompiledTransform,
+	value interface{},
+	context map[string]interface{},
+) (interface{}, error) {
 	// Build the evaluation context by merging the value with sibling context
 	evalContext := make(map[string]interface{})
 	for k, v := range context {
@@ -317,7 +323,9 @@ func ExtractPropertyContext(props map[string]interface{}, path string) map[strin
 			// Parse array index
 			var idx int
 			if _, err := fmt.Sscanf(seg, "%d", &idx); err != nil || idx < 0 || idx >= len(v) {
-				glog.V(9).Infof("Failed to parse array index %q in path %s: invalid format or out of bounds (array len=%d)", seg, path, len(v))
+				glog.V(9).
+					//nolint:lll // Preserve the exact fixture or documentation text.
+					Infof("Failed to parse array index %q in path %s: invalid format or out of bounds (array len=%d)", seg, path, len(v))
 				return nil
 			}
 			current = v[idx]

@@ -1,5 +1,6 @@
 // Copyright 2024, Pulumi Corporation.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package resources
 
 import (
@@ -37,7 +38,15 @@ func SuppressAWSManagedDiffs(
 	originalInputs resource.PropertyMap,
 	transformCache *TransformCache,
 ) *resource.ObjectDiff {
-	return SuppressAWSManagedDiffsWithContext(resourceToken, spec, diff, originalInputs, originalInputs, originalInputs, transformCache)
+	return SuppressAWSManagedDiffsWithContext(
+		resourceToken,
+		spec,
+		diff,
+		originalInputs,
+		originalInputs,
+		originalInputs,
+		transformCache,
+	)
 }
 
 // SuppressAWSManagedDiffsWithContext is SuppressAWSManagedDiffs with explicit
@@ -129,7 +138,10 @@ func suppressAWSManagedTagAdditions(
 // normalizeKeyValueArrayTagOrder sorts key/value-array tags for comparison.
 // CloudControl can return tags in arbitrary order, while Pulumi array diffs are
 // order-sensitive.
-func normalizeKeyValueArrayTagOrder(tags resource.PropertyValue, tagsStyle default_tags.TagsStyle) resource.PropertyValue {
+func normalizeKeyValueArrayTagOrder(
+	tags resource.PropertyValue,
+	tagsStyle default_tags.TagsStyle,
+) resource.PropertyValue {
 	if !tagsStyle.IsKeyValueArray() || !tags.IsArray() {
 		return tags
 	}
@@ -430,7 +442,14 @@ func suppressPropertyTransformDiffsWithContext(
 	for key, valueDiff := range diff.Updates {
 		path := string(key)
 
-		if shouldSuppressValueDiff(transforms, path, valueDiff, actualInputsMap, desiredInputsMap, spec.IrreversibleNames) {
+		if shouldSuppressValueDiff(
+			transforms,
+			path,
+			valueDiff,
+			actualInputsMap,
+			desiredInputsMap,
+			spec.IrreversibleNames,
+		) {
 			glog.V(7).Infof("Suppressing diff for %s.%s via propertyTransform", resourceToken, path)
 			delete(diff.Updates, key)
 		}
@@ -464,7 +483,14 @@ func shouldSuppressValueDiff(
 		// Recursively check all property updates
 		for k, childDiff := range diff.Object.Updates {
 			childPath := path + "/" + string(k)
-			if !shouldSuppressValueDiff(transforms, childPath, childDiff, actualInputsMap, desiredInputsMap, irreversibleNames) {
+			if !shouldSuppressValueDiff(
+				transforms,
+				childPath,
+				childDiff,
+				actualInputsMap,
+				desiredInputsMap,
+				irreversibleNames,
+			) {
 				return false
 			}
 		}
@@ -480,7 +506,14 @@ func shouldSuppressValueDiff(
 		// Recursively check all element updates
 		for idx, childDiff := range diff.Array.Updates {
 			childPath := fmt.Sprintf("%s/%d", path, idx)
-			if !shouldSuppressValueDiff(transforms, childPath, childDiff, actualInputsMap, desiredInputsMap, irreversibleNames) {
+			if !shouldSuppressValueDiff(
+				transforms,
+				childPath,
+				childDiff,
+				actualInputsMap,
+				desiredInputsMap,
+				irreversibleNames,
+			) {
 				return false
 			}
 		}
@@ -557,7 +590,12 @@ func evaluateAndCompare(
 //
 // This allows JSONata expressions like "$uppercase(FileSystemProtection.ReplicationOverwriteProtection)"
 // to work correctly.
-func buildCfnContext(baseContext map[string]interface{}, path string, value interface{}, irreversibleNames map[string]string) map[string]interface{} {
+func buildCfnContext(
+	baseContext map[string]interface{},
+	path string,
+	value interface{},
+	irreversibleNames map[string]string,
+) map[string]interface{} {
 	ctx := make(map[string]interface{})
 
 	// Copy base context (sibling properties)
@@ -600,7 +638,12 @@ func buildCfnContext(baseContext map[string]interface{}, path string, value inte
 //
 //	ctx["fileSystemProtection"] = {"replicationOverwriteProtection": "DISABLED"}
 //	ctx["FileSystemProtection"] = {"ReplicationOverwriteProtection": "DISABLED"}
-func buildNestedContext(ctx map[string]interface{}, segments []string, value interface{}, irreversibleNames map[string]string) {
+func buildNestedContext(
+	ctx map[string]interface{},
+	segments []string,
+	value interface{},
+	irreversibleNames map[string]string,
+) {
 	if len(segments) < 2 {
 		return
 	}
@@ -629,7 +672,12 @@ func buildNestedContext(ctx map[string]interface{}, segments []string, value int
 // CloudFormation uses PascalCase with uppercase acronyms (DBClusterIdentifier, IpProtocol).
 // The irreversibleNames lookup table provides the exact CFN name for properties where
 // simple PascalCase conversion doesn't work (e.g., dbClusterIdentifier -> DBClusterIdentifier).
-func addCfnNameVariations(ctx map[string]interface{}, sdkName string, value interface{}, irreversibleNames map[string]string) {
+func addCfnNameVariations(
+	ctx map[string]interface{},
+	sdkName string,
+	value interface{},
+	irreversibleNames map[string]string,
+) {
 	// Use ToCfnName which checks the lookup table first, then falls back to PascalCase
 	cfnName := naming.ToCfnName(sdkName, irreversibleNames)
 	ctx[cfnName] = value

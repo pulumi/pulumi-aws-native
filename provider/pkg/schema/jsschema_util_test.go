@@ -6,8 +6,9 @@ import (
 	"testing"
 	"testing/quick"
 
-	jsschema "github.com/pulumi/jsschema"
 	"github.com/stretchr/testify/assert"
+
+	jsschema "github.com/pulumi/jsschema"
 )
 
 func TestFlattenJSSchema(t *testing.T) {

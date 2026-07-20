@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package provider
 
 import (
@@ -12,6 +13,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ec2/types"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -46,7 +48,8 @@ func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-cidr.html
 // ipBlock: The user-specified CIDR block to be split into smaller CIDR blocks.
 // count: The number of CIDR blocks to generate. Valid range is between 1 and 256.
-// cidrBits: The number of subnet bits for the CIDR. For example, specifying a value "8" for this parameter will create a CIDR with a mask of "/24".
+// cidrBits: The number of subnet bits for the CIDR. For example, specifying a value "8" for this parameter will create
+// a CIDR with a mask of "/24".
 //
 //	Note: Subnet bits is the inverse of subnet mask. To calculate the required host bits
 //	for a given subnet bits, subtract the subnet bits from 32 for ipv4 or 128 for ipv6.
@@ -93,6 +96,7 @@ func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 
 	if subnetBits > bits {
 		return nil, fmt.Errorf("cidrBits %d is more than %d bits for an %s address. \n"+
+			//nolint:lll // Preserve the exact fixture or documentation text.
 			"cidrBits is the inverse of subnet mask, e.g. cidrBits=5 would create a subnet mask of '/27'", subnetBits, bits, protocol)
 	}
 
@@ -101,12 +105,20 @@ func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	current, ok := gocidr.PreviousSubnet(network, prefixLen)
 	// ok is true if we have rolled over (which we don't want)
 	if ok {
-		return nil, fmt.Errorf("not enough remaining address space for a subnet with a prefix of %d bits after %s", len(subnets), current.String())
+		return nil, fmt.Errorf(
+			"not enough remaining address space for a subnet with a prefix of %d bits after %s",
+			len(subnets),
+			current.String(),
+		)
 	}
 	for i := 0; i < len(subnets); i++ {
 		subnet, ok := gocidr.NextSubnet(current, prefixLen)
 		if ok || !network.Contains(subnet.IP) {
-			return nil, fmt.Errorf("not enough remaining address space for a subnet with a prefix of %d bits after %s", len(subnets), current.String())
+			return nil, fmt.Errorf(
+				"not enough remaining address space for a subnet with a prefix of %d bits after %s",
+				len(subnets),
+				current.String(),
+			)
 		}
 		current = subnet
 		subnets[i] = resource.NewStringProperty(subnet.String())
@@ -117,7 +129,7 @@ func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	}, nil
 }
 
-func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) cidr(_ context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	return cidr(inputs)
 }
 

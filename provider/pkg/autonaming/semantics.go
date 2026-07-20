@@ -5,8 +5,9 @@ package autonaming
 import (
 	"fmt"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func CheckTriviaCondition(props resource.PropertyMap, rule *metadata.NamingRule) (bool, error) {
@@ -19,7 +20,11 @@ func CheckTriviaCondition(props resource.PropertyMap, rule *metadata.NamingRule)
 }
 
 // Checks naming trivia for a resource, returning whether the naming trivia applies and the naming trivia.
-func CheckNamingTrivia(sdkName string, props resource.PropertyMap, spec *metadata.NamingTriviaSpec) (bool, *metadata.NamingTrivia, error) {
+func CheckNamingTrivia(
+	_ string,
+	props resource.PropertyMap,
+	spec *metadata.NamingTriviaSpec,
+) (bool, *metadata.NamingTrivia, error) {
 	if spec == nil {
 		return false, nil, nil
 	}

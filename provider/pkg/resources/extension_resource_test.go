@@ -1,12 +1,14 @@
 // Copyright 2024, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package resources
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 )
 
 func TestExtensionResourceDefaults(t *testing.T) {
@@ -59,6 +61,12 @@ func TestExtensionResourceDefaults(t *testing.T) {
 		_, failures := ApplyDefaults(ExtensionResourceInputs{
 			TagsStyle: "invalid",
 		})
-		assert.Equal(t, []ValidationFailure{{Path: "tagsStyle", Reason: "tagsStyle is invalid, must be one of: stringMap, keyValueArray, none"}}, failures)
+		assert.Equal(
+			t,
+			[]ValidationFailure{
+				{Path: "tagsStyle", Reason: "tagsStyle is invalid, must be one of: stringMap, keyValueArray, none"},
+			},
+			failures,
+		)
 	})
 }

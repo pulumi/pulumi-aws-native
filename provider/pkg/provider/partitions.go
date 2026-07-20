@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package provider
 
 import (
@@ -28,27 +29,27 @@ var partitions = []partition{
 	{
 		ID:          "aws",
 		URLSuffix:   "amazonaws.com",
-		RegionRegex: regexp.MustCompile("^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$"),
+		RegionRegex: regexp.MustCompile(`^(us|eu|ap|sa|ca|me|af)-\w+-\d+$`),
 	},
 	{
 		ID:          "aws-cn",
 		URLSuffix:   "amazonaws.com.cn",
-		RegionRegex: regexp.MustCompile("^cn\\-\\w+\\-\\d+$"),
+		RegionRegex: regexp.MustCompile(`^cn-\w+-\d+$`),
 	},
 	{
 		ID:          "aws-us-gov",
 		URLSuffix:   "amazonaws.com",
-		RegionRegex: regexp.MustCompile("^us\\-gov\\-\\w+\\-\\d+$"),
+		RegionRegex: regexp.MustCompile(`^us-gov-\w+-\d+$`),
 	},
 	{
 		ID:          "aws-iso",
 		URLSuffix:   "c2s.ic.gov",
-		RegionRegex: regexp.MustCompile("^us\\-iso\\-\\w+\\-\\d+$"),
+		RegionRegex: regexp.MustCompile(`^us-iso-\w+-\d+$`),
 	},
 	{
 		ID:          "aws-iso-b",
 		URLSuffix:   "sc2s.sgov.gov",
-		RegionRegex: regexp.MustCompile("^us\\-isob\\-\\w+\\-\\d+$"),
+		RegionRegex: regexp.MustCompile(`^us-isob-\w+-\d+$`),
 	},
 }
 

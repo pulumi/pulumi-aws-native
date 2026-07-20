@@ -16,11 +16,6 @@ func newPathSet(paths []string) pathSet {
 	return pathSet{paths: append([]string(nil), paths...)}
 }
 
-// add records another slash-delimited metadata path.
-func (s *pathSet) add(path string) {
-	s.paths = append(s.paths, path)
-}
-
 // matches reports whether path is matched by any stored metadata path.
 //
 // For example, a stored pattern
@@ -52,7 +47,8 @@ func (s pathSet) covers(path string) bool {
 // pathMatches reports whether one metadata path pattern matches one concrete
 // path with the same number of segments.
 func pathMatches(pattern, path string) bool {
-	return slashPath(pattern).Contains(slashPath(path)) && len(strings.Split(pattern, "/")) == len(strings.Split(path, "/"))
+	return slashPath(pattern).Contains(slashPath(path)) &&
+		len(strings.Split(pattern, "/")) == len(strings.Split(path, "/"))
 }
 
 // slashPath converts a slash-delimited metadata path into a PropertyPath.

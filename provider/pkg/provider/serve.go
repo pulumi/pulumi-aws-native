@@ -15,15 +15,15 @@
 package provider
 
 import (
-	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
+	sdkprovider "github.com/pulumi/pulumi/sdk/v3/go/pulumi/provider"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 // Serve launches the gRPC server for the native Pulumi AWS resource provider.
 func Serve(version string, pulumiSchema, metadataBytes []byte) {
 	// Start gRPC service.
-	err := provider.Main("aws-native", func(host *provider.HostClient) (pulumirpc.ResourceProviderServer, error) {
+	err := sdkprovider.Main("aws-native", func(host *sdkprovider.HostClient) (pulumirpc.ResourceProviderServer, error) {
 		return NewAwsNativeProvider(host, "aws-native", version, pulumiSchema, metadataBytes)
 	})
 

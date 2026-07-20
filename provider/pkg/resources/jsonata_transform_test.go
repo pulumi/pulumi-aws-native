@@ -1,15 +1,18 @@
 // Copyright 2024, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package resources
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-go-provider/resourcex"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi-go-provider/resourcex"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func TestPathMatcher(t *testing.T) {
@@ -186,6 +189,7 @@ func TestValuesEquivalent(t *testing.T) {
 	t.Run("CloudFormation KMS ARN transform pattern", func(t *testing.T) {
 		// Transform from metadata:
 		// $join(["arn:(aws)...[:]{1}key\\/", KmsKeyId])
+		//nolint:lll // Preserve the exact fixture or documentation text.
 		pattern := "arn:(aws)[-]{0,1}[a-z]{0,2}[-]{0,1}[a-z]{0,3}:kms:[a-z]{2}[-]{1}[a-z]{3,10}[-]{0,1}[a-z]{0,10}[-]{1}[1-3]{1}:[0-9]{12}[:]{1}key\\/12345"
 		assert.True(t, ValuesEquivalent("arn:aws:kms:us-east-1:123456789012:key/12345", pattern))
 		assert.False(t, ValuesEquivalent("arn:aws:kms:us-east-1:123456789012:key/98765", pattern))
@@ -222,10 +226,10 @@ func TestValuesEquivalent(t *testing.T) {
 			{"float64 vs float64 different", float64(6.0), float64(7.0), false},
 			{"float64 decimal", float64(6.5), float64(6.5), true},
 
-				// Cross-type numeric comparisons (common when comparing decoded AWS responses)
-				// are handled by DeepEquals via Pulumi PropertyValue normalization.
-				{"int vs float64 equal", int(6), float64(6.0), true},
-				{"float64 vs int equal", float64(6.0), int(6), true},
+			// Cross-type numeric comparisons (common when comparing decoded AWS responses)
+			// are handled by DeepEquals via Pulumi PropertyValue normalization.
+			{"int vs float64 equal", int(6), float64(6.0), true},
+			{"float64 vs int equal", float64(6.0), int(6), true},
 
 			// Cross-type number/string comparisons are intentionally strict.
 			{"string number vs float64", "6", float64(6.0), false},
@@ -352,7 +356,13 @@ func TestSuppressPropertyTransformDiffs(t *testing.T) {
 			"engine": resource.NewStringProperty("MYSQL"),
 		}
 
-		result := suppressPropertyTransformDiffs("aws-native:rds:DBCluster", spec, diff, originalInputs, NewTransformCache())
+		result := suppressPropertyTransformDiffs(
+			"aws-native:rds:DBCluster",
+			spec,
+			diff,
+			originalInputs,
+			NewTransformCache(),
+		)
 		assert.Empty(t, result.Updates, "Diff should be suppressed for case-insensitive match")
 	})
 
@@ -376,13 +386,20 @@ func TestSuppressPropertyTransformDiffs(t *testing.T) {
 			"engine": resource.NewStringProperty("mysql"),
 		}
 
-		result := suppressPropertyTransformDiffs("aws-native:rds:DBCluster", spec, diff, originalInputs, NewTransformCache())
+		result := suppressPropertyTransformDiffs(
+			"aws-native:rds:DBCluster",
+			spec,
+			diff,
+			originalInputs,
+			NewTransformCache(),
+		)
 		assert.Len(t, result.Updates, 1, "Real diff should be preserved")
 	})
 
 	t.Run("handles nested object diff", func(t *testing.T) {
 		spec := &metadata.CloudAPIResource{
 			PropertyTransforms: map[string]string{
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				"fileSystemProtection/replicationOverwriteProtection": "$uppercase(ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(ReplicationOverwriteProtection)",
 			},
 		}
