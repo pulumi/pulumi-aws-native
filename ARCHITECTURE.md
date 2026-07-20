@@ -1,5 +1,10 @@
 # Architecture
 
+For provider lifecycle behavior, see
+[`docs/provider-runtime.md`](docs/provider-runtime.md). It links to the upstream
+Pulumi engine and AWS Cloud Control API contracts and documents how AWS Native
+connects them.
+
 ## Module Map
 - `provider/pkg/`: core provider runtime logic
 - `provider/cmd/pulumi-resource-aws-native/`: provider entrypoint and generated schema artifacts

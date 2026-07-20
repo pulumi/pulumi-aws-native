@@ -3,6 +3,7 @@
 ## Purpose
 This repository contains the Pulumi AWS Native provider: a Go provider plus generated SDKs (Node.js, Python, .NET, Java, Go).
 Read `ARCHITECTURE.md` for a concise module map and system boundaries before making structural changes.
+For provider lifecycle changes, read `docs/provider-runtime.md` for the AWS Native boundary between the Pulumi engine, generated CloudFormation metadata, and AWS Cloud Control API.
 
 ## High-Signal Paths
 - `Makefile`: canonical command surface
