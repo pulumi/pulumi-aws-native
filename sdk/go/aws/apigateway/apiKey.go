@@ -35,9 +35,9 @@ import (
 //			customerId := cfg.Require("customerId")
 //			generateDistinctId := cfg.Require("generateDistinctId")
 //			_, err := apigateway.NewApiKey(ctx, "apiKey", &apigateway.ApiKeyArgs{
-//				CustomerId:         pulumi.String(pulumi.String(customerId)),
+//				CustomerId:         pulumi.String(customerId),
 //				GenerateDistinctId: pulumi.String(generateDistinctId),
-//				Name:               pulumi.String(pulumi.String(apiKeyName)),
+//				Name:               pulumi.String(apiKeyName),
 //			})
 //			if err != nil {
 //				return err
@@ -67,9 +67,9 @@ import (
 //			customerId := cfg.Require("customerId")
 //			generateDistinctId := cfg.Require("generateDistinctId")
 //			_, err := apigateway.NewApiKey(ctx, "apiKey", &apigateway.ApiKeyArgs{
-//				CustomerId:         pulumi.String(pulumi.String(customerId)),
+//				CustomerId:         pulumi.String(customerId),
 //				GenerateDistinctId: pulumi.String(generateDistinctId),
-//				Name:               pulumi.String(pulumi.String(apiKeyName)),
+//				Name:               pulumi.String(apiKeyName),
 //			})
 //			if err != nil {
 //				return err

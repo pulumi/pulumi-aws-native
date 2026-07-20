@@ -35,9 +35,9 @@ import (
 //			description := cfg.Require("description")
 //			statement := cfg.Require("statement")
 //			policyTemplate, err := verifiedpermissions.NewPolicyTemplate(ctx, "policyTemplate", &verifiedpermissions.PolicyTemplateArgs{
-//				PolicyStoreId: pulumi.String(pulumi.String(policyStoreId)),
-//				Description:   pulumi.String(pulumi.String(description)),
-//				Statement:     pulumi.String(pulumi.String(statement)),
+//				PolicyStoreId: pulumi.String(policyStoreId),
+//				Description:   pulumi.String(description),
+//				Statement:     pulumi.String(statement),
 //			})
 //			if err != nil {
 //				return err

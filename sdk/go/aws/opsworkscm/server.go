@@ -46,11 +46,11 @@ import (
 //				EngineAttributes: opsworkscm.ServerEngineAttributeArray{
 //					&opsworkscm.ServerEngineAttributeArgs{
 //						Name:  pulumi.String("CHEF_AUTOMATE_PIVOTAL_KEY"),
-//						Value: pulumi.String(pulumi.String(pivotalKey)),
+//						Value: pulumi.String(pivotalKey),
 //					},
 //					&opsworkscm.ServerEngineAttributeArgs{
 //						Name:  pulumi.String("CHEF_AUTOMATE_ADMIN_PASSWORD"),
-//						Value: pulumi.String(pulumi.String(password)),
+//						Value: pulumi.String(password),
 //					},
 //				},
 //				EngineModel:                pulumi.String("Single"),

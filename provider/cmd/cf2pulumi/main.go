@@ -72,15 +72,18 @@ func main() {
 	}
 
 	hcl2Cache := pcl.Cache(pcl.NewPackageCache())
-	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{AllowDanglingReferences: true})
+	// The aws-native schema is self-contained, so binding it does not need to resolve any external
+	// packages. As of pulumi/pkg v3.253.0 ImportSpec requires a non-nil loader argument (it
+	// previously constructed a plugin loader when passed nil), so pass a null loader here.
+	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.NewNullLoader(), schema.ValidationOptions{AllowDanglingReferences: true})
 	if err != nil {
 		log.Fatalf("failed to parse import the spec: %v", err)
 	}
-	loaderOption := pcl.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
+	loader := pschema.InMemoryPackageLoader(map[string]*schema.Package{
 		"aws-native": pkg,
-	}))
+	})
 
-	program, diags, err := pcl.BindProgram(parser.Files, hcl2Cache, loaderOption)
+	program, diags, err := pcl.BindProgram(parser.Files, loader, hcl2Cache)
 	if err != nil {
 		log.Fatalf("failed to bind program: %v", err)
 	}

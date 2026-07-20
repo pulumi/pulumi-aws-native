@@ -55,7 +55,7 @@ import (
 //			alarmTopic, err := sns.NewTopic(ctx, "alarmTopic", &sns.TopicArgs{
 //				Subscription: sns.TopicSubscriptionArray{
 //					&sns.TopicSubscriptionArgs{
-//						Endpoint: pulumi.String(pulumi.String(alarmEmail)),
+//						Endpoint: pulumi.String(alarmEmail),
 //						Protocol: pulumi.String("email"),
 //					},
 //				},
@@ -127,7 +127,7 @@ import (
 //			alarmTopic, err := sns.NewTopic(ctx, "alarmTopic", &sns.TopicArgs{
 //				Subscription: sns.TopicSubscriptionArray{
 //					&sns.TopicSubscriptionArgs{
-//						Endpoint: pulumi.String(pulumi.String(alarmEmail)),
+//						Endpoint: pulumi.String(alarmEmail),
 //						Protocol: pulumi.String("email"),
 //					},
 //				},
