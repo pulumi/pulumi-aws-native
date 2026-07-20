@@ -606,6 +606,7 @@ export type DataSourceWebScopeType = (typeof DataSourceWebScopeType)[keyof typeo
 
 export const EnforcedGuardrailConfigurationConfigOwner = {
     Account: "ACCOUNT",
+    Organization: "ORGANIZATION",
 } as const;
 
 /**

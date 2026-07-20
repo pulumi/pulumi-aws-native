@@ -3087,6 +3087,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The desired exclusion mode for Egress-Only Internet Gateways.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlEgressOnlyInternetGatewayExclusion : IEquatable<VpcEncryptionControlEgressOnlyInternetGatewayExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlEgressOnlyInternetGatewayExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlEgressOnlyInternetGatewayExclusion Enable { get; } = new VpcEncryptionControlEgressOnlyInternetGatewayExclusion("enable");
+        public static VpcEncryptionControlEgressOnlyInternetGatewayExclusion Disable { get; } = new VpcEncryptionControlEgressOnlyInternetGatewayExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlEgressOnlyInternetGatewayExclusion left, VpcEncryptionControlEgressOnlyInternetGatewayExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlEgressOnlyInternetGatewayExclusion left, VpcEncryptionControlEgressOnlyInternetGatewayExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlEgressOnlyInternetGatewayExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlEgressOnlyInternetGatewayExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlEgressOnlyInternetGatewayExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Used to enable or disable EIGW exclusion
     /// </summary>
     [EnumType]
@@ -3110,6 +3141,37 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput other && Equals(other);
         public bool Equals(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The desired exclusion mode for Elastic File System.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlElasticFileSystemExclusion : IEquatable<VpcEncryptionControlElasticFileSystemExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlElasticFileSystemExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlElasticFileSystemExclusion Enable { get; } = new VpcEncryptionControlElasticFileSystemExclusion("enable");
+        public static VpcEncryptionControlElasticFileSystemExclusion Disable { get; } = new VpcEncryptionControlElasticFileSystemExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlElasticFileSystemExclusion left, VpcEncryptionControlElasticFileSystemExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlElasticFileSystemExclusion left, VpcEncryptionControlElasticFileSystemExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlElasticFileSystemExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlElasticFileSystemExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlElasticFileSystemExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3149,6 +3211,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The desired exclusion mode for Internet Gateways.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlInternetGatewayExclusion : IEquatable<VpcEncryptionControlInternetGatewayExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlInternetGatewayExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlInternetGatewayExclusion Enable { get; } = new VpcEncryptionControlInternetGatewayExclusion("enable");
+        public static VpcEncryptionControlInternetGatewayExclusion Disable { get; } = new VpcEncryptionControlInternetGatewayExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlInternetGatewayExclusion left, VpcEncryptionControlInternetGatewayExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlInternetGatewayExclusion left, VpcEncryptionControlInternetGatewayExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlInternetGatewayExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlInternetGatewayExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlInternetGatewayExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Used to enable or disable IGW exclusion
     /// </summary>
     [EnumType]
@@ -3172,6 +3265,37 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcEncryptionControlInternetGatewayExclusionInput other && Equals(other);
         public bool Equals(VpcEncryptionControlInternetGatewayExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The desired exclusion mode for Lambda.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlLambdaExclusion : IEquatable<VpcEncryptionControlLambdaExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlLambdaExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlLambdaExclusion Enable { get; } = new VpcEncryptionControlLambdaExclusion("enable");
+        public static VpcEncryptionControlLambdaExclusion Disable { get; } = new VpcEncryptionControlLambdaExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlLambdaExclusion left, VpcEncryptionControlLambdaExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlLambdaExclusion left, VpcEncryptionControlLambdaExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlLambdaExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlLambdaExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlLambdaExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3234,6 +3358,37 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcEncryptionControlMode other && Equals(other);
         public bool Equals(VpcEncryptionControlMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The desired exclusion mode for NAT Gateways.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlNatGatewayExclusion : IEquatable<VpcEncryptionControlNatGatewayExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlNatGatewayExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlNatGatewayExclusion Enable { get; } = new VpcEncryptionControlNatGatewayExclusion("enable");
+        public static VpcEncryptionControlNatGatewayExclusion Disable { get; } = new VpcEncryptionControlNatGatewayExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlNatGatewayExclusion left, VpcEncryptionControlNatGatewayExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlNatGatewayExclusion left, VpcEncryptionControlNatGatewayExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlNatGatewayExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlNatGatewayExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlNatGatewayExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3311,6 +3466,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The desired exclusion mode for Virtual Private Gateways.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlVirtualPrivateGatewayExclusion : IEquatable<VpcEncryptionControlVirtualPrivateGatewayExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlVirtualPrivateGatewayExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlVirtualPrivateGatewayExclusion Enable { get; } = new VpcEncryptionControlVirtualPrivateGatewayExclusion("enable");
+        public static VpcEncryptionControlVirtualPrivateGatewayExclusion Disable { get; } = new VpcEncryptionControlVirtualPrivateGatewayExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlVirtualPrivateGatewayExclusion left, VpcEncryptionControlVirtualPrivateGatewayExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlVirtualPrivateGatewayExclusion left, VpcEncryptionControlVirtualPrivateGatewayExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlVirtualPrivateGatewayExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlVirtualPrivateGatewayExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlVirtualPrivateGatewayExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Used to enable or disable VGW exclusion
     /// </summary>
     [EnumType]
@@ -3342,6 +3528,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The desired exclusion mode for VPC Lattice.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlVpcLatticeExclusion : IEquatable<VpcEncryptionControlVpcLatticeExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlVpcLatticeExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlVpcLatticeExclusion Enable { get; } = new VpcEncryptionControlVpcLatticeExclusion("enable");
+        public static VpcEncryptionControlVpcLatticeExclusion Disable { get; } = new VpcEncryptionControlVpcLatticeExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlVpcLatticeExclusion left, VpcEncryptionControlVpcLatticeExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlVpcLatticeExclusion left, VpcEncryptionControlVpcLatticeExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlVpcLatticeExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlVpcLatticeExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlVpcLatticeExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Used to enable or disable Vpc Lattice exclusion
     /// </summary>
     [EnumType]
@@ -3365,6 +3582,37 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcEncryptionControlVpcLatticeExclusionInput other && Equals(other);
         public bool Equals(VpcEncryptionControlVpcLatticeExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The desired exclusion mode for VPC Peering.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlVpcPeeringExclusion : IEquatable<VpcEncryptionControlVpcPeeringExclusion>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlVpcPeeringExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlVpcPeeringExclusion Enable { get; } = new VpcEncryptionControlVpcPeeringExclusion("enable");
+        public static VpcEncryptionControlVpcPeeringExclusion Disable { get; } = new VpcEncryptionControlVpcPeeringExclusion("disable");
+
+        public static bool operator ==(VpcEncryptionControlVpcPeeringExclusion left, VpcEncryptionControlVpcPeeringExclusion right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlVpcPeeringExclusion left, VpcEncryptionControlVpcPeeringExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlVpcPeeringExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlVpcPeeringExclusion other && Equals(other);
+        public bool Equals(VpcEncryptionControlVpcPeeringExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

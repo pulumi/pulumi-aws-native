@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::ImageBuilder::Image
+ * Resource Type definition for AWS::ImageBuilder::Image
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +59,7 @@ export interface GetImageResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * Resource schema for AWS::ImageBuilder::Image
+ * Resource Type definition for AWS::ImageBuilder::Image
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

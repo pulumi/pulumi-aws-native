@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ListenerArgs', 'Listener']
@@ -29,7 +31,8 @@ class ListenerArgs:
                  mutual_authentication: pulumi.Input[Optional['ListenerMutualAuthenticationArgs']] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
-                 ssl_policy: pulumi.Input[Optional[_builtins.str]] = None):
+                 ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Listener resource.
 
@@ -63,6 +66,8 @@ class ListenerArgs:
             pulumi.set(__self__, "protocol", protocol)
         if ssl_policy is not None:
             pulumi.set(__self__, "ssl_policy", ssl_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="defaultActions")
@@ -176,6 +181,15 @@ class ListenerArgs:
     def ssl_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_policy", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:elasticloadbalancingv2:Listener")
 class Listener(pulumi.CustomResource):
@@ -192,6 +206,7 @@ class Listener(pulumi.CustomResource):
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
@@ -245,6 +260,7 @@ class Listener(pulumi.CustomResource):
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -267,6 +283,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["ssl_policy"] = ssl_policy
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["listener_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["loadBalancerArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -302,6 +319,7 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["port"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["ssl_policy"] = None
+        __props__.__dict__["tags"] = None
         return Listener(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -387,4 +405,9 @@ class Listener(pulumi.CustomResource):
          [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         """
         return pulumi.get(self, "ssl_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 

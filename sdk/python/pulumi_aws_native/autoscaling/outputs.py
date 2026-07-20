@@ -173,6 +173,7 @@ class AutoScalingGroupAvailabilityZoneDistribution(dict):
         :param 'AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy' capacity_distribution_strategy: If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``.
                  +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
                  +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+                 +  ``reservations-then-balanced`` - Auto Scaling will first attempt to launch into your Capacity Reservations, and then balance any remaining capacity across healthy Availability Zones.
         """
         if capacity_distribution_strategy is not None:
             pulumi.set(__self__, "capacity_distribution_strategy", capacity_distribution_strategy)
@@ -184,6 +185,7 @@ class AutoScalingGroupAvailabilityZoneDistribution(dict):
         If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``.
           +  ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
           +  ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+          +  ``reservations-then-balanced`` - Auto Scaling will first attempt to launch into your Capacity Reservations, and then balance any remaining capacity across healthy Availability Zones.
         """
         return pulumi.get(self, "capacity_distribution_strategy")
 

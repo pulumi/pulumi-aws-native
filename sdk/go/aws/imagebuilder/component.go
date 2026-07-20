@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::ImageBuilder::Component
+// Resource Type definition for AWS::ImageBuilder::Component
 //
 // ## Example Usage
 // ### Example

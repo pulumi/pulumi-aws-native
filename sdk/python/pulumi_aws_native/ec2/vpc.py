@@ -13,8 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['VpcArgs', 'Vpc']
 
@@ -27,7 +30,8 @@ class VpcArgs:
                  instance_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_encryption_control: pulumi.Input[Optional['VpcEncryptionControlArgs']] = None):
         """
         The set of arguments for constructing a Vpc resource.
 
@@ -60,6 +64,8 @@ class VpcArgs:
             pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc_encryption_control is not None:
+            pulumi.set(__self__, "vpc_encryption_control", vpc_encryption_control)
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
@@ -152,6 +158,15 @@ class VpcArgs:
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vpcEncryptionControl")
+    def vpc_encryption_control(self) -> pulumi.Input[Optional['VpcEncryptionControlArgs']]:
+        return pulumi.get(self, "vpc_encryption_control")
+
+    @vpc_encryption_control.setter
+    def vpc_encryption_control(self, value: pulumi.Input[Optional['VpcEncryptionControlArgs']]):
+        pulumi.set(self, "vpc_encryption_control", value)
+
 
 @pulumi.type_token("aws-native:ec2:Vpc")
 class Vpc(pulumi.CustomResource):
@@ -166,6 +181,7 @@ class Vpc(pulumi.CustomResource):
                  ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_encryption_control: pulumi.Input[Optional[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict']]] = None,
                  __props__=None):
         """
         Specifies a virtual private cloud (VPC).
@@ -222,6 +238,7 @@ class Vpc(pulumi.CustomResource):
                  ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_encryption_control: pulumi.Input[Optional[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -238,12 +255,13 @@ class Vpc(pulumi.CustomResource):
             __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
             __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_encryption_control"] = vpc_encryption_control
             __props__.__dict__["cidr_block_associations"] = None
             __props__.__dict__["default_network_acl"] = None
             __props__.__dict__["default_security_group"] = None
             __props__.__dict__["ipv6_cidr_blocks"] = None
             __props__.__dict__["vpc_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "vpcEncryptionControl"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Vpc, __self__).__init__(
             'aws-native:ec2:Vpc',
@@ -278,6 +296,7 @@ class Vpc(pulumi.CustomResource):
         __props__.__dict__["ipv4_netmask_length"] = None
         __props__.__dict__["ipv6_cidr_blocks"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_encryption_control"] = None
         __props__.__dict__["vpc_id"] = None
         return Vpc(resource_name, opts=opts, __props__=__props__)
 
@@ -375,6 +394,11 @@ class Vpc(pulumi.CustomResource):
         The tags for the VPC.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEncryptionControl")
+    def vpc_encryption_control(self) -> pulumi.Output[Optional['outputs.VpcEncryptionControl']]:
+        return pulumi.get(self, "vpc_encryption_control")
 
     @_builtins.property
     @pulumi.getter(name="vpcId")

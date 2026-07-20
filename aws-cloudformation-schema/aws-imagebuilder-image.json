@@ -5,11 +5,11 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : true
+    "cloudFormationSystemTags" : false
   },
   "typeName" : "AWS::ImageBuilder::Image",
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri", "/properties/LatestVersion", "/properties/LatestVersion/Arn", "/properties/LatestVersion/Major", "/properties/LatestVersion/Minor", "/properties/LatestVersion/Patch" ],
-  "description" : "Resource schema for AWS::ImageBuilder::Image",
+  "description" : "Resource Type definition for AWS::ImageBuilder::Image",
   "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "conditionalCreateOnlyProperties" : [ "/properties/ImagePipelineExecutionSettings" ],
@@ -296,6 +296,7 @@
       "$ref" : "#/definitions/ImageTestsConfiguration"
     },
     "Arn" : {
+      "pattern" : "^arn:[^:]+:imagebuilder:[^:]+:[^:]+:image/.+$",
       "description" : "The Amazon Resource Name (ARN) of the image.",
       "type" : "string"
     },

@@ -34,6 +34,7 @@ class AlarmArgs:
                  evaluation_criteria: pulumi.Input[Optional['AlarmEvaluationCriteriaArgs']] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_window: pulumi.Input[Optional['AlarmEvaluationWindowArgs']] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -111,6 +112,8 @@ class AlarmArgs:
             pulumi.set(__self__, "evaluation_interval", evaluation_interval)
         if evaluation_periods is not None:
             pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if evaluation_window is not None:
+            pulumi.set(__self__, "evaluation_window", evaluation_window)
         if extended_statistic is not None:
             pulumi.set(__self__, "extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
@@ -272,6 +275,15 @@ class AlarmArgs:
     @evaluation_periods.setter
     def evaluation_periods(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "evaluation_periods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> pulumi.Input[Optional['AlarmEvaluationWindowArgs']]:
+        return pulumi.get(self, "evaluation_window")
+
+    @evaluation_window.setter
+    def evaluation_window(self, value: pulumi.Input[Optional['AlarmEvaluationWindowArgs']]):
+        pulumi.set(self, "evaluation_window", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")
@@ -458,6 +470,7 @@ class Alarm(pulumi.CustomResource):
                  evaluation_criteria: pulumi.Input[Optional[Union['AlarmEvaluationCriteriaArgs', 'AlarmEvaluationCriteriaArgsDict']]] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_window: pulumi.Input[Optional[Union['AlarmEvaluationWindowArgs', 'AlarmEvaluationWindowArgsDict']]] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -555,6 +568,7 @@ class Alarm(pulumi.CustomResource):
                  evaluation_criteria: pulumi.Input[Optional[Union['AlarmEvaluationCriteriaArgs', 'AlarmEvaluationCriteriaArgsDict']]] = None,
                  evaluation_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  evaluation_periods: pulumi.Input[Optional[_builtins.int]] = None,
+                 evaluation_window: pulumi.Input[Optional[Union['AlarmEvaluationWindowArgs', 'AlarmEvaluationWindowArgsDict']]] = None,
                  extended_statistic: pulumi.Input[Optional[_builtins.str]] = None,
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -588,6 +602,7 @@ class Alarm(pulumi.CustomResource):
             __props__.__dict__["evaluation_criteria"] = evaluation_criteria
             __props__.__dict__["evaluation_interval"] = evaluation_interval
             __props__.__dict__["evaluation_periods"] = evaluation_periods
+            __props__.__dict__["evaluation_window"] = evaluation_window
             __props__.__dict__["extended_statistic"] = extended_statistic
             __props__.__dict__["insufficient_data_actions"] = insufficient_data_actions
             __props__.__dict__["metric_name"] = metric_name
@@ -638,6 +653,7 @@ class Alarm(pulumi.CustomResource):
         __props__.__dict__["evaluation_criteria"] = None
         __props__.__dict__["evaluation_interval"] = None
         __props__.__dict__["evaluation_periods"] = None
+        __props__.__dict__["evaluation_window"] = None
         __props__.__dict__["extended_statistic"] = None
         __props__.__dict__["insufficient_data_actions"] = None
         __props__.__dict__["metric_name"] = None
@@ -751,6 +767,11 @@ class Alarm(pulumi.CustomResource):
          For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         """
         return pulumi.get(self, "evaluation_periods")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> pulumi.Output[Optional['outputs.AlarmEvaluationWindow']]:
+        return pulumi.get(self, "evaluation_window")
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")

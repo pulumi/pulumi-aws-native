@@ -72,6 +72,7 @@ class CapacityProviderPredefinedMetricType(_builtins.str, Enum):
     The predefined metric for target tracking.
     """
     LAMBDA_CAPACITY_PROVIDER_AVERAGE_CPU_UTILIZATION = "LambdaCapacityProviderAverageCPUUtilization"
+    LAMBDA_CAPACITY_PROVIDER_AVERAGE_GPU_UTILIZATION = "LambdaCapacityProviderAverageGPUUtilization"
 
 
 @pulumi.type_token("aws-native:lambda:CapacityProviderPropagateTagsMode")

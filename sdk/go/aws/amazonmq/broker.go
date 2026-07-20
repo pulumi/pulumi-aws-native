@@ -350,6 +350,8 @@ type Broker struct {
 	//
 	// `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
 	StompEndpoints pulumi.StringArrayOutput `pulumi:"stompEndpoints"`
+	// The broker's storage size in GB.
+	StorageSize pulumi.IntPtrOutput `pulumi:"storageSize"`
 	// The broker's storage type.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
@@ -473,6 +475,8 @@ type brokerArgs struct {
 	ResourceShareArns []string `pulumi:"resourceShareArns"`
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	SecurityGroups []string `pulumi:"securityGroups"`
+	// The broker's storage size in GB.
+	StorageSize *int `pulumi:"storageSize"`
 	// The broker's storage type.
 	StorageType *string `pulumi:"storageType"`
 	// The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
@@ -531,6 +535,8 @@ type BrokerArgs struct {
 	ResourceShareArns pulumi.StringArrayInput
 	// The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
 	SecurityGroups pulumi.StringArrayInput
+	// The broker's storage size in GB.
+	StorageSize pulumi.IntPtrInput
 	// The broker's storage type.
 	StorageType pulumi.StringPtrInput
 	// The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
@@ -738,6 +744,11 @@ func (o BrokerOutput) SecurityGroups() pulumi.StringArrayOutput {
 // `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
 func (o BrokerOutput) StompEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.StompEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// The broker's storage size in GB.
+func (o BrokerOutput) StorageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Broker) pulumi.IntPtrOutput { return v.StorageSize }).(pulumi.IntPtrOutput)
 }
 
 // The broker's storage type.

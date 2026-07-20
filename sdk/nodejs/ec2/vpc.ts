@@ -90,6 +90,7 @@ export class Vpc extends pulumi.CustomResource {
      * The tags for the VPC.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly vpcEncryptionControl: pulumi.Output<outputs.ec2.VpcEncryptionControl | undefined>;
     /**
      * The ID of the VPC.
      */
@@ -113,6 +114,7 @@ export class Vpc extends pulumi.CustomResource {
             resourceInputs["ipv4IpamPoolId"] = args?.ipv4IpamPoolId;
             resourceInputs["ipv4NetmaskLength"] = args?.ipv4NetmaskLength;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpcEncryptionControl"] = args?.vpcEncryptionControl;
             resourceInputs["cidrBlockAssociations"] = undefined /*out*/;
             resourceInputs["defaultNetworkAcl"] = undefined /*out*/;
             resourceInputs["defaultSecurityGroup"] = undefined /*out*/;
@@ -130,10 +132,11 @@ export class Vpc extends pulumi.CustomResource {
             resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcEncryptionControl"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength"] };
+        const replaceOnChanges = { replaceOnChanges: ["cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "vpcEncryptionControl"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Vpc.__pulumiType, name, resourceInputs, opts);
     }
@@ -178,4 +181,5 @@ export interface VpcArgs {
      * The tags for the VPC.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    vpcEncryptionControl?: pulumi.Input<inputs.ec2.VpcEncryptionControlArgs | undefined>;
 }

@@ -163,7 +163,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource" ]
   },
@@ -173,7 +173,7 @@
   "writeOnlyProperties" : [ "/properties/CoreNetworkAddress", "/properties/BgpOptions", "/properties/SubnetArn" ],
   "readOnlyProperties" : [ "/properties/ConnectPeerId", "/properties/State", "/properties/CreatedAt", "/properties/Configuration", "/properties/CoreNetworkId", "/properties/EdgeLocation", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/ConnectPeerId" ],
-  "additionalIdentifiers" : [ [ "/properties/ConnectAttachmentId", "/properties/CoreNetworkAddress", "/properties/InsideCidrBlocks" ] ],
+  "additionalIdentifiers" : [ [ "/properties/ConnectAttachmentId", "/properties/CoreNetworkAddress" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "networkmanager:GetConnectPeer", "networkmanager:CreateConnectPeer", "networkmanager:TagResource", "ec2:DescribeRegions" ]

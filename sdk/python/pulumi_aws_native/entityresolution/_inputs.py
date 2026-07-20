@@ -1297,6 +1297,10 @@ class MatchingWorkflowProviderPropertiesArgs:
 
 
 class MatchingWorkflowResolutionTechniquesArgsDict(TypedDict):
+    enable_real_time_matching: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+    """
     provider_properties: NotRequired[pulumi.Input[Optional['MatchingWorkflowProviderPropertiesArgsDict']]]
     """
     The properties of the provider service.
@@ -1321,11 +1325,13 @@ class MatchingWorkflowResolutionTechniquesArgsDict(TypedDict):
 @pulumi.input_type
 class MatchingWorkflowResolutionTechniquesArgs:
     def __init__(__self__, *,
+                 enable_real_time_matching: pulumi.Input[Optional[_builtins.bool]] = None,
                  provider_properties: pulumi.Input[Optional['MatchingWorkflowProviderPropertiesArgs']] = None,
                  resolution_type: pulumi.Input[Optional['MatchingWorkflowResolutionType']] = None,
                  rule_based_properties: pulumi.Input[Optional['MatchingWorkflowRuleBasedPropertiesArgs']] = None,
                  rule_condition_properties: pulumi.Input[Optional['MatchingWorkflowRuleConditionPropertiesArgs']] = None):
         """
+        :param pulumi.Input[_builtins.bool] enable_real_time_matching: Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
         :param pulumi.Input['MatchingWorkflowProviderPropertiesArgs'] provider_properties: The properties of the provider service.
         :param pulumi.Input['MatchingWorkflowResolutionType'] resolution_type: The type of matching workflow to create. Specify one of the following types:
                
@@ -1335,6 +1341,8 @@ class MatchingWorkflowResolutionTechniquesArgs:
         :param pulumi.Input['MatchingWorkflowRuleBasedPropertiesArgs'] rule_based_properties: An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
         :param pulumi.Input['MatchingWorkflowRuleConditionPropertiesArgs'] rule_condition_properties: An object containing the `rules` for a matching workflow.
         """
+        if enable_real_time_matching is not None:
+            pulumi.set(__self__, "enable_real_time_matching", enable_real_time_matching)
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
         if resolution_type is not None:
@@ -1343,6 +1351,18 @@ class MatchingWorkflowResolutionTechniquesArgs:
             pulumi.set(__self__, "rule_based_properties", rule_based_properties)
         if rule_condition_properties is not None:
             pulumi.set(__self__, "rule_condition_properties", rule_condition_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="enableRealTimeMatching")
+    def enable_real_time_matching(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+        """
+        return pulumi.get(self, "enable_real_time_matching")
+
+    @enable_real_time_matching.setter
+    def enable_real_time_matching(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_real_time_matching", value)
 
     @_builtins.property
     @pulumi.getter(name="providerProperties")

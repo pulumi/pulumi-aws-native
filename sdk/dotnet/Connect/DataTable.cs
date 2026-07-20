@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Connect
         /// The identifier of the Amazon Connect instance.
         /// </summary>
         [Output("instanceArn")]
-        public Output<string?> InstanceArn { get; private set; } = null!;
+        public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
         /// Last modified region.
@@ -61,13 +61,13 @@ namespace Pulumi.AwsNative.Connect
         /// The name of the Data Table
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The status of the Data Table
         /// </summary>
         [Output("status")]
-        public Output<Pulumi.AwsNative.Connect.DataTableStatus?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Connect.DataTableStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// One or more tags.
@@ -79,13 +79,13 @@ namespace Pulumi.AwsNative.Connect
         /// The time zone of the Data Table
         /// </summary>
         [Output("timeZone")]
-        public Output<string?> TimeZone { get; private set; } = null!;
+        public Output<string> TimeZone { get; private set; } = null!;
 
         /// <summary>
         /// The value lock level of the Data Table
         /// </summary>
         [Output("valueLockLevel")]
-        public Output<Pulumi.AwsNative.Connect.DataTableValueLockLevel?> ValueLockLevel { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Connect.DataTableValueLockLevel> ValueLockLevel { get; private set; } = null!;
 
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Connect
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DataTable(string name, DataTableArgs? args = null, CustomResourceOptions? options = null)
+        public DataTable(string name, DataTableArgs args, CustomResourceOptions? options = null)
             : base("aws-native:connect:DataTable", name, args ?? new DataTableArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -146,8 +146,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The identifier of the Amazon Connect instance.
         /// </summary>
-        [Input("instanceArn")]
-        public Input<string>? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
         /// The name of the Data Table
@@ -158,8 +158,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The status of the Data Table
         /// </summary>
-        [Input("status")]
-        public Input<Pulumi.AwsNative.Connect.DataTableStatus>? Status { get; set; }
+        [Input("status", required: true)]
+        public Input<Pulumi.AwsNative.Connect.DataTableStatus> Status { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
@@ -176,14 +176,14 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The time zone of the Data Table
         /// </summary>
-        [Input("timeZone")]
-        public Input<string>? TimeZone { get; set; }
+        [Input("timeZone", required: true)]
+        public Input<string> TimeZone { get; set; } = null!;
 
         /// <summary>
         /// The value lock level of the Data Table
         /// </summary>
-        [Input("valueLockLevel")]
-        public Input<Pulumi.AwsNative.Connect.DataTableValueLockLevel>? ValueLockLevel { get; set; }
+        [Input("valueLockLevel", required: true)]
+        public Input<Pulumi.AwsNative.Connect.DataTableValueLockLevel> ValueLockLevel { get; set; } = null!;
 
         public DataTableArgs()
         {

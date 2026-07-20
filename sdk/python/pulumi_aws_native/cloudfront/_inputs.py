@@ -739,7 +739,7 @@ class ConnectionFunctionConfigArgsDict(TypedDict):
     """
     comment: pulumi.Input[_builtins.str]
     """
-    A comment to describe the function.
+    A comment to describe the function. The comment cannot be longer than 128 characters.
     """
     runtime: pulumi.Input['ConnectionFunctionConfigRuntime']
     """
@@ -759,7 +759,7 @@ class ConnectionFunctionConfigArgs:
         """
         Contains configuration information about a CloudFront function.
 
-        :param pulumi.Input[_builtins.str] comment: A comment to describe the function.
+        :param pulumi.Input[_builtins.str] comment: A comment to describe the function. The comment cannot be longer than 128 characters.
         :param pulumi.Input['ConnectionFunctionConfigRuntime'] runtime: The function's runtime environment version.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionFunctionKeyValueStoreAssociationArgs']]] key_value_store_associations: The configuration for the key value store associations.
         """
@@ -772,7 +772,7 @@ class ConnectionFunctionConfigArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[_builtins.str]:
         """
-        A comment to describe the function.
+        A comment to describe the function. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
 
@@ -2827,7 +2827,7 @@ class DistributionCustomOriginConfigArgsDict(TypedDict):
     """
     origin_keepalive_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+    Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
      For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
     """
     origin_mtls_config: NotRequired[pulumi.Input[Optional['DistributionOriginMtlsConfigArgsDict']]]
@@ -2866,7 +2866,7 @@ class DistributionCustomOriginConfigArgs:
         :param pulumi.Input[_builtins.int] http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
         :param pulumi.Input[_builtins.int] https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         :param pulumi.Input['DistributionCustomOriginConfigIpAddressType'] ip_address_type: Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
-        :param pulumi.Input[_builtins.int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+        :param pulumi.Input[_builtins.int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input['DistributionOriginMtlsConfigArgs'] origin_mtls_config: Configures mutual TLS authentication between CloudFront and your origin server.
         :param pulumi.Input[_builtins.int] origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
@@ -2945,7 +2945,7 @@ class DistributionCustomOriginConfigArgs:
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+        Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
          For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
@@ -5862,7 +5862,7 @@ class DistributionVpcOriginConfigArgsDict(TypedDict):
     """
     origin_keepalive_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+    Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
      For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
     """
     origin_read_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -5886,7 +5886,7 @@ class DistributionVpcOriginConfigArgs:
         An Amazon CloudFront VPC origin configuration.
 
         :param pulumi.Input[_builtins.str] vpc_origin_id: The VPC origin ID.
-        :param pulumi.Input[_builtins.int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+        :param pulumi.Input[_builtins.int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[_builtins.int] origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
                 For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
@@ -5916,7 +5916,7 @@ class DistributionVpcOriginConfigArgs:
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+        Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 300 seconds, and the default (if you don't specify otherwise) is 5 seconds.
          For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
@@ -5957,7 +5957,7 @@ class FunctionConfigArgsDict(TypedDict):
     """
     comment: pulumi.Input[_builtins.str]
     """
-    A comment to describe the function.
+    A comment to describe the function. The comment cannot be longer than 128 characters.
     """
     runtime: pulumi.Input[_builtins.str]
     """
@@ -5977,7 +5977,7 @@ class FunctionConfigArgs:
         """
         Contains configuration information about a CloudFront function.
 
-        :param pulumi.Input[_builtins.str] comment: A comment to describe the function.
+        :param pulumi.Input[_builtins.str] comment: A comment to describe the function. The comment cannot be longer than 128 characters.
         :param pulumi.Input[_builtins.str] runtime: The function's runtime environment version.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionKeyValueStoreAssociationArgs']]] key_value_store_associations: The configuration for the key value store associations.
         """
@@ -5990,7 +5990,7 @@ class FunctionConfigArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[_builtins.str]:
         """
-        A comment to describe the function.
+        A comment to describe the function. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
 
@@ -8354,6 +8354,7 @@ class VpcOriginEndpointConfigArgsDict(TypedDict):
     """
     The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
     """
+    ip_address_type: NotRequired[pulumi.Input[Optional['VpcOriginEndpointConfigIpAddressType']]]
     origin_protocol_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The origin protocol policy for the CloudFront VPC origin endpoint configuration.
@@ -8371,6 +8372,7 @@ class VpcOriginEndpointConfigArgs:
                  name: pulumi.Input[_builtins.str],
                  http_port: pulumi.Input[Optional[_builtins.int]] = None,
                  https_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional['VpcOriginEndpointConfigIpAddressType']] = None,
                  origin_protocol_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  origin_ssl_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
@@ -8390,6 +8392,8 @@ class VpcOriginEndpointConfigArgs:
             pulumi.set(__self__, "http_port", http_port)
         if https_port is not None:
             pulumi.set(__self__, "https_port", https_port)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if origin_protocol_policy is not None:
             pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
         if origin_ssl_protocols is not None:
@@ -8442,6 +8446,15 @@ class VpcOriginEndpointConfigArgs:
     @https_port.setter
     def https_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "https_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input[Optional['VpcOriginEndpointConfigIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input[Optional['VpcOriginEndpointConfigIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="originProtocolPolicy")

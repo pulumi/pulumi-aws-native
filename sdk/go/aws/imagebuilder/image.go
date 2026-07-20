@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::ImageBuilder::Image
+// Resource Type definition for AWS::ImageBuilder::Image
 type Image struct {
 	pulumi.CustomResourceState
 

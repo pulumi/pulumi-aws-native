@@ -74,6 +74,7 @@ export interface GetAlarmResult {
      *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     readonly evaluationPeriods?: number;
+    readonly evaluationWindow?: outputs.cloudwatch.AlarmEvaluationWindow;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.

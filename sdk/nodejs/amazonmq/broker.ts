@@ -315,6 +315,10 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly stompEndpoints: pulumi.Output<string[]>;
     /**
+     * The broker's storage size in GB.
+     */
+    declare public readonly storageSize: pulumi.Output<number | undefined>;
+    /**
      * The broker's storage type.
      */
     declare public readonly storageType: pulumi.Output<enums.amazonmq.BrokerStorageType | string | undefined>;
@@ -382,6 +386,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
             resourceInputs["resourceShareArns"] = args?.resourceShareArns;
             resourceInputs["securityGroups"] = args?.securityGroups;
+            resourceInputs["storageSize"] = args?.storageSize;
             resourceInputs["storageType"] = args?.storageType;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tags"] = args?.tags;
@@ -427,6 +432,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["resourceShareArns"] = undefined /*out*/;
             resourceInputs["securityGroups"] = undefined /*out*/;
             resourceInputs["stompEndpoints"] = undefined /*out*/;
+            resourceInputs["storageSize"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -519,6 +525,10 @@ export interface BrokerArgs {
      * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The broker's storage size in GB.
+     */
+    storageSize?: pulumi.Input<number | undefined>;
     /**
      * The broker's storage type.
      */

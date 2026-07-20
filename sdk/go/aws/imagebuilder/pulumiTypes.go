@@ -4317,6 +4317,8 @@ type ImagePipelineSchedule struct {
 	PipelineExecutionStartCondition *ImagePipelineSchedulePipelineExecutionStartCondition `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+	Timezone *string `pulumi:"timezone"`
 }
 
 // ImagePipelineScheduleInput is an input type that accepts ImagePipelineScheduleArgs and ImagePipelineScheduleOutput values.
@@ -4338,6 +4340,8 @@ type ImagePipelineScheduleArgs struct {
 	PipelineExecutionStartCondition ImagePipelineSchedulePipelineExecutionStartConditionPtrInput `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
+	// The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
 func (ImagePipelineScheduleArgs) ElementType() reflect.Type {
@@ -4435,6 +4439,11 @@ func (o ImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
+// The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+func (o ImagePipelineScheduleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
 type ImagePipelineSchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineSchedulePtrOutput) ElementType() reflect.Type {
@@ -4486,6 +4495,16 @@ func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOut
 			return nil
 		}
 		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+func (o ImagePipelineSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
 	}).(pulumi.StringPtrOutput)
 }
 

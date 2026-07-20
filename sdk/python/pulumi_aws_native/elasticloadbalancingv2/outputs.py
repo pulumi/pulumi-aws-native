@@ -2408,7 +2408,25 @@ class ListenerRuleSourceIpConfig(dict):
     Information about a source IP condition.
      You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleSourceIpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleSourceIpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleSourceIpConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 ip_address_type: Optional[_builtins.str] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Information about a source IP condition.
@@ -2417,8 +2435,15 @@ class ListenerRuleSourceIpConfig(dict):
         :param Sequence[_builtins.str] values: The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
                 If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
         """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if values is not None:
             pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter

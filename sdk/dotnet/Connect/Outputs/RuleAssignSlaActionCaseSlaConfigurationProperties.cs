@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
-    /// <summary>
-    /// The SLA configuration for cases.
-    /// </summary>
     [OutputType]
     public sealed class RuleAssignSlaActionCaseSlaConfigurationProperties
     {

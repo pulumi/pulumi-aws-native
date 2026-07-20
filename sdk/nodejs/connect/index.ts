@@ -40,6 +40,11 @@ export type ContactFlowVersion = import("./contactFlowVersion").ContactFlowVersi
 export const ContactFlowVersion: typeof import("./contactFlowVersion").ContactFlowVersion = null as any;
 utilities.lazyLoad(exports, ["ContactFlowVersion"], () => require("./contactFlowVersion"));
 
+export { DataLakeAssociationArgs } from "./dataLakeAssociation";
+export type DataLakeAssociation = import("./dataLakeAssociation").DataLakeAssociation;
+export const DataLakeAssociation: typeof import("./dataLakeAssociation").DataLakeAssociation = null as any;
+utilities.lazyLoad(exports, ["DataLakeAssociation"], () => require("./dataLakeAssociation"));
+
 export { DataTableArgs } from "./dataTable";
 export type DataTable = import("./dataTable").DataTable;
 export const DataTable: typeof import("./dataTable").DataTable = null as any;
@@ -94,6 +99,11 @@ export { GetContactFlowVersionArgs, GetContactFlowVersionResult, GetContactFlowV
 export const getContactFlowVersion: typeof import("./getContactFlowVersion").getContactFlowVersion = null as any;
 export const getContactFlowVersionOutput: typeof import("./getContactFlowVersion").getContactFlowVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getContactFlowVersion","getContactFlowVersionOutput"], () => require("./getContactFlowVersion"));
+
+export { GetDataLakeAssociationArgs, GetDataLakeAssociationResult, GetDataLakeAssociationOutputArgs } from "./getDataLakeAssociation";
+export const getDataLakeAssociation: typeof import("./getDataLakeAssociation").getDataLakeAssociation = null as any;
+export const getDataLakeAssociationOutput: typeof import("./getDataLakeAssociation").getDataLakeAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getDataLakeAssociation","getDataLakeAssociationOutput"], () => require("./getDataLakeAssociation"));
 
 export { GetDataTableArgs, GetDataTableResult, GetDataTableOutputArgs } from "./getDataTable";
 export const getDataTable: typeof import("./getDataTable").getDataTable = null as any;
@@ -372,6 +382,8 @@ const _module = {
                 return new ContactFlowModuleVersion(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlowVersion":
                 return new ContactFlowVersion(name, <any>undefined, { urn })
+            case "aws-native:connect:DataLakeAssociation":
+                return new DataLakeAssociation(name, <any>undefined, { urn })
             case "aws-native:connect:DataTable":
                 return new DataTable(name, <any>undefined, { urn })
             case "aws-native:connect:DataTableAttribute":

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
-    /// Resource schema for AWS::ImageBuilder::Image
+    /// Resource Type definition for AWS::ImageBuilder::Image
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:Image")]
     public partial class Image : global::Pulumi.CustomResource

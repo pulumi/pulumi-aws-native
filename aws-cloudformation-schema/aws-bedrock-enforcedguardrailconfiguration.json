@@ -22,7 +22,7 @@
     "ConfigOwner" : {
       "type" : "string",
       "description" : "Configuration owner type",
-      "enum" : [ "ACCOUNT" ]
+      "enum" : [ "ACCOUNT", "ORGANIZATION" ]
     },
     "ModelEnforcement" : {
       "type" : "object",

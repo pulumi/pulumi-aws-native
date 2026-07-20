@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .certificate import *
 from .data_migration import *
 from .data_provider import *
+from .get_certificate import *
 from .get_data_migration import *
 from .get_data_provider import *
 from .get_instance_profile import *

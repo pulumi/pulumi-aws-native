@@ -132,6 +132,10 @@
         },
         "ProviderProperties" : {
           "$ref" : "#/definitions/ProviderProperties"
+        },
+        "EnableRealTimeMatching" : {
+          "type" : "boolean",
+          "description" : "Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties."
         }
       },
       "additionalProperties" : false
@@ -362,7 +366,7 @@
       "$ref" : "#/definitions/IncrementalRunConfig"
     }
   },
-  "createOnlyProperties" : [ "/properties/WorkflowName" ],
+  "createOnlyProperties" : [ "/properties/WorkflowName", "/properties/ResolutionTechniques/EnableRealTimeMatching" ],
   "readOnlyProperties" : [ "/properties/WorkflowArn", "/properties/UpdatedAt", "/properties/CreatedAt" ],
   "primaryIdentifier" : [ "/properties/WorkflowName" ],
   "tagging" : {

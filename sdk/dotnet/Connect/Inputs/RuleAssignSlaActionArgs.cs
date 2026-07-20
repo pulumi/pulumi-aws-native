@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class RuleAssignSlaActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The SLA configuration for cases.
-        /// </summary>
         [Input("caseSlaConfiguration", required: true)]
         public Input<Inputs.RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs> CaseSlaConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// The type of SLA assignment.
-        /// </summary>
         [Input("slaAssignmentType", required: true)]
         public Input<Pulumi.AwsNative.Connect.RuleAssignSlaActionSlaAssignmentType> SlaAssignmentType { get; set; } = null!;
 

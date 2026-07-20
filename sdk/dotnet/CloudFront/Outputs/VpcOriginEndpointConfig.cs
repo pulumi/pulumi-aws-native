@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.
         /// </summary>
         public readonly int? HttpsPort;
+        public readonly Pulumi.AwsNative.CloudFront.VpcOriginEndpointConfigIpAddressType? IpAddressType;
         /// <summary>
         /// The name of the CloudFront VPC origin endpoint configuration.
         /// </summary>
@@ -50,6 +51,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             int? httpsPort,
 
+            Pulumi.AwsNative.CloudFront.VpcOriginEndpointConfigIpAddressType? ipAddressType,
+
             string name,
 
             string? originProtocolPolicy,
@@ -59,6 +62,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             Arn = arn;
             HttpPort = httpPort;
             HttpsPort = httpsPort;
+            IpAddressType = ipAddressType;
             Name = name;
             OriginProtocolPolicy = originProtocolPolicy;
             OriginSslProtocols = originSslProtocols;

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::ImageBuilder::LifecyclePolicy
+// Resource Type definition for AWS::ImageBuilder::LifecyclePolicy
 func LookupLifecyclePolicy(ctx *pulumi.Context, args *LookupLifecyclePolicyArgs, opts ...pulumi.InvokeOption) (*LookupLifecyclePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLifecyclePolicyResult

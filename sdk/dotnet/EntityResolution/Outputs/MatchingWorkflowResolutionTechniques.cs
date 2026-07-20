@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     public sealed class MatchingWorkflowResolutionTechniques
     {
         /// <summary>
+        /// Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+        /// </summary>
+        public readonly bool? EnableRealTimeMatching;
+        /// <summary>
         /// The properties of the provider service.
         /// </summary>
         public readonly Outputs.MatchingWorkflowProviderProperties? ProviderProperties;
@@ -36,6 +40,8 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
 
         [OutputConstructor]
         private MatchingWorkflowResolutionTechniques(
+            bool? enableRealTimeMatching,
+
             Outputs.MatchingWorkflowProviderProperties? providerProperties,
 
             Pulumi.AwsNative.EntityResolution.MatchingWorkflowResolutionType? resolutionType,
@@ -44,6 +50,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
 
             Outputs.MatchingWorkflowRuleConditionProperties? ruleConditionProperties)
         {
+            EnableRealTimeMatching = enableRealTimeMatching;
             ProviderProperties = providerProperties;
             ResolutionType = resolutionType;
             RuleBasedProperties = ruleBasedProperties;

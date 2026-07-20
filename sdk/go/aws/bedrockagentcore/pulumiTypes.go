@@ -32741,6 +32741,157 @@ func (o RuntimeAgentRuntimeArtifactPtrOutput) ContainerConfiguration() RuntimeCo
 	}).(RuntimeContainerConfigurationPtrOutput)
 }
 
+// Allow-list of upstream workloads permitted to reach this resource via the workload identity chain. When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+type RuntimeAllowedWorkloadConfiguration struct {
+	HostingEnvironments []RuntimeHostingEnvironment `pulumi:"hostingEnvironments"`
+	WorkloadIdentities  []string                    `pulumi:"workloadIdentities"`
+}
+
+// RuntimeAllowedWorkloadConfigurationInput is an input type that accepts RuntimeAllowedWorkloadConfigurationArgs and RuntimeAllowedWorkloadConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeAllowedWorkloadConfigurationInput` via:
+//
+//	RuntimeAllowedWorkloadConfigurationArgs{...}
+type RuntimeAllowedWorkloadConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeAllowedWorkloadConfigurationOutput() RuntimeAllowedWorkloadConfigurationOutput
+	ToRuntimeAllowedWorkloadConfigurationOutputWithContext(context.Context) RuntimeAllowedWorkloadConfigurationOutput
+}
+
+// Allow-list of upstream workloads permitted to reach this resource via the workload identity chain. When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+type RuntimeAllowedWorkloadConfigurationArgs struct {
+	HostingEnvironments RuntimeHostingEnvironmentArrayInput `pulumi:"hostingEnvironments"`
+	WorkloadIdentities  pulumi.StringArrayInput             `pulumi:"workloadIdentities"`
+}
+
+func (RuntimeAllowedWorkloadConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeAllowedWorkloadConfigurationArgs) ToRuntimeAllowedWorkloadConfigurationOutput() RuntimeAllowedWorkloadConfigurationOutput {
+	return i.ToRuntimeAllowedWorkloadConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeAllowedWorkloadConfigurationArgs) ToRuntimeAllowedWorkloadConfigurationOutputWithContext(ctx context.Context) RuntimeAllowedWorkloadConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAllowedWorkloadConfigurationOutput)
+}
+
+func (i RuntimeAllowedWorkloadConfigurationArgs) ToRuntimeAllowedWorkloadConfigurationPtrOutput() RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return i.ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeAllowedWorkloadConfigurationArgs) ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAllowedWorkloadConfigurationOutput).ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeAllowedWorkloadConfigurationPtrInput is an input type that accepts RuntimeAllowedWorkloadConfigurationArgs, RuntimeAllowedWorkloadConfigurationPtr and RuntimeAllowedWorkloadConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeAllowedWorkloadConfigurationPtrInput` via:
+//
+//	        RuntimeAllowedWorkloadConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeAllowedWorkloadConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeAllowedWorkloadConfigurationPtrOutput() RuntimeAllowedWorkloadConfigurationPtrOutput
+	ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(context.Context) RuntimeAllowedWorkloadConfigurationPtrOutput
+}
+
+type runtimeAllowedWorkloadConfigurationPtrType RuntimeAllowedWorkloadConfigurationArgs
+
+func RuntimeAllowedWorkloadConfigurationPtr(v *RuntimeAllowedWorkloadConfigurationArgs) RuntimeAllowedWorkloadConfigurationPtrInput {
+	return (*runtimeAllowedWorkloadConfigurationPtrType)(v)
+}
+
+func (*runtimeAllowedWorkloadConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeAllowedWorkloadConfigurationPtrType) ToRuntimeAllowedWorkloadConfigurationPtrOutput() RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return i.ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeAllowedWorkloadConfigurationPtrType) ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeAllowedWorkloadConfigurationPtrOutput)
+}
+
+// Allow-list of upstream workloads permitted to reach this resource via the workload identity chain. When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+type RuntimeAllowedWorkloadConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAllowedWorkloadConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeAllowedWorkloadConfigurationOutput) ToRuntimeAllowedWorkloadConfigurationOutput() RuntimeAllowedWorkloadConfigurationOutput {
+	return o
+}
+
+func (o RuntimeAllowedWorkloadConfigurationOutput) ToRuntimeAllowedWorkloadConfigurationOutputWithContext(ctx context.Context) RuntimeAllowedWorkloadConfigurationOutput {
+	return o
+}
+
+func (o RuntimeAllowedWorkloadConfigurationOutput) ToRuntimeAllowedWorkloadConfigurationPtrOutput() RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return o.ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAllowedWorkloadConfigurationOutput) ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAllowedWorkloadConfiguration) *RuntimeAllowedWorkloadConfiguration {
+		return &v
+	}).(RuntimeAllowedWorkloadConfigurationPtrOutput)
+}
+
+func (o RuntimeAllowedWorkloadConfigurationOutput) HostingEnvironments() RuntimeHostingEnvironmentArrayOutput {
+	return o.ApplyT(func(v RuntimeAllowedWorkloadConfiguration) []RuntimeHostingEnvironment { return v.HostingEnvironments }).(RuntimeHostingEnvironmentArrayOutput)
+}
+
+func (o RuntimeAllowedWorkloadConfigurationOutput) WorkloadIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeAllowedWorkloadConfiguration) []string { return v.WorkloadIdentities }).(pulumi.StringArrayOutput)
+}
+
+type RuntimeAllowedWorkloadConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAllowedWorkloadConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAllowedWorkloadConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeAllowedWorkloadConfigurationPtrOutput) ToRuntimeAllowedWorkloadConfigurationPtrOutput() RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeAllowedWorkloadConfigurationPtrOutput) ToRuntimeAllowedWorkloadConfigurationPtrOutputWithContext(ctx context.Context) RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeAllowedWorkloadConfigurationPtrOutput) Elem() RuntimeAllowedWorkloadConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeAllowedWorkloadConfiguration) RuntimeAllowedWorkloadConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAllowedWorkloadConfiguration
+		return ret
+	}).(RuntimeAllowedWorkloadConfigurationOutput)
+}
+
+func (o RuntimeAllowedWorkloadConfigurationPtrOutput) HostingEnvironments() RuntimeHostingEnvironmentArrayOutput {
+	return o.ApplyT(func(v *RuntimeAllowedWorkloadConfiguration) []RuntimeHostingEnvironment {
+		if v == nil {
+			return nil
+		}
+		return v.HostingEnvironments
+	}).(RuntimeHostingEnvironmentArrayOutput)
+}
+
+func (o RuntimeAllowedWorkloadConfigurationPtrOutput) WorkloadIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeAllowedWorkloadConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkloadIdentities
+	}).(pulumi.StringArrayOutput)
+}
+
 // Configuration for the authorizer
 type RuntimeAuthorizerConfiguration struct {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
@@ -33556,11 +33707,14 @@ type RuntimeCustomJwtAuthorizerConfiguration struct {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience []string `pulumi:"allowedAudience"`
 	// Represents individual client IDs that are validated in the incoming JWT token validation process.
-	AllowedClients []string                           `pulumi:"allowedClients"`
-	AllowedScopes  []string                           `pulumi:"allowedScopes"`
-	CustomClaims   []RuntimeCustomClaimValidationType `pulumi:"customClaims"`
+	AllowedClients               []string                             `pulumi:"allowedClients"`
+	AllowedScopes                []string                             `pulumi:"allowedScopes"`
+	AllowedWorkloadConfiguration *RuntimeAllowedWorkloadConfiguration `pulumi:"allowedWorkloadConfiguration"`
+	CustomClaims                 []RuntimeCustomClaimValidationType   `pulumi:"customClaims"`
 	// The configuration authorization.
-	DiscoveryUrl string `pulumi:"discoveryUrl"`
+	DiscoveryUrl             string                           `pulumi:"discoveryUrl"`
+	PrivateEndpoint          *RuntimePrivateEndpoint          `pulumi:"privateEndpoint"`
+	PrivateEndpointOverrides []RuntimePrivateEndpointOverride `pulumi:"privateEndpointOverrides"`
 }
 
 // RuntimeCustomJwtAuthorizerConfigurationInput is an input type that accepts RuntimeCustomJwtAuthorizerConfigurationArgs and RuntimeCustomJwtAuthorizerConfigurationOutput values.
@@ -33579,11 +33733,14 @@ type RuntimeCustomJwtAuthorizerConfigurationArgs struct {
 	// Represents inbound authorization configuration options used to authenticate incoming requests.
 	AllowedAudience pulumi.StringArrayInput `pulumi:"allowedAudience"`
 	// Represents individual client IDs that are validated in the incoming JWT token validation process.
-	AllowedClients pulumi.StringArrayInput                    `pulumi:"allowedClients"`
-	AllowedScopes  pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
-	CustomClaims   RuntimeCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
+	AllowedClients               pulumi.StringArrayInput                     `pulumi:"allowedClients"`
+	AllowedScopes                pulumi.StringArrayInput                     `pulumi:"allowedScopes"`
+	AllowedWorkloadConfiguration RuntimeAllowedWorkloadConfigurationPtrInput `pulumi:"allowedWorkloadConfiguration"`
+	CustomClaims                 RuntimeCustomClaimValidationTypeArrayInput  `pulumi:"customClaims"`
 	// The configuration authorization.
-	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+	DiscoveryUrl             pulumi.StringInput                       `pulumi:"discoveryUrl"`
+	PrivateEndpoint          RuntimePrivateEndpointPtrInput           `pulumi:"privateEndpoint"`
+	PrivateEndpointOverrides RuntimePrivateEndpointOverrideArrayInput `pulumi:"privateEndpointOverrides"`
 }
 
 func (RuntimeCustomJwtAuthorizerConfigurationArgs) ElementType() reflect.Type {
@@ -33678,6 +33835,12 @@ func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedScopes() pulumi.St
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
 }
 
+func (o RuntimeCustomJwtAuthorizerConfigurationOutput) AllowedWorkloadConfiguration() RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) *RuntimeAllowedWorkloadConfiguration {
+		return v.AllowedWorkloadConfiguration
+	}).(RuntimeAllowedWorkloadConfigurationPtrOutput)
+}
+
 func (o RuntimeCustomJwtAuthorizerConfigurationOutput) CustomClaims() RuntimeCustomClaimValidationTypeArrayOutput {
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []RuntimeCustomClaimValidationType {
 		return v.CustomClaims
@@ -33687,6 +33850,16 @@ func (o RuntimeCustomJwtAuthorizerConfigurationOutput) CustomClaims() RuntimeCus
 // The configuration authorization.
 func (o RuntimeCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationOutput) PrivateEndpoint() RuntimePrivateEndpointPtrOutput {
+	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) *RuntimePrivateEndpoint { return v.PrivateEndpoint }).(RuntimePrivateEndpointPtrOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationOutput) PrivateEndpointOverrides() RuntimePrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v RuntimeCustomJwtAuthorizerConfiguration) []RuntimePrivateEndpointOverride {
+		return v.PrivateEndpointOverrides
+	}).(RuntimePrivateEndpointOverrideArrayOutput)
 }
 
 type RuntimeCustomJwtAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -33742,6 +33915,15 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedScopes() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) AllowedWorkloadConfiguration() RuntimeAllowedWorkloadConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) *RuntimeAllowedWorkloadConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedWorkloadConfiguration
+	}).(RuntimeAllowedWorkloadConfigurationPtrOutput)
+}
+
 func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() RuntimeCustomClaimValidationTypeArrayOutput {
 	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []RuntimeCustomClaimValidationType {
 		if v == nil {
@@ -33759,6 +33941,24 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 		}
 		return &v.DiscoveryUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) PrivateEndpoint() RuntimePrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) *RuntimePrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(RuntimePrivateEndpointPtrOutput)
+}
+
+func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) PrivateEndpointOverrides() RuntimePrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v *RuntimeCustomJwtAuthorizerConfiguration) []RuntimePrivateEndpointOverride {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointOverrides
+	}).(RuntimePrivateEndpointOverrideArrayOutput)
 }
 
 // Configuration for EFS access point filesystem
@@ -34023,6 +34223,106 @@ func (o RuntimeFilesystemConfigurationArrayOutput) Index(i pulumi.IntInput) Runt
 	}).(RuntimeFilesystemConfigurationOutput)
 }
 
+// An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
+type RuntimeHostingEnvironment struct {
+	// The ARN of the bedrock-agentcore hosting environment
+	Arn string `pulumi:"arn"`
+}
+
+// RuntimeHostingEnvironmentInput is an input type that accepts RuntimeHostingEnvironmentArgs and RuntimeHostingEnvironmentOutput values.
+// You can construct a concrete instance of `RuntimeHostingEnvironmentInput` via:
+//
+//	RuntimeHostingEnvironmentArgs{...}
+type RuntimeHostingEnvironmentInput interface {
+	pulumi.Input
+
+	ToRuntimeHostingEnvironmentOutput() RuntimeHostingEnvironmentOutput
+	ToRuntimeHostingEnvironmentOutputWithContext(context.Context) RuntimeHostingEnvironmentOutput
+}
+
+// An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
+type RuntimeHostingEnvironmentArgs struct {
+	// The ARN of the bedrock-agentcore hosting environment
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (RuntimeHostingEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeHostingEnvironment)(nil)).Elem()
+}
+
+func (i RuntimeHostingEnvironmentArgs) ToRuntimeHostingEnvironmentOutput() RuntimeHostingEnvironmentOutput {
+	return i.ToRuntimeHostingEnvironmentOutputWithContext(context.Background())
+}
+
+func (i RuntimeHostingEnvironmentArgs) ToRuntimeHostingEnvironmentOutputWithContext(ctx context.Context) RuntimeHostingEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeHostingEnvironmentOutput)
+}
+
+// RuntimeHostingEnvironmentArrayInput is an input type that accepts RuntimeHostingEnvironmentArray and RuntimeHostingEnvironmentArrayOutput values.
+// You can construct a concrete instance of `RuntimeHostingEnvironmentArrayInput` via:
+//
+//	RuntimeHostingEnvironmentArray{ RuntimeHostingEnvironmentArgs{...} }
+type RuntimeHostingEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToRuntimeHostingEnvironmentArrayOutput() RuntimeHostingEnvironmentArrayOutput
+	ToRuntimeHostingEnvironmentArrayOutputWithContext(context.Context) RuntimeHostingEnvironmentArrayOutput
+}
+
+type RuntimeHostingEnvironmentArray []RuntimeHostingEnvironmentInput
+
+func (RuntimeHostingEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeHostingEnvironment)(nil)).Elem()
+}
+
+func (i RuntimeHostingEnvironmentArray) ToRuntimeHostingEnvironmentArrayOutput() RuntimeHostingEnvironmentArrayOutput {
+	return i.ToRuntimeHostingEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i RuntimeHostingEnvironmentArray) ToRuntimeHostingEnvironmentArrayOutputWithContext(ctx context.Context) RuntimeHostingEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeHostingEnvironmentArrayOutput)
+}
+
+// An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
+type RuntimeHostingEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (RuntimeHostingEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeHostingEnvironment)(nil)).Elem()
+}
+
+func (o RuntimeHostingEnvironmentOutput) ToRuntimeHostingEnvironmentOutput() RuntimeHostingEnvironmentOutput {
+	return o
+}
+
+func (o RuntimeHostingEnvironmentOutput) ToRuntimeHostingEnvironmentOutputWithContext(ctx context.Context) RuntimeHostingEnvironmentOutput {
+	return o
+}
+
+// The ARN of the bedrock-agentcore hosting environment
+func (o RuntimeHostingEnvironmentOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeHostingEnvironment) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type RuntimeHostingEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimeHostingEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimeHostingEnvironment)(nil)).Elem()
+}
+
+func (o RuntimeHostingEnvironmentArrayOutput) ToRuntimeHostingEnvironmentArrayOutput() RuntimeHostingEnvironmentArrayOutput {
+	return o
+}
+
+func (o RuntimeHostingEnvironmentArrayOutput) ToRuntimeHostingEnvironmentArrayOutputWithContext(ctx context.Context) RuntimeHostingEnvironmentArrayOutput {
+	return o
+}
+
+func (o RuntimeHostingEnvironmentArrayOutput) Index(i pulumi.IntInput) RuntimeHostingEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimeHostingEnvironment {
+		return vs[0].([]RuntimeHostingEnvironment)[vs[1].(int)]
+	}).(RuntimeHostingEnvironmentOutput)
+}
+
 // Configuration for managing the lifecycle of runtime sessions and resources
 type RuntimeLifecycleConfiguration struct {
 	// Timeout in seconds for idle runtime sessions
@@ -34281,6 +34581,233 @@ func (o RuntimeNetworkConfigurationPtrOutput) NetworkModeConfig() RuntimeVpcConf
 		}
 		return v.NetworkModeConfig
 	}).(RuntimeVpcConfigPtrOutput)
+}
+
+// Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+type RuntimePrivateEndpoint struct {
+}
+
+// RuntimePrivateEndpointInput is an input type that accepts RuntimePrivateEndpointArgs and RuntimePrivateEndpointOutput values.
+// You can construct a concrete instance of `RuntimePrivateEndpointInput` via:
+//
+//	RuntimePrivateEndpointArgs{...}
+type RuntimePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToRuntimePrivateEndpointOutput() RuntimePrivateEndpointOutput
+	ToRuntimePrivateEndpointOutputWithContext(context.Context) RuntimePrivateEndpointOutput
+}
+
+// Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+type RuntimePrivateEndpointArgs struct {
+}
+
+func (RuntimePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimePrivateEndpoint)(nil)).Elem()
+}
+
+func (i RuntimePrivateEndpointArgs) ToRuntimePrivateEndpointOutput() RuntimePrivateEndpointOutput {
+	return i.ToRuntimePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i RuntimePrivateEndpointArgs) ToRuntimePrivateEndpointOutputWithContext(ctx context.Context) RuntimePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimePrivateEndpointOutput)
+}
+
+func (i RuntimePrivateEndpointArgs) ToRuntimePrivateEndpointPtrOutput() RuntimePrivateEndpointPtrOutput {
+	return i.ToRuntimePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimePrivateEndpointArgs) ToRuntimePrivateEndpointPtrOutputWithContext(ctx context.Context) RuntimePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimePrivateEndpointOutput).ToRuntimePrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// RuntimePrivateEndpointPtrInput is an input type that accepts RuntimePrivateEndpointArgs, RuntimePrivateEndpointPtr and RuntimePrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `RuntimePrivateEndpointPtrInput` via:
+//
+//	        RuntimePrivateEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimePrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToRuntimePrivateEndpointPtrOutput() RuntimePrivateEndpointPtrOutput
+	ToRuntimePrivateEndpointPtrOutputWithContext(context.Context) RuntimePrivateEndpointPtrOutput
+}
+
+type runtimePrivateEndpointPtrType RuntimePrivateEndpointArgs
+
+func RuntimePrivateEndpointPtr(v *RuntimePrivateEndpointArgs) RuntimePrivateEndpointPtrInput {
+	return (*runtimePrivateEndpointPtrType)(v)
+}
+
+func (*runtimePrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimePrivateEndpoint)(nil)).Elem()
+}
+
+func (i *runtimePrivateEndpointPtrType) ToRuntimePrivateEndpointPtrOutput() RuntimePrivateEndpointPtrOutput {
+	return i.ToRuntimePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimePrivateEndpointPtrType) ToRuntimePrivateEndpointPtrOutputWithContext(ctx context.Context) RuntimePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimePrivateEndpointPtrOutput)
+}
+
+// Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+type RuntimePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (RuntimePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimePrivateEndpoint)(nil)).Elem()
+}
+
+func (o RuntimePrivateEndpointOutput) ToRuntimePrivateEndpointOutput() RuntimePrivateEndpointOutput {
+	return o
+}
+
+func (o RuntimePrivateEndpointOutput) ToRuntimePrivateEndpointOutputWithContext(ctx context.Context) RuntimePrivateEndpointOutput {
+	return o
+}
+
+func (o RuntimePrivateEndpointOutput) ToRuntimePrivateEndpointPtrOutput() RuntimePrivateEndpointPtrOutput {
+	return o.ToRuntimePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimePrivateEndpointOutput) ToRuntimePrivateEndpointPtrOutputWithContext(ctx context.Context) RuntimePrivateEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimePrivateEndpoint) *RuntimePrivateEndpoint {
+		return &v
+	}).(RuntimePrivateEndpointPtrOutput)
+}
+
+type RuntimePrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimePrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimePrivateEndpoint)(nil)).Elem()
+}
+
+func (o RuntimePrivateEndpointPtrOutput) ToRuntimePrivateEndpointPtrOutput() RuntimePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o RuntimePrivateEndpointPtrOutput) ToRuntimePrivateEndpointPtrOutputWithContext(ctx context.Context) RuntimePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o RuntimePrivateEndpointPtrOutput) Elem() RuntimePrivateEndpointOutput {
+	return o.ApplyT(func(v *RuntimePrivateEndpoint) RuntimePrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimePrivateEndpoint
+		return ret
+	}).(RuntimePrivateEndpointOutput)
+}
+
+// Override mapping of a domain to a private endpoint
+type RuntimePrivateEndpointOverride struct {
+	// The domain to override
+	Domain          string                 `pulumi:"domain"`
+	PrivateEndpoint RuntimePrivateEndpoint `pulumi:"privateEndpoint"`
+}
+
+// RuntimePrivateEndpointOverrideInput is an input type that accepts RuntimePrivateEndpointOverrideArgs and RuntimePrivateEndpointOverrideOutput values.
+// You can construct a concrete instance of `RuntimePrivateEndpointOverrideInput` via:
+//
+//	RuntimePrivateEndpointOverrideArgs{...}
+type RuntimePrivateEndpointOverrideInput interface {
+	pulumi.Input
+
+	ToRuntimePrivateEndpointOverrideOutput() RuntimePrivateEndpointOverrideOutput
+	ToRuntimePrivateEndpointOverrideOutputWithContext(context.Context) RuntimePrivateEndpointOverrideOutput
+}
+
+// Override mapping of a domain to a private endpoint
+type RuntimePrivateEndpointOverrideArgs struct {
+	// The domain to override
+	Domain          pulumi.StringInput          `pulumi:"domain"`
+	PrivateEndpoint RuntimePrivateEndpointInput `pulumi:"privateEndpoint"`
+}
+
+func (RuntimePrivateEndpointOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimePrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i RuntimePrivateEndpointOverrideArgs) ToRuntimePrivateEndpointOverrideOutput() RuntimePrivateEndpointOverrideOutput {
+	return i.ToRuntimePrivateEndpointOverrideOutputWithContext(context.Background())
+}
+
+func (i RuntimePrivateEndpointOverrideArgs) ToRuntimePrivateEndpointOverrideOutputWithContext(ctx context.Context) RuntimePrivateEndpointOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimePrivateEndpointOverrideOutput)
+}
+
+// RuntimePrivateEndpointOverrideArrayInput is an input type that accepts RuntimePrivateEndpointOverrideArray and RuntimePrivateEndpointOverrideArrayOutput values.
+// You can construct a concrete instance of `RuntimePrivateEndpointOverrideArrayInput` via:
+//
+//	RuntimePrivateEndpointOverrideArray{ RuntimePrivateEndpointOverrideArgs{...} }
+type RuntimePrivateEndpointOverrideArrayInput interface {
+	pulumi.Input
+
+	ToRuntimePrivateEndpointOverrideArrayOutput() RuntimePrivateEndpointOverrideArrayOutput
+	ToRuntimePrivateEndpointOverrideArrayOutputWithContext(context.Context) RuntimePrivateEndpointOverrideArrayOutput
+}
+
+type RuntimePrivateEndpointOverrideArray []RuntimePrivateEndpointOverrideInput
+
+func (RuntimePrivateEndpointOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimePrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i RuntimePrivateEndpointOverrideArray) ToRuntimePrivateEndpointOverrideArrayOutput() RuntimePrivateEndpointOverrideArrayOutput {
+	return i.ToRuntimePrivateEndpointOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i RuntimePrivateEndpointOverrideArray) ToRuntimePrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) RuntimePrivateEndpointOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimePrivateEndpointOverrideArrayOutput)
+}
+
+// Override mapping of a domain to a private endpoint
+type RuntimePrivateEndpointOverrideOutput struct{ *pulumi.OutputState }
+
+func (RuntimePrivateEndpointOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimePrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o RuntimePrivateEndpointOverrideOutput) ToRuntimePrivateEndpointOverrideOutput() RuntimePrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o RuntimePrivateEndpointOverrideOutput) ToRuntimePrivateEndpointOverrideOutputWithContext(ctx context.Context) RuntimePrivateEndpointOverrideOutput {
+	return o
+}
+
+// The domain to override
+func (o RuntimePrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimePrivateEndpointOverride) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o RuntimePrivateEndpointOverrideOutput) PrivateEndpoint() RuntimePrivateEndpointOutput {
+	return o.ApplyT(func(v RuntimePrivateEndpointOverride) RuntimePrivateEndpoint { return v.PrivateEndpoint }).(RuntimePrivateEndpointOutput)
+}
+
+type RuntimePrivateEndpointOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (RuntimePrivateEndpointOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuntimePrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o RuntimePrivateEndpointOverrideArrayOutput) ToRuntimePrivateEndpointOverrideArrayOutput() RuntimePrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o RuntimePrivateEndpointOverrideArrayOutput) ToRuntimePrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) RuntimePrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o RuntimePrivateEndpointOverrideArrayOutput) Index(i pulumi.IntInput) RuntimePrivateEndpointOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuntimePrivateEndpointOverride {
+		return vs[0].([]RuntimePrivateEndpointOverride)[vs[1].(int)]
+	}).(RuntimePrivateEndpointOverrideOutput)
 }
 
 // Configuration for HTTP request headers
@@ -35507,6 +36034,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementInput)(nil)).Elem(), PolicyStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementPtrInput)(nil)).Elem(), PolicyStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAllowedWorkloadConfigurationInput)(nil)).Elem(), RuntimeAllowedWorkloadConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAllowedWorkloadConfigurationPtrInput)(nil)).Elem(), RuntimeAllowedWorkloadConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), RuntimeAuthorizingClaimMatchValueTypeArgs{})
@@ -35525,9 +36054,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeEfsAccessPointConfigurationPtrInput)(nil)).Elem(), RuntimeEfsAccessPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeFilesystemConfigurationInput)(nil)).Elem(), RuntimeFilesystemConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeFilesystemConfigurationArrayInput)(nil)).Elem(), RuntimeFilesystemConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeHostingEnvironmentInput)(nil)).Elem(), RuntimeHostingEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeHostingEnvironmentArrayInput)(nil)).Elem(), RuntimeHostingEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationPtrInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointInput)(nil)).Elem(), RuntimePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointPtrInput)(nil)).Elem(), RuntimePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointOverrideInput)(nil)).Elem(), RuntimePrivateEndpointOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointOverrideArrayInput)(nil)).Elem(), RuntimePrivateEndpointOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeRequestHeaderConfigurationInput)(nil)).Elem(), RuntimeRequestHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeRequestHeaderConfigurationPtrInput)(nil)).Elem(), RuntimeRequestHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3FilesAccessPointConfigurationInput)(nil)).Elem(), RuntimeS3FilesAccessPointConfigurationArgs{})
@@ -36006,6 +36541,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAllowedWorkloadConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeAllowedWorkloadConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizingClaimMatchValueTypeOutput{})
@@ -36024,10 +36561,16 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeEfsAccessPointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeFilesystemConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeFilesystemConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(RuntimeHostingEnvironmentOutput{})
+	pulumi.RegisterOutputType(RuntimeHostingEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(RuntimePrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(RuntimePrivateEndpointOverrideOutput{})
+	pulumi.RegisterOutputType(RuntimePrivateEndpointOverrideArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeRequestHeaderConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeRequestHeaderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeS3FilesAccessPointConfigurationOutput{})

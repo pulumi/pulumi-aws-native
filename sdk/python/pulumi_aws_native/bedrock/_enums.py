@@ -676,6 +676,7 @@ class EnforcedGuardrailConfigurationConfigOwner(_builtins.str, Enum):
     Configuration owner type
     """
     ACCOUNT = "ACCOUNT"
+    ORGANIZATION = "ORGANIZATION"
 
 
 @pulumi.type_token("aws-native:bedrock:EnforcedGuardrailConfigurationSelectiveContentGuardingMessages")

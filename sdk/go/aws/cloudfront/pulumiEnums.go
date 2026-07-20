@@ -2376,6 +2376,171 @@ func (o TrustStoreStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
+type VpcOriginEndpointConfigIpAddressType string
+
+const (
+	VpcOriginEndpointConfigIpAddressTypeIpv4      = VpcOriginEndpointConfigIpAddressType("ipv4")
+	VpcOriginEndpointConfigIpAddressTypeDualstack = VpcOriginEndpointConfigIpAddressType("dualstack")
+)
+
+func (VpcOriginEndpointConfigIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcOriginEndpointConfigIpAddressType)(nil)).Elem()
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToVpcOriginEndpointConfigIpAddressTypeOutput() VpcOriginEndpointConfigIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(VpcOriginEndpointConfigIpAddressTypeOutput)
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToVpcOriginEndpointConfigIpAddressTypeOutputWithContext(ctx context.Context) VpcOriginEndpointConfigIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcOriginEndpointConfigIpAddressTypeOutput)
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToVpcOriginEndpointConfigIpAddressTypePtrOutput() VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return e.ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(ctx context.Context) VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return VpcOriginEndpointConfigIpAddressType(e).ToVpcOriginEndpointConfigIpAddressTypeOutputWithContext(ctx).ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcOriginEndpointConfigIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcOriginEndpointConfigIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (VpcOriginEndpointConfigIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcOriginEndpointConfigIpAddressType)(nil)).Elem()
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToVpcOriginEndpointConfigIpAddressTypeOutput() VpcOriginEndpointConfigIpAddressTypeOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToVpcOriginEndpointConfigIpAddressTypeOutputWithContext(ctx context.Context) VpcOriginEndpointConfigIpAddressTypeOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToVpcOriginEndpointConfigIpAddressTypePtrOutput() VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return o.ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(ctx context.Context) VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcOriginEndpointConfigIpAddressType) *VpcOriginEndpointConfigIpAddressType {
+		return &v
+	}).(VpcOriginEndpointConfigIpAddressTypePtrOutput)
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcOriginEndpointConfigIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcOriginEndpointConfigIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcOriginEndpointConfigIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcOriginEndpointConfigIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcOriginEndpointConfigIpAddressType)(nil)).Elem()
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypePtrOutput) ToVpcOriginEndpointConfigIpAddressTypePtrOutput() VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypePtrOutput) ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(ctx context.Context) VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return o
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypePtrOutput) Elem() VpcOriginEndpointConfigIpAddressTypeOutput {
+	return o.ApplyT(func(v *VpcOriginEndpointConfigIpAddressType) VpcOriginEndpointConfigIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret VpcOriginEndpointConfigIpAddressType
+		return ret
+	}).(VpcOriginEndpointConfigIpAddressTypeOutput)
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcOriginEndpointConfigIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcOriginEndpointConfigIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcOriginEndpointConfigIpAddressTypeInput is an input type that accepts values of the VpcOriginEndpointConfigIpAddressType enum
+// A concrete instance of `VpcOriginEndpointConfigIpAddressTypeInput` can be one of the following:
+//
+//	VpcOriginEndpointConfigIpAddressTypeIpv4
+//	VpcOriginEndpointConfigIpAddressTypeDualstack
+type VpcOriginEndpointConfigIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToVpcOriginEndpointConfigIpAddressTypeOutput() VpcOriginEndpointConfigIpAddressTypeOutput
+	ToVpcOriginEndpointConfigIpAddressTypeOutputWithContext(context.Context) VpcOriginEndpointConfigIpAddressTypeOutput
+}
+
+var vpcOriginEndpointConfigIpAddressTypePtrType = reflect.TypeOf((**VpcOriginEndpointConfigIpAddressType)(nil)).Elem()
+
+type VpcOriginEndpointConfigIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToVpcOriginEndpointConfigIpAddressTypePtrOutput() VpcOriginEndpointConfigIpAddressTypePtrOutput
+	ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(context.Context) VpcOriginEndpointConfigIpAddressTypePtrOutput
+}
+
+type vpcOriginEndpointConfigIpAddressTypePtr string
+
+func VpcOriginEndpointConfigIpAddressTypePtr(v string) VpcOriginEndpointConfigIpAddressTypePtrInput {
+	return (*vpcOriginEndpointConfigIpAddressTypePtr)(&v)
+}
+
+func (*vpcOriginEndpointConfigIpAddressTypePtr) ElementType() reflect.Type {
+	return vpcOriginEndpointConfigIpAddressTypePtrType
+}
+
+func (in *vpcOriginEndpointConfigIpAddressTypePtr) ToVpcOriginEndpointConfigIpAddressTypePtrOutput() VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(VpcOriginEndpointConfigIpAddressTypePtrOutput)
+}
+
+func (in *vpcOriginEndpointConfigIpAddressTypePtr) ToVpcOriginEndpointConfigIpAddressTypePtrOutputWithContext(ctx context.Context) VpcOriginEndpointConfigIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcOriginEndpointConfigIpAddressTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConfigRuntimeInput)(nil)).Elem(), ConnectionFunctionConfigRuntime("cloudfront-js-2.0"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConfigRuntimePtrInput)(nil)).Elem(), ConnectionFunctionConfigRuntime("cloudfront-js-2.0"))
@@ -2401,6 +2566,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsModePtrInput)(nil)).Elem(), DistributionViewerMtlsMode("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginEndpointConfigIpAddressTypeInput)(nil)).Elem(), VpcOriginEndpointConfigIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginEndpointConfigIpAddressTypePtrInput)(nil)).Elem(), VpcOriginEndpointConfigIpAddressType("ipv4"))
 	pulumi.RegisterOutputType(ConnectionFunctionConfigRuntimeOutput{})
 	pulumi.RegisterOutputType(ConnectionFunctionConfigRuntimePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionFunctionStageOutput{})
@@ -2433,4 +2600,6 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput{})
 	pulumi.RegisterOutputType(TrustStoreStatusOutput{})
 	pulumi.RegisterOutputType(TrustStoreStatusPtrOutput{})
+	pulumi.RegisterOutputType(VpcOriginEndpointConfigIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(VpcOriginEndpointConfigIpAddressTypePtrOutput{})
 }

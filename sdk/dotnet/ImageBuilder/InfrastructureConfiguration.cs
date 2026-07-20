@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
-    /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+    /// Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:InfrastructureConfiguration")]
     public partial class InfrastructureConfiguration : global::Pulumi.CustomResource

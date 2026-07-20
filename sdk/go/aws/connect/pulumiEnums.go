@@ -7490,7 +7490,6 @@ func (in *ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtr) ToRuleAssign
 	return pulumi.ToOutputWithContext(ctx, in).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput)
 }
 
-// The type of SLA assignment.
 type RuleAssignSlaActionSlaAssignmentType string
 
 const (

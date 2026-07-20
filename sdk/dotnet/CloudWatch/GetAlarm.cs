@@ -117,6 +117,7 @@ namespace Pulumi.AwsNative.CloudWatch
         ///  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         /// </summary>
         public readonly int? EvaluationPeriods;
+        public readonly Outputs.AlarmEvaluationWindow? EvaluationWindow;
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         ///  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
@@ -205,6 +206,8 @@ namespace Pulumi.AwsNative.CloudWatch
 
             int? evaluationPeriods,
 
+            Outputs.AlarmEvaluationWindow? evaluationWindow,
+
             string? extendedStatistic,
 
             ImmutableArray<string> insufficientDataActions,
@@ -242,6 +245,7 @@ namespace Pulumi.AwsNative.CloudWatch
             EvaluationCriteria = evaluationCriteria;
             EvaluationInterval = evaluationInterval;
             EvaluationPeriods = evaluationPeriods;
+            EvaluationWindow = evaluationWindow;
             ExtendedStatistic = extendedStatistic;
             InsufficientDataActions = insufficientDataActions;
             MetricName = metricName;

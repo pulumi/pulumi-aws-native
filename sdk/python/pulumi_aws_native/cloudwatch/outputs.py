@@ -19,12 +19,15 @@ from ._enums import *
 __all__ = [
     'AlarmDimension',
     'AlarmEvaluationCriteria',
+    'AlarmEvaluationWindow',
     'AlarmMetric',
     'AlarmMetricDataQuery',
     'AlarmMetricStat',
     'AlarmPromQlCriteria',
+    'AlarmWallClockWindow',
     'LogAlarmScheduleConfiguration',
     'LogAlarmScheduledQueryConfiguration',
+    'LogAlarmTag',
     'MetricStreamFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsMetric',
@@ -106,6 +109,56 @@ class AlarmEvaluationCriteria(dict):
         The PromQL criteria for the alarm evaluation.
         """
         return pulumi.get(self, "prom_ql_criteria")
+
+
+@pulumi.output_type
+class AlarmEvaluationWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slidingWindow":
+            suggest = "sliding_window"
+        elif key == "wallClockWindow":
+            suggest = "wall_clock_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlarmEvaluationWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlarmEvaluationWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlarmEvaluationWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sliding_window: Optional[Any] = None,
+                 wall_clock_window: Optional['outputs.AlarmWallClockWindow'] = None):
+        """
+        :param Any sliding_window: Configuration for sliding evaluation window (default behavior).
+        :param 'AlarmWallClockWindow' wall_clock_window: Configuration for wall clock based evaluation window.
+        """
+        if sliding_window is not None:
+            pulumi.set(__self__, "sliding_window", sliding_window)
+        if wall_clock_window is not None:
+            pulumi.set(__self__, "wall_clock_window", wall_clock_window)
+
+    @_builtins.property
+    @pulumi.getter(name="slidingWindow")
+    def sliding_window(self) -> Optional[Any]:
+        """
+        Configuration for sliding evaluation window (default behavior).
+        """
+        return pulumi.get(self, "sliding_window")
+
+    @_builtins.property
+    @pulumi.getter(name="wallClockWindow")
+    def wall_clock_window(self) -> Optional['outputs.AlarmWallClockWindow']:
+        """
+        Configuration for wall clock based evaluation window.
+        """
+        return pulumi.get(self, "wall_clock_window")
 
 
 @pulumi.output_type
@@ -436,6 +489,25 @@ class AlarmPromQlCriteria(dict):
 
 
 @pulumi.output_type
+class AlarmWallClockWindow(dict):
+    def __init__(__self__, *,
+                 timezone: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str timezone: The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+        """
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
 class LogAlarmScheduleConfiguration(dict):
     """
     The schedule configuration for the scheduled query.
@@ -445,10 +517,10 @@ class LogAlarmScheduleConfiguration(dict):
         suggest = None
         if key == "scheduleExpression":
             suggest = "schedule_expression"
-        elif key == "endTimeOffset":
-            suggest = "end_time_offset"
         elif key == "startTimeOffset":
             suggest = "start_time_offset"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogAlarmScheduleConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -463,20 +535,19 @@ class LogAlarmScheduleConfiguration(dict):
 
     def __init__(__self__, *,
                  schedule_expression: _builtins.str,
-                 end_time_offset: Optional[_builtins.int] = None,
-                 start_time_offset: Optional[_builtins.int] = None):
+                 start_time_offset: _builtins.int,
+                 end_time_offset: Optional[_builtins.int] = None):
         """
         The schedule configuration for the scheduled query.
 
         :param _builtins.str schedule_expression: The expression that defines when the scheduled query runs, e.g. rate(1 minute).
-        :param _builtins.int end_time_offset: The number of seconds into the past to end the query window.
-        :param _builtins.int start_time_offset: The number of seconds into the past to start the query window.
+        :param _builtins.int start_time_offset: The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
+        :param _builtins.int end_time_offset: The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
+        pulumi.set(__self__, "start_time_offset", start_time_offset)
         if end_time_offset is not None:
             pulumi.set(__self__, "end_time_offset", end_time_offset)
-        if start_time_offset is not None:
-            pulumi.set(__self__, "start_time_offset", start_time_offset)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")
@@ -487,20 +558,20 @@ class LogAlarmScheduleConfiguration(dict):
         return pulumi.get(self, "schedule_expression")
 
     @_builtins.property
+    @pulumi.getter(name="startTimeOffset")
+    def start_time_offset(self) -> _builtins.int:
+        """
+        The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
+        """
+        return pulumi.get(self, "start_time_offset")
+
+    @_builtins.property
     @pulumi.getter(name="endTimeOffset")
     def end_time_offset(self) -> Optional[_builtins.int]:
         """
-        The number of seconds into the past to end the query window.
+        The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
         """
         return pulumi.get(self, "end_time_offset")
-
-    @_builtins.property
-    @pulumi.getter(name="startTimeOffset")
-    def start_time_offset(self) -> Optional[_builtins.int]:
-        """
-        The number of seconds into the past to start the query window.
-        """
-        return pulumi.get(self, "start_time_offset")
 
 
 @pulumi.output_type
@@ -513,14 +584,14 @@ class LogAlarmScheduledQueryConfiguration(dict):
         suggest = None
         if key == "aggregationExpression":
             suggest = "aggregation_expression"
-        elif key == "logGroupIdentifiers":
-            suggest = "log_group_identifiers"
         elif key == "queryString":
             suggest = "query_string"
         elif key == "scheduleConfiguration":
             suggest = "schedule_configuration"
         elif key == "scheduledQueryRoleArn":
             suggest = "scheduled_query_role_arn"
+        elif key == "logGroupIdentifiers":
+            suggest = "log_group_identifiers"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogAlarmScheduledQueryConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -535,24 +606,29 @@ class LogAlarmScheduledQueryConfiguration(dict):
 
     def __init__(__self__, *,
                  aggregation_expression: _builtins.str,
-                 log_group_identifiers: Sequence[_builtins.str],
                  query_string: _builtins.str,
                  schedule_configuration: 'outputs.LogAlarmScheduleConfiguration',
-                 scheduled_query_role_arn: _builtins.str):
+                 scheduled_query_role_arn: _builtins.str,
+                 log_group_identifiers: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Sequence['outputs.LogAlarmTag']] = None):
         """
         The scheduled query configuration for the log alarm.
 
         :param _builtins.str aggregation_expression: The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
-        :param Sequence[_builtins.str] log_group_identifiers: The log groups to query.
         :param _builtins.str query_string: The query string to execute against the specified log groups.
         :param 'LogAlarmScheduleConfiguration' schedule_configuration: The schedule configuration.
         :param _builtins.str scheduled_query_role_arn: The ARN of the IAM role that grants permissions to execute the scheduled query.
+        :param Sequence[_builtins.str] log_group_identifiers: The log groups to query.
+        :param Sequence['LogAlarmTag'] tags: A list of key-value pairs to associate with the scheduled query that backs the log alarm.
         """
         pulumi.set(__self__, "aggregation_expression", aggregation_expression)
-        pulumi.set(__self__, "log_group_identifiers", log_group_identifiers)
         pulumi.set(__self__, "query_string", query_string)
         pulumi.set(__self__, "schedule_configuration", schedule_configuration)
         pulumi.set(__self__, "scheduled_query_role_arn", scheduled_query_role_arn)
+        if log_group_identifiers is not None:
+            pulumi.set(__self__, "log_group_identifiers", log_group_identifiers)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="aggregationExpression")
@@ -561,14 +637,6 @@ class LogAlarmScheduledQueryConfiguration(dict):
         The aggregation expression for the scheduled query, e.g. count(*) or avg(latency) by host.
         """
         return pulumi.get(self, "aggregation_expression")
-
-    @_builtins.property
-    @pulumi.getter(name="logGroupIdentifiers")
-    def log_group_identifiers(self) -> Sequence[_builtins.str]:
-        """
-        The log groups to query.
-        """
-        return pulumi.get(self, "log_group_identifiers")
 
     @_builtins.property
     @pulumi.getter(name="queryString")
@@ -593,6 +661,56 @@ class LogAlarmScheduledQueryConfiguration(dict):
         The ARN of the IAM role that grants permissions to execute the scheduled query.
         """
         return pulumi.get(self, "scheduled_query_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupIdentifiers")
+    def log_group_identifiers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The log groups to query.
+        """
+        return pulumi.get(self, "log_group_identifiers")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.LogAlarmTag']]:
+        """
+        A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class LogAlarmTag(dict):
+    """
+    Metadata that you can assign to a log alarm. Tags can help you organize and categorize your resources.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        Metadata that you can assign to a log alarm. Tags can help you organize and categorize your resources.
+
+        :param _builtins.str key: A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+        :param _builtins.str value: The value for the specified tag key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value for the specified tag key.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

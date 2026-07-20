@@ -52,7 +52,7 @@ export class DataTable extends pulumi.CustomResource {
     /**
      * The identifier of the Amazon Connect instance.
      */
-    declare public readonly instanceArn: pulumi.Output<string | undefined>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * Last modified region.
      */
@@ -68,11 +68,11 @@ export class DataTable extends pulumi.CustomResource {
     /**
      * The name of the Data Table
      */
-    declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The status of the Data Table
      */
-    declare public readonly status: pulumi.Output<enums.connect.DataTableStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.connect.DataTableStatus>;
     /**
      * One or more tags.
      */
@@ -80,11 +80,11 @@ export class DataTable extends pulumi.CustomResource {
     /**
      * The time zone of the Data Table
      */
-    declare public readonly timeZone: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string>;
     /**
      * The value lock level of the Data Table
      */
-    declare public readonly valueLockLevel: pulumi.Output<enums.connect.DataTableValueLockLevel | undefined>;
+    declare public readonly valueLockLevel: pulumi.Output<enums.connect.DataTableValueLockLevel>;
 
     /**
      * Create a DataTable resource with the given unique name, arguments, and options.
@@ -93,10 +93,22 @@ export class DataTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataTableArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataTableArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.instanceArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'instanceArn'");
+            }
+            if (args?.status === undefined && !opts.urn) {
+                throw new Error("Missing required property 'status'");
+            }
+            if (args?.timeZone === undefined && !opts.urn) {
+                throw new Error("Missing required property 'timeZone'");
+            }
+            if (args?.valueLockLevel === undefined && !opts.urn) {
+                throw new Error("Missing required property 'valueLockLevel'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["name"] = args?.name;
@@ -141,7 +153,7 @@ export interface DataTableArgs {
     /**
      * The identifier of the Amazon Connect instance.
      */
-    instanceArn?: pulumi.Input<string | undefined>;
+    instanceArn: pulumi.Input<string>;
     /**
      * The name of the Data Table
      */
@@ -149,7 +161,7 @@ export interface DataTableArgs {
     /**
      * The status of the Data Table
      */
-    status?: pulumi.Input<enums.connect.DataTableStatus | undefined>;
+    status: pulumi.Input<enums.connect.DataTableStatus>;
     /**
      * One or more tags.
      */
@@ -157,9 +169,9 @@ export interface DataTableArgs {
     /**
      * The time zone of the Data Table
      */
-    timeZone?: pulumi.Input<string | undefined>;
+    timeZone: pulumi.Input<string>;
     /**
      * The value lock level of the Data Table
      */
-    valueLockLevel?: pulumi.Input<enums.connect.DataTableValueLockLevel | undefined>;
+    valueLockLevel: pulumi.Input<enums.connect.DataTableValueLockLevel>;
 }

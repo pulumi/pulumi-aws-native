@@ -5359,6 +5359,7 @@ func (o ListenerRuleRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerR
 //
 //	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 type ListenerRuleSourceIpConfig struct {
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 	//  If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
 	Values []string `pulumi:"values"`
@@ -5379,6 +5380,7 @@ type ListenerRuleSourceIpConfigInput interface {
 //
 //	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
 type ListenerRuleSourceIpConfigArgs struct {
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 	//  If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -5464,6 +5466,10 @@ func (o ListenerRuleSourceIpConfigOutput) ToListenerRuleSourceIpConfigPtrOutputW
 	}).(ListenerRuleSourceIpConfigPtrOutput)
 }
 
+func (o ListenerRuleSourceIpConfigOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerRuleSourceIpConfig) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
+}
+
 // The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
 //
 //	If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
@@ -5493,6 +5499,15 @@ func (o ListenerRuleSourceIpConfigPtrOutput) Elem() ListenerRuleSourceIpConfigOu
 		var ret ListenerRuleSourceIpConfig
 		return ret
 	}).(ListenerRuleSourceIpConfigOutput)
+}
+
+func (o ListenerRuleSourceIpConfigPtrOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerRuleSourceIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
@@ -5884,6 +5899,11 @@ func (o ListenerRuleTransformArrayOutput) Index(i pulumi.IntInput) ListenerRuleT
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleTransform {
 		return vs[0].([]ListenerRuleTransform)[vs[1].(int)]
 	}).(ListenerRuleTransformOutput)
+}
+
+type ListenerTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // Information about the target group stickiness for a rule.

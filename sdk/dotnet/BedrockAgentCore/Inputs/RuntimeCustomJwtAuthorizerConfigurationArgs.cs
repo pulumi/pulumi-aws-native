@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _allowedScopes = value;
         }
 
+        [Input("allowedWorkloadConfiguration")]
+        public Input<Inputs.RuntimeAllowedWorkloadConfigurationArgs>? AllowedWorkloadConfiguration { get; set; }
+
         [Input("customClaims")]
         private InputList<Inputs.RuntimeCustomClaimValidationTypeArgs>? _customClaims;
         public InputList<Inputs.RuntimeCustomClaimValidationTypeArgs> CustomClaims
@@ -60,6 +63,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         /// </summary>
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
+
+        [Input("privateEndpoint")]
+        public Input<Inputs.RuntimePrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.RuntimePrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+        public InputList<Inputs.RuntimePrivateEndpointOverrideArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.RuntimePrivateEndpointOverrideArgs>());
+            set => _privateEndpointOverrides = value;
+        }
 
         public RuntimeCustomJwtAuthorizerConfigurationArgs()
         {

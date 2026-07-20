@@ -257,6 +257,7 @@ __all__ = [
     'PolicyDefinition',
     'PolicyStatement',
     'RuntimeAgentRuntimeArtifact',
+    'RuntimeAllowedWorkloadConfiguration',
     'RuntimeAuthorizerConfiguration',
     'RuntimeAuthorizingClaimMatchValueType',
     'RuntimeClaimMatchValueType',
@@ -267,8 +268,11 @@ __all__ = [
     'RuntimeCustomJwtAuthorizerConfiguration',
     'RuntimeEfsAccessPointConfiguration',
     'RuntimeFilesystemConfiguration',
+    'RuntimeHostingEnvironment',
     'RuntimeLifecycleConfiguration',
     'RuntimeNetworkConfiguration',
+    'RuntimePrivateEndpoint',
+    'RuntimePrivateEndpointOverride',
     'RuntimeRequestHeaderConfiguration',
     'RuntimeS3FilesAccessPointConfiguration',
     'RuntimeS3Location',
@@ -10953,6 +10957,52 @@ class RuntimeAgentRuntimeArtifact(dict):
 
 
 @pulumi.output_type
+class RuntimeAllowedWorkloadConfiguration(dict):
+    """
+    Allow-list of upstream workloads permitted to reach this resource via the workload identity chain. When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostingEnvironments":
+            suggest = "hosting_environments"
+        elif key == "workloadIdentities":
+            suggest = "workload_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeAllowedWorkloadConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeAllowedWorkloadConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeAllowedWorkloadConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hosting_environments: Optional[Sequence['outputs.RuntimeHostingEnvironment']] = None,
+                 workload_identities: Optional[Sequence[_builtins.str]] = None):
+        """
+        Allow-list of upstream workloads permitted to reach this resource via the workload identity chain. When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+        """
+        if hosting_environments is not None:
+            pulumi.set(__self__, "hosting_environments", hosting_environments)
+        if workload_identities is not None:
+            pulumi.set(__self__, "workload_identities", workload_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="hostingEnvironments")
+    def hosting_environments(self) -> Optional[Sequence['outputs.RuntimeHostingEnvironment']]:
+        return pulumi.get(self, "hosting_environments")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentities")
+    def workload_identities(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "workload_identities")
+
+
+@pulumi.output_type
 class RuntimeAuthorizerConfiguration(dict):
     """
     Configuration for the authorizer
@@ -11255,8 +11305,14 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
             suggest = "allowed_clients"
         elif key == "allowedScopes":
             suggest = "allowed_scopes"
+        elif key == "allowedWorkloadConfiguration":
+            suggest = "allowed_workload_configuration"
         elif key == "customClaims":
             suggest = "custom_claims"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuntimeCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -11274,7 +11330,10 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
                  allowed_audience: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
-                 custom_claims: Optional[Sequence['outputs.RuntimeCustomClaimValidationType']] = None):
+                 allowed_workload_configuration: Optional['outputs.RuntimeAllowedWorkloadConfiguration'] = None,
+                 custom_claims: Optional[Sequence['outputs.RuntimeCustomClaimValidationType']] = None,
+                 private_endpoint: Optional['outputs.RuntimePrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.RuntimePrivateEndpointOverride']] = None):
         """
         Configuration for custom JWT authorizer
 
@@ -11289,8 +11348,14 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if allowed_workload_configuration is not None:
+            pulumi.set(__self__, "allowed_workload_configuration", allowed_workload_configuration)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -11322,9 +11387,24 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
         return pulumi.get(self, "allowed_scopes")
 
     @_builtins.property
+    @pulumi.getter(name="allowedWorkloadConfiguration")
+    def allowed_workload_configuration(self) -> Optional['outputs.RuntimeAllowedWorkloadConfiguration']:
+        return pulumi.get(self, "allowed_workload_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.RuntimeCustomClaimValidationType']]:
         return pulumi.get(self, "custom_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.RuntimePrivateEndpoint']:
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.RuntimePrivateEndpointOverride']]:
+        return pulumi.get(self, "private_endpoint_overrides")
 
 
 @pulumi.output_type
@@ -11428,6 +11508,29 @@ class RuntimeFilesystemConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeHostingEnvironment(dict):
+    """
+    An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
+    """
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
+
+        :param _builtins.str arn: The ARN of the bedrock-agentcore hosting environment
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        The ARN of the bedrock-agentcore hosting environment
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
 class RuntimeLifecycleConfiguration(dict):
     """
     Configuration for managing the lifecycle of runtime sessions and resources
@@ -11525,6 +11628,65 @@ class RuntimeNetworkConfiguration(dict):
     @pulumi.getter(name="networkModeConfig")
     def network_mode_config(self) -> Optional['outputs.RuntimeVpcConfig']:
         return pulumi.get(self, "network_mode_config")
+
+
+@pulumi.output_type
+class RuntimePrivateEndpoint(dict):
+    """
+    Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+    """
+    def __init__(__self__):
+        """
+        Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+        """
+        pass
+
+
+@pulumi.output_type
+class RuntimePrivateEndpointOverride(dict):
+    """
+    Override mapping of a domain to a private endpoint
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimePrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimePrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimePrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.RuntimePrivateEndpoint'):
+        """
+        Override mapping of a domain to a private endpoint
+
+        :param _builtins.str domain: The domain to override
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        The domain to override
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.RuntimePrivateEndpoint':
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type

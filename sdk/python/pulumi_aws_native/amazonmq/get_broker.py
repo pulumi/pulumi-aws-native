@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBrokerResult:
-    def __init__(__self__, amqp_endpoints=None, arn=None, auto_minor_version_upgrade=None, configuration_id=None, configuration_revision=None, console_urls=None, data_replication_mode=None, engine_version_current=None, host_instance_type=None, id=None, ip_addresses=None, ldap_server_metadata=None, logs=None, maintenance_window_start_time=None, mqtt_endpoints=None, open_wire_endpoints=None, resource_share_arns=None, security_groups=None, stomp_endpoints=None, tags=None, wss_endpoints=None):
+    def __init__(__self__, amqp_endpoints=None, arn=None, auto_minor_version_upgrade=None, configuration_id=None, configuration_revision=None, console_urls=None, data_replication_mode=None, engine_version_current=None, host_instance_type=None, id=None, ip_addresses=None, ldap_server_metadata=None, logs=None, maintenance_window_start_time=None, mqtt_endpoints=None, open_wire_endpoints=None, resource_share_arns=None, security_groups=None, stomp_endpoints=None, storage_size=None, tags=None, wss_endpoints=None):
         if amqp_endpoints and not isinstance(amqp_endpoints, list):
             raise TypeError("Expected argument 'amqp_endpoints' to be a list")
         pulumi.set(__self__, "amqp_endpoints", amqp_endpoints)
@@ -84,6 +84,9 @@ class GetBrokerResult:
         if stomp_endpoints and not isinstance(stomp_endpoints, list):
             raise TypeError("Expected argument 'stomp_endpoints' to be a list")
         pulumi.set(__self__, "stomp_endpoints", stomp_endpoints)
+        if storage_size and not isinstance(storage_size, int):
+            raise TypeError("Expected argument 'storage_size' to be a int")
+        pulumi.set(__self__, "storage_size", storage_size)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -252,6 +255,14 @@ class GetBrokerResult:
         return pulumi.get(self, "stomp_endpoints")
 
     @_builtins.property
+    @pulumi.getter(name="storageSize")
+    def storage_size(self) -> Optional[_builtins.int]:
+        """
+        The broker's storage size in GB.
+        """
+        return pulumi.get(self, "storage_size")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -295,6 +306,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             resource_share_arns=self.resource_share_arns,
             security_groups=self.security_groups,
             stomp_endpoints=self.stomp_endpoints,
+            storage_size=self.storage_size,
             tags=self.tags,
             wss_endpoints=self.wss_endpoints)
 
@@ -329,6 +341,7 @@ def get_broker(id: Optional[_builtins.str] = None,
         resource_share_arns=pulumi.get(__ret__, 'resource_share_arns'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         stomp_endpoints=pulumi.get(__ret__, 'stomp_endpoints'),
+        storage_size=pulumi.get(__ret__, 'storage_size'),
         tags=pulumi.get(__ret__, 'tags'),
         wss_endpoints=pulumi.get(__ret__, 'wss_endpoints'))
 def get_broker_output(id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -360,5 +373,6 @@ def get_broker_output(id: pulumi.Input[Optional[_builtins.str]] = None,
         resource_share_arns=pulumi.get(__response__, 'resource_share_arns'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         stomp_endpoints=pulumi.get(__response__, 'stomp_endpoints'),
+        storage_size=pulumi.get(__response__, 'storage_size'),
         tags=pulumi.get(__response__, 'tags'),
         wss_endpoints=pulumi.get(__response__, 'wss_endpoints')))

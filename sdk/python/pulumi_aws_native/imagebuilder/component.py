@@ -203,7 +203,7 @@ class Component(pulumi.CustomResource):
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::ImageBuilder::Component
+        Resource Type definition for AWS::ImageBuilder::Component
 
         ## Example Usage
         ### Example
@@ -370,7 +370,7 @@ class Component(pulumi.CustomResource):
                  args: ComponentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::ImageBuilder::Component
+        Resource Type definition for AWS::ImageBuilder::Component
 
         ## Example Usage
         ### Example

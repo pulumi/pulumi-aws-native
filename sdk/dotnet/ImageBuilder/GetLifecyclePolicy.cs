@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.ImageBuilder
     public static class GetLifecyclePolicy
     {
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::LifecyclePolicy
+        /// Resource Type definition for AWS::ImageBuilder::LifecyclePolicy
         /// </summary>
         public static Task<GetLifecyclePolicyResult> InvokeAsync(GetLifecyclePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLifecyclePolicyResult>("aws-native:imagebuilder:getLifecyclePolicy", args ?? new GetLifecyclePolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::LifecyclePolicy
+        /// Resource Type definition for AWS::ImageBuilder::LifecyclePolicy
         /// </summary>
         public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyResult>("aws-native:imagebuilder:getLifecyclePolicy", args ?? new GetLifecyclePolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::LifecyclePolicy
+        /// Resource Type definition for AWS::ImageBuilder::LifecyclePolicy
         /// </summary>
         public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyResult>("aws-native:imagebuilder:getLifecyclePolicy", args ?? new GetLifecyclePolicyInvokeArgs(), options.WithDefaults());

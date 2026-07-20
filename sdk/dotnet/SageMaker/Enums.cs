@@ -7,6 +7,41 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.SageMaker
 {
+    /// <summary>
+    /// The status of the action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ActionStatus : IEquatable<ActionStatus>
+    {
+        private readonly string _value;
+
+        private ActionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionStatus Unknown { get; } = new ActionStatus("Unknown");
+        public static ActionStatus InProgress { get; } = new ActionStatus("InProgress");
+        public static ActionStatus Completed { get; } = new ActionStatus("Completed");
+        public static ActionStatus Failed { get; } = new ActionStatus("Failed");
+        public static ActionStatus Stopping { get; } = new ActionStatus("Stopping");
+        public static ActionStatus Stopped { get; } = new ActionStatus("Stopped");
+
+        public static bool operator ==(ActionStatus left, ActionStatus right) => left.Equals(right);
+        public static bool operator !=(ActionStatus left, ActionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ActionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionStatus other && Equals(other);
+        public bool Equals(ActionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct AlgorithmChannelSpecificationSupportedCompressionTypesItem : IEquatable<AlgorithmChannelSpecificationSupportedCompressionTypesItem>
     {
@@ -1622,6 +1657,40 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainUserSettingsStudioWebPortal other && Equals(other);
         public bool Equals(DomainUserSettingsStudioWebPortal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the trial component.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExperimentTrialComponentStatusPropertiesPrimaryStatus : IEquatable<ExperimentTrialComponentStatusPropertiesPrimaryStatus>
+    {
+        private readonly string _value;
+
+        private ExperimentTrialComponentStatusPropertiesPrimaryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus InProgress { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress");
+        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Completed { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Completed");
+        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Failed { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Failed");
+        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Stopping { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopping");
+        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Stopped { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopped");
+
+        public static bool operator ==(ExperimentTrialComponentStatusPropertiesPrimaryStatus left, ExperimentTrialComponentStatusPropertiesPrimaryStatus right) => left.Equals(right);
+        public static bool operator !=(ExperimentTrialComponentStatusPropertiesPrimaryStatus left, ExperimentTrialComponentStatusPropertiesPrimaryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ExperimentTrialComponentStatusPropertiesPrimaryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExperimentTrialComponentStatusPropertiesPrimaryStatus other && Equals(other);
+        public bool Equals(ExperimentTrialComponentStatusPropertiesPrimaryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4883,6 +4952,40 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StudioLifecycleConfigAppType other && Equals(other);
         public bool Equals(StudioLifecycleConfigAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the trial component.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrialComponentStatusPrimaryStatus : IEquatable<TrialComponentStatusPrimaryStatus>
+    {
+        private readonly string _value;
+
+        private TrialComponentStatusPrimaryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrialComponentStatusPrimaryStatus InProgress { get; } = new TrialComponentStatusPrimaryStatus("InProgress");
+        public static TrialComponentStatusPrimaryStatus Completed { get; } = new TrialComponentStatusPrimaryStatus("Completed");
+        public static TrialComponentStatusPrimaryStatus Failed { get; } = new TrialComponentStatusPrimaryStatus("Failed");
+        public static TrialComponentStatusPrimaryStatus Stopping { get; } = new TrialComponentStatusPrimaryStatus("Stopping");
+        public static TrialComponentStatusPrimaryStatus Stopped { get; } = new TrialComponentStatusPrimaryStatus("Stopped");
+
+        public static bool operator ==(TrialComponentStatusPrimaryStatus left, TrialComponentStatusPrimaryStatus right) => left.Equals(right);
+        public static bool operator !=(TrialComponentStatusPrimaryStatus left, TrialComponentStatusPrimaryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TrialComponentStatusPrimaryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrialComponentStatusPrimaryStatus other && Equals(other);
+        public bool Equals(TrialComponentStatusPrimaryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

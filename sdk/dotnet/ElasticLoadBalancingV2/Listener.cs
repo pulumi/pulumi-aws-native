@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("sslPolicy")]
         public Output<string?> SslPolicy { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Listener resource with the given unique name, arguments, and options.
@@ -209,6 +212,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public ListenerArgs()
         {

@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdMappingTable{}
 	case "aws-native:cleanrooms:IdNamespaceAssociation":
 		r = &IdNamespaceAssociation{}
+	case "aws-native:cleanrooms:IntermediateTable":
+		r = &IntermediateTable{}
 	case "aws-native:cleanrooms:Membership":
 		r = &Membership{}
 	case "aws-native:cleanrooms:PrivacyBudgetTemplate":

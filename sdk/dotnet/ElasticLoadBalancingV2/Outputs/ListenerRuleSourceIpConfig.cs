@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerRuleSourceIpConfig
     {
+        public readonly string? IpAddressType;
         /// <summary>
         /// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
         ///  If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
@@ -24,8 +25,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]
-        private ListenerRuleSourceIpConfig(ImmutableArray<string> values)
+        private ListenerRuleSourceIpConfig(
+            string? ipAddressType,
+
+            ImmutableArray<string> values)
         {
+            IpAddressType = ipAddressType;
             Values = values;
         }
     }

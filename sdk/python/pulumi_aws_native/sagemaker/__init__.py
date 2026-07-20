@@ -7,24 +7,32 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action import *
 from .algorithm import *
 from .app import *
 from .app_image_config import *
 from .cluster import *
+from .context import *
 from .data_quality_job_definition import *
 from .device import *
 from .device_fleet import *
 from .domain import *
 from .endpoint import *
+from .experiment import *
+from .experiment_trial_component import *
 from .feature_group import *
+from .get_action import *
 from .get_algorithm import *
 from .get_app import *
 from .get_app_image_config import *
 from .get_cluster import *
+from .get_context import *
 from .get_data_quality_job_definition import *
 from .get_device_fleet import *
 from .get_domain import *
 from .get_endpoint import *
+from .get_experiment import *
+from .get_experiment_trial_component import *
 from .get_feature_group import *
 from .get_hub import *
 from .get_image import *
@@ -47,6 +55,7 @@ from .get_processing_job import *
 from .get_project import *
 from .get_space import *
 from .get_studio_lifecycle_config import *
+from .get_trial_component import *
 from .get_user_profile import *
 from .hub import *
 from .image import *
@@ -69,6 +78,7 @@ from .processing_job import *
 from .project import *
 from .space import *
 from .studio_lifecycle_config import *
+from .trial_component import *
 from .user_profile import *
 from ._inputs import *
 from . import outputs

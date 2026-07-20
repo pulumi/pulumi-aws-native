@@ -86,6 +86,11 @@
           },
           "minItems" : 1,
           "maxItems" : 11
+        },
+        "DnsResolution" : {
+          "description" : "DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.",
+          "type" : "string",
+          "enum" : [ "PUBLIC", "IN_VPC" ]
         }
       },
       "required" : [ "HostAddress", "VpcId" ]

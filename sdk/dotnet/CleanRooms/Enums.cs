@@ -812,6 +812,94 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     [EnumType]
+    public readonly struct IntermediateTableAdditionalAnalyses : IEquatable<IntermediateTableAdditionalAnalyses>
+    {
+        private readonly string _value;
+
+        private IntermediateTableAdditionalAnalyses(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntermediateTableAdditionalAnalyses Allowed { get; } = new IntermediateTableAdditionalAnalyses("ALLOWED");
+        public static IntermediateTableAdditionalAnalyses Required { get; } = new IntermediateTableAdditionalAnalyses("REQUIRED");
+        public static IntermediateTableAdditionalAnalyses NotAllowed { get; } = new IntermediateTableAdditionalAnalyses("NOT_ALLOWED");
+
+        public static bool operator ==(IntermediateTableAdditionalAnalyses left, IntermediateTableAdditionalAnalyses right) => left.Equals(right);
+        public static bool operator !=(IntermediateTableAdditionalAnalyses left, IntermediateTableAdditionalAnalyses right) => !left.Equals(right);
+
+        public static explicit operator string(IntermediateTableAdditionalAnalyses value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntermediateTableAdditionalAnalyses other && Equals(other);
+        public bool Equals(IntermediateTableAdditionalAnalyses other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IntermediateTableAnalysisRuleType : IEquatable<IntermediateTableAnalysisRuleType>
+    {
+        private readonly string _value;
+
+        private IntermediateTableAnalysisRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntermediateTableAnalysisRuleType Custom { get; } = new IntermediateTableAnalysisRuleType("CUSTOM");
+
+        public static bool operator ==(IntermediateTableAnalysisRuleType left, IntermediateTableAnalysisRuleType right) => left.Equals(right);
+        public static bool operator !=(IntermediateTableAnalysisRuleType left, IntermediateTableAnalysisRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(IntermediateTableAnalysisRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntermediateTableAnalysisRuleType other && Equals(other);
+        public bool Equals(IntermediateTableAnalysisRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IntermediateTableStatus : IEquatable<IntermediateTableStatus>
+    {
+        private readonly string _value;
+
+        private IntermediateTableStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntermediateTableStatus Created { get; } = new IntermediateTableStatus("CREATED");
+        public static IntermediateTableStatus PopulateStarted { get; } = new IntermediateTableStatus("POPULATE_STARTED");
+        public static IntermediateTableStatus PopulateSuccess { get; } = new IntermediateTableStatus("POPULATE_SUCCESS");
+        public static IntermediateTableStatus PopulateFailed { get; } = new IntermediateTableStatus("POPULATE_FAILED");
+        public static IntermediateTableStatus DisallowedByDataProvider { get; } = new IntermediateTableStatus("DISALLOWED_BY_DATA_PROVIDER");
+        public static IntermediateTableStatus BaseTableRemoved { get; } = new IntermediateTableStatus("BASE_TABLE_REMOVED");
+
+        public static bool operator ==(IntermediateTableStatus left, IntermediateTableStatus right) => left.Equals(right);
+        public static bool operator !=(IntermediateTableStatus left, IntermediateTableStatus right) => !left.Equals(right);
+
+        public static explicit operator string(IntermediateTableStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntermediateTableStatus other && Equals(other);
+        public bool Equals(IntermediateTableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MembershipJobLogStatus : IEquatable<MembershipJobLogStatus>
     {
         private readonly string _value;

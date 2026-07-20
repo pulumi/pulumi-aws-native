@@ -257,7 +257,7 @@ class Image(pulumi.CustomResource):
                  workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageWorkflowConfigurationArgs', 'ImageWorkflowConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::ImageBuilder::Image
+        Resource Type definition for AWS::ImageBuilder::Image
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,7 +282,7 @@ class Image(pulumi.CustomResource):
                  args: Optional[ImageArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::ImageBuilder::Image
+        Resource Type definition for AWS::ImageBuilder::Image
 
         :param str resource_name: The name of the resource.
         :param ImageArgs args: The arguments to use to populate this resource's properties.

@@ -1916,13 +1916,15 @@ class ImagePipelineSchedule(dict):
     def __init__(__self__, *,
                  auto_disable_policy: Optional['outputs.ImagePipelineAutoDisablePolicy'] = None,
                  pipeline_execution_start_condition: Optional['ImagePipelineSchedulePipelineExecutionStartCondition'] = None,
-                 schedule_expression: Optional[_builtins.str] = None):
+                 schedule_expression: Optional[_builtins.str] = None,
+                 timezone: Optional[_builtins.str] = None):
         """
         The schedule of the image pipeline.
 
         :param 'ImagePipelineAutoDisablePolicy' auto_disable_policy: The auto-disable policy for the image pipeline.
         :param 'ImagePipelineSchedulePipelineExecutionStartCondition' pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param _builtins.str schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
+        :param _builtins.str timezone: The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
         """
         if auto_disable_policy is not None:
             pulumi.set(__self__, "auto_disable_policy", auto_disable_policy)
@@ -1930,6 +1932,8 @@ class ImagePipelineSchedule(dict):
             pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
 
     @_builtins.property
     @pulumi.getter(name="autoDisablePolicy")
@@ -1954,6 +1958,14 @@ class ImagePipelineSchedule(dict):
         The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
         return pulumi.get(self, "schedule_expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+        """
+        return pulumi.get(self, "timezone")
 
 
 @pulumi.output_type

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+ * Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
  */
 export function getInfrastructureConfiguration(args: GetInfrastructureConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +83,7 @@ export interface GetInfrastructureConfigurationResult {
     readonly terminateInstanceOnFailure?: boolean;
 }
 /**
- * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+ * Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
  */
 export function getInfrastructureConfigurationOutput(args: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

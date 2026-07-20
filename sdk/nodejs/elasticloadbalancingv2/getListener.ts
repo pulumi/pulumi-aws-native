@@ -65,6 +65,7 @@ export interface GetListenerResult {
      *  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
      */
     readonly sslPolicy?: string;
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.

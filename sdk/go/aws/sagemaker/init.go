@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:sagemaker:Action":
+		r = &Action{}
 	case "aws-native:sagemaker:Algorithm":
 		r = &Algorithm{}
 	case "aws-native:sagemaker:App":
@@ -29,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AppImageConfig{}
 	case "aws-native:sagemaker:Cluster":
 		r = &Cluster{}
+	case "aws-native:sagemaker:Context":
+		r = &Context{}
 	case "aws-native:sagemaker:DataQualityJobDefinition":
 		r = &DataQualityJobDefinition{}
 	case "aws-native:sagemaker:Device":
@@ -39,6 +43,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Domain{}
 	case "aws-native:sagemaker:Endpoint":
 		r = &Endpoint{}
+	case "aws-native:sagemaker:Experiment":
+		r = &Experiment{}
+	case "aws-native:sagemaker:ExperimentTrialComponent":
+		r = &ExperimentTrialComponent{}
 	case "aws-native:sagemaker:FeatureGroup":
 		r = &FeatureGroup{}
 	case "aws-native:sagemaker:Hub":
@@ -83,6 +91,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Space{}
 	case "aws-native:sagemaker:StudioLifecycleConfig":
 		r = &StudioLifecycleConfig{}
+	case "aws-native:sagemaker:TrialComponent":
+		r = &TrialComponent{}
 	case "aws-native:sagemaker:UserProfile":
 		r = &UserProfile{}
 	default:

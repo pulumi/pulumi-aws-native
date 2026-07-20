@@ -3057,6 +3057,7 @@ class ListenerRuleSourceIpConfigArgsDict(TypedDict):
     Information about a source IP condition.
      You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
     """
+    ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
@@ -3066,6 +3067,7 @@ class ListenerRuleSourceIpConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ListenerRuleSourceIpConfigArgs:
     def __init__(__self__, *,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about a source IP condition.
@@ -3074,8 +3076,19 @@ class ListenerRuleSourceIpConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
                 If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.
         """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if values is not None:
             pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter

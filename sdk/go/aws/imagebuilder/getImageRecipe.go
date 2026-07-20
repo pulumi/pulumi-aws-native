@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::ImageBuilder::ImageRecipe
+// Resource Type definition for AWS::ImageBuilder::ImageRecipe
 func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ...pulumi.InvokeOption) (*LookupImageRecipeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImageRecipeResult

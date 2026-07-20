@@ -19,16 +19,16 @@ namespace Pulumi.AwsNative.Connect
         /// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
         /// </summary>
         [Output("dataTableArn")]
-        public Output<string?> DataTableArn { get; private set; } = null!;
+        public Output<string> DataTableArn { get; private set; } = null!;
 
         [Output("dataTableRecord")]
-        public Output<Outputs.DataTableRecordProperties?> DataTableRecordValue { get; private set; } = null!;
+        public Output<Outputs.DataTableRecordProperties> DataTableRecordValue { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance.
         /// </summary>
         [Output("instanceArn")]
-        public Output<string?> InstanceArn { get; private set; } = null!;
+        public Output<string> InstanceArn { get; private set; } = null!;
 
         [Output("recordId")]
         public Output<string> RecordId { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Connect
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DataTableRecord(string name, DataTableRecordArgs? args = null, CustomResourceOptions? options = null)
+        public DataTableRecord(string name, DataTableRecordArgs args, CustomResourceOptions? options = null)
             : base("aws-native:connect:DataTableRecord", name, args ?? new DataTableRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -86,17 +86,17 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
         /// </summary>
-        [Input("dataTableArn")]
-        public Input<string>? DataTableArn { get; set; }
+        [Input("dataTableArn", required: true)]
+        public Input<string> DataTableArn { get; set; } = null!;
 
-        [Input("dataTableRecord")]
-        public Input<Inputs.DataTableRecordPropertiesArgs>? DataTableRecordValue { get; set; }
+        [Input("dataTableRecord", required: true)]
+        public Input<Inputs.DataTableRecordPropertiesArgs> DataTableRecordValue { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance.
         /// </summary>
-        [Input("instanceArn")]
-        public Input<string>? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public Input<string> InstanceArn { get; set; } = null!;
 
         public DataTableRecordArgs()
         {

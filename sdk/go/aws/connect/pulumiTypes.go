@@ -407,47 +407,6 @@ func (i DataTableRecordPropertiesArgs) ToDataTableRecordPropertiesOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordPropertiesOutput)
 }
 
-func (i DataTableRecordPropertiesArgs) ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput {
-	return i.ToDataTableRecordPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DataTableRecordPropertiesArgs) ToDataTableRecordPropertiesPtrOutputWithContext(ctx context.Context) DataTableRecordPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordPropertiesOutput).ToDataTableRecordPropertiesPtrOutputWithContext(ctx)
-}
-
-// DataTableRecordPropertiesPtrInput is an input type that accepts DataTableRecordPropertiesArgs, DataTableRecordPropertiesPtr and DataTableRecordPropertiesPtrOutput values.
-// You can construct a concrete instance of `DataTableRecordPropertiesPtrInput` via:
-//
-//	        DataTableRecordPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type DataTableRecordPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput
-	ToDataTableRecordPropertiesPtrOutputWithContext(context.Context) DataTableRecordPropertiesPtrOutput
-}
-
-type dataTableRecordPropertiesPtrType DataTableRecordPropertiesArgs
-
-func DataTableRecordPropertiesPtr(v *DataTableRecordPropertiesArgs) DataTableRecordPropertiesPtrInput {
-	return (*dataTableRecordPropertiesPtrType)(v)
-}
-
-func (*dataTableRecordPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataTableRecordProperties)(nil)).Elem()
-}
-
-func (i *dataTableRecordPropertiesPtrType) ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput {
-	return i.ToDataTableRecordPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *dataTableRecordPropertiesPtrType) ToDataTableRecordPropertiesPtrOutputWithContext(ctx context.Context) DataTableRecordPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordPropertiesPtrOutput)
-}
-
 type DataTableRecordPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataTableRecordPropertiesOutput) ElementType() reflect.Type {
@@ -460,16 +419,6 @@ func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesOutput() Dat
 
 func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesOutputWithContext(ctx context.Context) DataTableRecordPropertiesOutput {
 	return o
-}
-
-func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput {
-	return o.ToDataTableRecordPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesPtrOutputWithContext(ctx context.Context) DataTableRecordPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTableRecordProperties) *DataTableRecordProperties {
-		return &v
-	}).(DataTableRecordPropertiesPtrOutput)
 }
 
 func (o DataTableRecordPropertiesOutput) PrimaryValues() DataTableRecordValueArrayOutput {
@@ -11795,10 +11744,8 @@ func (o RuleAssignContactCategoryActionArrayOutput) Index(i pulumi.IntInput) Rul
 }
 
 type RuleAssignSlaAction struct {
-	// The SLA configuration for cases.
 	CaseSlaConfiguration RuleAssignSlaActionCaseSlaConfigurationProperties `pulumi:"caseSlaConfiguration"`
-	// The type of SLA assignment.
-	SlaAssignmentType RuleAssignSlaActionSlaAssignmentType `pulumi:"slaAssignmentType"`
+	SlaAssignmentType    RuleAssignSlaActionSlaAssignmentType              `pulumi:"slaAssignmentType"`
 }
 
 // RuleAssignSlaActionInput is an input type that accepts RuleAssignSlaActionArgs and RuleAssignSlaActionOutput values.
@@ -11813,10 +11760,8 @@ type RuleAssignSlaActionInput interface {
 }
 
 type RuleAssignSlaActionArgs struct {
-	// The SLA configuration for cases.
 	CaseSlaConfiguration RuleAssignSlaActionCaseSlaConfigurationPropertiesInput `pulumi:"caseSlaConfiguration"`
-	// The type of SLA assignment.
-	SlaAssignmentType RuleAssignSlaActionSlaAssignmentTypeInput `pulumi:"slaAssignmentType"`
+	SlaAssignmentType    RuleAssignSlaActionSlaAssignmentTypeInput              `pulumi:"slaAssignmentType"`
 }
 
 func (RuleAssignSlaActionArgs) ElementType() reflect.Type {
@@ -11870,14 +11815,12 @@ func (o RuleAssignSlaActionOutput) ToRuleAssignSlaActionOutputWithContext(ctx co
 	return o
 }
 
-// The SLA configuration for cases.
 func (o RuleAssignSlaActionOutput) CaseSlaConfiguration() RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput {
 	return o.ApplyT(func(v RuleAssignSlaAction) RuleAssignSlaActionCaseSlaConfigurationProperties {
 		return v.CaseSlaConfiguration
 	}).(RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput)
 }
 
-// The type of SLA assignment.
 func (o RuleAssignSlaActionOutput) SlaAssignmentType() RuleAssignSlaActionSlaAssignmentTypeOutput {
 	return o.ApplyT(func(v RuleAssignSlaAction) RuleAssignSlaActionSlaAssignmentType { return v.SlaAssignmentType }).(RuleAssignSlaActionSlaAssignmentTypeOutput)
 }
@@ -11902,7 +11845,6 @@ func (o RuleAssignSlaActionArrayOutput) Index(i pulumi.IntInput) RuleAssignSlaAc
 	}).(RuleAssignSlaActionOutput)
 }
 
-// The SLA configuration for cases.
 type RuleAssignSlaActionCaseSlaConfigurationProperties struct {
 	// The field Id for the SLA.
 	FieldId *string `pulumi:"fieldId"`
@@ -11927,7 +11869,6 @@ type RuleAssignSlaActionCaseSlaConfigurationPropertiesInput interface {
 	ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutputWithContext(context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput
 }
 
-// The SLA configuration for cases.
 type RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs struct {
 	// The field Id for the SLA.
 	FieldId pulumi.StringPtrInput `pulumi:"fieldId"`
@@ -11953,7 +11894,6 @@ func (i RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs) ToRuleAssignSlaAc
 	return pulumi.ToOutputWithContext(ctx, i).(RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput)
 }
 
-// The SLA configuration for cases.
 type RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -19872,7 +19812,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesPtrInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordPropertiesInput)(nil)).Elem(), DataTableRecordPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordPropertiesPtrInput)(nil)).Elem(), DataTableRecordPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordValueInput)(nil)).Elem(), DataTableRecordValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordValueArrayInput)(nil)).Elem(), DataTableRecordValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailAddressAliasConfigurationInput)(nil)).Elem(), EmailAddressAliasConfigurationArgs{})

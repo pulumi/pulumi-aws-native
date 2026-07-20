@@ -291,7 +291,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::ImageBuilder::ContainerRecipe
+        Resource Type definition for AWS::ImageBuilder::ContainerRecipe
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,7 +318,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  args: Optional[ContainerRecipeArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::ImageBuilder::ContainerRecipe
+        Resource Type definition for AWS::ImageBuilder::ContainerRecipe
 
         :param str resource_name: The name of the resource.
         :param ContainerRecipeArgs args: The arguments to use to populate this resource's properties.

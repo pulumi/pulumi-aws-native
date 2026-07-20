@@ -1308,6 +1308,7 @@ _utilities.register(
    "aws-native:cleanrooms:ConfiguredTableAssociation": "ConfiguredTableAssociation",
    "aws-native:cleanrooms:IdMappingTable": "IdMappingTable",
    "aws-native:cleanrooms:IdNamespaceAssociation": "IdNamespaceAssociation",
+   "aws-native:cleanrooms:IntermediateTable": "IntermediateTable",
    "aws-native:cleanrooms:Membership": "Membership",
    "aws-native:cleanrooms:PrivacyBudgetTemplate": "PrivacyBudgetTemplate"
   }
@@ -1545,6 +1546,7 @@ _utilities.register(
    "aws-native:connect:ContactFlowModuleAlias": "ContactFlowModuleAlias",
    "aws-native:connect:ContactFlowModuleVersion": "ContactFlowModuleVersion",
    "aws-native:connect:ContactFlowVersion": "ContactFlowVersion",
+   "aws-native:connect:DataLakeAssociation": "DataLakeAssociation",
    "aws-native:connect:DataTable": "DataTable",
    "aws-native:connect:DataTableAttribute": "DataTableAttribute",
    "aws-native:connect:DataTableRecord": "DataTableRecord",
@@ -1780,6 +1782,7 @@ _utilities.register(
   "mod": "dms",
   "fqn": "pulumi_aws_native.dms",
   "classes": {
+   "aws-native:dms:Certificate": "Certificate",
    "aws-native:dms:DataMigration": "DataMigration",
    "aws-native:dms:DataProvider": "DataProvider",
    "aws-native:dms:InstanceProfile": "InstanceProfile",
@@ -1904,6 +1907,8 @@ _utilities.register(
    "aws-native:ec2:TransitGatewayMulticastGroupMember": "TransitGatewayMulticastGroupMember",
    "aws-native:ec2:TransitGatewayMulticastGroupSource": "TransitGatewayMulticastGroupSource",
    "aws-native:ec2:TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachment",
+   "aws-native:ec2:TransitGatewayPolicyTable": "TransitGatewayPolicyTable",
+   "aws-native:ec2:TransitGatewayPolicyTableAssociation": "TransitGatewayPolicyTableAssociation",
    "aws-native:ec2:TransitGatewayRoute": "TransitGatewayRoute",
    "aws-native:ec2:TransitGatewayRouteTable": "TransitGatewayRouteTable",
    "aws-native:ec2:TransitGatewayRouteTableAssociation": "TransitGatewayRouteTableAssociation",
@@ -3528,15 +3533,19 @@ _utilities.register(
   "mod": "sagemaker",
   "fqn": "pulumi_aws_native.sagemaker",
   "classes": {
+   "aws-native:sagemaker:Action": "Action",
    "aws-native:sagemaker:Algorithm": "Algorithm",
    "aws-native:sagemaker:App": "App",
    "aws-native:sagemaker:AppImageConfig": "AppImageConfig",
    "aws-native:sagemaker:Cluster": "Cluster",
+   "aws-native:sagemaker:Context": "Context",
    "aws-native:sagemaker:DataQualityJobDefinition": "DataQualityJobDefinition",
    "aws-native:sagemaker:Device": "Device",
    "aws-native:sagemaker:DeviceFleet": "DeviceFleet",
    "aws-native:sagemaker:Domain": "Domain",
    "aws-native:sagemaker:Endpoint": "Endpoint",
+   "aws-native:sagemaker:Experiment": "Experiment",
+   "aws-native:sagemaker:ExperimentTrialComponent": "ExperimentTrialComponent",
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
    "aws-native:sagemaker:Hub": "Hub",
    "aws-native:sagemaker:Image": "Image",
@@ -3559,6 +3568,7 @@ _utilities.register(
    "aws-native:sagemaker:Project": "Project",
    "aws-native:sagemaker:Space": "Space",
    "aws-native:sagemaker:StudioLifecycleConfig": "StudioLifecycleConfig",
+   "aws-native:sagemaker:TrialComponent": "TrialComponent",
    "aws-native:sagemaker:UserProfile": "UserProfile"
   }
  },

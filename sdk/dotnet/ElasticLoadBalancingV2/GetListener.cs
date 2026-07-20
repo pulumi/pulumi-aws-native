@@ -103,6 +103,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         ///  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
         /// </summary>
         public readonly string? SslPolicy;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetListenerResult(
@@ -122,7 +123,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             string? protocol,
 
-            string? sslPolicy)
+            string? sslPolicy,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AlpnPolicy = alpnPolicy;
             Certificates = certificates;
@@ -133,6 +136,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             Port = port;
             Protocol = protocol;
             SslPolicy = sslPolicy;
+            Tags = tags;
         }
     }
 }

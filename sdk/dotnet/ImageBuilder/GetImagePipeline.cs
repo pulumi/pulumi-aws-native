@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.ImageBuilder
     public static class GetImagePipeline
     {
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::ImagePipeline
+        /// Resource Type definition for AWS::ImageBuilder::ImagePipeline
         /// </summary>
         public static Task<GetImagePipelineResult> InvokeAsync(GetImagePipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::ImagePipeline
+        /// Resource Type definition for AWS::ImageBuilder::ImagePipeline
         /// </summary>
         public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::ImagePipeline
+        /// Resource Type definition for AWS::ImageBuilder::ImagePipeline
         /// </summary>
         public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());

@@ -2,6 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ActionStatus = {
+    Unknown: "Unknown",
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+    Stopping: "Stopping",
+    Stopped: "Stopped",
+} as const;
+
+/**
+ * The status of the action.
+ */
+export type ActionStatus = (typeof ActionStatus)[keyof typeof ActionStatus];
+
 export const AlgorithmChannelSpecificationSupportedCompressionTypesItem = {
     None: "None",
     Gzip: "Gzip",
@@ -762,6 +776,19 @@ export const DomainUserSettingsStudioWebPortal = {
  * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
  */
 export type DomainUserSettingsStudioWebPortal = (typeof DomainUserSettingsStudioWebPortal)[keyof typeof DomainUserSettingsStudioWebPortal];
+
+export const ExperimentTrialComponentStatusPropertiesPrimaryStatus = {
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+    Stopping: "Stopping",
+    Stopped: "Stopped",
+} as const;
+
+/**
+ * The status of the trial component.
+ */
+export type ExperimentTrialComponentStatusPropertiesPrimaryStatus = (typeof ExperimentTrialComponentStatusPropertiesPrimaryStatus)[keyof typeof ExperimentTrialComponentStatusPropertiesPrimaryStatus];
 
 export const FeatureGroupFeatureDefinitionFeatureType = {
     Integral: "Integral",
@@ -2049,6 +2076,19 @@ export const StudioLifecycleConfigAppType = {
  * The App type that the Lifecycle Configuration is attached to.
  */
 export type StudioLifecycleConfigAppType = (typeof StudioLifecycleConfigAppType)[keyof typeof StudioLifecycleConfigAppType];
+
+export const TrialComponentStatusPrimaryStatus = {
+    InProgress: "InProgress",
+    Completed: "Completed",
+    Failed: "Failed",
+    Stopping: "Stopping",
+    Stopped: "Stopped",
+} as const;
+
+/**
+ * The status of the trial component.
+ */
+export type TrialComponentStatusPrimaryStatus = (typeof TrialComponentStatusPrimaryStatus)[keyof typeof TrialComponentStatusPrimaryStatus];
 
 export const UserProfileAppInstanceType = {
     System: "system",

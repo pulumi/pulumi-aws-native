@@ -1483,9 +1483,6 @@ namespace Pulumi.AwsNative.Connect
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The type of SLA assignment.
-    /// </summary>
     [EnumType]
     public readonly struct RuleAssignSlaActionSlaAssignmentType : IEquatable<RuleAssignSlaActionSlaAssignmentType>
     {

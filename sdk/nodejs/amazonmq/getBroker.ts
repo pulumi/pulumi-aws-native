@@ -107,6 +107,10 @@ export interface GetBrokerResult {
      */
     readonly stompEndpoints?: string[];
     /**
+     * The broker's storage size in GB.
+     */
+    readonly storageSize?: number;
+    /**
      * Create tags when creating the broker.
      */
     readonly tags?: outputs.Tag[];

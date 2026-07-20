@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }
 
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.CloudFront.VpcOriginEndpointConfigIpAddressType>? IpAddressType { get; set; }
+
         /// <summary>
         /// The name of the CloudFront VPC origin endpoint configuration.
         /// </summary>

@@ -99,6 +99,7 @@ namespace Pulumi.AwsNative.EntityResolution
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "resolutionTechniques.enableRealTimeMatching",
                     "workflowName",
                 },
             };

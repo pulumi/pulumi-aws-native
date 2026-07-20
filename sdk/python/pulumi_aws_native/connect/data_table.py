@@ -23,38 +23,82 @@ __all__ = ['DataTableArgs', 'DataTable']
 @pulumi.input_type
 class DataTableArgs:
     def __init__(__self__, *,
+                 instance_arn: pulumi.Input[_builtins.str],
+                 status: pulumi.Input['DataTableStatus'],
+                 time_zone: pulumi.Input[_builtins.str],
+                 value_lock_level: pulumi.Input['DataTableValueLockLevel'],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional['DataTableStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 value_lock_level: pulumi.Input[Optional['DataTableValueLockLevel']] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataTable resource.
 
-        :param pulumi.Input[_builtins.str] description: The description of the Data Table.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[_builtins.str] name: The name of the Data Table
         :param pulumi.Input['DataTableStatus'] status: The status of the Data Table
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the Data Table
         :param pulumi.Input['DataTableValueLockLevel'] value_lock_level: The value lock level of the Data Table
+        :param pulumi.Input[_builtins.str] description: The description of the Data Table.
+        :param pulumi.Input[_builtins.str] name: The name of the Data Table
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time_zone", time_zone)
+        pulumi.set(__self__, "value_lock_level", value_lock_level)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if instance_arn is not None:
-            pulumi.set(__self__, "instance_arn", instance_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
-        if value_lock_level is not None:
-            pulumi.set(__self__, "value_lock_level", value_lock_level)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the Amazon Connect instance.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['DataTableStatus']:
+        """
+        The status of the Data Table
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['DataTableStatus']):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time zone of the Data Table
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "time_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLockLevel")
+    def value_lock_level(self) -> pulumi.Input['DataTableValueLockLevel']:
+        """
+        The value lock level of the Data Table
+        """
+        return pulumi.get(self, "value_lock_level")
+
+    @value_lock_level.setter
+    def value_lock_level(self, value: pulumi.Input['DataTableValueLockLevel']):
+        pulumi.set(self, "value_lock_level", value)
 
     @_builtins.property
     @pulumi.getter
@@ -67,18 +111,6 @@ class DataTableArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceArn")
-    def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The identifier of the Amazon Connect instance.
-        """
-        return pulumi.get(self, "instance_arn")
-
-    @instance_arn.setter
-    def instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "instance_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -94,18 +126,6 @@ class DataTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional['DataTableStatus']]:
-        """
-        The status of the Data Table
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[Optional['DataTableStatus']]):
-        pulumi.set(self, "status", value)
-
-    @_builtins.property
-    @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
@@ -115,30 +135,6 @@ class DataTableArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="timeZone")
-    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The time zone of the Data Table
-        """
-        return pulumi.get(self, "time_zone")
-
-    @time_zone.setter
-    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "time_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueLockLevel")
-    def value_lock_level(self) -> pulumi.Input[Optional['DataTableValueLockLevel']]:
-        """
-        The value lock level of the Data Table
-        """
-        return pulumi.get(self, "value_lock_level")
-
-    @value_lock_level.setter
-    def value_lock_level(self, value: pulumi.Input[Optional['DataTableValueLockLevel']]):
-        pulumi.set(self, "value_lock_level", value)
 
 
 @pulumi.type_token("aws-native:connect:DataTable")
@@ -172,7 +168,7 @@ class DataTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DataTableArgs] = None,
+                 args: DataTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::DataTable
@@ -209,11 +205,19 @@ class DataTable(pulumi.CustomResource):
             __props__ = DataTableArgs.__new__(DataTableArgs)
 
             __props__.__dict__["description"] = description
+            if instance_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
+            if status is None and not opts.urn:
+                raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            if time_zone is None and not opts.urn:
+                raise TypeError("Missing required property 'time_zone'")
             __props__.__dict__["time_zone"] = time_zone
+            if value_lock_level is None and not opts.urn:
+                raise TypeError("Missing required property 'value_lock_level'")
             __props__.__dict__["value_lock_level"] = value_lock_level
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
@@ -284,7 +288,7 @@ class DataTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
-    def instance_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
         The identifier of the Amazon Connect instance.
         """
@@ -316,7 +320,7 @@ class DataTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the Data Table
         """
@@ -324,7 +328,7 @@ class DataTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['DataTableStatus']]:
+    def status(self) -> pulumi.Output['DataTableStatus']:
         """
         The status of the Data Table
         """
@@ -340,7 +344,7 @@ class DataTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def time_zone(self) -> pulumi.Output[_builtins.str]:
         """
         The time zone of the Data Table
         """
@@ -348,7 +352,7 @@ class DataTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="valueLockLevel")
-    def value_lock_level(self) -> pulumi.Output[Optional['DataTableValueLockLevel']]:
+    def value_lock_level(self) -> pulumi.Output['DataTableValueLockLevel']:
         """
         The value lock level of the Data Table
         """

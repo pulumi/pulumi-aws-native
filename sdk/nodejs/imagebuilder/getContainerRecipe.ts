@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::ImageBuilder::ContainerRecipe
+ * Resource Type definition for AWS::ImageBuilder::ContainerRecipe
  */
 export function getContainerRecipe(args: GetContainerRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,7 +39,7 @@ export interface GetContainerRecipeResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * Resource schema for AWS::ImageBuilder::ContainerRecipe
+ * Resource Type definition for AWS::ImageBuilder::ContainerRecipe
  */
 export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerRecipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

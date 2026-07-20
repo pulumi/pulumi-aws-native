@@ -103,6 +103,7 @@
   "tagging" : {
     "taggable" : false
   },
+  "required" : [ "InstanceArn", "DataTableArn", "DataTableRecord" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/InstanceArn", "/properties/DataTableArn", "/properties/RecordId" ]
 }

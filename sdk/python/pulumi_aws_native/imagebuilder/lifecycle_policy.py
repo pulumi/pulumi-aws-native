@@ -168,7 +168,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::ImageBuilder::LifecyclePolicy
+        Resource Type definition for AWS::ImageBuilder::LifecyclePolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,7 +188,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  args: LifecyclePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::ImageBuilder::LifecyclePolicy
+        Resource Type definition for AWS::ImageBuilder::LifecyclePolicy
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class RuleAssignSlaAction
     {
-        /// <summary>
-        /// The SLA configuration for cases.
-        /// </summary>
         public readonly Outputs.RuleAssignSlaActionCaseSlaConfigurationProperties CaseSlaConfiguration;
-        /// <summary>
-        /// The type of SLA assignment.
-        /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleAssignSlaActionSlaAssignmentType SlaAssignmentType;
 
         [OutputConstructor]

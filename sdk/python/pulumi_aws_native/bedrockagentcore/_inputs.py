@@ -466,6 +466,8 @@ __all__ = [
     'PolicyStatementArgsDict',
     'RuntimeAgentRuntimeArtifactArgs',
     'RuntimeAgentRuntimeArtifactArgsDict',
+    'RuntimeAllowedWorkloadConfigurationArgs',
+    'RuntimeAllowedWorkloadConfigurationArgsDict',
     'RuntimeAuthorizerConfigurationArgs',
     'RuntimeAuthorizerConfigurationArgsDict',
     'RuntimeAuthorizingClaimMatchValueTypeArgs',
@@ -486,10 +488,16 @@ __all__ = [
     'RuntimeEfsAccessPointConfigurationArgsDict',
     'RuntimeFilesystemConfigurationArgs',
     'RuntimeFilesystemConfigurationArgsDict',
+    'RuntimeHostingEnvironmentArgs',
+    'RuntimeHostingEnvironmentArgsDict',
     'RuntimeLifecycleConfigurationArgs',
     'RuntimeLifecycleConfigurationArgsDict',
     'RuntimeNetworkConfigurationArgs',
     'RuntimeNetworkConfigurationArgsDict',
+    'RuntimePrivateEndpointArgs',
+    'RuntimePrivateEndpointArgsDict',
+    'RuntimePrivateEndpointOverrideArgs',
+    'RuntimePrivateEndpointOverrideArgsDict',
     'RuntimeRequestHeaderConfigurationArgs',
     'RuntimeRequestHeaderConfigurationArgsDict',
     'RuntimeS3FilesAccessPointConfigurationArgs',
@@ -10722,6 +10730,45 @@ class RuntimeAgentRuntimeArtifactArgs:
         pulumi.set(self, "container_configuration", value)
 
 
+class RuntimeAllowedWorkloadConfigurationArgsDict(TypedDict):
+    """
+    Allow-list of upstream workloads permitted to reach this resource via the workload identity chain. When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+    """
+    hosting_environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeHostingEnvironmentArgsDict']]]]]
+    workload_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class RuntimeAllowedWorkloadConfigurationArgs:
+    def __init__(__self__, *,
+                 hosting_environments: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeHostingEnvironmentArgs']]]] = None,
+                 workload_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Allow-list of upstream workloads permitted to reach this resource via the workload identity chain. When set, the data plane enforces that the introspected workload chain's caller matches one of the configured hosting environments or workload identities; absent means no chain enforcement.
+        """
+        if hosting_environments is not None:
+            pulumi.set(__self__, "hosting_environments", hosting_environments)
+        if workload_identities is not None:
+            pulumi.set(__self__, "workload_identities", workload_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="hostingEnvironments")
+    def hosting_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeHostingEnvironmentArgs']]]]:
+        return pulumi.get(self, "hosting_environments")
+
+    @hosting_environments.setter
+    def hosting_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeHostingEnvironmentArgs']]]]):
+        pulumi.set(self, "hosting_environments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentities")
+    def workload_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "workload_identities")
+
+    @workload_identities.setter
+    def workload_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "workload_identities", value)
+
+
 class RuntimeAuthorizerConfigurationArgsDict(TypedDict):
     """
     Configuration for the authorizer
@@ -11001,7 +11048,10 @@ class RuntimeCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     Represents individual client IDs that are validated in the incoming JWT token validation process.
     """
     allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_workload_configuration: NotRequired[pulumi.Input[Optional['RuntimeAllowedWorkloadConfigurationArgsDict']]]
     custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgsDict']]]]]
+    private_endpoint: NotRequired[pulumi.Input[Optional['RuntimePrivateEndpointArgsDict']]]
+    private_endpoint_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuntimePrivateEndpointOverrideArgsDict']]]]]
 
 @pulumi.input_type
 class RuntimeCustomJwtAuthorizerConfigurationArgs:
@@ -11010,7 +11060,10 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
                  allowed_audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_clients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]] = None):
+                 allowed_workload_configuration: pulumi.Input[Optional['RuntimeAllowedWorkloadConfigurationArgs']] = None,
+                 custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]] = None,
+                 private_endpoint: pulumi.Input[Optional['RuntimePrivateEndpointArgs']] = None,
+                 private_endpoint_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimePrivateEndpointOverrideArgs']]]] = None):
         """
         Configuration for custom JWT authorizer
 
@@ -11025,8 +11078,14 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if allowed_workload_configuration is not None:
+            pulumi.set(__self__, "allowed_workload_configuration", allowed_workload_configuration)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -11074,6 +11133,15 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
         pulumi.set(self, "allowed_scopes", value)
 
     @_builtins.property
+    @pulumi.getter(name="allowedWorkloadConfiguration")
+    def allowed_workload_configuration(self) -> pulumi.Input[Optional['RuntimeAllowedWorkloadConfigurationArgs']]:
+        return pulumi.get(self, "allowed_workload_configuration")
+
+    @allowed_workload_configuration.setter
+    def allowed_workload_configuration(self, value: pulumi.Input[Optional['RuntimeAllowedWorkloadConfigurationArgs']]):
+        pulumi.set(self, "allowed_workload_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]:
         return pulumi.get(self, "custom_claims")
@@ -11081,6 +11149,24 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
     @custom_claims.setter
     def custom_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeCustomClaimValidationTypeArgs']]]]):
         pulumi.set(self, "custom_claims", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> pulumi.Input[Optional['RuntimePrivateEndpointArgs']]:
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: pulumi.Input[Optional['RuntimePrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuntimePrivateEndpointOverrideArgs']]]]:
+        return pulumi.get(self, "private_endpoint_overrides")
+
+    @private_endpoint_overrides.setter
+    def private_endpoint_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimePrivateEndpointOverrideArgs']]]]):
+        pulumi.set(self, "private_endpoint_overrides", value)
 
 
 class RuntimeEfsAccessPointConfigurationArgsDict(TypedDict):
@@ -11170,6 +11256,39 @@ class RuntimeFilesystemConfigurationArgs:
     @session_storage.setter
     def session_storage(self, value: pulumi.Input[Optional['RuntimeSessionStorageConfigurationArgs']]):
         pulumi.set(self, "session_storage", value)
+
+
+class RuntimeHostingEnvironmentArgsDict(TypedDict):
+    """
+    An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the bedrock-agentcore hosting environment
+    """
+
+@pulumi.input_type
+class RuntimeHostingEnvironmentArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str]):
+        """
+        An upstream workload identified by the ARN of its hosting environment (for example a Gateway or Runtime ARN)
+
+        :param pulumi.Input[_builtins.str] arn: The ARN of the bedrock-agentcore hosting environment
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the bedrock-agentcore hosting environment
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
 
 
 class RuntimeLifecycleConfigurationArgsDict(TypedDict):
@@ -11265,6 +11384,66 @@ class RuntimeNetworkConfigurationArgs:
     @network_mode_config.setter
     def network_mode_config(self, value: pulumi.Input[Optional['RuntimeVpcConfigArgs']]):
         pulumi.set(self, "network_mode_config", value)
+
+
+class RuntimePrivateEndpointArgsDict(TypedDict):
+    """
+    Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+    """
+    pass
+
+@pulumi.input_type
+class RuntimePrivateEndpointArgs:
+    def __init__(__self__):
+        """
+        Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
+        """
+        pass
+
+
+class RuntimePrivateEndpointOverrideArgsDict(TypedDict):
+    """
+    Override mapping of a domain to a private endpoint
+    """
+    domain: pulumi.Input[_builtins.str]
+    """
+    The domain to override
+    """
+    private_endpoint: pulumi.Input['RuntimePrivateEndpointArgsDict']
+
+@pulumi.input_type
+class RuntimePrivateEndpointOverrideArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[_builtins.str],
+                 private_endpoint: pulumi.Input['RuntimePrivateEndpointArgs']):
+        """
+        Override mapping of a domain to a private endpoint
+
+        :param pulumi.Input[_builtins.str] domain: The domain to override
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[_builtins.str]:
+        """
+        The domain to override
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> pulumi.Input['RuntimePrivateEndpointArgs']:
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: pulumi.Input['RuntimePrivateEndpointArgs']):
+        pulumi.set(self, "private_endpoint", value)
 
 
 class RuntimeRequestHeaderConfigurationArgsDict(TypedDict):

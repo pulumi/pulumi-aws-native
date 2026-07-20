@@ -28,6 +28,10 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         /// </summary>
         public readonly string? ScheduleExpression;
+        /// <summary>
+        /// The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+        /// </summary>
+        public readonly string? Timezone;
 
         [OutputConstructor]
         private ImagePipelineSchedule(
@@ -35,11 +39,14 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
             Pulumi.AwsNative.ImageBuilder.ImagePipelineSchedulePipelineExecutionStartCondition? pipelineExecutionStartCondition,
 
-            string? scheduleExpression)
+            string? scheduleExpression,
+
+            string? timezone)
         {
             AutoDisablePolicy = autoDisablePolicy;
             PipelineExecutionStartCondition = pipelineExecutionStartCondition;
             ScheduleExpression = scheduleExpression;
+            Timezone = timezone;
         }
     }
 }

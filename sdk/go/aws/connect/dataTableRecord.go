@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,20 +17,29 @@ type DataTableRecord struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
-	DataTableArn    pulumi.StringPtrOutput             `pulumi:"dataTableArn"`
-	DataTableRecord DataTableRecordPropertiesPtrOutput `pulumi:"dataTableRecord"`
+	DataTableArn    pulumi.StringOutput             `pulumi:"dataTableArn"`
+	DataTableRecord DataTableRecordPropertiesOutput `pulumi:"dataTableRecord"`
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn pulumi.StringPtrOutput `pulumi:"instanceArn"`
-	RecordId    pulumi.StringOutput    `pulumi:"recordId"`
+	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
+	RecordId    pulumi.StringOutput `pulumi:"recordId"`
 }
 
 // NewDataTableRecord registers a new resource with the given unique name, arguments, and options.
 func NewDataTableRecord(ctx *pulumi.Context,
 	name string, args *DataTableRecordArgs, opts ...pulumi.ResourceOption) (*DataTableRecord, error) {
 	if args == nil {
-		args = &DataTableRecordArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataTableArn == nil {
+		return nil, errors.New("invalid value for required argument 'DataTableArn'")
+	}
+	if args.DataTableRecord == nil {
+		return nil, errors.New("invalid value for required argument 'DataTableRecord'")
+	}
+	if args.InstanceArn == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceArn'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"dataTableArn",
 		"instanceArn",
@@ -69,19 +79,19 @@ func (DataTableRecordState) ElementType() reflect.Type {
 
 type dataTableRecordArgs struct {
 	// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
-	DataTableArn    *string                    `pulumi:"dataTableArn"`
-	DataTableRecord *DataTableRecordProperties `pulumi:"dataTableRecord"`
+	DataTableArn    string                    `pulumi:"dataTableArn"`
+	DataTableRecord DataTableRecordProperties `pulumi:"dataTableRecord"`
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn *string `pulumi:"instanceArn"`
+	InstanceArn string `pulumi:"instanceArn"`
 }
 
 // The set of arguments for constructing a DataTableRecord resource.
 type DataTableRecordArgs struct {
 	// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
-	DataTableArn    pulumi.StringPtrInput
-	DataTableRecord DataTableRecordPropertiesPtrInput
+	DataTableArn    pulumi.StringInput
+	DataTableRecord DataTableRecordPropertiesInput
 	// The Amazon Resource Name (ARN) of the instance.
-	InstanceArn pulumi.StringPtrInput
+	InstanceArn pulumi.StringInput
 }
 
 func (DataTableRecordArgs) ElementType() reflect.Type {
@@ -122,17 +132,17 @@ func (o DataTableRecordOutput) ToDataTableRecordOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
-func (o DataTableRecordOutput) DataTableArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataTableRecord) pulumi.StringPtrOutput { return v.DataTableArn }).(pulumi.StringPtrOutput)
+func (o DataTableRecordOutput) DataTableArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataTableRecord) pulumi.StringOutput { return v.DataTableArn }).(pulumi.StringOutput)
 }
 
-func (o DataTableRecordOutput) DataTableRecord() DataTableRecordPropertiesPtrOutput {
-	return o.ApplyT(func(v *DataTableRecord) DataTableRecordPropertiesPtrOutput { return v.DataTableRecord }).(DataTableRecordPropertiesPtrOutput)
+func (o DataTableRecordOutput) DataTableRecord() DataTableRecordPropertiesOutput {
+	return o.ApplyT(func(v *DataTableRecord) DataTableRecordPropertiesOutput { return v.DataTableRecord }).(DataTableRecordPropertiesOutput)
 }
 
 // The Amazon Resource Name (ARN) of the instance.
-func (o DataTableRecordOutput) InstanceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataTableRecord) pulumi.StringPtrOutput { return v.InstanceArn }).(pulumi.StringPtrOutput)
+func (o DataTableRecordOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataTableRecord) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
 func (o DataTableRecordOutput) RecordId() pulumi.StringOutput {

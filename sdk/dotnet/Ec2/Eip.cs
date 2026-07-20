@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
+        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide*.
         /// </summary>
         [Output("ipamPoolId")]
         public Output<string?> IpamPoolId { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
+        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide*.
         /// </summary>
         [Input("ipamPoolId")]
         public Input<string>? IpamPoolId { get; set; }

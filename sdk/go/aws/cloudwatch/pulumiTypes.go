@@ -262,6 +262,162 @@ func (o AlarmEvaluationCriteriaPtrOutput) PromQlCriteria() AlarmPromQlCriteriaPt
 	}).(AlarmPromQlCriteriaPtrOutput)
 }
 
+type AlarmEvaluationWindow struct {
+	// Configuration for sliding evaluation window (default behavior).
+	SlidingWindow interface{} `pulumi:"slidingWindow"`
+	// Configuration for wall clock based evaluation window.
+	WallClockWindow *AlarmWallClockWindow `pulumi:"wallClockWindow"`
+}
+
+// AlarmEvaluationWindowInput is an input type that accepts AlarmEvaluationWindowArgs and AlarmEvaluationWindowOutput values.
+// You can construct a concrete instance of `AlarmEvaluationWindowInput` via:
+//
+//	AlarmEvaluationWindowArgs{...}
+type AlarmEvaluationWindowInput interface {
+	pulumi.Input
+
+	ToAlarmEvaluationWindowOutput() AlarmEvaluationWindowOutput
+	ToAlarmEvaluationWindowOutputWithContext(context.Context) AlarmEvaluationWindowOutput
+}
+
+type AlarmEvaluationWindowArgs struct {
+	// Configuration for sliding evaluation window (default behavior).
+	SlidingWindow pulumi.Input `pulumi:"slidingWindow"`
+	// Configuration for wall clock based evaluation window.
+	WallClockWindow AlarmWallClockWindowPtrInput `pulumi:"wallClockWindow"`
+}
+
+func (AlarmEvaluationWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (i AlarmEvaluationWindowArgs) ToAlarmEvaluationWindowOutput() AlarmEvaluationWindowOutput {
+	return i.ToAlarmEvaluationWindowOutputWithContext(context.Background())
+}
+
+func (i AlarmEvaluationWindowArgs) ToAlarmEvaluationWindowOutputWithContext(ctx context.Context) AlarmEvaluationWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationWindowOutput)
+}
+
+func (i AlarmEvaluationWindowArgs) ToAlarmEvaluationWindowPtrOutput() AlarmEvaluationWindowPtrOutput {
+	return i.ToAlarmEvaluationWindowPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmEvaluationWindowArgs) ToAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) AlarmEvaluationWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationWindowOutput).ToAlarmEvaluationWindowPtrOutputWithContext(ctx)
+}
+
+// AlarmEvaluationWindowPtrInput is an input type that accepts AlarmEvaluationWindowArgs, AlarmEvaluationWindowPtr and AlarmEvaluationWindowPtrOutput values.
+// You can construct a concrete instance of `AlarmEvaluationWindowPtrInput` via:
+//
+//	        AlarmEvaluationWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmEvaluationWindowPtrInput interface {
+	pulumi.Input
+
+	ToAlarmEvaluationWindowPtrOutput() AlarmEvaluationWindowPtrOutput
+	ToAlarmEvaluationWindowPtrOutputWithContext(context.Context) AlarmEvaluationWindowPtrOutput
+}
+
+type alarmEvaluationWindowPtrType AlarmEvaluationWindowArgs
+
+func AlarmEvaluationWindowPtr(v *AlarmEvaluationWindowArgs) AlarmEvaluationWindowPtrInput {
+	return (*alarmEvaluationWindowPtrType)(v)
+}
+
+func (*alarmEvaluationWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (i *alarmEvaluationWindowPtrType) ToAlarmEvaluationWindowPtrOutput() AlarmEvaluationWindowPtrOutput {
+	return i.ToAlarmEvaluationWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmEvaluationWindowPtrType) ToAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) AlarmEvaluationWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationWindowPtrOutput)
+}
+
+type AlarmEvaluationWindowOutput struct{ *pulumi.OutputState }
+
+func (AlarmEvaluationWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (o AlarmEvaluationWindowOutput) ToAlarmEvaluationWindowOutput() AlarmEvaluationWindowOutput {
+	return o
+}
+
+func (o AlarmEvaluationWindowOutput) ToAlarmEvaluationWindowOutputWithContext(ctx context.Context) AlarmEvaluationWindowOutput {
+	return o
+}
+
+func (o AlarmEvaluationWindowOutput) ToAlarmEvaluationWindowPtrOutput() AlarmEvaluationWindowPtrOutput {
+	return o.ToAlarmEvaluationWindowPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmEvaluationWindowOutput) ToAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) AlarmEvaluationWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmEvaluationWindow) *AlarmEvaluationWindow {
+		return &v
+	}).(AlarmEvaluationWindowPtrOutput)
+}
+
+// Configuration for sliding evaluation window (default behavior).
+func (o AlarmEvaluationWindowOutput) SlidingWindow() pulumi.AnyOutput {
+	return o.ApplyT(func(v AlarmEvaluationWindow) interface{} { return v.SlidingWindow }).(pulumi.AnyOutput)
+}
+
+// Configuration for wall clock based evaluation window.
+func (o AlarmEvaluationWindowOutput) WallClockWindow() AlarmWallClockWindowPtrOutput {
+	return o.ApplyT(func(v AlarmEvaluationWindow) *AlarmWallClockWindow { return v.WallClockWindow }).(AlarmWallClockWindowPtrOutput)
+}
+
+type AlarmEvaluationWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmEvaluationWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (o AlarmEvaluationWindowPtrOutput) ToAlarmEvaluationWindowPtrOutput() AlarmEvaluationWindowPtrOutput {
+	return o
+}
+
+func (o AlarmEvaluationWindowPtrOutput) ToAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) AlarmEvaluationWindowPtrOutput {
+	return o
+}
+
+func (o AlarmEvaluationWindowPtrOutput) Elem() AlarmEvaluationWindowOutput {
+	return o.ApplyT(func(v *AlarmEvaluationWindow) AlarmEvaluationWindow {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmEvaluationWindow
+		return ret
+	}).(AlarmEvaluationWindowOutput)
+}
+
+// Configuration for sliding evaluation window (default behavior).
+func (o AlarmEvaluationWindowPtrOutput) SlidingWindow() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AlarmEvaluationWindow) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SlidingWindow
+	}).(pulumi.AnyOutput)
+}
+
+// Configuration for wall clock based evaluation window.
+func (o AlarmEvaluationWindowPtrOutput) WallClockWindow() AlarmWallClockWindowPtrOutput {
+	return o.ApplyT(func(v *AlarmEvaluationWindow) *AlarmWallClockWindow {
+		if v == nil {
+			return nil
+		}
+		return v.WallClockWindow
+	}).(AlarmWallClockWindowPtrOutput)
+}
+
 // The “Metric“ property type represents a specific metric. “Metric“ is a property of the [MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html) property type.
 type AlarmMetric struct {
 	// The metric dimensions that you want to be used for the metric that the alarm will watch.
@@ -1036,6 +1192,143 @@ type AlarmTag struct {
 	Value string `pulumi:"value"`
 }
 
+type AlarmWallClockWindow struct {
+	// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+	Timezone *string `pulumi:"timezone"`
+}
+
+// AlarmWallClockWindowInput is an input type that accepts AlarmWallClockWindowArgs and AlarmWallClockWindowOutput values.
+// You can construct a concrete instance of `AlarmWallClockWindowInput` via:
+//
+//	AlarmWallClockWindowArgs{...}
+type AlarmWallClockWindowInput interface {
+	pulumi.Input
+
+	ToAlarmWallClockWindowOutput() AlarmWallClockWindowOutput
+	ToAlarmWallClockWindowOutputWithContext(context.Context) AlarmWallClockWindowOutput
+}
+
+type AlarmWallClockWindowArgs struct {
+	// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (AlarmWallClockWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmWallClockWindow)(nil)).Elem()
+}
+
+func (i AlarmWallClockWindowArgs) ToAlarmWallClockWindowOutput() AlarmWallClockWindowOutput {
+	return i.ToAlarmWallClockWindowOutputWithContext(context.Background())
+}
+
+func (i AlarmWallClockWindowArgs) ToAlarmWallClockWindowOutputWithContext(ctx context.Context) AlarmWallClockWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmWallClockWindowOutput)
+}
+
+func (i AlarmWallClockWindowArgs) ToAlarmWallClockWindowPtrOutput() AlarmWallClockWindowPtrOutput {
+	return i.ToAlarmWallClockWindowPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmWallClockWindowArgs) ToAlarmWallClockWindowPtrOutputWithContext(ctx context.Context) AlarmWallClockWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmWallClockWindowOutput).ToAlarmWallClockWindowPtrOutputWithContext(ctx)
+}
+
+// AlarmWallClockWindowPtrInput is an input type that accepts AlarmWallClockWindowArgs, AlarmWallClockWindowPtr and AlarmWallClockWindowPtrOutput values.
+// You can construct a concrete instance of `AlarmWallClockWindowPtrInput` via:
+//
+//	        AlarmWallClockWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmWallClockWindowPtrInput interface {
+	pulumi.Input
+
+	ToAlarmWallClockWindowPtrOutput() AlarmWallClockWindowPtrOutput
+	ToAlarmWallClockWindowPtrOutputWithContext(context.Context) AlarmWallClockWindowPtrOutput
+}
+
+type alarmWallClockWindowPtrType AlarmWallClockWindowArgs
+
+func AlarmWallClockWindowPtr(v *AlarmWallClockWindowArgs) AlarmWallClockWindowPtrInput {
+	return (*alarmWallClockWindowPtrType)(v)
+}
+
+func (*alarmWallClockWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmWallClockWindow)(nil)).Elem()
+}
+
+func (i *alarmWallClockWindowPtrType) ToAlarmWallClockWindowPtrOutput() AlarmWallClockWindowPtrOutput {
+	return i.ToAlarmWallClockWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmWallClockWindowPtrType) ToAlarmWallClockWindowPtrOutputWithContext(ctx context.Context) AlarmWallClockWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmWallClockWindowPtrOutput)
+}
+
+type AlarmWallClockWindowOutput struct{ *pulumi.OutputState }
+
+func (AlarmWallClockWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmWallClockWindow)(nil)).Elem()
+}
+
+func (o AlarmWallClockWindowOutput) ToAlarmWallClockWindowOutput() AlarmWallClockWindowOutput {
+	return o
+}
+
+func (o AlarmWallClockWindowOutput) ToAlarmWallClockWindowOutputWithContext(ctx context.Context) AlarmWallClockWindowOutput {
+	return o
+}
+
+func (o AlarmWallClockWindowOutput) ToAlarmWallClockWindowPtrOutput() AlarmWallClockWindowPtrOutput {
+	return o.ToAlarmWallClockWindowPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmWallClockWindowOutput) ToAlarmWallClockWindowPtrOutputWithContext(ctx context.Context) AlarmWallClockWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmWallClockWindow) *AlarmWallClockWindow {
+		return &v
+	}).(AlarmWallClockWindowPtrOutput)
+}
+
+// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+func (o AlarmWallClockWindowOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlarmWallClockWindow) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type AlarmWallClockWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmWallClockWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmWallClockWindow)(nil)).Elem()
+}
+
+func (o AlarmWallClockWindowPtrOutput) ToAlarmWallClockWindowPtrOutput() AlarmWallClockWindowPtrOutput {
+	return o
+}
+
+func (o AlarmWallClockWindowPtrOutput) ToAlarmWallClockWindowPtrOutputWithContext(ctx context.Context) AlarmWallClockWindowPtrOutput {
+	return o
+}
+
+func (o AlarmWallClockWindowPtrOutput) Elem() AlarmWallClockWindowOutput {
+	return o.ApplyT(func(v *AlarmWallClockWindow) AlarmWallClockWindow {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmWallClockWindow
+		return ret
+	}).(AlarmWallClockWindowOutput)
+}
+
+// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+func (o AlarmWallClockWindowPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlarmWallClockWindow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 // Metadata that you can assign to a composite alarm, Tags can help you organize and categorize your resources.
 type CompositeAlarmTag struct {
 	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
@@ -1059,12 +1352,12 @@ type InsightRuleTag struct {
 
 // The schedule configuration for the scheduled query.
 type LogAlarmScheduleConfiguration struct {
-	// The number of seconds into the past to end the query window.
+	// The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
 	EndTimeOffset *int `pulumi:"endTimeOffset"`
 	// The expression that defines when the scheduled query runs, e.g. rate(1 minute).
 	ScheduleExpression string `pulumi:"scheduleExpression"`
-	// The number of seconds into the past to start the query window.
-	StartTimeOffset *int `pulumi:"startTimeOffset"`
+	// The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
+	StartTimeOffset int `pulumi:"startTimeOffset"`
 }
 
 // LogAlarmScheduleConfigurationInput is an input type that accepts LogAlarmScheduleConfigurationArgs and LogAlarmScheduleConfigurationOutput values.
@@ -1080,12 +1373,12 @@ type LogAlarmScheduleConfigurationInput interface {
 
 // The schedule configuration for the scheduled query.
 type LogAlarmScheduleConfigurationArgs struct {
-	// The number of seconds into the past to end the query window.
+	// The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
 	EndTimeOffset pulumi.IntPtrInput `pulumi:"endTimeOffset"`
 	// The expression that defines when the scheduled query runs, e.g. rate(1 minute).
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
-	// The number of seconds into the past to start the query window.
-	StartTimeOffset pulumi.IntPtrInput `pulumi:"startTimeOffset"`
+	// The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
+	StartTimeOffset pulumi.IntInput `pulumi:"startTimeOffset"`
 }
 
 func (LogAlarmScheduleConfigurationArgs) ElementType() reflect.Type {
@@ -1115,7 +1408,7 @@ func (o LogAlarmScheduleConfigurationOutput) ToLogAlarmScheduleConfigurationOutp
 	return o
 }
 
-// The number of seconds into the past to end the query window.
+// The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
 func (o LogAlarmScheduleConfigurationOutput) EndTimeOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LogAlarmScheduleConfiguration) *int { return v.EndTimeOffset }).(pulumi.IntPtrOutput)
 }
@@ -1125,9 +1418,9 @@ func (o LogAlarmScheduleConfigurationOutput) ScheduleExpression() pulumi.StringO
 	return o.ApplyT(func(v LogAlarmScheduleConfiguration) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
-// The number of seconds into the past to start the query window.
-func (o LogAlarmScheduleConfigurationOutput) StartTimeOffset() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LogAlarmScheduleConfiguration) *int { return v.StartTimeOffset }).(pulumi.IntPtrOutput)
+// The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
+func (o LogAlarmScheduleConfigurationOutput) StartTimeOffset() pulumi.IntOutput {
+	return o.ApplyT(func(v LogAlarmScheduleConfiguration) int { return v.StartTimeOffset }).(pulumi.IntOutput)
 }
 
 type LogAlarmScheduleConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1154,7 +1447,7 @@ func (o LogAlarmScheduleConfigurationPtrOutput) Elem() LogAlarmScheduleConfigura
 	}).(LogAlarmScheduleConfigurationOutput)
 }
 
-// The number of seconds into the past to end the query window.
+// The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
 func (o LogAlarmScheduleConfigurationPtrOutput) EndTimeOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogAlarmScheduleConfiguration) *int {
 		if v == nil {
@@ -1174,13 +1467,13 @@ func (o LogAlarmScheduleConfigurationPtrOutput) ScheduleExpression() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of seconds into the past to start the query window.
+// The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
 func (o LogAlarmScheduleConfigurationPtrOutput) StartTimeOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogAlarmScheduleConfiguration) *int {
 		if v == nil {
 			return nil
 		}
-		return v.StartTimeOffset
+		return &v.StartTimeOffset
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1196,6 +1489,8 @@ type LogAlarmScheduledQueryConfiguration struct {
 	ScheduleConfiguration LogAlarmScheduleConfiguration `pulumi:"scheduleConfiguration"`
 	// The ARN of the IAM role that grants permissions to execute the scheduled query.
 	ScheduledQueryRoleArn string `pulumi:"scheduledQueryRoleArn"`
+	// A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+	Tags []LogAlarmTag `pulumi:"tags"`
 }
 
 // LogAlarmScheduledQueryConfigurationInput is an input type that accepts LogAlarmScheduledQueryConfigurationArgs and LogAlarmScheduledQueryConfigurationOutput values.
@@ -1221,6 +1516,8 @@ type LogAlarmScheduledQueryConfigurationArgs struct {
 	ScheduleConfiguration LogAlarmScheduleConfigurationInput `pulumi:"scheduleConfiguration"`
 	// The ARN of the IAM role that grants permissions to execute the scheduled query.
 	ScheduledQueryRoleArn pulumi.StringInput `pulumi:"scheduledQueryRoleArn"`
+	// A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+	Tags LogAlarmTagArrayInput `pulumi:"tags"`
 }
 
 func (LogAlarmScheduledQueryConfigurationArgs) ElementType() reflect.Type {
@@ -1275,6 +1572,11 @@ func (o LogAlarmScheduledQueryConfigurationOutput) ScheduleConfiguration() LogAl
 // The ARN of the IAM role that grants permissions to execute the scheduled query.
 func (o LogAlarmScheduledQueryConfigurationOutput) ScheduledQueryRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) string { return v.ScheduledQueryRoleArn }).(pulumi.StringOutput)
+}
+
+// A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+func (o LogAlarmScheduledQueryConfigurationOutput) Tags() LogAlarmTagArrayOutput {
+	return o.ApplyT(func(v LogAlarmScheduledQueryConfiguration) []LogAlarmTag { return v.Tags }).(LogAlarmTagArrayOutput)
 }
 
 type LogAlarmScheduledQueryConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1351,12 +1653,123 @@ func (o LogAlarmScheduledQueryConfigurationPtrOutput) ScheduledQueryRoleArn() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+func (o LogAlarmScheduledQueryConfigurationPtrOutput) Tags() LogAlarmTagArrayOutput {
+	return o.ApplyT(func(v *LogAlarmScheduledQueryConfiguration) []LogAlarmTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(LogAlarmTagArrayOutput)
+}
+
 // Metadata that you can assign to a log alarm. Tags can help you organize and categorize your resources.
 type LogAlarmTag struct {
 	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
 	Key string `pulumi:"key"`
 	// The value for the specified tag key.
 	Value string `pulumi:"value"`
+}
+
+// LogAlarmTagInput is an input type that accepts LogAlarmTagArgs and LogAlarmTagOutput values.
+// You can construct a concrete instance of `LogAlarmTagInput` via:
+//
+//	LogAlarmTagArgs{...}
+type LogAlarmTagInput interface {
+	pulumi.Input
+
+	ToLogAlarmTagOutput() LogAlarmTagOutput
+	ToLogAlarmTagOutputWithContext(context.Context) LogAlarmTagOutput
+}
+
+// Metadata that you can assign to a log alarm. Tags can help you organize and categorize your resources.
+type LogAlarmTagArgs struct {
+	// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the specified tag key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LogAlarmTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmTag)(nil)).Elem()
+}
+
+func (i LogAlarmTagArgs) ToLogAlarmTagOutput() LogAlarmTagOutput {
+	return i.ToLogAlarmTagOutputWithContext(context.Background())
+}
+
+func (i LogAlarmTagArgs) ToLogAlarmTagOutputWithContext(ctx context.Context) LogAlarmTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmTagOutput)
+}
+
+// LogAlarmTagArrayInput is an input type that accepts LogAlarmTagArray and LogAlarmTagArrayOutput values.
+// You can construct a concrete instance of `LogAlarmTagArrayInput` via:
+//
+//	LogAlarmTagArray{ LogAlarmTagArgs{...} }
+type LogAlarmTagArrayInput interface {
+	pulumi.Input
+
+	ToLogAlarmTagArrayOutput() LogAlarmTagArrayOutput
+	ToLogAlarmTagArrayOutputWithContext(context.Context) LogAlarmTagArrayOutput
+}
+
+type LogAlarmTagArray []LogAlarmTagInput
+
+func (LogAlarmTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogAlarmTag)(nil)).Elem()
+}
+
+func (i LogAlarmTagArray) ToLogAlarmTagArrayOutput() LogAlarmTagArrayOutput {
+	return i.ToLogAlarmTagArrayOutputWithContext(context.Background())
+}
+
+func (i LogAlarmTagArray) ToLogAlarmTagArrayOutputWithContext(ctx context.Context) LogAlarmTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmTagArrayOutput)
+}
+
+// Metadata that you can assign to a log alarm. Tags can help you organize and categorize your resources.
+type LogAlarmTagOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmTag)(nil)).Elem()
+}
+
+func (o LogAlarmTagOutput) ToLogAlarmTagOutput() LogAlarmTagOutput {
+	return o
+}
+
+func (o LogAlarmTagOutput) ToLogAlarmTagOutputWithContext(ctx context.Context) LogAlarmTagOutput {
+	return o
+}
+
+// A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+func (o LogAlarmTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAlarmTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the specified tag key.
+func (o LogAlarmTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LogAlarmTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LogAlarmTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogAlarmTag)(nil)).Elem()
+}
+
+func (o LogAlarmTagArrayOutput) ToLogAlarmTagArrayOutput() LogAlarmTagArrayOutput {
+	return o
+}
+
+func (o LogAlarmTagArrayOutput) ToLogAlarmTagArrayOutputWithContext(ctx context.Context) LogAlarmTagArrayOutput {
+	return o
+}
+
+func (o LogAlarmTagArrayOutput) Index(i pulumi.IntInput) LogAlarmTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogAlarmTag {
+		return vs[0].([]LogAlarmTag)[vs[1].(int)]
+	}).(LogAlarmTagOutput)
 }
 
 // This structure defines the metrics that will be streamed.
@@ -2055,6 +2468,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionArrayInput)(nil)).Elem(), AlarmDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmEvaluationCriteriaInput)(nil)).Elem(), AlarmEvaluationCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmEvaluationCriteriaPtrInput)(nil)).Elem(), AlarmEvaluationCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmEvaluationWindowInput)(nil)).Elem(), AlarmEvaluationWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmEvaluationWindowPtrInput)(nil)).Elem(), AlarmEvaluationWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricInput)(nil)).Elem(), AlarmMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricPtrInput)(nil)).Elem(), AlarmMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricDataQueryInput)(nil)).Elem(), AlarmMetricDataQueryArgs{})
@@ -2063,8 +2478,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmMetricStatPtrInput)(nil)).Elem(), AlarmMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaPtrInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWallClockWindowInput)(nil)).Elem(), AlarmWallClockWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWallClockWindowPtrInput)(nil)).Elem(), AlarmWallClockWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduleConfigurationInput)(nil)).Elem(), LogAlarmScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduledQueryConfigurationInput)(nil)).Elem(), LogAlarmScheduledQueryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmTagInput)(nil)).Elem(), LogAlarmTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmTagArrayInput)(nil)).Elem(), LogAlarmTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterInput)(nil)).Elem(), MetricStreamFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterArrayInput)(nil)).Elem(), MetricStreamFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArgs{})
@@ -2079,6 +2498,8 @@ func init() {
 	pulumi.RegisterOutputType(AlarmDimensionArrayOutput{})
 	pulumi.RegisterOutputType(AlarmEvaluationCriteriaOutput{})
 	pulumi.RegisterOutputType(AlarmEvaluationCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(AlarmEvaluationWindowOutput{})
+	pulumi.RegisterOutputType(AlarmEvaluationWindowPtrOutput{})
 	pulumi.RegisterOutputType(AlarmMetricOutput{})
 	pulumi.RegisterOutputType(AlarmMetricPtrOutput{})
 	pulumi.RegisterOutputType(AlarmMetricDataQueryOutput{})
@@ -2087,10 +2508,14 @@ func init() {
 	pulumi.RegisterOutputType(AlarmMetricStatPtrOutput{})
 	pulumi.RegisterOutputType(AlarmPromQlCriteriaOutput{})
 	pulumi.RegisterOutputType(AlarmPromQlCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(AlarmWallClockWindowOutput{})
+	pulumi.RegisterOutputType(AlarmWallClockWindowPtrOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduledQueryConfigurationOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduledQueryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogAlarmTagOutput{})
+	pulumi.RegisterOutputType(LogAlarmTagArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationOutput{})

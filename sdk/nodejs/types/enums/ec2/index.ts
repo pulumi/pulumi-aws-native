@@ -1149,6 +1149,16 @@ export const VpcBlockPublicAccessOptionsInternetGatewayBlockMode = {
  */
 export type VpcBlockPublicAccessOptionsInternetGatewayBlockMode = (typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode)[keyof typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode];
 
+export const VpcEncryptionControlEgressOnlyInternetGatewayExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for Egress-Only Internet Gateways.
+ */
+export type VpcEncryptionControlEgressOnlyInternetGatewayExclusion = (typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusion)[keyof typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusion];
+
 export const VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput = {
     Enable: "enable",
     Disable: "disable",
@@ -1158,6 +1168,16 @@ export const VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput = {
  * Used to enable or disable EIGW exclusion
  */
 export type VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput = (typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput)[keyof typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput];
+
+export const VpcEncryptionControlElasticFileSystemExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for Elastic File System.
+ */
+export type VpcEncryptionControlElasticFileSystemExclusion = (typeof VpcEncryptionControlElasticFileSystemExclusion)[keyof typeof VpcEncryptionControlElasticFileSystemExclusion];
 
 export const VpcEncryptionControlElasticFileSystemExclusionInput = {
     Enable: "enable",
@@ -1169,6 +1189,16 @@ export const VpcEncryptionControlElasticFileSystemExclusionInput = {
  */
 export type VpcEncryptionControlElasticFileSystemExclusionInput = (typeof VpcEncryptionControlElasticFileSystemExclusionInput)[keyof typeof VpcEncryptionControlElasticFileSystemExclusionInput];
 
+export const VpcEncryptionControlInternetGatewayExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for Internet Gateways.
+ */
+export type VpcEncryptionControlInternetGatewayExclusion = (typeof VpcEncryptionControlInternetGatewayExclusion)[keyof typeof VpcEncryptionControlInternetGatewayExclusion];
+
 export const VpcEncryptionControlInternetGatewayExclusionInput = {
     Enable: "enable",
     Disable: "disable",
@@ -1178,6 +1208,16 @@ export const VpcEncryptionControlInternetGatewayExclusionInput = {
  * Used to enable or disable IGW exclusion
  */
 export type VpcEncryptionControlInternetGatewayExclusionInput = (typeof VpcEncryptionControlInternetGatewayExclusionInput)[keyof typeof VpcEncryptionControlInternetGatewayExclusionInput];
+
+export const VpcEncryptionControlLambdaExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for Lambda.
+ */
+export type VpcEncryptionControlLambdaExclusion = (typeof VpcEncryptionControlLambdaExclusion)[keyof typeof VpcEncryptionControlLambdaExclusion];
 
 export const VpcEncryptionControlLambdaExclusionInput = {
     Enable: "enable",
@@ -1198,6 +1238,16 @@ export const VpcEncryptionControlMode = {
  * The VPC encryption control mode, either monitor or enforce.
  */
 export type VpcEncryptionControlMode = (typeof VpcEncryptionControlMode)[keyof typeof VpcEncryptionControlMode];
+
+export const VpcEncryptionControlNatGatewayExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for NAT Gateways.
+ */
+export type VpcEncryptionControlNatGatewayExclusion = (typeof VpcEncryptionControlNatGatewayExclusion)[keyof typeof VpcEncryptionControlNatGatewayExclusion];
 
 export const VpcEncryptionControlNatGatewayExclusionInput = {
     Enable: "enable",
@@ -1226,6 +1276,16 @@ export const VpcEncryptionControlState = {
  */
 export type VpcEncryptionControlState = (typeof VpcEncryptionControlState)[keyof typeof VpcEncryptionControlState];
 
+export const VpcEncryptionControlVirtualPrivateGatewayExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for Virtual Private Gateways.
+ */
+export type VpcEncryptionControlVirtualPrivateGatewayExclusion = (typeof VpcEncryptionControlVirtualPrivateGatewayExclusion)[keyof typeof VpcEncryptionControlVirtualPrivateGatewayExclusion];
+
 export const VpcEncryptionControlVirtualPrivateGatewayExclusionInput = {
     Enable: "enable",
     Disable: "disable",
@@ -1236,6 +1296,16 @@ export const VpcEncryptionControlVirtualPrivateGatewayExclusionInput = {
  */
 export type VpcEncryptionControlVirtualPrivateGatewayExclusionInput = (typeof VpcEncryptionControlVirtualPrivateGatewayExclusionInput)[keyof typeof VpcEncryptionControlVirtualPrivateGatewayExclusionInput];
 
+export const VpcEncryptionControlVpcLatticeExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for VPC Lattice.
+ */
+export type VpcEncryptionControlVpcLatticeExclusion = (typeof VpcEncryptionControlVpcLatticeExclusion)[keyof typeof VpcEncryptionControlVpcLatticeExclusion];
+
 export const VpcEncryptionControlVpcLatticeExclusionInput = {
     Enable: "enable",
     Disable: "disable",
@@ -1245,6 +1315,16 @@ export const VpcEncryptionControlVpcLatticeExclusionInput = {
  * Used to enable or disable Vpc Lattice exclusion
  */
 export type VpcEncryptionControlVpcLatticeExclusionInput = (typeof VpcEncryptionControlVpcLatticeExclusionInput)[keyof typeof VpcEncryptionControlVpcLatticeExclusionInput];
+
+export const VpcEncryptionControlVpcPeeringExclusion = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * The desired exclusion mode for VPC Peering.
+ */
+export type VpcEncryptionControlVpcPeeringExclusion = (typeof VpcEncryptionControlVpcPeeringExclusion)[keyof typeof VpcEncryptionControlVpcPeeringExclusion];
 
 export const VpcEncryptionControlVpcPeeringExclusionInput = {
     Enable: "enable",

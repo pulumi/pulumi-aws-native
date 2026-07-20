@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
     public sealed class MatchingWorkflowResolutionTechniquesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+        /// </summary>
+        [Input("enableRealTimeMatching")]
+        public Input<bool>? EnableRealTimeMatching { get; set; }
+
+        /// <summary>
         /// The properties of the provider service.
         /// </summary>
         [Input("providerProperties")]

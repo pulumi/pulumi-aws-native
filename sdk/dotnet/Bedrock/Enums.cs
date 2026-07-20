@@ -1841,6 +1841,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static EnforcedGuardrailConfigurationConfigOwner Account { get; } = new EnforcedGuardrailConfigurationConfigOwner("ACCOUNT");
+        public static EnforcedGuardrailConfigurationConfigOwner Organization { get; } = new EnforcedGuardrailConfigurationConfigOwner("ORGANIZATION");
 
         public static bool operator ==(EnforcedGuardrailConfigurationConfigOwner left, EnforcedGuardrailConfigurationConfigOwner right) => left.Equals(right);
         public static bool operator !=(EnforcedGuardrailConfigurationConfigOwner left, EnforcedGuardrailConfigurationConfigOwner right) => !left.Equals(right);

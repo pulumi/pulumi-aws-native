@@ -9549,7 +9549,8 @@ func (in *dataSourceWebScopeTypePtr) ToDataSourceWebScopeTypePtrOutputWithContex
 type EnforcedGuardrailConfigurationConfigOwner string
 
 const (
-	EnforcedGuardrailConfigurationConfigOwnerAccount = EnforcedGuardrailConfigurationConfigOwner("ACCOUNT")
+	EnforcedGuardrailConfigurationConfigOwnerAccount      = EnforcedGuardrailConfigurationConfigOwner("ACCOUNT")
+	EnforcedGuardrailConfigurationConfigOwnerOrganization = EnforcedGuardrailConfigurationConfigOwner("ORGANIZATION")
 )
 
 type EnforcedGuardrailConfigurationConfigOwnerOutput struct{ *pulumi.OutputState }
