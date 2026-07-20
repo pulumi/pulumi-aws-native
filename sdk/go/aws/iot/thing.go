@@ -44,12 +44,12 @@ import (
 //				myAttributeValueC = param
 //			}
 //			_, err := iot.NewThing(ctx, "myThing", &iot.ThingArgs{
-//				ThingName: pulumi.String(pulumi.String(nameParameter)),
+//				ThingName: pulumi.String(nameParameter),
 //				AttributePayload: &iot.ThingAttributePayloadArgs{
 //					Attributes: pulumi.StringMap{
-//						"myAttributeA": pulumi.String(pulumi.String(myAttributeValueA)),
-//						"myAttributeB": pulumi.String(pulumi.String(myAttributeValueB)),
-//						"myAttributeC": pulumi.String(pulumi.String(myAttributeValueC)),
+//						"myAttributeA": pulumi.String(myAttributeValueA),
+//						"myAttributeB": pulumi.String(myAttributeValueB),
+//						"myAttributeC": pulumi.String(myAttributeValueC),
 //					},
 //				},
 //			})

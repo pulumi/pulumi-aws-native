@@ -73,7 +73,7 @@ import (
 //			myHttpEndpoint := cfg.Require("myHttpEndpoint")
 //			_, err = sns.NewSubscription(ctx, "scmSubscription", &sns.SubscriptionArgs{
 //				TopicArn: carSalesTopic.ID(),
-//				Endpoint: pulumi.String(pulumi.String(myHttpEndpoint)),
+//				Endpoint: pulumi.String(myHttpEndpoint),
 //				Protocol: pulumi.String("https"),
 //				DeliveryPolicy: pulumi.Any(map[string]interface{}{
 //					"healthyRetryPolicy": map[string]interface{}{
@@ -150,7 +150,7 @@ import (
 //			myHttpEndpoint := cfg.Require("myHttpEndpoint")
 //			_, err = sns.NewSubscription(ctx, "scmSubscription", &sns.SubscriptionArgs{
 //				TopicArn: carSalesTopic.ID(),
-//				Endpoint: pulumi.String(pulumi.String(myHttpEndpoint)),
+//				Endpoint: pulumi.String(myHttpEndpoint),
 //				Protocol: pulumi.String("https"),
 //				DeliveryPolicy: pulumi.Any(map[string]interface{}{
 //					"healthyRetryPolicy": map[string]interface{}{

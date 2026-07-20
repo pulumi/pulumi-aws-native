@@ -37,13 +37,13 @@ import (
 //			serviceRoleArn := cfg.Require("serviceRoleArn")
 //			lambdaFunctionArn := cfg.Require("lambdaFunctionArn")
 //			_, err := appsync.NewDataSource(ctx, "dataSource", &appsync.DataSourceArgs{
-//				ApiId:          pulumi.String(pulumi.String(graphQlApiId)),
-//				Name:           pulumi.String(pulumi.String(dataSourceName)),
-//				Description:    pulumi.String(pulumi.String(dataSourceDescription)),
+//				ApiId:          pulumi.String(graphQlApiId),
+//				Name:           pulumi.String(dataSourceName),
+//				Description:    pulumi.String(dataSourceDescription),
 //				Type:           pulumi.String("AWS_LAMBDA"),
-//				ServiceRoleArn: pulumi.String(pulumi.String(serviceRoleArn)),
+//				ServiceRoleArn: pulumi.String(serviceRoleArn),
 //				LambdaConfig: &appsync.DataSourceLambdaConfigArgs{
-//					LambdaFunctionArn: pulumi.String(pulumi.String(lambdaFunctionArn)),
+//					LambdaFunctionArn: pulumi.String(lambdaFunctionArn),
 //				},
 //			})
 //			if err != nil {
@@ -76,13 +76,13 @@ import (
 //			serviceRoleArn := cfg.Require("serviceRoleArn")
 //			lambdaFunctionArn := cfg.Require("lambdaFunctionArn")
 //			_, err := appsync.NewDataSource(ctx, "dataSource", &appsync.DataSourceArgs{
-//				ApiId:          pulumi.String(pulumi.String(graphQlApiId)),
-//				Name:           pulumi.String(pulumi.String(dataSourceName)),
-//				Description:    pulumi.String(pulumi.String(dataSourceDescription)),
+//				ApiId:          pulumi.String(graphQlApiId),
+//				Name:           pulumi.String(dataSourceName),
+//				Description:    pulumi.String(dataSourceDescription),
 //				Type:           pulumi.String("AWS_LAMBDA"),
-//				ServiceRoleArn: pulumi.String(pulumi.String(serviceRoleArn)),
+//				ServiceRoleArn: pulumi.String(serviceRoleArn),
 //				LambdaConfig: &appsync.DataSourceLambdaConfigArgs{
-//					LambdaFunctionArn: pulumi.String(pulumi.String(lambdaFunctionArn)),
+//					LambdaFunctionArn: pulumi.String(lambdaFunctionArn),
 //				},
 //			})
 //			if err != nil {
