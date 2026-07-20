@@ -1122,6 +1122,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		AutoNamingSpec:        autoNamingSpec,
 		WriteOnly:             writeOnlyProperties.SortedValues(),
 		ReadOnly:              readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
+		UnorderedCollections:  readUnorderedCollections(ctx.resourceSpec),
 		IrreversibleNames:     irreversibleNames,
 		TagsProperty:          naming.ToSdkName(tagsProp),
 		TagsStyle:             tagsStyle,
