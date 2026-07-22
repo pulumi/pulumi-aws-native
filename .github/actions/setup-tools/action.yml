@@ -32,10 +32,3 @@ runs:
           sdk/go/*.sum
           sdk/*.sum
           *.sum
-
-    - name: Setup Node
-      uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-      with:
-        # we don't set node-version because we install with mise.
-        # this step is needed to setup npm auth
-        registry-url: https://registry.npmjs.org
