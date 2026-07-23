@@ -42,6 +42,7 @@ func CalcPatchWithActualOutputs(
 		classifier = NewPathClassifier(&spec, types)
 	}
 	baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, actualOutputs, newInputs)
+	NormalizeWafv2ByteMatchBaseline(resourceToken, baseline, newInputs)
 	return calcPatchFromBaseline(oldInputs, baseline, newInputs, spec, types, resourceToken, transformCache)
 }
 
@@ -65,6 +66,23 @@ func calcPatchFromBaseline(
 			newInputs,
 			transformCache,
 		)
+	}
+
+	// CloudControl validates the complete WAFv2 model on every update. Its read
+	// response can contain both SearchString and SearchStringBase64, so resend
+	// the canonical rules whenever another WebAcl property changes.
+	if diff != nil && resourceToken == awsNativeWafv2WebAclToken {
+		if rules, ok := newInputs[wafv2RulesProperty]; ok {
+			if diff.Updates == nil {
+				diff.Updates = map[resource.PropertyKey]resource.ValueDiff{}
+			}
+			delete(diff.Adds, wafv2RulesProperty)
+			delete(diff.Deletes, wafv2RulesProperty)
+			diff.Updates[wafv2RulesProperty] = resource.ValueDiff{
+				Old: baseline[wafv2RulesProperty],
+				New: rules,
+			}
+		}
 	}
 
 	// Write-only properties can't even be read internally within the CloudControl service so they must be included in
