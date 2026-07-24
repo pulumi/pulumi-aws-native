@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.InspectorV2.Outputs
     public sealed class CisScanConfigurationCisTargets
     {
         public readonly ImmutableArray<string> AccountIds;
-        public readonly ImmutableDictionary<string, object> TargetResourceTags;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>> TargetResourceTags;
 
         [OutputConstructor]
         private CisScanConfigurationCisTargets(
             ImmutableArray<string> accountIds,
 
-            ImmutableDictionary<string, object> targetResourceTags)
+            ImmutableDictionary<string, ImmutableArray<string>> targetResourceTags)
         {
             AccountIds = accountIds;
             TargetResourceTags = targetResourceTags;

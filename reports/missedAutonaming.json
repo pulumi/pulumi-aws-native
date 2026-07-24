@@ -17126,7 +17126,10 @@
       "automationParameters": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "pulumi.json#/Any"
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "description": "A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow."
       },

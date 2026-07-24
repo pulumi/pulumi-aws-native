@@ -20,14 +20,14 @@ __all__ = ['LifecycleAutomationArgs', 'LifecycleAutomation']
 class LifecycleAutomationArgs:
     def __init__(__self__, *,
                  automation_document: pulumi.Input[_builtins.str],
-                 automation_parameters: pulumi.Input[Mapping[str, Any]],
+                 automation_parameters: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]],
                  resource_key: pulumi.Input[_builtins.str],
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LifecycleAutomation resource.
 
         :param pulumi.Input[_builtins.str] automation_document: The name of the Automation document to execute
-        :param pulumi.Input[Mapping[str, Any]] automation_parameters: A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] automation_parameters: A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         :param pulumi.Input[_builtins.str] resource_key: A unique identifier used for generating a unique logical ID for the custom resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
         """
@@ -51,14 +51,14 @@ class LifecycleAutomationArgs:
 
     @_builtins.property
     @pulumi.getter(name="automationParameters")
-    def automation_parameters(self) -> pulumi.Input[Mapping[str, Any]]:
+    def automation_parameters(self) -> pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]:
         """
         A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         """
         return pulumi.get(self, "automation_parameters")
 
     @automation_parameters.setter
-    def automation_parameters(self, value: pulumi.Input[Mapping[str, Any]]):
+    def automation_parameters(self, value: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "automation_parameters", value)
 
     @_builtins.property
@@ -93,7 +93,7 @@ class LifecycleAutomation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 automation_parameters: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 automation_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  resource_key: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -103,7 +103,7 @@ class LifecycleAutomation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_document: The name of the Automation document to execute
-        :param pulumi.Input[Mapping[str, Any]] automation_parameters: A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] automation_parameters: A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         :param pulumi.Input[_builtins.str] resource_key: A unique identifier used for generating a unique logical ID for the custom resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
         """
@@ -132,7 +132,7 @@ class LifecycleAutomation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 automation_parameters: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 automation_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  resource_key: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -204,7 +204,7 @@ class LifecycleAutomation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="automationParameters")
-    def automation_parameters(self) -> pulumi.Output[Mapping[str, Any]]:
+    def automation_parameters(self) -> pulumi.Output[Mapping[str, Sequence[_builtins.str]]]:
         """
         A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         """

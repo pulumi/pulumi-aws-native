@@ -51,7 +51,7 @@ type LookupComponentResult struct {
 	// The name of the component.
 	Name *string `pulumi:"name"`
 	// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
-	Overrides map[string]interface{} `pulumi:"overrides"`
+	Overrides map[string]map[string]string `pulumi:"overrides"`
 	// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
 	Properties map[string]ComponentProperty `pulumi:"properties"`
 	// The schema version of the component when it was imported.
@@ -146,8 +146,8 @@ func (o LookupComponentResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
-func (o LookupComponentResultOutput) Overrides() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupComponentResult) map[string]interface{} { return v.Overrides }).(pulumi.MapOutput)
+func (o LookupComponentResultOutput) Overrides() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v LookupComponentResult) map[string]map[string]string { return v.Overrides }).(pulumi.StringMapMapOutput)
 }
 
 // Describes the component's properties. You can't specify `tags` as a valid property for `properties` .

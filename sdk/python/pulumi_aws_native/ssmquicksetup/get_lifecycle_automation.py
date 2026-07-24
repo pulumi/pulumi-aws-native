@@ -55,7 +55,7 @@ class GetLifecycleAutomationResult:
 
     @_builtins.property
     @pulumi.getter(name="automationParameters")
-    def automation_parameters(self) -> Optional[Mapping[str, Any]]:
+    def automation_parameters(self) -> Optional[Mapping[str, Sequence[_builtins.str]]]:
         """
         A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         """

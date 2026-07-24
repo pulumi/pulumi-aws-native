@@ -65,7 +65,7 @@ class CisScanConfigurationCisTargets(dict):
 
     def __init__(__self__, *,
                  account_ids: Sequence[_builtins.str],
-                 target_resource_tags: Mapping[str, Any]):
+                 target_resource_tags: Mapping[str, Sequence[_builtins.str]]):
         pulumi.set(__self__, "account_ids", account_ids)
         pulumi.set(__self__, "target_resource_tags", target_resource_tags)
 
@@ -76,7 +76,7 @@ class CisScanConfigurationCisTargets(dict):
 
     @_builtins.property
     @pulumi.getter(name="targetResourceTags")
-    def target_resource_tags(self) -> Mapping[str, Any]:
+    def target_resource_tags(self) -> Mapping[str, Sequence[_builtins.str]]:
         return pulumi.get(self, "target_resource_tags")
 
 

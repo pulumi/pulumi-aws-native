@@ -8855,7 +8855,7 @@ func (o DataSourceRelationalFilterConfigurationArrayOutput) Index(i pulumi.IntIn
 // The configuration details of the Amazon SageMaker data source.
 type DataSourceSageMakerRunConfigurationInput struct {
 	// The tracking assets of the Amazon SageMaker run.
-	TrackingAssets map[string]interface{} `pulumi:"trackingAssets"`
+	TrackingAssets map[string][]string `pulumi:"trackingAssets"`
 }
 
 // DataSourceSageMakerRunConfigurationInputInput is an input type that accepts DataSourceSageMakerRunConfigurationInputArgs and DataSourceSageMakerRunConfigurationInputOutput values.
@@ -8872,7 +8872,7 @@ type DataSourceSageMakerRunConfigurationInputInput interface {
 // The configuration details of the Amazon SageMaker data source.
 type DataSourceSageMakerRunConfigurationInputArgs struct {
 	// The tracking assets of the Amazon SageMaker run.
-	TrackingAssets pulumi.MapInput `pulumi:"trackingAssets"`
+	TrackingAssets pulumi.StringArrayMapInput `pulumi:"trackingAssets"`
 }
 
 func (DataSourceSageMakerRunConfigurationInputArgs) ElementType() reflect.Type {
@@ -8954,8 +8954,8 @@ func (o DataSourceSageMakerRunConfigurationInputOutput) ToDataSourceSageMakerRun
 }
 
 // The tracking assets of the Amazon SageMaker run.
-func (o DataSourceSageMakerRunConfigurationInputOutput) TrackingAssets() pulumi.MapOutput {
-	return o.ApplyT(func(v DataSourceSageMakerRunConfigurationInput) map[string]interface{} { return v.TrackingAssets }).(pulumi.MapOutput)
+func (o DataSourceSageMakerRunConfigurationInputOutput) TrackingAssets() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v DataSourceSageMakerRunConfigurationInput) map[string][]string { return v.TrackingAssets }).(pulumi.StringArrayMapOutput)
 }
 
 type DataSourceSageMakerRunConfigurationInputPtrOutput struct{ *pulumi.OutputState }
@@ -8983,13 +8983,13 @@ func (o DataSourceSageMakerRunConfigurationInputPtrOutput) Elem() DataSourceSage
 }
 
 // The tracking assets of the Amazon SageMaker run.
-func (o DataSourceSageMakerRunConfigurationInputPtrOutput) TrackingAssets() pulumi.MapOutput {
-	return o.ApplyT(func(v *DataSourceSageMakerRunConfigurationInput) map[string]interface{} {
+func (o DataSourceSageMakerRunConfigurationInputPtrOutput) TrackingAssets() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *DataSourceSageMakerRunConfigurationInput) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.TrackingAssets
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 // The schedule of the data source runs.
