@@ -3559,7 +3559,261 @@ func (o QueuePosixUserPtrOutput) User() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type QueuePriorityBalancedSchedulingConfiguration struct {
+	RenderingTaskBuffer *int `pulumi:"renderingTaskBuffer"`
+}
+
+// QueuePriorityBalancedSchedulingConfigurationInput is an input type that accepts QueuePriorityBalancedSchedulingConfigurationArgs and QueuePriorityBalancedSchedulingConfigurationOutput values.
+// You can construct a concrete instance of `QueuePriorityBalancedSchedulingConfigurationInput` via:
+//
+//	QueuePriorityBalancedSchedulingConfigurationArgs{...}
+type QueuePriorityBalancedSchedulingConfigurationInput interface {
+	pulumi.Input
+
+	ToQueuePriorityBalancedSchedulingConfigurationOutput() QueuePriorityBalancedSchedulingConfigurationOutput
+	ToQueuePriorityBalancedSchedulingConfigurationOutputWithContext(context.Context) QueuePriorityBalancedSchedulingConfigurationOutput
+}
+
+type QueuePriorityBalancedSchedulingConfigurationArgs struct {
+	RenderingTaskBuffer pulumi.IntPtrInput `pulumi:"renderingTaskBuffer"`
+}
+
+func (QueuePriorityBalancedSchedulingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueuePriorityBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i QueuePriorityBalancedSchedulingConfigurationArgs) ToQueuePriorityBalancedSchedulingConfigurationOutput() QueuePriorityBalancedSchedulingConfigurationOutput {
+	return i.ToQueuePriorityBalancedSchedulingConfigurationOutputWithContext(context.Background())
+}
+
+func (i QueuePriorityBalancedSchedulingConfigurationArgs) ToQueuePriorityBalancedSchedulingConfigurationOutputWithContext(ctx context.Context) QueuePriorityBalancedSchedulingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePriorityBalancedSchedulingConfigurationOutput)
+}
+
+func (i QueuePriorityBalancedSchedulingConfigurationArgs) ToQueuePriorityBalancedSchedulingConfigurationPtrOutput() QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return i.ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i QueuePriorityBalancedSchedulingConfigurationArgs) ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePriorityBalancedSchedulingConfigurationOutput).ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(ctx)
+}
+
+// QueuePriorityBalancedSchedulingConfigurationPtrInput is an input type that accepts QueuePriorityBalancedSchedulingConfigurationArgs, QueuePriorityBalancedSchedulingConfigurationPtr and QueuePriorityBalancedSchedulingConfigurationPtrOutput values.
+// You can construct a concrete instance of `QueuePriorityBalancedSchedulingConfigurationPtrInput` via:
+//
+//	        QueuePriorityBalancedSchedulingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueuePriorityBalancedSchedulingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToQueuePriorityBalancedSchedulingConfigurationPtrOutput() QueuePriorityBalancedSchedulingConfigurationPtrOutput
+	ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(context.Context) QueuePriorityBalancedSchedulingConfigurationPtrOutput
+}
+
+type queuePriorityBalancedSchedulingConfigurationPtrType QueuePriorityBalancedSchedulingConfigurationArgs
+
+func QueuePriorityBalancedSchedulingConfigurationPtr(v *QueuePriorityBalancedSchedulingConfigurationArgs) QueuePriorityBalancedSchedulingConfigurationPtrInput {
+	return (*queuePriorityBalancedSchedulingConfigurationPtrType)(v)
+}
+
+func (*queuePriorityBalancedSchedulingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueuePriorityBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i *queuePriorityBalancedSchedulingConfigurationPtrType) ToQueuePriorityBalancedSchedulingConfigurationPtrOutput() QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return i.ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *queuePriorityBalancedSchedulingConfigurationPtrType) ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePriorityBalancedSchedulingConfigurationPtrOutput)
+}
+
+type QueuePriorityBalancedSchedulingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (QueuePriorityBalancedSchedulingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueuePriorityBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationOutput) ToQueuePriorityBalancedSchedulingConfigurationOutput() QueuePriorityBalancedSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationOutput) ToQueuePriorityBalancedSchedulingConfigurationOutputWithContext(ctx context.Context) QueuePriorityBalancedSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationOutput) ToQueuePriorityBalancedSchedulingConfigurationPtrOutput() QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return o.ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationOutput) ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueuePriorityBalancedSchedulingConfiguration) *QueuePriorityBalancedSchedulingConfiguration {
+		return &v
+	}).(QueuePriorityBalancedSchedulingConfigurationPtrOutput)
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationOutput) RenderingTaskBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v QueuePriorityBalancedSchedulingConfiguration) *int { return v.RenderingTaskBuffer }).(pulumi.IntPtrOutput)
+}
+
+type QueuePriorityBalancedSchedulingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (QueuePriorityBalancedSchedulingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueuePriorityBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationPtrOutput) ToQueuePriorityBalancedSchedulingConfigurationPtrOutput() QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationPtrOutput) ToQueuePriorityBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationPtrOutput) Elem() QueuePriorityBalancedSchedulingConfigurationOutput {
+	return o.ApplyT(func(v *QueuePriorityBalancedSchedulingConfiguration) QueuePriorityBalancedSchedulingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QueuePriorityBalancedSchedulingConfiguration
+		return ret
+	}).(QueuePriorityBalancedSchedulingConfigurationOutput)
+}
+
+func (o QueuePriorityBalancedSchedulingConfigurationPtrOutput) RenderingTaskBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *QueuePriorityBalancedSchedulingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenderingTaskBuffer
+	}).(pulumi.IntPtrOutput)
+}
+
+type QueuePriorityFifoSchedulingConfiguration struct {
+}
+
+// QueuePriorityFifoSchedulingConfigurationInput is an input type that accepts QueuePriorityFifoSchedulingConfigurationArgs and QueuePriorityFifoSchedulingConfigurationOutput values.
+// You can construct a concrete instance of `QueuePriorityFifoSchedulingConfigurationInput` via:
+//
+//	QueuePriorityFifoSchedulingConfigurationArgs{...}
+type QueuePriorityFifoSchedulingConfigurationInput interface {
+	pulumi.Input
+
+	ToQueuePriorityFifoSchedulingConfigurationOutput() QueuePriorityFifoSchedulingConfigurationOutput
+	ToQueuePriorityFifoSchedulingConfigurationOutputWithContext(context.Context) QueuePriorityFifoSchedulingConfigurationOutput
+}
+
+type QueuePriorityFifoSchedulingConfigurationArgs struct {
+}
+
+func (QueuePriorityFifoSchedulingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueuePriorityFifoSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i QueuePriorityFifoSchedulingConfigurationArgs) ToQueuePriorityFifoSchedulingConfigurationOutput() QueuePriorityFifoSchedulingConfigurationOutput {
+	return i.ToQueuePriorityFifoSchedulingConfigurationOutputWithContext(context.Background())
+}
+
+func (i QueuePriorityFifoSchedulingConfigurationArgs) ToQueuePriorityFifoSchedulingConfigurationOutputWithContext(ctx context.Context) QueuePriorityFifoSchedulingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePriorityFifoSchedulingConfigurationOutput)
+}
+
+func (i QueuePriorityFifoSchedulingConfigurationArgs) ToQueuePriorityFifoSchedulingConfigurationPtrOutput() QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return i.ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i QueuePriorityFifoSchedulingConfigurationArgs) ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePriorityFifoSchedulingConfigurationOutput).ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(ctx)
+}
+
+// QueuePriorityFifoSchedulingConfigurationPtrInput is an input type that accepts QueuePriorityFifoSchedulingConfigurationArgs, QueuePriorityFifoSchedulingConfigurationPtr and QueuePriorityFifoSchedulingConfigurationPtrOutput values.
+// You can construct a concrete instance of `QueuePriorityFifoSchedulingConfigurationPtrInput` via:
+//
+//	        QueuePriorityFifoSchedulingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueuePriorityFifoSchedulingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToQueuePriorityFifoSchedulingConfigurationPtrOutput() QueuePriorityFifoSchedulingConfigurationPtrOutput
+	ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(context.Context) QueuePriorityFifoSchedulingConfigurationPtrOutput
+}
+
+type queuePriorityFifoSchedulingConfigurationPtrType QueuePriorityFifoSchedulingConfigurationArgs
+
+func QueuePriorityFifoSchedulingConfigurationPtr(v *QueuePriorityFifoSchedulingConfigurationArgs) QueuePriorityFifoSchedulingConfigurationPtrInput {
+	return (*queuePriorityFifoSchedulingConfigurationPtrType)(v)
+}
+
+func (*queuePriorityFifoSchedulingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueuePriorityFifoSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i *queuePriorityFifoSchedulingConfigurationPtrType) ToQueuePriorityFifoSchedulingConfigurationPtrOutput() QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return i.ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *queuePriorityFifoSchedulingConfigurationPtrType) ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueuePriorityFifoSchedulingConfigurationPtrOutput)
+}
+
+type QueuePriorityFifoSchedulingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (QueuePriorityFifoSchedulingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueuePriorityFifoSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueuePriorityFifoSchedulingConfigurationOutput) ToQueuePriorityFifoSchedulingConfigurationOutput() QueuePriorityFifoSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueuePriorityFifoSchedulingConfigurationOutput) ToQueuePriorityFifoSchedulingConfigurationOutputWithContext(ctx context.Context) QueuePriorityFifoSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueuePriorityFifoSchedulingConfigurationOutput) ToQueuePriorityFifoSchedulingConfigurationPtrOutput() QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return o.ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o QueuePriorityFifoSchedulingConfigurationOutput) ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueuePriorityFifoSchedulingConfiguration) *QueuePriorityFifoSchedulingConfiguration {
+		return &v
+	}).(QueuePriorityFifoSchedulingConfigurationPtrOutput)
+}
+
+type QueuePriorityFifoSchedulingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (QueuePriorityFifoSchedulingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueuePriorityFifoSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueuePriorityFifoSchedulingConfigurationPtrOutput) ToQueuePriorityFifoSchedulingConfigurationPtrOutput() QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueuePriorityFifoSchedulingConfigurationPtrOutput) ToQueuePriorityFifoSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueuePriorityFifoSchedulingConfigurationPtrOutput) Elem() QueuePriorityFifoSchedulingConfigurationOutput {
+	return o.ApplyT(func(v *QueuePriorityFifoSchedulingConfiguration) QueuePriorityFifoSchedulingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QueuePriorityFifoSchedulingConfiguration
+		return ret
+	}).(QueuePriorityFifoSchedulingConfigurationOutput)
+}
+
 type QueueSchedulingConfiguration struct {
+	PriorityBalanced *QueuePriorityBalancedSchedulingConfiguration `pulumi:"priorityBalanced"`
+	PriorityFifo     *QueuePriorityFifoSchedulingConfiguration     `pulumi:"priorityFifo"`
+	WeightedBalanced *QueueWeightedBalancedSchedulingConfiguration `pulumi:"weightedBalanced"`
 }
 
 // QueueSchedulingConfigurationInput is an input type that accepts QueueSchedulingConfigurationArgs and QueueSchedulingConfigurationOutput values.
@@ -3574,6 +3828,9 @@ type QueueSchedulingConfigurationInput interface {
 }
 
 type QueueSchedulingConfigurationArgs struct {
+	PriorityBalanced QueuePriorityBalancedSchedulingConfigurationPtrInput `pulumi:"priorityBalanced"`
+	PriorityFifo     QueuePriorityFifoSchedulingConfigurationPtrInput     `pulumi:"priorityFifo"`
+	WeightedBalanced QueueWeightedBalancedSchedulingConfigurationPtrInput `pulumi:"weightedBalanced"`
 }
 
 func (QueueSchedulingConfigurationArgs) ElementType() reflect.Type {
@@ -3653,6 +3910,22 @@ func (o QueueSchedulingConfigurationOutput) ToQueueSchedulingConfigurationPtrOut
 	}).(QueueSchedulingConfigurationPtrOutput)
 }
 
+func (o QueueSchedulingConfigurationOutput) PriorityBalanced() QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v QueueSchedulingConfiguration) *QueuePriorityBalancedSchedulingConfiguration {
+		return v.PriorityBalanced
+	}).(QueuePriorityBalancedSchedulingConfigurationPtrOutput)
+}
+
+func (o QueueSchedulingConfigurationOutput) PriorityFifo() QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v QueueSchedulingConfiguration) *QueuePriorityFifoSchedulingConfiguration { return v.PriorityFifo }).(QueuePriorityFifoSchedulingConfigurationPtrOutput)
+}
+
+func (o QueueSchedulingConfigurationOutput) WeightedBalanced() QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v QueueSchedulingConfiguration) *QueueWeightedBalancedSchedulingConfiguration {
+		return v.WeightedBalanced
+	}).(QueueWeightedBalancedSchedulingConfigurationPtrOutput)
+}
+
 type QueueSchedulingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (QueueSchedulingConfigurationPtrOutput) ElementType() reflect.Type {
@@ -3677,12 +3950,780 @@ func (o QueueSchedulingConfigurationPtrOutput) Elem() QueueSchedulingConfigurati
 	}).(QueueSchedulingConfigurationOutput)
 }
 
+func (o QueueSchedulingConfigurationPtrOutput) PriorityBalanced() QueuePriorityBalancedSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v *QueueSchedulingConfiguration) *QueuePriorityBalancedSchedulingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PriorityBalanced
+	}).(QueuePriorityBalancedSchedulingConfigurationPtrOutput)
+}
+
+func (o QueueSchedulingConfigurationPtrOutput) PriorityFifo() QueuePriorityFifoSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v *QueueSchedulingConfiguration) *QueuePriorityFifoSchedulingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PriorityFifo
+	}).(QueuePriorityFifoSchedulingConfigurationPtrOutput)
+}
+
+func (o QueueSchedulingConfigurationPtrOutput) WeightedBalanced() QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return o.ApplyT(func(v *QueueSchedulingConfiguration) *QueueWeightedBalancedSchedulingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.WeightedBalanced
+	}).(QueueWeightedBalancedSchedulingConfigurationPtrOutput)
+}
+
+type QueueSchedulingMaxPriorityOverride0Properties struct {
+	AlwaysScheduleFirst QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst `pulumi:"alwaysScheduleFirst"`
+}
+
+type QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst struct {
+}
+
+// QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstInput is an input type that accepts QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs and QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput values.
+// You can construct a concrete instance of `QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstInput` via:
+//
+//	QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs{...}
+type QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput
+	ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutputWithContext(context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput
+}
+
+type QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs struct {
+}
+
+func (QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst)(nil)).Elem()
+}
+
+func (i QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput {
+	return i.ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput)
+}
+
+func (i QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return i.ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput).ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(ctx)
+}
+
+// QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrInput is an input type that accepts QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs, QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtr and QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput values.
+// You can construct a concrete instance of `QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrInput` via:
+//
+//	        QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput
+	ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput
+}
+
+type queueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrType QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs
+
+func QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtr(v *QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrInput {
+	return (*queueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrType)(v)
+}
+
+func (*queueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst)(nil)).Elem()
+}
+
+func (i *queueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrType) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return i.ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(context.Background())
+}
+
+func (i *queueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrType) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput)
+}
+
+type QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst)(nil)).Elem()
+}
+
+func (o QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return o.ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(context.Background())
+}
+
+func (o QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst) *QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst {
+		return &v
+	}).(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput)
+}
+
+type QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst)(nil)).Elem()
+}
+
+func (o QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput) ToQueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput) Elem() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput {
+	return o.ApplyT(func(v *QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst {
+		if v != nil {
+			return *v
+		}
+		var ret QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst
+		return ret
+	}).(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput)
+}
+
+type QueueSchedulingMaxPriorityOverrideProperties struct {
+	AlwaysScheduleFirst QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst `pulumi:"alwaysScheduleFirst"`
+}
+
+// QueueSchedulingMaxPriorityOverridePropertiesInput is an input type that accepts QueueSchedulingMaxPriorityOverridePropertiesArgs and QueueSchedulingMaxPriorityOverridePropertiesOutput values.
+// You can construct a concrete instance of `QueueSchedulingMaxPriorityOverridePropertiesInput` via:
+//
+//	QueueSchedulingMaxPriorityOverridePropertiesArgs{...}
+type QueueSchedulingMaxPriorityOverridePropertiesInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMaxPriorityOverridePropertiesOutput() QueueSchedulingMaxPriorityOverridePropertiesOutput
+	ToQueueSchedulingMaxPriorityOverridePropertiesOutputWithContext(context.Context) QueueSchedulingMaxPriorityOverridePropertiesOutput
+}
+
+type QueueSchedulingMaxPriorityOverridePropertiesArgs struct {
+	AlwaysScheduleFirst QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstInput `pulumi:"alwaysScheduleFirst"`
+}
+
+func (QueueSchedulingMaxPriorityOverridePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMaxPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (i QueueSchedulingMaxPriorityOverridePropertiesArgs) ToQueueSchedulingMaxPriorityOverridePropertiesOutput() QueueSchedulingMaxPriorityOverridePropertiesOutput {
+	return i.ToQueueSchedulingMaxPriorityOverridePropertiesOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMaxPriorityOverridePropertiesArgs) ToQueueSchedulingMaxPriorityOverridePropertiesOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverridePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMaxPriorityOverridePropertiesOutput)
+}
+
+func (i QueueSchedulingMaxPriorityOverridePropertiesArgs) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutput() QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return i.ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMaxPriorityOverridePropertiesArgs) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMaxPriorityOverridePropertiesOutput).ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(ctx)
+}
+
+// QueueSchedulingMaxPriorityOverridePropertiesPtrInput is an input type that accepts QueueSchedulingMaxPriorityOverridePropertiesArgs, QueueSchedulingMaxPriorityOverridePropertiesPtr and QueueSchedulingMaxPriorityOverridePropertiesPtrOutput values.
+// You can construct a concrete instance of `QueueSchedulingMaxPriorityOverridePropertiesPtrInput` via:
+//
+//	        QueueSchedulingMaxPriorityOverridePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueSchedulingMaxPriorityOverridePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutput() QueueSchedulingMaxPriorityOverridePropertiesPtrOutput
+	ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(context.Context) QueueSchedulingMaxPriorityOverridePropertiesPtrOutput
+}
+
+type queueSchedulingMaxPriorityOverridePropertiesPtrType QueueSchedulingMaxPriorityOverridePropertiesArgs
+
+func QueueSchedulingMaxPriorityOverridePropertiesPtr(v *QueueSchedulingMaxPriorityOverridePropertiesArgs) QueueSchedulingMaxPriorityOverridePropertiesPtrInput {
+	return (*queueSchedulingMaxPriorityOverridePropertiesPtrType)(v)
+}
+
+func (*queueSchedulingMaxPriorityOverridePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMaxPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (i *queueSchedulingMaxPriorityOverridePropertiesPtrType) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutput() QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return i.ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *queueSchedulingMaxPriorityOverridePropertiesPtrType) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMaxPriorityOverridePropertiesPtrOutput)
+}
+
+type QueueSchedulingMaxPriorityOverridePropertiesOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMaxPriorityOverridePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMaxPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesOutput) ToQueueSchedulingMaxPriorityOverridePropertiesOutput() QueueSchedulingMaxPriorityOverridePropertiesOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesOutput) ToQueueSchedulingMaxPriorityOverridePropertiesOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverridePropertiesOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesOutput) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutput() QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return o.ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesOutput) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueSchedulingMaxPriorityOverrideProperties) *QueueSchedulingMaxPriorityOverrideProperties {
+		return &v
+	}).(QueueSchedulingMaxPriorityOverridePropertiesPtrOutput)
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesOutput) AlwaysScheduleFirst() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput {
+	return o.ApplyT(func(v QueueSchedulingMaxPriorityOverrideProperties) QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst {
+		return v.AlwaysScheduleFirst
+	}).(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput)
+}
+
+type QueueSchedulingMaxPriorityOverridePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMaxPriorityOverridePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMaxPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesPtrOutput) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutput() QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesPtrOutput) ToQueueSchedulingMaxPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesPtrOutput) Elem() QueueSchedulingMaxPriorityOverridePropertiesOutput {
+	return o.ApplyT(func(v *QueueSchedulingMaxPriorityOverrideProperties) QueueSchedulingMaxPriorityOverrideProperties {
+		if v != nil {
+			return *v
+		}
+		var ret QueueSchedulingMaxPriorityOverrideProperties
+		return ret
+	}).(QueueSchedulingMaxPriorityOverridePropertiesOutput)
+}
+
+func (o QueueSchedulingMaxPriorityOverridePropertiesPtrOutput) AlwaysScheduleFirst() QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput {
+	return o.ApplyT(func(v *QueueSchedulingMaxPriorityOverrideProperties) *QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst {
+		if v == nil {
+			return nil
+		}
+		return &v.AlwaysScheduleFirst
+	}).(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput)
+}
+
+type QueueSchedulingMinPriorityOverride0Properties struct {
+	AlwaysScheduleLast QueueSchedulingMinPriorityOverrideAlwaysScheduleLast `pulumi:"alwaysScheduleLast"`
+}
+
+type QueueSchedulingMinPriorityOverrideAlwaysScheduleLast struct {
+}
+
+// QueueSchedulingMinPriorityOverrideAlwaysScheduleLastInput is an input type that accepts QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs and QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput values.
+// You can construct a concrete instance of `QueueSchedulingMinPriorityOverrideAlwaysScheduleLastInput` via:
+//
+//	QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs{...}
+type QueueSchedulingMinPriorityOverrideAlwaysScheduleLastInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput
+	ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutputWithContext(context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput
+}
+
+type QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs struct {
+}
+
+func (QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMinPriorityOverrideAlwaysScheduleLast)(nil)).Elem()
+}
+
+func (i QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput {
+	return i.ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput)
+}
+
+func (i QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return i.ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput).ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(ctx)
+}
+
+// QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrInput is an input type that accepts QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs, QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtr and QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput values.
+// You can construct a concrete instance of `QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrInput` via:
+//
+//	        QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput
+	ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput
+}
+
+type queueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrType QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs
+
+func QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtr(v *QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrInput {
+	return (*queueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrType)(v)
+}
+
+func (*queueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMinPriorityOverrideAlwaysScheduleLast)(nil)).Elem()
+}
+
+func (i *queueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrType) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return i.ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(context.Background())
+}
+
+func (i *queueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrType) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput)
+}
+
+type QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMinPriorityOverrideAlwaysScheduleLast)(nil)).Elem()
+}
+
+func (o QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return o.ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(context.Background())
+}
+
+func (o QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueSchedulingMinPriorityOverrideAlwaysScheduleLast) *QueueSchedulingMinPriorityOverrideAlwaysScheduleLast {
+		return &v
+	}).(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput)
+}
+
+type QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMinPriorityOverrideAlwaysScheduleLast)(nil)).Elem()
+}
+
+func (o QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput) ToQueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput) Elem() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput {
+	return o.ApplyT(func(v *QueueSchedulingMinPriorityOverrideAlwaysScheduleLast) QueueSchedulingMinPriorityOverrideAlwaysScheduleLast {
+		if v != nil {
+			return *v
+		}
+		var ret QueueSchedulingMinPriorityOverrideAlwaysScheduleLast
+		return ret
+	}).(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput)
+}
+
+type QueueSchedulingMinPriorityOverrideProperties struct {
+	AlwaysScheduleLast QueueSchedulingMinPriorityOverrideAlwaysScheduleLast `pulumi:"alwaysScheduleLast"`
+}
+
+// QueueSchedulingMinPriorityOverridePropertiesInput is an input type that accepts QueueSchedulingMinPriorityOverridePropertiesArgs and QueueSchedulingMinPriorityOverridePropertiesOutput values.
+// You can construct a concrete instance of `QueueSchedulingMinPriorityOverridePropertiesInput` via:
+//
+//	QueueSchedulingMinPriorityOverridePropertiesArgs{...}
+type QueueSchedulingMinPriorityOverridePropertiesInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMinPriorityOverridePropertiesOutput() QueueSchedulingMinPriorityOverridePropertiesOutput
+	ToQueueSchedulingMinPriorityOverridePropertiesOutputWithContext(context.Context) QueueSchedulingMinPriorityOverridePropertiesOutput
+}
+
+type QueueSchedulingMinPriorityOverridePropertiesArgs struct {
+	AlwaysScheduleLast QueueSchedulingMinPriorityOverrideAlwaysScheduleLastInput `pulumi:"alwaysScheduleLast"`
+}
+
+func (QueueSchedulingMinPriorityOverridePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMinPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (i QueueSchedulingMinPriorityOverridePropertiesArgs) ToQueueSchedulingMinPriorityOverridePropertiesOutput() QueueSchedulingMinPriorityOverridePropertiesOutput {
+	return i.ToQueueSchedulingMinPriorityOverridePropertiesOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMinPriorityOverridePropertiesArgs) ToQueueSchedulingMinPriorityOverridePropertiesOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverridePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMinPriorityOverridePropertiesOutput)
+}
+
+func (i QueueSchedulingMinPriorityOverridePropertiesArgs) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutput() QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return i.ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i QueueSchedulingMinPriorityOverridePropertiesArgs) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMinPriorityOverridePropertiesOutput).ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(ctx)
+}
+
+// QueueSchedulingMinPriorityOverridePropertiesPtrInput is an input type that accepts QueueSchedulingMinPriorityOverridePropertiesArgs, QueueSchedulingMinPriorityOverridePropertiesPtr and QueueSchedulingMinPriorityOverridePropertiesPtrOutput values.
+// You can construct a concrete instance of `QueueSchedulingMinPriorityOverridePropertiesPtrInput` via:
+//
+//	        QueueSchedulingMinPriorityOverridePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueSchedulingMinPriorityOverridePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToQueueSchedulingMinPriorityOverridePropertiesPtrOutput() QueueSchedulingMinPriorityOverridePropertiesPtrOutput
+	ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(context.Context) QueueSchedulingMinPriorityOverridePropertiesPtrOutput
+}
+
+type queueSchedulingMinPriorityOverridePropertiesPtrType QueueSchedulingMinPriorityOverridePropertiesArgs
+
+func QueueSchedulingMinPriorityOverridePropertiesPtr(v *QueueSchedulingMinPriorityOverridePropertiesArgs) QueueSchedulingMinPriorityOverridePropertiesPtrInput {
+	return (*queueSchedulingMinPriorityOverridePropertiesPtrType)(v)
+}
+
+func (*queueSchedulingMinPriorityOverridePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMinPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (i *queueSchedulingMinPriorityOverridePropertiesPtrType) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutput() QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return i.ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *queueSchedulingMinPriorityOverridePropertiesPtrType) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueSchedulingMinPriorityOverridePropertiesPtrOutput)
+}
+
+type QueueSchedulingMinPriorityOverridePropertiesOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMinPriorityOverridePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueSchedulingMinPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesOutput) ToQueueSchedulingMinPriorityOverridePropertiesOutput() QueueSchedulingMinPriorityOverridePropertiesOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesOutput) ToQueueSchedulingMinPriorityOverridePropertiesOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverridePropertiesOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesOutput) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutput() QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return o.ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesOutput) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueSchedulingMinPriorityOverrideProperties) *QueueSchedulingMinPriorityOverrideProperties {
+		return &v
+	}).(QueueSchedulingMinPriorityOverridePropertiesPtrOutput)
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesOutput) AlwaysScheduleLast() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput {
+	return o.ApplyT(func(v QueueSchedulingMinPriorityOverrideProperties) QueueSchedulingMinPriorityOverrideAlwaysScheduleLast {
+		return v.AlwaysScheduleLast
+	}).(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput)
+}
+
+type QueueSchedulingMinPriorityOverridePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueSchedulingMinPriorityOverridePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueSchedulingMinPriorityOverrideProperties)(nil)).Elem()
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesPtrOutput) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutput() QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesPtrOutput) ToQueueSchedulingMinPriorityOverridePropertiesPtrOutputWithContext(ctx context.Context) QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return o
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesPtrOutput) Elem() QueueSchedulingMinPriorityOverridePropertiesOutput {
+	return o.ApplyT(func(v *QueueSchedulingMinPriorityOverrideProperties) QueueSchedulingMinPriorityOverrideProperties {
+		if v != nil {
+			return *v
+		}
+		var ret QueueSchedulingMinPriorityOverrideProperties
+		return ret
+	}).(QueueSchedulingMinPriorityOverridePropertiesOutput)
+}
+
+func (o QueueSchedulingMinPriorityOverridePropertiesPtrOutput) AlwaysScheduleLast() QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput {
+	return o.ApplyT(func(v *QueueSchedulingMinPriorityOverrideProperties) *QueueSchedulingMinPriorityOverrideAlwaysScheduleLast {
+		if v == nil {
+			return nil
+		}
+		return &v.AlwaysScheduleLast
+	}).(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type QueueTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+type QueueWeightedBalancedSchedulingConfiguration struct {
+	ErrorWeight          *float64                                      `pulumi:"errorWeight"`
+	MaxPriorityOverride  *QueueSchedulingMaxPriorityOverrideProperties `pulumi:"maxPriorityOverride"`
+	MinPriorityOverride  *QueueSchedulingMinPriorityOverrideProperties `pulumi:"minPriorityOverride"`
+	PriorityWeight       *float64                                      `pulumi:"priorityWeight"`
+	RenderingTaskBuffer  *int                                          `pulumi:"renderingTaskBuffer"`
+	RenderingTaskWeight  *float64                                      `pulumi:"renderingTaskWeight"`
+	SubmissionTimeWeight *float64                                      `pulumi:"submissionTimeWeight"`
+}
+
+// QueueWeightedBalancedSchedulingConfigurationInput is an input type that accepts QueueWeightedBalancedSchedulingConfigurationArgs and QueueWeightedBalancedSchedulingConfigurationOutput values.
+// You can construct a concrete instance of `QueueWeightedBalancedSchedulingConfigurationInput` via:
+//
+//	QueueWeightedBalancedSchedulingConfigurationArgs{...}
+type QueueWeightedBalancedSchedulingConfigurationInput interface {
+	pulumi.Input
+
+	ToQueueWeightedBalancedSchedulingConfigurationOutput() QueueWeightedBalancedSchedulingConfigurationOutput
+	ToQueueWeightedBalancedSchedulingConfigurationOutputWithContext(context.Context) QueueWeightedBalancedSchedulingConfigurationOutput
+}
+
+type QueueWeightedBalancedSchedulingConfigurationArgs struct {
+	ErrorWeight          pulumi.Float64PtrInput                               `pulumi:"errorWeight"`
+	MaxPriorityOverride  QueueSchedulingMaxPriorityOverridePropertiesPtrInput `pulumi:"maxPriorityOverride"`
+	MinPriorityOverride  QueueSchedulingMinPriorityOverridePropertiesPtrInput `pulumi:"minPriorityOverride"`
+	PriorityWeight       pulumi.Float64PtrInput                               `pulumi:"priorityWeight"`
+	RenderingTaskBuffer  pulumi.IntPtrInput                                   `pulumi:"renderingTaskBuffer"`
+	RenderingTaskWeight  pulumi.Float64PtrInput                               `pulumi:"renderingTaskWeight"`
+	SubmissionTimeWeight pulumi.Float64PtrInput                               `pulumi:"submissionTimeWeight"`
+}
+
+func (QueueWeightedBalancedSchedulingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueWeightedBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i QueueWeightedBalancedSchedulingConfigurationArgs) ToQueueWeightedBalancedSchedulingConfigurationOutput() QueueWeightedBalancedSchedulingConfigurationOutput {
+	return i.ToQueueWeightedBalancedSchedulingConfigurationOutputWithContext(context.Background())
+}
+
+func (i QueueWeightedBalancedSchedulingConfigurationArgs) ToQueueWeightedBalancedSchedulingConfigurationOutputWithContext(ctx context.Context) QueueWeightedBalancedSchedulingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueWeightedBalancedSchedulingConfigurationOutput)
+}
+
+func (i QueueWeightedBalancedSchedulingConfigurationArgs) ToQueueWeightedBalancedSchedulingConfigurationPtrOutput() QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return i.ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i QueueWeightedBalancedSchedulingConfigurationArgs) ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueWeightedBalancedSchedulingConfigurationOutput).ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(ctx)
+}
+
+// QueueWeightedBalancedSchedulingConfigurationPtrInput is an input type that accepts QueueWeightedBalancedSchedulingConfigurationArgs, QueueWeightedBalancedSchedulingConfigurationPtr and QueueWeightedBalancedSchedulingConfigurationPtrOutput values.
+// You can construct a concrete instance of `QueueWeightedBalancedSchedulingConfigurationPtrInput` via:
+//
+//	        QueueWeightedBalancedSchedulingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueWeightedBalancedSchedulingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToQueueWeightedBalancedSchedulingConfigurationPtrOutput() QueueWeightedBalancedSchedulingConfigurationPtrOutput
+	ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(context.Context) QueueWeightedBalancedSchedulingConfigurationPtrOutput
+}
+
+type queueWeightedBalancedSchedulingConfigurationPtrType QueueWeightedBalancedSchedulingConfigurationArgs
+
+func QueueWeightedBalancedSchedulingConfigurationPtr(v *QueueWeightedBalancedSchedulingConfigurationArgs) QueueWeightedBalancedSchedulingConfigurationPtrInput {
+	return (*queueWeightedBalancedSchedulingConfigurationPtrType)(v)
+}
+
+func (*queueWeightedBalancedSchedulingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueWeightedBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (i *queueWeightedBalancedSchedulingConfigurationPtrType) ToQueueWeightedBalancedSchedulingConfigurationPtrOutput() QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return i.ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *queueWeightedBalancedSchedulingConfigurationPtrType) ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueWeightedBalancedSchedulingConfigurationPtrOutput)
+}
+
+type QueueWeightedBalancedSchedulingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (QueueWeightedBalancedSchedulingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueWeightedBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) ToQueueWeightedBalancedSchedulingConfigurationOutput() QueueWeightedBalancedSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) ToQueueWeightedBalancedSchedulingConfigurationOutputWithContext(ctx context.Context) QueueWeightedBalancedSchedulingConfigurationOutput {
+	return o
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) ToQueueWeightedBalancedSchedulingConfigurationPtrOutput() QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return o.ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueWeightedBalancedSchedulingConfiguration) *QueueWeightedBalancedSchedulingConfiguration {
+		return &v
+	}).(QueueWeightedBalancedSchedulingConfigurationPtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) ErrorWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v QueueWeightedBalancedSchedulingConfiguration) *float64 { return v.ErrorWeight }).(pulumi.Float64PtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) MaxPriorityOverride() QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return o.ApplyT(func(v QueueWeightedBalancedSchedulingConfiguration) *QueueSchedulingMaxPriorityOverrideProperties {
+		return v.MaxPriorityOverride
+	}).(QueueSchedulingMaxPriorityOverridePropertiesPtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) MinPriorityOverride() QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return o.ApplyT(func(v QueueWeightedBalancedSchedulingConfiguration) *QueueSchedulingMinPriorityOverrideProperties {
+		return v.MinPriorityOverride
+	}).(QueueSchedulingMinPriorityOverridePropertiesPtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) PriorityWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v QueueWeightedBalancedSchedulingConfiguration) *float64 { return v.PriorityWeight }).(pulumi.Float64PtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) RenderingTaskBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v QueueWeightedBalancedSchedulingConfiguration) *int { return v.RenderingTaskBuffer }).(pulumi.IntPtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) RenderingTaskWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v QueueWeightedBalancedSchedulingConfiguration) *float64 { return v.RenderingTaskWeight }).(pulumi.Float64PtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationOutput) SubmissionTimeWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v QueueWeightedBalancedSchedulingConfiguration) *float64 { return v.SubmissionTimeWeight }).(pulumi.Float64PtrOutput)
+}
+
+type QueueWeightedBalancedSchedulingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueWeightedBalancedSchedulingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueWeightedBalancedSchedulingConfiguration)(nil)).Elem()
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) ToQueueWeightedBalancedSchedulingConfigurationPtrOutput() QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) ToQueueWeightedBalancedSchedulingConfigurationPtrOutputWithContext(ctx context.Context) QueueWeightedBalancedSchedulingConfigurationPtrOutput {
+	return o
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) Elem() QueueWeightedBalancedSchedulingConfigurationOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) QueueWeightedBalancedSchedulingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QueueWeightedBalancedSchedulingConfiguration
+		return ret
+	}).(QueueWeightedBalancedSchedulingConfigurationOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) ErrorWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorWeight
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) MaxPriorityOverride() QueueSchedulingMaxPriorityOverridePropertiesPtrOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) *QueueSchedulingMaxPriorityOverrideProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPriorityOverride
+	}).(QueueSchedulingMaxPriorityOverridePropertiesPtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) MinPriorityOverride() QueueSchedulingMinPriorityOverridePropertiesPtrOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) *QueueSchedulingMinPriorityOverrideProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MinPriorityOverride
+	}).(QueueSchedulingMinPriorityOverridePropertiesPtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) PriorityWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PriorityWeight
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) RenderingTaskBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RenderingTaskBuffer
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) RenderingTaskWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RenderingTaskWeight
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o QueueWeightedBalancedSchedulingConfigurationPtrOutput) SubmissionTimeWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *QueueWeightedBalancedSchedulingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SubmissionTimeWeight
+	}).(pulumi.Float64PtrOutput)
 }
 
 type QueueWindowsUser struct {
@@ -3996,8 +5037,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueJobRunAsUserPtrInput)(nil)).Elem(), QueueJobRunAsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueuePosixUserInput)(nil)).Elem(), QueuePosixUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueuePosixUserPtrInput)(nil)).Elem(), QueuePosixUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueuePriorityBalancedSchedulingConfigurationInput)(nil)).Elem(), QueuePriorityBalancedSchedulingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueuePriorityBalancedSchedulingConfigurationPtrInput)(nil)).Elem(), QueuePriorityBalancedSchedulingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueuePriorityFifoSchedulingConfigurationInput)(nil)).Elem(), QueuePriorityFifoSchedulingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueuePriorityFifoSchedulingConfigurationPtrInput)(nil)).Elem(), QueuePriorityFifoSchedulingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingConfigurationInput)(nil)).Elem(), QueueSchedulingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingConfigurationPtrInput)(nil)).Elem(), QueueSchedulingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstInput)(nil)).Elem(), QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrInput)(nil)).Elem(), QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMaxPriorityOverridePropertiesInput)(nil)).Elem(), QueueSchedulingMaxPriorityOverridePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMaxPriorityOverridePropertiesPtrInput)(nil)).Elem(), QueueSchedulingMaxPriorityOverridePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMinPriorityOverrideAlwaysScheduleLastInput)(nil)).Elem(), QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrInput)(nil)).Elem(), QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMinPriorityOverridePropertiesInput)(nil)).Elem(), QueueSchedulingMinPriorityOverridePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueSchedulingMinPriorityOverridePropertiesPtrInput)(nil)).Elem(), QueueSchedulingMinPriorityOverridePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueWeightedBalancedSchedulingConfigurationInput)(nil)).Elem(), QueueWeightedBalancedSchedulingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueWeightedBalancedSchedulingConfigurationPtrInput)(nil)).Elem(), QueueWeightedBalancedSchedulingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueWindowsUserInput)(nil)).Elem(), QueueWindowsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueWindowsUserPtrInput)(nil)).Elem(), QueueWindowsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationInput)(nil)).Elem(), StorageProfileFileSystemLocationArgs{})
@@ -4052,8 +5107,22 @@ func init() {
 	pulumi.RegisterOutputType(QueueJobRunAsUserPtrOutput{})
 	pulumi.RegisterOutputType(QueuePosixUserOutput{})
 	pulumi.RegisterOutputType(QueuePosixUserPtrOutput{})
+	pulumi.RegisterOutputType(QueuePriorityBalancedSchedulingConfigurationOutput{})
+	pulumi.RegisterOutputType(QueuePriorityBalancedSchedulingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(QueuePriorityFifoSchedulingConfigurationOutput{})
+	pulumi.RegisterOutputType(QueuePriorityFifoSchedulingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(QueueSchedulingConfigurationOutput{})
 	pulumi.RegisterOutputType(QueueSchedulingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstPtrOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMaxPriorityOverridePropertiesOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMaxPriorityOverridePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMinPriorityOverrideAlwaysScheduleLastPtrOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMinPriorityOverridePropertiesOutput{})
+	pulumi.RegisterOutputType(QueueSchedulingMinPriorityOverridePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(QueueWeightedBalancedSchedulingConfigurationOutput{})
+	pulumi.RegisterOutputType(QueueWeightedBalancedSchedulingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(QueueWindowsUserOutput{})
 	pulumi.RegisterOutputType(QueueWindowsUserPtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileFileSystemLocationOutput{})

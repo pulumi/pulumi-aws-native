@@ -16,9 +16,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ClusterOrchestrator
     {
+        public readonly Outputs.ClusterOrchestratorEksConfig? Eks;
+        public readonly Outputs.ClusterOrchestratorSlurmConfig? Slurm;
+
         [OutputConstructor]
-        private ClusterOrchestrator()
+        private ClusterOrchestrator(
+            Outputs.ClusterOrchestratorEksConfig? eks,
+
+            Outputs.ClusterOrchestratorSlurmConfig? slurm)
         {
+            Eks = eks;
+            Slurm = slurm;
         }
     }
 }

@@ -270,12 +270,14 @@ __all__ = [
     'RuntimeFilesystemConfiguration',
     'RuntimeHostingEnvironment',
     'RuntimeLifecycleConfiguration',
+    'RuntimeManagedVpcResource',
     'RuntimeNetworkConfiguration',
     'RuntimePrivateEndpoint',
     'RuntimePrivateEndpointOverride',
     'RuntimeRequestHeaderConfiguration',
     'RuntimeS3FilesAccessPointConfiguration',
     'RuntimeS3Location',
+    'RuntimeSelfManagedLatticeResource',
     'RuntimeSessionStorageConfiguration',
     'RuntimeVpcConfig',
     'RuntimeWorkloadIdentityDetails',
@@ -11586,6 +11588,112 @@ class RuntimeLifecycleConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeManagedVpcResource(dict):
+    """
+    Managed VPC resource configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: 'RuntimeManagedVpcResourceEndpointIpAddressType',
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Managed VPC resource configuration
+
+        :param 'RuntimeManagedVpcResourceEndpointIpAddressType' endpoint_ip_address_type: The IP address type for the endpoint
+        :param Sequence[_builtins.str] subnet_ids: The subnet IDs
+        :param _builtins.str vpc_identifier: The VPC identifier
+        :param _builtins.str routing_domain: An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+        :param Sequence[_builtins.str] security_group_ids: The security group IDs
+        :param Mapping[str, _builtins.str] tags: Tags to apply to the managed VPC Lattice resource gateway
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> 'RuntimeManagedVpcResourceEndpointIpAddressType':
+        """
+        The IP address type for the endpoint
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        The subnet IDs
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        The VPC identifier
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The security group IDs
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to apply to the managed VPC Lattice resource gateway
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class RuntimeNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11635,11 +11743,45 @@ class RuntimePrivateEndpoint(dict):
     """
     Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimePrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimePrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimePrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.RuntimeManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.RuntimeSelfManagedLatticeResource'] = None):
         """
         Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
         """
-        pass
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.RuntimeManagedVpcResource']:
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.RuntimeSelfManagedLatticeResource']:
+        return pulumi.get(self, "self_managed_lattice_resource")
 
 
 @pulumi.output_type
@@ -11830,6 +11972,46 @@ class RuntimeS3Location(dict):
         S3 object version ID
         """
         return pulumi.get(self, "version_id")
+
+
+@pulumi.output_type
+class RuntimeSelfManagedLatticeResource(dict):
+    """
+    Self-managed VPC Lattice resource configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        Self-managed VPC Lattice resource configuration
+
+        :param _builtins.str resource_configuration_identifier: The identifier of the VPC Lattice resource configuration
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        The identifier of the VPC Lattice resource configuration
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type

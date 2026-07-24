@@ -1259,8 +1259,42 @@ class DeploymentIoTJobExponentialRolloutRate(dict):
 
 @pulumi.output_type
 class DeploymentIoTJobRateIncreaseCriteria(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfNotifiedThings":
+            suggest = "number_of_notified_things"
+        elif key == "numberOfSucceededThings":
+            suggest = "number_of_succeeded_things"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentIoTJobRateIncreaseCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentIoTJobRateIncreaseCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentIoTJobRateIncreaseCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_notified_things: Optional[_builtins.int] = None,
+                 number_of_succeeded_things: Optional[_builtins.int] = None):
+        if number_of_notified_things is not None:
+            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+        if number_of_succeeded_things is not None:
+            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfNotifiedThings")
+    def number_of_notified_things(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "number_of_notified_things")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSucceededThings")
+    def number_of_succeeded_things(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "number_of_succeeded_things")
 
 
 @pulumi.output_type

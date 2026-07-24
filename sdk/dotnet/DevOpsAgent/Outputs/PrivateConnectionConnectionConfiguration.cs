@@ -16,9 +16,17 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     [OutputType]
     public sealed class PrivateConnectionConnectionConfiguration
     {
+        public readonly Outputs.PrivateConnectionSelfManagedMode? SelfManaged;
+        public readonly Outputs.PrivateConnectionServiceManagedMode? ServiceManaged;
+
         [OutputConstructor]
-        private PrivateConnectionConnectionConfiguration()
+        private PrivateConnectionConnectionConfiguration(
+            Outputs.PrivateConnectionSelfManagedMode? selfManaged,
+
+            Outputs.PrivateConnectionServiceManagedMode? serviceManaged)
         {
+            SelfManaged = selfManaged;
+            ServiceManaged = serviceManaged;
         }
     }
 }

@@ -36,6 +36,8 @@ __all__ = [
     'MultiplexprogramMultiplexProgramServiceDescriptorArgsDict',
     'MultiplexprogramMultiplexProgramSettingsArgs',
     'MultiplexprogramMultiplexProgramSettingsArgsDict',
+    'MultiplexprogramMultiplexStatmuxVideoSettingsArgs',
+    'MultiplexprogramMultiplexStatmuxVideoSettingsArgsDict',
     'MultiplexprogramMultiplexVideoSettingsArgs',
     'MultiplexprogramMultiplexVideoSettingsArgsDict',
     'NetworkIpPoolArgs',
@@ -730,19 +732,138 @@ class MultiplexprogramMultiplexProgramSettingsArgs:
         pulumi.set(self, "video_settings", value)
 
 
+class MultiplexprogramMultiplexStatmuxVideoSettingsArgsDict(TypedDict):
+    """
+    Statmux rate control settings
+    """
+    maximum_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum statmux bitrate.
+    """
+    minimum_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Minimum statmux bitrate.
+    """
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The purpose of the priority is to use a combination of the\\nmultiplex rate control algorithm and the QVBR capability of the\\nencoder to prioritize the video quality of some channels in a\\nmultiplex over others.  Channels that have a higher priority will\\nget higher video quality at the expense of the video quality of\\nother channels in the multiplex with lower priority.
+    """
+
+@pulumi.input_type
+class MultiplexprogramMultiplexStatmuxVideoSettingsArgs:
+    def __init__(__self__, *,
+                 maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Statmux rate control settings
+
+        :param pulumi.Input[_builtins.int] maximum_bitrate: Maximum statmux bitrate.
+        :param pulumi.Input[_builtins.int] minimum_bitrate: Minimum statmux bitrate.
+        :param pulumi.Input[_builtins.int] priority: The purpose of the priority is to use a combination of the\\nmultiplex rate control algorithm and the QVBR capability of the\\nencoder to prioritize the video quality of some channels in a\\nmultiplex over others.  Channels that have a higher priority will\\nget higher video quality at the expense of the video quality of\\nother channels in the multiplex with lower priority.
+        """
+        if maximum_bitrate is not None:
+            pulumi.set(__self__, "maximum_bitrate", maximum_bitrate)
+        if minimum_bitrate is not None:
+            pulumi.set(__self__, "minimum_bitrate", minimum_bitrate)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumBitrate")
+    def maximum_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum statmux bitrate.
+        """
+        return pulumi.get(self, "maximum_bitrate")
+
+    @maximum_bitrate.setter
+    def maximum_bitrate(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_bitrate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumBitrate")
+    def minimum_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Minimum statmux bitrate.
+        """
+        return pulumi.get(self, "minimum_bitrate")
+
+    @minimum_bitrate.setter
+    def minimum_bitrate(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minimum_bitrate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The purpose of the priority is to use a combination of the\\nmultiplex rate control algorithm and the QVBR capability of the\\nencoder to prioritize the video quality of some channels in a\\nmultiplex over others.  Channels that have a higher priority will\\nget higher video quality at the expense of the video quality of\\nother channels in the multiplex with lower priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "priority", value)
+
+
 class MultiplexprogramMultiplexVideoSettingsArgsDict(TypedDict):
     """
     The video configuration for each program in a multiplex.
     """
-    pass
+    constant_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The constant bitrate configuration for the video encode.
+    When this field is defined, StatmuxSettings must be undefined.
+    """
+    statmux_settings: NotRequired[pulumi.Input[Optional['MultiplexprogramMultiplexStatmuxVideoSettingsArgsDict']]]
+    """
+    Statmux rate control settings.
+    When this field is defined, ConstantBitrate must be undefined.
+    """
 
 @pulumi.input_type
 class MultiplexprogramMultiplexVideoSettingsArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 constant_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
+                 statmux_settings: pulumi.Input[Optional['MultiplexprogramMultiplexStatmuxVideoSettingsArgs']] = None):
         """
         The video configuration for each program in a multiplex.
+
+        :param pulumi.Input[_builtins.int] constant_bitrate: The constant bitrate configuration for the video encode.
+               When this field is defined, StatmuxSettings must be undefined.
+        :param pulumi.Input['MultiplexprogramMultiplexStatmuxVideoSettingsArgs'] statmux_settings: Statmux rate control settings.
+               When this field is defined, ConstantBitrate must be undefined.
         """
-        pass
+        if constant_bitrate is not None:
+            pulumi.set(__self__, "constant_bitrate", constant_bitrate)
+        if statmux_settings is not None:
+            pulumi.set(__self__, "statmux_settings", statmux_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="constantBitrate")
+    def constant_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The constant bitrate configuration for the video encode.
+        When this field is defined, StatmuxSettings must be undefined.
+        """
+        return pulumi.get(self, "constant_bitrate")
+
+    @constant_bitrate.setter
+    def constant_bitrate(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "constant_bitrate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statmuxSettings")
+    def statmux_settings(self) -> pulumi.Input[Optional['MultiplexprogramMultiplexStatmuxVideoSettingsArgs']]:
+        """
+        Statmux rate control settings.
+        When this field is defined, ConstantBitrate must be undefined.
+        """
+        return pulumi.get(self, "statmux_settings")
+
+    @statmux_settings.setter
+    def statmux_settings(self, value: pulumi.Input[Optional['MultiplexprogramMultiplexStatmuxVideoSettingsArgs']]):
+        pulumi.set(self, "statmux_settings", value)
 
 
 class NetworkIpPoolArgsDict(TypedDict):

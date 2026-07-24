@@ -14,6 +14,204 @@ import (
 )
 
 // The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
+//
+// ## Example Usage
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewStorageLens(ctx, "storageLensConfigurationExample", &s3.StorageLensArgs{
+//				StorageLensConfiguration: &s3.StorageLensConfigurationArgs{
+//					Id: pulumi.String("StorageLensAdvancedConfiguration"),
+//					AccountLevel: &s3.StorageLensAccountLevelArgs{
+//						ActivityMetrics: &s3.StorageLensActivityMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						AdvancedCostOptimizationMetrics: &s3.StorageLensAdvancedCostOptimizationMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						AdvancedDataProtectionMetrics: &s3.StorageLensAdvancedDataProtectionMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						DetailedStatusCodesMetrics: &s3.StorageLensDetailedStatusCodesMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						BucketLevel: &s3.StorageLensBucketLevelArgs{
+//							ActivityMetrics: &s3.StorageLensActivityMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							AdvancedCostOptimizationMetrics: &s3.StorageLensAdvancedCostOptimizationMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							AdvancedDataProtectionMetrics: &s3.StorageLensAdvancedDataProtectionMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							DetailedStatusCodesMetrics: &s3.StorageLensDetailedStatusCodesMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							PrefixLevel: &s3.StorageLensPrefixLevelArgs{
+//								StorageMetrics: &s3.StorageLensPrefixLevelStorageMetricsArgs{
+//									IsEnabled: pulumi.Bool(true),
+//									SelectionCriteria: &s3.StorageLensSelectionCriteriaArgs{
+//										MaxDepth:                  pulumi.Int(5),
+//										MinStorageBytesPercentage: pulumi.Float64(1.23),
+//										Delimiter:                 pulumi.String("/"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					Exclude: &s3.StorageLensBucketsAndRegionsArgs{
+//						Buckets: pulumi.StringArray{
+//							pulumi.String("arn:aws:s3:::source_bucket_1"),
+//							pulumi.String("arn:aws:s3:::source_bucket_2"),
+//						},
+//					},
+//					IsEnabled: pulumi.Bool(true),
+//					DataExport: &s3.StorageLensDataExportArgs{
+//						S3BucketDestination: &s3.StorageLensS3BucketDestinationArgs{
+//							OutputSchemaVersion: s3.StorageLensS3BucketDestinationOutputSchemaVersionV1,
+//							Format:              s3.StorageLensS3BucketDestinationFormatCsv,
+//							AccountId:           pulumi.String("111122223333"),
+//							Arn:                 pulumi.String("arn:aws:s3:::destination_bucket"),
+//							Prefix:              pulumi.String("output-path-prefix"),
+//							Encryption: &s3.StorageLensEncryptionArgs{
+//								Sses3: pulumi.Any(map[string]interface{}{}),
+//							},
+//						},
+//						CloudWatchMetrics: &s3.StorageLensCloudWatchMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag-key-1"),
+//						Value: pulumi.String("tag-value-1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag-key-2"),
+//						Value: pulumi.String("tag-value-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	awsnative "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewStorageLens(ctx, "storageLensConfigurationExample", &s3.StorageLensArgs{
+//				StorageLensConfiguration: &s3.StorageLensConfigurationArgs{
+//					Id: pulumi.String("StorageLensAdvancedConfiguration"),
+//					AccountLevel: &s3.StorageLensAccountLevelArgs{
+//						ActivityMetrics: &s3.StorageLensActivityMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						AdvancedCostOptimizationMetrics: &s3.StorageLensAdvancedCostOptimizationMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						AdvancedDataProtectionMetrics: &s3.StorageLensAdvancedDataProtectionMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						DetailedStatusCodesMetrics: &s3.StorageLensDetailedStatusCodesMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//						BucketLevel: &s3.StorageLensBucketLevelArgs{
+//							ActivityMetrics: &s3.StorageLensActivityMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							AdvancedCostOptimizationMetrics: &s3.StorageLensAdvancedCostOptimizationMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							AdvancedDataProtectionMetrics: &s3.StorageLensAdvancedDataProtectionMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							DetailedStatusCodesMetrics: &s3.StorageLensDetailedStatusCodesMetricsArgs{
+//								IsEnabled: pulumi.Bool(true),
+//							},
+//							PrefixLevel: &s3.StorageLensPrefixLevelArgs{
+//								StorageMetrics: &s3.StorageLensPrefixLevelStorageMetricsArgs{
+//									IsEnabled: pulumi.Bool(true),
+//									SelectionCriteria: &s3.StorageLensSelectionCriteriaArgs{
+//										MaxDepth:                  pulumi.Int(5),
+//										MinStorageBytesPercentage: pulumi.Float64(1.23),
+//										Delimiter:                 pulumi.String("/"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					Exclude: &s3.StorageLensBucketsAndRegionsArgs{
+//						Buckets: pulumi.StringArray{
+//							pulumi.String("arn:aws:s3:::source_bucket_1"),
+//							pulumi.String("arn:aws:s3:::source_bucket_2"),
+//						},
+//					},
+//					IsEnabled: pulumi.Bool(true),
+//					DataExport: &s3.StorageLensDataExportArgs{
+//						S3BucketDestination: &s3.StorageLensS3BucketDestinationArgs{
+//							OutputSchemaVersion: s3.StorageLensS3BucketDestinationOutputSchemaVersionV1,
+//							Format:              s3.StorageLensS3BucketDestinationFormatCsv,
+//							AccountId:           pulumi.String("111122223333"),
+//							Arn:                 pulumi.String("arn:aws:s3:::destination_bucket"),
+//							Prefix:              pulumi.String("output-path-prefix"),
+//							Encryption: &s3.StorageLensEncryptionArgs{
+//								Sses3: pulumi.Any(map[string]interface{}{}),
+//							},
+//						},
+//						CloudWatchMetrics: &s3.StorageLensCloudWatchMetricsArgs{
+//							IsEnabled: pulumi.Bool(true),
+//						},
+//					},
+//				},
+//				Tags: aws.TagArray{
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag-key-1"),
+//						Value: pulumi.String("tag-value-1"),
+//					},
+//					&aws.TagArgs{
+//						Key:   pulumi.String("tag-key-2"),
+//						Value: pulumi.String("tag-value-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type StorageLens struct {
 	pulumi.CustomResourceState
 

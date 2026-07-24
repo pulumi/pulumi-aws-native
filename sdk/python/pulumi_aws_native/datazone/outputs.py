@@ -85,7 +85,9 @@ __all__ = [
     'EnvironmentParameter',
     'EnvironmentProfileEnvironmentParameter',
     'FormTypeModel',
+    'OwnerGroupProperties',
     'OwnerProperties',
+    'OwnerUserProperties',
     'PolicyGrantAddToProjectMemberPoolPolicyGrantDetail',
     'PolicyGrantAllDomainUnitsGrantFilter',
     'PolicyGrantAllUsersGrantFilter',
@@ -3150,15 +3152,112 @@ class FormTypeModel(dict):
 
 
 @pulumi.output_type
+class OwnerGroupProperties(dict):
+    """
+    The properties of the domain unit owners group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIdentifier":
+            suggest = "group_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OwnerGroupProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OwnerGroupProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OwnerGroupProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_identifier: Optional[_builtins.str] = None):
+        """
+        The properties of the domain unit owners group.
+
+        :param _builtins.str group_identifier: The ID of the domain unit owners group.
+        """
+        if group_identifier is not None:
+            pulumi.set(__self__, "group_identifier", group_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> Optional[_builtins.str]:
+        """
+        The ID of the domain unit owners group.
+        """
+        return pulumi.get(self, "group_identifier")
+
+
+@pulumi.output_type
 class OwnerProperties(dict):
     """
     The properties of a domain unit's owner.
     """
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 group: Optional['outputs.OwnerGroupProperties'] = None,
+                 user: Optional['outputs.OwnerUserProperties'] = None):
         """
         The properties of a domain unit's owner.
         """
-        pass
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> Optional['outputs.OwnerGroupProperties']:
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> Optional['outputs.OwnerUserProperties']:
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class OwnerUserProperties(dict):
+    """
+    The properties of the owner user.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userIdentifier":
+            suggest = "user_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OwnerUserProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OwnerUserProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OwnerUserProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_identifier: Optional[_builtins.str] = None):
+        """
+        The properties of the owner user.
+
+        :param _builtins.str user_identifier: The ID of the owner user.
+        """
+        if user_identifier is not None:
+            pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> Optional[_builtins.str]:
+        """
+        The ID of the owner user.
+        """
+        return pulumi.get(self, "user_identifier")
 
 
 @pulumi.output_type

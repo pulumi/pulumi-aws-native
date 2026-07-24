@@ -8,6 +8,238 @@ using Pulumi;
 namespace Pulumi.AwsNative.DevOpsAgent
 {
     /// <summary>
+    /// Account Type 'monitor' for DevOpsAgent monitoring
+    /// </summary>
+    [EnumType]
+    public readonly struct AssociationAwsConfigurationAccountType : IEquatable<AssociationAwsConfigurationAccountType>
+    {
+        private readonly string _value;
+
+        private AssociationAwsConfigurationAccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationAwsConfigurationAccountType Monitor { get; } = new AssociationAwsConfigurationAccountType("monitor");
+
+        public static bool operator ==(AssociationAwsConfigurationAccountType left, AssociationAwsConfigurationAccountType right) => left.Equals(right);
+        public static bool operator !=(AssociationAwsConfigurationAccountType left, AssociationAwsConfigurationAccountType right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationAwsConfigurationAccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationAwsConfigurationAccountType other && Equals(other);
+        public bool Equals(AssociationAwsConfigurationAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Resource type
+    /// </summary>
+    [EnumType]
+    public readonly struct AssociationAwsResourceResourceType : IEquatable<AssociationAwsResourceResourceType>
+    {
+        private readonly string _value;
+
+        private AssociationAwsResourceResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationAwsResourceResourceType AwsCloudFormationStack { get; } = new AssociationAwsResourceResourceType("AWS::CloudFormation::Stack");
+        public static AssociationAwsResourceResourceType AwsecrRepository { get; } = new AssociationAwsResourceResourceType("AWS::ECR::Repository");
+        public static AssociationAwsResourceResourceType Awss3Bucket { get; } = new AssociationAwsResourceResourceType("AWS::S3::Bucket");
+        public static AssociationAwsResourceResourceType Awss3Object { get; } = new AssociationAwsResourceResourceType("AWS::S3::Object");
+
+        public static bool operator ==(AssociationAwsResourceResourceType left, AssociationAwsResourceResourceType right) => left.Equals(right);
+        public static bool operator !=(AssociationAwsResourceResourceType left, AssociationAwsResourceResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationAwsResourceResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationAwsResourceResourceType other && Equals(other);
+        public bool Equals(AssociationAwsResourceResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of repository owner
+    /// </summary>
+    [EnumType]
+    public readonly struct AssociationGitHubConfigurationOwnerType : IEquatable<AssociationGitHubConfigurationOwnerType>
+    {
+        private readonly string _value;
+
+        private AssociationGitHubConfigurationOwnerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationGitHubConfigurationOwnerType Organization { get; } = new AssociationGitHubConfigurationOwnerType("organization");
+        public static AssociationGitHubConfigurationOwnerType User { get; } = new AssociationGitHubConfigurationOwnerType("user");
+
+        public static bool operator ==(AssociationGitHubConfigurationOwnerType left, AssociationGitHubConfigurationOwnerType right) => left.Equals(right);
+        public static bool operator !=(AssociationGitHubConfigurationOwnerType left, AssociationGitHubConfigurationOwnerType right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationGitHubConfigurationOwnerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationGitHubConfigurationOwnerType other && Equals(other);
+        public bool Equals(AssociationGitHubConfigurationOwnerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AssociationMcpServerGrafanaConfigurationToolsItem : IEquatable<AssociationMcpServerGrafanaConfigurationToolsItem>
+    {
+        private readonly string _value;
+
+        private AssociationMcpServerGrafanaConfigurationToolsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Alerting { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("alerting");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Annotations { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("annotations");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Asserts { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("asserts");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Cloudwatch { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("cloudwatch");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Dashboard { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("dashboard");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Datasource { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("datasource");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Elasticsearch { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("elasticsearch");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Examples { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("examples");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Incident { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("incident");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Loki { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("loki");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Navigation { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("navigation");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Oncall { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("oncall");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Prometheus { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("prometheus");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Pyroscope { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("pyroscope");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Rendering { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("rendering");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Runpanelquery { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("runpanelquery");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Search { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("search");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Searchlogs { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("searchlogs");
+        public static AssociationMcpServerGrafanaConfigurationToolsItem Sift { get; } = new AssociationMcpServerGrafanaConfigurationToolsItem("sift");
+
+        public static bool operator ==(AssociationMcpServerGrafanaConfigurationToolsItem left, AssociationMcpServerGrafanaConfigurationToolsItem right) => left.Equals(right);
+        public static bool operator !=(AssociationMcpServerGrafanaConfigurationToolsItem left, AssociationMcpServerGrafanaConfigurationToolsItem right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationMcpServerGrafanaConfigurationToolsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationMcpServerGrafanaConfigurationToolsItem other && Equals(other);
+        public bool Equals(AssociationMcpServerGrafanaConfigurationToolsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Account Type 'source' for DevOpsAgent monitoring
+    /// </summary>
+    [EnumType]
+    public readonly struct AssociationSourceAwsConfigurationAccountType : IEquatable<AssociationSourceAwsConfigurationAccountType>
+    {
+        private readonly string _value;
+
+        private AssociationSourceAwsConfigurationAccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationSourceAwsConfigurationAccountType Source { get; } = new AssociationSourceAwsConfigurationAccountType("source");
+
+        public static bool operator ==(AssociationSourceAwsConfigurationAccountType left, AssociationSourceAwsConfigurationAccountType right) => left.Equals(right);
+        public static bool operator !=(AssociationSourceAwsConfigurationAccountType left, AssociationSourceAwsConfigurationAccountType right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationSourceAwsConfigurationAccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationSourceAwsConfigurationAccountType other && Equals(other);
+        public bool Equals(AssociationSourceAwsConfigurationAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionServiceManagedModeDnsResolution : IEquatable<PrivateConnectionServiceManagedModeDnsResolution>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionServiceManagedModeDnsResolution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionServiceManagedModeDnsResolution Public { get; } = new PrivateConnectionServiceManagedModeDnsResolution("PUBLIC");
+        public static PrivateConnectionServiceManagedModeDnsResolution InVpc { get; } = new PrivateConnectionServiceManagedModeDnsResolution("IN_VPC");
+
+        public static bool operator ==(PrivateConnectionServiceManagedModeDnsResolution left, PrivateConnectionServiceManagedModeDnsResolution right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionServiceManagedModeDnsResolution left, PrivateConnectionServiceManagedModeDnsResolution right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionServiceManagedModeDnsResolution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionServiceManagedModeDnsResolution other && Equals(other);
+        public bool Equals(PrivateConnectionServiceManagedModeDnsResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// IP address type of the service-managed Resource Gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateConnectionServiceManagedModeIpAddressType : IEquatable<PrivateConnectionServiceManagedModeIpAddressType>
+    {
+        private readonly string _value;
+
+        private PrivateConnectionServiceManagedModeIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateConnectionServiceManagedModeIpAddressType Ipv4 { get; } = new PrivateConnectionServiceManagedModeIpAddressType("IPV4");
+        public static PrivateConnectionServiceManagedModeIpAddressType Ipv6 { get; } = new PrivateConnectionServiceManagedModeIpAddressType("IPV6");
+        public static PrivateConnectionServiceManagedModeIpAddressType DualStack { get; } = new PrivateConnectionServiceManagedModeIpAddressType("DUAL_STACK");
+
+        public static bool operator ==(PrivateConnectionServiceManagedModeIpAddressType left, PrivateConnectionServiceManagedModeIpAddressType right) => left.Equals(right);
+        public static bool operator !=(PrivateConnectionServiceManagedModeIpAddressType left, PrivateConnectionServiceManagedModeIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateConnectionServiceManagedModeIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateConnectionServiceManagedModeIpAddressType other && Equals(other);
+        public bool Equals(PrivateConnectionServiceManagedModeIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the Private Connection.
     /// </summary>
     [EnumType]
@@ -34,6 +266,192 @@ namespace Pulumi.AwsNative.DevOpsAgent
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateConnectionStatus other && Equals(other);
         public bool Equals(PrivateConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of GitLab access token
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceGitLabDetailsTokenType : IEquatable<ServiceGitLabDetailsTokenType>
+    {
+        private readonly string _value;
+
+        private ServiceGitLabDetailsTokenType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceGitLabDetailsTokenType Personal { get; } = new ServiceGitLabDetailsTokenType("personal");
+        public static ServiceGitLabDetailsTokenType Group { get; } = new ServiceGitLabDetailsTokenType("group");
+
+        public static bool operator ==(ServiceGitLabDetailsTokenType left, ServiceGitLabDetailsTokenType right) => left.Equals(right);
+        public static bool operator !=(ServiceGitLabDetailsTokenType left, ServiceGitLabDetailsTokenType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceGitLabDetailsTokenType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceGitLabDetailsTokenType other && Equals(other);
+        public bool Equals(ServiceGitLabDetailsTokenType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// New Relic region
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceNewRelicApiKeyConfigRegion : IEquatable<ServiceNewRelicApiKeyConfigRegion>
+    {
+        private readonly string _value;
+
+        private ServiceNewRelicApiKeyConfigRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceNewRelicApiKeyConfigRegion Us { get; } = new ServiceNewRelicApiKeyConfigRegion("US");
+        public static ServiceNewRelicApiKeyConfigRegion Eu { get; } = new ServiceNewRelicApiKeyConfigRegion("EU");
+
+        public static bool operator ==(ServiceNewRelicApiKeyConfigRegion left, ServiceNewRelicApiKeyConfigRegion right) => left.Equals(right);
+        public static bool operator !=(ServiceNewRelicApiKeyConfigRegion left, ServiceNewRelicApiKeyConfigRegion right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceNewRelicApiKeyConfigRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceNewRelicApiKeyConfigRegion other && Equals(other);
+        public bool Equals(ServiceNewRelicApiKeyConfigRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of GitLab access token
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredGitLabServiceDetailsTokenType : IEquatable<ServiceRegisteredGitLabServiceDetailsTokenType>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredGitLabServiceDetailsTokenType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredGitLabServiceDetailsTokenType Personal { get; } = new ServiceRegisteredGitLabServiceDetailsTokenType("personal");
+        public static ServiceRegisteredGitLabServiceDetailsTokenType Group { get; } = new ServiceRegisteredGitLabServiceDetailsTokenType("group");
+
+        public static bool operator ==(ServiceRegisteredGitLabServiceDetailsTokenType left, ServiceRegisteredGitLabServiceDetailsTokenType right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredGitLabServiceDetailsTokenType left, ServiceRegisteredGitLabServiceDetailsTokenType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredGitLabServiceDetailsTokenType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredGitLabServiceDetailsTokenType other && Equals(other);
+        public bool Equals(ServiceRegisteredGitLabServiceDetailsTokenType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// MCP server authorization method
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredMcpServerDetailsAuthorizationMethod : IEquatable<ServiceRegisteredMcpServerDetailsAuthorizationMethod>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredMcpServerDetailsAuthorizationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredMcpServerDetailsAuthorizationMethod OauthClientCredentials { get; } = new ServiceRegisteredMcpServerDetailsAuthorizationMethod("oauth-client-credentials");
+        public static ServiceRegisteredMcpServerDetailsAuthorizationMethod ApiKey { get; } = new ServiceRegisteredMcpServerDetailsAuthorizationMethod("api-key");
+        public static ServiceRegisteredMcpServerDetailsAuthorizationMethod BearerToken { get; } = new ServiceRegisteredMcpServerDetailsAuthorizationMethod("bearer-token");
+
+        public static bool operator ==(ServiceRegisteredMcpServerDetailsAuthorizationMethod left, ServiceRegisteredMcpServerDetailsAuthorizationMethod right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredMcpServerDetailsAuthorizationMethod left, ServiceRegisteredMcpServerDetailsAuthorizationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredMcpServerDetailsAuthorizationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredMcpServerDetailsAuthorizationMethod other && Equals(other);
+        public bool Equals(ServiceRegisteredMcpServerDetailsAuthorizationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// MCP server authorization method
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod : IEquatable<ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod BearerToken { get; } = new ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod("bearer-token");
+
+        public static bool operator ==(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod left, ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod left, ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod other && Equals(other);
+        public bool Equals(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// New Relic region
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceRegisteredNewRelicDetailsRegion : IEquatable<ServiceRegisteredNewRelicDetailsRegion>
+    {
+        private readonly string _value;
+
+        private ServiceRegisteredNewRelicDetailsRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceRegisteredNewRelicDetailsRegion Us { get; } = new ServiceRegisteredNewRelicDetailsRegion("US");
+        public static ServiceRegisteredNewRelicDetailsRegion Eu { get; } = new ServiceRegisteredNewRelicDetailsRegion("EU");
+
+        public static bool operator ==(ServiceRegisteredNewRelicDetailsRegion left, ServiceRegisteredNewRelicDetailsRegion right) => left.Equals(right);
+        public static bool operator !=(ServiceRegisteredNewRelicDetailsRegion left, ServiceRegisteredNewRelicDetailsRegion right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceRegisteredNewRelicDetailsRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceRegisteredNewRelicDetailsRegion other && Equals(other);
+        public bool Equals(ServiceRegisteredNewRelicDetailsRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

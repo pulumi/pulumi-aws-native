@@ -73,6 +73,173 @@ class StorageLens(pulumi.CustomResource):
         """
         The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
 
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        storage_lens_configuration_example = aws_native.s3.StorageLens("storageLensConfigurationExample",
+            storage_lens_configuration={
+                "id": "StorageLensAdvancedConfiguration",
+                "account_level": {
+                    "activity_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_cost_optimization_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_data_protection_metrics": {
+                        "is_enabled": True,
+                    },
+                    "detailed_status_codes_metrics": {
+                        "is_enabled": True,
+                    },
+                    "bucket_level": {
+                        "activity_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_cost_optimization_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_data_protection_metrics": {
+                            "is_enabled": True,
+                        },
+                        "detailed_status_codes_metrics": {
+                            "is_enabled": True,
+                        },
+                        "prefix_level": {
+                            "storage_metrics": {
+                                "is_enabled": True,
+                                "selection_criteria": {
+                                    "max_depth": 5,
+                                    "min_storage_bytes_percentage": 1.23,
+                                    "delimiter": "/",
+                                },
+                            },
+                        },
+                    },
+                },
+                "exclude": {
+                    "buckets": [
+                        "arn:aws:s3:::source_bucket_1",
+                        "arn:aws:s3:::source_bucket_2",
+                    ],
+                },
+                "is_enabled": True,
+                "data_export": {
+                    "s3_bucket_destination": {
+                        "output_schema_version": aws_native.s3.StorageLensS3BucketDestinationOutputSchemaVersion.V1,
+                        "format": aws_native.s3.StorageLensS3BucketDestinationFormat.CSV,
+                        "account_id": "111122223333",
+                        "arn": "arn:aws:s3:::destination_bucket",
+                        "prefix": "output-path-prefix",
+                        "encryption": {
+                            "sses3": {},
+                        },
+                    },
+                    "cloud_watch_metrics": {
+                        "is_enabled": True,
+                    },
+                },
+            },
+            tags=[
+                {
+                    "key": "tag-key-1",
+                    "value": "tag-value-1",
+                },
+                {
+                    "key": "tag-key-2",
+                    "value": "tag-value-2",
+                },
+            ])
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        storage_lens_configuration_example = aws_native.s3.StorageLens("storageLensConfigurationExample",
+            storage_lens_configuration={
+                "id": "StorageLensAdvancedConfiguration",
+                "account_level": {
+                    "activity_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_cost_optimization_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_data_protection_metrics": {
+                        "is_enabled": True,
+                    },
+                    "detailed_status_codes_metrics": {
+                        "is_enabled": True,
+                    },
+                    "bucket_level": {
+                        "activity_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_cost_optimization_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_data_protection_metrics": {
+                            "is_enabled": True,
+                        },
+                        "detailed_status_codes_metrics": {
+                            "is_enabled": True,
+                        },
+                        "prefix_level": {
+                            "storage_metrics": {
+                                "is_enabled": True,
+                                "selection_criteria": {
+                                    "max_depth": 5,
+                                    "min_storage_bytes_percentage": 1.23,
+                                    "delimiter": "/",
+                                },
+                            },
+                        },
+                    },
+                },
+                "exclude": {
+                    "buckets": [
+                        "arn:aws:s3:::source_bucket_1",
+                        "arn:aws:s3:::source_bucket_2",
+                    ],
+                },
+                "is_enabled": True,
+                "data_export": {
+                    "s3_bucket_destination": {
+                        "output_schema_version": aws_native.s3.StorageLensS3BucketDestinationOutputSchemaVersion.V1,
+                        "format": aws_native.s3.StorageLensS3BucketDestinationFormat.CSV,
+                        "account_id": "111122223333",
+                        "arn": "arn:aws:s3:::destination_bucket",
+                        "prefix": "output-path-prefix",
+                        "encryption": {
+                            "sses3": {},
+                        },
+                    },
+                    "cloud_watch_metrics": {
+                        "is_enabled": True,
+                    },
+                },
+            },
+            tags=[
+                {
+                    "key": "tag-key-1",
+                    "value": "tag-value-1",
+                },
+                {
+                    "key": "tag-key-2",
+                    "value": "tag-value-2",
+                },
+            ])
+
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict']] storage_lens_configuration: This resource contains the details Amazon S3 Storage Lens configuration.
@@ -86,6 +253,173 @@ class StorageLens(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
+
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        storage_lens_configuration_example = aws_native.s3.StorageLens("storageLensConfigurationExample",
+            storage_lens_configuration={
+                "id": "StorageLensAdvancedConfiguration",
+                "account_level": {
+                    "activity_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_cost_optimization_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_data_protection_metrics": {
+                        "is_enabled": True,
+                    },
+                    "detailed_status_codes_metrics": {
+                        "is_enabled": True,
+                    },
+                    "bucket_level": {
+                        "activity_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_cost_optimization_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_data_protection_metrics": {
+                            "is_enabled": True,
+                        },
+                        "detailed_status_codes_metrics": {
+                            "is_enabled": True,
+                        },
+                        "prefix_level": {
+                            "storage_metrics": {
+                                "is_enabled": True,
+                                "selection_criteria": {
+                                    "max_depth": 5,
+                                    "min_storage_bytes_percentage": 1.23,
+                                    "delimiter": "/",
+                                },
+                            },
+                        },
+                    },
+                },
+                "exclude": {
+                    "buckets": [
+                        "arn:aws:s3:::source_bucket_1",
+                        "arn:aws:s3:::source_bucket_2",
+                    ],
+                },
+                "is_enabled": True,
+                "data_export": {
+                    "s3_bucket_destination": {
+                        "output_schema_version": aws_native.s3.StorageLensS3BucketDestinationOutputSchemaVersion.V1,
+                        "format": aws_native.s3.StorageLensS3BucketDestinationFormat.CSV,
+                        "account_id": "111122223333",
+                        "arn": "arn:aws:s3:::destination_bucket",
+                        "prefix": "output-path-prefix",
+                        "encryption": {
+                            "sses3": {},
+                        },
+                    },
+                    "cloud_watch_metrics": {
+                        "is_enabled": True,
+                    },
+                },
+            },
+            tags=[
+                {
+                    "key": "tag-key-1",
+                    "value": "tag-value-1",
+                },
+                {
+                    "key": "tag-key-2",
+                    "value": "tag-value-2",
+                },
+            ])
+
+        ```
+        ### Example
+
+        ```python
+        import pulumi
+        import pulumi_aws_native as aws_native
+
+        storage_lens_configuration_example = aws_native.s3.StorageLens("storageLensConfigurationExample",
+            storage_lens_configuration={
+                "id": "StorageLensAdvancedConfiguration",
+                "account_level": {
+                    "activity_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_cost_optimization_metrics": {
+                        "is_enabled": True,
+                    },
+                    "advanced_data_protection_metrics": {
+                        "is_enabled": True,
+                    },
+                    "detailed_status_codes_metrics": {
+                        "is_enabled": True,
+                    },
+                    "bucket_level": {
+                        "activity_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_cost_optimization_metrics": {
+                            "is_enabled": True,
+                        },
+                        "advanced_data_protection_metrics": {
+                            "is_enabled": True,
+                        },
+                        "detailed_status_codes_metrics": {
+                            "is_enabled": True,
+                        },
+                        "prefix_level": {
+                            "storage_metrics": {
+                                "is_enabled": True,
+                                "selection_criteria": {
+                                    "max_depth": 5,
+                                    "min_storage_bytes_percentage": 1.23,
+                                    "delimiter": "/",
+                                },
+                            },
+                        },
+                    },
+                },
+                "exclude": {
+                    "buckets": [
+                        "arn:aws:s3:::source_bucket_1",
+                        "arn:aws:s3:::source_bucket_2",
+                    ],
+                },
+                "is_enabled": True,
+                "data_export": {
+                    "s3_bucket_destination": {
+                        "output_schema_version": aws_native.s3.StorageLensS3BucketDestinationOutputSchemaVersion.V1,
+                        "format": aws_native.s3.StorageLensS3BucketDestinationFormat.CSV,
+                        "account_id": "111122223333",
+                        "arn": "arn:aws:s3:::destination_bucket",
+                        "prefix": "output-path-prefix",
+                        "encryption": {
+                            "sses3": {},
+                        },
+                    },
+                    "cloud_watch_metrics": {
+                        "is_enabled": True,
+                    },
+                },
+            },
+            tags=[
+                {
+                    "key": "tag-key-1",
+                    "value": "tag-value-1",
+                },
+                {
+                    "key": "tag-key-2",
+                    "value": "tag-value-2",
+                },
+            ])
+
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageLensArgs args: The arguments to use to populate this resource's properties.

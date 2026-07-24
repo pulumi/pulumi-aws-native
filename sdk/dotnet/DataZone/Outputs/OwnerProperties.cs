@@ -16,9 +16,17 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class OwnerProperties
     {
+        public readonly Outputs.OwnerGroupProperties? Group;
+        public readonly Outputs.OwnerUserProperties? User;
+
         [OutputConstructor]
-        private OwnerProperties()
+        private OwnerProperties(
+            Outputs.OwnerGroupProperties? group,
+
+            Outputs.OwnerUserProperties? user)
         {
+            Group = group;
+            User = user;
         }
     }
 }

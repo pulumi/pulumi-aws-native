@@ -2,6 +2,91 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AssociationAwsConfigurationAccountType = {
+    Monitor: "monitor",
+} as const;
+
+/**
+ * Account Type 'monitor' for DevOpsAgent monitoring
+ */
+export type AssociationAwsConfigurationAccountType = (typeof AssociationAwsConfigurationAccountType)[keyof typeof AssociationAwsConfigurationAccountType];
+
+export const AssociationAwsResourceResourceType = {
+    AwsCloudFormationStack: "AWS::CloudFormation::Stack",
+    AwsecrRepository: "AWS::ECR::Repository",
+    Awss3Bucket: "AWS::S3::Bucket",
+    Awss3Object: "AWS::S3::Object",
+} as const;
+
+/**
+ * Resource type
+ */
+export type AssociationAwsResourceResourceType = (typeof AssociationAwsResourceResourceType)[keyof typeof AssociationAwsResourceResourceType];
+
+export const AssociationGitHubConfigurationOwnerType = {
+    Organization: "organization",
+    User: "user",
+} as const;
+
+/**
+ * Type of repository owner
+ */
+export type AssociationGitHubConfigurationOwnerType = (typeof AssociationGitHubConfigurationOwnerType)[keyof typeof AssociationGitHubConfigurationOwnerType];
+
+export const AssociationMcpServerGrafanaConfigurationToolsItem = {
+    Alerting: "alerting",
+    Annotations: "annotations",
+    Asserts: "asserts",
+    Cloudwatch: "cloudwatch",
+    Dashboard: "dashboard",
+    Datasource: "datasource",
+    Elasticsearch: "elasticsearch",
+    Examples: "examples",
+    Incident: "incident",
+    Loki: "loki",
+    Navigation: "navigation",
+    Oncall: "oncall",
+    Prometheus: "prometheus",
+    Pyroscope: "pyroscope",
+    Rendering: "rendering",
+    Runpanelquery: "runpanelquery",
+    Search: "search",
+    Searchlogs: "searchlogs",
+    Sift: "sift",
+} as const;
+
+export type AssociationMcpServerGrafanaConfigurationToolsItem = (typeof AssociationMcpServerGrafanaConfigurationToolsItem)[keyof typeof AssociationMcpServerGrafanaConfigurationToolsItem];
+
+export const AssociationSourceAwsConfigurationAccountType = {
+    Source: "source",
+} as const;
+
+/**
+ * Account Type 'source' for DevOpsAgent monitoring
+ */
+export type AssociationSourceAwsConfigurationAccountType = (typeof AssociationSourceAwsConfigurationAccountType)[keyof typeof AssociationSourceAwsConfigurationAccountType];
+
+export const PrivateConnectionServiceManagedModeDnsResolution = {
+    Public: "PUBLIC",
+    InVpc: "IN_VPC",
+} as const;
+
+/**
+ * DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+ */
+export type PrivateConnectionServiceManagedModeDnsResolution = (typeof PrivateConnectionServiceManagedModeDnsResolution)[keyof typeof PrivateConnectionServiceManagedModeDnsResolution];
+
+export const PrivateConnectionServiceManagedModeIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+    DualStack: "DUAL_STACK",
+} as const;
+
+/**
+ * IP address type of the service-managed Resource Gateway.
+ */
+export type PrivateConnectionServiceManagedModeIpAddressType = (typeof PrivateConnectionServiceManagedModeIpAddressType)[keyof typeof PrivateConnectionServiceManagedModeIpAddressType];
+
 export const PrivateConnectionStatus = {
     Active: "ACTIVE",
     CreateInProgress: "CREATE_IN_PROGRESS",
@@ -14,6 +99,66 @@ export const PrivateConnectionStatus = {
  * The status of the Private Connection.
  */
 export type PrivateConnectionStatus = (typeof PrivateConnectionStatus)[keyof typeof PrivateConnectionStatus];
+
+export const ServiceGitLabDetailsTokenType = {
+    Personal: "personal",
+    Group: "group",
+} as const;
+
+/**
+ * Type of GitLab access token
+ */
+export type ServiceGitLabDetailsTokenType = (typeof ServiceGitLabDetailsTokenType)[keyof typeof ServiceGitLabDetailsTokenType];
+
+export const ServiceNewRelicApiKeyConfigRegion = {
+    Us: "US",
+    Eu: "EU",
+} as const;
+
+/**
+ * New Relic region
+ */
+export type ServiceNewRelicApiKeyConfigRegion = (typeof ServiceNewRelicApiKeyConfigRegion)[keyof typeof ServiceNewRelicApiKeyConfigRegion];
+
+export const ServiceRegisteredGitLabServiceDetailsTokenType = {
+    Personal: "personal",
+    Group: "group",
+} as const;
+
+/**
+ * Type of GitLab access token
+ */
+export type ServiceRegisteredGitLabServiceDetailsTokenType = (typeof ServiceRegisteredGitLabServiceDetailsTokenType)[keyof typeof ServiceRegisteredGitLabServiceDetailsTokenType];
+
+export const ServiceRegisteredMcpServerDetailsAuthorizationMethod = {
+    OauthClientCredentials: "oauth-client-credentials",
+    ApiKey: "api-key",
+    BearerToken: "bearer-token",
+} as const;
+
+/**
+ * MCP server authorization method
+ */
+export type ServiceRegisteredMcpServerDetailsAuthorizationMethod = (typeof ServiceRegisteredMcpServerDetailsAuthorizationMethod)[keyof typeof ServiceRegisteredMcpServerDetailsAuthorizationMethod];
+
+export const ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod = {
+    BearerToken: "bearer-token",
+} as const;
+
+/**
+ * MCP server authorization method
+ */
+export type ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod = (typeof ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod)[keyof typeof ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod];
+
+export const ServiceRegisteredNewRelicDetailsRegion = {
+    Us: "US",
+    Eu: "EU",
+} as const;
+
+/**
+ * New Relic region
+ */
+export type ServiceRegisteredNewRelicDetailsRegion = (typeof ServiceRegisteredNewRelicDetailsRegion)[keyof typeof ServiceRegisteredNewRelicDetailsRegion];
 
 export const ServiceType = {
     Dynatrace: "dynatrace",

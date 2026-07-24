@@ -15,6 +15,15 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     /// </summary>
     public sealed class ConnectorV2ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("azure")]
+        public Input<Inputs.ConnectorV2AzureProviderConfigurationArgs>? Azure { get; set; }
+
+        [Input("jiraCloud")]
+        public Input<Inputs.ConnectorV2JiraCloudProviderConfigurationArgs>? JiraCloud { get; set; }
+
+        [Input("serviceNow")]
+        public Input<Inputs.ConnectorV2ServiceNowProviderConfigurationArgs>? ServiceNow { get; set; }
+
         public ConnectorV2ProviderArgs()
         {
         }

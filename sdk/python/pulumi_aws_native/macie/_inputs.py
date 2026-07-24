@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'AllowListCriteriaArgs',
     'AllowListCriteriaArgsDict',
+    'AllowListS3WordsListArgs',
+    'AllowListS3WordsListArgsDict',
     'FindingsFilterCriterionAdditionalPropertiesArgs',
     'FindingsFilterCriterionAdditionalPropertiesArgsDict',
     'FindingsFilterFindingCriteriaArgs',
@@ -28,15 +30,85 @@ class AllowListCriteriaArgsDict(TypedDict):
     """
     The regex or s3 object to use for the AllowList.
     """
-    pass
+    regex: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 object key for the AllowList.
+    """
+    s3_words_list: NotRequired[pulumi.Input[Optional['AllowListS3WordsListArgsDict']]]
+    """
+    The S3 location for the AllowList.
+    """
 
 @pulumi.input_type
 class AllowListCriteriaArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_words_list: pulumi.Input[Optional['AllowListS3WordsListArgs']] = None):
         """
         The regex or s3 object to use for the AllowList.
+
+        :param pulumi.Input[_builtins.str] regex: The S3 object key for the AllowList.
+        :param pulumi.Input['AllowListS3WordsListArgs'] s3_words_list: The S3 location for the AllowList.
         """
-        pass
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if s3_words_list is not None:
+            pulumi.set(__self__, "s3_words_list", s3_words_list)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 object key for the AllowList.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "regex", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3WordsList")
+    def s3_words_list(self) -> pulumi.Input[Optional['AllowListS3WordsListArgs']]:
+        """
+        The S3 location for the AllowList.
+        """
+        return pulumi.get(self, "s3_words_list")
+
+    @s3_words_list.setter
+    def s3_words_list(self, value: pulumi.Input[Optional['AllowListS3WordsListArgs']]):
+        pulumi.set(self, "s3_words_list", value)
+
+
+class AllowListS3WordsListArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    object_key: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AllowListS3WordsListArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[_builtins.str],
+                 object_key: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "object_key", object_key)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectKey")
+    def object_key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "object_key")
+
+    @object_key.setter
+    def object_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "object_key", value)
 
 
 class FindingsFilterCriterionAdditionalPropertiesArgsDict(TypedDict):

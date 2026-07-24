@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Inputs
 
     public sealed class PolicyStoreEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("default")]
+        public Input<Inputs.PolicyStoreDefaultArgs>? Default { get; set; }
+
+        [Input("kmsEncryptionSettings")]
+        public Input<Inputs.PolicyStoreKmsEncryptionSettingsArgs>? KmsEncryptionSettings { get; set; }
+
         public PolicyStoreEncryptionSettingsArgs()
         {
         }

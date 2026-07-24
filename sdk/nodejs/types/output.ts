@@ -18753,6 +18753,36 @@ export namespace bedrockagentcore {
         maxLifetime?: number;
     }
 
+    /**
+     * Managed VPC resource configuration
+     */
+    export interface RuntimeManagedVpcResource {
+        /**
+         * The IP address type for the endpoint
+         */
+        endpointIpAddressType: enums.bedrockagentcore.RuntimeManagedVpcResourceEndpointIpAddressType;
+        /**
+         * An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+         */
+        routingDomain?: string;
+        /**
+         * The security group IDs
+         */
+        securityGroupIds?: string[];
+        /**
+         * The subnet IDs
+         */
+        subnetIds: string[];
+        /**
+         * Tags to apply to the managed VPC Lattice resource gateway
+         */
+        tags?: {[key: string]: string};
+        /**
+         * The VPC identifier
+         */
+        vpcIdentifier: string;
+    }
+
     export interface RuntimeNetworkConfiguration {
         /**
          * The network mode.
@@ -18765,6 +18795,8 @@ export namespace bedrockagentcore {
      * Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
      */
     export interface RuntimePrivateEndpoint {
+        managedVpcResource?: outputs.bedrockagentcore.RuntimeManagedVpcResource;
+        selfManagedLatticeResource?: outputs.bedrockagentcore.RuntimeSelfManagedLatticeResource;
     }
 
     /**
@@ -18809,6 +18841,16 @@ export namespace bedrockagentcore {
          * S3 object version ID
          */
         versionId?: string;
+    }
+
+    /**
+     * Self-managed VPC Lattice resource configuration
+     */
+    export interface RuntimeSelfManagedLatticeResource {
+        /**
+         * The identifier of the VPC Lattice resource configuration
+         */
+        resourceConfigurationIdentifier: string;
     }
 
     /**
@@ -31936,9 +31978,31 @@ export namespace datazone {
     }
 
     /**
+     * The properties of the domain unit owners group.
+     */
+    export interface OwnerGroupProperties {
+        /**
+         * The ID of the domain unit owners group.
+         */
+        groupIdentifier?: string;
+    }
+
+    /**
      * The properties of a domain unit's owner.
      */
     export interface OwnerProperties {
+        group?: outputs.datazone.OwnerGroupProperties;
+        user?: outputs.datazone.OwnerUserProperties;
+    }
+
+    /**
+     * The properties of the owner user.
+     */
+    export interface OwnerUserProperties {
+        /**
+         * The ID of the owner user.
+         */
+        userIdentifier?: string;
     }
 
     export interface PolicyGrantAddToProjectMemberPoolPolicyGrantDetail {
@@ -32505,7 +32569,41 @@ export namespace deadline {
         user: string;
     }
 
+    export interface QueuePriorityBalancedSchedulingConfiguration {
+        renderingTaskBuffer?: number;
+    }
+
+    export interface QueuePriorityFifoSchedulingConfiguration {
+    }
+
     export interface QueueSchedulingConfiguration {
+        priorityBalanced?: outputs.deadline.QueuePriorityBalancedSchedulingConfiguration;
+        priorityFifo?: outputs.deadline.QueuePriorityFifoSchedulingConfiguration;
+        weightedBalanced?: outputs.deadline.QueueWeightedBalancedSchedulingConfiguration;
+    }
+
+    export interface QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst {
+    }
+
+    export interface QueueSchedulingMaxPriorityOverrideProperties {
+        alwaysScheduleFirst: outputs.deadline.QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst;
+    }
+
+    export interface QueueSchedulingMinPriorityOverrideAlwaysScheduleLast {
+    }
+
+    export interface QueueSchedulingMinPriorityOverrideProperties {
+        alwaysScheduleLast: outputs.deadline.QueueSchedulingMinPriorityOverrideAlwaysScheduleLast;
+    }
+
+    export interface QueueWeightedBalancedSchedulingConfiguration {
+        errorWeight?: number;
+        maxPriorityOverride?: outputs.deadline.QueueSchedulingMaxPriorityOverrideProperties;
+        minPriorityOverride?: outputs.deadline.QueueSchedulingMinPriorityOverrideProperties;
+        priorityWeight?: number;
+        renderingTaskBuffer?: number;
+        renderingTaskWeight?: number;
+        submissionTimeWeight?: number;
     }
 
     export interface QueueWindowsUser {
@@ -32624,27 +32722,972 @@ export namespace devopsagent {
     }
 
     /**
+     * AWS association for 'monitor' account
+     */
+    export interface AssociationAwsConfiguration {
+        /**
+         * AWS Account Id corresponding to provided resources
+         */
+        accountId: string;
+        /**
+         * Account Type 'monitor' for DevOpsAgent monitoring
+         */
+        accountType: enums.devopsagent.AssociationAwsConfigurationAccountType;
+        /**
+         * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+         */
+        assumableRoleArn: string;
+        resources?: outputs.devopsagent.AssociationAwsResource[];
+        tags?: outputs.devopsagent.AssociationKeyValuePair[];
+    }
+
+    /**
+     * AWS resource definition
+     */
+    export interface AssociationAwsResource {
+        /**
+         * The Amazon Resource Name (ARN) of the resource
+         */
+        resourceArn: string;
+        /**
+         * Additional metadata for the resource
+         */
+        resourceMetadata?: any;
+        /**
+         * Resource type
+         */
+        resourceType?: enums.devopsagent.AssociationAwsResourceResourceType;
+    }
+
+    /**
+     * Azure subscription integration configuration
+     */
+    export interface AssociationAzureConfiguration {
+        /**
+         * Azure subscription ID corresponding to provided resources
+         */
+        subscriptionId: string;
+    }
+
+    /**
+     * Dynatrace monitoring configuration
+     */
+    export interface AssociationDynatraceConfiguration {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * Dynatrace environment id
+         */
+        envId: string;
+        /**
+         * List of Dynatrace resources to monitor
+         */
+        resources?: string[];
+    }
+
+    /**
+     * EventChannelconfiguration
+     */
+    export interface AssociationEventChannelConfiguration {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+    }
+
+    /**
+     * GitHub repository integration configuration
+     */
+    export interface AssociationGitHubConfiguration {
+        /**
+         * Repository owner
+         */
+        owner: string;
+        /**
+         * Type of repository owner
+         */
+        ownerType: enums.devopsagent.AssociationGitHubConfigurationOwnerType;
+        /**
+         * Associated Github repo ID
+         */
+        repoId: string;
+        /**
+         * Associated Github repo name
+         */
+        repoName: string;
+    }
+
+    /**
+     * GitLab project integration configuration
+     */
+    export interface AssociationGitLabConfiguration {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * GitLab instance identifier
+         */
+        instanceIdentifier?: string;
+        /**
+         * GitLab numeric project ID
+         */
+        projectId: string;
+        /**
+         * Full GitLab project path (e.g., namespace/project-name)
+         */
+        projectPath: string;
+    }
+
+    /**
+     * A key-value pair for tags
+     */
+    export interface AssociationKeyValuePair {
+        key: string;
+        value: string;
+    }
+
+    /**
+     * MCP server configuration
+     */
+    export interface AssociationMcpServerConfiguration {
+        /**
+         * The description of the MCP server
+         */
+        description?: string;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint?: string;
+        /**
+         * The name of the MCP server
+         */
+        name?: string;
+        /**
+         * List of MCP tools that can be used with the association
+         */
+        tools: string[];
+    }
+
+    /**
+     * Datadog MCP server configuration
+     */
+    export interface AssociationMcpServerDatadogConfiguration {
+        /**
+         * The description of the MCP server
+         */
+        description?: string;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint?: string;
+        /**
+         * The name of the MCP server
+         */
+        name?: string;
+    }
+
+    /**
+     * Grafana MCP server configuration
+     */
+    export interface AssociationMcpServerGrafanaConfiguration {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * List of tool categories to enable for the Grafana MCP server
+         */
+        tools?: enums.devopsagent.AssociationMcpServerGrafanaConfigurationToolsItem[];
+    }
+
+    /**
+     * NewRelic MCP server configuration
+     */
+    export interface AssociationMcpServerNewRelicConfiguration {
+        /**
+         * New Relic Account ID
+         */
+        accountId: string;
+        /**
+         * MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+         */
+        endpoint: string;
+    }
+
+    /**
+     * SigV4-authenticated MCP server configuration
+     */
+    export interface AssociationMcpServerSigV4Configuration {
+        /**
+         * List of MCP tools available for the association
+         */
+        tools: string[];
+    }
+
+    /**
+     * Splunk MCP server configuration
+     */
+    export interface AssociationMcpServerSplunkConfiguration {
+        /**
+         * The description of the MCP server
+         */
+        description?: string;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint?: string;
+        /**
+         * The name of the MCP server
+         */
+        name?: string;
+    }
+
+    /**
+     * PagerDuty integration configuration
+     */
+    export interface AssociationPagerDutyConfiguration {
+        /**
+         * Email to be used in PagerDuty API header
+         */
+        customerEmail: string;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * List of PagerDuty service IDs available for the association
+         */
+        services: string[];
+    }
+
+    /**
      * The configuration that directs how AgentSpace interacts with the given service
      */
     export interface AssociationServiceConfiguration {
+        aws?: outputs.devopsagent.AssociationAwsConfiguration;
+        azure?: outputs.devopsagent.AssociationAzureConfiguration;
+        dynatrace?: outputs.devopsagent.AssociationDynatraceConfiguration;
+        eventChannel?: outputs.devopsagent.AssociationEventChannelConfiguration;
+        gitHub?: outputs.devopsagent.AssociationGitHubConfiguration;
+        gitLab?: outputs.devopsagent.AssociationGitLabConfiguration;
+        mcpServer?: outputs.devopsagent.AssociationMcpServerConfiguration;
+        mcpServerDatadog?: outputs.devopsagent.AssociationMcpServerDatadogConfiguration;
+        mcpServerGrafana?: outputs.devopsagent.AssociationMcpServerGrafanaConfiguration;
+        mcpServerNewRelic?: outputs.devopsagent.AssociationMcpServerNewRelicConfiguration;
+        mcpServerSigV4?: outputs.devopsagent.AssociationMcpServerSigV4Configuration;
+        mcpServerSplunk?: outputs.devopsagent.AssociationMcpServerSplunkConfiguration;
+        pagerDuty?: outputs.devopsagent.AssociationPagerDutyConfiguration;
+        serviceNow?: outputs.devopsagent.AssociationServiceNowConfiguration;
+        slack?: outputs.devopsagent.AssociationSlackConfiguration;
+        sourceAws?: outputs.devopsagent.AssociationSourceAwsConfiguration;
+    }
+
+    /**
+     * ServiceNow integration configuration
+     */
+    export interface AssociationServiceNowConfiguration {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: boolean;
+        /**
+         * ServiceNow instance ID
+         */
+        instanceId?: string;
+    }
+
+    /**
+     * Slack channel configuration
+     */
+    export interface AssociationSlackChannel {
+        /**
+         * Slack channel ID
+         */
+        channelId: string;
+        /**
+         * Slack channel name
+         */
+        channelName?: string;
+    }
+
+    /**
+     * Slack workspace integration configuration
+     */
+    export interface AssociationSlackConfiguration {
+        transmissionTarget: outputs.devopsagent.AssociationSlackTransmissionTarget;
+        /**
+         * Associated Slack workspace ID
+         */
+        workspaceId: string;
+        /**
+         * Associated Slack workspace name
+         */
+        workspaceName: string;
+    }
+
+    /**
+     * Transmission targets for agent notifications
+     */
+    export interface AssociationSlackTransmissionTarget {
+        /**
+         * Destination for IncidentResponse agent.
+         */
+        incidentResponseTarget: outputs.devopsagent.AssociationSlackChannel;
+    }
+
+    /**
+     * AWS association for 'source' account
+     */
+    export interface AssociationSourceAwsConfiguration {
+        /**
+         * AWS Account Id corresponding to provided resources
+         */
+        accountId: string;
+        /**
+         * Account Type 'source' for DevOpsAgent monitoring
+         */
+        accountType: enums.devopsagent.AssociationSourceAwsConfigurationAccountType;
+        /**
+         * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+         */
+        assumableRoleArn: string;
+        resources?: outputs.devopsagent.AssociationAwsResource[];
+        tags?: outputs.devopsagent.AssociationKeyValuePair[];
     }
 
     /**
      * The connection configuration, either SelfManaged or ServiceManaged.
      */
     export interface PrivateConnectionConnectionConfiguration {
+        selfManaged?: outputs.devopsagent.PrivateConnectionSelfManagedMode;
+        serviceManaged?: outputs.devopsagent.PrivateConnectionServiceManagedMode;
+    }
+
+    /**
+     * Configuration for a self-managed Private Connection.
+     */
+    export interface PrivateConnectionSelfManagedMode {
+        /**
+         * The ARN of the Resource Configuration.
+         */
+        resourceConfigurationId: string;
+    }
+
+    /**
+     * Configuration for a service-managed Private Connection.
+     */
+    export interface PrivateConnectionServiceManagedMode {
+        /**
+         * DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+         */
+        dnsResolution?: enums.devopsagent.PrivateConnectionServiceManagedModeDnsResolution;
+        /**
+         * IP address or DNS name of the target resource.
+         */
+        hostAddress: string;
+        /**
+         * IP address type of the service-managed Resource Gateway.
+         */
+        ipAddressType?: enums.devopsagent.PrivateConnectionServiceManagedModeIpAddressType;
+        /**
+         * Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+         */
+        ipv4AddressesPerEni?: number;
+        /**
+         * TCP port ranges that a consumer can use to access the resource.
+         */
+        portRanges?: string[];
+        /**
+         * Security groups to attach to the service-managed Resource Gateway.
+         */
+        securityGroupIds?: string[];
+        /**
+         * Subnets that the service-managed Resource Gateway will span.
+         */
+        subnetIds?: string[];
+        /**
+         * VPC to create the service-managed Resource Gateway in.
+         */
+        vpcId: string;
     }
 
     /**
      * Additional details specific to the service type returned after registration
      */
     export interface ServiceAdditionalServiceDetails {
+        azureIdentity?: outputs.devopsagent.ServiceRegisteredAzureIdentityDetails;
+        dynatrace?: outputs.devopsagent.ServiceRegisteredDynatraceDetails;
+        gitLab?: outputs.devopsagent.ServiceRegisteredGitLabServiceDetails;
+        mcpServer?: outputs.devopsagent.ServiceRegisteredMcpServerDetails;
+        mcpServerGrafana?: outputs.devopsagent.ServiceRegisteredMcpServerGrafanaDetails;
+        mcpServerNewRelic?: outputs.devopsagent.ServiceRegisteredNewRelicDetails;
+        mcpServerSigV4?: outputs.devopsagent.ServiceRegisteredMcpServerSigV4Details;
+        mcpServerSplunk?: outputs.devopsagent.ServiceRegisteredMcpServerDetails;
+        pagerDuty?: outputs.devopsagent.ServiceRegisteredPagerDutyDetails;
+        serviceNow?: outputs.devopsagent.ServiceRegisteredServiceNowDetails;
+    }
+
+    /**
+     * API key authentication details
+     */
+    export interface ServiceApiKeyDetails {
+        /**
+         * HTTP header name to send the API key
+         */
+        apiKeyHeader: string;
+        /**
+         * User friendly API key name
+         */
+        apiKeyName: string;
+        /**
+         * API key value
+         */
+        apiKeyValue: string;
+    }
+
+    /**
+     * Azure Identity service configuration for federated identity
+     */
+    export interface ServiceAzureIdentityServiceDetails {
+        /**
+         * Azure AD application client ID
+         */
+        clientId: string;
+        /**
+         * Azure AD tenant ID
+         */
+        tenantId: string;
+        /**
+         * ARN of the IAM role for web identity token exchange
+         */
+        webIdentityRoleArn: string;
+        /**
+         * List of audiences for the web identity token
+         */
+        webIdentityTokenAudiences: string[];
+    }
+
+    /**
+     * Bearer token authentication details
+     */
+    export interface ServiceBearerTokenDetails {
+        /**
+         * HTTP header name to send the bearer token
+         */
+        authorizationHeader?: string;
+        /**
+         * User friendly bearer token name
+         */
+        tokenName: string;
+        /**
+         * Bearer token value
+         */
+        tokenValue: string;
     }
 
     /**
      * Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
      */
     export interface ServiceDetails {
+        azureIdentity?: outputs.devopsagent.ServiceAzureIdentityServiceDetails;
+        dynatrace?: outputs.devopsagent.ServiceDynatraceServiceDetails;
+        gitLab?: outputs.devopsagent.ServiceGitLabDetails;
+        mcpServer?: outputs.devopsagent.ServiceMcpServerDetails;
+        mcpServerGrafana?: outputs.devopsagent.ServiceMcpServerGrafanaDetails;
+        mcpServerNewRelic?: outputs.devopsagent.ServiceNewRelicServiceDetails;
+        mcpServerSigV4?: outputs.devopsagent.ServiceMcpServerSigV4Details;
+        mcpServerSplunk?: outputs.devopsagent.ServiceMcpServerSplunkDetails;
+        pagerDuty?: outputs.devopsagent.ServicePagerDutyDetails;
+        serviceNow?: outputs.devopsagent.ServiceNowServiceDetails;
+    }
+
+    /**
+     * Dynatrace OAuth authorization configuration
+     */
+    export interface ServiceDynatraceAuthorizationConfig {
+        oAuthClientCredentials?: outputs.devopsagent.ServiceOAuthClientDetails;
+    }
+
+    /**
+     * Dynatrace service configuration
+     */
+    export interface ServiceDynatraceServiceDetails {
+        /**
+         * Dynatrace resource account URN
+         */
+        accountUrn: string;
+        authorizationConfig?: outputs.devopsagent.ServiceDynatraceAuthorizationConfig;
+    }
+
+    /**
+     * GitLab service configuration
+     */
+    export interface ServiceGitLabDetails {
+        /**
+         * Optional GitLab group ID for group-level access tokens
+         */
+        groupId?: string;
+        /**
+         * GitLab instance URL
+         */
+        targetUrl: string;
+        /**
+         * Type of GitLab access token
+         */
+        tokenType: enums.devopsagent.ServiceGitLabDetailsTokenType;
+        /**
+         * GitLab access token value
+         */
+        tokenValue: string;
+    }
+
+    /**
+     * MCP server authorization configuration
+     */
+    export interface ServiceMcpServerAuthorizationConfig {
+        apiKey?: outputs.devopsagent.ServiceApiKeyDetails;
+        oAuthClientCredentials?: outputs.devopsagent.ServiceMcpServerOAuthClientCredentialsConfig;
+    }
+
+    /**
+     * MCP server configuration
+     */
+    export interface ServiceMcpServerDetails {
+        authorizationConfig: outputs.devopsagent.ServiceMcpServerAuthorizationConfig;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: string;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * MCP server name
+         */
+        name: string;
+    }
+
+    /**
+     * Grafana MCP server authorization configuration
+     */
+    export interface ServiceMcpServerGrafanaAuthorizationConfig {
+        bearerToken?: outputs.devopsagent.ServiceBearerTokenDetails;
+    }
+
+    /**
+     * Grafana MCP server configuration
+     */
+    export interface ServiceMcpServerGrafanaDetails {
+        authorizationConfig: outputs.devopsagent.ServiceMcpServerGrafanaAuthorizationConfig;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: string;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * MCP server name
+         */
+        name: string;
+    }
+
+    /**
+     * MCP server OAuth client credentials configuration
+     */
+    export interface ServiceMcpServerOAuthClientCredentialsConfig {
+        /**
+         * OAuth client ID
+         */
+        clientId: string;
+        /**
+         * User friendly OAuth client name
+         */
+        clientName?: string;
+        /**
+         * OAuth client secret
+         */
+        clientSecret: string;
+        /**
+         * OAuth token exchange parameters
+         */
+        exchangeParameters?: any;
+        /**
+         * OAuth token exchange URL
+         */
+        exchangeUrl: string;
+        /**
+         * OAuth scopes
+         */
+        scopes?: string[];
+    }
+
+    /**
+     * SigV4 authorization configuration for MCP server
+     */
+    export interface ServiceMcpServerSigV4AuthorizationConfig {
+        /**
+         * Custom headers for the SigV4 MCP server
+         */
+        customHeaders?: {[key: string]: string};
+        /**
+         * IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+         */
+        mcpRoleArn?: string;
+        /**
+         * AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+         */
+        region: string;
+        /**
+         * Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+         */
+        roleArn?: string;
+        /**
+         * AWS service name for SigV4 signing
+         */
+        service: string;
+    }
+
+    /**
+     * SigV4-authenticated MCP server configuration
+     */
+    export interface ServiceMcpServerSigV4Details {
+        authorizationConfig: outputs.devopsagent.ServiceMcpServerSigV4AuthorizationConfig;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: string;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * MCP server name
+         */
+        name: string;
+    }
+
+    /**
+     * MCP server splunk authorization configuration
+     */
+    export interface ServiceMcpServerSplunkAuthorizationConfig {
+        bearerToken?: outputs.devopsagent.ServiceBearerTokenDetails;
+    }
+
+    /**
+     * Splunk MCP server configuration
+     */
+    export interface ServiceMcpServerSplunkDetails {
+        authorizationConfig: outputs.devopsagent.ServiceMcpServerSplunkAuthorizationConfig;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: string;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * MCP server name
+         */
+        name: string;
+    }
+
+    /**
+     * New Relic API key configuration
+     */
+    export interface ServiceNewRelicApiKeyConfig {
+        /**
+         * New Relic Account ID
+         */
+        accountId: string;
+        /**
+         * List of alert policy IDs
+         */
+        alertPolicyIds?: string[];
+        /**
+         * New Relic User API Key
+         */
+        apiKey: string;
+        /**
+         * List of monitored APM application IDs
+         */
+        applicationIds?: string[];
+        /**
+         * List of globally unique IDs for New Relic resources
+         */
+        entityGuids?: string[];
+        /**
+         * New Relic region
+         */
+        region: enums.devopsagent.ServiceNewRelicApiKeyConfigRegion;
+    }
+
+    /**
+     * New Relic authorization configuration
+     */
+    export interface ServiceNewRelicAuthorizationConfig {
+        apiKey: outputs.devopsagent.ServiceNewRelicApiKeyConfig;
+    }
+
+    /**
+     * New Relic service configuration
+     */
+    export interface ServiceNewRelicServiceDetails {
+        authorizationConfig: outputs.devopsagent.ServiceNewRelicAuthorizationConfig;
+    }
+
+    /**
+     * ServiceNow OAuth authorization configuration
+     */
+    export interface ServiceNowAuthorizationConfig {
+        oAuthClientCredentials?: outputs.devopsagent.ServiceOAuthClientDetails;
+    }
+
+    /**
+     * ServiceNow service configuration
+     */
+    export interface ServiceNowServiceDetails {
+        authorizationConfig?: outputs.devopsagent.ServiceNowAuthorizationConfig;
+        /**
+         * ServiceNow instance URL
+         */
+        instanceUrl: string;
+    }
+
+    /**
+     * OAuth client credentials
+     */
+    export interface ServiceOAuthClientDetails {
+        /**
+         * OAuth client ID
+         */
+        clientId: string;
+        /**
+         * User friendly OAuth client name
+         */
+        clientName?: string;
+        /**
+         * OAuth client secret
+         */
+        clientSecret: string;
+        /**
+         * OAuth token exchange parameters
+         */
+        exchangeParameters?: any;
+    }
+
+    /**
+     * PagerDuty OAuth authorization configuration
+     */
+    export interface ServicePagerDutyAuthorizationConfig {
+        oAuthClientCredentials?: outputs.devopsagent.ServiceOAuthClientDetails;
+    }
+
+    /**
+     * PagerDuty service configuration
+     */
+    export interface ServicePagerDutyDetails {
+        authorizationConfig: outputs.devopsagent.ServicePagerDutyAuthorizationConfig;
+        /**
+         * PagerDuty scopes
+         */
+        scopes: string[];
+    }
+
+    /**
+     * Azure Identity service details returned after registration
+     */
+    export interface ServiceRegisteredAzureIdentityDetails {
+        /**
+         * Azure AD application client ID
+         */
+        clientId: string;
+        /**
+         * Azure AD tenant ID
+         */
+        tenantId: string;
+        /**
+         * ARN of the IAM role for web identity token exchange
+         */
+        webIdentityRoleArn: string;
+        /**
+         * List of audiences for the web identity token
+         */
+        webIdentityTokenAudiences: string[];
+    }
+
+    /**
+     * Dynatrace service details returned after registration
+     */
+    export interface ServiceRegisteredDynatraceDetails {
+        /**
+         * Dynatrace resource account URN
+         */
+        accountUrn: string;
+    }
+
+    /**
+     * GitLab service details returned after registration
+     */
+    export interface ServiceRegisteredGitLabServiceDetails {
+        /**
+         * Optional GitLab group ID for group-level access tokens
+         */
+        groupId?: string;
+        /**
+         * GitLab instance URL
+         */
+        targetUrl: string;
+        /**
+         * Type of GitLab access token
+         */
+        tokenType: enums.devopsagent.ServiceRegisteredGitLabServiceDetailsTokenType;
+    }
+
+    /**
+     * MCP server details returned after registration
+     */
+    export interface ServiceRegisteredMcpServerDetails {
+        /**
+         * API key header name if using API key authentication
+         */
+        apiKeyHeader?: string;
+        /**
+         * MCP server authorization method
+         */
+        authorizationMethod: enums.devopsagent.ServiceRegisteredMcpServerDetailsAuthorizationMethod;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: string;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * MCP server name
+         */
+        name: string;
+    }
+
+    /**
+     * Grafana MCP server details returned after registration
+     */
+    export interface ServiceRegisteredMcpServerGrafanaDetails {
+        /**
+         * MCP server authorization method
+         */
+        authorizationMethod: enums.devopsagent.ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: string;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * MCP server name
+         */
+        name?: string;
+    }
+
+    /**
+     * SigV4-authenticated MCP server details returned after registration
+     */
+    export interface ServiceRegisteredMcpServerSigV4Details {
+        /**
+         * Custom headers for the SigV4 MCP server
+         */
+        customHeaders?: {[key: string]: string};
+        /**
+         * Optional description for the MCP server
+         */
+        description?: string;
+        /**
+         * The MCP server endpoint URL
+         */
+        endpoint: string;
+        /**
+         * IAM role ARN for SigV4 signing. Absent when no dedicated role is configured.
+         */
+        mcpRoleArn?: string;
+        /**
+         * The MCP server name
+         */
+        name: string;
+        /**
+         * AWS region for SigV4 signing
+         */
+        region: string;
+        /**
+         * Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing
+         */
+        roleArn: string;
+        /**
+         * AWS service name for SigV4 signing
+         */
+        service: string;
+    }
+
+    /**
+     * New Relic service details returned after registration
+     */
+    export interface ServiceRegisteredNewRelicDetails {
+        /**
+         * New Relic account ID
+         */
+        accountId: string;
+        /**
+         * Optional user description
+         */
+        description?: string;
+        /**
+         * New Relic region
+         */
+        region: enums.devopsagent.ServiceRegisteredNewRelicDetailsRegion;
+    }
+
+    /**
+     * PagerDuty service details returned after registration
+     */
+    export interface ServiceRegisteredPagerDutyDetails {
+        /**
+         * The scopes assigned to the service
+         */
+        scopes: string[];
+    }
+
+    /**
+     * ServiceNow service details returned after registration
+     */
+    export interface ServiceRegisteredServiceNowDetails {
+        /**
+         * ServiceNow instance URL
+         */
+        instanceUrl: string;
     }
 
 }
@@ -50457,6 +51500,8 @@ export namespace greengrassv2 {
     }
 
     export interface DeploymentIoTJobRateIncreaseCriteria {
+        numberOfNotifiedThings?: number;
+        numberOfSucceededThings?: number;
     }
 
     export interface DeploymentIoTJobTimeoutConfig {
@@ -65182,6 +66227,34 @@ export namespace m2 {
     }
 
     /**
+     * Defines the storage configuration for an Amazon EFS file system.
+     */
+    export interface EnvironmentEfsStorageConfiguration {
+        /**
+         * The file system identifier.
+         */
+        fileSystemId: string;
+        /**
+         * The mount point for the file system.
+         */
+        mountPoint: string;
+    }
+
+    /**
+     * Defines the storage configuration for an Amazon FSx file system.
+     */
+    export interface EnvironmentFsxStorageConfiguration {
+        /**
+         * The file system identifier.
+         */
+        fileSystemId: string;
+        /**
+         * The mount point for the file system.
+         */
+        mountPoint: string;
+    }
+
+    /**
      * Defines the details of a high availability configuration.
      */
     export interface EnvironmentHighAvailabilityConfig {
@@ -65195,6 +66268,8 @@ export namespace m2 {
      * Defines the storage configuration for an environment.
      */
     export interface EnvironmentStorageConfiguration {
+        efs?: outputs.m2.EnvironmentEfsStorageConfiguration;
+        fsx?: outputs.m2.EnvironmentFsxStorageConfiguration;
     }
 
 }
@@ -65204,6 +66279,19 @@ export namespace macie {
      * The regex or s3 object to use for the AllowList.
      */
     export interface AllowListCriteria {
+        /**
+         * The S3 object key for the AllowList.
+         */
+        regex?: string;
+        /**
+         * The S3 location for the AllowList.
+         */
+        s3WordsList?: outputs.macie.AllowListS3WordsList;
+    }
+
+    export interface AllowListS3WordsList {
+        bucketName: string;
+        objectKey: string;
     }
 
     export interface FindingsFilterCriterionAdditionalProperties {
@@ -67207,9 +68295,37 @@ export namespace medialive {
     }
 
     /**
+     * Statmux rate control settings
+     */
+    export interface MultiplexprogramMultiplexStatmuxVideoSettings {
+        /**
+         * Maximum statmux bitrate.
+         */
+        maximumBitrate?: number;
+        /**
+         * Minimum statmux bitrate.
+         */
+        minimumBitrate?: number;
+        /**
+         * The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+         */
+        priority?: number;
+    }
+
+    /**
      * The video configuration for each program in a multiplex.
      */
     export interface MultiplexprogramMultiplexVideoSettings {
+        /**
+         * The constant bitrate configuration for the video encode.
+         * When this field is defined, StatmuxSettings must be undefined.
+         */
+        constantBitrate?: number;
+        /**
+         * Statmux rate control settings.
+         * When this field is defined, ConstantBitrate must be undefined.
+         */
+        statmuxSettings?: outputs.medialive.MultiplexprogramMultiplexStatmuxVideoSettings;
     }
 
     /**
@@ -73993,7 +75109,13 @@ export namespace pcaconnectorad {
 }
 
 export namespace pcaconnectorscep {
+    export interface ConnectorIntuneConfiguration {
+        azureApplicationId: string;
+        domain: string;
+    }
+
     export interface ConnectorMobileDeviceManagement {
+        intune?: outputs.pcaconnectorscep.ConnectorIntuneConfiguration;
     }
 
     export interface ConnectorOpenIdConfiguration {
@@ -108427,7 +109549,35 @@ export namespace redshift {
         vpcSecurityGroupId?: string;
     }
 
+    /**
+     * Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+     */
+    export interface ScheduledActionPauseClusterMessage {
+        clusterIdentifier: string;
+    }
+
+    /**
+     * Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+     */
+    export interface ScheduledActionResizeClusterMessage {
+        classic?: boolean;
+        clusterIdentifier: string;
+        clusterType?: string;
+        nodeType?: string;
+        numberOfNodes?: number;
+    }
+
+    /**
+     * Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+     */
+    export interface ScheduledActionResumeClusterMessage {
+        clusterIdentifier: string;
+    }
+
     export interface ScheduledActionType {
+        pauseCluster?: outputs.redshift.ScheduledActionPauseClusterMessage;
+        resizeCluster?: outputs.redshift.ScheduledActionResizeClusterMessage;
+        resumeCluster?: outputs.redshift.ScheduledActionResumeClusterMessage;
     }
 
     /**
@@ -110061,6 +111211,20 @@ export namespace rtbfabric {
         responderErrorMasking?: outputs.rtbfabric.LinkResponderErrorMaskingForHttpCode[];
     }
 
+    export interface LinkFilter {
+        criteria: outputs.rtbfabric.LinkFilterCriterion[];
+    }
+
+    export interface LinkFilterCriterion {
+        path: string;
+        values: string[];
+    }
+
+    export interface LinkHeaderTagAction {
+        name: string;
+        value: string;
+    }
+
     export interface LinkLogSettings {
         /**
          * Describes the configuration of a link application log.
@@ -110088,6 +111252,33 @@ export namespace rtbfabric {
     }
 
     export interface LinkModuleParameters {
+        noBid?: outputs.rtbfabric.LinkNoBidModuleParameters;
+        openRtbAttribute?: outputs.rtbfabric.LinkOpenRtbAttributeModuleParameters;
+    }
+
+    export interface LinkNoBidAction {
+        noBidReasonCode?: number;
+    }
+
+    export interface LinkNoBidModuleParameters {
+        passThroughPercentage?: number;
+        reason?: string;
+        reasonCode?: number;
+    }
+
+    export interface LinkOpenRtbAttributeModuleParameters {
+        action: outputs.rtbfabric.LinkOpenRtbAttributeModuleParametersAction0Properties | outputs.rtbfabric.LinkOpenRtbAttributeModuleParametersAction1Properties;
+        filterConfiguration: outputs.rtbfabric.LinkFilter[];
+        filterType: enums.rtbfabric.LinkOpenRtbAttributeModuleParametersFilterType;
+        holdbackPercentage: number;
+    }
+
+    export interface LinkOpenRtbAttributeModuleParametersAction0Properties {
+        noBid: outputs.rtbfabric.LinkNoBidAction;
+    }
+
+    export interface LinkOpenRtbAttributeModuleParametersAction1Properties {
+        headerTag: outputs.rtbfabric.LinkHeaderTagAction;
     }
 
     export interface LinkResponderErrorMaskingForHttpCode {
@@ -110175,11 +111366,39 @@ export namespace rtbfabric {
         responseLoggingPercentage?: number;
     }
 
+    export interface ResponderGatewayAutoScalingGroupsConfiguration {
+        autoScalingGroupNameList: string[];
+        healthCheckConfig?: outputs.rtbfabric.ResponderGatewayHealthCheckConfig;
+        roleArn: string;
+    }
+
+    export interface ResponderGatewayEksEndpointsConfiguration {
+        clusterApiServerCaCertificateChain: string;
+        clusterApiServerEndpointUri: string;
+        clusterName: string;
+        endpointsResourceName: string;
+        endpointsResourceNamespace: string;
+        roleArn: string;
+    }
+
+    export interface ResponderGatewayHealthCheckConfig {
+        healthyThresholdCount?: number;
+        intervalSeconds?: number;
+        path: string;
+        port: number;
+        protocol?: enums.rtbfabric.ResponderGatewayProtocol;
+        statusCodeMatcher?: string;
+        timeoutMs?: number;
+        unhealthyThresholdCount?: number;
+    }
+
     export interface ResponderGatewayListenerConfig {
         protocols: enums.rtbfabric.ResponderGatewayProtocol[];
     }
 
     export interface ResponderGatewayManagedEndpointConfiguration {
+        autoScalingGroupsConfiguration?: outputs.rtbfabric.ResponderGatewayAutoScalingGroupsConfiguration;
+        eksEndpointsConfiguration?: outputs.rtbfabric.ResponderGatewayEksEndpointsConfiguration;
     }
 
     export interface ResponderGatewayTrustStoreConfiguration {
@@ -111125,6 +112344,20 @@ export namespace s3 {
     }
 
     /**
+     * Amazon S3 keys for log objects are partitioned in the following format:
+     *   ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``
+     *  PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
+     */
+    export interface BucketPartitionedPrefix {
+        /**
+         * Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+         *  For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+         *   For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+         */
+        partitionDateSource?: enums.s3.BucketPartitionedPrefixPartitionDateSource;
+    }
+
+    /**
      * The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
      */
     export interface BucketPublicAccessBlockConfiguration {
@@ -111637,6 +112870,11 @@ export namespace s3 {
      * Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
      */
     export interface BucketTargetObjectKeyFormat {
+        partitionedPrefix?: outputs.s3.BucketPartitionedPrefix;
+        /**
+         * This format defaults the prefix to the given log file prefix for delivering server access log file.
+         */
+        simplePrefix?: any;
     }
 
     /**
@@ -111987,6 +113225,11 @@ export namespace s3 {
      * Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
      */
     export interface StorageLensEncryption {
+        ssekms?: outputs.s3.StorageLensSsekms;
+        /**
+         * S3 default server-side encryption.
+         */
+        sses3?: any;
     }
 
     /**
@@ -112213,6 +113456,16 @@ export namespace s3 {
          * The minimum storage bytes threshold for the prefixes to be included in the analysis.
          */
         minStorageBytesPercentage?: number;
+    }
+
+    /**
+     * AWS KMS server-side encryption.
+     */
+    export interface StorageLensSsekms {
+        /**
+         * The ARN of the KMS key to use for encryption.
+         */
+        keyId: string;
     }
 
     /**
@@ -113374,6 +114627,18 @@ export namespace sagemaker {
     }
 
     /**
+     * Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+     */
+    export interface ClusterEbsVolumeConfig {
+        rootVolume?: boolean;
+        volumeKmsKeyId?: string;
+        /**
+         * The size in gigabytes (GB) of the additional EBS volume to be attached to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+         */
+        volumeSizeInGb?: number;
+    }
+
+    /**
      * The configuration for the restricted instance groups (RIG) environment.
      */
     export interface ClusterEnvironmentConfig {
@@ -113392,6 +114657,38 @@ export namespace sagemaker {
          * The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
          */
         sizeInGiB: number;
+    }
+
+    /**
+     * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+     */
+    export interface ClusterFsxLustreConfig {
+        /**
+         * The DNS name of the FSx for Lustre file system.
+         */
+        dnsName: string;
+        /**
+         * The mount name of the FSx for Lustre file system.
+         */
+        mountName: string;
+        /**
+         * The mount path for the FSx for Lustre file system.
+         */
+        mountPath?: string;
+    }
+
+    /**
+     * Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
+     */
+    export interface ClusterFsxOpenZfsConfig {
+        /**
+         * The DNS name of the FSx for OpenZFS file system.
+         */
+        dnsName: string;
+        /**
+         * The mount path for the FSx for OpenZFS file system.
+         */
+        mountPath?: string;
     }
 
     /**
@@ -113449,6 +114746,9 @@ export namespace sagemaker {
      * Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
      */
     export interface ClusterInstanceStorageConfig {
+        ebsVolumeConfig?: outputs.sagemaker.ClusterEbsVolumeConfig;
+        fsxLustreConfig?: outputs.sagemaker.ClusterFsxLustreConfig;
+        fsxOpenZfsConfig?: outputs.sagemaker.ClusterFsxOpenZfsConfig;
     }
 
     /**
@@ -113515,6 +114815,28 @@ export namespace sagemaker {
      * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
      */
     export interface ClusterOrchestrator {
+        eks?: outputs.sagemaker.ClusterOrchestratorEksConfig;
+        slurm?: outputs.sagemaker.ClusterOrchestratorSlurmConfig;
+    }
+
+    /**
+     * Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+     */
+    export interface ClusterOrchestratorEksConfig {
+        /**
+         * The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+         */
+        clusterArn: string;
+    }
+
+    /**
+     * Specifies parameter(s) related to Slurm as orchestrator.
+     */
+    export interface ClusterOrchestratorSlurmConfig {
+        /**
+         * The strategy for managing Slurm configuration on the cluster.
+         */
+        slurmConfigStrategy?: enums.sagemaker.ClusterOrchestratorSlurmConfigSlurmConfigStrategy;
     }
 
     /**
@@ -120558,6 +121880,35 @@ export namespace securityhub {
     }
 
     /**
+     * The configuration settings required to establish an integration between AWS Security Hub and Azure
+     */
+    export interface ConnectorV2AzureProviderConfiguration {
+        /**
+         * The ARN of the AWS Config connector used for the Azure integration
+         */
+        awsConfigConnectorArn: string;
+        /**
+         * The list of Azure regions to include in the connector scope
+         */
+        azureRegions: string[];
+        scopeConfiguration: outputs.securityhub.ConnectorV2AzureScopeConfiguration;
+    }
+
+    /**
+     * The scope configuration for an Azure connector
+     */
+    export interface ConnectorV2AzureScopeConfiguration {
+        /**
+         * The scope type for the Azure connector
+         */
+        scopeType: enums.securityhub.ConnectorV2AzureScopeConfigurationScopeType;
+        /**
+         * The list of scope values for the Azure connector
+         */
+        scopeValues?: string[];
+    }
+
+    /**
      * A health issue associated with the connector
      */
     export interface ConnectorV2HealthIssue {
@@ -120572,9 +121923,36 @@ export namespace securityhub {
     }
 
     /**
+     * The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+     */
+    export interface ConnectorV2JiraCloudProviderConfiguration {
+        /**
+         * The project key for a Jira Cloud instance
+         */
+        projectKey: string;
+    }
+
+    /**
      * The third-party provider configuration for the connector
      */
     export interface ConnectorV2Provider {
+        azure?: outputs.securityhub.ConnectorV2AzureProviderConfiguration;
+        jiraCloud?: outputs.securityhub.ConnectorV2JiraCloudProviderConfiguration;
+        serviceNow?: outputs.securityhub.ConnectorV2ServiceNowProviderConfiguration;
+    }
+
+    /**
+     * The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+     */
+    export interface ConnectorV2ServiceNowProviderConfiguration {
+        /**
+         * The instance name of ServiceNow ITSM
+         */
+        instanceName: string;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+         */
+        secretArn: string;
     }
 
     /**
@@ -125259,6 +126637,13 @@ export namespace verifiedpermissions {
     }
 
     export interface PolicyStoreEncryptionSettings {
+        default?: outputs.verifiedpermissions.PolicyStoreDefault;
+        kmsEncryptionSettings?: outputs.verifiedpermissions.PolicyStoreKmsEncryptionSettings;
+    }
+
+    export interface PolicyStoreKmsEncryptionSettings {
+        encryptionContext?: {[key: string]: string};
+        key: string;
     }
 
     export interface PolicyStoreKmsEncryptionState {
@@ -129559,6 +130944,11 @@ export namespace wisdom {
     }
 
     export interface AiPromptAiPromptTemplateConfiguration {
+        textFullAiPromptEditTemplateConfiguration?: outputs.wisdom.AiPromptTextFullAiPromptEditTemplateConfiguration;
+    }
+
+    export interface AiPromptTextFullAiPromptEditTemplateConfiguration {
+        text: string;
     }
 
     export interface AssistantAssociationAssociationData0Properties {

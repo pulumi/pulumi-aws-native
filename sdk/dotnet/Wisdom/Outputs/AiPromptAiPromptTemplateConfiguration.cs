@@ -13,9 +13,12 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AiPromptAiPromptTemplateConfiguration
     {
+        public readonly Outputs.AiPromptTextFullAiPromptEditTemplateConfiguration? TextFullAiPromptEditTemplateConfiguration;
+
         [OutputConstructor]
-        private AiPromptAiPromptTemplateConfiguration()
+        private AiPromptAiPromptTemplateConfiguration(Outputs.AiPromptTextFullAiPromptEditTemplateConfiguration? textFullAiPromptEditTemplateConfiguration)
         {
+            TextFullAiPromptEditTemplateConfiguration = textFullAiPromptEditTemplateConfiguration;
         }
     }
 }

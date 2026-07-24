@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.M2.Inputs
     /// </summary>
     public sealed class EnvironmentStorageConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("efs")]
+        public Input<Inputs.EnvironmentEfsStorageConfigurationArgs>? Efs { get; set; }
+
+        [Input("fsx")]
+        public Input<Inputs.EnvironmentFsxStorageConfigurationArgs>? Fsx { get; set; }
+
         public EnvironmentStorageConfigurationArgs()
         {
         }

@@ -114,6 +114,8 @@ __all__ = [
     'AiGuardrailGuardrailWordConfigArgsDict',
     'AiPromptAiPromptTemplateConfigurationArgs',
     'AiPromptAiPromptTemplateConfigurationArgsDict',
+    'AiPromptTextFullAiPromptEditTemplateConfigurationArgs',
+    'AiPromptTextFullAiPromptEditTemplateConfigurationArgsDict',
     'AssistantAssociationAssociationData0PropertiesArgs',
     'AssistantAssociationAssociationData0PropertiesArgsDict',
     'AssistantAssociationAssociationData1PropertiesArgs',
@@ -2471,12 +2473,42 @@ class AiGuardrailGuardrailWordConfigArgs:
 
 
 class AiPromptAiPromptTemplateConfigurationArgsDict(TypedDict):
-    pass
+    text_full_ai_prompt_edit_template_configuration: NotRequired[pulumi.Input[Optional['AiPromptTextFullAiPromptEditTemplateConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AiPromptAiPromptTemplateConfigurationArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 text_full_ai_prompt_edit_template_configuration: pulumi.Input[Optional['AiPromptTextFullAiPromptEditTemplateConfigurationArgs']] = None):
+        if text_full_ai_prompt_edit_template_configuration is not None:
+            pulumi.set(__self__, "text_full_ai_prompt_edit_template_configuration", text_full_ai_prompt_edit_template_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="textFullAiPromptEditTemplateConfiguration")
+    def text_full_ai_prompt_edit_template_configuration(self) -> pulumi.Input[Optional['AiPromptTextFullAiPromptEditTemplateConfigurationArgs']]:
+        return pulumi.get(self, "text_full_ai_prompt_edit_template_configuration")
+
+    @text_full_ai_prompt_edit_template_configuration.setter
+    def text_full_ai_prompt_edit_template_configuration(self, value: pulumi.Input[Optional['AiPromptTextFullAiPromptEditTemplateConfigurationArgs']]):
+        pulumi.set(self, "text_full_ai_prompt_edit_template_configuration", value)
+
+
+class AiPromptTextFullAiPromptEditTemplateConfigurationArgsDict(TypedDict):
+    text: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AiPromptTextFullAiPromptEditTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "text", value)
 
 
 class AssistantAssociationAssociationData0PropertiesArgsDict(TypedDict):

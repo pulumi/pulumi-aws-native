@@ -13,17 +13,62 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectorIntuneConfiguration',
     'ConnectorMobileDeviceManagement',
     'ConnectorOpenIdConfiguration',
 ]
 
 @pulumi.output_type
+class ConnectorIntuneConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureApplicationId":
+            suggest = "azure_application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorIntuneConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorIntuneConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorIntuneConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_application_id: _builtins.str,
+                 domain: _builtins.str):
+        pulumi.set(__self__, "azure_application_id", azure_application_id)
+        pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="azureApplicationId")
+    def azure_application_id(self) -> _builtins.str:
+        return pulumi.get(self, "azure_application_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
 class ConnectorMobileDeviceManagement(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 intune: Optional['outputs.ConnectorIntuneConfiguration'] = None):
+        if intune is not None:
+            pulumi.set(__self__, "intune", intune)
+
+    @_builtins.property
+    @pulumi.getter
+    def intune(self) -> Optional['outputs.ConnectorIntuneConfiguration']:
+        return pulumi.get(self, "intune")
 
 
 @pulumi.output_type

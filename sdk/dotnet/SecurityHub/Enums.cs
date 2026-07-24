@@ -764,6 +764,37 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
+    /// The scope type for the Azure connector
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorV2AzureScopeConfigurationScopeType : IEquatable<ConnectorV2AzureScopeConfigurationScopeType>
+    {
+        private readonly string _value;
+
+        private ConnectorV2AzureScopeConfigurationScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorV2AzureScopeConfigurationScopeType Tenant { get; } = new ConnectorV2AzureScopeConfigurationScopeType("TENANT");
+        public static ConnectorV2AzureScopeConfigurationScopeType Subscription { get; } = new ConnectorV2AzureScopeConfigurationScopeType("SUBSCRIPTION");
+
+        public static bool operator ==(ConnectorV2AzureScopeConfigurationScopeType left, ConnectorV2AzureScopeConfigurationScopeType right) => left.Equals(right);
+        public static bool operator !=(ConnectorV2AzureScopeConfigurationScopeType left, ConnectorV2AzureScopeConfigurationScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorV2AzureScopeConfigurationScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorV2AzureScopeConfigurationScopeType other && Equals(other);
+        public bool Equals(ConnectorV2AzureScopeConfigurationScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether the delegated Security Hub CSPM administrator is set for the organization.
     /// </summary>
     [EnumType]

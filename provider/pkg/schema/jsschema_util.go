@@ -36,6 +36,39 @@ func FlattenJSSchema(sch *jsschema.Schema) jsschema.SchemaList {
 	return schemas
 }
 
+// mergeObjectUnionProperties combines non-conflicting object union branches into one object schema.
+// It preserves unconditional required properties from the outer schema but drops branch-specific requirements,
+// which cannot be represented after merging the branches.
+func mergeObjectUnionProperties(sch *jsschema.Schema) (*jsschema.Schema, bool) {
+	if len(sch.AnyOf) == 0 && len(sch.OneOf) == 0 {
+		return nil, false
+	}
+
+	properties := mergeMaps(map[string]*jsschema.Schema{}, sch.Properties)
+	for _, branch := range FlattenJSSchema(sch) {
+		if len(branch.Type) != 1 || !branch.Type.Contains(jsschema.ObjectType) || len(branch.Properties) == 0 {
+			return nil, false
+		}
+		for name, property := range branch.Properties {
+			if baseProperty, ok := sch.Properties[name]; ok && baseProperty == property {
+				continue
+			}
+			if existing, ok := properties[name]; ok && existing != property {
+				return nil, false
+			}
+			properties[name] = property
+		}
+	}
+
+	merged := jsschema.New()
+	MergeJSSchema(merged, sch)
+	merged.AnyOf = nil
+	merged.OneOf = nil
+	merged.Properties = properties
+	merged.Required = append([]string(nil), sch.Required...)
+	return merged, true
+}
+
 func NormaliseTypes(sch *jsschema.Schema) *jsschema.Schema {
 	// Infer type from type-specific fields
 	if sch.Items != nil && len(sch.Items.Schemas) > 0 && !sch.Type.Contains(jsschema.ArrayType) {

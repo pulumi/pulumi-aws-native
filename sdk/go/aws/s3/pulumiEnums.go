@@ -4288,6 +4288,175 @@ func (in *bucketOwnershipControlsRuleObjectOwnershipPtr) ToBucketOwnershipContro
 	return pulumi.ToOutputWithContext(ctx, in).(BucketOwnershipControlsRuleObjectOwnershipPtrOutput)
 }
 
+// Specifies the partition date source for the partitioned prefix. “PartitionDateSource“ can be “EventTime“ or “DeliveryTime“.
+//
+//	For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+//	 For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+type BucketPartitionedPrefixPartitionDateSource string
+
+const (
+	BucketPartitionedPrefixPartitionDateSourceEventTime    = BucketPartitionedPrefixPartitionDateSource("EventTime")
+	BucketPartitionedPrefixPartitionDateSourceDeliveryTime = BucketPartitionedPrefixPartitionDateSource("DeliveryTime")
+)
+
+func (BucketPartitionedPrefixPartitionDateSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPartitionedPrefixPartitionDateSource)(nil)).Elem()
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToBucketPartitionedPrefixPartitionDateSourceOutput() BucketPartitionedPrefixPartitionDateSourceOutput {
+	return pulumi.ToOutput(e).(BucketPartitionedPrefixPartitionDateSourceOutput)
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToBucketPartitionedPrefixPartitionDateSourceOutputWithContext(ctx context.Context) BucketPartitionedPrefixPartitionDateSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketPartitionedPrefixPartitionDateSourceOutput)
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToBucketPartitionedPrefixPartitionDateSourcePtrOutput() BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return e.ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(context.Background())
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return BucketPartitionedPrefixPartitionDateSource(e).ToBucketPartitionedPrefixPartitionDateSourceOutputWithContext(ctx).ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(ctx)
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketPartitionedPrefixPartitionDateSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketPartitionedPrefixPartitionDateSourceOutput struct{ *pulumi.OutputState }
+
+func (BucketPartitionedPrefixPartitionDateSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPartitionedPrefixPartitionDateSource)(nil)).Elem()
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToBucketPartitionedPrefixPartitionDateSourceOutput() BucketPartitionedPrefixPartitionDateSourceOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToBucketPartitionedPrefixPartitionDateSourceOutputWithContext(ctx context.Context) BucketPartitionedPrefixPartitionDateSourceOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToBucketPartitionedPrefixPartitionDateSourcePtrOutput() BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return o.ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(context.Background())
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPartitionedPrefixPartitionDateSource) *BucketPartitionedPrefixPartitionDateSource {
+		return &v
+	}).(BucketPartitionedPrefixPartitionDateSourcePtrOutput)
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketPartitionedPrefixPartitionDateSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketPartitionedPrefixPartitionDateSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketPartitionedPrefixPartitionDateSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketPartitionedPrefixPartitionDateSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketPartitionedPrefixPartitionDateSource)(nil)).Elem()
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourcePtrOutput) ToBucketPartitionedPrefixPartitionDateSourcePtrOutput() BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourcePtrOutput) ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourcePtrOutput) Elem() BucketPartitionedPrefixPartitionDateSourceOutput {
+	return o.ApplyT(func(v *BucketPartitionedPrefixPartitionDateSource) BucketPartitionedPrefixPartitionDateSource {
+		if v != nil {
+			return *v
+		}
+		var ret BucketPartitionedPrefixPartitionDateSource
+		return ret
+	}).(BucketPartitionedPrefixPartitionDateSourceOutput)
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketPartitionedPrefixPartitionDateSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketPartitionedPrefixPartitionDateSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketPartitionedPrefixPartitionDateSourceInput is an input type that accepts values of the BucketPartitionedPrefixPartitionDateSource enum
+// A concrete instance of `BucketPartitionedPrefixPartitionDateSourceInput` can be one of the following:
+//
+//	BucketPartitionedPrefixPartitionDateSourceEventTime
+//	BucketPartitionedPrefixPartitionDateSourceDeliveryTime
+type BucketPartitionedPrefixPartitionDateSourceInput interface {
+	pulumi.Input
+
+	ToBucketPartitionedPrefixPartitionDateSourceOutput() BucketPartitionedPrefixPartitionDateSourceOutput
+	ToBucketPartitionedPrefixPartitionDateSourceOutputWithContext(context.Context) BucketPartitionedPrefixPartitionDateSourceOutput
+}
+
+var bucketPartitionedPrefixPartitionDateSourcePtrType = reflect.TypeOf((**BucketPartitionedPrefixPartitionDateSource)(nil)).Elem()
+
+type BucketPartitionedPrefixPartitionDateSourcePtrInput interface {
+	pulumi.Input
+
+	ToBucketPartitionedPrefixPartitionDateSourcePtrOutput() BucketPartitionedPrefixPartitionDateSourcePtrOutput
+	ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(context.Context) BucketPartitionedPrefixPartitionDateSourcePtrOutput
+}
+
+type bucketPartitionedPrefixPartitionDateSourcePtr string
+
+func BucketPartitionedPrefixPartitionDateSourcePtr(v string) BucketPartitionedPrefixPartitionDateSourcePtrInput {
+	return (*bucketPartitionedPrefixPartitionDateSourcePtr)(&v)
+}
+
+func (*bucketPartitionedPrefixPartitionDateSourcePtr) ElementType() reflect.Type {
+	return bucketPartitionedPrefixPartitionDateSourcePtrType
+}
+
+func (in *bucketPartitionedPrefixPartitionDateSourcePtr) ToBucketPartitionedPrefixPartitionDateSourcePtrOutput() BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return pulumi.ToOutput(in).(BucketPartitionedPrefixPartitionDateSourcePtrOutput)
+}
+
+func (in *bucketPartitionedPrefixPartitionDateSourcePtr) ToBucketPartitionedPrefixPartitionDateSourcePtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketPartitionedPrefixPartitionDateSourcePtrOutput)
+}
+
 // Specifies whether journal table record expiration is enabled or disabled.
 type BucketRecordExpirationExpiration string
 
@@ -6948,6 +7117,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNoncurrentVersionTransitionStorageClassPtrInput)(nil)).Elem(), BucketNoncurrentVersionTransitionStorageClass("DEEP_ARCHIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleObjectOwnershipInput)(nil)).Elem(), BucketOwnershipControlsRuleObjectOwnership("ObjectWriter"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleObjectOwnershipPtrInput)(nil)).Elem(), BucketOwnershipControlsRuleObjectOwnership("ObjectWriter"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPartitionedPrefixPartitionDateSourceInput)(nil)).Elem(), BucketPartitionedPrefixPartitionDateSource("EventTime"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPartitionedPrefixPartitionDateSourcePtrInput)(nil)).Elem(), BucketPartitionedPrefixPartitionDateSource("EventTime"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRecordExpirationExpirationInput)(nil)).Elem(), BucketRecordExpirationExpiration("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRecordExpirationExpirationPtrInput)(nil)).Elem(), BucketRecordExpirationExpiration("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRedirectAllRequestsToProtocolInput)(nil)).Elem(), BucketRedirectAllRequestsToProtocol("http"))
@@ -7031,6 +7202,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionStorageClassPtrOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleObjectOwnershipOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleObjectOwnershipPtrOutput{})
+	pulumi.RegisterOutputType(BucketPartitionedPrefixPartitionDateSourceOutput{})
+	pulumi.RegisterOutputType(BucketPartitionedPrefixPartitionDateSourcePtrOutput{})
 	pulumi.RegisterOutputType(BucketRecordExpirationExpirationOutput{})
 	pulumi.RegisterOutputType(BucketRecordExpirationExpirationPtrOutput{})
 	pulumi.RegisterOutputType(BucketRedirectAllRequestsToProtocolOutput{})

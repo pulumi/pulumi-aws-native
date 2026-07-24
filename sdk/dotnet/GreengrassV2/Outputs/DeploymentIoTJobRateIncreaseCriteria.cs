@@ -13,9 +13,17 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     [OutputType]
     public sealed class DeploymentIoTJobRateIncreaseCriteria
     {
+        public readonly int? NumberOfNotifiedThings;
+        public readonly int? NumberOfSucceededThings;
+
         [OutputConstructor]
-        private DeploymentIoTJobRateIncreaseCriteria()
+        private DeploymentIoTJobRateIncreaseCriteria(
+            int? numberOfNotifiedThings,
+
+            int? numberOfSucceededThings)
         {
+            NumberOfNotifiedThings = numberOfNotifiedThings;
+            NumberOfSucceededThings = numberOfSucceededThings;
         }
     }
 }

@@ -296,6 +296,16 @@ export const ConnectorAzureScopeConfigurationScopeType = {
  */
 export type ConnectorAzureScopeConfigurationScopeType = (typeof ConnectorAzureScopeConfigurationScopeType)[keyof typeof ConnectorAzureScopeConfigurationScopeType];
 
+export const ConnectorV2AzureScopeConfigurationScopeType = {
+    Tenant: "TENANT",
+    Subscription: "SUBSCRIPTION",
+} as const;
+
+/**
+ * The scope type for the Azure connector
+ */
+export type ConnectorV2AzureScopeConfigurationScopeType = (typeof ConnectorV2AzureScopeConfigurationScopeType)[keyof typeof ConnectorV2AzureScopeConfigurationScopeType];
+
 export const DelegatedAdminStatus = {
     Enabled: "ENABLED",
     DisableInProgress: "DISABLE_IN_PROGRESS",

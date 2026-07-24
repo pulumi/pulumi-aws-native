@@ -34482,6 +34482,243 @@ func (o RuntimeLifecycleConfigurationPtrOutput) MaxLifetime() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Managed VPC resource configuration
+type RuntimeManagedVpcResource struct {
+	// The IP address type for the endpoint
+	EndpointIpAddressType RuntimeManagedVpcResourceEndpointIpAddressType `pulumi:"endpointIpAddressType"`
+	// An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+	RoutingDomain *string `pulumi:"routingDomain"`
+	// The security group IDs
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The subnet IDs
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags to apply to the managed VPC Lattice resource gateway
+	Tags map[string]string `pulumi:"tags"`
+	// The VPC identifier
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
+}
+
+// RuntimeManagedVpcResourceInput is an input type that accepts RuntimeManagedVpcResourceArgs and RuntimeManagedVpcResourceOutput values.
+// You can construct a concrete instance of `RuntimeManagedVpcResourceInput` via:
+//
+//	RuntimeManagedVpcResourceArgs{...}
+type RuntimeManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToRuntimeManagedVpcResourceOutput() RuntimeManagedVpcResourceOutput
+	ToRuntimeManagedVpcResourceOutputWithContext(context.Context) RuntimeManagedVpcResourceOutput
+}
+
+// Managed VPC resource configuration
+type RuntimeManagedVpcResourceArgs struct {
+	// The IP address type for the endpoint
+	EndpointIpAddressType RuntimeManagedVpcResourceEndpointIpAddressTypeInput `pulumi:"endpointIpAddressType"`
+	// An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
+	// The security group IDs
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The subnet IDs
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags to apply to the managed VPC Lattice resource gateway
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The VPC identifier
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+}
+
+func (RuntimeManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeManagedVpcResource)(nil)).Elem()
+}
+
+func (i RuntimeManagedVpcResourceArgs) ToRuntimeManagedVpcResourceOutput() RuntimeManagedVpcResourceOutput {
+	return i.ToRuntimeManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i RuntimeManagedVpcResourceArgs) ToRuntimeManagedVpcResourceOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeManagedVpcResourceOutput)
+}
+
+func (i RuntimeManagedVpcResourceArgs) ToRuntimeManagedVpcResourcePtrOutput() RuntimeManagedVpcResourcePtrOutput {
+	return i.ToRuntimeManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeManagedVpcResourceArgs) ToRuntimeManagedVpcResourcePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeManagedVpcResourceOutput).ToRuntimeManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// RuntimeManagedVpcResourcePtrInput is an input type that accepts RuntimeManagedVpcResourceArgs, RuntimeManagedVpcResourcePtr and RuntimeManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `RuntimeManagedVpcResourcePtrInput` via:
+//
+//	        RuntimeManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeManagedVpcResourcePtrOutput() RuntimeManagedVpcResourcePtrOutput
+	ToRuntimeManagedVpcResourcePtrOutputWithContext(context.Context) RuntimeManagedVpcResourcePtrOutput
+}
+
+type runtimeManagedVpcResourcePtrType RuntimeManagedVpcResourceArgs
+
+func RuntimeManagedVpcResourcePtr(v *RuntimeManagedVpcResourceArgs) RuntimeManagedVpcResourcePtrInput {
+	return (*runtimeManagedVpcResourcePtrType)(v)
+}
+
+func (*runtimeManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeManagedVpcResource)(nil)).Elem()
+}
+
+func (i *runtimeManagedVpcResourcePtrType) ToRuntimeManagedVpcResourcePtrOutput() RuntimeManagedVpcResourcePtrOutput {
+	return i.ToRuntimeManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeManagedVpcResourcePtrType) ToRuntimeManagedVpcResourcePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeManagedVpcResourcePtrOutput)
+}
+
+// Managed VPC resource configuration
+type RuntimeManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (RuntimeManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeManagedVpcResource)(nil)).Elem()
+}
+
+func (o RuntimeManagedVpcResourceOutput) ToRuntimeManagedVpcResourceOutput() RuntimeManagedVpcResourceOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourceOutput) ToRuntimeManagedVpcResourceOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourceOutput) ToRuntimeManagedVpcResourcePtrOutput() RuntimeManagedVpcResourcePtrOutput {
+	return o.ToRuntimeManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeManagedVpcResourceOutput) ToRuntimeManagedVpcResourcePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeManagedVpcResource) *RuntimeManagedVpcResource {
+		return &v
+	}).(RuntimeManagedVpcResourcePtrOutput)
+}
+
+// The IP address type for the endpoint
+func (o RuntimeManagedVpcResourceOutput) EndpointIpAddressType() RuntimeManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v RuntimeManagedVpcResource) RuntimeManagedVpcResourceEndpointIpAddressType {
+		return v.EndpointIpAddressType
+	}).(RuntimeManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+// An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+func (o RuntimeManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeManagedVpcResource) *string { return v.RoutingDomain }).(pulumi.StringPtrOutput)
+}
+
+// The security group IDs
+func (o RuntimeManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeManagedVpcResource) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The subnet IDs
+func (o RuntimeManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeManagedVpcResource) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// Tags to apply to the managed VPC Lattice resource gateway
+func (o RuntimeManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RuntimeManagedVpcResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The VPC identifier
+func (o RuntimeManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeManagedVpcResource) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+}
+
+type RuntimeManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeManagedVpcResource)(nil)).Elem()
+}
+
+func (o RuntimeManagedVpcResourcePtrOutput) ToRuntimeManagedVpcResourcePtrOutput() RuntimeManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourcePtrOutput) ToRuntimeManagedVpcResourcePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourcePtrOutput) Elem() RuntimeManagedVpcResourceOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResource) RuntimeManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeManagedVpcResource
+		return ret
+	}).(RuntimeManagedVpcResourceOutput)
+}
+
+// The IP address type for the endpoint
+func (o RuntimeManagedVpcResourcePtrOutput) EndpointIpAddressType() RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResource) *RuntimeManagedVpcResourceEndpointIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+// An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+func (o RuntimeManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The security group IDs
+func (o RuntimeManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnet IDs
+func (o RuntimeManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags to apply to the managed VPC Lattice resource gateway
+func (o RuntimeManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// The VPC identifier
+func (o RuntimeManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type RuntimeNetworkConfiguration struct {
 	// The network mode.
 	NetworkMode       RuntimeNetworkMode `pulumi:"networkMode"`
@@ -34585,6 +34822,8 @@ func (o RuntimeNetworkConfigurationPtrOutput) NetworkModeConfig() RuntimeVpcConf
 
 // Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
 type RuntimePrivateEndpoint struct {
+	ManagedVpcResource         *RuntimeManagedVpcResource         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource *RuntimeSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
 }
 
 // RuntimePrivateEndpointInput is an input type that accepts RuntimePrivateEndpointArgs and RuntimePrivateEndpointOutput values.
@@ -34600,6 +34839,8 @@ type RuntimePrivateEndpointInput interface {
 
 // Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
 type RuntimePrivateEndpointArgs struct {
+	ManagedVpcResource         RuntimeManagedVpcResourcePtrInput         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource RuntimeSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
 }
 
 func (RuntimePrivateEndpointArgs) ElementType() reflect.Type {
@@ -34680,6 +34921,14 @@ func (o RuntimePrivateEndpointOutput) ToRuntimePrivateEndpointPtrOutputWithConte
 	}).(RuntimePrivateEndpointPtrOutput)
 }
 
+func (o RuntimePrivateEndpointOutput) ManagedVpcResource() RuntimeManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v RuntimePrivateEndpoint) *RuntimeManagedVpcResource { return v.ManagedVpcResource }).(RuntimeManagedVpcResourcePtrOutput)
+}
+
+func (o RuntimePrivateEndpointOutput) SelfManagedLatticeResource() RuntimeSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v RuntimePrivateEndpoint) *RuntimeSelfManagedLatticeResource { return v.SelfManagedLatticeResource }).(RuntimeSelfManagedLatticeResourcePtrOutput)
+}
+
 type RuntimePrivateEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (RuntimePrivateEndpointPtrOutput) ElementType() reflect.Type {
@@ -34702,6 +34951,24 @@ func (o RuntimePrivateEndpointPtrOutput) Elem() RuntimePrivateEndpointOutput {
 		var ret RuntimePrivateEndpoint
 		return ret
 	}).(RuntimePrivateEndpointOutput)
+}
+
+func (o RuntimePrivateEndpointPtrOutput) ManagedVpcResource() RuntimeManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v *RuntimePrivateEndpoint) *RuntimeManagedVpcResource {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedVpcResource
+	}).(RuntimeManagedVpcResourcePtrOutput)
+}
+
+func (o RuntimePrivateEndpointPtrOutput) SelfManagedLatticeResource() RuntimeSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v *RuntimePrivateEndpoint) *RuntimeSelfManagedLatticeResource {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedLatticeResource
+	}).(RuntimeSelfManagedLatticeResourcePtrOutput)
 }
 
 // Override mapping of a domain to a private endpoint
@@ -35272,6 +35539,146 @@ func (o RuntimeS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Self-managed VPC Lattice resource configuration
+type RuntimeSelfManagedLatticeResource struct {
+	// The identifier of the VPC Lattice resource configuration
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// RuntimeSelfManagedLatticeResourceInput is an input type that accepts RuntimeSelfManagedLatticeResourceArgs and RuntimeSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `RuntimeSelfManagedLatticeResourceInput` via:
+//
+//	RuntimeSelfManagedLatticeResourceArgs{...}
+type RuntimeSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToRuntimeSelfManagedLatticeResourceOutput() RuntimeSelfManagedLatticeResourceOutput
+	ToRuntimeSelfManagedLatticeResourceOutputWithContext(context.Context) RuntimeSelfManagedLatticeResourceOutput
+}
+
+// Self-managed VPC Lattice resource configuration
+type RuntimeSelfManagedLatticeResourceArgs struct {
+	// The identifier of the VPC Lattice resource configuration
+	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (RuntimeSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i RuntimeSelfManagedLatticeResourceArgs) ToRuntimeSelfManagedLatticeResourceOutput() RuntimeSelfManagedLatticeResourceOutput {
+	return i.ToRuntimeSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i RuntimeSelfManagedLatticeResourceArgs) ToRuntimeSelfManagedLatticeResourceOutputWithContext(ctx context.Context) RuntimeSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeSelfManagedLatticeResourceOutput)
+}
+
+func (i RuntimeSelfManagedLatticeResourceArgs) ToRuntimeSelfManagedLatticeResourcePtrOutput() RuntimeSelfManagedLatticeResourcePtrOutput {
+	return i.ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeSelfManagedLatticeResourceArgs) ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RuntimeSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeSelfManagedLatticeResourceOutput).ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(ctx)
+}
+
+// RuntimeSelfManagedLatticeResourcePtrInput is an input type that accepts RuntimeSelfManagedLatticeResourceArgs, RuntimeSelfManagedLatticeResourcePtr and RuntimeSelfManagedLatticeResourcePtrOutput values.
+// You can construct a concrete instance of `RuntimeSelfManagedLatticeResourcePtrInput` via:
+//
+//	        RuntimeSelfManagedLatticeResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeSelfManagedLatticeResourcePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeSelfManagedLatticeResourcePtrOutput() RuntimeSelfManagedLatticeResourcePtrOutput
+	ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(context.Context) RuntimeSelfManagedLatticeResourcePtrOutput
+}
+
+type runtimeSelfManagedLatticeResourcePtrType RuntimeSelfManagedLatticeResourceArgs
+
+func RuntimeSelfManagedLatticeResourcePtr(v *RuntimeSelfManagedLatticeResourceArgs) RuntimeSelfManagedLatticeResourcePtrInput {
+	return (*runtimeSelfManagedLatticeResourcePtrType)(v)
+}
+
+func (*runtimeSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i *runtimeSelfManagedLatticeResourcePtrType) ToRuntimeSelfManagedLatticeResourcePtrOutput() RuntimeSelfManagedLatticeResourcePtrOutput {
+	return i.ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeSelfManagedLatticeResourcePtrType) ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RuntimeSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeSelfManagedLatticeResourcePtrOutput)
+}
+
+// Self-managed VPC Lattice resource configuration
+type RuntimeSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (RuntimeSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o RuntimeSelfManagedLatticeResourceOutput) ToRuntimeSelfManagedLatticeResourceOutput() RuntimeSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o RuntimeSelfManagedLatticeResourceOutput) ToRuntimeSelfManagedLatticeResourceOutputWithContext(ctx context.Context) RuntimeSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o RuntimeSelfManagedLatticeResourceOutput) ToRuntimeSelfManagedLatticeResourcePtrOutput() RuntimeSelfManagedLatticeResourcePtrOutput {
+	return o.ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeSelfManagedLatticeResourceOutput) ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RuntimeSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeSelfManagedLatticeResource) *RuntimeSelfManagedLatticeResource {
+		return &v
+	}).(RuntimeSelfManagedLatticeResourcePtrOutput)
+}
+
+// The identifier of the VPC Lattice resource configuration
+func (o RuntimeSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeSelfManagedLatticeResource) string { return v.ResourceConfigurationIdentifier }).(pulumi.StringOutput)
+}
+
+type RuntimeSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o RuntimeSelfManagedLatticeResourcePtrOutput) ToRuntimeSelfManagedLatticeResourcePtrOutput() RuntimeSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o RuntimeSelfManagedLatticeResourcePtrOutput) ToRuntimeSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RuntimeSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o RuntimeSelfManagedLatticeResourcePtrOutput) Elem() RuntimeSelfManagedLatticeResourceOutput {
+	return o.ApplyT(func(v *RuntimeSelfManagedLatticeResource) RuntimeSelfManagedLatticeResource {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeSelfManagedLatticeResource
+		return ret
+	}).(RuntimeSelfManagedLatticeResourceOutput)
+}
+
+// The identifier of the VPC Lattice resource configuration
+func (o RuntimeSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeSelfManagedLatticeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -36058,6 +36465,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeHostingEnvironmentArrayInput)(nil)).Elem(), RuntimeHostingEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationPtrInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeManagedVpcResourceInput)(nil)).Elem(), RuntimeManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeManagedVpcResourcePtrInput)(nil)).Elem(), RuntimeManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointInput)(nil)).Elem(), RuntimePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointPtrInput)(nil)).Elem(), RuntimePrivateEndpointArgs{})
@@ -36069,6 +36478,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3FilesAccessPointConfigurationPtrInput)(nil)).Elem(), RuntimeS3FilesAccessPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationInput)(nil)).Elem(), RuntimeS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationPtrInput)(nil)).Elem(), RuntimeS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeSelfManagedLatticeResourceInput)(nil)).Elem(), RuntimeSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeSelfManagedLatticeResourcePtrInput)(nil)).Elem(), RuntimeSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeSessionStorageConfigurationInput)(nil)).Elem(), RuntimeSessionStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeSessionStorageConfigurationPtrInput)(nil)).Elem(), RuntimeSessionStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
@@ -36565,6 +36976,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeHostingEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(RuntimeManagedVpcResourcePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimePrivateEndpointOutput{})
@@ -36577,6 +36990,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeS3FilesAccessPointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeS3LocationOutput{})
 	pulumi.RegisterOutputType(RuntimeS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(RuntimeSelfManagedLatticeResourcePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeSessionStorageConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeSessionStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeVpcConfigOutput{})

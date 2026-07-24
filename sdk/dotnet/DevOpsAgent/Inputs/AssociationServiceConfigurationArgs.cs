@@ -15,6 +15,54 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
     /// </summary>
     public sealed class AssociationServiceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aws")]
+        public Input<Inputs.AssociationAwsConfigurationArgs>? Aws { get; set; }
+
+        [Input("azure")]
+        public Input<Inputs.AssociationAzureConfigurationArgs>? Azure { get; set; }
+
+        [Input("dynatrace")]
+        public Input<Inputs.AssociationDynatraceConfigurationArgs>? Dynatrace { get; set; }
+
+        [Input("eventChannel")]
+        public Input<Inputs.AssociationEventChannelConfigurationArgs>? EventChannel { get; set; }
+
+        [Input("gitHub")]
+        public Input<Inputs.AssociationGitHubConfigurationArgs>? GitHub { get; set; }
+
+        [Input("gitLab")]
+        public Input<Inputs.AssociationGitLabConfigurationArgs>? GitLab { get; set; }
+
+        [Input("mcpServer")]
+        public Input<Inputs.AssociationMcpServerConfigurationArgs>? McpServer { get; set; }
+
+        [Input("mcpServerDatadog")]
+        public Input<Inputs.AssociationMcpServerDatadogConfigurationArgs>? McpServerDatadog { get; set; }
+
+        [Input("mcpServerGrafana")]
+        public Input<Inputs.AssociationMcpServerGrafanaConfigurationArgs>? McpServerGrafana { get; set; }
+
+        [Input("mcpServerNewRelic")]
+        public Input<Inputs.AssociationMcpServerNewRelicConfigurationArgs>? McpServerNewRelic { get; set; }
+
+        [Input("mcpServerSigV4")]
+        public Input<Inputs.AssociationMcpServerSigV4ConfigurationArgs>? McpServerSigV4 { get; set; }
+
+        [Input("mcpServerSplunk")]
+        public Input<Inputs.AssociationMcpServerSplunkConfigurationArgs>? McpServerSplunk { get; set; }
+
+        [Input("pagerDuty")]
+        public Input<Inputs.AssociationPagerDutyConfigurationArgs>? PagerDuty { get; set; }
+
+        [Input("serviceNow")]
+        public Input<Inputs.AssociationServiceNowConfigurationArgs>? ServiceNow { get; set; }
+
+        [Input("slack")]
+        public Input<Inputs.AssociationSlackConfigurationArgs>? Slack { get; set; }
+
+        [Input("sourceAws")]
+        public Input<Inputs.AssociationSourceAwsConfigurationArgs>? SourceAws { get; set; }
+
         public AssociationServiceConfigurationArgs()
         {
         }

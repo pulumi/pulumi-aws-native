@@ -17685,6 +17685,36 @@ export namespace bedrockagentcore {
         maxLifetime?: pulumi.Input<number | undefined>;
     }
 
+    /**
+     * Managed VPC resource configuration
+     */
+    export interface RuntimeManagedVpcResourceArgs {
+        /**
+         * The IP address type for the endpoint
+         */
+        endpointIpAddressType: pulumi.Input<enums.bedrockagentcore.RuntimeManagedVpcResourceEndpointIpAddressType>;
+        /**
+         * An intermediate domain to use as the resource configuration endpoint instead of the actual target domain
+         */
+        routingDomain?: pulumi.Input<string | undefined>;
+        /**
+         * The security group IDs
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The subnet IDs
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Tags to apply to the managed VPC Lattice resource gateway
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The VPC identifier
+         */
+        vpcIdentifier: pulumi.Input<string>;
+    }
+
     export interface RuntimeNetworkConfigurationArgs {
         /**
          * The network mode.
@@ -17697,6 +17727,8 @@ export namespace bedrockagentcore {
      * Private endpoint configuration. Exactly one of SelfManagedLatticeResource or ManagedVpcResource must be specified.
      */
     export interface RuntimePrivateEndpointArgs {
+        managedVpcResource?: pulumi.Input<inputs.bedrockagentcore.RuntimeManagedVpcResourceArgs | undefined>;
+        selfManagedLatticeResource?: pulumi.Input<inputs.bedrockagentcore.RuntimeSelfManagedLatticeResourceArgs | undefined>;
     }
 
     /**
@@ -17741,6 +17773,16 @@ export namespace bedrockagentcore {
          * S3 object version ID
          */
         versionId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Self-managed VPC Lattice resource configuration
+     */
+    export interface RuntimeSelfManagedLatticeResourceArgs {
+        /**
+         * The identifier of the VPC Lattice resource configuration
+         */
+        resourceConfigurationIdentifier: pulumi.Input<string>;
     }
 
     /**
@@ -30498,9 +30540,31 @@ export namespace datazone {
     }
 
     /**
+     * The properties of the domain unit owners group.
+     */
+    export interface OwnerGroupPropertiesArgs {
+        /**
+         * The ID of the domain unit owners group.
+         */
+        groupIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    /**
      * The properties of a domain unit's owner.
      */
     export interface OwnerPropertiesArgs {
+        group?: pulumi.Input<inputs.datazone.OwnerGroupPropertiesArgs | undefined>;
+        user?: pulumi.Input<inputs.datazone.OwnerUserPropertiesArgs | undefined>;
+    }
+
+    /**
+     * The properties of the owner user.
+     */
+    export interface OwnerUserPropertiesArgs {
+        /**
+         * The ID of the owner user.
+         */
+        userIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs {
@@ -31012,7 +31076,41 @@ export namespace deadline {
         user: pulumi.Input<string>;
     }
 
+    export interface QueuePriorityBalancedSchedulingConfigurationArgs {
+        renderingTaskBuffer?: pulumi.Input<number | undefined>;
+    }
+
+    export interface QueuePriorityFifoSchedulingConfigurationArgs {
+    }
+
     export interface QueueSchedulingConfigurationArgs {
+        priorityBalanced?: pulumi.Input<inputs.deadline.QueuePriorityBalancedSchedulingConfigurationArgs | undefined>;
+        priorityFifo?: pulumi.Input<inputs.deadline.QueuePriorityFifoSchedulingConfigurationArgs | undefined>;
+        weightedBalanced?: pulumi.Input<inputs.deadline.QueueWeightedBalancedSchedulingConfigurationArgs | undefined>;
+    }
+
+    export interface QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs {
+    }
+
+    export interface QueueSchedulingMaxPriorityOverridePropertiesArgs {
+        alwaysScheduleFirst: pulumi.Input<inputs.deadline.QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs>;
+    }
+
+    export interface QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs {
+    }
+
+    export interface QueueSchedulingMinPriorityOverridePropertiesArgs {
+        alwaysScheduleLast: pulumi.Input<inputs.deadline.QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs>;
+    }
+
+    export interface QueueWeightedBalancedSchedulingConfigurationArgs {
+        errorWeight?: pulumi.Input<number | undefined>;
+        maxPriorityOverride?: pulumi.Input<inputs.deadline.QueueSchedulingMaxPriorityOverridePropertiesArgs | undefined>;
+        minPriorityOverride?: pulumi.Input<inputs.deadline.QueueSchedulingMinPriorityOverridePropertiesArgs | undefined>;
+        priorityWeight?: pulumi.Input<number | undefined>;
+        renderingTaskBuffer?: pulumi.Input<number | undefined>;
+        renderingTaskWeight?: pulumi.Input<number | undefined>;
+        submissionTimeWeight?: pulumi.Input<number | undefined>;
     }
 
     export interface QueueWindowsUserArgs {
@@ -31130,21 +31228,782 @@ export namespace devopsagent {
     }
 
     /**
+     * AWS association for 'monitor' account
+     */
+    export interface AssociationAwsConfigurationArgs {
+        /**
+         * AWS Account Id corresponding to provided resources
+         */
+        accountId: pulumi.Input<string>;
+        /**
+         * Account Type 'monitor' for DevOpsAgent monitoring
+         */
+        accountType: pulumi.Input<enums.devopsagent.AssociationAwsConfigurationAccountType>;
+        /**
+         * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+         */
+        assumableRoleArn: pulumi.Input<string>;
+        resources?: pulumi.Input<pulumi.Input<inputs.devopsagent.AssociationAwsResourceArgs>[] | undefined>;
+        tags?: pulumi.Input<pulumi.Input<inputs.devopsagent.AssociationKeyValuePairArgs>[] | undefined>;
+    }
+
+    /**
+     * AWS resource definition
+     */
+    export interface AssociationAwsResourceArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the resource
+         */
+        resourceArn: pulumi.Input<string>;
+        /**
+         * Additional metadata for the resource
+         */
+        resourceMetadata?: any | undefined;
+        /**
+         * Resource type
+         */
+        resourceType?: pulumi.Input<enums.devopsagent.AssociationAwsResourceResourceType | undefined>;
+    }
+
+    /**
+     * Azure subscription integration configuration
+     */
+    export interface AssociationAzureConfigurationArgs {
+        /**
+         * Azure subscription ID corresponding to provided resources
+         */
+        subscriptionId: pulumi.Input<string>;
+    }
+
+    /**
+     * Dynatrace monitoring configuration
+     */
+    export interface AssociationDynatraceConfigurationArgs {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * Dynatrace environment id
+         */
+        envId: pulumi.Input<string>;
+        /**
+         * List of Dynatrace resources to monitor
+         */
+        resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * EventChannelconfiguration
+     */
+    export interface AssociationEventChannelConfigurationArgs {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * GitHub repository integration configuration
+     */
+    export interface AssociationGitHubConfigurationArgs {
+        /**
+         * Repository owner
+         */
+        owner: pulumi.Input<string>;
+        /**
+         * Type of repository owner
+         */
+        ownerType: pulumi.Input<enums.devopsagent.AssociationGitHubConfigurationOwnerType>;
+        /**
+         * Associated Github repo ID
+         */
+        repoId: pulumi.Input<string>;
+        /**
+         * Associated Github repo name
+         */
+        repoName: pulumi.Input<string>;
+    }
+
+    /**
+     * GitLab project integration configuration
+     */
+    export interface AssociationGitLabConfigurationArgs {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * GitLab instance identifier
+         */
+        instanceIdentifier?: pulumi.Input<string | undefined>;
+        /**
+         * GitLab numeric project ID
+         */
+        projectId: pulumi.Input<string>;
+        /**
+         * Full GitLab project path (e.g., namespace/project-name)
+         */
+        projectPath: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair for tags
+     */
+    export interface AssociationKeyValuePairArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * MCP server configuration
+     */
+    export interface AssociationMcpServerConfigurationArgs {
+        /**
+         * The description of the MCP server
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the MCP server
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * List of MCP tools that can be used with the association
+         */
+        tools: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Datadog MCP server configuration
+     */
+    export interface AssociationMcpServerDatadogConfigurationArgs {
+        /**
+         * The description of the MCP server
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the MCP server
+         */
+        name?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Grafana MCP server configuration
+     */
+    export interface AssociationMcpServerGrafanaConfigurationArgs {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * List of tool categories to enable for the Grafana MCP server
+         */
+        tools?: pulumi.Input<pulumi.Input<enums.devopsagent.AssociationMcpServerGrafanaConfigurationToolsItem>[] | undefined>;
+    }
+
+    /**
+     * NewRelic MCP server configuration
+     */
+    export interface AssociationMcpServerNewRelicConfigurationArgs {
+        /**
+         * New Relic Account ID
+         */
+        accountId: pulumi.Input<string>;
+        /**
+         * MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+         */
+        endpoint: pulumi.Input<string>;
+    }
+
+    /**
+     * SigV4-authenticated MCP server configuration
+     */
+    export interface AssociationMcpServerSigV4ConfigurationArgs {
+        /**
+         * List of MCP tools available for the association
+         */
+        tools: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Splunk MCP server configuration
+     */
+    export interface AssociationMcpServerSplunkConfigurationArgs {
+        /**
+         * The description of the MCP server
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the MCP server
+         */
+        name?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * PagerDuty integration configuration
+     */
+    export interface AssociationPagerDutyConfigurationArgs {
+        /**
+         * Email to be used in PagerDuty API header
+         */
+        customerEmail: pulumi.Input<string>;
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * List of PagerDuty service IDs available for the association
+         */
+        services: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The configuration that directs how AgentSpace interacts with the given service
      */
     export interface AssociationServiceConfigurationArgs {
+        aws?: pulumi.Input<inputs.devopsagent.AssociationAwsConfigurationArgs | undefined>;
+        azure?: pulumi.Input<inputs.devopsagent.AssociationAzureConfigurationArgs | undefined>;
+        dynatrace?: pulumi.Input<inputs.devopsagent.AssociationDynatraceConfigurationArgs | undefined>;
+        eventChannel?: pulumi.Input<inputs.devopsagent.AssociationEventChannelConfigurationArgs | undefined>;
+        gitHub?: pulumi.Input<inputs.devopsagent.AssociationGitHubConfigurationArgs | undefined>;
+        gitLab?: pulumi.Input<inputs.devopsagent.AssociationGitLabConfigurationArgs | undefined>;
+        mcpServer?: pulumi.Input<inputs.devopsagent.AssociationMcpServerConfigurationArgs | undefined>;
+        mcpServerDatadog?: pulumi.Input<inputs.devopsagent.AssociationMcpServerDatadogConfigurationArgs | undefined>;
+        mcpServerGrafana?: pulumi.Input<inputs.devopsagent.AssociationMcpServerGrafanaConfigurationArgs | undefined>;
+        mcpServerNewRelic?: pulumi.Input<inputs.devopsagent.AssociationMcpServerNewRelicConfigurationArgs | undefined>;
+        mcpServerSigV4?: pulumi.Input<inputs.devopsagent.AssociationMcpServerSigV4ConfigurationArgs | undefined>;
+        mcpServerSplunk?: pulumi.Input<inputs.devopsagent.AssociationMcpServerSplunkConfigurationArgs | undefined>;
+        pagerDuty?: pulumi.Input<inputs.devopsagent.AssociationPagerDutyConfigurationArgs | undefined>;
+        serviceNow?: pulumi.Input<inputs.devopsagent.AssociationServiceNowConfigurationArgs | undefined>;
+        slack?: pulumi.Input<inputs.devopsagent.AssociationSlackConfigurationArgs | undefined>;
+        sourceAws?: pulumi.Input<inputs.devopsagent.AssociationSourceAwsConfigurationArgs | undefined>;
+    }
+
+    /**
+     * ServiceNow integration configuration
+     */
+    export interface AssociationServiceNowConfigurationArgs {
+        /**
+         * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+         */
+        enableWebhookUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * ServiceNow instance ID
+         */
+        instanceId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Slack channel configuration
+     */
+    export interface AssociationSlackChannelArgs {
+        /**
+         * Slack channel ID
+         */
+        channelId: pulumi.Input<string>;
+        /**
+         * Slack channel name
+         */
+        channelName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Slack workspace integration configuration
+     */
+    export interface AssociationSlackConfigurationArgs {
+        transmissionTarget: pulumi.Input<inputs.devopsagent.AssociationSlackTransmissionTargetArgs>;
+        /**
+         * Associated Slack workspace ID
+         */
+        workspaceId: pulumi.Input<string>;
+        /**
+         * Associated Slack workspace name
+         */
+        workspaceName: pulumi.Input<string>;
+    }
+
+    /**
+     * Transmission targets for agent notifications
+     */
+    export interface AssociationSlackTransmissionTargetArgs {
+        /**
+         * Destination for IncidentResponse agent.
+         */
+        incidentResponseTarget: pulumi.Input<inputs.devopsagent.AssociationSlackChannelArgs>;
+    }
+
+    /**
+     * AWS association for 'source' account
+     */
+    export interface AssociationSourceAwsConfigurationArgs {
+        /**
+         * AWS Account Id corresponding to provided resources
+         */
+        accountId: pulumi.Input<string>;
+        /**
+         * Account Type 'source' for DevOpsAgent monitoring
+         */
+        accountType: pulumi.Input<enums.devopsagent.AssociationSourceAwsConfigurationAccountType>;
+        /**
+         * Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+         */
+        assumableRoleArn: pulumi.Input<string>;
+        resources?: pulumi.Input<pulumi.Input<inputs.devopsagent.AssociationAwsResourceArgs>[] | undefined>;
+        tags?: pulumi.Input<pulumi.Input<inputs.devopsagent.AssociationKeyValuePairArgs>[] | undefined>;
     }
 
     /**
      * The connection configuration, either SelfManaged or ServiceManaged.
      */
     export interface PrivateConnectionConnectionConfigurationArgs {
+        selfManaged?: pulumi.Input<inputs.devopsagent.PrivateConnectionSelfManagedModeArgs | undefined>;
+        serviceManaged?: pulumi.Input<inputs.devopsagent.PrivateConnectionServiceManagedModeArgs | undefined>;
+    }
+
+    /**
+     * Configuration for a self-managed Private Connection.
+     */
+    export interface PrivateConnectionSelfManagedModeArgs {
+        /**
+         * The ARN of the Resource Configuration.
+         */
+        resourceConfigurationId: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for a service-managed Private Connection.
+     */
+    export interface PrivateConnectionServiceManagedModeArgs {
+        /**
+         * DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+         */
+        dnsResolution?: pulumi.Input<enums.devopsagent.PrivateConnectionServiceManagedModeDnsResolution | undefined>;
+        /**
+         * IP address or DNS name of the target resource.
+         */
+        hostAddress: pulumi.Input<string>;
+        /**
+         * IP address type of the service-managed Resource Gateway.
+         */
+        ipAddressType?: pulumi.Input<enums.devopsagent.PrivateConnectionServiceManagedModeIpAddressType | undefined>;
+        /**
+         * Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+         */
+        ipv4AddressesPerEni?: pulumi.Input<number | undefined>;
+        /**
+         * TCP port ranges that a consumer can use to access the resource.
+         */
+        portRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Security groups to attach to the service-managed Resource Gateway.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Subnets that the service-managed Resource Gateway will span.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * VPC to create the service-managed Resource Gateway in.
+         */
+        vpcId: pulumi.Input<string>;
+    }
+
+    /**
+     * API key authentication details
+     */
+    export interface ServiceApiKeyDetailsArgs {
+        /**
+         * HTTP header name to send the API key
+         */
+        apiKeyHeader: pulumi.Input<string>;
+        /**
+         * User friendly API key name
+         */
+        apiKeyName: pulumi.Input<string>;
+        /**
+         * API key value
+         */
+        apiKeyValue: pulumi.Input<string>;
+    }
+
+    /**
+     * Azure Identity service configuration for federated identity
+     */
+    export interface ServiceAzureIdentityServiceDetailsArgs {
+        /**
+         * Azure AD application client ID
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * Azure AD tenant ID
+         */
+        tenantId: pulumi.Input<string>;
+        /**
+         * ARN of the IAM role for web identity token exchange
+         */
+        webIdentityRoleArn: pulumi.Input<string>;
+        /**
+         * List of audiences for the web identity token
+         */
+        webIdentityTokenAudiences: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Bearer token authentication details
+     */
+    export interface ServiceBearerTokenDetailsArgs {
+        /**
+         * HTTP header name to send the bearer token
+         */
+        authorizationHeader?: pulumi.Input<string | undefined>;
+        /**
+         * User friendly bearer token name
+         */
+        tokenName: pulumi.Input<string>;
+        /**
+         * Bearer token value
+         */
+        tokenValue: pulumi.Input<string>;
     }
 
     /**
      * Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
      */
     export interface ServiceDetailsArgs {
+        azureIdentity?: pulumi.Input<inputs.devopsagent.ServiceAzureIdentityServiceDetailsArgs | undefined>;
+        dynatrace?: pulumi.Input<inputs.devopsagent.ServiceDynatraceServiceDetailsArgs | undefined>;
+        gitLab?: pulumi.Input<inputs.devopsagent.ServiceGitLabDetailsArgs | undefined>;
+        mcpServer?: pulumi.Input<inputs.devopsagent.ServiceMcpServerDetailsArgs | undefined>;
+        mcpServerGrafana?: pulumi.Input<inputs.devopsagent.ServiceMcpServerGrafanaDetailsArgs | undefined>;
+        mcpServerNewRelic?: pulumi.Input<inputs.devopsagent.ServiceNewRelicServiceDetailsArgs | undefined>;
+        mcpServerSigV4?: pulumi.Input<inputs.devopsagent.ServiceMcpServerSigV4DetailsArgs | undefined>;
+        mcpServerSplunk?: pulumi.Input<inputs.devopsagent.ServiceMcpServerSplunkDetailsArgs | undefined>;
+        pagerDuty?: pulumi.Input<inputs.devopsagent.ServicePagerDutyDetailsArgs | undefined>;
+        serviceNow?: pulumi.Input<inputs.devopsagent.ServiceNowServiceDetailsArgs | undefined>;
+    }
+
+    /**
+     * Dynatrace OAuth authorization configuration
+     */
+    export interface ServiceDynatraceAuthorizationConfigArgs {
+        oAuthClientCredentials?: pulumi.Input<inputs.devopsagent.ServiceOAuthClientDetailsArgs | undefined>;
+    }
+
+    /**
+     * Dynatrace service configuration
+     */
+    export interface ServiceDynatraceServiceDetailsArgs {
+        /**
+         * Dynatrace resource account URN
+         */
+        accountUrn: pulumi.Input<string>;
+        authorizationConfig?: pulumi.Input<inputs.devopsagent.ServiceDynatraceAuthorizationConfigArgs | undefined>;
+    }
+
+    /**
+     * GitLab service configuration
+     */
+    export interface ServiceGitLabDetailsArgs {
+        /**
+         * Optional GitLab group ID for group-level access tokens
+         */
+        groupId?: pulumi.Input<string | undefined>;
+        /**
+         * GitLab instance URL
+         */
+        targetUrl: pulumi.Input<string>;
+        /**
+         * Type of GitLab access token
+         */
+        tokenType: pulumi.Input<enums.devopsagent.ServiceGitLabDetailsTokenType>;
+        /**
+         * GitLab access token value
+         */
+        tokenValue: pulumi.Input<string>;
+    }
+
+    /**
+     * MCP server authorization configuration
+     */
+    export interface ServiceMcpServerAuthorizationConfigArgs {
+        apiKey?: pulumi.Input<inputs.devopsagent.ServiceApiKeyDetailsArgs | undefined>;
+        oAuthClientCredentials?: pulumi.Input<inputs.devopsagent.ServiceMcpServerOAuthClientCredentialsConfigArgs | undefined>;
+    }
+
+    /**
+     * MCP server configuration
+     */
+    export interface ServiceMcpServerDetailsArgs {
+        authorizationConfig: pulumi.Input<inputs.devopsagent.ServiceMcpServerAuthorizationConfigArgs>;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * MCP server name
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * Grafana MCP server authorization configuration
+     */
+    export interface ServiceMcpServerGrafanaAuthorizationConfigArgs {
+        bearerToken?: pulumi.Input<inputs.devopsagent.ServiceBearerTokenDetailsArgs | undefined>;
+    }
+
+    /**
+     * Grafana MCP server configuration
+     */
+    export interface ServiceMcpServerGrafanaDetailsArgs {
+        authorizationConfig: pulumi.Input<inputs.devopsagent.ServiceMcpServerGrafanaAuthorizationConfigArgs>;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * MCP server name
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * MCP server OAuth client credentials configuration
+     */
+    export interface ServiceMcpServerOAuthClientCredentialsConfigArgs {
+        /**
+         * OAuth client ID
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * User friendly OAuth client name
+         */
+        clientName?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth client secret
+         */
+        clientSecret: pulumi.Input<string>;
+        /**
+         * OAuth token exchange parameters
+         */
+        exchangeParameters?: any | undefined;
+        /**
+         * OAuth token exchange URL
+         */
+        exchangeUrl: pulumi.Input<string>;
+        /**
+         * OAuth scopes
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * SigV4 authorization configuration for MCP server
+     */
+    export interface ServiceMcpServerSigV4AuthorizationConfigArgs {
+        /**
+         * Custom headers for the SigV4 MCP server
+         */
+        customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+         */
+        mcpRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+         */
+        region: pulumi.Input<string>;
+        /**
+         * Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+         */
+        roleArn?: pulumi.Input<string | undefined>;
+        /**
+         * AWS service name for SigV4 signing
+         */
+        service: pulumi.Input<string>;
+    }
+
+    /**
+     * SigV4-authenticated MCP server configuration
+     */
+    export interface ServiceMcpServerSigV4DetailsArgs {
+        authorizationConfig: pulumi.Input<inputs.devopsagent.ServiceMcpServerSigV4AuthorizationConfigArgs>;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * MCP server name
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * MCP server splunk authorization configuration
+     */
+    export interface ServiceMcpServerSplunkAuthorizationConfigArgs {
+        bearerToken?: pulumi.Input<inputs.devopsagent.ServiceBearerTokenDetailsArgs | undefined>;
+    }
+
+    /**
+     * Splunk MCP server configuration
+     */
+    export interface ServiceMcpServerSplunkDetailsArgs {
+        authorizationConfig: pulumi.Input<inputs.devopsagent.ServiceMcpServerSplunkAuthorizationConfigArgs>;
+        /**
+         * Optional description for the MCP server
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * MCP server endpoint URL
+         */
+        endpoint: pulumi.Input<string>;
+        /**
+         * MCP server name
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * New Relic API key configuration
+     */
+    export interface ServiceNewRelicApiKeyConfigArgs {
+        /**
+         * New Relic Account ID
+         */
+        accountId: pulumi.Input<string>;
+        /**
+         * List of alert policy IDs
+         */
+        alertPolicyIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * New Relic User API Key
+         */
+        apiKey: pulumi.Input<string>;
+        /**
+         * List of monitored APM application IDs
+         */
+        applicationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * List of globally unique IDs for New Relic resources
+         */
+        entityGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * New Relic region
+         */
+        region: pulumi.Input<enums.devopsagent.ServiceNewRelicApiKeyConfigRegion>;
+    }
+
+    /**
+     * New Relic authorization configuration
+     */
+    export interface ServiceNewRelicAuthorizationConfigArgs {
+        apiKey: pulumi.Input<inputs.devopsagent.ServiceNewRelicApiKeyConfigArgs>;
+    }
+
+    /**
+     * New Relic service configuration
+     */
+    export interface ServiceNewRelicServiceDetailsArgs {
+        authorizationConfig: pulumi.Input<inputs.devopsagent.ServiceNewRelicAuthorizationConfigArgs>;
+    }
+
+    /**
+     * ServiceNow OAuth authorization configuration
+     */
+    export interface ServiceNowAuthorizationConfigArgs {
+        oAuthClientCredentials?: pulumi.Input<inputs.devopsagent.ServiceOAuthClientDetailsArgs | undefined>;
+    }
+
+    /**
+     * ServiceNow service configuration
+     */
+    export interface ServiceNowServiceDetailsArgs {
+        authorizationConfig?: pulumi.Input<inputs.devopsagent.ServiceNowAuthorizationConfigArgs | undefined>;
+        /**
+         * ServiceNow instance URL
+         */
+        instanceUrl: pulumi.Input<string>;
+    }
+
+    /**
+     * OAuth client credentials
+     */
+    export interface ServiceOAuthClientDetailsArgs {
+        /**
+         * OAuth client ID
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * User friendly OAuth client name
+         */
+        clientName?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth client secret
+         */
+        clientSecret: pulumi.Input<string>;
+        /**
+         * OAuth token exchange parameters
+         */
+        exchangeParameters?: any | undefined;
+    }
+
+    /**
+     * PagerDuty OAuth authorization configuration
+     */
+    export interface ServicePagerDutyAuthorizationConfigArgs {
+        oAuthClientCredentials?: pulumi.Input<inputs.devopsagent.ServiceOAuthClientDetailsArgs | undefined>;
+    }
+
+    /**
+     * PagerDuty service configuration
+     */
+    export interface ServicePagerDutyDetailsArgs {
+        authorizationConfig: pulumi.Input<inputs.devopsagent.ServicePagerDutyAuthorizationConfigArgs>;
+        /**
+         * PagerDuty scopes
+         */
+        scopes: pulumi.Input<pulumi.Input<string>[]>;
     }
 
 }
@@ -48054,6 +48913,8 @@ export namespace greengrassv2 {
     }
 
     export interface DeploymentIoTJobRateIncreaseCriteriaArgs {
+        numberOfNotifiedThings?: pulumi.Input<number | undefined>;
+        numberOfSucceededThings?: pulumi.Input<number | undefined>;
     }
 
     export interface DeploymentIoTJobTimeoutConfigArgs {
@@ -62439,6 +63300,34 @@ export namespace m2 {
     }
 
     /**
+     * Defines the storage configuration for an Amazon EFS file system.
+     */
+    export interface EnvironmentEfsStorageConfigurationArgs {
+        /**
+         * The file system identifier.
+         */
+        fileSystemId: pulumi.Input<string>;
+        /**
+         * The mount point for the file system.
+         */
+        mountPoint: pulumi.Input<string>;
+    }
+
+    /**
+     * Defines the storage configuration for an Amazon FSx file system.
+     */
+    export interface EnvironmentFsxStorageConfigurationArgs {
+        /**
+         * The file system identifier.
+         */
+        fileSystemId: pulumi.Input<string>;
+        /**
+         * The mount point for the file system.
+         */
+        mountPoint: pulumi.Input<string>;
+    }
+
+    /**
      * Defines the details of a high availability configuration.
      */
     export interface EnvironmentHighAvailabilityConfigArgs {
@@ -62452,6 +63341,8 @@ export namespace m2 {
      * Defines the storage configuration for an environment.
      */
     export interface EnvironmentStorageConfigurationArgs {
+        efs?: pulumi.Input<inputs.m2.EnvironmentEfsStorageConfigurationArgs | undefined>;
+        fsx?: pulumi.Input<inputs.m2.EnvironmentFsxStorageConfigurationArgs | undefined>;
     }
 }
 
@@ -62460,6 +63351,19 @@ export namespace macie {
      * The regex or s3 object to use for the AllowList.
      */
     export interface AllowListCriteriaArgs {
+        /**
+         * The S3 object key for the AllowList.
+         */
+        regex?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 location for the AllowList.
+         */
+        s3WordsList?: pulumi.Input<inputs.macie.AllowListS3WordsListArgs | undefined>;
+    }
+
+    export interface AllowListS3WordsListArgs {
+        bucketName: pulumi.Input<string>;
+        objectKey: pulumi.Input<string>;
     }
 
     export interface FindingsFilterCriterionAdditionalPropertiesArgs {
@@ -64463,9 +65367,37 @@ export namespace medialive {
     }
 
     /**
+     * Statmux rate control settings
+     */
+    export interface MultiplexprogramMultiplexStatmuxVideoSettingsArgs {
+        /**
+         * Maximum statmux bitrate.
+         */
+        maximumBitrate?: pulumi.Input<number | undefined>;
+        /**
+         * Minimum statmux bitrate.
+         */
+        minimumBitrate?: pulumi.Input<number | undefined>;
+        /**
+         * The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+         */
+        priority?: pulumi.Input<number | undefined>;
+    }
+
+    /**
      * The video configuration for each program in a multiplex.
      */
     export interface MultiplexprogramMultiplexVideoSettingsArgs {
+        /**
+         * The constant bitrate configuration for the video encode.
+         * When this field is defined, StatmuxSettings must be undefined.
+         */
+        constantBitrate?: pulumi.Input<number | undefined>;
+        /**
+         * Statmux rate control settings.
+         * When this field is defined, ConstantBitrate must be undefined.
+         */
+        statmuxSettings?: pulumi.Input<inputs.medialive.MultiplexprogramMultiplexStatmuxVideoSettingsArgs | undefined>;
     }
 
     /**
@@ -70715,7 +71647,13 @@ export namespace pcaconnectorad {
 }
 
 export namespace pcaconnectorscep {
+    export interface ConnectorIntuneConfigurationArgs {
+        azureApplicationId: pulumi.Input<string>;
+        domain: pulumi.Input<string>;
+    }
+
     export interface ConnectorMobileDeviceManagementArgs {
+        intune?: pulumi.Input<inputs.pcaconnectorscep.ConnectorIntuneConfigurationArgs | undefined>;
     }
 
 }
@@ -104573,7 +105511,35 @@ export namespace redshift {
         parameterValue: pulumi.Input<string>;
     }
 
+    /**
+     * Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+     */
+    export interface ScheduledActionPauseClusterMessageArgs {
+        clusterIdentifier: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+     */
+    export interface ScheduledActionResizeClusterMessageArgs {
+        classic?: pulumi.Input<boolean | undefined>;
+        clusterIdentifier: pulumi.Input<string>;
+        clusterType?: pulumi.Input<string | undefined>;
+        nodeType?: pulumi.Input<string | undefined>;
+        numberOfNodes?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+     */
+    export interface ScheduledActionResumeClusterMessageArgs {
+        clusterIdentifier: pulumi.Input<string>;
+    }
+
     export interface ScheduledActionTypeArgs {
+        pauseCluster?: pulumi.Input<inputs.redshift.ScheduledActionPauseClusterMessageArgs | undefined>;
+        resizeCluster?: pulumi.Input<inputs.redshift.ScheduledActionResizeClusterMessageArgs | undefined>;
+        resumeCluster?: pulumi.Input<inputs.redshift.ScheduledActionResumeClusterMessageArgs | undefined>;
     }
 
 }
@@ -106046,6 +107012,20 @@ export namespace rtbfabric {
         responderErrorMasking?: pulumi.Input<pulumi.Input<inputs.rtbfabric.LinkResponderErrorMaskingForHttpCodeArgs>[] | undefined>;
     }
 
+    export interface LinkFilterArgs {
+        criteria: pulumi.Input<pulumi.Input<inputs.rtbfabric.LinkFilterCriterionArgs>[]>;
+    }
+
+    export interface LinkFilterCriterionArgs {
+        path: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LinkHeaderTagActionArgs {
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface LinkLogSettingsArgs {
         /**
          * Describes the configuration of a link application log.
@@ -106073,6 +107053,33 @@ export namespace rtbfabric {
     }
 
     export interface LinkModuleParametersArgs {
+        noBid?: pulumi.Input<inputs.rtbfabric.LinkNoBidModuleParametersArgs | undefined>;
+        openRtbAttribute?: pulumi.Input<inputs.rtbfabric.LinkOpenRtbAttributeModuleParametersArgs | undefined>;
+    }
+
+    export interface LinkNoBidActionArgs {
+        noBidReasonCode?: pulumi.Input<number | undefined>;
+    }
+
+    export interface LinkNoBidModuleParametersArgs {
+        passThroughPercentage?: pulumi.Input<number | undefined>;
+        reason?: pulumi.Input<string | undefined>;
+        reasonCode?: pulumi.Input<number | undefined>;
+    }
+
+    export interface LinkOpenRtbAttributeModuleParametersArgs {
+        action: pulumi.Input<inputs.rtbfabric.LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs | inputs.rtbfabric.LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs>;
+        filterConfiguration: pulumi.Input<pulumi.Input<inputs.rtbfabric.LinkFilterArgs>[]>;
+        filterType: pulumi.Input<enums.rtbfabric.LinkOpenRtbAttributeModuleParametersFilterType>;
+        holdbackPercentage: pulumi.Input<number>;
+    }
+
+    export interface LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs {
+        noBid: pulumi.Input<inputs.rtbfabric.LinkNoBidActionArgs>;
+    }
+
+    export interface LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs {
+        headerTag: pulumi.Input<inputs.rtbfabric.LinkHeaderTagActionArgs>;
     }
 
     export interface LinkResponderErrorMaskingForHttpCodeArgs {
@@ -106160,11 +107167,39 @@ export namespace rtbfabric {
         responseLoggingPercentage?: pulumi.Input<number | undefined>;
     }
 
+    export interface ResponderGatewayAutoScalingGroupsConfigurationArgs {
+        autoScalingGroupNameList: pulumi.Input<pulumi.Input<string>[]>;
+        healthCheckConfig?: pulumi.Input<inputs.rtbfabric.ResponderGatewayHealthCheckConfigArgs | undefined>;
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface ResponderGatewayEksEndpointsConfigurationArgs {
+        clusterApiServerCaCertificateChain: pulumi.Input<string>;
+        clusterApiServerEndpointUri: pulumi.Input<string>;
+        clusterName: pulumi.Input<string>;
+        endpointsResourceName: pulumi.Input<string>;
+        endpointsResourceNamespace: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface ResponderGatewayHealthCheckConfigArgs {
+        healthyThresholdCount?: pulumi.Input<number | undefined>;
+        intervalSeconds?: pulumi.Input<number | undefined>;
+        path: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+        protocol?: pulumi.Input<enums.rtbfabric.ResponderGatewayProtocol | undefined>;
+        statusCodeMatcher?: pulumi.Input<string | undefined>;
+        timeoutMs?: pulumi.Input<number | undefined>;
+        unhealthyThresholdCount?: pulumi.Input<number | undefined>;
+    }
+
     export interface ResponderGatewayListenerConfigArgs {
         protocols: pulumi.Input<pulumi.Input<enums.rtbfabric.ResponderGatewayProtocol>[]>;
     }
 
     export interface ResponderGatewayManagedEndpointConfigurationArgs {
+        autoScalingGroupsConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayAutoScalingGroupsConfigurationArgs | undefined>;
+        eksEndpointsConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayEksEndpointsConfigurationArgs | undefined>;
     }
 
     export interface ResponderGatewayTrustStoreConfigurationArgs {
@@ -107109,6 +108144,20 @@ export namespace s3 {
     }
 
     /**
+     * Amazon S3 keys for log objects are partitioned in the following format:
+     *   ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``
+     *  PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
+     */
+    export interface BucketPartitionedPrefixArgs {
+        /**
+         * Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+         *  For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+         *   For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+         */
+        partitionDateSource?: pulumi.Input<enums.s3.BucketPartitionedPrefixPartitionDateSource | undefined>;
+    }
+
+    /**
      * The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
      */
     export interface BucketPublicAccessBlockConfigurationArgs {
@@ -107621,6 +108670,11 @@ export namespace s3 {
      * Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
      */
     export interface BucketTargetObjectKeyFormatArgs {
+        partitionedPrefix?: pulumi.Input<inputs.s3.BucketPartitionedPrefixArgs | undefined>;
+        /**
+         * This format defaults the prefix to the given log file prefix for delivering server access log file.
+         */
+        simplePrefix?: any | undefined;
     }
 
     /**
@@ -107961,6 +109015,11 @@ export namespace s3 {
      * Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
      */
     export interface StorageLensEncryptionArgs {
+        ssekms?: pulumi.Input<inputs.s3.StorageLensSsekmsArgs | undefined>;
+        /**
+         * S3 default server-side encryption.
+         */
+        sses3?: any | undefined;
     }
 
     /**
@@ -108187,6 +109246,16 @@ export namespace s3 {
          * The minimum storage bytes threshold for the prefixes to be included in the analysis.
          */
         minStorageBytesPercentage?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * AWS KMS server-side encryption.
+     */
+    export interface StorageLensSsekmsArgs {
+        /**
+         * The ARN of the KMS key to use for encryption.
+         */
+        keyId: pulumi.Input<string>;
     }
 
     /**
@@ -109292,6 +110361,18 @@ export namespace sagemaker {
     }
 
     /**
+     * Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+     */
+    export interface ClusterEbsVolumeConfigArgs {
+        rootVolume?: pulumi.Input<boolean | undefined>;
+        volumeKmsKeyId?: pulumi.Input<string | undefined>;
+        /**
+         * The size in gigabytes (GB) of the additional EBS volume to be attached to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+         */
+        volumeSizeInGb?: pulumi.Input<number | undefined>;
+    }
+
+    /**
      * The configuration for the restricted instance groups (RIG) environment.
      */
     export interface ClusterEnvironmentConfigArgs {
@@ -109310,6 +110391,38 @@ export namespace sagemaker {
          * The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
          */
         sizeInGiB: pulumi.Input<number>;
+    }
+
+    /**
+     * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+     */
+    export interface ClusterFsxLustreConfigArgs {
+        /**
+         * The DNS name of the FSx for Lustre file system.
+         */
+        dnsName: pulumi.Input<string>;
+        /**
+         * The mount name of the FSx for Lustre file system.
+         */
+        mountName: pulumi.Input<string>;
+        /**
+         * The mount path for the FSx for Lustre file system.
+         */
+        mountPath?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
+     */
+    export interface ClusterFsxOpenZfsConfigArgs {
+        /**
+         * The DNS name of the FSx for OpenZFS file system.
+         */
+        dnsName: pulumi.Input<string>;
+        /**
+         * The mount path for the FSx for OpenZFS file system.
+         */
+        mountPath?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -109367,6 +110480,9 @@ export namespace sagemaker {
      * Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
      */
     export interface ClusterInstanceStorageConfigArgs {
+        ebsVolumeConfig?: pulumi.Input<inputs.sagemaker.ClusterEbsVolumeConfigArgs | undefined>;
+        fsxLustreConfig?: pulumi.Input<inputs.sagemaker.ClusterFsxLustreConfigArgs | undefined>;
+        fsxOpenZfsConfig?: pulumi.Input<inputs.sagemaker.ClusterFsxOpenZfsConfigArgs | undefined>;
     }
 
     /**
@@ -109433,6 +110549,28 @@ export namespace sagemaker {
      * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
      */
     export interface ClusterOrchestratorArgs {
+        eks?: pulumi.Input<inputs.sagemaker.ClusterOrchestratorEksConfigArgs | undefined>;
+        slurm?: pulumi.Input<inputs.sagemaker.ClusterOrchestratorSlurmConfigArgs | undefined>;
+    }
+
+    /**
+     * Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+     */
+    export interface ClusterOrchestratorEksConfigArgs {
+        /**
+         * The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
+         */
+        clusterArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies parameter(s) related to Slurm as orchestrator.
+     */
+    export interface ClusterOrchestratorSlurmConfigArgs {
+        /**
+         * The strategy for managing Slurm configuration on the cluster.
+         */
+        slurmConfigStrategy?: pulumi.Input<enums.sagemaker.ClusterOrchestratorSlurmConfigSlurmConfigStrategy | undefined>;
     }
 
     /**
@@ -116398,9 +117536,65 @@ export namespace securityhub {
     }
 
     /**
+     * The configuration settings required to establish an integration between AWS Security Hub and Azure
+     */
+    export interface ConnectorV2AzureProviderConfigurationArgs {
+        /**
+         * The ARN of the AWS Config connector used for the Azure integration
+         */
+        awsConfigConnectorArn: pulumi.Input<string>;
+        /**
+         * The list of Azure regions to include in the connector scope
+         */
+        azureRegions: pulumi.Input<pulumi.Input<string>[]>;
+        scopeConfiguration: pulumi.Input<inputs.securityhub.ConnectorV2AzureScopeConfigurationArgs>;
+    }
+
+    /**
+     * The scope configuration for an Azure connector
+     */
+    export interface ConnectorV2AzureScopeConfigurationArgs {
+        /**
+         * The scope type for the Azure connector
+         */
+        scopeType: pulumi.Input<enums.securityhub.ConnectorV2AzureScopeConfigurationScopeType>;
+        /**
+         * The list of scope values for the Azure connector
+         */
+        scopeValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+     */
+    export interface ConnectorV2JiraCloudProviderConfigurationArgs {
+        /**
+         * The project key for a Jira Cloud instance
+         */
+        projectKey: pulumi.Input<string>;
+    }
+
+    /**
      * The third-party provider configuration for the connector
      */
     export interface ConnectorV2ProviderArgs {
+        azure?: pulumi.Input<inputs.securityhub.ConnectorV2AzureProviderConfigurationArgs | undefined>;
+        jiraCloud?: pulumi.Input<inputs.securityhub.ConnectorV2JiraCloudProviderConfigurationArgs | undefined>;
+        serviceNow?: pulumi.Input<inputs.securityhub.ConnectorV2ServiceNowProviderConfigurationArgs | undefined>;
+    }
+
+    /**
+     * The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+     */
+    export interface ConnectorV2ServiceNowProviderConfigurationArgs {
+        /**
+         * The instance name of ServiceNow ITSM
+         */
+        instanceName: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+         */
+        secretArn: pulumi.Input<string>;
     }
 
     /**
@@ -121024,6 +122218,9 @@ export namespace verifiedpermissions {
         statement: pulumi.Input<string>;
     }
 
+    export interface PolicyStoreDefaultArgs {
+    }
+
     export interface PolicyStoreDeletionProtectionArgs {
         /**
          * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted.
@@ -121034,6 +122231,13 @@ export namespace verifiedpermissions {
     }
 
     export interface PolicyStoreEncryptionSettingsArgs {
+        default?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreDefaultArgs | undefined>;
+        kmsEncryptionSettings?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreKmsEncryptionSettingsArgs | undefined>;
+    }
+
+    export interface PolicyStoreKmsEncryptionSettingsArgs {
+        encryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        key: pulumi.Input<string>;
     }
 
     export interface PolicyStoreSchemaDefinitionArgs {
@@ -125316,6 +126520,11 @@ export namespace wisdom {
     }
 
     export interface AiPromptAiPromptTemplateConfigurationArgs {
+        textFullAiPromptEditTemplateConfiguration?: pulumi.Input<inputs.wisdom.AiPromptTextFullAiPromptEditTemplateConfigurationArgs | undefined>;
+    }
+
+    export interface AiPromptTextFullAiPromptEditTemplateConfigurationArgs {
+        text: pulumi.Input<string>;
     }
 
     export interface AssistantAssociationAssociationData0PropertiesArgs {

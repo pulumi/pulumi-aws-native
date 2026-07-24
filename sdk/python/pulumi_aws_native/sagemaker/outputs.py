@@ -40,13 +40,15 @@ __all__ = [
     'AppImageConfigKernelSpec',
     'AppResourceSpec',
     'ClusterAlarmDetails',
-    'ClusterAutoPatchConfig',
     'ClusterAutoScalingConfig',
     'ClusterCapacityRequirements',
     'ClusterCapacitySizeConfig',
     'ClusterDeploymentConfig',
+    'ClusterEbsVolumeConfig',
     'ClusterEnvironmentConfig',
     'ClusterFSxLustreConfig',
+    'ClusterFsxLustreConfig',
+    'ClusterFsxOpenZfsConfig',
     'ClusterInstanceGroup',
     'ClusterInstanceRequirements',
     'ClusterInstanceStorageConfig',
@@ -56,7 +58,8 @@ __all__ = [
     'ClusterNetworkInterface',
     'ClusterOnDemandOptions',
     'ClusterOrchestrator',
-    'ClusterPatchSchedule',
+    'ClusterOrchestratorEksConfig',
+    'ClusterOrchestratorSlurmConfig',
     'ClusterRestrictedInstanceGroup',
     'ClusterRestrictedInstanceGroupsConfig',
     'ClusterRollingUpdatePolicy',
@@ -1623,66 +1626,6 @@ class ClusterAlarmDetails(dict):
 
 
 @pulumi.output_type
-class ClusterAutoPatchConfig(dict):
-    """
-    The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "patchingStrategy":
-            suggest = "patching_strategy"
-        elif key == "deploymentConfig":
-            suggest = "deployment_config"
-        elif key == "patchSchedule":
-            suggest = "patch_schedule"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterAutoPatchConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterAutoPatchConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterAutoPatchConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 patching_strategy: 'ClusterAutoPatchConfigPatchingStrategy',
-                 deployment_config: Optional['outputs.ClusterDeploymentConfig'] = None,
-                 patch_schedule: Optional['outputs.ClusterPatchSchedule'] = None):
-        """
-        The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
-
-        :param 'ClusterAutoPatchConfigPatchingStrategy' patching_strategy: The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
-        """
-        pulumi.set(__self__, "patching_strategy", patching_strategy)
-        if deployment_config is not None:
-            pulumi.set(__self__, "deployment_config", deployment_config)
-        if patch_schedule is not None:
-            pulumi.set(__self__, "patch_schedule", patch_schedule)
-
-    @_builtins.property
-    @pulumi.getter(name="patchingStrategy")
-    def patching_strategy(self) -> 'ClusterAutoPatchConfigPatchingStrategy':
-        """
-        The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
-        """
-        return pulumi.get(self, "patching_strategy")
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentConfig")
-    def deployment_config(self) -> Optional['outputs.ClusterDeploymentConfig']:
-        return pulumi.get(self, "deployment_config")
-
-    @_builtins.property
-    @pulumi.getter(name="patchSchedule")
-    def patch_schedule(self) -> Optional['outputs.ClusterPatchSchedule']:
-        return pulumi.get(self, "patch_schedule")
-
-
-@pulumi.output_type
 class ClusterAutoScalingConfig(dict):
     """
     Configuration for cluster auto-scaling
@@ -1874,6 +1817,67 @@ class ClusterDeploymentConfig(dict):
 
 
 @pulumi.output_type
+class ClusterEbsVolumeConfig(dict):
+    """
+    Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rootVolume":
+            suggest = "root_volume"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterEbsVolumeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterEbsVolumeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterEbsVolumeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 root_volume: Optional[_builtins.bool] = None,
+                 volume_kms_key_id: Optional[_builtins.str] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+
+        :param _builtins.int volume_size_in_gb: The size in gigabytes (GB) of the additional EBS volume to be attached to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+        """
+        if root_volume is not None:
+            pulumi.set(__self__, "root_volume", root_volume)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="rootVolume")
+    def root_volume(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "root_volume")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        The size in gigabytes (GB) of the additional EBS volume to be attached to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
 class ClusterEnvironmentConfig(dict):
     """
     The configuration for the restricted instance groups (RIG) environment.
@@ -1963,6 +1967,127 @@ class ClusterFSxLustreConfig(dict):
 
 
 @pulumi.output_type
+class ClusterFsxLustreConfig(dict):
+    """
+    Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "mountName":
+            suggest = "mount_name"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterFsxLustreConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterFsxLustreConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterFsxLustreConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: _builtins.str,
+                 mount_name: _builtins.str,
+                 mount_path: Optional[_builtins.str] = None):
+        """
+        Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+
+        :param _builtins.str dns_name: The DNS name of the FSx for Lustre file system.
+        :param _builtins.str mount_name: The mount name of the FSx for Lustre file system.
+        :param _builtins.str mount_path: The mount path for the FSx for Lustre file system.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "mount_name", mount_name)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> _builtins.str:
+        """
+        The DNS name of the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> _builtins.str:
+        """
+        The mount name of the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "mount_name")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[_builtins.str]:
+        """
+        The mount path for the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
+class ClusterFsxOpenZfsConfig(dict):
+    """
+    Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterFsxOpenZfsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterFsxOpenZfsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterFsxOpenZfsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: _builtins.str,
+                 mount_path: Optional[_builtins.str] = None):
+        """
+        Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
+
+        :param _builtins.str dns_name: The DNS name of the FSx for OpenZFS file system.
+        :param _builtins.str mount_path: The mount path for the FSx for OpenZFS file system.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> _builtins.str:
+        """
+        The DNS name of the FSx for OpenZFS file system.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[_builtins.str]:
+        """
+        The mount path for the FSx for OpenZFS file system.
+        """
+        return pulumi.get(self, "mount_path")
+
+
+@pulumi.output_type
 class ClusterInstanceGroup(dict):
     """
     Details of an instance group in a SageMaker HyperPod cluster.
@@ -1976,8 +2101,6 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_count"
         elif key == "instanceGroupName":
             suggest = "instance_group_name"
-        elif key == "autoPatchConfig":
-            suggest = "auto_patch_config"
         elif key == "capacityRequirements":
             suggest = "capacity_requirements"
         elif key == "currentCount":
@@ -2026,7 +2149,6 @@ class ClusterInstanceGroup(dict):
                  execution_role: _builtins.str,
                  instance_count: _builtins.int,
                  instance_group_name: _builtins.str,
-                 auto_patch_config: Optional['outputs.ClusterAutoPatchConfig'] = None,
                  capacity_requirements: Optional['outputs.ClusterCapacityRequirements'] = None,
                  current_count: Optional[_builtins.int] = None,
                  image_id: Optional[_builtins.str] = None,
@@ -2055,8 +2177,6 @@ class ClusterInstanceGroup(dict):
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
-        if auto_patch_config is not None:
-            pulumi.set(__self__, "auto_patch_config", auto_patch_config)
         if capacity_requirements is not None:
             pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
@@ -2107,11 +2227,6 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="instanceGroupName")
     def instance_group_name(self) -> _builtins.str:
         return pulumi.get(self, "instance_group_name")
-
-    @_builtins.property
-    @pulumi.getter(name="autoPatchConfig")
-    def auto_patch_config(self) -> Optional['outputs.ClusterAutoPatchConfig']:
-        return pulumi.get(self, "auto_patch_config")
 
     @_builtins.property
     @pulumi.getter(name="capacityRequirements")
@@ -2251,11 +2366,55 @@ class ClusterInstanceStorageConfig(dict):
     """
     Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsVolumeConfig":
+            suggest = "ebs_volume_config"
+        elif key == "fsxLustreConfig":
+            suggest = "fsx_lustre_config"
+        elif key == "fsxOpenZfsConfig":
+            suggest = "fsx_open_zfs_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterInstanceStorageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterInstanceStorageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterInstanceStorageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_volume_config: Optional['outputs.ClusterEbsVolumeConfig'] = None,
+                 fsx_lustre_config: Optional['outputs.ClusterFsxLustreConfig'] = None,
+                 fsx_open_zfs_config: Optional['outputs.ClusterFsxOpenZfsConfig'] = None):
         """
         Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
         """
-        pass
+        if ebs_volume_config is not None:
+            pulumi.set(__self__, "ebs_volume_config", ebs_volume_config)
+        if fsx_lustre_config is not None:
+            pulumi.set(__self__, "fsx_lustre_config", fsx_lustre_config)
+        if fsx_open_zfs_config is not None:
+            pulumi.set(__self__, "fsx_open_zfs_config", fsx_open_zfs_config)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsVolumeConfig")
+    def ebs_volume_config(self) -> Optional['outputs.ClusterEbsVolumeConfig']:
+        return pulumi.get(self, "ebs_volume_config")
+
+    @_builtins.property
+    @pulumi.getter(name="fsxLustreConfig")
+    def fsx_lustre_config(self) -> Optional['outputs.ClusterFsxLustreConfig']:
+        return pulumi.get(self, "fsx_lustre_config")
+
+    @_builtins.property
+    @pulumi.getter(name="fsxOpenZfsConfig")
+    def fsx_open_zfs_config(self) -> Optional['outputs.ClusterFsxOpenZfsConfig']:
+        return pulumi.get(self, "fsx_open_zfs_config")
 
 
 @pulumi.output_type
@@ -2457,52 +2616,107 @@ class ClusterOrchestrator(dict):
     """
     Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
     """
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 eks: Optional['outputs.ClusterOrchestratorEksConfig'] = None,
+                 slurm: Optional['outputs.ClusterOrchestratorSlurmConfig'] = None):
         """
         Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
         """
-        pass
+        if eks is not None:
+            pulumi.set(__self__, "eks", eks)
+        if slurm is not None:
+            pulumi.set(__self__, "slurm", slurm)
+
+    @_builtins.property
+    @pulumi.getter
+    def eks(self) -> Optional['outputs.ClusterOrchestratorEksConfig']:
+        return pulumi.get(self, "eks")
+
+    @_builtins.property
+    @pulumi.getter
+    def slurm(self) -> Optional['outputs.ClusterOrchestratorSlurmConfig']:
+        return pulumi.get(self, "slurm")
 
 
 @pulumi.output_type
-class ClusterPatchSchedule(dict):
+class ClusterOrchestratorEksConfig(dict):
     """
-    The schedule configuration for automatic patching.
+    Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nextPatchDate":
-            suggest = "next_patch_date"
+        if key == "clusterArn":
+            suggest = "cluster_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterPatchSchedule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOrchestratorEksConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ClusterPatchSchedule.__key_warning(key)
+        ClusterOrchestratorEksConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ClusterPatchSchedule.__key_warning(key)
+        ClusterOrchestratorEksConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 next_patch_date: Optional[_builtins.str] = None):
+                 cluster_arn: _builtins.str):
         """
-        The schedule configuration for automatic patching.
+        Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
 
-        :param _builtins.str next_patch_date: The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        :param _builtins.str cluster_arn: The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
         """
-        if next_patch_date is not None:
-            pulumi.set(__self__, "next_patch_date", next_patch_date)
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
 
     @_builtins.property
-    @pulumi.getter(name="nextPatchDate")
-    def next_patch_date(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> _builtins.str:
         """
-        The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster
         """
-        return pulumi.get(self, "next_patch_date")
+        return pulumi.get(self, "cluster_arn")
+
+
+@pulumi.output_type
+class ClusterOrchestratorSlurmConfig(dict):
+    """
+    Specifies parameter(s) related to Slurm as orchestrator.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slurmConfigStrategy":
+            suggest = "slurm_config_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOrchestratorSlurmConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOrchestratorSlurmConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOrchestratorSlurmConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 slurm_config_strategy: Optional['ClusterOrchestratorSlurmConfigSlurmConfigStrategy'] = None):
+        """
+        Specifies parameter(s) related to Slurm as orchestrator.
+
+        :param 'ClusterOrchestratorSlurmConfigSlurmConfigStrategy' slurm_config_strategy: The strategy for managing Slurm configuration on the cluster.
+        """
+        if slurm_config_strategy is not None:
+            pulumi.set(__self__, "slurm_config_strategy", slurm_config_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="slurmConfigStrategy")
+    def slurm_config_strategy(self) -> Optional['ClusterOrchestratorSlurmConfigSlurmConfigStrategy']:
+        """
+        The strategy for managing Slurm configuration on the cluster.
+        """
+        return pulumi.get(self, "slurm_config_strategy")
 
 
 @pulumi.output_type

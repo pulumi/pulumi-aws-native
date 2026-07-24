@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     /// </summary>
     public sealed class OwnerPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("group")]
+        public Input<Inputs.OwnerGroupPropertiesArgs>? Group { get; set; }
+
+        [Input("user")]
+        public Input<Inputs.OwnerUserPropertiesArgs>? User { get; set; }
+
         public OwnerPropertiesArgs()
         {
         }

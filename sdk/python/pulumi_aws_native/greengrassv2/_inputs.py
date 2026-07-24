@@ -1479,12 +1479,36 @@ class DeploymentIoTJobExponentialRolloutRateArgs:
 
 
 class DeploymentIoTJobRateIncreaseCriteriaArgsDict(TypedDict):
-    pass
+    number_of_notified_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    number_of_succeeded_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class DeploymentIoTJobRateIncreaseCriteriaArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 number_of_notified_things: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_succeeded_things: pulumi.Input[Optional[_builtins.int]] = None):
+        if number_of_notified_things is not None:
+            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+        if number_of_succeeded_things is not None:
+            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfNotifiedThings")
+    def number_of_notified_things(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "number_of_notified_things")
+
+    @number_of_notified_things.setter
+    def number_of_notified_things(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_notified_things", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSucceededThings")
+    def number_of_succeeded_things(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "number_of_succeeded_things")
+
+    @number_of_succeeded_things.setter
+    def number_of_succeeded_things(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_succeeded_things", value)
 
 
 class DeploymentIoTJobTimeoutConfigArgsDict(TypedDict):

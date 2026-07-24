@@ -11,28 +11,35 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+    /// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
     /// </summary>
     [OutputType]
-    public sealed class ClusterFSxLustreConfig
+    public sealed class ClusterFsxLustreConfig
     {
         /// <summary>
-        /// The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+        /// The DNS name of the FSx for Lustre file system.
         /// </summary>
-        public readonly int PerUnitStorageThroughput;
+        public readonly string DnsName;
         /// <summary>
-        /// The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+        /// The mount name of the FSx for Lustre file system.
         /// </summary>
-        public readonly int SizeInGiB;
+        public readonly string MountName;
+        /// <summary>
+        /// The mount path for the FSx for Lustre file system.
+        /// </summary>
+        public readonly string? MountPath;
 
         [OutputConstructor]
-        private ClusterFSxLustreConfig(
-            int perUnitStorageThroughput,
+        private ClusterFsxLustreConfig(
+            string dnsName,
 
-            int sizeInGiB)
+            string mountName,
+
+            string? mountPath)
         {
-            PerUnitStorageThroughput = perUnitStorageThroughput;
-            SizeInGiB = sizeInGiB;
+            DnsName = dnsName;
+            MountName = mountName;
+            MountPath = mountPath;
         }
     }
 }

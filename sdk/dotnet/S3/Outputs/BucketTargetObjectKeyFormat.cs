@@ -16,9 +16,20 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketTargetObjectKeyFormat
     {
+        public readonly Outputs.BucketPartitionedPrefix? PartitionedPrefix;
+        /// <summary>
+        /// This format defaults the prefix to the given log file prefix for delivering server access log file.
+        /// </summary>
+        public readonly object? SimplePrefix;
+
         [OutputConstructor]
-        private BucketTargetObjectKeyFormat()
+        private BucketTargetObjectKeyFormat(
+            Outputs.BucketPartitionedPrefix? partitionedPrefix,
+
+            object? simplePrefix)
         {
+            PartitionedPrefix = partitionedPrefix;
+            SimplePrefix = simplePrefix;
         }
     }
 }

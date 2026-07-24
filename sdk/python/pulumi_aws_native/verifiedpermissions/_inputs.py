@@ -44,10 +44,14 @@ __all__ = [
     'PolicyEntityIdentifierArgsDict',
     'PolicyStaticPolicyDefinitionArgs',
     'PolicyStaticPolicyDefinitionArgsDict',
+    'PolicyStoreDefaultArgs',
+    'PolicyStoreDefaultArgsDict',
     'PolicyStoreDeletionProtectionArgs',
     'PolicyStoreDeletionProtectionArgsDict',
     'PolicyStoreEncryptionSettingsArgs',
     'PolicyStoreEncryptionSettingsArgsDict',
+    'PolicyStoreKmsEncryptionSettingsArgs',
+    'PolicyStoreKmsEncryptionSettingsArgsDict',
     'PolicyStoreSchemaDefinitionArgs',
     'PolicyStoreSchemaDefinitionArgsDict',
     'PolicyStoreValidationSettingsArgs',
@@ -451,6 +455,15 @@ class PolicyStaticPolicyDefinitionArgs:
         pulumi.set(self, "description", value)
 
 
+class PolicyStoreDefaultArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class PolicyStoreDefaultArgs:
+    def __init__(__self__):
+        pass
+
+
 class PolicyStoreDeletionProtectionArgsDict(TypedDict):
     mode: pulumi.Input['PolicyStoreDeletionMode']
     """
@@ -486,12 +499,68 @@ class PolicyStoreDeletionProtectionArgs:
 
 
 class PolicyStoreEncryptionSettingsArgsDict(TypedDict):
-    pass
+    default: NotRequired[pulumi.Input[Optional['PolicyStoreDefaultArgsDict']]]
+    kms_encryption_settings: NotRequired[pulumi.Input[Optional['PolicyStoreKmsEncryptionSettingsArgsDict']]]
 
 @pulumi.input_type
 class PolicyStoreEncryptionSettingsArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional['PolicyStoreDefaultArgs']] = None,
+                 kms_encryption_settings: pulumi.Input[Optional['PolicyStoreKmsEncryptionSettingsArgs']] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if kms_encryption_settings is not None:
+            pulumi.set(__self__, "kms_encryption_settings", kms_encryption_settings)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional['PolicyStoreDefaultArgs']]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional['PolicyStoreDefaultArgs']]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsEncryptionSettings")
+    def kms_encryption_settings(self) -> pulumi.Input[Optional['PolicyStoreKmsEncryptionSettingsArgs']]:
+        return pulumi.get(self, "kms_encryption_settings")
+
+    @kms_encryption_settings.setter
+    def kms_encryption_settings(self, value: pulumi.Input[Optional['PolicyStoreKmsEncryptionSettingsArgs']]):
+        pulumi.set(self, "kms_encryption_settings", value)
+
+
+class PolicyStoreKmsEncryptionSettingsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    encryption_context: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class PolicyStoreKmsEncryptionSettingsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "key", key)
+        if encryption_context is not None:
+            pulumi.set(__self__, "encryption_context", encryption_context)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionContext")
+    def encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "encryption_context")
+
+    @encryption_context.setter
+    def encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "encryption_context", value)
 
 
 class PolicyStoreSchemaDefinitionArgsDict(TypedDict):

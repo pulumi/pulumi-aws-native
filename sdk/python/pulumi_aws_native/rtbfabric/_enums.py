@@ -11,6 +11,7 @@ __all__ = [
     'InboundExternalLinkResponderErrorMaskingForHttpCodeAction',
     'InboundExternalLinkResponderErrorMaskingLoggingType',
     'LinkDirection',
+    'LinkOpenRtbAttributeModuleParametersFilterType',
     'LinkResponderErrorMaskingForHttpCodeAction',
     'LinkResponderErrorMaskingLoggingType',
     'LinkRoutingRuleRuleStatus',
@@ -61,6 +62,12 @@ class InboundExternalLinkResponderErrorMaskingLoggingType(_builtins.str, Enum):
 class LinkDirection(_builtins.str, Enum):
     REQUEST = "REQUEST"
     RESPONSE = "RESPONSE"
+
+
+@pulumi.type_token("aws-native:rtbfabric:LinkOpenRtbAttributeModuleParametersFilterType")
+class LinkOpenRtbAttributeModuleParametersFilterType(_builtins.str, Enum):
+    INCLUDE = "INCLUDE"
+    EXCLUDE = "EXCLUDE"
 
 
 @pulumi.type_token("aws-native:rtbfabric:LinkResponderErrorMaskingForHttpCodeAction")

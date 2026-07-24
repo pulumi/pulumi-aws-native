@@ -5944,6 +5944,7 @@ func (o AiGuardrailGuardrailWordConfigArrayOutput) Index(i pulumi.IntInput) AiGu
 }
 
 type AiPromptAiPromptTemplateConfiguration struct {
+	TextFullAiPromptEditTemplateConfiguration *AiPromptTextFullAiPromptEditTemplateConfiguration `pulumi:"textFullAiPromptEditTemplateConfiguration"`
 }
 
 // AiPromptAiPromptTemplateConfigurationInput is an input type that accepts AiPromptAiPromptTemplateConfigurationArgs and AiPromptAiPromptTemplateConfigurationOutput values.
@@ -5958,6 +5959,7 @@ type AiPromptAiPromptTemplateConfigurationInput interface {
 }
 
 type AiPromptAiPromptTemplateConfigurationArgs struct {
+	TextFullAiPromptEditTemplateConfiguration AiPromptTextFullAiPromptEditTemplateConfigurationPtrInput `pulumi:"textFullAiPromptEditTemplateConfiguration"`
 }
 
 func (AiPromptAiPromptTemplateConfigurationArgs) ElementType() reflect.Type {
@@ -5986,6 +5988,12 @@ func (o AiPromptAiPromptTemplateConfigurationOutput) ToAiPromptAiPromptTemplateC
 	return o
 }
 
+func (o AiPromptAiPromptTemplateConfigurationOutput) TextFullAiPromptEditTemplateConfiguration() AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v AiPromptAiPromptTemplateConfiguration) *AiPromptTextFullAiPromptEditTemplateConfiguration {
+		return v.TextFullAiPromptEditTemplateConfiguration
+	}).(AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput)
+}
+
 type AiPromptAiPromptTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AiPromptAiPromptTemplateConfigurationPtrOutput) ElementType() reflect.Type {
@@ -6008,6 +6016,148 @@ func (o AiPromptAiPromptTemplateConfigurationPtrOutput) Elem() AiPromptAiPromptT
 		var ret AiPromptAiPromptTemplateConfiguration
 		return ret
 	}).(AiPromptAiPromptTemplateConfigurationOutput)
+}
+
+func (o AiPromptAiPromptTemplateConfigurationPtrOutput) TextFullAiPromptEditTemplateConfiguration() AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptTemplateConfiguration) *AiPromptTextFullAiPromptEditTemplateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TextFullAiPromptEditTemplateConfiguration
+	}).(AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput)
+}
+
+type AiPromptTextFullAiPromptEditTemplateConfiguration struct {
+	Text string `pulumi:"text"`
+}
+
+// AiPromptTextFullAiPromptEditTemplateConfigurationInput is an input type that accepts AiPromptTextFullAiPromptEditTemplateConfigurationArgs and AiPromptTextFullAiPromptEditTemplateConfigurationOutput values.
+// You can construct a concrete instance of `AiPromptTextFullAiPromptEditTemplateConfigurationInput` via:
+//
+//	AiPromptTextFullAiPromptEditTemplateConfigurationArgs{...}
+type AiPromptTextFullAiPromptEditTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToAiPromptTextFullAiPromptEditTemplateConfigurationOutput() AiPromptTextFullAiPromptEditTemplateConfigurationOutput
+	ToAiPromptTextFullAiPromptEditTemplateConfigurationOutputWithContext(context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationOutput
+}
+
+type AiPromptTextFullAiPromptEditTemplateConfigurationArgs struct {
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (AiPromptTextFullAiPromptEditTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptTextFullAiPromptEditTemplateConfiguration)(nil)).Elem()
+}
+
+func (i AiPromptTextFullAiPromptEditTemplateConfigurationArgs) ToAiPromptTextFullAiPromptEditTemplateConfigurationOutput() AiPromptTextFullAiPromptEditTemplateConfigurationOutput {
+	return i.ToAiPromptTextFullAiPromptEditTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiPromptTextFullAiPromptEditTemplateConfigurationArgs) ToAiPromptTextFullAiPromptEditTemplateConfigurationOutputWithContext(ctx context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiPromptTextFullAiPromptEditTemplateConfigurationOutput)
+}
+
+func (i AiPromptTextFullAiPromptEditTemplateConfigurationArgs) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput() AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return i.ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AiPromptTextFullAiPromptEditTemplateConfigurationArgs) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(ctx context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiPromptTextFullAiPromptEditTemplateConfigurationOutput).ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// AiPromptTextFullAiPromptEditTemplateConfigurationPtrInput is an input type that accepts AiPromptTextFullAiPromptEditTemplateConfigurationArgs, AiPromptTextFullAiPromptEditTemplateConfigurationPtr and AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `AiPromptTextFullAiPromptEditTemplateConfigurationPtrInput` via:
+//
+//	        AiPromptTextFullAiPromptEditTemplateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiPromptTextFullAiPromptEditTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput() AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput
+	ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput
+}
+
+type aiPromptTextFullAiPromptEditTemplateConfigurationPtrType AiPromptTextFullAiPromptEditTemplateConfigurationArgs
+
+func AiPromptTextFullAiPromptEditTemplateConfigurationPtr(v *AiPromptTextFullAiPromptEditTemplateConfigurationArgs) AiPromptTextFullAiPromptEditTemplateConfigurationPtrInput {
+	return (*aiPromptTextFullAiPromptEditTemplateConfigurationPtrType)(v)
+}
+
+func (*aiPromptTextFullAiPromptEditTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptTextFullAiPromptEditTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *aiPromptTextFullAiPromptEditTemplateConfigurationPtrType) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput() AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return i.ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aiPromptTextFullAiPromptEditTemplateConfigurationPtrType) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(ctx context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput)
+}
+
+type AiPromptTextFullAiPromptEditTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiPromptTextFullAiPromptEditTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptTextFullAiPromptEditTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationOutput) ToAiPromptTextFullAiPromptEditTemplateConfigurationOutput() AiPromptTextFullAiPromptEditTemplateConfigurationOutput {
+	return o
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationOutput) ToAiPromptTextFullAiPromptEditTemplateConfigurationOutputWithContext(ctx context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationOutput {
+	return o
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationOutput) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput() AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return o.ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationOutput) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(ctx context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiPromptTextFullAiPromptEditTemplateConfiguration) *AiPromptTextFullAiPromptEditTemplateConfiguration {
+		return &v
+	}).(AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput)
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v AiPromptTextFullAiPromptEditTemplateConfiguration) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptTextFullAiPromptEditTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput() AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput) ToAiPromptTextFullAiPromptEditTemplateConfigurationPtrOutputWithContext(ctx context.Context) AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput) Elem() AiPromptTextFullAiPromptEditTemplateConfigurationOutput {
+	return o.ApplyT(func(v *AiPromptTextFullAiPromptEditTemplateConfiguration) AiPromptTextFullAiPromptEditTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiPromptTextFullAiPromptEditTemplateConfiguration
+		return ret
+	}).(AiPromptTextFullAiPromptEditTemplateConfigurationOutput)
+}
+
+func (o AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiPromptTextFullAiPromptEditTemplateConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Text
+	}).(pulumi.StringPtrOutput)
 }
 
 type AssistantAssociationAssociationData0Properties struct {
@@ -12728,6 +12878,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateConfigurationInput)(nil)).Elem(), AiPromptAiPromptTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptTextFullAiPromptEditTemplateConfigurationInput)(nil)).Elem(), AiPromptTextFullAiPromptEditTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptTextFullAiPromptEditTemplateConfigurationPtrInput)(nil)).Elem(), AiPromptTextFullAiPromptEditTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationData0PropertiesInput)(nil)).Elem(), AssistantAssociationAssociationData0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationData1PropertiesInput)(nil)).Elem(), AssistantAssociationAssociationData1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationExternalBedrockKnowledgeBaseConfigInput)(nil)).Elem(), AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs{})
@@ -12896,6 +13048,8 @@ func init() {
 	pulumi.RegisterOutputType(AiGuardrailGuardrailWordConfigArrayOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AiPromptTextFullAiPromptEditTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(AiPromptTextFullAiPromptEditTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationData0PropertiesOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationData1PropertiesOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput{})

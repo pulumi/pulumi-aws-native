@@ -15,6 +15,15 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class BucketTargetObjectKeyFormatArgs : global::Pulumi.ResourceArgs
     {
+        [Input("partitionedPrefix")]
+        public Input<Inputs.BucketPartitionedPrefixArgs>? PartitionedPrefix { get; set; }
+
+        /// <summary>
+        /// This format defaults the prefix to the given log file prefix for delivering server access log file.
+        /// </summary>
+        [Input("simplePrefix")]
+        public Input<object>? SimplePrefix { get; set; }
+
         public BucketTargetObjectKeyFormatArgs()
         {
         }

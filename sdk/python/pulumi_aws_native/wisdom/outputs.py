@@ -66,6 +66,7 @@ __all__ = [
     'AiGuardrailGuardrailTopicConfig',
     'AiGuardrailGuardrailWordConfig',
     'AiPromptAiPromptTemplateConfiguration',
+    'AiPromptTextFullAiPromptEditTemplateConfiguration',
     'AssistantAssociationAssociationData0Properties',
     'AssistantAssociationAssociationData1Properties',
     'AssistantAssociationExternalBedrockKnowledgeBaseConfig',
@@ -2267,8 +2268,44 @@ class AiGuardrailGuardrailWordConfig(dict):
 
 @pulumi.output_type
 class AiPromptAiPromptTemplateConfiguration(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textFullAiPromptEditTemplateConfiguration":
+            suggest = "text_full_ai_prompt_edit_template_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiPromptAiPromptTemplateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiPromptAiPromptTemplateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiPromptAiPromptTemplateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_full_ai_prompt_edit_template_configuration: Optional['outputs.AiPromptTextFullAiPromptEditTemplateConfiguration'] = None):
+        if text_full_ai_prompt_edit_template_configuration is not None:
+            pulumi.set(__self__, "text_full_ai_prompt_edit_template_configuration", text_full_ai_prompt_edit_template_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="textFullAiPromptEditTemplateConfiguration")
+    def text_full_ai_prompt_edit_template_configuration(self) -> Optional['outputs.AiPromptTextFullAiPromptEditTemplateConfiguration']:
+        return pulumi.get(self, "text_full_ai_prompt_edit_template_configuration")
+
+
+@pulumi.output_type
+class AiPromptTextFullAiPromptEditTemplateConfiguration(dict):
+    def __init__(__self__, *,
+                 text: _builtins.str):
+        pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> _builtins.str:
+        return pulumi.get(self, "text")
 
 
 @pulumi.output_type
