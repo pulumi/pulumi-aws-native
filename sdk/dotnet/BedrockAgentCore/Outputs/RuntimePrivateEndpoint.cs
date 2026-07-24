@@ -16,9 +16,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class RuntimePrivateEndpoint
     {
+        public readonly Outputs.RuntimeManagedVpcResource? ManagedVpcResource;
+        public readonly Outputs.RuntimeSelfManagedLatticeResource? SelfManagedLatticeResource;
+
         [OutputConstructor]
-        private RuntimePrivateEndpoint()
+        private RuntimePrivateEndpoint(
+            Outputs.RuntimeManagedVpcResource? managedVpcResource,
+
+            Outputs.RuntimeSelfManagedLatticeResource? selfManagedLatticeResource)
         {
+            ManagedVpcResource = managedVpcResource;
+            SelfManagedLatticeResource = selfManagedLatticeResource;
         }
     }
 }

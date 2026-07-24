@@ -28,6 +28,12 @@ __all__ = [
     'InboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict',
     'LinkAttributesArgs',
     'LinkAttributesArgsDict',
+    'LinkFilterArgs',
+    'LinkFilterArgsDict',
+    'LinkFilterCriterionArgs',
+    'LinkFilterCriterionArgsDict',
+    'LinkHeaderTagActionArgs',
+    'LinkHeaderTagActionArgsDict',
     'LinkLogSettingsArgs',
     'LinkLogSettingsArgsDict',
     'LinkLogSettingsApplicationLogsPropertiesArgs',
@@ -38,6 +44,16 @@ __all__ = [
     'LinkModuleConfigurationArgsDict',
     'LinkModuleParametersArgs',
     'LinkModuleParametersArgsDict',
+    'LinkNoBidActionArgs',
+    'LinkNoBidActionArgsDict',
+    'LinkNoBidModuleParametersArgs',
+    'LinkNoBidModuleParametersArgsDict',
+    'LinkOpenRtbAttributeModuleParametersArgs',
+    'LinkOpenRtbAttributeModuleParametersArgsDict',
+    'LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs',
+    'LinkOpenRtbAttributeModuleParametersAction0PropertiesArgsDict',
+    'LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs',
+    'LinkOpenRtbAttributeModuleParametersAction1PropertiesArgsDict',
     'LinkResponderErrorMaskingForHttpCodeArgs',
     'LinkResponderErrorMaskingForHttpCodeArgsDict',
     'LinkRoutingRuleQueryStringKeyValuePairArgs',
@@ -54,6 +70,12 @@ __all__ = [
     'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgsDict',
     'OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs',
     'OutboundExternalLinkResponderErrorMaskingForHttpCodeArgsDict',
+    'ResponderGatewayAutoScalingGroupsConfigurationArgs',
+    'ResponderGatewayAutoScalingGroupsConfigurationArgsDict',
+    'ResponderGatewayEksEndpointsConfigurationArgs',
+    'ResponderGatewayEksEndpointsConfigurationArgsDict',
+    'ResponderGatewayHealthCheckConfigArgs',
+    'ResponderGatewayHealthCheckConfigArgsDict',
     'ResponderGatewayListenerConfigArgs',
     'ResponderGatewayListenerConfigArgsDict',
     'ResponderGatewayManagedEndpointConfigurationArgs',
@@ -269,6 +291,87 @@ class LinkAttributesArgs:
         pulumi.set(self, "responder_error_masking", value)
 
 
+class LinkFilterArgsDict(TypedDict):
+    criteria: pulumi.Input[Sequence[pulumi.Input['LinkFilterCriterionArgsDict']]]
+
+@pulumi.input_type
+class LinkFilterArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input[Sequence[pulumi.Input['LinkFilterCriterionArgs']]]):
+        pulumi.set(__self__, "criteria", criteria)
+
+    @_builtins.property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input[Sequence[pulumi.Input['LinkFilterCriterionArgs']]]:
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input[Sequence[pulumi.Input['LinkFilterCriterionArgs']]]):
+        pulumi.set(self, "criteria", value)
+
+
+class LinkFilterCriterionArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class LinkFilterCriterionArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class LinkHeaderTagActionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class LinkHeaderTagActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
 class LinkLogSettingsArgsDict(TypedDict):
     application_logs: pulumi.Input['LinkLogSettingsApplicationLogsPropertiesArgsDict']
     """
@@ -412,12 +515,195 @@ class LinkModuleConfigurationArgs:
 
 
 class LinkModuleParametersArgsDict(TypedDict):
-    pass
+    no_bid: NotRequired[pulumi.Input[Optional['LinkNoBidModuleParametersArgsDict']]]
+    open_rtb_attribute: NotRequired[pulumi.Input[Optional['LinkOpenRtbAttributeModuleParametersArgsDict']]]
 
 @pulumi.input_type
 class LinkModuleParametersArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 no_bid: pulumi.Input[Optional['LinkNoBidModuleParametersArgs']] = None,
+                 open_rtb_attribute: pulumi.Input[Optional['LinkOpenRtbAttributeModuleParametersArgs']] = None):
+        if no_bid is not None:
+            pulumi.set(__self__, "no_bid", no_bid)
+        if open_rtb_attribute is not None:
+            pulumi.set(__self__, "open_rtb_attribute", open_rtb_attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="noBid")
+    def no_bid(self) -> pulumi.Input[Optional['LinkNoBidModuleParametersArgs']]:
+        return pulumi.get(self, "no_bid")
+
+    @no_bid.setter
+    def no_bid(self, value: pulumi.Input[Optional['LinkNoBidModuleParametersArgs']]):
+        pulumi.set(self, "no_bid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openRtbAttribute")
+    def open_rtb_attribute(self) -> pulumi.Input[Optional['LinkOpenRtbAttributeModuleParametersArgs']]:
+        return pulumi.get(self, "open_rtb_attribute")
+
+    @open_rtb_attribute.setter
+    def open_rtb_attribute(self, value: pulumi.Input[Optional['LinkOpenRtbAttributeModuleParametersArgs']]):
+        pulumi.set(self, "open_rtb_attribute", value)
+
+
+class LinkNoBidActionArgsDict(TypedDict):
+    no_bid_reason_code: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class LinkNoBidActionArgs:
+    def __init__(__self__, *,
+                 no_bid_reason_code: pulumi.Input[Optional[_builtins.int]] = None):
+        if no_bid_reason_code is not None:
+            pulumi.set(__self__, "no_bid_reason_code", no_bid_reason_code)
+
+    @_builtins.property
+    @pulumi.getter(name="noBidReasonCode")
+    def no_bid_reason_code(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "no_bid_reason_code")
+
+    @no_bid_reason_code.setter
+    def no_bid_reason_code(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "no_bid_reason_code", value)
+
+
+class LinkNoBidModuleParametersArgsDict(TypedDict):
+    pass_through_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    reason_code: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class LinkNoBidModuleParametersArgs:
+    def __init__(__self__, *,
+                 pass_through_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason_code: pulumi.Input[Optional[_builtins.int]] = None):
+        if pass_through_percentage is not None:
+            pulumi.set(__self__, "pass_through_percentage", pass_through_percentage)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if reason_code is not None:
+            pulumi.set(__self__, "reason_code", reason_code)
+
+    @_builtins.property
+    @pulumi.getter(name="passThroughPercentage")
+    def pass_through_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "pass_through_percentage")
+
+    @pass_through_percentage.setter
+    def pass_through_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "pass_through_percentage", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reason", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reasonCode")
+    def reason_code(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "reason_code")
+
+    @reason_code.setter
+    def reason_code(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "reason_code", value)
+
+
+class LinkOpenRtbAttributeModuleParametersArgsDict(TypedDict):
+    action: pulumi.Input[Union['LinkOpenRtbAttributeModuleParametersAction0PropertiesArgsDict', 'LinkOpenRtbAttributeModuleParametersAction1PropertiesArgsDict']]
+    filter_configuration: pulumi.Input[Sequence[pulumi.Input['LinkFilterArgsDict']]]
+    filter_type: pulumi.Input['LinkOpenRtbAttributeModuleParametersFilterType']
+    holdback_percentage: pulumi.Input[_builtins.float]
+
+@pulumi.input_type
+class LinkOpenRtbAttributeModuleParametersArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Union['LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs', 'LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs']],
+                 filter_configuration: pulumi.Input[Sequence[pulumi.Input['LinkFilterArgs']]],
+                 filter_type: pulumi.Input['LinkOpenRtbAttributeModuleParametersFilterType'],
+                 holdback_percentage: pulumi.Input[_builtins.float]):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "filter_configuration", filter_configuration)
+        pulumi.set(__self__, "filter_type", filter_type)
+        pulumi.set(__self__, "holdback_percentage", holdback_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Union['LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs', 'LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs']]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Union['LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs', 'LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs']]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> pulumi.Input[Sequence[pulumi.Input['LinkFilterArgs']]]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: pulumi.Input[Sequence[pulumi.Input['LinkFilterArgs']]]):
+        pulumi.set(self, "filter_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input['LinkOpenRtbAttributeModuleParametersFilterType']:
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input['LinkOpenRtbAttributeModuleParametersFilterType']):
+        pulumi.set(self, "filter_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="holdbackPercentage")
+    def holdback_percentage(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "holdback_percentage")
+
+    @holdback_percentage.setter
+    def holdback_percentage(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "holdback_percentage", value)
+
+
+class LinkOpenRtbAttributeModuleParametersAction0PropertiesArgsDict(TypedDict):
+    no_bid: pulumi.Input['LinkNoBidActionArgsDict']
+
+@pulumi.input_type
+class LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs:
+    def __init__(__self__, *,
+                 no_bid: pulumi.Input['LinkNoBidActionArgs']):
+        pulumi.set(__self__, "no_bid", no_bid)
+
+    @_builtins.property
+    @pulumi.getter(name="noBid")
+    def no_bid(self) -> pulumi.Input['LinkNoBidActionArgs']:
+        return pulumi.get(self, "no_bid")
+
+    @no_bid.setter
+    def no_bid(self, value: pulumi.Input['LinkNoBidActionArgs']):
+        pulumi.set(self, "no_bid", value)
+
+
+class LinkOpenRtbAttributeModuleParametersAction1PropertiesArgsDict(TypedDict):
+    header_tag: pulumi.Input['LinkHeaderTagActionArgsDict']
+
+@pulumi.input_type
+class LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs:
+    def __init__(__self__, *,
+                 header_tag: pulumi.Input['LinkHeaderTagActionArgs']):
+        pulumi.set(__self__, "header_tag", header_tag)
+
+    @_builtins.property
+    @pulumi.getter(name="headerTag")
+    def header_tag(self) -> pulumi.Input['LinkHeaderTagActionArgs']:
+        return pulumi.get(self, "header_tag")
+
+    @header_tag.setter
+    def header_tag(self, value: pulumi.Input['LinkHeaderTagActionArgs']):
+        pulumi.set(self, "header_tag", value)
 
 
 class LinkResponderErrorMaskingForHttpCodeArgsDict(TypedDict):
@@ -845,6 +1131,238 @@ class OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs:
         pulumi.set(self, "response_logging_percentage", value)
 
 
+class ResponderGatewayAutoScalingGroupsConfigurationArgsDict(TypedDict):
+    auto_scaling_group_name_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    role_arn: pulumi.Input[_builtins.str]
+    health_check_config: NotRequired[pulumi.Input[Optional['ResponderGatewayHealthCheckConfigArgsDict']]]
+
+@pulumi.input_type
+class ResponderGatewayAutoScalingGroupsConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_scaling_group_name_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 role_arn: pulumi.Input[_builtins.str],
+                 health_check_config: pulumi.Input[Optional['ResponderGatewayHealthCheckConfigArgs']] = None):
+        pulumi.set(__self__, "auto_scaling_group_name_list", auto_scaling_group_name_list)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if health_check_config is not None:
+            pulumi.set(__self__, "health_check_config", health_check_config)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingGroupNameList")
+    def auto_scaling_group_name_list(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "auto_scaling_group_name_list")
+
+    @auto_scaling_group_name_list.setter
+    def auto_scaling_group_name_list(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "auto_scaling_group_name_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckConfig")
+    def health_check_config(self) -> pulumi.Input[Optional['ResponderGatewayHealthCheckConfigArgs']]:
+        return pulumi.get(self, "health_check_config")
+
+    @health_check_config.setter
+    def health_check_config(self, value: pulumi.Input[Optional['ResponderGatewayHealthCheckConfigArgs']]):
+        pulumi.set(self, "health_check_config", value)
+
+
+class ResponderGatewayEksEndpointsConfigurationArgsDict(TypedDict):
+    cluster_api_server_ca_certificate_chain: pulumi.Input[_builtins.str]
+    cluster_api_server_endpoint_uri: pulumi.Input[_builtins.str]
+    cluster_name: pulumi.Input[_builtins.str]
+    endpoints_resource_name: pulumi.Input[_builtins.str]
+    endpoints_resource_namespace: pulumi.Input[_builtins.str]
+    role_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ResponderGatewayEksEndpointsConfigurationArgs:
+    def __init__(__self__, *,
+                 cluster_api_server_ca_certificate_chain: pulumi.Input[_builtins.str],
+                 cluster_api_server_endpoint_uri: pulumi.Input[_builtins.str],
+                 cluster_name: pulumi.Input[_builtins.str],
+                 endpoints_resource_name: pulumi.Input[_builtins.str],
+                 endpoints_resource_namespace: pulumi.Input[_builtins.str],
+                 role_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "cluster_api_server_ca_certificate_chain", cluster_api_server_ca_certificate_chain)
+        pulumi.set(__self__, "cluster_api_server_endpoint_uri", cluster_api_server_endpoint_uri)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "endpoints_resource_name", endpoints_resource_name)
+        pulumi.set(__self__, "endpoints_resource_namespace", endpoints_resource_namespace)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterApiServerCaCertificateChain")
+    def cluster_api_server_ca_certificate_chain(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "cluster_api_server_ca_certificate_chain")
+
+    @cluster_api_server_ca_certificate_chain.setter
+    def cluster_api_server_ca_certificate_chain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_api_server_ca_certificate_chain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterApiServerEndpointUri")
+    def cluster_api_server_endpoint_uri(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "cluster_api_server_endpoint_uri")
+
+    @cluster_api_server_endpoint_uri.setter
+    def cluster_api_server_endpoint_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_api_server_endpoint_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointsResourceName")
+    def endpoints_resource_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "endpoints_resource_name")
+
+    @endpoints_resource_name.setter
+    def endpoints_resource_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoints_resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointsResourceNamespace")
+    def endpoints_resource_namespace(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "endpoints_resource_namespace")
+
+    @endpoints_resource_namespace.setter
+    def endpoints_resource_namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoints_resource_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+
+class ResponderGatewayHealthCheckConfigArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    port: pulumi.Input[_builtins.int]
+    healthy_threshold_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    protocol: NotRequired[pulumi.Input[Optional['ResponderGatewayProtocol']]]
+    status_code_matcher: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout_ms: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    unhealthy_threshold_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class ResponderGatewayHealthCheckConfigArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 port: pulumi.Input[_builtins.int],
+                 healthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional['ResponderGatewayProtocol']] = None,
+                 status_code_matcher: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_ms: pulumi.Input[Optional[_builtins.int]] = None,
+                 unhealthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None):
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        if healthy_threshold_count is not None:
+            pulumi.set(__self__, "healthy_threshold_count", healthy_threshold_count)
+        if interval_seconds is not None:
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if status_code_matcher is not None:
+            pulumi.set(__self__, "status_code_matcher", status_code_matcher)
+        if timeout_ms is not None:
+            pulumi.set(__self__, "timeout_ms", timeout_ms)
+        if unhealthy_threshold_count is not None:
+            pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthyThresholdCount")
+    def healthy_threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "healthy_threshold_count")
+
+    @healthy_threshold_count.setter
+    def healthy_threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "healthy_threshold_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "interval_seconds")
+
+    @interval_seconds.setter
+    def interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "interval_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Optional['ResponderGatewayProtocol']]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Optional['ResponderGatewayProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodeMatcher")
+    def status_code_matcher(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status_code_matcher")
+
+    @status_code_matcher.setter
+    def status_code_matcher(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status_code_matcher", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMs")
+    def timeout_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "timeout_ms")
+
+    @timeout_ms.setter
+    def timeout_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_ms", value)
+
+    @_builtins.property
+    @pulumi.getter(name="unhealthyThresholdCount")
+    def unhealthy_threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "unhealthy_threshold_count")
+
+    @unhealthy_threshold_count.setter
+    def unhealthy_threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "unhealthy_threshold_count", value)
+
+
 class ResponderGatewayListenerConfigArgsDict(TypedDict):
     protocols: pulumi.Input[Sequence[pulumi.Input['ResponderGatewayProtocol']]]
 
@@ -865,12 +1383,36 @@ class ResponderGatewayListenerConfigArgs:
 
 
 class ResponderGatewayManagedEndpointConfigurationArgsDict(TypedDict):
-    pass
+    auto_scaling_groups_configuration: NotRequired[pulumi.Input[Optional['ResponderGatewayAutoScalingGroupsConfigurationArgsDict']]]
+    eks_endpoints_configuration: NotRequired[pulumi.Input[Optional['ResponderGatewayEksEndpointsConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ResponderGatewayManagedEndpointConfigurationArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 auto_scaling_groups_configuration: pulumi.Input[Optional['ResponderGatewayAutoScalingGroupsConfigurationArgs']] = None,
+                 eks_endpoints_configuration: pulumi.Input[Optional['ResponderGatewayEksEndpointsConfigurationArgs']] = None):
+        if auto_scaling_groups_configuration is not None:
+            pulumi.set(__self__, "auto_scaling_groups_configuration", auto_scaling_groups_configuration)
+        if eks_endpoints_configuration is not None:
+            pulumi.set(__self__, "eks_endpoints_configuration", eks_endpoints_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingGroupsConfiguration")
+    def auto_scaling_groups_configuration(self) -> pulumi.Input[Optional['ResponderGatewayAutoScalingGroupsConfigurationArgs']]:
+        return pulumi.get(self, "auto_scaling_groups_configuration")
+
+    @auto_scaling_groups_configuration.setter
+    def auto_scaling_groups_configuration(self, value: pulumi.Input[Optional['ResponderGatewayAutoScalingGroupsConfigurationArgs']]):
+        pulumi.set(self, "auto_scaling_groups_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eksEndpointsConfiguration")
+    def eks_endpoints_configuration(self) -> pulumi.Input[Optional['ResponderGatewayEksEndpointsConfigurationArgs']]:
+        return pulumi.get(self, "eks_endpoints_configuration")
+
+    @eks_endpoints_configuration.setter
+    def eks_endpoints_configuration(self, value: pulumi.Input[Optional['ResponderGatewayEksEndpointsConfigurationArgs']]):
+        pulumi.set(self, "eks_endpoints_configuration", value)
 
 
 class ResponderGatewayTrustStoreConfigurationArgsDict(TypedDict):

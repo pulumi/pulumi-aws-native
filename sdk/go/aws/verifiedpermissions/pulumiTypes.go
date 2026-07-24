@@ -1686,6 +1686,73 @@ func (o PolicyStaticPolicyDefinitionPtrOutput) Statement() pulumi.StringPtrOutpu
 type PolicyStoreDefault struct {
 }
 
+// PolicyStoreDefaultInput is an input type that accepts PolicyStoreDefaultArgs and PolicyStoreDefaultOutput values.
+// You can construct a concrete instance of `PolicyStoreDefaultInput` via:
+//
+//	PolicyStoreDefaultArgs{...}
+type PolicyStoreDefaultInput interface {
+	pulumi.Input
+
+	ToPolicyStoreDefaultOutput() PolicyStoreDefaultOutput
+	ToPolicyStoreDefaultOutputWithContext(context.Context) PolicyStoreDefaultOutput
+}
+
+type PolicyStoreDefaultArgs struct {
+}
+
+func (PolicyStoreDefaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreDefault)(nil)).Elem()
+}
+
+func (i PolicyStoreDefaultArgs) ToPolicyStoreDefaultOutput() PolicyStoreDefaultOutput {
+	return i.ToPolicyStoreDefaultOutputWithContext(context.Background())
+}
+
+func (i PolicyStoreDefaultArgs) ToPolicyStoreDefaultOutputWithContext(ctx context.Context) PolicyStoreDefaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreDefaultOutput)
+}
+
+func (i PolicyStoreDefaultArgs) ToPolicyStoreDefaultPtrOutput() PolicyStoreDefaultPtrOutput {
+	return i.ToPolicyStoreDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyStoreDefaultArgs) ToPolicyStoreDefaultPtrOutputWithContext(ctx context.Context) PolicyStoreDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreDefaultOutput).ToPolicyStoreDefaultPtrOutputWithContext(ctx)
+}
+
+// PolicyStoreDefaultPtrInput is an input type that accepts PolicyStoreDefaultArgs, PolicyStoreDefaultPtr and PolicyStoreDefaultPtrOutput values.
+// You can construct a concrete instance of `PolicyStoreDefaultPtrInput` via:
+//
+//	        PolicyStoreDefaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyStoreDefaultPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStoreDefaultPtrOutput() PolicyStoreDefaultPtrOutput
+	ToPolicyStoreDefaultPtrOutputWithContext(context.Context) PolicyStoreDefaultPtrOutput
+}
+
+type policyStoreDefaultPtrType PolicyStoreDefaultArgs
+
+func PolicyStoreDefaultPtr(v *PolicyStoreDefaultArgs) PolicyStoreDefaultPtrInput {
+	return (*policyStoreDefaultPtrType)(v)
+}
+
+func (*policyStoreDefaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreDefault)(nil)).Elem()
+}
+
+func (i *policyStoreDefaultPtrType) ToPolicyStoreDefaultPtrOutput() PolicyStoreDefaultPtrOutput {
+	return i.ToPolicyStoreDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i *policyStoreDefaultPtrType) ToPolicyStoreDefaultPtrOutputWithContext(ctx context.Context) PolicyStoreDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreDefaultPtrOutput)
+}
+
 type PolicyStoreDefaultOutput struct{ *pulumi.OutputState }
 
 func (PolicyStoreDefaultOutput) ElementType() reflect.Type {
@@ -1698,6 +1765,16 @@ func (o PolicyStoreDefaultOutput) ToPolicyStoreDefaultOutput() PolicyStoreDefaul
 
 func (o PolicyStoreDefaultOutput) ToPolicyStoreDefaultOutputWithContext(ctx context.Context) PolicyStoreDefaultOutput {
 	return o
+}
+
+func (o PolicyStoreDefaultOutput) ToPolicyStoreDefaultPtrOutput() PolicyStoreDefaultPtrOutput {
+	return o.ToPolicyStoreDefaultPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStoreDefaultOutput) ToPolicyStoreDefaultPtrOutputWithContext(ctx context.Context) PolicyStoreDefaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStoreDefault) *PolicyStoreDefault {
+		return &v
+	}).(PolicyStoreDefaultPtrOutput)
 }
 
 type PolicyStoreDefaultPtrOutput struct{ *pulumi.OutputState }
@@ -1870,6 +1947,8 @@ func (o PolicyStoreDeletionProtectionPtrOutput) Mode() PolicyStoreDeletionModePt
 }
 
 type PolicyStoreEncryptionSettings struct {
+	Default               *PolicyStoreDefault               `pulumi:"default"`
+	KmsEncryptionSettings *PolicyStoreKmsEncryptionSettings `pulumi:"kmsEncryptionSettings"`
 }
 
 // PolicyStoreEncryptionSettingsInput is an input type that accepts PolicyStoreEncryptionSettingsArgs and PolicyStoreEncryptionSettingsOutput values.
@@ -1884,6 +1963,8 @@ type PolicyStoreEncryptionSettingsInput interface {
 }
 
 type PolicyStoreEncryptionSettingsArgs struct {
+	Default               PolicyStoreDefaultPtrInput               `pulumi:"default"`
+	KmsEncryptionSettings PolicyStoreKmsEncryptionSettingsPtrInput `pulumi:"kmsEncryptionSettings"`
 }
 
 func (PolicyStoreEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -1963,6 +2044,16 @@ func (o PolicyStoreEncryptionSettingsOutput) ToPolicyStoreEncryptionSettingsPtrO
 	}).(PolicyStoreEncryptionSettingsPtrOutput)
 }
 
+func (o PolicyStoreEncryptionSettingsOutput) Default() PolicyStoreDefaultPtrOutput {
+	return o.ApplyT(func(v PolicyStoreEncryptionSettings) *PolicyStoreDefault { return v.Default }).(PolicyStoreDefaultPtrOutput)
+}
+
+func (o PolicyStoreEncryptionSettingsOutput) KmsEncryptionSettings() PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return o.ApplyT(func(v PolicyStoreEncryptionSettings) *PolicyStoreKmsEncryptionSettings {
+		return v.KmsEncryptionSettings
+	}).(PolicyStoreKmsEncryptionSettingsPtrOutput)
+}
+
 type PolicyStoreEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyStoreEncryptionSettingsPtrOutput) ElementType() reflect.Type {
@@ -1985,6 +2076,172 @@ func (o PolicyStoreEncryptionSettingsPtrOutput) Elem() PolicyStoreEncryptionSett
 		var ret PolicyStoreEncryptionSettings
 		return ret
 	}).(PolicyStoreEncryptionSettingsOutput)
+}
+
+func (o PolicyStoreEncryptionSettingsPtrOutput) Default() PolicyStoreDefaultPtrOutput {
+	return o.ApplyT(func(v *PolicyStoreEncryptionSettings) *PolicyStoreDefault {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(PolicyStoreDefaultPtrOutput)
+}
+
+func (o PolicyStoreEncryptionSettingsPtrOutput) KmsEncryptionSettings() PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return o.ApplyT(func(v *PolicyStoreEncryptionSettings) *PolicyStoreKmsEncryptionSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KmsEncryptionSettings
+	}).(PolicyStoreKmsEncryptionSettingsPtrOutput)
+}
+
+type PolicyStoreKmsEncryptionSettings struct {
+	EncryptionContext map[string]string `pulumi:"encryptionContext"`
+	Key               string            `pulumi:"key"`
+}
+
+// PolicyStoreKmsEncryptionSettingsInput is an input type that accepts PolicyStoreKmsEncryptionSettingsArgs and PolicyStoreKmsEncryptionSettingsOutput values.
+// You can construct a concrete instance of `PolicyStoreKmsEncryptionSettingsInput` via:
+//
+//	PolicyStoreKmsEncryptionSettingsArgs{...}
+type PolicyStoreKmsEncryptionSettingsInput interface {
+	pulumi.Input
+
+	ToPolicyStoreKmsEncryptionSettingsOutput() PolicyStoreKmsEncryptionSettingsOutput
+	ToPolicyStoreKmsEncryptionSettingsOutputWithContext(context.Context) PolicyStoreKmsEncryptionSettingsOutput
+}
+
+type PolicyStoreKmsEncryptionSettingsArgs struct {
+	EncryptionContext pulumi.StringMapInput `pulumi:"encryptionContext"`
+	Key               pulumi.StringInput    `pulumi:"key"`
+}
+
+func (PolicyStoreKmsEncryptionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreKmsEncryptionSettings)(nil)).Elem()
+}
+
+func (i PolicyStoreKmsEncryptionSettingsArgs) ToPolicyStoreKmsEncryptionSettingsOutput() PolicyStoreKmsEncryptionSettingsOutput {
+	return i.ToPolicyStoreKmsEncryptionSettingsOutputWithContext(context.Background())
+}
+
+func (i PolicyStoreKmsEncryptionSettingsArgs) ToPolicyStoreKmsEncryptionSettingsOutputWithContext(ctx context.Context) PolicyStoreKmsEncryptionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreKmsEncryptionSettingsOutput)
+}
+
+func (i PolicyStoreKmsEncryptionSettingsArgs) ToPolicyStoreKmsEncryptionSettingsPtrOutput() PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return i.ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyStoreKmsEncryptionSettingsArgs) ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(ctx context.Context) PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreKmsEncryptionSettingsOutput).ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(ctx)
+}
+
+// PolicyStoreKmsEncryptionSettingsPtrInput is an input type that accepts PolicyStoreKmsEncryptionSettingsArgs, PolicyStoreKmsEncryptionSettingsPtr and PolicyStoreKmsEncryptionSettingsPtrOutput values.
+// You can construct a concrete instance of `PolicyStoreKmsEncryptionSettingsPtrInput` via:
+//
+//	        PolicyStoreKmsEncryptionSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyStoreKmsEncryptionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStoreKmsEncryptionSettingsPtrOutput() PolicyStoreKmsEncryptionSettingsPtrOutput
+	ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(context.Context) PolicyStoreKmsEncryptionSettingsPtrOutput
+}
+
+type policyStoreKmsEncryptionSettingsPtrType PolicyStoreKmsEncryptionSettingsArgs
+
+func PolicyStoreKmsEncryptionSettingsPtr(v *PolicyStoreKmsEncryptionSettingsArgs) PolicyStoreKmsEncryptionSettingsPtrInput {
+	return (*policyStoreKmsEncryptionSettingsPtrType)(v)
+}
+
+func (*policyStoreKmsEncryptionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreKmsEncryptionSettings)(nil)).Elem()
+}
+
+func (i *policyStoreKmsEncryptionSettingsPtrType) ToPolicyStoreKmsEncryptionSettingsPtrOutput() PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return i.ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *policyStoreKmsEncryptionSettingsPtrType) ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(ctx context.Context) PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreKmsEncryptionSettingsPtrOutput)
+}
+
+type PolicyStoreKmsEncryptionSettingsOutput struct{ *pulumi.OutputState }
+
+func (PolicyStoreKmsEncryptionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStoreKmsEncryptionSettings)(nil)).Elem()
+}
+
+func (o PolicyStoreKmsEncryptionSettingsOutput) ToPolicyStoreKmsEncryptionSettingsOutput() PolicyStoreKmsEncryptionSettingsOutput {
+	return o
+}
+
+func (o PolicyStoreKmsEncryptionSettingsOutput) ToPolicyStoreKmsEncryptionSettingsOutputWithContext(ctx context.Context) PolicyStoreKmsEncryptionSettingsOutput {
+	return o
+}
+
+func (o PolicyStoreKmsEncryptionSettingsOutput) ToPolicyStoreKmsEncryptionSettingsPtrOutput() PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return o.ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStoreKmsEncryptionSettingsOutput) ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(ctx context.Context) PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStoreKmsEncryptionSettings) *PolicyStoreKmsEncryptionSettings {
+		return &v
+	}).(PolicyStoreKmsEncryptionSettingsPtrOutput)
+}
+
+func (o PolicyStoreKmsEncryptionSettingsOutput) EncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PolicyStoreKmsEncryptionSettings) map[string]string { return v.EncryptionContext }).(pulumi.StringMapOutput)
+}
+
+func (o PolicyStoreKmsEncryptionSettingsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyStoreKmsEncryptionSettings) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type PolicyStoreKmsEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStoreKmsEncryptionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStoreKmsEncryptionSettings)(nil)).Elem()
+}
+
+func (o PolicyStoreKmsEncryptionSettingsPtrOutput) ToPolicyStoreKmsEncryptionSettingsPtrOutput() PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o PolicyStoreKmsEncryptionSettingsPtrOutput) ToPolicyStoreKmsEncryptionSettingsPtrOutputWithContext(ctx context.Context) PolicyStoreKmsEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o PolicyStoreKmsEncryptionSettingsPtrOutput) Elem() PolicyStoreKmsEncryptionSettingsOutput {
+	return o.ApplyT(func(v *PolicyStoreKmsEncryptionSettings) PolicyStoreKmsEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStoreKmsEncryptionSettings
+		return ret
+	}).(PolicyStoreKmsEncryptionSettingsOutput)
+}
+
+func (o PolicyStoreKmsEncryptionSettingsPtrOutput) EncryptionContext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PolicyStoreKmsEncryptionSettings) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionContext
+	}).(pulumi.StringMapOutput)
+}
+
+func (o PolicyStoreKmsEncryptionSettingsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyStoreKmsEncryptionSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
 }
 
 type PolicyStoreKmsEncryptionState struct {
@@ -2444,10 +2701,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierPtrInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStaticPolicyDefinitionInput)(nil)).Elem(), PolicyStaticPolicyDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDefaultInput)(nil)).Elem(), PolicyStoreDefaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDefaultPtrInput)(nil)).Elem(), PolicyStoreDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDeletionProtectionInput)(nil)).Elem(), PolicyStoreDeletionProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreDeletionProtectionPtrInput)(nil)).Elem(), PolicyStoreDeletionProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreEncryptionSettingsInput)(nil)).Elem(), PolicyStoreEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreEncryptionSettingsPtrInput)(nil)).Elem(), PolicyStoreEncryptionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreKmsEncryptionSettingsInput)(nil)).Elem(), PolicyStoreKmsEncryptionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreKmsEncryptionSettingsPtrInput)(nil)).Elem(), PolicyStoreKmsEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
@@ -2492,6 +2753,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyStoreDeletionProtectionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(PolicyStoreEncryptionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStoreKmsEncryptionSettingsOutput{})
+	pulumi.RegisterOutputType(PolicyStoreKmsEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreKmsEncryptionStateOutput{})
 	pulumi.RegisterOutputType(PolicyStoreKmsEncryptionStatePtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionOutput{})

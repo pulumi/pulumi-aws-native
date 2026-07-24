@@ -600,6 +600,38 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The strategy for managing Slurm configuration on the cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterOrchestratorSlurmConfigSlurmConfigStrategy : IEquatable<ClusterOrchestratorSlurmConfigSlurmConfigStrategy>
+    {
+        private readonly string _value;
+
+        private ClusterOrchestratorSlurmConfigSlurmConfigStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterOrchestratorSlurmConfigSlurmConfigStrategy Overwrite { get; } = new ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Overwrite");
+        public static ClusterOrchestratorSlurmConfigSlurmConfigStrategy Managed { get; } = new ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Managed");
+        public static ClusterOrchestratorSlurmConfigSlurmConfigStrategy Merge { get; } = new ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Merge");
+
+        public static bool operator ==(ClusterOrchestratorSlurmConfigSlurmConfigStrategy left, ClusterOrchestratorSlurmConfigSlurmConfigStrategy right) => left.Equals(right);
+        public static bool operator !=(ClusterOrchestratorSlurmConfigSlurmConfigStrategy left, ClusterOrchestratorSlurmConfigSlurmConfigStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterOrchestratorSlurmConfigSlurmConfigStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterOrchestratorSlurmConfigSlurmConfigStrategy other && Equals(other);
+        public bool Equals(ClusterOrchestratorSlurmConfigSlurmConfigStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
     /// </summary>
     [EnumType]

@@ -55,6 +55,7 @@ func NewCluster(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"clusterName",
+		"orchestrator.eks",
 		"vpcConfig",
 	})
 	opts = append(opts, replaceOnChanges)

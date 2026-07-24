@@ -13908,6 +13908,172 @@ func (in *runtimeInboundTokenClaimValueTypePtr) ToRuntimeInboundTokenClaimValueT
 	return pulumi.ToOutputWithContext(ctx, in).(RuntimeInboundTokenClaimValueTypePtrOutput)
 }
 
+// The IP address type for the endpoint
+type RuntimeManagedVpcResourceEndpointIpAddressType string
+
+const (
+	RuntimeManagedVpcResourceEndpointIpAddressTypeIpv4 = RuntimeManagedVpcResourceEndpointIpAddressType("IPV4")
+	RuntimeManagedVpcResourceEndpointIpAddressTypeIpv6 = RuntimeManagedVpcResourceEndpointIpAddressType("IPV6")
+)
+
+func (RuntimeManagedVpcResourceEndpointIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToRuntimeManagedVpcResourceEndpointIpAddressTypeOutput() RuntimeManagedVpcResourceEndpointIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(RuntimeManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToRuntimeManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuntimeManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput() RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return e.ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return RuntimeManagedVpcResourceEndpointIpAddressType(e).ToRuntimeManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx).ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeManagedVpcResourceEndpointIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuntimeManagedVpcResourceEndpointIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToRuntimeManagedVpcResourceEndpointIpAddressTypeOutput() RuntimeManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToRuntimeManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput() RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeManagedVpcResourceEndpointIpAddressType) *RuntimeManagedVpcResourceEndpointIpAddressType {
+		return &v
+	}).(RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeManagedVpcResourceEndpointIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeManagedVpcResourceEndpointIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput() RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput) Elem() RuntimeManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v *RuntimeManagedVpcResourceEndpointIpAddressType) RuntimeManagedVpcResourceEndpointIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeManagedVpcResourceEndpointIpAddressType
+		return ret
+	}).(RuntimeManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeManagedVpcResourceEndpointIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuntimeManagedVpcResourceEndpointIpAddressTypeInput is an input type that accepts values of the RuntimeManagedVpcResourceEndpointIpAddressType enum
+// A concrete instance of `RuntimeManagedVpcResourceEndpointIpAddressTypeInput` can be one of the following:
+//
+//	RuntimeManagedVpcResourceEndpointIpAddressTypeIpv4
+//	RuntimeManagedVpcResourceEndpointIpAddressTypeIpv6
+type RuntimeManagedVpcResourceEndpointIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeManagedVpcResourceEndpointIpAddressTypeOutput() RuntimeManagedVpcResourceEndpointIpAddressTypeOutput
+	ToRuntimeManagedVpcResourceEndpointIpAddressTypeOutputWithContext(context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypeOutput
+}
+
+var runtimeManagedVpcResourceEndpointIpAddressTypePtrType = reflect.TypeOf((**RuntimeManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+
+type RuntimeManagedVpcResourceEndpointIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput() RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput
+	ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput
+}
+
+type runtimeManagedVpcResourceEndpointIpAddressTypePtr string
+
+func RuntimeManagedVpcResourceEndpointIpAddressTypePtr(v string) RuntimeManagedVpcResourceEndpointIpAddressTypePtrInput {
+	return (*runtimeManagedVpcResourceEndpointIpAddressTypePtr)(&v)
+}
+
+func (*runtimeManagedVpcResourceEndpointIpAddressTypePtr) ElementType() reflect.Type {
+	return runtimeManagedVpcResourceEndpointIpAddressTypePtrType
+}
+
+func (in *runtimeManagedVpcResourceEndpointIpAddressTypePtr) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput() RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+func (in *runtimeManagedVpcResourceEndpointIpAddressTypePtr) ToRuntimeManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
 // Network mode configuration type
 type RuntimeNetworkMode string
 
@@ -14390,6 +14556,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchOperatorPtrInput)(nil)).Elem(), RuntimeClaimMatchOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeInboundTokenClaimValueTypeInput)(nil)).Elem(), RuntimeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), RuntimeInboundTokenClaimValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeManagedVpcResourceEndpointIpAddressTypeInput)(nil)).Elem(), RuntimeManagedVpcResourceEndpointIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeManagedVpcResourceEndpointIpAddressTypePtrInput)(nil)).Elem(), RuntimeManagedVpcResourceEndpointIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModeInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModePtrInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeProtocolConfigurationInput)(nil)).Elem(), RuntimeProtocolConfiguration("MCP"))
@@ -14578,6 +14746,8 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeEndpointAgentRuntimeEndpointStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeInboundTokenClaimValueTypeOutput{})
 	pulumi.RegisterOutputType(RuntimeInboundTokenClaimValueTypePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeManagedVpcResourceEndpointIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeManagedVpcResourceEndpointIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkModeOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeProtocolConfigurationOutput{})

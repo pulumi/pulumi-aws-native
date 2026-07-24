@@ -22,6 +22,12 @@ __all__ = [
     'ClusterLoggingPropertiesArgsDict',
     'ClusterParameterGroupParameterArgs',
     'ClusterParameterGroupParameterArgsDict',
+    'ScheduledActionPauseClusterMessageArgs',
+    'ScheduledActionPauseClusterMessageArgsDict',
+    'ScheduledActionResizeClusterMessageArgs',
+    'ScheduledActionResizeClusterMessageArgsDict',
+    'ScheduledActionResumeClusterMessageArgs',
+    'ScheduledActionResumeClusterMessageArgsDict',
     'ScheduledActionTypeArgs',
     'ScheduledActionTypeArgsDict',
 ]
@@ -232,12 +238,176 @@ class ClusterParameterGroupParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
+class ScheduledActionPauseClusterMessageArgsDict(TypedDict):
+    """
+    Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+    """
+    cluster_identifier: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ScheduledActionPauseClusterMessageArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[_builtins.str]):
+        """
+        Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+
+class ScheduledActionResizeClusterMessageArgsDict(TypedDict):
+    """
+    Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+    """
+    cluster_identifier: pulumi.Input[_builtins.str]
+    classic: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cluster_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    node_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    number_of_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class ScheduledActionResizeClusterMessageArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[_builtins.str],
+                 classic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_nodes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if classic is not None:
+            pulumi.set(__self__, "classic", classic)
+        if cluster_type is not None:
+            pulumi.set(__self__, "cluster_type", cluster_type)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if number_of_nodes is not None:
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def classic(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "classic")
+
+    @classic.setter
+    def classic(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "classic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "cluster_type")
+
+    @cluster_type.setter
+    def cluster_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "node_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "number_of_nodes")
+
+    @number_of_nodes.setter
+    def number_of_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_nodes", value)
+
+
+class ScheduledActionResumeClusterMessageArgsDict(TypedDict):
+    """
+    Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+    """
+    cluster_identifier: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ScheduledActionResumeClusterMessageArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[_builtins.str]):
+        """
+        Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+
 class ScheduledActionTypeArgsDict(TypedDict):
-    pass
+    pause_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionPauseClusterMessageArgsDict']]]
+    resize_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionResizeClusterMessageArgsDict']]]
+    resume_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionResumeClusterMessageArgsDict']]]
 
 @pulumi.input_type
 class ScheduledActionTypeArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 pause_cluster: pulumi.Input[Optional['ScheduledActionPauseClusterMessageArgs']] = None,
+                 resize_cluster: pulumi.Input[Optional['ScheduledActionResizeClusterMessageArgs']] = None,
+                 resume_cluster: pulumi.Input[Optional['ScheduledActionResumeClusterMessageArgs']] = None):
+        if pause_cluster is not None:
+            pulumi.set(__self__, "pause_cluster", pause_cluster)
+        if resize_cluster is not None:
+            pulumi.set(__self__, "resize_cluster", resize_cluster)
+        if resume_cluster is not None:
+            pulumi.set(__self__, "resume_cluster", resume_cluster)
+
+    @_builtins.property
+    @pulumi.getter(name="pauseCluster")
+    def pause_cluster(self) -> pulumi.Input[Optional['ScheduledActionPauseClusterMessageArgs']]:
+        return pulumi.get(self, "pause_cluster")
+
+    @pause_cluster.setter
+    def pause_cluster(self, value: pulumi.Input[Optional['ScheduledActionPauseClusterMessageArgs']]):
+        pulumi.set(self, "pause_cluster", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resizeCluster")
+    def resize_cluster(self) -> pulumi.Input[Optional['ScheduledActionResizeClusterMessageArgs']]:
+        return pulumi.get(self, "resize_cluster")
+
+    @resize_cluster.setter
+    def resize_cluster(self, value: pulumi.Input[Optional['ScheduledActionResizeClusterMessageArgs']]):
+        pulumi.set(self, "resize_cluster", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resumeCluster")
+    def resume_cluster(self) -> pulumi.Input[Optional['ScheduledActionResumeClusterMessageArgs']]:
+        return pulumi.get(self, "resume_cluster")
+
+    @resume_cluster.setter
+    def resume_cluster(self, value: pulumi.Input[Optional['ScheduledActionResumeClusterMessageArgs']]):
+        pulumi.set(self, "resume_cluster", value)
 
 

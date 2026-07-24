@@ -103,7 +103,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "serviceType"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "serviceDetails.azureIdentity", "serviceDetails.dynatrace", "serviceDetails.gitLab", "serviceDetails.mcpServer", "serviceDetails.mcpServerGrafana", "serviceDetails.mcpServerNewRelic", "serviceDetails.mcpServerSplunk", "serviceDetails.pagerDuty", "serviceDetails.serviceNow", "serviceType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

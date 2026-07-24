@@ -2816,6 +2816,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// The IP address type for the endpoint
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeManagedVpcResourceEndpointIpAddressType : IEquatable<RuntimeManagedVpcResourceEndpointIpAddressType>
+    {
+        private readonly string _value;
+
+        private RuntimeManagedVpcResourceEndpointIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeManagedVpcResourceEndpointIpAddressType Ipv4 { get; } = new RuntimeManagedVpcResourceEndpointIpAddressType("IPV4");
+        public static RuntimeManagedVpcResourceEndpointIpAddressType Ipv6 { get; } = new RuntimeManagedVpcResourceEndpointIpAddressType("IPV6");
+
+        public static bool operator ==(RuntimeManagedVpcResourceEndpointIpAddressType left, RuntimeManagedVpcResourceEndpointIpAddressType right) => left.Equals(right);
+        public static bool operator !=(RuntimeManagedVpcResourceEndpointIpAddressType left, RuntimeManagedVpcResourceEndpointIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeManagedVpcResourceEndpointIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeManagedVpcResourceEndpointIpAddressType other && Equals(other);
+        public bool Equals(RuntimeManagedVpcResourceEndpointIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Network mode configuration type
     /// </summary>
     [EnumType]

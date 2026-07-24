@@ -43,6 +43,13 @@ export const LinkDirection = {
 
 export type LinkDirection = (typeof LinkDirection)[keyof typeof LinkDirection];
 
+export const LinkOpenRtbAttributeModuleParametersFilterType = {
+    Include: "INCLUDE",
+    Exclude: "EXCLUDE",
+} as const;
+
+export type LinkOpenRtbAttributeModuleParametersFilterType = (typeof LinkOpenRtbAttributeModuleParametersFilterType)[keyof typeof LinkOpenRtbAttributeModuleParametersFilterType];
+
 export const LinkResponderErrorMaskingForHttpCodeAction = {
     NoBid: "NO_BID",
     Passthrough: "PASSTHROUGH",

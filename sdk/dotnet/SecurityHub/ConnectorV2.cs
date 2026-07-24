@@ -132,6 +132,8 @@ namespace Pulumi.AwsNative.SecurityHub
                 {
                     "kmsKeyArn",
                     "name",
+                    "provider.azure.awsConfigConnectorArn",
+                    "provider.serviceNow.instanceName",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

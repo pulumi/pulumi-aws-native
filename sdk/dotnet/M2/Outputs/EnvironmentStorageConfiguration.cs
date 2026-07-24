@@ -16,9 +16,17 @@ namespace Pulumi.AwsNative.M2.Outputs
     [OutputType]
     public sealed class EnvironmentStorageConfiguration
     {
+        public readonly Outputs.EnvironmentEfsStorageConfiguration? Efs;
+        public readonly Outputs.EnvironmentFsxStorageConfiguration? Fsx;
+
         [OutputConstructor]
-        private EnvironmentStorageConfiguration()
+        private EnvironmentStorageConfiguration(
+            Outputs.EnvironmentEfsStorageConfiguration? efs,
+
+            Outputs.EnvironmentFsxStorageConfiguration? fsx)
         {
+            Efs = efs;
+            Fsx = fsx;
         }
     }
 }

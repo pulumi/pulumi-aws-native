@@ -13,9 +13,17 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class PolicyStoreEncryptionSettings
     {
+        public readonly Outputs.PolicyStoreDefault? Default;
+        public readonly Outputs.PolicyStoreKmsEncryptionSettings? KmsEncryptionSettings;
+
         [OutputConstructor]
-        private PolicyStoreEncryptionSettings()
+        private PolicyStoreEncryptionSettings(
+            Outputs.PolicyStoreDefault? @default,
+
+            Outputs.PolicyStoreKmsEncryptionSettings? kmsEncryptionSettings)
         {
+            Default = @default;
+            KmsEncryptionSettings = kmsEncryptionSettings;
         }
     }
 }

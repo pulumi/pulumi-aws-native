@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'AllowListCriteria',
+    'AllowListS3WordsList',
     'FindingsFilterCriterionAdditionalProperties',
     'FindingsFilterFindingCriteria',
 ]
@@ -27,11 +28,90 @@ class AllowListCriteria(dict):
     """
     The regex or s3 object to use for the AllowList.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3WordsList":
+            suggest = "s3_words_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllowListCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllowListCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllowListCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 regex: Optional[_builtins.str] = None,
+                 s3_words_list: Optional['outputs.AllowListS3WordsList'] = None):
         """
         The regex or s3 object to use for the AllowList.
+
+        :param _builtins.str regex: The S3 object key for the AllowList.
+        :param 'AllowListS3WordsList' s3_words_list: The S3 location for the AllowList.
         """
-        pass
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if s3_words_list is not None:
+            pulumi.set(__self__, "s3_words_list", s3_words_list)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> Optional[_builtins.str]:
+        """
+        The S3 object key for the AllowList.
+        """
+        return pulumi.get(self, "regex")
+
+    @_builtins.property
+    @pulumi.getter(name="s3WordsList")
+    def s3_words_list(self) -> Optional['outputs.AllowListS3WordsList']:
+        """
+        The S3 location for the AllowList.
+        """
+        return pulumi.get(self, "s3_words_list")
+
+
+@pulumi.output_type
+class AllowListS3WordsList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "objectKey":
+            suggest = "object_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllowListS3WordsList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllowListS3WordsList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllowListS3WordsList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: _builtins.str,
+                 object_key: _builtins.str):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "object_key", object_key)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> _builtins.str:
+        return pulumi.get(self, "bucket_name")
+
+    @_builtins.property
+    @pulumi.getter(name="objectKey")
+    def object_key(self) -> _builtins.str:
+        return pulumi.get(self, "object_key")
 
 
 @pulumi.output_type

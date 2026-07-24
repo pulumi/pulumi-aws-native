@@ -279,6 +279,18 @@ export const BucketOwnershipControlsRuleObjectOwnership = {
  */
 export type BucketOwnershipControlsRuleObjectOwnership = (typeof BucketOwnershipControlsRuleObjectOwnership)[keyof typeof BucketOwnershipControlsRuleObjectOwnership];
 
+export const BucketPartitionedPrefixPartitionDateSource = {
+    EventTime: "EventTime",
+    DeliveryTime: "DeliveryTime",
+} as const;
+
+/**
+ * Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+ *  For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+ *   For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+ */
+export type BucketPartitionedPrefixPartitionDateSource = (typeof BucketPartitionedPrefixPartitionDateSource)[keyof typeof BucketPartitionedPrefixPartitionDateSource];
+
 export const BucketRecordExpirationExpiration = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

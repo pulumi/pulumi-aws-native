@@ -300,6 +300,17 @@ export const ClusterNodeRecovery = {
  */
 export type ClusterNodeRecovery = (typeof ClusterNodeRecovery)[keyof typeof ClusterNodeRecovery];
 
+export const ClusterOrchestratorSlurmConfigSlurmConfigStrategy = {
+    Overwrite: "Overwrite",
+    Managed: "Managed",
+    Merge: "Merge",
+} as const;
+
+/**
+ * The strategy for managing Slurm configuration on the cluster.
+ */
+export type ClusterOrchestratorSlurmConfigSlurmConfigStrategy = (typeof ClusterOrchestratorSlurmConfigSlurmConfigStrategy)[keyof typeof ClusterOrchestratorSlurmConfigSlurmConfigStrategy];
+
 export const ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy = {
     Keep: "Keep",
     DeleteIfNotUsed: "DeleteIfNotUsed",

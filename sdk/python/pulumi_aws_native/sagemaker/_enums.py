@@ -21,6 +21,7 @@ __all__ = [
     'ClusterNetworkInterfaceInterfaceType',
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
+    'ClusterOrchestratorSlurmConfigSlurmConfigStrategy',
     'ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy',
     'ClusterSlurmConfigNodeType',
     'ClusterStatus',
@@ -440,6 +441,16 @@ class ClusterNodeRecovery(_builtins.str, Enum):
     """
     AUTOMATIC = "Automatic"
     NONE = "None"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterOrchestratorSlurmConfigSlurmConfigStrategy")
+class ClusterOrchestratorSlurmConfigSlurmConfigStrategy(_builtins.str, Enum):
+    """
+    The strategy for managing Slurm configuration on the cluster.
+    """
+    OVERWRITE = "Overwrite"
+    MANAGED = "Managed"
+    MERGE = "Merge"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy")

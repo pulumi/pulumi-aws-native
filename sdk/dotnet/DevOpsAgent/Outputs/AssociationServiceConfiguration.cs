@@ -16,9 +16,73 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     [OutputType]
     public sealed class AssociationServiceConfiguration
     {
+        public readonly Outputs.AssociationAwsConfiguration? Aws;
+        public readonly Outputs.AssociationAzureConfiguration? Azure;
+        public readonly Outputs.AssociationDynatraceConfiguration? Dynatrace;
+        public readonly Outputs.AssociationEventChannelConfiguration? EventChannel;
+        public readonly Outputs.AssociationGitHubConfiguration? GitHub;
+        public readonly Outputs.AssociationGitLabConfiguration? GitLab;
+        public readonly Outputs.AssociationMcpServerConfiguration? McpServer;
+        public readonly Outputs.AssociationMcpServerDatadogConfiguration? McpServerDatadog;
+        public readonly Outputs.AssociationMcpServerGrafanaConfiguration? McpServerGrafana;
+        public readonly Outputs.AssociationMcpServerNewRelicConfiguration? McpServerNewRelic;
+        public readonly Outputs.AssociationMcpServerSigV4Configuration? McpServerSigV4;
+        public readonly Outputs.AssociationMcpServerSplunkConfiguration? McpServerSplunk;
+        public readonly Outputs.AssociationPagerDutyConfiguration? PagerDuty;
+        public readonly Outputs.AssociationServiceNowConfiguration? ServiceNow;
+        public readonly Outputs.AssociationSlackConfiguration? Slack;
+        public readonly Outputs.AssociationSourceAwsConfiguration? SourceAws;
+
         [OutputConstructor]
-        private AssociationServiceConfiguration()
+        private AssociationServiceConfiguration(
+            Outputs.AssociationAwsConfiguration? aws,
+
+            Outputs.AssociationAzureConfiguration? azure,
+
+            Outputs.AssociationDynatraceConfiguration? dynatrace,
+
+            Outputs.AssociationEventChannelConfiguration? eventChannel,
+
+            Outputs.AssociationGitHubConfiguration? gitHub,
+
+            Outputs.AssociationGitLabConfiguration? gitLab,
+
+            Outputs.AssociationMcpServerConfiguration? mcpServer,
+
+            Outputs.AssociationMcpServerDatadogConfiguration? mcpServerDatadog,
+
+            Outputs.AssociationMcpServerGrafanaConfiguration? mcpServerGrafana,
+
+            Outputs.AssociationMcpServerNewRelicConfiguration? mcpServerNewRelic,
+
+            Outputs.AssociationMcpServerSigV4Configuration? mcpServerSigV4,
+
+            Outputs.AssociationMcpServerSplunkConfiguration? mcpServerSplunk,
+
+            Outputs.AssociationPagerDutyConfiguration? pagerDuty,
+
+            Outputs.AssociationServiceNowConfiguration? serviceNow,
+
+            Outputs.AssociationSlackConfiguration? slack,
+
+            Outputs.AssociationSourceAwsConfiguration? sourceAws)
         {
+            Aws = aws;
+            Azure = azure;
+            Dynatrace = dynatrace;
+            EventChannel = eventChannel;
+            GitHub = gitHub;
+            GitLab = gitLab;
+            McpServer = mcpServer;
+            McpServerDatadog = mcpServerDatadog;
+            McpServerGrafana = mcpServerGrafana;
+            McpServerNewRelic = mcpServerNewRelic;
+            McpServerSigV4 = mcpServerSigV4;
+            McpServerSplunk = mcpServerSplunk;
+            PagerDuty = pagerDuty;
+            ServiceNow = serviceNow;
+            Slack = slack;
+            SourceAws = sourceAws;
         }
     }
 }

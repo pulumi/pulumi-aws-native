@@ -1576,8 +1576,192 @@ func (o MultiplexprogramMultiplexProgramSettingsPtrOutput) VideoSettings() Multi
 	}).(MultiplexprogramMultiplexVideoSettingsPtrOutput)
 }
 
+// Statmux rate control settings
+type MultiplexprogramMultiplexStatmuxVideoSettings struct {
+	// Maximum statmux bitrate.
+	MaximumBitrate *int `pulumi:"maximumBitrate"`
+	// Minimum statmux bitrate.
+	MinimumBitrate *int `pulumi:"minimumBitrate"`
+	// The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+	Priority *int `pulumi:"priority"`
+}
+
+// MultiplexprogramMultiplexStatmuxVideoSettingsInput is an input type that accepts MultiplexprogramMultiplexStatmuxVideoSettingsArgs and MultiplexprogramMultiplexStatmuxVideoSettingsOutput values.
+// You can construct a concrete instance of `MultiplexprogramMultiplexStatmuxVideoSettingsInput` via:
+//
+//	MultiplexprogramMultiplexStatmuxVideoSettingsArgs{...}
+type MultiplexprogramMultiplexStatmuxVideoSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexprogramMultiplexStatmuxVideoSettingsOutput() MultiplexprogramMultiplexStatmuxVideoSettingsOutput
+	ToMultiplexprogramMultiplexStatmuxVideoSettingsOutputWithContext(context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsOutput
+}
+
+// Statmux rate control settings
+type MultiplexprogramMultiplexStatmuxVideoSettingsArgs struct {
+	// Maximum statmux bitrate.
+	MaximumBitrate pulumi.IntPtrInput `pulumi:"maximumBitrate"`
+	// Minimum statmux bitrate.
+	MinimumBitrate pulumi.IntPtrInput `pulumi:"minimumBitrate"`
+	// The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+}
+
+func (MultiplexprogramMultiplexStatmuxVideoSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexprogramMultiplexStatmuxVideoSettings)(nil)).Elem()
+}
+
+func (i MultiplexprogramMultiplexStatmuxVideoSettingsArgs) ToMultiplexprogramMultiplexStatmuxVideoSettingsOutput() MultiplexprogramMultiplexStatmuxVideoSettingsOutput {
+	return i.ToMultiplexprogramMultiplexStatmuxVideoSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexprogramMultiplexStatmuxVideoSettingsArgs) ToMultiplexprogramMultiplexStatmuxVideoSettingsOutputWithContext(ctx context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexStatmuxVideoSettingsOutput)
+}
+
+func (i MultiplexprogramMultiplexStatmuxVideoSettingsArgs) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput() MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return i.ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexprogramMultiplexStatmuxVideoSettingsArgs) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexStatmuxVideoSettingsOutput).ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexprogramMultiplexStatmuxVideoSettingsPtrInput is an input type that accepts MultiplexprogramMultiplexStatmuxVideoSettingsArgs, MultiplexprogramMultiplexStatmuxVideoSettingsPtr and MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexprogramMultiplexStatmuxVideoSettingsPtrInput` via:
+//
+//	        MultiplexprogramMultiplexStatmuxVideoSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexprogramMultiplexStatmuxVideoSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput() MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput
+	ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput
+}
+
+type multiplexprogramMultiplexStatmuxVideoSettingsPtrType MultiplexprogramMultiplexStatmuxVideoSettingsArgs
+
+func MultiplexprogramMultiplexStatmuxVideoSettingsPtr(v *MultiplexprogramMultiplexStatmuxVideoSettingsArgs) MultiplexprogramMultiplexStatmuxVideoSettingsPtrInput {
+	return (*multiplexprogramMultiplexStatmuxVideoSettingsPtrType)(v)
+}
+
+func (*multiplexprogramMultiplexStatmuxVideoSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexprogramMultiplexStatmuxVideoSettings)(nil)).Elem()
+}
+
+func (i *multiplexprogramMultiplexStatmuxVideoSettingsPtrType) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput() MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return i.ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexprogramMultiplexStatmuxVideoSettingsPtrType) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput)
+}
+
+// Statmux rate control settings
+type MultiplexprogramMultiplexStatmuxVideoSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexprogramMultiplexStatmuxVideoSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexprogramMultiplexStatmuxVideoSettings)(nil)).Elem()
+}
+
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsOutput) ToMultiplexprogramMultiplexStatmuxVideoSettingsOutput() MultiplexprogramMultiplexStatmuxVideoSettingsOutput {
+	return o
+}
+
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsOutput) ToMultiplexprogramMultiplexStatmuxVideoSettingsOutputWithContext(ctx context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsOutput {
+	return o
+}
+
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsOutput) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput() MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return o.ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsOutput) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexprogramMultiplexStatmuxVideoSettings) *MultiplexprogramMultiplexStatmuxVideoSettings {
+		return &v
+	}).(MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput)
+}
+
+// Maximum statmux bitrate.
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexprogramMultiplexStatmuxVideoSettings) *int { return v.MaximumBitrate }).(pulumi.IntPtrOutput)
+}
+
+// Minimum statmux bitrate.
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsOutput) MinimumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexprogramMultiplexStatmuxVideoSettings) *int { return v.MinimumBitrate }).(pulumi.IntPtrOutput)
+}
+
+// The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexprogramMultiplexStatmuxVideoSettings) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+type MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexprogramMultiplexStatmuxVideoSettings)(nil)).Elem()
+}
+
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput() MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput) ToMultiplexprogramMultiplexStatmuxVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput) Elem() MultiplexprogramMultiplexStatmuxVideoSettingsOutput {
+	return o.ApplyT(func(v *MultiplexprogramMultiplexStatmuxVideoSettings) MultiplexprogramMultiplexStatmuxVideoSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexprogramMultiplexStatmuxVideoSettings
+		return ret
+	}).(MultiplexprogramMultiplexStatmuxVideoSettingsOutput)
+}
+
+// Maximum statmux bitrate.
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexprogramMultiplexStatmuxVideoSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum statmux bitrate.
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput) MinimumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexprogramMultiplexStatmuxVideoSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+func (o MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexprogramMultiplexStatmuxVideoSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Priority
+	}).(pulumi.IntPtrOutput)
+}
+
 // The video configuration for each program in a multiplex.
 type MultiplexprogramMultiplexVideoSettings struct {
+	// The constant bitrate configuration for the video encode.
+	// When this field is defined, StatmuxSettings must be undefined.
+	ConstantBitrate *int `pulumi:"constantBitrate"`
+	// Statmux rate control settings.
+	// When this field is defined, ConstantBitrate must be undefined.
+	StatmuxSettings *MultiplexprogramMultiplexStatmuxVideoSettings `pulumi:"statmuxSettings"`
 }
 
 // MultiplexprogramMultiplexVideoSettingsInput is an input type that accepts MultiplexprogramMultiplexVideoSettingsArgs and MultiplexprogramMultiplexVideoSettingsOutput values.
@@ -1593,6 +1777,12 @@ type MultiplexprogramMultiplexVideoSettingsInput interface {
 
 // The video configuration for each program in a multiplex.
 type MultiplexprogramMultiplexVideoSettingsArgs struct {
+	// The constant bitrate configuration for the video encode.
+	// When this field is defined, StatmuxSettings must be undefined.
+	ConstantBitrate pulumi.IntPtrInput `pulumi:"constantBitrate"`
+	// Statmux rate control settings.
+	// When this field is defined, ConstantBitrate must be undefined.
+	StatmuxSettings MultiplexprogramMultiplexStatmuxVideoSettingsPtrInput `pulumi:"statmuxSettings"`
 }
 
 func (MultiplexprogramMultiplexVideoSettingsArgs) ElementType() reflect.Type {
@@ -1673,6 +1863,20 @@ func (o MultiplexprogramMultiplexVideoSettingsOutput) ToMultiplexprogramMultiple
 	}).(MultiplexprogramMultiplexVideoSettingsPtrOutput)
 }
 
+// The constant bitrate configuration for the video encode.
+// When this field is defined, StatmuxSettings must be undefined.
+func (o MultiplexprogramMultiplexVideoSettingsOutput) ConstantBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexprogramMultiplexVideoSettings) *int { return v.ConstantBitrate }).(pulumi.IntPtrOutput)
+}
+
+// Statmux rate control settings.
+// When this field is defined, ConstantBitrate must be undefined.
+func (o MultiplexprogramMultiplexVideoSettingsOutput) StatmuxSettings() MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return o.ApplyT(func(v MultiplexprogramMultiplexVideoSettings) *MultiplexprogramMultiplexStatmuxVideoSettings {
+		return v.StatmuxSettings
+	}).(MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput)
+}
+
 type MultiplexprogramMultiplexVideoSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (MultiplexprogramMultiplexVideoSettingsPtrOutput) ElementType() reflect.Type {
@@ -1695,6 +1899,28 @@ func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) Elem() Multiplexprogram
 		var ret MultiplexprogramMultiplexVideoSettings
 		return ret
 	}).(MultiplexprogramMultiplexVideoSettingsOutput)
+}
+
+// The constant bitrate configuration for the video encode.
+// When this field is defined, StatmuxSettings must be undefined.
+func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) ConstantBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexprogramMultiplexVideoSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConstantBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Statmux rate control settings.
+// When this field is defined, ConstantBitrate must be undefined.
+func (o MultiplexprogramMultiplexVideoSettingsPtrOutput) StatmuxSettings() MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput {
+	return o.ApplyT(func(v *MultiplexprogramMultiplexVideoSettings) *MultiplexprogramMultiplexStatmuxVideoSettings {
+		if v == nil {
+			return nil
+		}
+		return v.StatmuxSettings
+	}).(MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput)
 }
 
 // IP address cidr pool
@@ -2463,6 +2689,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexProgramServiceDescriptorPtrInput)(nil)).Elem(), MultiplexprogramMultiplexProgramServiceDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexProgramSettingsInput)(nil)).Elem(), MultiplexprogramMultiplexProgramSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexProgramSettingsPtrInput)(nil)).Elem(), MultiplexprogramMultiplexProgramSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexStatmuxVideoSettingsInput)(nil)).Elem(), MultiplexprogramMultiplexStatmuxVideoSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexStatmuxVideoSettingsPtrInput)(nil)).Elem(), MultiplexprogramMultiplexStatmuxVideoSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexVideoSettingsInput)(nil)).Elem(), MultiplexprogramMultiplexVideoSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramMultiplexVideoSettingsPtrInput)(nil)).Elem(), MultiplexprogramMultiplexVideoSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkIpPoolInput)(nil)).Elem(), NetworkIpPoolArgs{})
@@ -2493,6 +2721,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexProgramServiceDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexProgramSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexProgramSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexprogramMultiplexStatmuxVideoSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexprogramMultiplexStatmuxVideoSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexVideoSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexprogramMultiplexVideoSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkIpPoolOutput{})

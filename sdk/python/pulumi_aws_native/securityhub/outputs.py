@@ -56,8 +56,12 @@ __all__ = [
     'ConnectorAzureScopeConfiguration',
     'ConnectorHealthIssue',
     'ConnectorProvider',
+    'ConnectorV2AzureProviderConfiguration',
+    'ConnectorV2AzureScopeConfiguration',
     'ConnectorV2HealthIssue',
+    'ConnectorV2JiraCloudProviderConfiguration',
     'ConnectorV2Provider',
+    'ConnectorV2ServiceNowProviderConfiguration',
     'InsightAwsSecurityFindingFilters',
     'InsightBooleanFilter',
     'InsightDateFilter',
@@ -2835,6 +2839,122 @@ class ConnectorProvider(dict):
 
 
 @pulumi.output_type
+class ConnectorV2AzureProviderConfiguration(dict):
+    """
+    The configuration settings required to establish an integration between AWS Security Hub and Azure
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsConfigConnectorArn":
+            suggest = "aws_config_connector_arn"
+        elif key == "azureRegions":
+            suggest = "azure_regions"
+        elif key == "scopeConfiguration":
+            suggest = "scope_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2AzureProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2AzureProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2AzureProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_config_connector_arn: _builtins.str,
+                 azure_regions: Sequence[_builtins.str],
+                 scope_configuration: 'outputs.ConnectorV2AzureScopeConfiguration'):
+        """
+        The configuration settings required to establish an integration between AWS Security Hub and Azure
+
+        :param _builtins.str aws_config_connector_arn: The ARN of the AWS Config connector used for the Azure integration
+        :param Sequence[_builtins.str] azure_regions: The list of Azure regions to include in the connector scope
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "azure_regions", azure_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Config connector used for the Azure integration
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="azureRegions")
+    def azure_regions(self) -> Sequence[_builtins.str]:
+        """
+        The list of Azure regions to include in the connector scope
+        """
+        return pulumi.get(self, "azure_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> 'outputs.ConnectorV2AzureScopeConfiguration':
+        return pulumi.get(self, "scope_configuration")
+
+
+@pulumi.output_type
+class ConnectorV2AzureScopeConfiguration(dict):
+    """
+    The scope configuration for an Azure connector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scopeType":
+            suggest = "scope_type"
+        elif key == "scopeValues":
+            suggest = "scope_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2AzureScopeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2AzureScopeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2AzureScopeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scope_type: 'ConnectorV2AzureScopeConfigurationScopeType',
+                 scope_values: Optional[Sequence[_builtins.str]] = None):
+        """
+        The scope configuration for an Azure connector
+
+        :param 'ConnectorV2AzureScopeConfigurationScopeType' scope_type: The scope type for the Azure connector
+        :param Sequence[_builtins.str] scope_values: The list of scope values for the Azure connector
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> 'ConnectorV2AzureScopeConfigurationScopeType':
+        """
+        The scope type for the Azure connector
+        """
+        return pulumi.get(self, "scope_type")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of scope values for the Azure connector
+        """
+        return pulumi.get(self, "scope_values")
+
+
+@pulumi.output_type
 class ConnectorV2HealthIssue(dict):
     """
     A health issue associated with the connector
@@ -2869,15 +2989,150 @@ class ConnectorV2HealthIssue(dict):
 
 
 @pulumi.output_type
+class ConnectorV2JiraCloudProviderConfiguration(dict):
+    """
+    The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectKey":
+            suggest = "project_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2JiraCloudProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2JiraCloudProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2JiraCloudProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_key: _builtins.str):
+        """
+        The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+
+        :param _builtins.str project_key: The project key for a Jira Cloud instance
+        """
+        pulumi.set(__self__, "project_key", project_key)
+
+    @_builtins.property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> _builtins.str:
+        """
+        The project key for a Jira Cloud instance
+        """
+        return pulumi.get(self, "project_key")
+
+
+@pulumi.output_type
 class ConnectorV2Provider(dict):
     """
     The third-party provider configuration for the connector
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jiraCloud":
+            suggest = "jira_cloud"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2Provider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2Provider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2Provider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure: Optional['outputs.ConnectorV2AzureProviderConfiguration'] = None,
+                 jira_cloud: Optional['outputs.ConnectorV2JiraCloudProviderConfiguration'] = None,
+                 service_now: Optional['outputs.ConnectorV2ServiceNowProviderConfiguration'] = None):
         """
         The third-party provider configuration for the connector
         """
-        pass
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if jira_cloud is not None:
+            pulumi.set(__self__, "jira_cloud", jira_cloud)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> Optional['outputs.ConnectorV2AzureProviderConfiguration']:
+        return pulumi.get(self, "azure")
+
+    @_builtins.property
+    @pulumi.getter(name="jiraCloud")
+    def jira_cloud(self) -> Optional['outputs.ConnectorV2JiraCloudProviderConfiguration']:
+        return pulumi.get(self, "jira_cloud")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> Optional['outputs.ConnectorV2ServiceNowProviderConfiguration']:
+        return pulumi.get(self, "service_now")
+
+
+@pulumi.output_type
+class ConnectorV2ServiceNowProviderConfiguration(dict):
+    """
+    The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceName":
+            suggest = "instance_name"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorV2ServiceNowProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorV2ServiceNowProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorV2ServiceNowProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_name: _builtins.str,
+                 secret_arn: _builtins.str):
+        """
+        The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+
+        :param _builtins.str instance_name: The instance name of ServiceNow ITSM
+        :param _builtins.str secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+        """
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> _builtins.str:
+        """
+        The instance name of ServiceNow ITSM
+        """
+        return pulumi.get(self, "instance_name")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type

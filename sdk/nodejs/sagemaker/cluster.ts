@@ -136,7 +136,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clusterName", "vpcConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["clusterName", "orchestrator.eks", "vpcConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

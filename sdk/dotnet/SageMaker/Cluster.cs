@@ -125,6 +125,7 @@ namespace Pulumi.AwsNative.SageMaker
                 ReplaceOnChanges =
                 {
                     "clusterName",
+                    "orchestrator.eks",
                     "vpcConfig",
                 },
             };

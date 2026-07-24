@@ -132,6 +132,34 @@ namespace Pulumi.AwsNative.RtbFabric
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct LinkOpenRtbAttributeModuleParametersFilterType : IEquatable<LinkOpenRtbAttributeModuleParametersFilterType>
+    {
+        private readonly string _value;
+
+        private LinkOpenRtbAttributeModuleParametersFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinkOpenRtbAttributeModuleParametersFilterType Include { get; } = new LinkOpenRtbAttributeModuleParametersFilterType("INCLUDE");
+        public static LinkOpenRtbAttributeModuleParametersFilterType Exclude { get; } = new LinkOpenRtbAttributeModuleParametersFilterType("EXCLUDE");
+
+        public static bool operator ==(LinkOpenRtbAttributeModuleParametersFilterType left, LinkOpenRtbAttributeModuleParametersFilterType right) => left.Equals(right);
+        public static bool operator !=(LinkOpenRtbAttributeModuleParametersFilterType left, LinkOpenRtbAttributeModuleParametersFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(LinkOpenRtbAttributeModuleParametersFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinkOpenRtbAttributeModuleParametersFilterType other && Equals(other);
+        public bool Equals(LinkOpenRtbAttributeModuleParametersFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The action for the error..
     /// </summary>

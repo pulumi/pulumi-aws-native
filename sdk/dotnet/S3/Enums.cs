@@ -810,6 +810,39 @@ namespace Pulumi.AwsNative.S3
     }
 
     /// <summary>
+    /// Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+    ///  For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files. 
+    ///   For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketPartitionedPrefixPartitionDateSource : IEquatable<BucketPartitionedPrefixPartitionDateSource>
+    {
+        private readonly string _value;
+
+        private BucketPartitionedPrefixPartitionDateSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketPartitionedPrefixPartitionDateSource EventTime { get; } = new BucketPartitionedPrefixPartitionDateSource("EventTime");
+        public static BucketPartitionedPrefixPartitionDateSource DeliveryTime { get; } = new BucketPartitionedPrefixPartitionDateSource("DeliveryTime");
+
+        public static bool operator ==(BucketPartitionedPrefixPartitionDateSource left, BucketPartitionedPrefixPartitionDateSource right) => left.Equals(right);
+        public static bool operator !=(BucketPartitionedPrefixPartitionDateSource left, BucketPartitionedPrefixPartitionDateSource right) => !left.Equals(right);
+
+        public static explicit operator string(BucketPartitionedPrefixPartitionDateSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketPartitionedPrefixPartitionDateSource other && Equals(other);
+        public bool Equals(BucketPartitionedPrefixPartitionDateSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies whether journal table record expiration is enabled or disabled.
     /// </summary>
     [EnumType]

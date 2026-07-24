@@ -16,9 +16,49 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     [OutputType]
     public sealed class ServiceAdditionalServiceDetails
     {
+        public readonly Outputs.ServiceRegisteredAzureIdentityDetails? AzureIdentity;
+        public readonly Outputs.ServiceRegisteredDynatraceDetails? Dynatrace;
+        public readonly Outputs.ServiceRegisteredGitLabServiceDetails? GitLab;
+        public readonly Outputs.ServiceRegisteredMcpServerDetails? McpServer;
+        public readonly Outputs.ServiceRegisteredMcpServerGrafanaDetails? McpServerGrafana;
+        public readonly Outputs.ServiceRegisteredNewRelicDetails? McpServerNewRelic;
+        public readonly Outputs.ServiceRegisteredMcpServerSigV4Details? McpServerSigV4;
+        public readonly Outputs.ServiceRegisteredMcpServerDetails? McpServerSplunk;
+        public readonly Outputs.ServiceRegisteredPagerDutyDetails? PagerDuty;
+        public readonly Outputs.ServiceRegisteredServiceNowDetails? ServiceNow;
+
         [OutputConstructor]
-        private ServiceAdditionalServiceDetails()
+        private ServiceAdditionalServiceDetails(
+            Outputs.ServiceRegisteredAzureIdentityDetails? azureIdentity,
+
+            Outputs.ServiceRegisteredDynatraceDetails? dynatrace,
+
+            Outputs.ServiceRegisteredGitLabServiceDetails? gitLab,
+
+            Outputs.ServiceRegisteredMcpServerDetails? mcpServer,
+
+            Outputs.ServiceRegisteredMcpServerGrafanaDetails? mcpServerGrafana,
+
+            Outputs.ServiceRegisteredNewRelicDetails? mcpServerNewRelic,
+
+            Outputs.ServiceRegisteredMcpServerSigV4Details? mcpServerSigV4,
+
+            Outputs.ServiceRegisteredMcpServerDetails? mcpServerSplunk,
+
+            Outputs.ServiceRegisteredPagerDutyDetails? pagerDuty,
+
+            Outputs.ServiceRegisteredServiceNowDetails? serviceNow)
         {
+            AzureIdentity = azureIdentity;
+            Dynatrace = dynatrace;
+            GitLab = gitLab;
+            McpServer = mcpServer;
+            McpServerGrafana = mcpServerGrafana;
+            McpServerNewRelic = mcpServerNewRelic;
+            McpServerSigV4 = mcpServerSigV4;
+            McpServerSplunk = mcpServerSplunk;
+            PagerDuty = pagerDuty;
+            ServiceNow = serviceNow;
         }
     }
 }

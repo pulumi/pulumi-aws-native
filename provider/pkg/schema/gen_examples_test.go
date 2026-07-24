@@ -46,6 +46,71 @@ func TestPropertyTypeSpec(t *testing.T) {
 								&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.StringType}},
 							},
 						},
+						"OneOfObject": {
+							Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
+							Properties: map[string]*jsschema.Schema{
+								"Common": {Type: jsschema.PrimitiveTypes{jsschema.BooleanType}},
+							},
+							Required: []string{"Common"},
+							OneOf: jsschema.SchemaList{
+								&jsschema.Schema{
+									Properties: map[string]*jsschema.Schema{
+										"A": {Type: jsschema.PrimitiveTypes{jsschema.NumberType}},
+									},
+									Required: []string{"A"},
+								},
+								&jsschema.Schema{
+									Properties: map[string]*jsschema.Schema{
+										"B": {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+									},
+									Required: []string{"B"},
+								},
+							},
+						},
+						"AnyOfObject": {
+							Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
+							Properties: map[string]*jsschema.Schema{
+								"Common": {Type: jsschema.PrimitiveTypes{jsschema.BooleanType}},
+							},
+							Required: []string{"Common"},
+							AnyOf: jsschema.SchemaList{
+								&jsschema.Schema{
+									Properties: map[string]*jsschema.Schema{
+										"A": {Type: jsschema.PrimitiveTypes{jsschema.NumberType}},
+									},
+									Required: []string{"A"},
+								},
+								&jsschema.Schema{
+									Properties: map[string]*jsschema.Schema{
+										"B": {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+									},
+									Required: []string{"B"},
+								},
+							},
+						},
+						"UntypedOneOfObject": {
+							Properties: map[string]*jsschema.Schema{
+								"A":      {Type: jsschema.PrimitiveTypes{jsschema.NumberType}},
+								"B":      {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+								"Common": {Type: jsschema.PrimitiveTypes{jsschema.BooleanType}},
+							},
+							Required: []string{"Common"},
+							OneOf: jsschema.SchemaList{
+								&jsschema.Schema{Required: []string{"A"}},
+								&jsschema.Schema{Required: []string{"B"}},
+							},
+						},
+						"ConflictingOneOfObject": {
+							Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
+							OneOf: jsschema.SchemaList{
+								&jsschema.Schema{Properties: map[string]*jsschema.Schema{
+									"A": {Type: jsschema.PrimitiveTypes{jsschema.NumberType}},
+								}},
+								&jsschema.Schema{Properties: map[string]*jsschema.Schema{
+									"A": {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+								}},
+							},
+						},
 						"ObjLike1": {
 							Properties: map[string]*jsschema.Schema{
 								"foo": jsschema.New(),
@@ -209,6 +274,53 @@ func TestPropertyTypeSpec(t *testing.T) {
 			OneOf: []pschema.TypeSpec{
 				{Type: "number"},
 				{Type: "string"},
+			},
+		},
+	}))
+	expectedObjectType := func(name string) map[string]pschema.ComplexTypeSpec {
+		return map[string]pschema.ComplexTypeSpec{
+			"aws-native::" + name: {
+				ObjectTypeSpec: pschema.ObjectTypeSpec{
+					Type: "object",
+					Properties: map[string]pschema.PropertySpec{
+						"a":      {TypeSpec: pschema.TypeSpec{Type: "number"}},
+						"b":      {TypeSpec: pschema.TypeSpec{Type: "string"}},
+						"common": {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
+					},
+					Required: []string{"common"},
+				},
+			},
+		}
+	}
+	t.Run("ref-to-explicitly-typed-oneOf-object", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/OneOfObject"
+			 }`,
+		expected:      pschema.TypeSpec{Ref: "#/types/aws-native::OneOfObject"},
+		expectedTypes: expectedObjectType("OneOfObject"),
+	}))
+	t.Run("ref-to-explicitly-typed-anyOf-object", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/AnyOfObject"
+			 }`,
+		expected:      pschema.TypeSpec{Ref: "#/types/aws-native::AnyOfObject"},
+		expectedTypes: expectedObjectType("AnyOfObject"),
+	}))
+	t.Run("ref-to-untyped-object-union-with-top-level-properties", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/UntypedOneOfObject"
+			 }`,
+		expected:      pschema.TypeSpec{Ref: "#/types/aws-native::UntypedOneOfObject"},
+		expectedTypes: expectedObjectType("UntypedOneOfObject"),
+	}))
+	t.Run("ref-to-conflicting-object-union", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/ConflictingOneOfObject"
+			 }`,
+		expected: pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{
+				{Ref: "#/types/aws-native::ConflictingOneOfObject0Properties"},
+				{Ref: "#/types/aws-native::ConflictingOneOfObject1Properties"},
 			},
 		},
 	}))

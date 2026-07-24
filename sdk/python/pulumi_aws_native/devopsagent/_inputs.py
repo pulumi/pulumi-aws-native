@@ -22,12 +22,102 @@ __all__ = [
     'AgentSpaceIdcAuthConfigurationArgsDict',
     'AgentSpaceOperatorAppArgs',
     'AgentSpaceOperatorAppArgsDict',
+    'AssociationAwsConfigurationArgs',
+    'AssociationAwsConfigurationArgsDict',
+    'AssociationAwsResourceArgs',
+    'AssociationAwsResourceArgsDict',
+    'AssociationAzureConfigurationArgs',
+    'AssociationAzureConfigurationArgsDict',
+    'AssociationDynatraceConfigurationArgs',
+    'AssociationDynatraceConfigurationArgsDict',
+    'AssociationEventChannelConfigurationArgs',
+    'AssociationEventChannelConfigurationArgsDict',
+    'AssociationGitHubConfigurationArgs',
+    'AssociationGitHubConfigurationArgsDict',
+    'AssociationGitLabConfigurationArgs',
+    'AssociationGitLabConfigurationArgsDict',
+    'AssociationKeyValuePairArgs',
+    'AssociationKeyValuePairArgsDict',
+    'AssociationMcpServerConfigurationArgs',
+    'AssociationMcpServerConfigurationArgsDict',
+    'AssociationMcpServerDatadogConfigurationArgs',
+    'AssociationMcpServerDatadogConfigurationArgsDict',
+    'AssociationMcpServerGrafanaConfigurationArgs',
+    'AssociationMcpServerGrafanaConfigurationArgsDict',
+    'AssociationMcpServerNewRelicConfigurationArgs',
+    'AssociationMcpServerNewRelicConfigurationArgsDict',
+    'AssociationMcpServerSigV4ConfigurationArgs',
+    'AssociationMcpServerSigV4ConfigurationArgsDict',
+    'AssociationMcpServerSplunkConfigurationArgs',
+    'AssociationMcpServerSplunkConfigurationArgsDict',
+    'AssociationPagerDutyConfigurationArgs',
+    'AssociationPagerDutyConfigurationArgsDict',
     'AssociationServiceConfigurationArgs',
     'AssociationServiceConfigurationArgsDict',
+    'AssociationServiceNowConfigurationArgs',
+    'AssociationServiceNowConfigurationArgsDict',
+    'AssociationSlackChannelArgs',
+    'AssociationSlackChannelArgsDict',
+    'AssociationSlackConfigurationArgs',
+    'AssociationSlackConfigurationArgsDict',
+    'AssociationSlackTransmissionTargetArgs',
+    'AssociationSlackTransmissionTargetArgsDict',
+    'AssociationSourceAwsConfigurationArgs',
+    'AssociationSourceAwsConfigurationArgsDict',
     'PrivateConnectionConnectionConfigurationArgs',
     'PrivateConnectionConnectionConfigurationArgsDict',
+    'PrivateConnectionSelfManagedModeArgs',
+    'PrivateConnectionSelfManagedModeArgsDict',
+    'PrivateConnectionServiceManagedModeArgs',
+    'PrivateConnectionServiceManagedModeArgsDict',
+    'ServiceApiKeyDetailsArgs',
+    'ServiceApiKeyDetailsArgsDict',
+    'ServiceAzureIdentityServiceDetailsArgs',
+    'ServiceAzureIdentityServiceDetailsArgsDict',
+    'ServiceBearerTokenDetailsArgs',
+    'ServiceBearerTokenDetailsArgsDict',
     'ServiceDetailsArgs',
     'ServiceDetailsArgsDict',
+    'ServiceDynatraceAuthorizationConfigArgs',
+    'ServiceDynatraceAuthorizationConfigArgsDict',
+    'ServiceDynatraceServiceDetailsArgs',
+    'ServiceDynatraceServiceDetailsArgsDict',
+    'ServiceGitLabDetailsArgs',
+    'ServiceGitLabDetailsArgsDict',
+    'ServiceMcpServerAuthorizationConfigArgs',
+    'ServiceMcpServerAuthorizationConfigArgsDict',
+    'ServiceMcpServerDetailsArgs',
+    'ServiceMcpServerDetailsArgsDict',
+    'ServiceMcpServerGrafanaAuthorizationConfigArgs',
+    'ServiceMcpServerGrafanaAuthorizationConfigArgsDict',
+    'ServiceMcpServerGrafanaDetailsArgs',
+    'ServiceMcpServerGrafanaDetailsArgsDict',
+    'ServiceMcpServerOAuthClientCredentialsConfigArgs',
+    'ServiceMcpServerOAuthClientCredentialsConfigArgsDict',
+    'ServiceMcpServerSigV4AuthorizationConfigArgs',
+    'ServiceMcpServerSigV4AuthorizationConfigArgsDict',
+    'ServiceMcpServerSigV4DetailsArgs',
+    'ServiceMcpServerSigV4DetailsArgsDict',
+    'ServiceMcpServerSplunkAuthorizationConfigArgs',
+    'ServiceMcpServerSplunkAuthorizationConfigArgsDict',
+    'ServiceMcpServerSplunkDetailsArgs',
+    'ServiceMcpServerSplunkDetailsArgsDict',
+    'ServiceNewRelicApiKeyConfigArgs',
+    'ServiceNewRelicApiKeyConfigArgsDict',
+    'ServiceNewRelicAuthorizationConfigArgs',
+    'ServiceNewRelicAuthorizationConfigArgsDict',
+    'ServiceNewRelicServiceDetailsArgs',
+    'ServiceNewRelicServiceDetailsArgsDict',
+    'ServiceNowAuthorizationConfigArgs',
+    'ServiceNowAuthorizationConfigArgsDict',
+    'ServiceNowServiceDetailsArgs',
+    'ServiceNowServiceDetailsArgsDict',
+    'ServiceOAuthClientDetailsArgs',
+    'ServiceOAuthClientDetailsArgsDict',
+    'ServicePagerDutyAuthorizationConfigArgs',
+    'ServicePagerDutyAuthorizationConfigArgsDict',
+    'ServicePagerDutyDetailsArgs',
+    'ServicePagerDutyDetailsArgsDict',
 ]
 
 class AgentSpaceIamAuthConfigurationArgsDict(TypedDict):
@@ -178,48 +268,3454 @@ class AgentSpaceOperatorAppArgs:
         pulumi.set(self, "idc", value)
 
 
+class AssociationAwsConfigurationArgsDict(TypedDict):
+    """
+    AWS association for 'monitor' account
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    AWS Account Id corresponding to provided resources
+    """
+    account_type: pulumi.Input['AssociationAwsConfigurationAccountType']
+    """
+    Account Type 'monitor' for DevOpsAgent monitoring
+    """
+    assumable_role_arn: pulumi.Input[_builtins.str]
+    """
+    Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+    """
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgsDict']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgsDict']]]]]
+
+@pulumi.input_type
+class AssociationAwsConfigurationArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[_builtins.str],
+                 account_type: pulumi.Input['AssociationAwsConfigurationAccountType'],
+                 assumable_role_arn: pulumi.Input[_builtins.str],
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]] = None):
+        """
+        AWS association for 'monitor' account
+
+        :param pulumi.Input[_builtins.str] account_id: AWS Account Id corresponding to provided resources
+        :param pulumi.Input['AssociationAwsConfigurationAccountType'] account_type: Account Type 'monitor' for DevOpsAgent monitoring
+        :param pulumi.Input[_builtins.str] assumable_role_arn: Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "account_type", account_type)
+        pulumi.set(__self__, "assumable_role_arn", assumable_role_arn)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS Account Id corresponding to provided resources
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> pulumi.Input['AssociationAwsConfigurationAccountType']:
+        """
+        Account Type 'monitor' for DevOpsAgent monitoring
+        """
+        return pulumi.get(self, "account_type")
+
+    @account_type.setter
+    def account_type(self, value: pulumi.Input['AssociationAwsConfigurationAccountType']):
+        pulumi.set(self, "account_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assumableRoleArn")
+    def assumable_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        return pulumi.get(self, "assumable_role_arn")
+
+    @assumable_role_arn.setter
+    def assumable_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "assumable_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]]:
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]]):
+        pulumi.set(self, "resources", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+class AssociationAwsResourceArgsDict(TypedDict):
+    """
+    AWS resource definition
+    """
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the resource
+    """
+    resource_metadata: NotRequired[Any]
+    """
+    Additional metadata for the resource
+    """
+    resource_type: NotRequired[pulumi.Input[Optional['AssociationAwsResourceResourceType']]]
+    """
+    Resource type
+    """
+
+@pulumi.input_type
+class AssociationAwsResourceArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[_builtins.str],
+                 resource_metadata: Optional[Any] = None,
+                 resource_type: pulumi.Input[Optional['AssociationAwsResourceResourceType']] = None):
+        """
+        AWS resource definition
+
+        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the resource
+        :param Any resource_metadata: Additional metadata for the resource
+        :param pulumi.Input['AssociationAwsResourceResourceType'] resource_type: Resource type
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        if resource_metadata is not None:
+            pulumi.set(__self__, "resource_metadata", resource_metadata)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the resource
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceMetadata")
+    def resource_metadata(self) -> Optional[Any]:
+        """
+        Additional metadata for the resource
+        """
+        return pulumi.get(self, "resource_metadata")
+
+    @resource_metadata.setter
+    def resource_metadata(self, value: Optional[Any]):
+        pulumi.set(self, "resource_metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[Optional['AssociationAwsResourceResourceType']]:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[Optional['AssociationAwsResourceResourceType']]):
+        pulumi.set(self, "resource_type", value)
+
+
+class AssociationAzureConfigurationArgsDict(TypedDict):
+    """
+    Azure subscription integration configuration
+    """
+    subscription_id: pulumi.Input[_builtins.str]
+    """
+    Azure subscription ID corresponding to provided resources
+    """
+
+@pulumi.input_type
+class AssociationAzureConfigurationArgs:
+    def __init__(__self__, *,
+                 subscription_id: pulumi.Input[_builtins.str]):
+        """
+        Azure subscription integration configuration
+
+        :param pulumi.Input[_builtins.str] subscription_id: Azure subscription ID corresponding to provided resources
+        """
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure subscription ID corresponding to provided resources
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subscription_id", value)
+
+
+class AssociationDynatraceConfigurationArgsDict(TypedDict):
+    """
+    Dynatrace monitoring configuration
+    """
+    env_id: pulumi.Input[_builtins.str]
+    """
+    Dynatrace environment id
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of Dynatrace resources to monitor
+    """
+
+@pulumi.input_type
+class AssociationDynatraceConfigurationArgs:
+    def __init__(__self__, *,
+                 env_id: pulumi.Input[_builtins.str],
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Dynatrace monitoring configuration
+
+        :param pulumi.Input[_builtins.str] env_id: Dynatrace environment id
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: List of Dynatrace resources to monitor
+        """
+        pulumi.set(__self__, "env_id", env_id)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="envId")
+    def env_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Dynatrace environment id
+        """
+        return pulumi.get(self, "env_id")
+
+    @env_id.setter
+    def env_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "env_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of Dynatrace resources to monitor
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resources", value)
+
+
+class AssociationEventChannelConfigurationArgsDict(TypedDict):
+    """
+    EventChannelconfiguration
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+
+@pulumi.input_type
+class AssociationEventChannelConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        EventChannelconfiguration
+
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+
+class AssociationGitHubConfigurationArgsDict(TypedDict):
+    """
+    GitHub repository integration configuration
+    """
+    owner: pulumi.Input[_builtins.str]
+    """
+    Repository owner
+    """
+    owner_type: pulumi.Input['AssociationGitHubConfigurationOwnerType']
+    """
+    Type of repository owner
+    """
+    repo_id: pulumi.Input[_builtins.str]
+    """
+    Associated Github repo ID
+    """
+    repo_name: pulumi.Input[_builtins.str]
+    """
+    Associated Github repo name
+    """
+
+@pulumi.input_type
+class AssociationGitHubConfigurationArgs:
+    def __init__(__self__, *,
+                 owner: pulumi.Input[_builtins.str],
+                 owner_type: pulumi.Input['AssociationGitHubConfigurationOwnerType'],
+                 repo_id: pulumi.Input[_builtins.str],
+                 repo_name: pulumi.Input[_builtins.str]):
+        """
+        GitHub repository integration configuration
+
+        :param pulumi.Input[_builtins.str] owner: Repository owner
+        :param pulumi.Input['AssociationGitHubConfigurationOwnerType'] owner_type: Type of repository owner
+        :param pulumi.Input[_builtins.str] repo_id: Associated Github repo ID
+        :param pulumi.Input[_builtins.str] repo_name: Associated Github repo name
+        """
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_type", owner_type)
+        pulumi.set(__self__, "repo_id", repo_id)
+        pulumi.set(__self__, "repo_name", repo_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[_builtins.str]:
+        """
+        Repository owner
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> pulumi.Input['AssociationGitHubConfigurationOwnerType']:
+        """
+        Type of repository owner
+        """
+        return pulumi.get(self, "owner_type")
+
+    @owner_type.setter
+    def owner_type(self, value: pulumi.Input['AssociationGitHubConfigurationOwnerType']):
+        pulumi.set(self, "owner_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repoId")
+    def repo_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Associated Github repo ID
+        """
+        return pulumi.get(self, "repo_id")
+
+    @repo_id.setter
+    def repo_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "repo_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repoName")
+    def repo_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Associated Github repo name
+        """
+        return pulumi.get(self, "repo_name")
+
+    @repo_name.setter
+    def repo_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "repo_name", value)
+
+
+class AssociationGitLabConfigurationArgsDict(TypedDict):
+    """
+    GitLab project integration configuration
+    """
+    project_id: pulumi.Input[_builtins.str]
+    """
+    GitLab numeric project ID
+    """
+    project_path: pulumi.Input[_builtins.str]
+    """
+    Full GitLab project path (e.g., namespace/project-name)
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+    instance_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    GitLab instance identifier
+    """
+
+@pulumi.input_type
+class AssociationGitLabConfigurationArgs:
+    def __init__(__self__, *,
+                 project_id: pulumi.Input[_builtins.str],
+                 project_path: pulumi.Input[_builtins.str],
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        GitLab project integration configuration
+
+        :param pulumi.Input[_builtins.str] project_id: GitLab numeric project ID
+        :param pulumi.Input[_builtins.str] project_path: Full GitLab project path (e.g., namespace/project-name)
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[_builtins.str] instance_identifier: GitLab instance identifier
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "project_path", project_path)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if instance_identifier is not None:
+            pulumi.set(__self__, "instance_identifier", instance_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        GitLab numeric project ID
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectPath")
+    def project_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Full GitLab project path (e.g., namespace/project-name)
+        """
+        return pulumi.get(self, "project_path")
+
+    @project_path.setter
+    def project_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIdentifier")
+    def instance_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GitLab instance identifier
+        """
+        return pulumi.get(self, "instance_identifier")
+
+    @instance_identifier.setter
+    def instance_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_identifier", value)
+
+
+class AssociationKeyValuePairArgsDict(TypedDict):
+    """
+    A key-value pair for tags
+    """
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AssociationKeyValuePairArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        A key-value pair for tags
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class AssociationMcpServerConfigurationArgsDict(TypedDict):
+    """
+    MCP server configuration
+    """
+    tools: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of MCP tools that can be used with the association
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the MCP server
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+    endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    MCP server endpoint URL
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the MCP server
+    """
+
+@pulumi.input_type
+class AssociationMcpServerConfigurationArgs:
+    def __init__(__self__, *,
+                 tools: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        MCP server configuration
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tools: List of MCP tools that can be used with the association
+        :param pulumi.Input[_builtins.str] description: The description of the MCP server
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.str] name: The name of the MCP server
+        """
+        pulumi.set(__self__, "tools", tools)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def tools(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of MCP tools that can be used with the association
+        """
+        return pulumi.get(self, "tools")
+
+    @tools.setter
+    def tools(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "tools", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the MCP server
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class AssociationMcpServerDatadogConfigurationArgsDict(TypedDict):
+    """
+    Datadog MCP server configuration
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the MCP server
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+    endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    MCP server endpoint URL
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the MCP server
+    """
+
+@pulumi.input_type
+class AssociationMcpServerDatadogConfigurationArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Datadog MCP server configuration
+
+        :param pulumi.Input[_builtins.str] description: The description of the MCP server
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.str] name: The name of the MCP server
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the MCP server
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class AssociationMcpServerGrafanaConfigurationArgsDict(TypedDict):
+    """
+    Grafana MCP server configuration
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    MCP server endpoint URL
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+    tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]]]]
+    """
+    List of tool categories to enable for the Grafana MCP server
+    """
+
+@pulumi.input_type
+class AssociationMcpServerGrafanaConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[_builtins.str],
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tools: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]]] = None):
+        """
+        Grafana MCP server configuration
+
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]] tools: List of tool categories to enable for the Grafana MCP server
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if tools is not None:
+            pulumi.set(__self__, "tools", tools)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tools(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]]]:
+        """
+        List of tool categories to enable for the Grafana MCP server
+        """
+        return pulumi.get(self, "tools")
+
+    @tools.setter
+    def tools(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationMcpServerGrafanaConfigurationToolsItem']]]]):
+        pulumi.set(self, "tools", value)
+
+
+class AssociationMcpServerNewRelicConfigurationArgsDict(TypedDict):
+    """
+    NewRelic MCP server configuration
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    New Relic Account ID
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+    """
+
+@pulumi.input_type
+class AssociationMcpServerNewRelicConfigurationArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[_builtins.str],
+                 endpoint: pulumi.Input[_builtins.str]):
+        """
+        NewRelic MCP server configuration
+
+        :param pulumi.Input[_builtins.str] account_id: New Relic Account ID
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        New Relic Account ID
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+
+class AssociationMcpServerSigV4ConfigurationArgsDict(TypedDict):
+    """
+    SigV4-authenticated MCP server configuration
+    """
+    tools: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of MCP tools available for the association
+    """
+
+@pulumi.input_type
+class AssociationMcpServerSigV4ConfigurationArgs:
+    def __init__(__self__, *,
+                 tools: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        SigV4-authenticated MCP server configuration
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tools: List of MCP tools available for the association
+        """
+        pulumi.set(__self__, "tools", tools)
+
+    @_builtins.property
+    @pulumi.getter
+    def tools(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of MCP tools available for the association
+        """
+        return pulumi.get(self, "tools")
+
+    @tools.setter
+    def tools(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "tools", value)
+
+
+class AssociationMcpServerSplunkConfigurationArgsDict(TypedDict):
+    """
+    Splunk MCP server configuration
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the MCP server
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+    endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    MCP server endpoint URL
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the MCP server
+    """
+
+@pulumi.input_type
+class AssociationMcpServerSplunkConfigurationArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Splunk MCP server configuration
+
+        :param pulumi.Input[_builtins.str] description: The description of the MCP server
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.str] name: The name of the MCP server
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the MCP server
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class AssociationPagerDutyConfigurationArgsDict(TypedDict):
+    """
+    PagerDuty integration configuration
+    """
+    customer_email: pulumi.Input[_builtins.str]
+    """
+    Email to be used in PagerDuty API header
+    """
+    services: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of PagerDuty service IDs available for the association
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+
+@pulumi.input_type
+class AssociationPagerDutyConfigurationArgs:
+    def __init__(__self__, *,
+                 customer_email: pulumi.Input[_builtins.str],
+                 services: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        PagerDuty integration configuration
+
+        :param pulumi.Input[_builtins.str] customer_email: Email to be used in PagerDuty API header
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] services: List of PagerDuty service IDs available for the association
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        pulumi.set(__self__, "customer_email", customer_email)
+        pulumi.set(__self__, "services", services)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+
+    @_builtins.property
+    @pulumi.getter(name="customerEmail")
+    def customer_email(self) -> pulumi.Input[_builtins.str]:
+        """
+        Email to be used in PagerDuty API header
+        """
+        return pulumi.get(self, "customer_email")
+
+    @customer_email.setter
+    def customer_email(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "customer_email", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def services(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of PagerDuty service IDs available for the association
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "services", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+
 class AssociationServiceConfigurationArgsDict(TypedDict):
     """
     The configuration that directs how AgentSpace interacts with the given service
     """
-    pass
+    aws: NotRequired[pulumi.Input[Optional['AssociationAwsConfigurationArgsDict']]]
+    azure: NotRequired[pulumi.Input[Optional['AssociationAzureConfigurationArgsDict']]]
+    dynatrace: NotRequired[pulumi.Input[Optional['AssociationDynatraceConfigurationArgsDict']]]
+    event_channel: NotRequired[pulumi.Input[Optional['AssociationEventChannelConfigurationArgsDict']]]
+    git_hub: NotRequired[pulumi.Input[Optional['AssociationGitHubConfigurationArgsDict']]]
+    git_lab: NotRequired[pulumi.Input[Optional['AssociationGitLabConfigurationArgsDict']]]
+    mcp_server: NotRequired[pulumi.Input[Optional['AssociationMcpServerConfigurationArgsDict']]]
+    mcp_server_datadog: NotRequired[pulumi.Input[Optional['AssociationMcpServerDatadogConfigurationArgsDict']]]
+    mcp_server_grafana: NotRequired[pulumi.Input[Optional['AssociationMcpServerGrafanaConfigurationArgsDict']]]
+    mcp_server_new_relic: NotRequired[pulumi.Input[Optional['AssociationMcpServerNewRelicConfigurationArgsDict']]]
+    mcp_server_sig_v4: NotRequired[pulumi.Input[Optional['AssociationMcpServerSigV4ConfigurationArgsDict']]]
+    mcp_server_splunk: NotRequired[pulumi.Input[Optional['AssociationMcpServerSplunkConfigurationArgsDict']]]
+    pager_duty: NotRequired[pulumi.Input[Optional['AssociationPagerDutyConfigurationArgsDict']]]
+    service_now: NotRequired[pulumi.Input[Optional['AssociationServiceNowConfigurationArgsDict']]]
+    slack: NotRequired[pulumi.Input[Optional['AssociationSlackConfigurationArgsDict']]]
+    source_aws: NotRequired[pulumi.Input[Optional['AssociationSourceAwsConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AssociationServiceConfigurationArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 aws: pulumi.Input[Optional['AssociationAwsConfigurationArgs']] = None,
+                 azure: pulumi.Input[Optional['AssociationAzureConfigurationArgs']] = None,
+                 dynatrace: pulumi.Input[Optional['AssociationDynatraceConfigurationArgs']] = None,
+                 event_channel: pulumi.Input[Optional['AssociationEventChannelConfigurationArgs']] = None,
+                 git_hub: pulumi.Input[Optional['AssociationGitHubConfigurationArgs']] = None,
+                 git_lab: pulumi.Input[Optional['AssociationGitLabConfigurationArgs']] = None,
+                 mcp_server: pulumi.Input[Optional['AssociationMcpServerConfigurationArgs']] = None,
+                 mcp_server_datadog: pulumi.Input[Optional['AssociationMcpServerDatadogConfigurationArgs']] = None,
+                 mcp_server_grafana: pulumi.Input[Optional['AssociationMcpServerGrafanaConfigurationArgs']] = None,
+                 mcp_server_new_relic: pulumi.Input[Optional['AssociationMcpServerNewRelicConfigurationArgs']] = None,
+                 mcp_server_sig_v4: pulumi.Input[Optional['AssociationMcpServerSigV4ConfigurationArgs']] = None,
+                 mcp_server_splunk: pulumi.Input[Optional['AssociationMcpServerSplunkConfigurationArgs']] = None,
+                 pager_duty: pulumi.Input[Optional['AssociationPagerDutyConfigurationArgs']] = None,
+                 service_now: pulumi.Input[Optional['AssociationServiceNowConfigurationArgs']] = None,
+                 slack: pulumi.Input[Optional['AssociationSlackConfigurationArgs']] = None,
+                 source_aws: pulumi.Input[Optional['AssociationSourceAwsConfigurationArgs']] = None):
         """
         The configuration that directs how AgentSpace interacts with the given service
         """
-        pass
+        if aws is not None:
+            pulumi.set(__self__, "aws", aws)
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if dynatrace is not None:
+            pulumi.set(__self__, "dynatrace", dynatrace)
+        if event_channel is not None:
+            pulumi.set(__self__, "event_channel", event_channel)
+        if git_hub is not None:
+            pulumi.set(__self__, "git_hub", git_hub)
+        if git_lab is not None:
+            pulumi.set(__self__, "git_lab", git_lab)
+        if mcp_server is not None:
+            pulumi.set(__self__, "mcp_server", mcp_server)
+        if mcp_server_datadog is not None:
+            pulumi.set(__self__, "mcp_server_datadog", mcp_server_datadog)
+        if mcp_server_grafana is not None:
+            pulumi.set(__self__, "mcp_server_grafana", mcp_server_grafana)
+        if mcp_server_new_relic is not None:
+            pulumi.set(__self__, "mcp_server_new_relic", mcp_server_new_relic)
+        if mcp_server_sig_v4 is not None:
+            pulumi.set(__self__, "mcp_server_sig_v4", mcp_server_sig_v4)
+        if mcp_server_splunk is not None:
+            pulumi.set(__self__, "mcp_server_splunk", mcp_server_splunk)
+        if pager_duty is not None:
+            pulumi.set(__self__, "pager_duty", pager_duty)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+        if slack is not None:
+            pulumi.set(__self__, "slack", slack)
+        if source_aws is not None:
+            pulumi.set(__self__, "source_aws", source_aws)
+
+    @_builtins.property
+    @pulumi.getter
+    def aws(self) -> pulumi.Input[Optional['AssociationAwsConfigurationArgs']]:
+        return pulumi.get(self, "aws")
+
+    @aws.setter
+    def aws(self, value: pulumi.Input[Optional['AssociationAwsConfigurationArgs']]):
+        pulumi.set(self, "aws", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> pulumi.Input[Optional['AssociationAzureConfigurationArgs']]:
+        return pulumi.get(self, "azure")
+
+    @azure.setter
+    def azure(self, value: pulumi.Input[Optional['AssociationAzureConfigurationArgs']]):
+        pulumi.set(self, "azure", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dynatrace(self) -> pulumi.Input[Optional['AssociationDynatraceConfigurationArgs']]:
+        return pulumi.get(self, "dynatrace")
+
+    @dynatrace.setter
+    def dynatrace(self, value: pulumi.Input[Optional['AssociationDynatraceConfigurationArgs']]):
+        pulumi.set(self, "dynatrace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventChannel")
+    def event_channel(self) -> pulumi.Input[Optional['AssociationEventChannelConfigurationArgs']]:
+        return pulumi.get(self, "event_channel")
+
+    @event_channel.setter
+    def event_channel(self, value: pulumi.Input[Optional['AssociationEventChannelConfigurationArgs']]):
+        pulumi.set(self, "event_channel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitHub")
+    def git_hub(self) -> pulumi.Input[Optional['AssociationGitHubConfigurationArgs']]:
+        return pulumi.get(self, "git_hub")
+
+    @git_hub.setter
+    def git_hub(self, value: pulumi.Input[Optional['AssociationGitHubConfigurationArgs']]):
+        pulumi.set(self, "git_hub", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitLab")
+    def git_lab(self) -> pulumi.Input[Optional['AssociationGitLabConfigurationArgs']]:
+        return pulumi.get(self, "git_lab")
+
+    @git_lab.setter
+    def git_lab(self, value: pulumi.Input[Optional['AssociationGitLabConfigurationArgs']]):
+        pulumi.set(self, "git_lab", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> pulumi.Input[Optional['AssociationMcpServerConfigurationArgs']]:
+        return pulumi.get(self, "mcp_server")
+
+    @mcp_server.setter
+    def mcp_server(self, value: pulumi.Input[Optional['AssociationMcpServerConfigurationArgs']]):
+        pulumi.set(self, "mcp_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerDatadog")
+    def mcp_server_datadog(self) -> pulumi.Input[Optional['AssociationMcpServerDatadogConfigurationArgs']]:
+        return pulumi.get(self, "mcp_server_datadog")
+
+    @mcp_server_datadog.setter
+    def mcp_server_datadog(self, value: pulumi.Input[Optional['AssociationMcpServerDatadogConfigurationArgs']]):
+        pulumi.set(self, "mcp_server_datadog", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerGrafana")
+    def mcp_server_grafana(self) -> pulumi.Input[Optional['AssociationMcpServerGrafanaConfigurationArgs']]:
+        return pulumi.get(self, "mcp_server_grafana")
+
+    @mcp_server_grafana.setter
+    def mcp_server_grafana(self, value: pulumi.Input[Optional['AssociationMcpServerGrafanaConfigurationArgs']]):
+        pulumi.set(self, "mcp_server_grafana", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerNewRelic")
+    def mcp_server_new_relic(self) -> pulumi.Input[Optional['AssociationMcpServerNewRelicConfigurationArgs']]:
+        return pulumi.get(self, "mcp_server_new_relic")
+
+    @mcp_server_new_relic.setter
+    def mcp_server_new_relic(self, value: pulumi.Input[Optional['AssociationMcpServerNewRelicConfigurationArgs']]):
+        pulumi.set(self, "mcp_server_new_relic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSigV4")
+    def mcp_server_sig_v4(self) -> pulumi.Input[Optional['AssociationMcpServerSigV4ConfigurationArgs']]:
+        return pulumi.get(self, "mcp_server_sig_v4")
+
+    @mcp_server_sig_v4.setter
+    def mcp_server_sig_v4(self, value: pulumi.Input[Optional['AssociationMcpServerSigV4ConfigurationArgs']]):
+        pulumi.set(self, "mcp_server_sig_v4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSplunk")
+    def mcp_server_splunk(self) -> pulumi.Input[Optional['AssociationMcpServerSplunkConfigurationArgs']]:
+        return pulumi.get(self, "mcp_server_splunk")
+
+    @mcp_server_splunk.setter
+    def mcp_server_splunk(self, value: pulumi.Input[Optional['AssociationMcpServerSplunkConfigurationArgs']]):
+        pulumi.set(self, "mcp_server_splunk", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pagerDuty")
+    def pager_duty(self) -> pulumi.Input[Optional['AssociationPagerDutyConfigurationArgs']]:
+        return pulumi.get(self, "pager_duty")
+
+    @pager_duty.setter
+    def pager_duty(self, value: pulumi.Input[Optional['AssociationPagerDutyConfigurationArgs']]):
+        pulumi.set(self, "pager_duty", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> pulumi.Input[Optional['AssociationServiceNowConfigurationArgs']]:
+        return pulumi.get(self, "service_now")
+
+    @service_now.setter
+    def service_now(self, value: pulumi.Input[Optional['AssociationServiceNowConfigurationArgs']]):
+        pulumi.set(self, "service_now", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def slack(self) -> pulumi.Input[Optional['AssociationSlackConfigurationArgs']]:
+        return pulumi.get(self, "slack")
+
+    @slack.setter
+    def slack(self, value: pulumi.Input[Optional['AssociationSlackConfigurationArgs']]):
+        pulumi.set(self, "slack", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAws")
+    def source_aws(self) -> pulumi.Input[Optional['AssociationSourceAwsConfigurationArgs']]:
+        return pulumi.get(self, "source_aws")
+
+    @source_aws.setter
+    def source_aws(self, value: pulumi.Input[Optional['AssociationSourceAwsConfigurationArgs']]):
+        pulumi.set(self, "source_aws", value)
+
+
+class AssociationServiceNowConfigurationArgsDict(TypedDict):
+    """
+    ServiceNow integration configuration
+    """
+    enable_webhook_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+    """
+    instance_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ServiceNow instance ID
+    """
+
+@pulumi.input_type
+class AssociationServiceNowConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_webhook_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        ServiceNow integration configuration
+
+        :param pulumi.Input[_builtins.bool] enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param pulumi.Input[_builtins.str] instance_id: ServiceNow instance ID
+        """
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @enable_webhook_updates.setter
+    def enable_webhook_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_webhook_updates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ServiceNow instance ID
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_id", value)
+
+
+class AssociationSlackChannelArgsDict(TypedDict):
+    """
+    Slack channel configuration
+    """
+    channel_id: pulumi.Input[_builtins.str]
+    """
+    Slack channel ID
+    """
+    channel_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Slack channel name
+    """
+
+@pulumi.input_type
+class AssociationSlackChannelArgs:
+    def __init__(__self__, *,
+                 channel_id: pulumi.Input[_builtins.str],
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Slack channel configuration
+
+        :param pulumi.Input[_builtins.str] channel_id: Slack channel ID
+        :param pulumi.Input[_builtins.str] channel_name: Slack channel name
+        """
+        pulumi.set(__self__, "channel_id", channel_id)
+        if channel_name is not None:
+            pulumi.set(__self__, "channel_name", channel_name)
+
+    @_builtins.property
+    @pulumi.getter(name="channelId")
+    def channel_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Slack channel ID
+        """
+        return pulumi.get(self, "channel_id")
+
+    @channel_id.setter
+    def channel_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "channel_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Slack channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_name", value)
+
+
+class AssociationSlackConfigurationArgsDict(TypedDict):
+    """
+    Slack workspace integration configuration
+    """
+    transmission_target: pulumi.Input['AssociationSlackTransmissionTargetArgsDict']
+    workspace_id: pulumi.Input[_builtins.str]
+    """
+    Associated Slack workspace ID
+    """
+    workspace_name: pulumi.Input[_builtins.str]
+    """
+    Associated Slack workspace name
+    """
+
+@pulumi.input_type
+class AssociationSlackConfigurationArgs:
+    def __init__(__self__, *,
+                 transmission_target: pulumi.Input['AssociationSlackTransmissionTargetArgs'],
+                 workspace_id: pulumi.Input[_builtins.str],
+                 workspace_name: pulumi.Input[_builtins.str]):
+        """
+        Slack workspace integration configuration
+
+        :param pulumi.Input[_builtins.str] workspace_id: Associated Slack workspace ID
+        :param pulumi.Input[_builtins.str] workspace_name: Associated Slack workspace name
+        """
+        pulumi.set(__self__, "transmission_target", transmission_target)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+
+    @_builtins.property
+    @pulumi.getter(name="transmissionTarget")
+    def transmission_target(self) -> pulumi.Input['AssociationSlackTransmissionTargetArgs']:
+        return pulumi.get(self, "transmission_target")
+
+    @transmission_target.setter
+    def transmission_target(self, value: pulumi.Input['AssociationSlackTransmissionTargetArgs']):
+        pulumi.set(self, "transmission_target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Associated Slack workspace ID
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Associated Slack workspace name
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace_name", value)
+
+
+class AssociationSlackTransmissionTargetArgsDict(TypedDict):
+    """
+    Transmission targets for agent notifications
+    """
+    incident_response_target: pulumi.Input['AssociationSlackChannelArgsDict']
+    """
+    Destination for IncidentResponse agent.
+    """
+
+@pulumi.input_type
+class AssociationSlackTransmissionTargetArgs:
+    def __init__(__self__, *,
+                 incident_response_target: pulumi.Input['AssociationSlackChannelArgs']):
+        """
+        Transmission targets for agent notifications
+
+        :param pulumi.Input['AssociationSlackChannelArgs'] incident_response_target: Destination for IncidentResponse agent.
+        """
+        pulumi.set(__self__, "incident_response_target", incident_response_target)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentResponseTarget")
+    def incident_response_target(self) -> pulumi.Input['AssociationSlackChannelArgs']:
+        """
+        Destination for IncidentResponse agent.
+        """
+        return pulumi.get(self, "incident_response_target")
+
+    @incident_response_target.setter
+    def incident_response_target(self, value: pulumi.Input['AssociationSlackChannelArgs']):
+        pulumi.set(self, "incident_response_target", value)
+
+
+class AssociationSourceAwsConfigurationArgsDict(TypedDict):
+    """
+    AWS association for 'source' account
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    AWS Account Id corresponding to provided resources
+    """
+    account_type: pulumi.Input['AssociationSourceAwsConfigurationAccountType']
+    """
+    Account Type 'source' for DevOpsAgent monitoring
+    """
+    assumable_role_arn: pulumi.Input[_builtins.str]
+    """
+    Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+    """
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgsDict']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgsDict']]]]]
+
+@pulumi.input_type
+class AssociationSourceAwsConfigurationArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[_builtins.str],
+                 account_type: pulumi.Input['AssociationSourceAwsConfigurationAccountType'],
+                 assumable_role_arn: pulumi.Input[_builtins.str],
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]] = None):
+        """
+        AWS association for 'source' account
+
+        :param pulumi.Input[_builtins.str] account_id: AWS Account Id corresponding to provided resources
+        :param pulumi.Input['AssociationSourceAwsConfigurationAccountType'] account_type: Account Type 'source' for DevOpsAgent monitoring
+        :param pulumi.Input[_builtins.str] assumable_role_arn: Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "account_type", account_type)
+        pulumi.set(__self__, "assumable_role_arn", assumable_role_arn)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS Account Id corresponding to provided resources
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> pulumi.Input['AssociationSourceAwsConfigurationAccountType']:
+        """
+        Account Type 'source' for DevOpsAgent monitoring
+        """
+        return pulumi.get(self, "account_type")
+
+    @account_type.setter
+    def account_type(self, value: pulumi.Input['AssociationSourceAwsConfigurationAccountType']):
+        pulumi.set(self, "account_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assumableRoleArn")
+    def assumable_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        return pulumi.get(self, "assumable_role_arn")
+
+    @assumable_role_arn.setter
+    def assumable_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "assumable_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]]:
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationAwsResourceArgs']]]]):
+        pulumi.set(self, "resources", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AssociationKeyValuePairArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class PrivateConnectionConnectionConfigurationArgsDict(TypedDict):
     """
     The connection configuration, either SelfManaged or ServiceManaged.
     """
-    pass
+    self_managed: NotRequired[pulumi.Input[Optional['PrivateConnectionSelfManagedModeArgsDict']]]
+    service_managed: NotRequired[pulumi.Input[Optional['PrivateConnectionServiceManagedModeArgsDict']]]
 
 @pulumi.input_type
 class PrivateConnectionConnectionConfigurationArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 self_managed: pulumi.Input[Optional['PrivateConnectionSelfManagedModeArgs']] = None,
+                 service_managed: pulumi.Input[Optional['PrivateConnectionServiceManagedModeArgs']] = None):
         """
         The connection configuration, either SelfManaged or ServiceManaged.
         """
-        pass
+        if self_managed is not None:
+            pulumi.set(__self__, "self_managed", self_managed)
+        if service_managed is not None:
+            pulumi.set(__self__, "service_managed", service_managed)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManaged")
+    def self_managed(self) -> pulumi.Input[Optional['PrivateConnectionSelfManagedModeArgs']]:
+        return pulumi.get(self, "self_managed")
+
+    @self_managed.setter
+    def self_managed(self, value: pulumi.Input[Optional['PrivateConnectionSelfManagedModeArgs']]):
+        pulumi.set(self, "self_managed", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceManaged")
+    def service_managed(self) -> pulumi.Input[Optional['PrivateConnectionServiceManagedModeArgs']]:
+        return pulumi.get(self, "service_managed")
+
+    @service_managed.setter
+    def service_managed(self, value: pulumi.Input[Optional['PrivateConnectionServiceManagedModeArgs']]):
+        pulumi.set(self, "service_managed", value)
+
+
+class PrivateConnectionSelfManagedModeArgsDict(TypedDict):
+    """
+    Configuration for a self-managed Private Connection.
+    """
+    resource_configuration_id: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Resource Configuration.
+    """
+
+@pulumi.input_type
+class PrivateConnectionSelfManagedModeArgs:
+    def __init__(__self__, *,
+                 resource_configuration_id: pulumi.Input[_builtins.str]):
+        """
+        Configuration for a self-managed Private Connection.
+
+        :param pulumi.Input[_builtins.str] resource_configuration_id: The ARN of the Resource Configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_id", resource_configuration_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationId")
+    def resource_configuration_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the Resource Configuration.
+        """
+        return pulumi.get(self, "resource_configuration_id")
+
+    @resource_configuration_id.setter
+    def resource_configuration_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_configuration_id", value)
+
+
+class PrivateConnectionServiceManagedModeArgsDict(TypedDict):
+    """
+    Configuration for a service-managed Private Connection.
+    """
+    host_address: pulumi.Input[_builtins.str]
+    """
+    IP address or DNS name of the target resource.
+    """
+    vpc_id: pulumi.Input[_builtins.str]
+    """
+    VPC to create the service-managed Resource Gateway in.
+    """
+    dns_resolution: NotRequired[pulumi.Input[Optional['PrivateConnectionServiceManagedModeDnsResolution']]]
+    """
+    DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+    """
+    ip_address_type: NotRequired[pulumi.Input[Optional['PrivateConnectionServiceManagedModeIpAddressType']]]
+    """
+    IP address type of the service-managed Resource Gateway.
+    """
+    ipv4_addresses_per_eni: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+    """
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    TCP port ranges that a consumer can use to access the resource.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Security groups to attach to the service-managed Resource Gateway.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Subnets that the service-managed Resource Gateway will span.
+    """
+
+@pulumi.input_type
+class PrivateConnectionServiceManagedModeArgs:
+    def __init__(__self__, *,
+                 host_address: pulumi.Input[_builtins.str],
+                 vpc_id: pulumi.Input[_builtins.str],
+                 dns_resolution: pulumi.Input[Optional['PrivateConnectionServiceManagedModeDnsResolution']] = None,
+                 ip_address_type: pulumi.Input[Optional['PrivateConnectionServiceManagedModeIpAddressType']] = None,
+                 ipv4_addresses_per_eni: pulumi.Input[Optional[_builtins.int]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for a service-managed Private Connection.
+
+        :param pulumi.Input[_builtins.str] host_address: IP address or DNS name of the target resource.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC to create the service-managed Resource Gateway in.
+        :param pulumi.Input['PrivateConnectionServiceManagedModeDnsResolution'] dns_resolution: DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+        :param pulumi.Input['PrivateConnectionServiceManagedModeIpAddressType'] ip_address_type: IP address type of the service-managed Resource Gateway.
+        :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: TCP port ranges that a consumer can use to access the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security groups to attach to the service-managed Resource Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Subnets that the service-managed Resource Gateway will span.
+        """
+        pulumi.set(__self__, "host_address", host_address)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if dns_resolution is not None:
+            pulumi.set(__self__, "dns_resolution", dns_resolution)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv4_addresses_per_eni is not None:
+            pulumi.set(__self__, "ipv4_addresses_per_eni", ipv4_addresses_per_eni)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="hostAddress")
+    def host_address(self) -> pulumi.Input[_builtins.str]:
+        """
+        IP address or DNS name of the target resource.
+        """
+        return pulumi.get(self, "host_address")
+
+    @host_address.setter
+    def host_address(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "host_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        VPC to create the service-managed Resource Gateway in.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsResolution")
+    def dns_resolution(self) -> pulumi.Input[Optional['PrivateConnectionServiceManagedModeDnsResolution']]:
+        """
+        DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+        """
+        return pulumi.get(self, "dns_resolution")
+
+    @dns_resolution.setter
+    def dns_resolution(self, value: pulumi.Input[Optional['PrivateConnectionServiceManagedModeDnsResolution']]):
+        pulumi.set(self, "dns_resolution", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input[Optional['PrivateConnectionServiceManagedModeIpAddressType']]:
+        """
+        IP address type of the service-managed Resource Gateway.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input[Optional['PrivateConnectionServiceManagedModeIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4AddressesPerEni")
+    def ipv4_addresses_per_eni(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+        """
+        return pulumi.get(self, "ipv4_addresses_per_eni")
+
+    @ipv4_addresses_per_eni.setter
+    def ipv4_addresses_per_eni(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ipv4_addresses_per_eni", value)
+
+    @_builtins.property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        TCP port ranges that a consumer can use to access the resource.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @port_ranges.setter
+    def port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "port_ranges", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Security groups to attach to the service-managed Resource Gateway.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Subnets that the service-managed Resource Gateway will span.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+class ServiceApiKeyDetailsArgsDict(TypedDict):
+    """
+    API key authentication details
+    """
+    api_key_header: pulumi.Input[_builtins.str]
+    """
+    HTTP header name to send the API key
+    """
+    api_key_name: pulumi.Input[_builtins.str]
+    """
+    User friendly API key name
+    """
+    api_key_value: pulumi.Input[_builtins.str]
+    """
+    API key value
+    """
+
+@pulumi.input_type
+class ServiceApiKeyDetailsArgs:
+    def __init__(__self__, *,
+                 api_key_header: pulumi.Input[_builtins.str],
+                 api_key_name: pulumi.Input[_builtins.str],
+                 api_key_value: pulumi.Input[_builtins.str]):
+        """
+        API key authentication details
+
+        :param pulumi.Input[_builtins.str] api_key_header: HTTP header name to send the API key
+        :param pulumi.Input[_builtins.str] api_key_name: User friendly API key name
+        :param pulumi.Input[_builtins.str] api_key_value: API key value
+        """
+        pulumi.set(__self__, "api_key_header", api_key_header)
+        pulumi.set(__self__, "api_key_name", api_key_name)
+        pulumi.set(__self__, "api_key_value", api_key_value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyHeader")
+    def api_key_header(self) -> pulumi.Input[_builtins.str]:
+        """
+        HTTP header name to send the API key
+        """
+        return pulumi.get(self, "api_key_header")
+
+    @api_key_header.setter
+    def api_key_header(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_key_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyName")
+    def api_key_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        User friendly API key name
+        """
+        return pulumi.get(self, "api_key_name")
+
+    @api_key_name.setter
+    def api_key_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_key_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyValue")
+    def api_key_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        API key value
+        """
+        return pulumi.get(self, "api_key_value")
+
+    @api_key_value.setter
+    def api_key_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_key_value", value)
+
+
+class ServiceAzureIdentityServiceDetailsArgsDict(TypedDict):
+    """
+    Azure Identity service configuration for federated identity
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    Azure AD application client ID
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    Azure AD tenant ID
+    """
+    web_identity_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role for web identity token exchange
+    """
+    web_identity_token_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of audiences for the web identity token
+    """
+
+@pulumi.input_type
+class ServiceAzureIdentityServiceDetailsArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 tenant_id: pulumi.Input[_builtins.str],
+                 web_identity_role_arn: pulumi.Input[_builtins.str],
+                 web_identity_token_audiences: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Azure Identity service configuration for federated identity
+
+        :param pulumi.Input[_builtins.str] client_id: Azure AD application client ID
+        :param pulumi.Input[_builtins.str] tenant_id: Azure AD tenant ID
+        :param pulumi.Input[_builtins.str] web_identity_role_arn: ARN of the IAM role for web identity token exchange
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] web_identity_token_audiences: List of audiences for the web identity token
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "web_identity_role_arn", web_identity_role_arn)
+        pulumi.set(__self__, "web_identity_token_audiences", web_identity_token_audiences)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure AD application client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure AD tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webIdentityRoleArn")
+    def web_identity_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role for web identity token exchange
+        """
+        return pulumi.get(self, "web_identity_role_arn")
+
+    @web_identity_role_arn.setter
+    def web_identity_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "web_identity_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webIdentityTokenAudiences")
+    def web_identity_token_audiences(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of audiences for the web identity token
+        """
+        return pulumi.get(self, "web_identity_token_audiences")
+
+    @web_identity_token_audiences.setter
+    def web_identity_token_audiences(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "web_identity_token_audiences", value)
+
+
+class ServiceBearerTokenDetailsArgsDict(TypedDict):
+    """
+    Bearer token authentication details
+    """
+    token_name: pulumi.Input[_builtins.str]
+    """
+    User friendly bearer token name
+    """
+    token_value: pulumi.Input[_builtins.str]
+    """
+    Bearer token value
+    """
+    authorization_header: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    HTTP header name to send the bearer token
+    """
+
+@pulumi.input_type
+class ServiceBearerTokenDetailsArgs:
+    def __init__(__self__, *,
+                 token_name: pulumi.Input[_builtins.str],
+                 token_value: pulumi.Input[_builtins.str],
+                 authorization_header: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Bearer token authentication details
+
+        :param pulumi.Input[_builtins.str] token_name: User friendly bearer token name
+        :param pulumi.Input[_builtins.str] token_value: Bearer token value
+        :param pulumi.Input[_builtins.str] authorization_header: HTTP header name to send the bearer token
+        """
+        pulumi.set(__self__, "token_name", token_name)
+        pulumi.set(__self__, "token_value", token_value)
+        if authorization_header is not None:
+            pulumi.set(__self__, "authorization_header", authorization_header)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenName")
+    def token_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        User friendly bearer token name
+        """
+        return pulumi.get(self, "token_name")
+
+    @token_name.setter
+    def token_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        Bearer token value
+        """
+        return pulumi.get(self, "token_value")
+
+    @token_value.setter
+    def token_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationHeader")
+    def authorization_header(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        HTTP header name to send the bearer token
+        """
+        return pulumi.get(self, "authorization_header")
+
+    @authorization_header.setter
+    def authorization_header(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_header", value)
 
 
 class ServiceDetailsArgsDict(TypedDict):
     """
     Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
     """
-    pass
+    azure_identity: NotRequired[pulumi.Input[Optional['ServiceAzureIdentityServiceDetailsArgsDict']]]
+    dynatrace: NotRequired[pulumi.Input[Optional['ServiceDynatraceServiceDetailsArgsDict']]]
+    git_lab: NotRequired[pulumi.Input[Optional['ServiceGitLabDetailsArgsDict']]]
+    mcp_server: NotRequired[pulumi.Input[Optional['ServiceMcpServerDetailsArgsDict']]]
+    mcp_server_grafana: NotRequired[pulumi.Input[Optional['ServiceMcpServerGrafanaDetailsArgsDict']]]
+    mcp_server_new_relic: NotRequired[pulumi.Input[Optional['ServiceNewRelicServiceDetailsArgsDict']]]
+    mcp_server_sig_v4: NotRequired[pulumi.Input[Optional['ServiceMcpServerSigV4DetailsArgsDict']]]
+    mcp_server_splunk: NotRequired[pulumi.Input[Optional['ServiceMcpServerSplunkDetailsArgsDict']]]
+    pager_duty: NotRequired[pulumi.Input[Optional['ServicePagerDutyDetailsArgsDict']]]
+    service_now: NotRequired[pulumi.Input[Optional['ServiceNowServiceDetailsArgsDict']]]
 
 @pulumi.input_type
 class ServiceDetailsArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 azure_identity: pulumi.Input[Optional['ServiceAzureIdentityServiceDetailsArgs']] = None,
+                 dynatrace: pulumi.Input[Optional['ServiceDynatraceServiceDetailsArgs']] = None,
+                 git_lab: pulumi.Input[Optional['ServiceGitLabDetailsArgs']] = None,
+                 mcp_server: pulumi.Input[Optional['ServiceMcpServerDetailsArgs']] = None,
+                 mcp_server_grafana: pulumi.Input[Optional['ServiceMcpServerGrafanaDetailsArgs']] = None,
+                 mcp_server_new_relic: pulumi.Input[Optional['ServiceNewRelicServiceDetailsArgs']] = None,
+                 mcp_server_sig_v4: pulumi.Input[Optional['ServiceMcpServerSigV4DetailsArgs']] = None,
+                 mcp_server_splunk: pulumi.Input[Optional['ServiceMcpServerSplunkDetailsArgs']] = None,
+                 pager_duty: pulumi.Input[Optional['ServicePagerDutyDetailsArgs']] = None,
+                 service_now: pulumi.Input[Optional['ServiceNowServiceDetailsArgs']] = None):
         """
         Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
         """
-        pass
+        if azure_identity is not None:
+            pulumi.set(__self__, "azure_identity", azure_identity)
+        if dynatrace is not None:
+            pulumi.set(__self__, "dynatrace", dynatrace)
+        if git_lab is not None:
+            pulumi.set(__self__, "git_lab", git_lab)
+        if mcp_server is not None:
+            pulumi.set(__self__, "mcp_server", mcp_server)
+        if mcp_server_grafana is not None:
+            pulumi.set(__self__, "mcp_server_grafana", mcp_server_grafana)
+        if mcp_server_new_relic is not None:
+            pulumi.set(__self__, "mcp_server_new_relic", mcp_server_new_relic)
+        if mcp_server_sig_v4 is not None:
+            pulumi.set(__self__, "mcp_server_sig_v4", mcp_server_sig_v4)
+        if mcp_server_splunk is not None:
+            pulumi.set(__self__, "mcp_server_splunk", mcp_server_splunk)
+        if pager_duty is not None:
+            pulumi.set(__self__, "pager_duty", pager_duty)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter(name="azureIdentity")
+    def azure_identity(self) -> pulumi.Input[Optional['ServiceAzureIdentityServiceDetailsArgs']]:
+        return pulumi.get(self, "azure_identity")
+
+    @azure_identity.setter
+    def azure_identity(self, value: pulumi.Input[Optional['ServiceAzureIdentityServiceDetailsArgs']]):
+        pulumi.set(self, "azure_identity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dynatrace(self) -> pulumi.Input[Optional['ServiceDynatraceServiceDetailsArgs']]:
+        return pulumi.get(self, "dynatrace")
+
+    @dynatrace.setter
+    def dynatrace(self, value: pulumi.Input[Optional['ServiceDynatraceServiceDetailsArgs']]):
+        pulumi.set(self, "dynatrace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitLab")
+    def git_lab(self) -> pulumi.Input[Optional['ServiceGitLabDetailsArgs']]:
+        return pulumi.get(self, "git_lab")
+
+    @git_lab.setter
+    def git_lab(self, value: pulumi.Input[Optional['ServiceGitLabDetailsArgs']]):
+        pulumi.set(self, "git_lab", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> pulumi.Input[Optional['ServiceMcpServerDetailsArgs']]:
+        return pulumi.get(self, "mcp_server")
+
+    @mcp_server.setter
+    def mcp_server(self, value: pulumi.Input[Optional['ServiceMcpServerDetailsArgs']]):
+        pulumi.set(self, "mcp_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerGrafana")
+    def mcp_server_grafana(self) -> pulumi.Input[Optional['ServiceMcpServerGrafanaDetailsArgs']]:
+        return pulumi.get(self, "mcp_server_grafana")
+
+    @mcp_server_grafana.setter
+    def mcp_server_grafana(self, value: pulumi.Input[Optional['ServiceMcpServerGrafanaDetailsArgs']]):
+        pulumi.set(self, "mcp_server_grafana", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerNewRelic")
+    def mcp_server_new_relic(self) -> pulumi.Input[Optional['ServiceNewRelicServiceDetailsArgs']]:
+        return pulumi.get(self, "mcp_server_new_relic")
+
+    @mcp_server_new_relic.setter
+    def mcp_server_new_relic(self, value: pulumi.Input[Optional['ServiceNewRelicServiceDetailsArgs']]):
+        pulumi.set(self, "mcp_server_new_relic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSigV4")
+    def mcp_server_sig_v4(self) -> pulumi.Input[Optional['ServiceMcpServerSigV4DetailsArgs']]:
+        return pulumi.get(self, "mcp_server_sig_v4")
+
+    @mcp_server_sig_v4.setter
+    def mcp_server_sig_v4(self, value: pulumi.Input[Optional['ServiceMcpServerSigV4DetailsArgs']]):
+        pulumi.set(self, "mcp_server_sig_v4", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSplunk")
+    def mcp_server_splunk(self) -> pulumi.Input[Optional['ServiceMcpServerSplunkDetailsArgs']]:
+        return pulumi.get(self, "mcp_server_splunk")
+
+    @mcp_server_splunk.setter
+    def mcp_server_splunk(self, value: pulumi.Input[Optional['ServiceMcpServerSplunkDetailsArgs']]):
+        pulumi.set(self, "mcp_server_splunk", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pagerDuty")
+    def pager_duty(self) -> pulumi.Input[Optional['ServicePagerDutyDetailsArgs']]:
+        return pulumi.get(self, "pager_duty")
+
+    @pager_duty.setter
+    def pager_duty(self, value: pulumi.Input[Optional['ServicePagerDutyDetailsArgs']]):
+        pulumi.set(self, "pager_duty", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> pulumi.Input[Optional['ServiceNowServiceDetailsArgs']]:
+        return pulumi.get(self, "service_now")
+
+    @service_now.setter
+    def service_now(self, value: pulumi.Input[Optional['ServiceNowServiceDetailsArgs']]):
+        pulumi.set(self, "service_now", value)
+
+
+class ServiceDynatraceAuthorizationConfigArgsDict(TypedDict):
+    """
+    Dynatrace OAuth authorization configuration
+    """
+    o_auth_client_credentials: NotRequired[pulumi.Input[Optional['ServiceOAuthClientDetailsArgsDict']]]
+
+@pulumi.input_type
+class ServiceDynatraceAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 o_auth_client_credentials: pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']] = None):
+        """
+        Dynatrace OAuth authorization configuration
+        """
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']]:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+    @o_auth_client_credentials.setter
+    def o_auth_client_credentials(self, value: pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']]):
+        pulumi.set(self, "o_auth_client_credentials", value)
+
+
+class ServiceDynatraceServiceDetailsArgsDict(TypedDict):
+    """
+    Dynatrace service configuration
+    """
+    account_urn: pulumi.Input[_builtins.str]
+    """
+    Dynatrace resource account URN
+    """
+    authorization_config: NotRequired[pulumi.Input[Optional['ServiceDynatraceAuthorizationConfigArgsDict']]]
+
+@pulumi.input_type
+class ServiceDynatraceServiceDetailsArgs:
+    def __init__(__self__, *,
+                 account_urn: pulumi.Input[_builtins.str],
+                 authorization_config: pulumi.Input[Optional['ServiceDynatraceAuthorizationConfigArgs']] = None):
+        """
+        Dynatrace service configuration
+
+        :param pulumi.Input[_builtins.str] account_urn: Dynatrace resource account URN
+        """
+        pulumi.set(__self__, "account_urn", account_urn)
+        if authorization_config is not None:
+            pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @_builtins.property
+    @pulumi.getter(name="accountUrn")
+    def account_urn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Dynatrace resource account URN
+        """
+        return pulumi.get(self, "account_urn")
+
+    @account_urn.setter
+    def account_urn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_urn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input[Optional['ServiceDynatraceAuthorizationConfigArgs']]:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input[Optional['ServiceDynatraceAuthorizationConfigArgs']]):
+        pulumi.set(self, "authorization_config", value)
+
+
+class ServiceGitLabDetailsArgsDict(TypedDict):
+    """
+    GitLab service configuration
+    """
+    target_url: pulumi.Input[_builtins.str]
+    """
+    GitLab instance URL
+    """
+    token_type: pulumi.Input['ServiceGitLabDetailsTokenType']
+    """
+    Type of GitLab access token
+    """
+    token_value: pulumi.Input[_builtins.str]
+    """
+    GitLab access token value
+    """
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional GitLab group ID for group-level access tokens
+    """
+
+@pulumi.input_type
+class ServiceGitLabDetailsArgs:
+    def __init__(__self__, *,
+                 target_url: pulumi.Input[_builtins.str],
+                 token_type: pulumi.Input['ServiceGitLabDetailsTokenType'],
+                 token_value: pulumi.Input[_builtins.str],
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        GitLab service configuration
+
+        :param pulumi.Input[_builtins.str] target_url: GitLab instance URL
+        :param pulumi.Input['ServiceGitLabDetailsTokenType'] token_type: Type of GitLab access token
+        :param pulumi.Input[_builtins.str] token_value: GitLab access token value
+        :param pulumi.Input[_builtins.str] group_id: Optional GitLab group ID for group-level access tokens
+        """
+        pulumi.set(__self__, "target_url", target_url)
+        pulumi.set(__self__, "token_type", token_type)
+        pulumi.set(__self__, "token_value", token_value)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        GitLab instance URL
+        """
+        return pulumi.get(self, "target_url")
+
+    @target_url.setter
+    def target_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> pulumi.Input['ServiceGitLabDetailsTokenType']:
+        """
+        Type of GitLab access token
+        """
+        return pulumi.get(self, "token_type")
+
+    @token_type.setter
+    def token_type(self, value: pulumi.Input['ServiceGitLabDetailsTokenType']):
+        pulumi.set(self, "token_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> pulumi.Input[_builtins.str]:
+        """
+        GitLab access token value
+        """
+        return pulumi.get(self, "token_value")
+
+    @token_value.setter
+    def token_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional GitLab group ID for group-level access tokens
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_id", value)
+
+
+class ServiceMcpServerAuthorizationConfigArgsDict(TypedDict):
+    """
+    MCP server authorization configuration
+    """
+    api_key: NotRequired[pulumi.Input[Optional['ServiceApiKeyDetailsArgsDict']]]
+    o_auth_client_credentials: NotRequired[pulumi.Input[Optional['ServiceMcpServerOAuthClientCredentialsConfigArgsDict']]]
+
+@pulumi.input_type
+class ServiceMcpServerAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 api_key: pulumi.Input[Optional['ServiceApiKeyDetailsArgs']] = None,
+                 o_auth_client_credentials: pulumi.Input[Optional['ServiceMcpServerOAuthClientCredentialsConfigArgs']] = None):
+        """
+        MCP server authorization configuration
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Input[Optional['ServiceApiKeyDetailsArgs']]:
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: pulumi.Input[Optional['ServiceApiKeyDetailsArgs']]):
+        pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> pulumi.Input[Optional['ServiceMcpServerOAuthClientCredentialsConfigArgs']]:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+    @o_auth_client_credentials.setter
+    def o_auth_client_credentials(self, value: pulumi.Input[Optional['ServiceMcpServerOAuthClientCredentialsConfigArgs']]):
+        pulumi.set(self, "o_auth_client_credentials", value)
+
+
+class ServiceMcpServerDetailsArgsDict(TypedDict):
+    """
+    MCP server configuration
+    """
+    authorization_config: pulumi.Input['ServiceMcpServerAuthorizationConfigArgsDict']
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    MCP server endpoint URL
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    MCP server name
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional description for the MCP server
+    """
+
+@pulumi.input_type
+class ServiceMcpServerDetailsArgs:
+    def __init__(__self__, *,
+                 authorization_config: pulumi.Input['ServiceMcpServerAuthorizationConfigArgs'],
+                 endpoint: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        MCP server configuration
+
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.str] name: MCP server name
+        :param pulumi.Input[_builtins.str] description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input['ServiceMcpServerAuthorizationConfigArgs']:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input['ServiceMcpServerAuthorizationConfigArgs']):
+        pulumi.set(self, "authorization_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class ServiceMcpServerGrafanaAuthorizationConfigArgsDict(TypedDict):
+    """
+    Grafana MCP server authorization configuration
+    """
+    bearer_token: NotRequired[pulumi.Input[Optional['ServiceBearerTokenDetailsArgsDict']]]
+
+@pulumi.input_type
+class ServiceMcpServerGrafanaAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 bearer_token: pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']] = None):
+        """
+        Grafana MCP server authorization configuration
+        """
+        if bearer_token is not None:
+            pulumi.set(__self__, "bearer_token", bearer_token)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']]:
+        return pulumi.get(self, "bearer_token")
+
+    @bearer_token.setter
+    def bearer_token(self, value: pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']]):
+        pulumi.set(self, "bearer_token", value)
+
+
+class ServiceMcpServerGrafanaDetailsArgsDict(TypedDict):
+    """
+    Grafana MCP server configuration
+    """
+    authorization_config: pulumi.Input['ServiceMcpServerGrafanaAuthorizationConfigArgsDict']
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    MCP server endpoint URL
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    MCP server name
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional description for the MCP server
+    """
+
+@pulumi.input_type
+class ServiceMcpServerGrafanaDetailsArgs:
+    def __init__(__self__, *,
+                 authorization_config: pulumi.Input['ServiceMcpServerGrafanaAuthorizationConfigArgs'],
+                 endpoint: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Grafana MCP server configuration
+
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.str] name: MCP server name
+        :param pulumi.Input[_builtins.str] description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input['ServiceMcpServerGrafanaAuthorizationConfigArgs']:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input['ServiceMcpServerGrafanaAuthorizationConfigArgs']):
+        pulumi.set(self, "authorization_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class ServiceMcpServerOAuthClientCredentialsConfigArgsDict(TypedDict):
+    """
+    MCP server OAuth client credentials configuration
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    OAuth client ID
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    OAuth client secret
+    """
+    exchange_url: pulumi.Input[_builtins.str]
+    """
+    OAuth token exchange URL
+    """
+    client_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    User friendly OAuth client name
+    """
+    exchange_parameters: NotRequired[Any]
+    """
+    OAuth token exchange parameters
+    """
+    scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    OAuth scopes
+    """
+
+@pulumi.input_type
+class ServiceMcpServerOAuthClientCredentialsConfigArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str],
+                 exchange_url: pulumi.Input[_builtins.str],
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exchange_parameters: Optional[Any] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        MCP server OAuth client credentials configuration
+
+        :param pulumi.Input[_builtins.str] client_id: OAuth client ID
+        :param pulumi.Input[_builtins.str] client_secret: OAuth client secret
+        :param pulumi.Input[_builtins.str] exchange_url: OAuth token exchange URL
+        :param pulumi.Input[_builtins.str] client_name: User friendly OAuth client name
+        :param Any exchange_parameters: OAuth token exchange parameters
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: OAuth scopes
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "exchange_url", exchange_url)
+        if client_name is not None:
+            pulumi.set(__self__, "client_name", client_name)
+        if exchange_parameters is not None:
+            pulumi.set(__self__, "exchange_parameters", exchange_parameters)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        OAuth client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        OAuth client secret
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exchangeUrl")
+    def exchange_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        OAuth token exchange URL
+        """
+        return pulumi.get(self, "exchange_url")
+
+    @exchange_url.setter
+    def exchange_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "exchange_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientName")
+    def client_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User friendly OAuth client name
+        """
+        return pulumi.get(self, "client_name")
+
+    @client_name.setter
+    def client_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exchangeParameters")
+    def exchange_parameters(self) -> Optional[Any]:
+        """
+        OAuth token exchange parameters
+        """
+        return pulumi.get(self, "exchange_parameters")
+
+    @exchange_parameters.setter
+    def exchange_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "exchange_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        OAuth scopes
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "scopes", value)
+
+
+class ServiceMcpServerSigV4AuthorizationConfigArgsDict(TypedDict):
+    """
+    SigV4 authorization configuration for MCP server
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+    """
+    service: pulumi.Input[_builtins.str]
+    """
+    AWS service name for SigV4 signing
+    """
+    custom_headers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Custom headers for the SigV4 MCP server
+    """
+    mcp_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+    """
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+    """
+
+@pulumi.input_type
+class ServiceMcpServerSigV4AuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[_builtins.str],
+                 service: pulumi.Input[_builtins.str],
+                 custom_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mcp_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        SigV4 authorization configuration for MCP server
+
+        :param pulumi.Input[_builtins.str] region: AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+        :param pulumi.Input[_builtins.str] service: AWS service name for SigV4 signing
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_headers: Custom headers for the SigV4 MCP server
+        :param pulumi.Input[_builtins.str] mcp_role_arn: IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+        :param pulumi.Input[_builtins.str] role_arn: Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "service", service)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
+        if mcp_role_arn is not None:
+            pulumi.set(__self__, "mcp_role_arn", mcp_role_arn)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS service name for SigV4 signing
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Custom headers for the SigV4 MCP server
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @custom_headers.setter
+    def custom_headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "custom_headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpRoleArn")
+    def mcp_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+        """
+        return pulumi.get(self, "mcp_role_arn")
+
+    @mcp_role_arn.setter
+    def mcp_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mcp_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+class ServiceMcpServerSigV4DetailsArgsDict(TypedDict):
+    """
+    SigV4-authenticated MCP server configuration
+    """
+    authorization_config: pulumi.Input['ServiceMcpServerSigV4AuthorizationConfigArgsDict']
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    MCP server endpoint URL
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    MCP server name
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional description for the MCP server
+    """
+
+@pulumi.input_type
+class ServiceMcpServerSigV4DetailsArgs:
+    def __init__(__self__, *,
+                 authorization_config: pulumi.Input['ServiceMcpServerSigV4AuthorizationConfigArgs'],
+                 endpoint: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        SigV4-authenticated MCP server configuration
+
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.str] name: MCP server name
+        :param pulumi.Input[_builtins.str] description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input['ServiceMcpServerSigV4AuthorizationConfigArgs']:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input['ServiceMcpServerSigV4AuthorizationConfigArgs']):
+        pulumi.set(self, "authorization_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class ServiceMcpServerSplunkAuthorizationConfigArgsDict(TypedDict):
+    """
+    MCP server splunk authorization configuration
+    """
+    bearer_token: NotRequired[pulumi.Input[Optional['ServiceBearerTokenDetailsArgsDict']]]
+
+@pulumi.input_type
+class ServiceMcpServerSplunkAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 bearer_token: pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']] = None):
+        """
+        MCP server splunk authorization configuration
+        """
+        if bearer_token is not None:
+            pulumi.set(__self__, "bearer_token", bearer_token)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']]:
+        return pulumi.get(self, "bearer_token")
+
+    @bearer_token.setter
+    def bearer_token(self, value: pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']]):
+        pulumi.set(self, "bearer_token", value)
+
+
+class ServiceMcpServerSplunkDetailsArgsDict(TypedDict):
+    """
+    Splunk MCP server configuration
+    """
+    authorization_config: pulumi.Input['ServiceMcpServerSplunkAuthorizationConfigArgsDict']
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    MCP server endpoint URL
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    MCP server name
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional description for the MCP server
+    """
+
+@pulumi.input_type
+class ServiceMcpServerSplunkDetailsArgs:
+    def __init__(__self__, *,
+                 authorization_config: pulumi.Input['ServiceMcpServerSplunkAuthorizationConfigArgs'],
+                 endpoint: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Splunk MCP server configuration
+
+        :param pulumi.Input[_builtins.str] endpoint: MCP server endpoint URL
+        :param pulumi.Input[_builtins.str] name: MCP server name
+        :param pulumi.Input[_builtins.str] description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input['ServiceMcpServerSplunkAuthorizationConfigArgs']:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input['ServiceMcpServerSplunkAuthorizationConfigArgs']):
+        pulumi.set(self, "authorization_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class ServiceNewRelicApiKeyConfigArgsDict(TypedDict):
+    """
+    New Relic API key configuration
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    New Relic Account ID
+    """
+    api_key: pulumi.Input[_builtins.str]
+    """
+    New Relic User API Key
+    """
+    region: pulumi.Input['ServiceNewRelicApiKeyConfigRegion']
+    """
+    New Relic region
+    """
+    alert_policy_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of alert policy IDs
+    """
+    application_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of monitored APM application IDs
+    """
+    entity_guids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of globally unique IDs for New Relic resources
+    """
+
+@pulumi.input_type
+class ServiceNewRelicApiKeyConfigArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[_builtins.str],
+                 api_key: pulumi.Input[_builtins.str],
+                 region: pulumi.Input['ServiceNewRelicApiKeyConfigRegion'],
+                 alert_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entity_guids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        New Relic API key configuration
+
+        :param pulumi.Input[_builtins.str] account_id: New Relic Account ID
+        :param pulumi.Input[_builtins.str] api_key: New Relic User API Key
+        :param pulumi.Input['ServiceNewRelicApiKeyConfigRegion'] region: New Relic region
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alert_policy_ids: List of alert policy IDs
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_ids: List of monitored APM application IDs
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entity_guids: List of globally unique IDs for New Relic resources
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "region", region)
+        if alert_policy_ids is not None:
+            pulumi.set(__self__, "alert_policy_ids", alert_policy_ids)
+        if application_ids is not None:
+            pulumi.set(__self__, "application_ids", application_ids)
+        if entity_guids is not None:
+            pulumi.set(__self__, "entity_guids", entity_guids)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        New Relic Account ID
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        New Relic User API Key
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input['ServiceNewRelicApiKeyConfigRegion']:
+        """
+        New Relic region
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input['ServiceNewRelicApiKeyConfigRegion']):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alertPolicyIds")
+    def alert_policy_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of alert policy IDs
+        """
+        return pulumi.get(self, "alert_policy_ids")
+
+    @alert_policy_ids.setter
+    def alert_policy_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "alert_policy_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationIds")
+    def application_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of monitored APM application IDs
+        """
+        return pulumi.get(self, "application_ids")
+
+    @application_ids.setter
+    def application_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "application_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuids")
+    def entity_guids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of globally unique IDs for New Relic resources
+        """
+        return pulumi.get(self, "entity_guids")
+
+    @entity_guids.setter
+    def entity_guids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "entity_guids", value)
+
+
+class ServiceNewRelicAuthorizationConfigArgsDict(TypedDict):
+    """
+    New Relic authorization configuration
+    """
+    api_key: pulumi.Input['ServiceNewRelicApiKeyConfigArgsDict']
+
+@pulumi.input_type
+class ServiceNewRelicAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 api_key: pulumi.Input['ServiceNewRelicApiKeyConfigArgs']):
+        """
+        New Relic authorization configuration
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> pulumi.Input['ServiceNewRelicApiKeyConfigArgs']:
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: pulumi.Input['ServiceNewRelicApiKeyConfigArgs']):
+        pulumi.set(self, "api_key", value)
+
+
+class ServiceNewRelicServiceDetailsArgsDict(TypedDict):
+    """
+    New Relic service configuration
+    """
+    authorization_config: pulumi.Input['ServiceNewRelicAuthorizationConfigArgsDict']
+
+@pulumi.input_type
+class ServiceNewRelicServiceDetailsArgs:
+    def __init__(__self__, *,
+                 authorization_config: pulumi.Input['ServiceNewRelicAuthorizationConfigArgs']):
+        """
+        New Relic service configuration
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input['ServiceNewRelicAuthorizationConfigArgs']:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input['ServiceNewRelicAuthorizationConfigArgs']):
+        pulumi.set(self, "authorization_config", value)
+
+
+class ServiceNowAuthorizationConfigArgsDict(TypedDict):
+    """
+    ServiceNow OAuth authorization configuration
+    """
+    o_auth_client_credentials: NotRequired[pulumi.Input[Optional['ServiceOAuthClientDetailsArgsDict']]]
+
+@pulumi.input_type
+class ServiceNowAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 o_auth_client_credentials: pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']] = None):
+        """
+        ServiceNow OAuth authorization configuration
+        """
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']]:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+    @o_auth_client_credentials.setter
+    def o_auth_client_credentials(self, value: pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']]):
+        pulumi.set(self, "o_auth_client_credentials", value)
+
+
+class ServiceNowServiceDetailsArgsDict(TypedDict):
+    """
+    ServiceNow service configuration
+    """
+    instance_url: pulumi.Input[_builtins.str]
+    """
+    ServiceNow instance URL
+    """
+    authorization_config: NotRequired[pulumi.Input[Optional['ServiceNowAuthorizationConfigArgsDict']]]
+
+@pulumi.input_type
+class ServiceNowServiceDetailsArgs:
+    def __init__(__self__, *,
+                 instance_url: pulumi.Input[_builtins.str],
+                 authorization_config: pulumi.Input[Optional['ServiceNowAuthorizationConfigArgs']] = None):
+        """
+        ServiceNow service configuration
+
+        :param pulumi.Input[_builtins.str] instance_url: ServiceNow instance URL
+        """
+        pulumi.set(__self__, "instance_url", instance_url)
+        if authorization_config is not None:
+            pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceUrl")
+    def instance_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        ServiceNow instance URL
+        """
+        return pulumi.get(self, "instance_url")
+
+    @instance_url.setter
+    def instance_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input[Optional['ServiceNowAuthorizationConfigArgs']]:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input[Optional['ServiceNowAuthorizationConfigArgs']]):
+        pulumi.set(self, "authorization_config", value)
+
+
+class ServiceOAuthClientDetailsArgsDict(TypedDict):
+    """
+    OAuth client credentials
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    OAuth client ID
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    OAuth client secret
+    """
+    client_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    User friendly OAuth client name
+    """
+    exchange_parameters: NotRequired[Any]
+    """
+    OAuth token exchange parameters
+    """
+
+@pulumi.input_type
+class ServiceOAuthClientDetailsArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 client_secret: pulumi.Input[_builtins.str],
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 exchange_parameters: Optional[Any] = None):
+        """
+        OAuth client credentials
+
+        :param pulumi.Input[_builtins.str] client_id: OAuth client ID
+        :param pulumi.Input[_builtins.str] client_secret: OAuth client secret
+        :param pulumi.Input[_builtins.str] client_name: User friendly OAuth client name
+        :param Any exchange_parameters: OAuth token exchange parameters
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        if client_name is not None:
+            pulumi.set(__self__, "client_name", client_name)
+        if exchange_parameters is not None:
+            pulumi.set(__self__, "exchange_parameters", exchange_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        OAuth client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        OAuth client secret
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientName")
+    def client_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User friendly OAuth client name
+        """
+        return pulumi.get(self, "client_name")
+
+    @client_name.setter
+    def client_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exchangeParameters")
+    def exchange_parameters(self) -> Optional[Any]:
+        """
+        OAuth token exchange parameters
+        """
+        return pulumi.get(self, "exchange_parameters")
+
+    @exchange_parameters.setter
+    def exchange_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "exchange_parameters", value)
+
+
+class ServicePagerDutyAuthorizationConfigArgsDict(TypedDict):
+    """
+    PagerDuty OAuth authorization configuration
+    """
+    o_auth_client_credentials: NotRequired[pulumi.Input[Optional['ServiceOAuthClientDetailsArgsDict']]]
+
+@pulumi.input_type
+class ServicePagerDutyAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 o_auth_client_credentials: pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']] = None):
+        """
+        PagerDuty OAuth authorization configuration
+        """
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']]:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+    @o_auth_client_credentials.setter
+    def o_auth_client_credentials(self, value: pulumi.Input[Optional['ServiceOAuthClientDetailsArgs']]):
+        pulumi.set(self, "o_auth_client_credentials", value)
+
+
+class ServicePagerDutyDetailsArgsDict(TypedDict):
+    """
+    PagerDuty service configuration
+    """
+    authorization_config: pulumi.Input['ServicePagerDutyAuthorizationConfigArgsDict']
+    scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    PagerDuty scopes
+    """
+
+@pulumi.input_type
+class ServicePagerDutyDetailsArgs:
+    def __init__(__self__, *,
+                 authorization_config: pulumi.Input['ServicePagerDutyAuthorizationConfigArgs'],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        PagerDuty service configuration
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: PagerDuty scopes
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "scopes", scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input['ServicePagerDutyAuthorizationConfigArgs']:
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input['ServicePagerDutyAuthorizationConfigArgs']):
+        pulumi.set(self, "authorization_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        PagerDuty scopes
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "scopes", value)
 
 

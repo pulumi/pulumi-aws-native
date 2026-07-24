@@ -97,6 +97,7 @@ __all__ = [
     'RuntimeClaimMatchOperator',
     'RuntimeEndpointAgentRuntimeEndpointStatus',
     'RuntimeInboundTokenClaimValueType',
+    'RuntimeManagedVpcResourceEndpointIpAddressType',
     'RuntimeNetworkMode',
     'RuntimeProtocolConfiguration',
 ]
@@ -928,6 +929,15 @@ class RuntimeInboundTokenClaimValueType(_builtins.str, Enum):
     """
     STRING = "STRING"
     STRING_ARRAY = "STRING_ARRAY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:RuntimeManagedVpcResourceEndpointIpAddressType")
+class RuntimeManagedVpcResourceEndpointIpAddressType(_builtins.str, Enum):
+    """
+    The IP address type for the endpoint
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeNetworkMode")

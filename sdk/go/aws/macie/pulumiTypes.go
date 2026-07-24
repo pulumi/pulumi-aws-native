@@ -15,6 +15,10 @@ var _ = internal.GetEnvOrDefault
 
 // The regex or s3 object to use for the AllowList.
 type AllowListCriteria struct {
+	// The S3 object key for the AllowList.
+	Regex *string `pulumi:"regex"`
+	// The S3 location for the AllowList.
+	S3WordsList *AllowListS3WordsList `pulumi:"s3WordsList"`
 }
 
 // AllowListCriteriaInput is an input type that accepts AllowListCriteriaArgs and AllowListCriteriaOutput values.
@@ -30,6 +34,10 @@ type AllowListCriteriaInput interface {
 
 // The regex or s3 object to use for the AllowList.
 type AllowListCriteriaArgs struct {
+	// The S3 object key for the AllowList.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The S3 location for the AllowList.
+	S3WordsList AllowListS3WordsListPtrInput `pulumi:"s3WordsList"`
 }
 
 func (AllowListCriteriaArgs) ElementType() reflect.Type {
@@ -59,6 +67,16 @@ func (o AllowListCriteriaOutput) ToAllowListCriteriaOutputWithContext(ctx contex
 	return o
 }
 
+// The S3 object key for the AllowList.
+func (o AllowListCriteriaOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AllowListCriteria) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The S3 location for the AllowList.
+func (o AllowListCriteriaOutput) S3WordsList() AllowListS3WordsListPtrOutput {
+	return o.ApplyT(func(v AllowListCriteria) *AllowListS3WordsList { return v.S3WordsList }).(AllowListS3WordsListPtrOutput)
+}
+
 type AllowListCriteriaPtrOutput struct{ *pulumi.OutputState }
 
 func (AllowListCriteriaPtrOutput) ElementType() reflect.Type {
@@ -81,6 +99,174 @@ func (o AllowListCriteriaPtrOutput) Elem() AllowListCriteriaOutput {
 		var ret AllowListCriteria
 		return ret
 	}).(AllowListCriteriaOutput)
+}
+
+// The S3 object key for the AllowList.
+func (o AllowListCriteriaPtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AllowListCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 location for the AllowList.
+func (o AllowListCriteriaPtrOutput) S3WordsList() AllowListS3WordsListPtrOutput {
+	return o.ApplyT(func(v *AllowListCriteria) *AllowListS3WordsList {
+		if v == nil {
+			return nil
+		}
+		return v.S3WordsList
+	}).(AllowListS3WordsListPtrOutput)
+}
+
+type AllowListS3WordsList struct {
+	BucketName string `pulumi:"bucketName"`
+	ObjectKey  string `pulumi:"objectKey"`
+}
+
+// AllowListS3WordsListInput is an input type that accepts AllowListS3WordsListArgs and AllowListS3WordsListOutput values.
+// You can construct a concrete instance of `AllowListS3WordsListInput` via:
+//
+//	AllowListS3WordsListArgs{...}
+type AllowListS3WordsListInput interface {
+	pulumi.Input
+
+	ToAllowListS3WordsListOutput() AllowListS3WordsListOutput
+	ToAllowListS3WordsListOutputWithContext(context.Context) AllowListS3WordsListOutput
+}
+
+type AllowListS3WordsListArgs struct {
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	ObjectKey  pulumi.StringInput `pulumi:"objectKey"`
+}
+
+func (AllowListS3WordsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowListS3WordsList)(nil)).Elem()
+}
+
+func (i AllowListS3WordsListArgs) ToAllowListS3WordsListOutput() AllowListS3WordsListOutput {
+	return i.ToAllowListS3WordsListOutputWithContext(context.Background())
+}
+
+func (i AllowListS3WordsListArgs) ToAllowListS3WordsListOutputWithContext(ctx context.Context) AllowListS3WordsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowListS3WordsListOutput)
+}
+
+func (i AllowListS3WordsListArgs) ToAllowListS3WordsListPtrOutput() AllowListS3WordsListPtrOutput {
+	return i.ToAllowListS3WordsListPtrOutputWithContext(context.Background())
+}
+
+func (i AllowListS3WordsListArgs) ToAllowListS3WordsListPtrOutputWithContext(ctx context.Context) AllowListS3WordsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowListS3WordsListOutput).ToAllowListS3WordsListPtrOutputWithContext(ctx)
+}
+
+// AllowListS3WordsListPtrInput is an input type that accepts AllowListS3WordsListArgs, AllowListS3WordsListPtr and AllowListS3WordsListPtrOutput values.
+// You can construct a concrete instance of `AllowListS3WordsListPtrInput` via:
+//
+//	        AllowListS3WordsListArgs{...}
+//
+//	or:
+//
+//	        nil
+type AllowListS3WordsListPtrInput interface {
+	pulumi.Input
+
+	ToAllowListS3WordsListPtrOutput() AllowListS3WordsListPtrOutput
+	ToAllowListS3WordsListPtrOutputWithContext(context.Context) AllowListS3WordsListPtrOutput
+}
+
+type allowListS3WordsListPtrType AllowListS3WordsListArgs
+
+func AllowListS3WordsListPtr(v *AllowListS3WordsListArgs) AllowListS3WordsListPtrInput {
+	return (*allowListS3WordsListPtrType)(v)
+}
+
+func (*allowListS3WordsListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowListS3WordsList)(nil)).Elem()
+}
+
+func (i *allowListS3WordsListPtrType) ToAllowListS3WordsListPtrOutput() AllowListS3WordsListPtrOutput {
+	return i.ToAllowListS3WordsListPtrOutputWithContext(context.Background())
+}
+
+func (i *allowListS3WordsListPtrType) ToAllowListS3WordsListPtrOutputWithContext(ctx context.Context) AllowListS3WordsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowListS3WordsListPtrOutput)
+}
+
+type AllowListS3WordsListOutput struct{ *pulumi.OutputState }
+
+func (AllowListS3WordsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowListS3WordsList)(nil)).Elem()
+}
+
+func (o AllowListS3WordsListOutput) ToAllowListS3WordsListOutput() AllowListS3WordsListOutput {
+	return o
+}
+
+func (o AllowListS3WordsListOutput) ToAllowListS3WordsListOutputWithContext(ctx context.Context) AllowListS3WordsListOutput {
+	return o
+}
+
+func (o AllowListS3WordsListOutput) ToAllowListS3WordsListPtrOutput() AllowListS3WordsListPtrOutput {
+	return o.ToAllowListS3WordsListPtrOutputWithContext(context.Background())
+}
+
+func (o AllowListS3WordsListOutput) ToAllowListS3WordsListPtrOutputWithContext(ctx context.Context) AllowListS3WordsListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AllowListS3WordsList) *AllowListS3WordsList {
+		return &v
+	}).(AllowListS3WordsListPtrOutput)
+}
+
+func (o AllowListS3WordsListOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowListS3WordsList) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+func (o AllowListS3WordsListOutput) ObjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowListS3WordsList) string { return v.ObjectKey }).(pulumi.StringOutput)
+}
+
+type AllowListS3WordsListPtrOutput struct{ *pulumi.OutputState }
+
+func (AllowListS3WordsListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AllowListS3WordsList)(nil)).Elem()
+}
+
+func (o AllowListS3WordsListPtrOutput) ToAllowListS3WordsListPtrOutput() AllowListS3WordsListPtrOutput {
+	return o
+}
+
+func (o AllowListS3WordsListPtrOutput) ToAllowListS3WordsListPtrOutputWithContext(ctx context.Context) AllowListS3WordsListPtrOutput {
+	return o
+}
+
+func (o AllowListS3WordsListPtrOutput) Elem() AllowListS3WordsListOutput {
+	return o.ApplyT(func(v *AllowListS3WordsList) AllowListS3WordsList {
+		if v != nil {
+			return *v
+		}
+		var ret AllowListS3WordsList
+		return ret
+	}).(AllowListS3WordsListOutput)
+}
+
+func (o AllowListS3WordsListPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AllowListS3WordsList) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AllowListS3WordsListPtrOutput) ObjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AllowListS3WordsList) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -339,11 +525,15 @@ type FindingsFilterTag struct {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListCriteriaInput)(nil)).Elem(), AllowListCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowListS3WordsListInput)(nil)).Elem(), AllowListS3WordsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AllowListS3WordsListPtrInput)(nil)).Elem(), AllowListS3WordsListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionAdditionalPropertiesInput)(nil)).Elem(), FindingsFilterCriterionAdditionalPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterCriterionAdditionalPropertiesMapInput)(nil)).Elem(), FindingsFilterCriterionAdditionalPropertiesMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
 	pulumi.RegisterOutputType(AllowListCriteriaOutput{})
 	pulumi.RegisterOutputType(AllowListCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(AllowListS3WordsListOutput{})
+	pulumi.RegisterOutputType(AllowListS3WordsListPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionAdditionalPropertiesOutput{})
 	pulumi.RegisterOutputType(FindingsFilterCriterionAdditionalPropertiesMapOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})

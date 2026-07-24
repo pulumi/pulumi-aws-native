@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class RuntimePrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
+        [Input("managedVpcResource")]
+        public Input<Inputs.RuntimeManagedVpcResourceArgs>? ManagedVpcResource { get; set; }
+
+        [Input("selfManagedLatticeResource")]
+        public Input<Inputs.RuntimeSelfManagedLatticeResourceArgs>? SelfManagedLatticeResource { get; set; }
+
         public RuntimePrivateEndpointArgs()
         {
         }

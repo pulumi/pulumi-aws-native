@@ -10,6 +10,1248 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Account Type 'monitor' for DevOpsAgent monitoring
+type AssociationAwsConfigurationAccountType string
+
+const (
+	AssociationAwsConfigurationAccountTypeMonitor = AssociationAwsConfigurationAccountType("monitor")
+)
+
+func (AssociationAwsConfigurationAccountType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsConfigurationAccountType)(nil)).Elem()
+}
+
+func (e AssociationAwsConfigurationAccountType) ToAssociationAwsConfigurationAccountTypeOutput() AssociationAwsConfigurationAccountTypeOutput {
+	return pulumi.ToOutput(e).(AssociationAwsConfigurationAccountTypeOutput)
+}
+
+func (e AssociationAwsConfigurationAccountType) ToAssociationAwsConfigurationAccountTypeOutputWithContext(ctx context.Context) AssociationAwsConfigurationAccountTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssociationAwsConfigurationAccountTypeOutput)
+}
+
+func (e AssociationAwsConfigurationAccountType) ToAssociationAwsConfigurationAccountTypePtrOutput() AssociationAwsConfigurationAccountTypePtrOutput {
+	return e.ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (e AssociationAwsConfigurationAccountType) ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationAccountTypePtrOutput {
+	return AssociationAwsConfigurationAccountType(e).ToAssociationAwsConfigurationAccountTypeOutputWithContext(ctx).ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(ctx)
+}
+
+func (e AssociationAwsConfigurationAccountType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationAwsConfigurationAccountType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationAwsConfigurationAccountType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationAwsConfigurationAccountType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssociationAwsConfigurationAccountTypeOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsConfigurationAccountTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsConfigurationAccountType)(nil)).Elem()
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToAssociationAwsConfigurationAccountTypeOutput() AssociationAwsConfigurationAccountTypeOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToAssociationAwsConfigurationAccountTypeOutputWithContext(ctx context.Context) AssociationAwsConfigurationAccountTypeOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToAssociationAwsConfigurationAccountTypePtrOutput() AssociationAwsConfigurationAccountTypePtrOutput {
+	return o.ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationAccountTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationAwsConfigurationAccountType) *AssociationAwsConfigurationAccountType {
+		return &v
+	}).(AssociationAwsConfigurationAccountTypePtrOutput)
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationAwsConfigurationAccountType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsConfigurationAccountTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationAwsConfigurationAccountType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssociationAwsConfigurationAccountTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsConfigurationAccountTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAwsConfigurationAccountType)(nil)).Elem()
+}
+
+func (o AssociationAwsConfigurationAccountTypePtrOutput) ToAssociationAwsConfigurationAccountTypePtrOutput() AssociationAwsConfigurationAccountTypePtrOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationAccountTypePtrOutput) ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationAccountTypePtrOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationAccountTypePtrOutput) Elem() AssociationAwsConfigurationAccountTypeOutput {
+	return o.ApplyT(func(v *AssociationAwsConfigurationAccountType) AssociationAwsConfigurationAccountType {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationAwsConfigurationAccountType
+		return ret
+	}).(AssociationAwsConfigurationAccountTypeOutput)
+}
+
+func (o AssociationAwsConfigurationAccountTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsConfigurationAccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssociationAwsConfigurationAccountType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssociationAwsConfigurationAccountTypeInput is an input type that accepts values of the AssociationAwsConfigurationAccountType enum
+// A concrete instance of `AssociationAwsConfigurationAccountTypeInput` can be one of the following:
+//
+//	AssociationAwsConfigurationAccountTypeMonitor
+type AssociationAwsConfigurationAccountTypeInput interface {
+	pulumi.Input
+
+	ToAssociationAwsConfigurationAccountTypeOutput() AssociationAwsConfigurationAccountTypeOutput
+	ToAssociationAwsConfigurationAccountTypeOutputWithContext(context.Context) AssociationAwsConfigurationAccountTypeOutput
+}
+
+var associationAwsConfigurationAccountTypePtrType = reflect.TypeOf((**AssociationAwsConfigurationAccountType)(nil)).Elem()
+
+type AssociationAwsConfigurationAccountTypePtrInput interface {
+	pulumi.Input
+
+	ToAssociationAwsConfigurationAccountTypePtrOutput() AssociationAwsConfigurationAccountTypePtrOutput
+	ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(context.Context) AssociationAwsConfigurationAccountTypePtrOutput
+}
+
+type associationAwsConfigurationAccountTypePtr string
+
+func AssociationAwsConfigurationAccountTypePtr(v string) AssociationAwsConfigurationAccountTypePtrInput {
+	return (*associationAwsConfigurationAccountTypePtr)(&v)
+}
+
+func (*associationAwsConfigurationAccountTypePtr) ElementType() reflect.Type {
+	return associationAwsConfigurationAccountTypePtrType
+}
+
+func (in *associationAwsConfigurationAccountTypePtr) ToAssociationAwsConfigurationAccountTypePtrOutput() AssociationAwsConfigurationAccountTypePtrOutput {
+	return pulumi.ToOutput(in).(AssociationAwsConfigurationAccountTypePtrOutput)
+}
+
+func (in *associationAwsConfigurationAccountTypePtr) ToAssociationAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationAccountTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssociationAwsConfigurationAccountTypePtrOutput)
+}
+
+// Resource type
+type AssociationAwsResourceResourceType string
+
+const (
+	AssociationAwsResourceResourceTypeAwsCloudFormationStack = AssociationAwsResourceResourceType("AWS::CloudFormation::Stack")
+	AssociationAwsResourceResourceTypeAwsecrRepository       = AssociationAwsResourceResourceType("AWS::ECR::Repository")
+	AssociationAwsResourceResourceTypeAwss3Bucket            = AssociationAwsResourceResourceType("AWS::S3::Bucket")
+	AssociationAwsResourceResourceTypeAwss3Object            = AssociationAwsResourceResourceType("AWS::S3::Object")
+)
+
+func (AssociationAwsResourceResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsResourceResourceType)(nil)).Elem()
+}
+
+func (e AssociationAwsResourceResourceType) ToAssociationAwsResourceResourceTypeOutput() AssociationAwsResourceResourceTypeOutput {
+	return pulumi.ToOutput(e).(AssociationAwsResourceResourceTypeOutput)
+}
+
+func (e AssociationAwsResourceResourceType) ToAssociationAwsResourceResourceTypeOutputWithContext(ctx context.Context) AssociationAwsResourceResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssociationAwsResourceResourceTypeOutput)
+}
+
+func (e AssociationAwsResourceResourceType) ToAssociationAwsResourceResourceTypePtrOutput() AssociationAwsResourceResourceTypePtrOutput {
+	return e.ToAssociationAwsResourceResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e AssociationAwsResourceResourceType) ToAssociationAwsResourceResourceTypePtrOutputWithContext(ctx context.Context) AssociationAwsResourceResourceTypePtrOutput {
+	return AssociationAwsResourceResourceType(e).ToAssociationAwsResourceResourceTypeOutputWithContext(ctx).ToAssociationAwsResourceResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e AssociationAwsResourceResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationAwsResourceResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationAwsResourceResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationAwsResourceResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssociationAwsResourceResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsResourceResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsResourceResourceType)(nil)).Elem()
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToAssociationAwsResourceResourceTypeOutput() AssociationAwsResourceResourceTypeOutput {
+	return o
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToAssociationAwsResourceResourceTypeOutputWithContext(ctx context.Context) AssociationAwsResourceResourceTypeOutput {
+	return o
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToAssociationAwsResourceResourceTypePtrOutput() AssociationAwsResourceResourceTypePtrOutput {
+	return o.ToAssociationAwsResourceResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToAssociationAwsResourceResourceTypePtrOutputWithContext(ctx context.Context) AssociationAwsResourceResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationAwsResourceResourceType) *AssociationAwsResourceResourceType {
+		return &v
+	}).(AssociationAwsResourceResourceTypePtrOutput)
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationAwsResourceResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsResourceResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationAwsResourceResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssociationAwsResourceResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsResourceResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAwsResourceResourceType)(nil)).Elem()
+}
+
+func (o AssociationAwsResourceResourceTypePtrOutput) ToAssociationAwsResourceResourceTypePtrOutput() AssociationAwsResourceResourceTypePtrOutput {
+	return o
+}
+
+func (o AssociationAwsResourceResourceTypePtrOutput) ToAssociationAwsResourceResourceTypePtrOutputWithContext(ctx context.Context) AssociationAwsResourceResourceTypePtrOutput {
+	return o
+}
+
+func (o AssociationAwsResourceResourceTypePtrOutput) Elem() AssociationAwsResourceResourceTypeOutput {
+	return o.ApplyT(func(v *AssociationAwsResourceResourceType) AssociationAwsResourceResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationAwsResourceResourceType
+		return ret
+	}).(AssociationAwsResourceResourceTypeOutput)
+}
+
+func (o AssociationAwsResourceResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsResourceResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssociationAwsResourceResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssociationAwsResourceResourceTypeInput is an input type that accepts values of the AssociationAwsResourceResourceType enum
+// A concrete instance of `AssociationAwsResourceResourceTypeInput` can be one of the following:
+//
+//	AssociationAwsResourceResourceTypeAwsCloudFormationStack
+//	AssociationAwsResourceResourceTypeAwsecrRepository
+//	AssociationAwsResourceResourceTypeAwss3Bucket
+//	AssociationAwsResourceResourceTypeAwss3Object
+type AssociationAwsResourceResourceTypeInput interface {
+	pulumi.Input
+
+	ToAssociationAwsResourceResourceTypeOutput() AssociationAwsResourceResourceTypeOutput
+	ToAssociationAwsResourceResourceTypeOutputWithContext(context.Context) AssociationAwsResourceResourceTypeOutput
+}
+
+var associationAwsResourceResourceTypePtrType = reflect.TypeOf((**AssociationAwsResourceResourceType)(nil)).Elem()
+
+type AssociationAwsResourceResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToAssociationAwsResourceResourceTypePtrOutput() AssociationAwsResourceResourceTypePtrOutput
+	ToAssociationAwsResourceResourceTypePtrOutputWithContext(context.Context) AssociationAwsResourceResourceTypePtrOutput
+}
+
+type associationAwsResourceResourceTypePtr string
+
+func AssociationAwsResourceResourceTypePtr(v string) AssociationAwsResourceResourceTypePtrInput {
+	return (*associationAwsResourceResourceTypePtr)(&v)
+}
+
+func (*associationAwsResourceResourceTypePtr) ElementType() reflect.Type {
+	return associationAwsResourceResourceTypePtrType
+}
+
+func (in *associationAwsResourceResourceTypePtr) ToAssociationAwsResourceResourceTypePtrOutput() AssociationAwsResourceResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(AssociationAwsResourceResourceTypePtrOutput)
+}
+
+func (in *associationAwsResourceResourceTypePtr) ToAssociationAwsResourceResourceTypePtrOutputWithContext(ctx context.Context) AssociationAwsResourceResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssociationAwsResourceResourceTypePtrOutput)
+}
+
+// Type of repository owner
+type AssociationGitHubConfigurationOwnerType string
+
+const (
+	AssociationGitHubConfigurationOwnerTypeOrganization = AssociationGitHubConfigurationOwnerType("organization")
+	AssociationGitHubConfigurationOwnerTypeUser         = AssociationGitHubConfigurationOwnerType("user")
+)
+
+func (AssociationGitHubConfigurationOwnerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationGitHubConfigurationOwnerType)(nil)).Elem()
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToAssociationGitHubConfigurationOwnerTypeOutput() AssociationGitHubConfigurationOwnerTypeOutput {
+	return pulumi.ToOutput(e).(AssociationGitHubConfigurationOwnerTypeOutput)
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToAssociationGitHubConfigurationOwnerTypeOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOwnerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssociationGitHubConfigurationOwnerTypeOutput)
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToAssociationGitHubConfigurationOwnerTypePtrOutput() AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return e.ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(context.Background())
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return AssociationGitHubConfigurationOwnerType(e).ToAssociationGitHubConfigurationOwnerTypeOutputWithContext(ctx).ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(ctx)
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationGitHubConfigurationOwnerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssociationGitHubConfigurationOwnerTypeOutput struct{ *pulumi.OutputState }
+
+func (AssociationGitHubConfigurationOwnerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationGitHubConfigurationOwnerType)(nil)).Elem()
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToAssociationGitHubConfigurationOwnerTypeOutput() AssociationGitHubConfigurationOwnerTypeOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToAssociationGitHubConfigurationOwnerTypeOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOwnerTypeOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToAssociationGitHubConfigurationOwnerTypePtrOutput() AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return o.ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(context.Background())
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationGitHubConfigurationOwnerType) *AssociationGitHubConfigurationOwnerType {
+		return &v
+	}).(AssociationGitHubConfigurationOwnerTypePtrOutput)
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationGitHubConfigurationOwnerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationGitHubConfigurationOwnerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationGitHubConfigurationOwnerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssociationGitHubConfigurationOwnerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationGitHubConfigurationOwnerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationGitHubConfigurationOwnerType)(nil)).Elem()
+}
+
+func (o AssociationGitHubConfigurationOwnerTypePtrOutput) ToAssociationGitHubConfigurationOwnerTypePtrOutput() AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationOwnerTypePtrOutput) ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationOwnerTypePtrOutput) Elem() AssociationGitHubConfigurationOwnerTypeOutput {
+	return o.ApplyT(func(v *AssociationGitHubConfigurationOwnerType) AssociationGitHubConfigurationOwnerType {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationGitHubConfigurationOwnerType
+		return ret
+	}).(AssociationGitHubConfigurationOwnerTypeOutput)
+}
+
+func (o AssociationGitHubConfigurationOwnerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationGitHubConfigurationOwnerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssociationGitHubConfigurationOwnerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssociationGitHubConfigurationOwnerTypeInput is an input type that accepts values of the AssociationGitHubConfigurationOwnerType enum
+// A concrete instance of `AssociationGitHubConfigurationOwnerTypeInput` can be one of the following:
+//
+//	AssociationGitHubConfigurationOwnerTypeOrganization
+//	AssociationGitHubConfigurationOwnerTypeUser
+type AssociationGitHubConfigurationOwnerTypeInput interface {
+	pulumi.Input
+
+	ToAssociationGitHubConfigurationOwnerTypeOutput() AssociationGitHubConfigurationOwnerTypeOutput
+	ToAssociationGitHubConfigurationOwnerTypeOutputWithContext(context.Context) AssociationGitHubConfigurationOwnerTypeOutput
+}
+
+var associationGitHubConfigurationOwnerTypePtrType = reflect.TypeOf((**AssociationGitHubConfigurationOwnerType)(nil)).Elem()
+
+type AssociationGitHubConfigurationOwnerTypePtrInput interface {
+	pulumi.Input
+
+	ToAssociationGitHubConfigurationOwnerTypePtrOutput() AssociationGitHubConfigurationOwnerTypePtrOutput
+	ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(context.Context) AssociationGitHubConfigurationOwnerTypePtrOutput
+}
+
+type associationGitHubConfigurationOwnerTypePtr string
+
+func AssociationGitHubConfigurationOwnerTypePtr(v string) AssociationGitHubConfigurationOwnerTypePtrInput {
+	return (*associationGitHubConfigurationOwnerTypePtr)(&v)
+}
+
+func (*associationGitHubConfigurationOwnerTypePtr) ElementType() reflect.Type {
+	return associationGitHubConfigurationOwnerTypePtrType
+}
+
+func (in *associationGitHubConfigurationOwnerTypePtr) ToAssociationGitHubConfigurationOwnerTypePtrOutput() AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return pulumi.ToOutput(in).(AssociationGitHubConfigurationOwnerTypePtrOutput)
+}
+
+func (in *associationGitHubConfigurationOwnerTypePtr) ToAssociationGitHubConfigurationOwnerTypePtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssociationGitHubConfigurationOwnerTypePtrOutput)
+}
+
+type AssociationMcpServerGrafanaConfigurationToolsItem string
+
+const (
+	AssociationMcpServerGrafanaConfigurationToolsItemAlerting      = AssociationMcpServerGrafanaConfigurationToolsItem("alerting")
+	AssociationMcpServerGrafanaConfigurationToolsItemAnnotations   = AssociationMcpServerGrafanaConfigurationToolsItem("annotations")
+	AssociationMcpServerGrafanaConfigurationToolsItemAsserts       = AssociationMcpServerGrafanaConfigurationToolsItem("asserts")
+	AssociationMcpServerGrafanaConfigurationToolsItemCloudwatch    = AssociationMcpServerGrafanaConfigurationToolsItem("cloudwatch")
+	AssociationMcpServerGrafanaConfigurationToolsItemDashboard     = AssociationMcpServerGrafanaConfigurationToolsItem("dashboard")
+	AssociationMcpServerGrafanaConfigurationToolsItemDatasource    = AssociationMcpServerGrafanaConfigurationToolsItem("datasource")
+	AssociationMcpServerGrafanaConfigurationToolsItemElasticsearch = AssociationMcpServerGrafanaConfigurationToolsItem("elasticsearch")
+	AssociationMcpServerGrafanaConfigurationToolsItemExamples      = AssociationMcpServerGrafanaConfigurationToolsItem("examples")
+	AssociationMcpServerGrafanaConfigurationToolsItemIncident      = AssociationMcpServerGrafanaConfigurationToolsItem("incident")
+	AssociationMcpServerGrafanaConfigurationToolsItemLoki          = AssociationMcpServerGrafanaConfigurationToolsItem("loki")
+	AssociationMcpServerGrafanaConfigurationToolsItemNavigation    = AssociationMcpServerGrafanaConfigurationToolsItem("navigation")
+	AssociationMcpServerGrafanaConfigurationToolsItemOncall        = AssociationMcpServerGrafanaConfigurationToolsItem("oncall")
+	AssociationMcpServerGrafanaConfigurationToolsItemPrometheus    = AssociationMcpServerGrafanaConfigurationToolsItem("prometheus")
+	AssociationMcpServerGrafanaConfigurationToolsItemPyroscope     = AssociationMcpServerGrafanaConfigurationToolsItem("pyroscope")
+	AssociationMcpServerGrafanaConfigurationToolsItemRendering     = AssociationMcpServerGrafanaConfigurationToolsItem("rendering")
+	AssociationMcpServerGrafanaConfigurationToolsItemRunpanelquery = AssociationMcpServerGrafanaConfigurationToolsItem("runpanelquery")
+	AssociationMcpServerGrafanaConfigurationToolsItemSearch        = AssociationMcpServerGrafanaConfigurationToolsItem("search")
+	AssociationMcpServerGrafanaConfigurationToolsItemSearchlogs    = AssociationMcpServerGrafanaConfigurationToolsItem("searchlogs")
+	AssociationMcpServerGrafanaConfigurationToolsItemSift          = AssociationMcpServerGrafanaConfigurationToolsItem("sift")
+)
+
+func (AssociationMcpServerGrafanaConfigurationToolsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationToolsItem)(nil)).Elem()
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToAssociationMcpServerGrafanaConfigurationToolsItemOutput() AssociationMcpServerGrafanaConfigurationToolsItemOutput {
+	return pulumi.ToOutput(e).(AssociationMcpServerGrafanaConfigurationToolsItemOutput)
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToAssociationMcpServerGrafanaConfigurationToolsItemOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssociationMcpServerGrafanaConfigurationToolsItemOutput)
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutput() AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return e.ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return AssociationMcpServerGrafanaConfigurationToolsItem(e).ToAssociationMcpServerGrafanaConfigurationToolsItemOutputWithContext(ctx).ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(ctx)
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationMcpServerGrafanaConfigurationToolsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssociationMcpServerGrafanaConfigurationToolsItemOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerGrafanaConfigurationToolsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationToolsItem)(nil)).Elem()
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemOutput() AssociationMcpServerGrafanaConfigurationToolsItemOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutput() AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return o.ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationMcpServerGrafanaConfigurationToolsItem) *AssociationMcpServerGrafanaConfigurationToolsItem {
+		return &v
+	}).(AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput)
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationMcpServerGrafanaConfigurationToolsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationMcpServerGrafanaConfigurationToolsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerGrafanaConfigurationToolsItem)(nil)).Elem()
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutput() AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput) Elem() AssociationMcpServerGrafanaConfigurationToolsItemOutput {
+	return o.ApplyT(func(v *AssociationMcpServerGrafanaConfigurationToolsItem) AssociationMcpServerGrafanaConfigurationToolsItem {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationMcpServerGrafanaConfigurationToolsItem
+		return ret
+	}).(AssociationMcpServerGrafanaConfigurationToolsItemOutput)
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssociationMcpServerGrafanaConfigurationToolsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssociationMcpServerGrafanaConfigurationToolsItemInput is an input type that accepts values of the AssociationMcpServerGrafanaConfigurationToolsItem enum
+// A concrete instance of `AssociationMcpServerGrafanaConfigurationToolsItemInput` can be one of the following:
+//
+//	AssociationMcpServerGrafanaConfigurationToolsItemAlerting
+//	AssociationMcpServerGrafanaConfigurationToolsItemAnnotations
+//	AssociationMcpServerGrafanaConfigurationToolsItemAsserts
+//	AssociationMcpServerGrafanaConfigurationToolsItemCloudwatch
+//	AssociationMcpServerGrafanaConfigurationToolsItemDashboard
+//	AssociationMcpServerGrafanaConfigurationToolsItemDatasource
+//	AssociationMcpServerGrafanaConfigurationToolsItemElasticsearch
+//	AssociationMcpServerGrafanaConfigurationToolsItemExamples
+//	AssociationMcpServerGrafanaConfigurationToolsItemIncident
+//	AssociationMcpServerGrafanaConfigurationToolsItemLoki
+//	AssociationMcpServerGrafanaConfigurationToolsItemNavigation
+//	AssociationMcpServerGrafanaConfigurationToolsItemOncall
+//	AssociationMcpServerGrafanaConfigurationToolsItemPrometheus
+//	AssociationMcpServerGrafanaConfigurationToolsItemPyroscope
+//	AssociationMcpServerGrafanaConfigurationToolsItemRendering
+//	AssociationMcpServerGrafanaConfigurationToolsItemRunpanelquery
+//	AssociationMcpServerGrafanaConfigurationToolsItemSearch
+//	AssociationMcpServerGrafanaConfigurationToolsItemSearchlogs
+//	AssociationMcpServerGrafanaConfigurationToolsItemSift
+type AssociationMcpServerGrafanaConfigurationToolsItemInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerGrafanaConfigurationToolsItemOutput() AssociationMcpServerGrafanaConfigurationToolsItemOutput
+	ToAssociationMcpServerGrafanaConfigurationToolsItemOutputWithContext(context.Context) AssociationMcpServerGrafanaConfigurationToolsItemOutput
+}
+
+var associationMcpServerGrafanaConfigurationToolsItemPtrType = reflect.TypeOf((**AssociationMcpServerGrafanaConfigurationToolsItem)(nil)).Elem()
+
+type AssociationMcpServerGrafanaConfigurationToolsItemPtrInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutput() AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput
+	ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(context.Context) AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput
+}
+
+type associationMcpServerGrafanaConfigurationToolsItemPtr string
+
+func AssociationMcpServerGrafanaConfigurationToolsItemPtr(v string) AssociationMcpServerGrafanaConfigurationToolsItemPtrInput {
+	return (*associationMcpServerGrafanaConfigurationToolsItemPtr)(&v)
+}
+
+func (*associationMcpServerGrafanaConfigurationToolsItemPtr) ElementType() reflect.Type {
+	return associationMcpServerGrafanaConfigurationToolsItemPtrType
+}
+
+func (in *associationMcpServerGrafanaConfigurationToolsItemPtr) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutput() AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return pulumi.ToOutput(in).(AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput)
+}
+
+func (in *associationMcpServerGrafanaConfigurationToolsItemPtr) ToAssociationMcpServerGrafanaConfigurationToolsItemPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput)
+}
+
+// AssociationMcpServerGrafanaConfigurationToolsItemArrayInput is an input type that accepts AssociationMcpServerGrafanaConfigurationToolsItemArray and AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput values.
+// You can construct a concrete instance of `AssociationMcpServerGrafanaConfigurationToolsItemArrayInput` via:
+//
+//	AssociationMcpServerGrafanaConfigurationToolsItemArray{ AssociationMcpServerGrafanaConfigurationToolsItemArgs{...} }
+type AssociationMcpServerGrafanaConfigurationToolsItemArrayInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerGrafanaConfigurationToolsItemArrayOutput() AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput
+	ToAssociationMcpServerGrafanaConfigurationToolsItemArrayOutputWithContext(context.Context) AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput
+}
+
+type AssociationMcpServerGrafanaConfigurationToolsItemArray []AssociationMcpServerGrafanaConfigurationToolsItem
+
+func (AssociationMcpServerGrafanaConfigurationToolsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationMcpServerGrafanaConfigurationToolsItem)(nil)).Elem()
+}
+
+func (i AssociationMcpServerGrafanaConfigurationToolsItemArray) ToAssociationMcpServerGrafanaConfigurationToolsItemArrayOutput() AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput {
+	return i.ToAssociationMcpServerGrafanaConfigurationToolsItemArrayOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerGrafanaConfigurationToolsItemArray) ToAssociationMcpServerGrafanaConfigurationToolsItemArrayOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput)
+}
+
+type AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationMcpServerGrafanaConfigurationToolsItem)(nil)).Elem()
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemArrayOutput() AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput) ToAssociationMcpServerGrafanaConfigurationToolsItemArrayOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput) Index(i pulumi.IntInput) AssociationMcpServerGrafanaConfigurationToolsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssociationMcpServerGrafanaConfigurationToolsItem {
+		return vs[0].([]AssociationMcpServerGrafanaConfigurationToolsItem)[vs[1].(int)]
+	}).(AssociationMcpServerGrafanaConfigurationToolsItemOutput)
+}
+
+// Account Type 'source' for DevOpsAgent monitoring
+type AssociationSourceAwsConfigurationAccountType string
+
+const (
+	AssociationSourceAwsConfigurationAccountTypeSource = AssociationSourceAwsConfigurationAccountType("source")
+)
+
+func (AssociationSourceAwsConfigurationAccountType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSourceAwsConfigurationAccountType)(nil)).Elem()
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToAssociationSourceAwsConfigurationAccountTypeOutput() AssociationSourceAwsConfigurationAccountTypeOutput {
+	return pulumi.ToOutput(e).(AssociationSourceAwsConfigurationAccountTypeOutput)
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToAssociationSourceAwsConfigurationAccountTypeOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationAccountTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssociationSourceAwsConfigurationAccountTypeOutput)
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToAssociationSourceAwsConfigurationAccountTypePtrOutput() AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return e.ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return AssociationSourceAwsConfigurationAccountType(e).ToAssociationSourceAwsConfigurationAccountTypeOutputWithContext(ctx).ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(ctx)
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssociationSourceAwsConfigurationAccountType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssociationSourceAwsConfigurationAccountTypeOutput struct{ *pulumi.OutputState }
+
+func (AssociationSourceAwsConfigurationAccountTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSourceAwsConfigurationAccountType)(nil)).Elem()
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToAssociationSourceAwsConfigurationAccountTypeOutput() AssociationSourceAwsConfigurationAccountTypeOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToAssociationSourceAwsConfigurationAccountTypeOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationAccountTypeOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToAssociationSourceAwsConfigurationAccountTypePtrOutput() AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return o.ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationSourceAwsConfigurationAccountType) *AssociationSourceAwsConfigurationAccountType {
+		return &v
+	}).(AssociationSourceAwsConfigurationAccountTypePtrOutput)
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationSourceAwsConfigurationAccountType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssociationSourceAwsConfigurationAccountType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssociationSourceAwsConfigurationAccountTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationSourceAwsConfigurationAccountTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSourceAwsConfigurationAccountType)(nil)).Elem()
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypePtrOutput) ToAssociationSourceAwsConfigurationAccountTypePtrOutput() AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypePtrOutput) ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypePtrOutput) Elem() AssociationSourceAwsConfigurationAccountTypeOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfigurationAccountType) AssociationSourceAwsConfigurationAccountType {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationSourceAwsConfigurationAccountType
+		return ret
+	}).(AssociationSourceAwsConfigurationAccountTypeOutput)
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSourceAwsConfigurationAccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssociationSourceAwsConfigurationAccountType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssociationSourceAwsConfigurationAccountTypeInput is an input type that accepts values of the AssociationSourceAwsConfigurationAccountType enum
+// A concrete instance of `AssociationSourceAwsConfigurationAccountTypeInput` can be one of the following:
+//
+//	AssociationSourceAwsConfigurationAccountTypeSource
+type AssociationSourceAwsConfigurationAccountTypeInput interface {
+	pulumi.Input
+
+	ToAssociationSourceAwsConfigurationAccountTypeOutput() AssociationSourceAwsConfigurationAccountTypeOutput
+	ToAssociationSourceAwsConfigurationAccountTypeOutputWithContext(context.Context) AssociationSourceAwsConfigurationAccountTypeOutput
+}
+
+var associationSourceAwsConfigurationAccountTypePtrType = reflect.TypeOf((**AssociationSourceAwsConfigurationAccountType)(nil)).Elem()
+
+type AssociationSourceAwsConfigurationAccountTypePtrInput interface {
+	pulumi.Input
+
+	ToAssociationSourceAwsConfigurationAccountTypePtrOutput() AssociationSourceAwsConfigurationAccountTypePtrOutput
+	ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(context.Context) AssociationSourceAwsConfigurationAccountTypePtrOutput
+}
+
+type associationSourceAwsConfigurationAccountTypePtr string
+
+func AssociationSourceAwsConfigurationAccountTypePtr(v string) AssociationSourceAwsConfigurationAccountTypePtrInput {
+	return (*associationSourceAwsConfigurationAccountTypePtr)(&v)
+}
+
+func (*associationSourceAwsConfigurationAccountTypePtr) ElementType() reflect.Type {
+	return associationSourceAwsConfigurationAccountTypePtrType
+}
+
+func (in *associationSourceAwsConfigurationAccountTypePtr) ToAssociationSourceAwsConfigurationAccountTypePtrOutput() AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return pulumi.ToOutput(in).(AssociationSourceAwsConfigurationAccountTypePtrOutput)
+}
+
+func (in *associationSourceAwsConfigurationAccountTypePtr) ToAssociationSourceAwsConfigurationAccountTypePtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssociationSourceAwsConfigurationAccountTypePtrOutput)
+}
+
+// DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+type PrivateConnectionServiceManagedModeDnsResolution string
+
+const (
+	PrivateConnectionServiceManagedModeDnsResolutionPublic = PrivateConnectionServiceManagedModeDnsResolution("PUBLIC")
+	PrivateConnectionServiceManagedModeDnsResolutionInVpc  = PrivateConnectionServiceManagedModeDnsResolution("IN_VPC")
+)
+
+func (PrivateConnectionServiceManagedModeDnsResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedModeDnsResolution)(nil)).Elem()
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToPrivateConnectionServiceManagedModeDnsResolutionOutput() PrivateConnectionServiceManagedModeDnsResolutionOutput {
+	return pulumi.ToOutput(e).(PrivateConnectionServiceManagedModeDnsResolutionOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToPrivateConnectionServiceManagedModeDnsResolutionOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeDnsResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivateConnectionServiceManagedModeDnsResolutionOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutput() PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return e.ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return PrivateConnectionServiceManagedModeDnsResolution(e).ToPrivateConnectionServiceManagedModeDnsResolutionOutputWithContext(ctx).ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(ctx)
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedModeDnsResolution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivateConnectionServiceManagedModeDnsResolutionOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedModeDnsResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedModeDnsResolution)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToPrivateConnectionServiceManagedModeDnsResolutionOutput() PrivateConnectionServiceManagedModeDnsResolutionOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToPrivateConnectionServiceManagedModeDnsResolutionOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeDnsResolutionOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutput() PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return o.ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionServiceManagedModeDnsResolution) *PrivateConnectionServiceManagedModeDnsResolution {
+		return &v
+	}).(PrivateConnectionServiceManagedModeDnsResolutionPtrOutput)
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedModeDnsResolution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedModeDnsResolution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionServiceManagedModeDnsResolutionPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedModeDnsResolutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManagedModeDnsResolution)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionPtrOutput) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutput() PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionPtrOutput) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionPtrOutput) Elem() PrivateConnectionServiceManagedModeDnsResolutionOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedModeDnsResolution) PrivateConnectionServiceManagedModeDnsResolution {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionServiceManagedModeDnsResolution
+		return ret
+	}).(PrivateConnectionServiceManagedModeDnsResolutionOutput)
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeDnsResolutionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionServiceManagedModeDnsResolution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivateConnectionServiceManagedModeDnsResolutionInput is an input type that accepts values of the PrivateConnectionServiceManagedModeDnsResolution enum
+// A concrete instance of `PrivateConnectionServiceManagedModeDnsResolutionInput` can be one of the following:
+//
+//	PrivateConnectionServiceManagedModeDnsResolutionPublic
+//	PrivateConnectionServiceManagedModeDnsResolutionInVpc
+type PrivateConnectionServiceManagedModeDnsResolutionInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedModeDnsResolutionOutput() PrivateConnectionServiceManagedModeDnsResolutionOutput
+	ToPrivateConnectionServiceManagedModeDnsResolutionOutputWithContext(context.Context) PrivateConnectionServiceManagedModeDnsResolutionOutput
+}
+
+var privateConnectionServiceManagedModeDnsResolutionPtrType = reflect.TypeOf((**PrivateConnectionServiceManagedModeDnsResolution)(nil)).Elem()
+
+type PrivateConnectionServiceManagedModeDnsResolutionPtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutput() PrivateConnectionServiceManagedModeDnsResolutionPtrOutput
+	ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(context.Context) PrivateConnectionServiceManagedModeDnsResolutionPtrOutput
+}
+
+type privateConnectionServiceManagedModeDnsResolutionPtr string
+
+func PrivateConnectionServiceManagedModeDnsResolutionPtr(v string) PrivateConnectionServiceManagedModeDnsResolutionPtrInput {
+	return (*privateConnectionServiceManagedModeDnsResolutionPtr)(&v)
+}
+
+func (*privateConnectionServiceManagedModeDnsResolutionPtr) ElementType() reflect.Type {
+	return privateConnectionServiceManagedModeDnsResolutionPtrType
+}
+
+func (in *privateConnectionServiceManagedModeDnsResolutionPtr) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutput() PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return pulumi.ToOutput(in).(PrivateConnectionServiceManagedModeDnsResolutionPtrOutput)
+}
+
+func (in *privateConnectionServiceManagedModeDnsResolutionPtr) ToPrivateConnectionServiceManagedModeDnsResolutionPtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivateConnectionServiceManagedModeDnsResolutionPtrOutput)
+}
+
+// IP address type of the service-managed Resource Gateway.
+type PrivateConnectionServiceManagedModeIpAddressType string
+
+const (
+	PrivateConnectionServiceManagedModeIpAddressTypeIpv4      = PrivateConnectionServiceManagedModeIpAddressType("IPV4")
+	PrivateConnectionServiceManagedModeIpAddressTypeIpv6      = PrivateConnectionServiceManagedModeIpAddressType("IPV6")
+	PrivateConnectionServiceManagedModeIpAddressTypeDualStack = PrivateConnectionServiceManagedModeIpAddressType("DUAL_STACK")
+)
+
+func (PrivateConnectionServiceManagedModeIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedModeIpAddressType)(nil)).Elem()
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToPrivateConnectionServiceManagedModeIpAddressTypeOutput() PrivateConnectionServiceManagedModeIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(PrivateConnectionServiceManagedModeIpAddressTypeOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToPrivateConnectionServiceManagedModeIpAddressTypeOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivateConnectionServiceManagedModeIpAddressTypeOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutput() PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return e.ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return PrivateConnectionServiceManagedModeIpAddressType(e).ToPrivateConnectionServiceManagedModeIpAddressTypeOutputWithContext(ctx).ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivateConnectionServiceManagedModeIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivateConnectionServiceManagedModeIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedModeIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedModeIpAddressType)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToPrivateConnectionServiceManagedModeIpAddressTypeOutput() PrivateConnectionServiceManagedModeIpAddressTypeOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToPrivateConnectionServiceManagedModeIpAddressTypeOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeIpAddressTypeOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutput() PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return o.ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionServiceManagedModeIpAddressType) *PrivateConnectionServiceManagedModeIpAddressType {
+		return &v
+	}).(PrivateConnectionServiceManagedModeIpAddressTypePtrOutput)
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedModeIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateConnectionServiceManagedModeIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateConnectionServiceManagedModeIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedModeIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManagedModeIpAddressType)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypePtrOutput) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutput() PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypePtrOutput) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypePtrOutput) Elem() PrivateConnectionServiceManagedModeIpAddressTypeOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedModeIpAddressType) PrivateConnectionServiceManagedModeIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionServiceManagedModeIpAddressType
+		return ret
+	}).(PrivateConnectionServiceManagedModeIpAddressTypeOutput)
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionServiceManagedModeIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivateConnectionServiceManagedModeIpAddressTypeInput is an input type that accepts values of the PrivateConnectionServiceManagedModeIpAddressType enum
+// A concrete instance of `PrivateConnectionServiceManagedModeIpAddressTypeInput` can be one of the following:
+//
+//	PrivateConnectionServiceManagedModeIpAddressTypeIpv4
+//	PrivateConnectionServiceManagedModeIpAddressTypeIpv6
+//	PrivateConnectionServiceManagedModeIpAddressTypeDualStack
+type PrivateConnectionServiceManagedModeIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedModeIpAddressTypeOutput() PrivateConnectionServiceManagedModeIpAddressTypeOutput
+	ToPrivateConnectionServiceManagedModeIpAddressTypeOutputWithContext(context.Context) PrivateConnectionServiceManagedModeIpAddressTypeOutput
+}
+
+var privateConnectionServiceManagedModeIpAddressTypePtrType = reflect.TypeOf((**PrivateConnectionServiceManagedModeIpAddressType)(nil)).Elem()
+
+type PrivateConnectionServiceManagedModeIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutput() PrivateConnectionServiceManagedModeIpAddressTypePtrOutput
+	ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(context.Context) PrivateConnectionServiceManagedModeIpAddressTypePtrOutput
+}
+
+type privateConnectionServiceManagedModeIpAddressTypePtr string
+
+func PrivateConnectionServiceManagedModeIpAddressTypePtr(v string) PrivateConnectionServiceManagedModeIpAddressTypePtrInput {
+	return (*privateConnectionServiceManagedModeIpAddressTypePtr)(&v)
+}
+
+func (*privateConnectionServiceManagedModeIpAddressTypePtr) ElementType() reflect.Type {
+	return privateConnectionServiceManagedModeIpAddressTypePtrType
+}
+
+func (in *privateConnectionServiceManagedModeIpAddressTypePtr) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutput() PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(PrivateConnectionServiceManagedModeIpAddressTypePtrOutput)
+}
+
+func (in *privateConnectionServiceManagedModeIpAddressTypePtr) ToPrivateConnectionServiceManagedModeIpAddressTypePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivateConnectionServiceManagedModeIpAddressTypePtrOutput)
+}
+
 // The status of the Private Connection.
 type PrivateConnectionStatus string
 
@@ -96,6 +1338,702 @@ func (o PrivateConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOu
 
 func (o PrivateConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateConnectionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of GitLab access token
+type ServiceGitLabDetailsTokenType string
+
+const (
+	ServiceGitLabDetailsTokenTypePersonal = ServiceGitLabDetailsTokenType("personal")
+	ServiceGitLabDetailsTokenTypeGroup    = ServiceGitLabDetailsTokenType("group")
+)
+
+func (ServiceGitLabDetailsTokenType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitLabDetailsTokenType)(nil)).Elem()
+}
+
+func (e ServiceGitLabDetailsTokenType) ToServiceGitLabDetailsTokenTypeOutput() ServiceGitLabDetailsTokenTypeOutput {
+	return pulumi.ToOutput(e).(ServiceGitLabDetailsTokenTypeOutput)
+}
+
+func (e ServiceGitLabDetailsTokenType) ToServiceGitLabDetailsTokenTypeOutputWithContext(ctx context.Context) ServiceGitLabDetailsTokenTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceGitLabDetailsTokenTypeOutput)
+}
+
+func (e ServiceGitLabDetailsTokenType) ToServiceGitLabDetailsTokenTypePtrOutput() ServiceGitLabDetailsTokenTypePtrOutput {
+	return e.ToServiceGitLabDetailsTokenTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceGitLabDetailsTokenType) ToServiceGitLabDetailsTokenTypePtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsTokenTypePtrOutput {
+	return ServiceGitLabDetailsTokenType(e).ToServiceGitLabDetailsTokenTypeOutputWithContext(ctx).ToServiceGitLabDetailsTokenTypePtrOutputWithContext(ctx)
+}
+
+func (e ServiceGitLabDetailsTokenType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceGitLabDetailsTokenType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceGitLabDetailsTokenType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceGitLabDetailsTokenType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceGitLabDetailsTokenTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitLabDetailsTokenTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitLabDetailsTokenType)(nil)).Elem()
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToServiceGitLabDetailsTokenTypeOutput() ServiceGitLabDetailsTokenTypeOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToServiceGitLabDetailsTokenTypeOutputWithContext(ctx context.Context) ServiceGitLabDetailsTokenTypeOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToServiceGitLabDetailsTokenTypePtrOutput() ServiceGitLabDetailsTokenTypePtrOutput {
+	return o.ToServiceGitLabDetailsTokenTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToServiceGitLabDetailsTokenTypePtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsTokenTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGitLabDetailsTokenType) *ServiceGitLabDetailsTokenType {
+		return &v
+	}).(ServiceGitLabDetailsTokenTypePtrOutput)
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceGitLabDetailsTokenType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitLabDetailsTokenTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceGitLabDetailsTokenType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceGitLabDetailsTokenTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitLabDetailsTokenTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitLabDetailsTokenType)(nil)).Elem()
+}
+
+func (o ServiceGitLabDetailsTokenTypePtrOutput) ToServiceGitLabDetailsTokenTypePtrOutput() ServiceGitLabDetailsTokenTypePtrOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsTokenTypePtrOutput) ToServiceGitLabDetailsTokenTypePtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsTokenTypePtrOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsTokenTypePtrOutput) Elem() ServiceGitLabDetailsTokenTypeOutput {
+	return o.ApplyT(func(v *ServiceGitLabDetailsTokenType) ServiceGitLabDetailsTokenType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGitLabDetailsTokenType
+		return ret
+	}).(ServiceGitLabDetailsTokenTypeOutput)
+}
+
+func (o ServiceGitLabDetailsTokenTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitLabDetailsTokenTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceGitLabDetailsTokenType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceGitLabDetailsTokenTypeInput is an input type that accepts values of the ServiceGitLabDetailsTokenType enum
+// A concrete instance of `ServiceGitLabDetailsTokenTypeInput` can be one of the following:
+//
+//	ServiceGitLabDetailsTokenTypePersonal
+//	ServiceGitLabDetailsTokenTypeGroup
+type ServiceGitLabDetailsTokenTypeInput interface {
+	pulumi.Input
+
+	ToServiceGitLabDetailsTokenTypeOutput() ServiceGitLabDetailsTokenTypeOutput
+	ToServiceGitLabDetailsTokenTypeOutputWithContext(context.Context) ServiceGitLabDetailsTokenTypeOutput
+}
+
+var serviceGitLabDetailsTokenTypePtrType = reflect.TypeOf((**ServiceGitLabDetailsTokenType)(nil)).Elem()
+
+type ServiceGitLabDetailsTokenTypePtrInput interface {
+	pulumi.Input
+
+	ToServiceGitLabDetailsTokenTypePtrOutput() ServiceGitLabDetailsTokenTypePtrOutput
+	ToServiceGitLabDetailsTokenTypePtrOutputWithContext(context.Context) ServiceGitLabDetailsTokenTypePtrOutput
+}
+
+type serviceGitLabDetailsTokenTypePtr string
+
+func ServiceGitLabDetailsTokenTypePtr(v string) ServiceGitLabDetailsTokenTypePtrInput {
+	return (*serviceGitLabDetailsTokenTypePtr)(&v)
+}
+
+func (*serviceGitLabDetailsTokenTypePtr) ElementType() reflect.Type {
+	return serviceGitLabDetailsTokenTypePtrType
+}
+
+func (in *serviceGitLabDetailsTokenTypePtr) ToServiceGitLabDetailsTokenTypePtrOutput() ServiceGitLabDetailsTokenTypePtrOutput {
+	return pulumi.ToOutput(in).(ServiceGitLabDetailsTokenTypePtrOutput)
+}
+
+func (in *serviceGitLabDetailsTokenTypePtr) ToServiceGitLabDetailsTokenTypePtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsTokenTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceGitLabDetailsTokenTypePtrOutput)
+}
+
+// New Relic region
+type ServiceNewRelicApiKeyConfigRegion string
+
+const (
+	ServiceNewRelicApiKeyConfigRegionUs = ServiceNewRelicApiKeyConfigRegion("US")
+	ServiceNewRelicApiKeyConfigRegionEu = ServiceNewRelicApiKeyConfigRegion("EU")
+)
+
+func (ServiceNewRelicApiKeyConfigRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicApiKeyConfigRegion)(nil)).Elem()
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToServiceNewRelicApiKeyConfigRegionOutput() ServiceNewRelicApiKeyConfigRegionOutput {
+	return pulumi.ToOutput(e).(ServiceNewRelicApiKeyConfigRegionOutput)
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToServiceNewRelicApiKeyConfigRegionOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceNewRelicApiKeyConfigRegionOutput)
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToServiceNewRelicApiKeyConfigRegionPtrOutput() ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return e.ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return ServiceNewRelicApiKeyConfigRegion(e).ToServiceNewRelicApiKeyConfigRegionOutputWithContext(ctx).ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(ctx)
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceNewRelicApiKeyConfigRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceNewRelicApiKeyConfigRegionOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicApiKeyConfigRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicApiKeyConfigRegion)(nil)).Elem()
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToServiceNewRelicApiKeyConfigRegionOutput() ServiceNewRelicApiKeyConfigRegionOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToServiceNewRelicApiKeyConfigRegionOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigRegionOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToServiceNewRelicApiKeyConfigRegionPtrOutput() ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return o.ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNewRelicApiKeyConfigRegion) *ServiceNewRelicApiKeyConfigRegion {
+		return &v
+	}).(ServiceNewRelicApiKeyConfigRegionPtrOutput)
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceNewRelicApiKeyConfigRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceNewRelicApiKeyConfigRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceNewRelicApiKeyConfigRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicApiKeyConfigRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNewRelicApiKeyConfigRegion)(nil)).Elem()
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionPtrOutput) ToServiceNewRelicApiKeyConfigRegionPtrOutput() ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionPtrOutput) ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionPtrOutput) Elem() ServiceNewRelicApiKeyConfigRegionOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfigRegion) ServiceNewRelicApiKeyConfigRegion {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNewRelicApiKeyConfigRegion
+		return ret
+	}).(ServiceNewRelicApiKeyConfigRegionOutput)
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNewRelicApiKeyConfigRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceNewRelicApiKeyConfigRegion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceNewRelicApiKeyConfigRegionInput is an input type that accepts values of the ServiceNewRelicApiKeyConfigRegion enum
+// A concrete instance of `ServiceNewRelicApiKeyConfigRegionInput` can be one of the following:
+//
+//	ServiceNewRelicApiKeyConfigRegionUs
+//	ServiceNewRelicApiKeyConfigRegionEu
+type ServiceNewRelicApiKeyConfigRegionInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicApiKeyConfigRegionOutput() ServiceNewRelicApiKeyConfigRegionOutput
+	ToServiceNewRelicApiKeyConfigRegionOutputWithContext(context.Context) ServiceNewRelicApiKeyConfigRegionOutput
+}
+
+var serviceNewRelicApiKeyConfigRegionPtrType = reflect.TypeOf((**ServiceNewRelicApiKeyConfigRegion)(nil)).Elem()
+
+type ServiceNewRelicApiKeyConfigRegionPtrInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicApiKeyConfigRegionPtrOutput() ServiceNewRelicApiKeyConfigRegionPtrOutput
+	ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(context.Context) ServiceNewRelicApiKeyConfigRegionPtrOutput
+}
+
+type serviceNewRelicApiKeyConfigRegionPtr string
+
+func ServiceNewRelicApiKeyConfigRegionPtr(v string) ServiceNewRelicApiKeyConfigRegionPtrInput {
+	return (*serviceNewRelicApiKeyConfigRegionPtr)(&v)
+}
+
+func (*serviceNewRelicApiKeyConfigRegionPtr) ElementType() reflect.Type {
+	return serviceNewRelicApiKeyConfigRegionPtrType
+}
+
+func (in *serviceNewRelicApiKeyConfigRegionPtr) ToServiceNewRelicApiKeyConfigRegionPtrOutput() ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return pulumi.ToOutput(in).(ServiceNewRelicApiKeyConfigRegionPtrOutput)
+}
+
+func (in *serviceNewRelicApiKeyConfigRegionPtr) ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceNewRelicApiKeyConfigRegionPtrOutput)
+}
+
+// Type of GitLab access token
+type ServiceRegisteredGitLabServiceDetailsTokenType string
+
+const (
+	ServiceRegisteredGitLabServiceDetailsTokenTypePersonal = ServiceRegisteredGitLabServiceDetailsTokenType("personal")
+	ServiceRegisteredGitLabServiceDetailsTokenTypeGroup    = ServiceRegisteredGitLabServiceDetailsTokenType("group")
+)
+
+type ServiceRegisteredGitLabServiceDetailsTokenTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredGitLabServiceDetailsTokenType)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToServiceRegisteredGitLabServiceDetailsTokenTypeOutput() ServiceRegisteredGitLabServiceDetailsTokenTypeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToServiceRegisteredGitLabServiceDetailsTokenTypeOutputWithContext(ctx context.Context) ServiceRegisteredGitLabServiceDetailsTokenTypeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput() ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput {
+	return o.ToServiceRegisteredGitLabServiceDetailsTokenTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToServiceRegisteredGitLabServiceDetailsTokenTypePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredGitLabServiceDetailsTokenType) *ServiceRegisteredGitLabServiceDetailsTokenType {
+		return &v
+	}).(ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput)
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitLabServiceDetailsTokenType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitLabServiceDetailsTokenType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredGitLabServiceDetailsTokenType)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput) ToServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput() ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput) ToServiceRegisteredGitLabServiceDetailsTokenTypePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput) Elem() ServiceRegisteredGitLabServiceDetailsTokenTypeOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitLabServiceDetailsTokenType) ServiceRegisteredGitLabServiceDetailsTokenType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredGitLabServiceDetailsTokenType
+		return ret
+	}).(ServiceRegisteredGitLabServiceDetailsTokenTypeOutput)
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredGitLabServiceDetailsTokenType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server authorization method
+type ServiceRegisteredMcpServerDetailsAuthorizationMethod string
+
+const (
+	ServiceRegisteredMcpServerDetailsAuthorizationMethodOauthClientCredentials = ServiceRegisteredMcpServerDetailsAuthorizationMethod("oauth-client-credentials")
+	ServiceRegisteredMcpServerDetailsAuthorizationMethodApiKey                 = ServiceRegisteredMcpServerDetailsAuthorizationMethod("api-key")
+	ServiceRegisteredMcpServerDetailsAuthorizationMethodBearerToken            = ServiceRegisteredMcpServerDetailsAuthorizationMethod("bearer-token")
+)
+
+type ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredMcpServerDetailsAuthorizationMethod)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerDetailsAuthorizationMethodOutput() ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerDetailsAuthorizationMethodOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput() ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput {
+	return o.ToServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredMcpServerDetailsAuthorizationMethod) *ServiceRegisteredMcpServerDetailsAuthorizationMethod {
+		return &v
+	}).(ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput)
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredMcpServerDetailsAuthorizationMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredMcpServerDetailsAuthorizationMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredMcpServerDetailsAuthorizationMethod)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput) ToServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput() ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput) ToServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput) Elem() ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerDetailsAuthorizationMethod) ServiceRegisteredMcpServerDetailsAuthorizationMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredMcpServerDetailsAuthorizationMethod
+		return ret
+	}).(ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput)
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredMcpServerDetailsAuthorizationMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server authorization method
+type ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod string
+
+const (
+	ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodBearerToken = ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod("bearer-token")
+)
+
+type ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput() ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput() ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput {
+	return o.ToServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod) *ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod {
+		return &v
+	}).(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput)
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput) ToServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput() ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput) ToServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput) Elem() ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod) ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod
+		return ret
+	}).(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput)
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// New Relic region
+type ServiceRegisteredNewRelicDetailsRegion string
+
+const (
+	ServiceRegisteredNewRelicDetailsRegionUs = ServiceRegisteredNewRelicDetailsRegion("US")
+	ServiceRegisteredNewRelicDetailsRegionEu = ServiceRegisteredNewRelicDetailsRegion("EU")
+)
+
+type ServiceRegisteredNewRelicDetailsRegionOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredNewRelicDetailsRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredNewRelicDetailsRegion)(nil)).Elem()
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToServiceRegisteredNewRelicDetailsRegionOutput() ServiceRegisteredNewRelicDetailsRegionOutput {
+	return o
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToServiceRegisteredNewRelicDetailsRegionOutputWithContext(ctx context.Context) ServiceRegisteredNewRelicDetailsRegionOutput {
+	return o
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToServiceRegisteredNewRelicDetailsRegionPtrOutput() ServiceRegisteredNewRelicDetailsRegionPtrOutput {
+	return o.ToServiceRegisteredNewRelicDetailsRegionPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToServiceRegisteredNewRelicDetailsRegionPtrOutputWithContext(ctx context.Context) ServiceRegisteredNewRelicDetailsRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredNewRelicDetailsRegion) *ServiceRegisteredNewRelicDetailsRegion {
+		return &v
+	}).(ServiceRegisteredNewRelicDetailsRegionPtrOutput)
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredNewRelicDetailsRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredNewRelicDetailsRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredNewRelicDetailsRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredNewRelicDetailsRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredNewRelicDetailsRegion)(nil)).Elem()
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionPtrOutput) ToServiceRegisteredNewRelicDetailsRegionPtrOutput() ServiceRegisteredNewRelicDetailsRegionPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionPtrOutput) ToServiceRegisteredNewRelicDetailsRegionPtrOutputWithContext(ctx context.Context) ServiceRegisteredNewRelicDetailsRegionPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionPtrOutput) Elem() ServiceRegisteredNewRelicDetailsRegionOutput {
+	return o.ApplyT(func(v *ServiceRegisteredNewRelicDetailsRegion) ServiceRegisteredNewRelicDetailsRegion {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredNewRelicDetailsRegion
+		return ret
+	}).(ServiceRegisteredNewRelicDetailsRegionOutput)
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredNewRelicDetailsRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredNewRelicDetailsRegion) *string {
 		if e == nil {
 			return nil
 		}
@@ -287,10 +2225,56 @@ func (in *serviceTypePtr) ToServiceTypePtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationAccountTypeInput)(nil)).Elem(), AssociationAwsConfigurationAccountType("monitor"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationAccountTypePtrInput)(nil)).Elem(), AssociationAwsConfigurationAccountType("monitor"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceResourceTypeInput)(nil)).Elem(), AssociationAwsResourceResourceType("AWS::CloudFormation::Stack"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceResourceTypePtrInput)(nil)).Elem(), AssociationAwsResourceResourceType("AWS::CloudFormation::Stack"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationGitHubConfigurationOwnerTypeInput)(nil)).Elem(), AssociationGitHubConfigurationOwnerType("organization"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationGitHubConfigurationOwnerTypePtrInput)(nil)).Elem(), AssociationGitHubConfigurationOwnerType("organization"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationToolsItemInput)(nil)).Elem(), AssociationMcpServerGrafanaConfigurationToolsItem("alerting"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationToolsItemPtrInput)(nil)).Elem(), AssociationMcpServerGrafanaConfigurationToolsItem("alerting"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationToolsItemArrayInput)(nil)).Elem(), AssociationMcpServerGrafanaConfigurationToolsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationAccountTypeInput)(nil)).Elem(), AssociationSourceAwsConfigurationAccountType("source"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationAccountTypePtrInput)(nil)).Elem(), AssociationSourceAwsConfigurationAccountType("source"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeDnsResolutionInput)(nil)).Elem(), PrivateConnectionServiceManagedModeDnsResolution("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeDnsResolutionPtrInput)(nil)).Elem(), PrivateConnectionServiceManagedModeDnsResolution("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeIpAddressTypeInput)(nil)).Elem(), PrivateConnectionServiceManagedModeIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeIpAddressTypePtrInput)(nil)).Elem(), PrivateConnectionServiceManagedModeIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsTokenTypeInput)(nil)).Elem(), ServiceGitLabDetailsTokenType("personal"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsTokenTypePtrInput)(nil)).Elem(), ServiceGitLabDetailsTokenType("personal"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicApiKeyConfigRegionInput)(nil)).Elem(), ServiceNewRelicApiKeyConfigRegion("US"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicApiKeyConfigRegionPtrInput)(nil)).Elem(), ServiceNewRelicApiKeyConfigRegion("US"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTypeInput)(nil)).Elem(), ServiceType("dynatrace"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTypePtrInput)(nil)).Elem(), ServiceType("dynatrace"))
+	pulumi.RegisterOutputType(AssociationAwsConfigurationAccountTypeOutput{})
+	pulumi.RegisterOutputType(AssociationAwsConfigurationAccountTypePtrOutput{})
+	pulumi.RegisterOutputType(AssociationAwsResourceResourceTypeOutput{})
+	pulumi.RegisterOutputType(AssociationAwsResourceResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(AssociationGitHubConfigurationOwnerTypeOutput{})
+	pulumi.RegisterOutputType(AssociationGitHubConfigurationOwnerTypePtrOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerGrafanaConfigurationToolsItemOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerGrafanaConfigurationToolsItemPtrOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput{})
+	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationAccountTypeOutput{})
+	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationAccountTypePtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeDnsResolutionOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeDnsResolutionPtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionStatusOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionStatusPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGitLabDetailsTokenTypeOutput{})
+	pulumi.RegisterOutputType(ServiceGitLabDetailsTokenTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicApiKeyConfigRegionOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicApiKeyConfigRegionPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsTokenTypeOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredNewRelicDetailsRegionOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredNewRelicDetailsRegionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTypeOutput{})
 	pulumi.RegisterOutputType(ServiceTypePtrOutput{})
 }
