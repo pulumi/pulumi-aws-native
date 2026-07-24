@@ -28,6 +28,12 @@ func TestPropertyTypeSpec(t *testing.T) {
 	test := func(tt PropertyTypeSpecTestCase) func(t *testing.T) {
 		return func(t *testing.T) {
 			t.Helper()
+			parseSchema := func(source string) *jsschema.Schema {
+				t.Helper()
+				schema := jsschema.New()
+				require.NoError(t, schema.UnmarshalJSON([]byte(source)))
+				return schema
+			}
 			ctx := cfSchemaContext{
 				reports: NewReports(),
 				pkg: &pschema.PackageSpec{
@@ -56,6 +62,36 @@ func TestPropertyTypeSpec(t *testing.T) {
 								".+": jsschema.New(),
 							},
 						},
+						"StringArrayMapMap": parseSchema(`{
+							"type": "object",
+							"additionalProperties": {
+								"type": "object",
+								"additionalProperties": {
+									"type": "array",
+									"items": {"type": "string"}
+								}
+							}
+						}`),
+						"StringArrayMapMapMap": parseSchema(`{
+							"type": "object",
+							"additionalProperties": {
+								"type": "object",
+								"additionalProperties": {
+									"type": "object",
+									"additionalProperties": {
+										"type": "array",
+										"items": {"type": "string"}
+									}
+								}
+							}
+						}`),
+						"ObjectMapMap": parseSchema(`{
+							"type": "object",
+							"additionalProperties": {
+								"type": "object",
+								"additionalProperties": {"$ref": "#/definitions/ObjLike1"}
+							}
+						}`),
 					},
 				},
 			}
@@ -193,6 +229,43 @@ func TestPropertyTypeSpec(t *testing.T) {
 	t.Run("ref-to-object-with-patternProperties", test(PropertyTypeSpecTestCase{
 		json: `{
 				"$ref": "#/definitions/ObjLike2"
+			 }`,
+		expected: pschema.TypeSpec{
+			Type: "object",
+			AdditionalProperties: &pschema.TypeSpec{
+				Ref: "pulumi.json#/Any",
+			},
+		},
+	}))
+	t.Run("ref-to-nested-primitive-collections", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/StringArrayMapMap"
+			 }`,
+		expected: pschema.TypeSpec{
+			Type: "object",
+			AdditionalProperties: &pschema.TypeSpec{
+				Type: "object",
+				AdditionalProperties: &pschema.TypeSpec{
+					Type:  "array",
+					Items: &pschema.TypeSpec{Type: "string"},
+				},
+			},
+		},
+	}))
+	t.Run("ref-to-too-deep-primitive-collections", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/StringArrayMapMapMap"
+			 }`,
+		expected: pschema.TypeSpec{
+			Type: "object",
+			AdditionalProperties: &pschema.TypeSpec{
+				Ref: "pulumi.json#/Any",
+			},
+		},
+	}))
+	t.Run("ref-to-nested-object-collections", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/ObjectMapMap"
 			 }`,
 		expected: pschema.TypeSpec{
 			Type: "object",

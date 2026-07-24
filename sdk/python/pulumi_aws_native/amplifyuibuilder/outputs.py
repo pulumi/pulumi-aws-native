@@ -1171,10 +1171,10 @@ class ComponentVariant(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 overrides: Optional[Mapping[str, Any]] = None,
+                 overrides: Optional[Mapping[str, Mapping[str, _builtins.str]]] = None,
                  variant_values: Optional[Mapping[str, _builtins.str]] = None):
         """
-        :param Mapping[str, Any] overrides: The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        :param Mapping[str, Mapping[str, _builtins.str]] overrides: The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
         :param Mapping[str, _builtins.str] variant_values: The combination of variants that comprise this variant.
         """
         if overrides is not None:
@@ -1184,7 +1184,7 @@ class ComponentVariant(dict):
 
     @_builtins.property
     @pulumi.getter
-    def overrides(self) -> Optional[Mapping[str, Any]]:
+    def overrides(self) -> Optional[Mapping[str, Mapping[str, _builtins.str]]]:
         """
         The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
         """

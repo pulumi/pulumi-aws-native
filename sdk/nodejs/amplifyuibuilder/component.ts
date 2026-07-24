@@ -84,7 +84,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
      */
-    declare public readonly overrides: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly overrides: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
     /**
      * Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
      */
@@ -199,7 +199,7 @@ export interface ComponentArgs {
     /**
      * Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
      */
-    overrides?: pulumi.Input<{[key: string]: any} | undefined>;
+    overrides?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>} | undefined>;
     /**
      * Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
      */

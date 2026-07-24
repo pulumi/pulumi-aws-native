@@ -90,7 +90,7 @@ class GetDataIntegrationResult:
 
     @_builtins.property
     @pulumi.getter(name="objectConfiguration")
-    def object_configuration(self) -> Optional[Mapping[str, Any]]:
+    def object_configuration(self) -> Optional[Mapping[str, Mapping[str, Sequence[_builtins.str]]]]:
         """
         The configuration for what data should be pulled from the source.
         """

@@ -74,7 +74,7 @@ export interface GetComponentResult {
     /**
      * Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
      */
-    readonly overrides?: {[key: string]: any};
+    readonly overrides?: {[key: string]: {[key: string]: string}};
     /**
      * Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
      */

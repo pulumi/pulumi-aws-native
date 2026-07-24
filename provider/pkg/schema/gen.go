@@ -1732,10 +1732,12 @@ func (ctx *cfSchemaContext) propertyTypeSpec(
 				return nil, err
 			}
 
-			// Where a map type has a value which is either a map or a list, replace the value with "Any" to appease Go
-			// codegen
-			// TODO: remove once Go codegen issue is solved: https://github.com/pulumi/pulumi/issues/15478
-			if valueType.Items != nil || valueType.AdditionalProperties != nil {
+			// Go codegen supports primitive collections up to three levels deep, but can still emit invalid
+			// helper types for deeper collections or collections of object values. The outer map returned below
+			// accounts for one collection level. Preserve Any for unsupported shapes.
+			// TODO: Allow nested object collections once https://github.com/pulumi/pulumi/issues/24063 is fixed.
+			if (valueType.Items != nil || valueType.AdditionalProperties != nil) &&
+				!isPrimitiveCollectionType(valueType, maxGoPrimitiveCollectionDepth-1) {
 				valueType = &pschema.TypeSpec{
 					Ref: "pulumi.json#/Any",
 				}
@@ -1919,6 +1921,31 @@ func (ctx *cfSchemaContext) propertyTypeSpec(
 
 	fmt.Printf("failed to generate property types for %+v\n", propSchema)
 	return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
+}
+
+const maxGoPrimitiveCollectionDepth = 3
+
+func isPrimitiveCollectionType(typeSpec *pschema.TypeSpec, maxDepth int) bool {
+	if typeSpec == nil || maxDepth == 0 {
+		return false
+	}
+
+	var elementType *pschema.TypeSpec
+	switch {
+	case typeSpec.Items != nil:
+		elementType = typeSpec.Items
+	case typeSpec.AdditionalProperties != nil:
+		elementType = typeSpec.AdditionalProperties
+	default:
+		return false
+	}
+
+	switch elementType.Type {
+	case "boolean", "integer", "number", "string":
+		return true
+	default:
+		return isPrimitiveCollectionType(elementType, maxDepth-1)
+	}
 }
 
 // parseJsonType converts a JSON type with no additional information to a Pulumi type.

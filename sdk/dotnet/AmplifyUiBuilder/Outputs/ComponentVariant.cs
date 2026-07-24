@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// <summary>
         /// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Overrides;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, string>>? Overrides;
         /// <summary>
         /// The combination of variants that comprise this variant.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
 
         [OutputConstructor]
         private ComponentVariant(
-            ImmutableDictionary<string, object>? overrides,
+            ImmutableDictionary<string, ImmutableDictionary<string, string>>? overrides,
 
             ImmutableDictionary<string, string>? variantValues)
         {

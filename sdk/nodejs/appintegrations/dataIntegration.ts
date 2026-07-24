@@ -64,7 +64,7 @@ export class DataIntegration extends pulumi.CustomResource {
     /**
      * The configuration for what data should be pulled from the source.
      */
-    declare public readonly objectConfiguration: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly objectConfiguration: pulumi.Output<{[key: string]: {[key: string]: string[]}} | undefined>;
     /**
      * The name of the data and how often it should be pulled from the source.
      */
@@ -147,7 +147,7 @@ export interface DataIntegrationArgs {
     /**
      * The configuration for what data should be pulled from the source.
      */
-    objectConfiguration?: pulumi.Input<{[key: string]: any} | undefined>;
+    objectConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>} | undefined>;
     /**
      * The name of the data and how often it should be pulled from the source.
      */

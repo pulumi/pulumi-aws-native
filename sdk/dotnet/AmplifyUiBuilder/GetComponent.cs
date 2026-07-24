@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// <summary>
         /// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Overrides;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, string>>? Overrides;
         /// <summary>
         /// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
 
             string? name,
 
-            ImmutableDictionary<string, object>? overrides,
+            ImmutableDictionary<string, ImmutableDictionary<string, string>>? overrides,
 
             ImmutableDictionary<string, Outputs.ComponentProperty>? properties,
 

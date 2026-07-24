@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.DataZone.Outputs
         /// <summary>
         /// The tracking assets of the Amazon SageMaker run.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> TrackingAssets;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>> TrackingAssets;
 
         [OutputConstructor]
-        private DataSourceSageMakerRunConfigurationInput(ImmutableDictionary<string, object> trackingAssets)
+        private DataSourceSageMakerRunConfigurationInput(ImmutableDictionary<string, ImmutableArray<string>> trackingAssets)
         {
             TrackingAssets = trackingAssets;
         }

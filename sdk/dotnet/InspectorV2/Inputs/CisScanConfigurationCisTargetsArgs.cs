@@ -21,10 +21,10 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
         }
 
         [Input("targetResourceTags", required: true)]
-        private InputMap<object>? _targetResourceTags;
-        public InputMap<object> TargetResourceTags
+        private InputMap<ImmutableArray<string>>? _targetResourceTags;
+        public InputMap<ImmutableArray<string>> TargetResourceTags
         {
-            get => _targetResourceTags ?? (_targetResourceTags = new InputMap<object>());
+            get => _targetResourceTags ?? (_targetResourceTags = new InputMap<ImmutableArray<string>>());
             set => _targetResourceTags = value;
         }
 

@@ -160,7 +160,7 @@ class ExportDataQueryArgsDict(TypedDict):
     """
     The query statement.
     """
-    table_configurations: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
+    table_configurations: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]]
     """
     The table configuration.
     """
@@ -169,10 +169,10 @@ class ExportDataQueryArgsDict(TypedDict):
 class ExportDataQueryArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[_builtins.str],
-                 table_configurations: pulumi.Input[Optional[Mapping[str, Any]]] = None):
+                 table_configurations: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None):
         """
         :param pulumi.Input[_builtins.str] query_statement: The query statement.
-        :param pulumi.Input[Mapping[str, Any]] table_configurations: The table configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] table_configurations: The table configuration.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         if table_configurations is not None:
@@ -192,14 +192,14 @@ class ExportDataQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="tableConfigurations")
-    def table_configurations(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
+    def table_configurations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
         The table configuration.
         """
         return pulumi.get(self, "table_configurations")
 
     @table_configurations.setter
-    def table_configurations(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
+    def table_configurations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "table_configurations", value)
 
 
