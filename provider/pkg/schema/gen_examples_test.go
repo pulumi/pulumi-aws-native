@@ -20,6 +20,8 @@ import (
 
 type PropertyTypeSpecTestCase struct {
 	json          string
+	cfTypeName    string
+	resourceName  string
 	expected      pschema.TypeSpec
 	expectedTypes map[string]pschema.ComplexTypeSpec
 }
@@ -29,7 +31,9 @@ func TestPropertyTypeSpec(t *testing.T) {
 		return func(t *testing.T) {
 			t.Helper()
 			ctx := cfSchemaContext{
-				reports: NewReports(),
+				cfTypeName:   tt.cfTypeName,
+				resourceName: tt.resourceName,
+				reports:      NewReports(),
 				pkg: &pschema.PackageSpec{
 					Types: map[string]pschema.ComplexTypeSpec{},
 				},
@@ -98,6 +102,12 @@ func TestPropertyTypeSpec(t *testing.T) {
 							OneOf: jsschema.SchemaList{
 								&jsschema.Schema{Required: []string{"A"}},
 								&jsschema.Schema{Required: []string{"B"}},
+							},
+						},
+						"ClusterFsxLustreConfig": {
+							Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
+							Properties: map[string]*jsschema.Schema{
+								"DnsName": {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
 							},
 						},
 						"ConflictingOneOfObject": {
@@ -312,6 +322,26 @@ func TestPropertyTypeSpec(t *testing.T) {
 			 }`,
 		expected:      pschema.TypeSpec{Ref: "#/types/aws-native::UntypedOneOfObject"},
 		expectedTypes: expectedObjectType("UntypedOneOfObject"),
+	}))
+	t.Run("ref-to-type-with-conflicting-sdk-name", test(PropertyTypeSpecTestCase{
+		json: `{
+				"$ref": "#/definitions/ClusterFsxLustreConfig"
+			 }`,
+		cfTypeName:   "AWS::SageMaker::Cluster",
+		resourceName: "Cluster",
+		expected: pschema.TypeSpec{
+			Ref: "#/types/aws-native::ClusterInstanceStorageFsxLustreConfig",
+		},
+		expectedTypes: map[string]pschema.ComplexTypeSpec{
+			"aws-native::ClusterInstanceStorageFsxLustreConfig": {
+				ObjectTypeSpec: pschema.ObjectTypeSpec{
+					Type: "object",
+					Properties: map[string]pschema.PropertySpec{
+						"dnsName": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+					},
+				},
+			},
+		},
 	}))
 	t.Run("ref-to-conflicting-object-union", test(PropertyTypeSpecTestCase{
 		json: `{

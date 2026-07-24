@@ -4339,184 +4339,6 @@ func (o ClusterFSxLustreConfigPtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-type ClusterFsxLustreConfig struct {
-	// The DNS name of the FSx for Lustre file system.
-	DnsName string `pulumi:"dnsName"`
-	// The mount name of the FSx for Lustre file system.
-	MountName string `pulumi:"mountName"`
-	// The mount path for the FSx for Lustre file system.
-	MountPath *string `pulumi:"mountPath"`
-}
-
-// ClusterFsxLustreConfigInput is an input type that accepts ClusterFsxLustreConfigArgs and ClusterFsxLustreConfigOutput values.
-// You can construct a concrete instance of `ClusterFsxLustreConfigInput` via:
-//
-//	ClusterFsxLustreConfigArgs{...}
-type ClusterFsxLustreConfigInput interface {
-	pulumi.Input
-
-	ToClusterFsxLustreConfigOutput() ClusterFsxLustreConfigOutput
-	ToClusterFsxLustreConfigOutputWithContext(context.Context) ClusterFsxLustreConfigOutput
-}
-
-// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-type ClusterFsxLustreConfigArgs struct {
-	// The DNS name of the FSx for Lustre file system.
-	DnsName pulumi.StringInput `pulumi:"dnsName"`
-	// The mount name of the FSx for Lustre file system.
-	MountName pulumi.StringInput `pulumi:"mountName"`
-	// The mount path for the FSx for Lustre file system.
-	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
-}
-
-func (ClusterFsxLustreConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterFsxLustreConfig)(nil)).Elem()
-}
-
-func (i ClusterFsxLustreConfigArgs) ToClusterFsxLustreConfigOutput() ClusterFsxLustreConfigOutput {
-	return i.ToClusterFsxLustreConfigOutputWithContext(context.Background())
-}
-
-func (i ClusterFsxLustreConfigArgs) ToClusterFsxLustreConfigOutputWithContext(ctx context.Context) ClusterFsxLustreConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterFsxLustreConfigOutput)
-}
-
-func (i ClusterFsxLustreConfigArgs) ToClusterFsxLustreConfigPtrOutput() ClusterFsxLustreConfigPtrOutput {
-	return i.ToClusterFsxLustreConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterFsxLustreConfigArgs) ToClusterFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFsxLustreConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterFsxLustreConfigOutput).ToClusterFsxLustreConfigPtrOutputWithContext(ctx)
-}
-
-// ClusterFsxLustreConfigPtrInput is an input type that accepts ClusterFsxLustreConfigArgs, ClusterFsxLustreConfigPtr and ClusterFsxLustreConfigPtrOutput values.
-// You can construct a concrete instance of `ClusterFsxLustreConfigPtrInput` via:
-//
-//	        ClusterFsxLustreConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type ClusterFsxLustreConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterFsxLustreConfigPtrOutput() ClusterFsxLustreConfigPtrOutput
-	ToClusterFsxLustreConfigPtrOutputWithContext(context.Context) ClusterFsxLustreConfigPtrOutput
-}
-
-type clusterFsxLustreConfigPtrType ClusterFsxLustreConfigArgs
-
-func ClusterFsxLustreConfigPtr(v *ClusterFsxLustreConfigArgs) ClusterFsxLustreConfigPtrInput {
-	return (*clusterFsxLustreConfigPtrType)(v)
-}
-
-func (*clusterFsxLustreConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterFsxLustreConfig)(nil)).Elem()
-}
-
-func (i *clusterFsxLustreConfigPtrType) ToClusterFsxLustreConfigPtrOutput() ClusterFsxLustreConfigPtrOutput {
-	return i.ToClusterFsxLustreConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterFsxLustreConfigPtrType) ToClusterFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFsxLustreConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterFsxLustreConfigPtrOutput)
-}
-
-// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-type ClusterFsxLustreConfigOutput struct{ *pulumi.OutputState }
-
-func (ClusterFsxLustreConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterFsxLustreConfig)(nil)).Elem()
-}
-
-func (o ClusterFsxLustreConfigOutput) ToClusterFsxLustreConfigOutput() ClusterFsxLustreConfigOutput {
-	return o
-}
-
-func (o ClusterFsxLustreConfigOutput) ToClusterFsxLustreConfigOutputWithContext(ctx context.Context) ClusterFsxLustreConfigOutput {
-	return o
-}
-
-func (o ClusterFsxLustreConfigOutput) ToClusterFsxLustreConfigPtrOutput() ClusterFsxLustreConfigPtrOutput {
-	return o.ToClusterFsxLustreConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterFsxLustreConfigOutput) ToClusterFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFsxLustreConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterFsxLustreConfig) *ClusterFsxLustreConfig {
-		return &v
-	}).(ClusterFsxLustreConfigPtrOutput)
-}
-
-// The DNS name of the FSx for Lustre file system.
-func (o ClusterFsxLustreConfigOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterFsxLustreConfig) string { return v.DnsName }).(pulumi.StringOutput)
-}
-
-// The mount name of the FSx for Lustre file system.
-func (o ClusterFsxLustreConfigOutput) MountName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterFsxLustreConfig) string { return v.MountName }).(pulumi.StringOutput)
-}
-
-// The mount path for the FSx for Lustre file system.
-func (o ClusterFsxLustreConfigOutput) MountPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterFsxLustreConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
-}
-
-type ClusterFsxLustreConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterFsxLustreConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterFsxLustreConfig)(nil)).Elem()
-}
-
-func (o ClusterFsxLustreConfigPtrOutput) ToClusterFsxLustreConfigPtrOutput() ClusterFsxLustreConfigPtrOutput {
-	return o
-}
-
-func (o ClusterFsxLustreConfigPtrOutput) ToClusterFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterFsxLustreConfigPtrOutput {
-	return o
-}
-
-func (o ClusterFsxLustreConfigPtrOutput) Elem() ClusterFsxLustreConfigOutput {
-	return o.ApplyT(func(v *ClusterFsxLustreConfig) ClusterFsxLustreConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterFsxLustreConfig
-		return ret
-	}).(ClusterFsxLustreConfigOutput)
-}
-
-// The DNS name of the FSx for Lustre file system.
-func (o ClusterFsxLustreConfigPtrOutput) DnsName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterFsxLustreConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DnsName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The mount name of the FSx for Lustre file system.
-func (o ClusterFsxLustreConfigPtrOutput) MountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterFsxLustreConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The mount path for the FSx for Lustre file system.
-func (o ClusterFsxLustreConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterFsxLustreConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MountPath
-	}).(pulumi.StringPtrOutput)
-}
-
 // Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
 type ClusterFsxOpenZfsConfig struct {
 	// The DNS name of the FSx for OpenZFS file system.
@@ -5038,9 +4860,9 @@ func (o ClusterInstanceRequirementsPtrOutput) InstanceTypes() pulumi.StringArray
 
 // Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
 type ClusterInstanceStorageConfig struct {
-	EbsVolumeConfig  *ClusterEbsVolumeConfig  `pulumi:"ebsVolumeConfig"`
-	FsxLustreConfig  *ClusterFsxLustreConfig  `pulumi:"fsxLustreConfig"`
-	FsxOpenZfsConfig *ClusterFsxOpenZfsConfig `pulumi:"fsxOpenZfsConfig"`
+	EbsVolumeConfig  *ClusterEbsVolumeConfig                `pulumi:"ebsVolumeConfig"`
+	FsxLustreConfig  *ClusterInstanceStorageFsxLustreConfig `pulumi:"fsxLustreConfig"`
+	FsxOpenZfsConfig *ClusterFsxOpenZfsConfig               `pulumi:"fsxOpenZfsConfig"`
 }
 
 // ClusterInstanceStorageConfigInput is an input type that accepts ClusterInstanceStorageConfigArgs and ClusterInstanceStorageConfigOutput values.
@@ -5056,9 +4878,9 @@ type ClusterInstanceStorageConfigInput interface {
 
 // Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
 type ClusterInstanceStorageConfigArgs struct {
-	EbsVolumeConfig  ClusterEbsVolumeConfigPtrInput  `pulumi:"ebsVolumeConfig"`
-	FsxLustreConfig  ClusterFsxLustreConfigPtrInput  `pulumi:"fsxLustreConfig"`
-	FsxOpenZfsConfig ClusterFsxOpenZfsConfigPtrInput `pulumi:"fsxOpenZfsConfig"`
+	EbsVolumeConfig  ClusterEbsVolumeConfigPtrInput                `pulumi:"ebsVolumeConfig"`
+	FsxLustreConfig  ClusterInstanceStorageFsxLustreConfigPtrInput `pulumi:"fsxLustreConfig"`
+	FsxOpenZfsConfig ClusterFsxOpenZfsConfigPtrInput               `pulumi:"fsxOpenZfsConfig"`
 }
 
 func (ClusterInstanceStorageConfigArgs) ElementType() reflect.Type {
@@ -5117,8 +4939,8 @@ func (o ClusterInstanceStorageConfigOutput) EbsVolumeConfig() ClusterEbsVolumeCo
 	return o.ApplyT(func(v ClusterInstanceStorageConfig) *ClusterEbsVolumeConfig { return v.EbsVolumeConfig }).(ClusterEbsVolumeConfigPtrOutput)
 }
 
-func (o ClusterInstanceStorageConfigOutput) FsxLustreConfig() ClusterFsxLustreConfigPtrOutput {
-	return o.ApplyT(func(v ClusterInstanceStorageConfig) *ClusterFsxLustreConfig { return v.FsxLustreConfig }).(ClusterFsxLustreConfigPtrOutput)
+func (o ClusterInstanceStorageConfigOutput) FsxLustreConfig() ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceStorageConfig) *ClusterInstanceStorageFsxLustreConfig { return v.FsxLustreConfig }).(ClusterInstanceStorageFsxLustreConfigPtrOutput)
 }
 
 func (o ClusterInstanceStorageConfigOutput) FsxOpenZfsConfig() ClusterFsxOpenZfsConfigPtrOutput {
@@ -5143,6 +4965,184 @@ func (o ClusterInstanceStorageConfigArrayOutput) Index(i pulumi.IntInput) Cluste
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterInstanceStorageConfig {
 		return vs[0].([]ClusterInstanceStorageConfig)[vs[1].(int)]
 	}).(ClusterInstanceStorageConfigOutput)
+}
+
+// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+type ClusterInstanceStorageFsxLustreConfig struct {
+	// The DNS name of the FSx for Lustre file system.
+	DnsName string `pulumi:"dnsName"`
+	// The mount name of the FSx for Lustre file system.
+	MountName string `pulumi:"mountName"`
+	// The mount path for the FSx for Lustre file system.
+	MountPath *string `pulumi:"mountPath"`
+}
+
+// ClusterInstanceStorageFsxLustreConfigInput is an input type that accepts ClusterInstanceStorageFsxLustreConfigArgs and ClusterInstanceStorageFsxLustreConfigOutput values.
+// You can construct a concrete instance of `ClusterInstanceStorageFsxLustreConfigInput` via:
+//
+//	ClusterInstanceStorageFsxLustreConfigArgs{...}
+type ClusterInstanceStorageFsxLustreConfigInput interface {
+	pulumi.Input
+
+	ToClusterInstanceStorageFsxLustreConfigOutput() ClusterInstanceStorageFsxLustreConfigOutput
+	ToClusterInstanceStorageFsxLustreConfigOutputWithContext(context.Context) ClusterInstanceStorageFsxLustreConfigOutput
+}
+
+// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+type ClusterInstanceStorageFsxLustreConfigArgs struct {
+	// The DNS name of the FSx for Lustre file system.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// The mount name of the FSx for Lustre file system.
+	MountName pulumi.StringInput `pulumi:"mountName"`
+	// The mount path for the FSx for Lustre file system.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+}
+
+func (ClusterInstanceStorageFsxLustreConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceStorageFsxLustreConfig)(nil)).Elem()
+}
+
+func (i ClusterInstanceStorageFsxLustreConfigArgs) ToClusterInstanceStorageFsxLustreConfigOutput() ClusterInstanceStorageFsxLustreConfigOutput {
+	return i.ToClusterInstanceStorageFsxLustreConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceStorageFsxLustreConfigArgs) ToClusterInstanceStorageFsxLustreConfigOutputWithContext(ctx context.Context) ClusterInstanceStorageFsxLustreConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceStorageFsxLustreConfigOutput)
+}
+
+func (i ClusterInstanceStorageFsxLustreConfigArgs) ToClusterInstanceStorageFsxLustreConfigPtrOutput() ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return i.ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterInstanceStorageFsxLustreConfigArgs) ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceStorageFsxLustreConfigOutput).ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterInstanceStorageFsxLustreConfigPtrInput is an input type that accepts ClusterInstanceStorageFsxLustreConfigArgs, ClusterInstanceStorageFsxLustreConfigPtr and ClusterInstanceStorageFsxLustreConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterInstanceStorageFsxLustreConfigPtrInput` via:
+//
+//	        ClusterInstanceStorageFsxLustreConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterInstanceStorageFsxLustreConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterInstanceStorageFsxLustreConfigPtrOutput() ClusterInstanceStorageFsxLustreConfigPtrOutput
+	ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(context.Context) ClusterInstanceStorageFsxLustreConfigPtrOutput
+}
+
+type clusterInstanceStorageFsxLustreConfigPtrType ClusterInstanceStorageFsxLustreConfigArgs
+
+func ClusterInstanceStorageFsxLustreConfigPtr(v *ClusterInstanceStorageFsxLustreConfigArgs) ClusterInstanceStorageFsxLustreConfigPtrInput {
+	return (*clusterInstanceStorageFsxLustreConfigPtrType)(v)
+}
+
+func (*clusterInstanceStorageFsxLustreConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceStorageFsxLustreConfig)(nil)).Elem()
+}
+
+func (i *clusterInstanceStorageFsxLustreConfigPtrType) ToClusterInstanceStorageFsxLustreConfigPtrOutput() ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return i.ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterInstanceStorageFsxLustreConfigPtrType) ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceStorageFsxLustreConfigPtrOutput)
+}
+
+// Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+type ClusterInstanceStorageFsxLustreConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceStorageFsxLustreConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInstanceStorageFsxLustreConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceStorageFsxLustreConfigOutput) ToClusterInstanceStorageFsxLustreConfigOutput() ClusterInstanceStorageFsxLustreConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceStorageFsxLustreConfigOutput) ToClusterInstanceStorageFsxLustreConfigOutputWithContext(ctx context.Context) ClusterInstanceStorageFsxLustreConfigOutput {
+	return o
+}
+
+func (o ClusterInstanceStorageFsxLustreConfigOutput) ToClusterInstanceStorageFsxLustreConfigPtrOutput() ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return o.ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterInstanceStorageFsxLustreConfigOutput) ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstanceStorageFsxLustreConfig) *ClusterInstanceStorageFsxLustreConfig {
+		return &v
+	}).(ClusterInstanceStorageFsxLustreConfigPtrOutput)
+}
+
+// The DNS name of the FSx for Lustre file system.
+func (o ClusterInstanceStorageFsxLustreConfigOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInstanceStorageFsxLustreConfig) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// The mount name of the FSx for Lustre file system.
+func (o ClusterInstanceStorageFsxLustreConfigOutput) MountName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterInstanceStorageFsxLustreConfig) string { return v.MountName }).(pulumi.StringOutput)
+}
+
+// The mount path for the FSx for Lustre file system.
+func (o ClusterInstanceStorageFsxLustreConfigOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceStorageFsxLustreConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+type ClusterInstanceStorageFsxLustreConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterInstanceStorageFsxLustreConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterInstanceStorageFsxLustreConfig)(nil)).Elem()
+}
+
+func (o ClusterInstanceStorageFsxLustreConfigPtrOutput) ToClusterInstanceStorageFsxLustreConfigPtrOutput() ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceStorageFsxLustreConfigPtrOutput) ToClusterInstanceStorageFsxLustreConfigPtrOutputWithContext(ctx context.Context) ClusterInstanceStorageFsxLustreConfigPtrOutput {
+	return o
+}
+
+func (o ClusterInstanceStorageFsxLustreConfigPtrOutput) Elem() ClusterInstanceStorageFsxLustreConfigOutput {
+	return o.ApplyT(func(v *ClusterInstanceStorageFsxLustreConfig) ClusterInstanceStorageFsxLustreConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstanceStorageFsxLustreConfig
+		return ret
+	}).(ClusterInstanceStorageFsxLustreConfigOutput)
+}
+
+// The DNS name of the FSx for Lustre file system.
+func (o ClusterInstanceStorageFsxLustreConfigPtrOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceStorageFsxLustreConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mount name of the FSx for Lustre file system.
+func (o ClusterInstanceStorageFsxLustreConfigPtrOutput) MountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceStorageFsxLustreConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mount path for the FSx for Lustre file system.
+func (o ClusterInstanceStorageFsxLustreConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstanceStorageFsxLustreConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
 }
 
 // Kubernetes configuration for cluster nodes including labels and taints.
@@ -55092,8 +55092,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnvironmentConfigPtrInput)(nil)).Elem(), ClusterEnvironmentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFSxLustreConfigPtrInput)(nil)).Elem(), ClusterFSxLustreConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFsxLustreConfigInput)(nil)).Elem(), ClusterFsxLustreConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFsxLustreConfigPtrInput)(nil)).Elem(), ClusterFsxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFsxOpenZfsConfigInput)(nil)).Elem(), ClusterFsxOpenZfsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterFsxOpenZfsConfigPtrInput)(nil)).Elem(), ClusterFsxOpenZfsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupInput)(nil)).Elem(), ClusterInstanceGroupArgs{})
@@ -55102,6 +55100,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceRequirementsPtrInput)(nil)).Elem(), ClusterInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigInput)(nil)).Elem(), ClusterInstanceStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigArrayInput)(nil)).Elem(), ClusterInstanceStorageConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageFsxLustreConfigInput)(nil)).Elem(), ClusterInstanceStorageFsxLustreConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageFsxLustreConfigPtrInput)(nil)).Elem(), ClusterInstanceStorageFsxLustreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesConfigInput)(nil)).Elem(), ClusterKubernetesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesConfigPtrInput)(nil)).Elem(), ClusterKubernetesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintInput)(nil)).Elem(), ClusterKubernetesTaintArgs{})
@@ -55752,8 +55752,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEnvironmentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterFSxLustreConfigOutput{})
 	pulumi.RegisterOutputType(ClusterFSxLustreConfigPtrOutput{})
-	pulumi.RegisterOutputType(ClusterFsxLustreConfigOutput{})
-	pulumi.RegisterOutputType(ClusterFsxLustreConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterFsxOpenZfsConfigOutput{})
 	pulumi.RegisterOutputType(ClusterFsxOpenZfsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceGroupOutput{})
@@ -55762,6 +55760,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceStorageConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceStorageConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceStorageFsxLustreConfigOutput{})
+	pulumi.RegisterOutputType(ClusterInstanceStorageFsxLustreConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesTaintOutput{})

@@ -76,8 +76,6 @@ __all__ = [
     'ClusterEnvironmentConfigArgsDict',
     'ClusterFSxLustreConfigArgs',
     'ClusterFSxLustreConfigArgsDict',
-    'ClusterFsxLustreConfigArgs',
-    'ClusterFsxLustreConfigArgsDict',
     'ClusterFsxOpenZfsConfigArgs',
     'ClusterFsxOpenZfsConfigArgsDict',
     'ClusterInstanceGroupArgs',
@@ -86,6 +84,8 @@ __all__ = [
     'ClusterInstanceRequirementsArgsDict',
     'ClusterInstanceStorageConfigArgs',
     'ClusterInstanceStorageConfigArgsDict',
+    'ClusterInstanceStorageFsxLustreConfigArgs',
+    'ClusterInstanceStorageFsxLustreConfigArgsDict',
     'ClusterKubernetesConfigArgs',
     'ClusterKubernetesConfigArgsDict',
     'ClusterKubernetesTaintArgs',
@@ -2403,78 +2403,6 @@ class ClusterFSxLustreConfigArgs:
         pulumi.set(self, "size_in_gi_b", value)
 
 
-class ClusterFsxLustreConfigArgsDict(TypedDict):
-    """
-    Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-    """
-    dns_name: pulumi.Input[_builtins.str]
-    """
-    The DNS name of the FSx for Lustre file system.
-    """
-    mount_name: pulumi.Input[_builtins.str]
-    """
-    The mount name of the FSx for Lustre file system.
-    """
-    mount_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The mount path for the FSx for Lustre file system.
-    """
-
-@pulumi.input_type
-class ClusterFsxLustreConfigArgs:
-    def __init__(__self__, *,
-                 dns_name: pulumi.Input[_builtins.str],
-                 mount_name: pulumi.Input[_builtins.str],
-                 mount_path: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-
-        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the FSx for Lustre file system.
-        :param pulumi.Input[_builtins.str] mount_name: The mount name of the FSx for Lustre file system.
-        :param pulumi.Input[_builtins.str] mount_path: The mount path for the FSx for Lustre file system.
-        """
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "mount_name", mount_name)
-        if mount_path is not None:
-            pulumi.set(__self__, "mount_path", mount_path)
-
-    @_builtins.property
-    @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The DNS name of the FSx for Lustre file system.
-        """
-        return pulumi.get(self, "dns_name")
-
-    @dns_name.setter
-    def dns_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dns_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mountName")
-    def mount_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The mount name of the FSx for Lustre file system.
-        """
-        return pulumi.get(self, "mount_name")
-
-    @mount_name.setter
-    def mount_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "mount_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mountPath")
-    def mount_path(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The mount path for the FSx for Lustre file system.
-        """
-        return pulumi.get(self, "mount_path")
-
-    @mount_path.setter
-    def mount_path(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "mount_path", value)
-
-
 class ClusterFsxOpenZfsConfigArgsDict(TypedDict):
     """
     Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
@@ -2859,14 +2787,14 @@ class ClusterInstanceStorageConfigArgsDict(TypedDict):
     Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
     """
     ebs_volume_config: NotRequired[pulumi.Input[Optional['ClusterEbsVolumeConfigArgsDict']]]
-    fsx_lustre_config: NotRequired[pulumi.Input[Optional['ClusterFsxLustreConfigArgsDict']]]
+    fsx_lustre_config: NotRequired[pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgsDict']]]
     fsx_open_zfs_config: NotRequired[pulumi.Input[Optional['ClusterFsxOpenZfsConfigArgsDict']]]
 
 @pulumi.input_type
 class ClusterInstanceStorageConfigArgs:
     def __init__(__self__, *,
                  ebs_volume_config: pulumi.Input[Optional['ClusterEbsVolumeConfigArgs']] = None,
-                 fsx_lustre_config: pulumi.Input[Optional['ClusterFsxLustreConfigArgs']] = None,
+                 fsx_lustre_config: pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgs']] = None,
                  fsx_open_zfs_config: pulumi.Input[Optional['ClusterFsxOpenZfsConfigArgs']] = None):
         """
         Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
@@ -2889,11 +2817,11 @@ class ClusterInstanceStorageConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="fsxLustreConfig")
-    def fsx_lustre_config(self) -> pulumi.Input[Optional['ClusterFsxLustreConfigArgs']]:
+    def fsx_lustre_config(self) -> pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgs']]:
         return pulumi.get(self, "fsx_lustre_config")
 
     @fsx_lustre_config.setter
-    def fsx_lustre_config(self, value: pulumi.Input[Optional['ClusterFsxLustreConfigArgs']]):
+    def fsx_lustre_config(self, value: pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgs']]):
         pulumi.set(self, "fsx_lustre_config", value)
 
     @_builtins.property
@@ -2904,6 +2832,78 @@ class ClusterInstanceStorageConfigArgs:
     @fsx_open_zfs_config.setter
     def fsx_open_zfs_config(self, value: pulumi.Input[Optional['ClusterFsxOpenZfsConfigArgs']]):
         pulumi.set(self, "fsx_open_zfs_config", value)
+
+
+class ClusterInstanceStorageFsxLustreConfigArgsDict(TypedDict):
+    """
+    Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+    """
+    dns_name: pulumi.Input[_builtins.str]
+    """
+    The DNS name of the FSx for Lustre file system.
+    """
+    mount_name: pulumi.Input[_builtins.str]
+    """
+    The mount name of the FSx for Lustre file system.
+    """
+    mount_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The mount path for the FSx for Lustre file system.
+    """
+
+@pulumi.input_type
+class ClusterInstanceStorageFsxLustreConfigArgs:
+    def __init__(__self__, *,
+                 dns_name: pulumi.Input[_builtins.str],
+                 mount_name: pulumi.Input[_builtins.str],
+                 mount_path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+
+        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] mount_name: The mount name of the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] mount_path: The mount path for the FSx for Lustre file system.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "mount_name", mount_name)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The DNS name of the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dns_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The mount name of the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "mount_name")
+
+    @mount_name.setter
+    def mount_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mount_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The mount path for the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mount_path", value)
 
 
 class ClusterKubernetesConfigArgsDict(TypedDict):
