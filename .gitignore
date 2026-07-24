@@ -33,3 +33,9 @@ aws-cloudformation-docs/
 
 # Local runtime artifacts (logs, temp files, etc.)
 .runtime/
+
+# APM-managed agent dependencies
+apm_modules/
+.agents/skills/*
+!.agents/skills/aws-native-runtime-investigation/
+.claude/skills/*

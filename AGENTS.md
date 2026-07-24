@@ -5,6 +5,17 @@ This repository contains the Pulumi AWS Native provider: a Go provider plus gene
 Read `ARCHITECTURE.md` for a concise module map and system boundaries before making structural changes.
 For provider lifecycle changes, read `docs/provider-runtime.md` for the AWS Native boundary between the Pulumi engine, generated CloudFormation metadata, and AWS Cloud Control API.
 
+## AI Harness
+- Start issue investigation with the APM-managed `triage-provider-issue` skill
+  when ownership or the next evidence artifact is unclear.
+- Use the APM-managed `stage-pulumi-provider-repro` skill when triage selects a
+  durable Pulumi repro as the next step.
+- Use `aws-native-runtime-investigation` after the issue is known to involve
+  AWS Native runtime behavior across the Pulumi protocol, generated metadata,
+  and AWS Cloud Control API.
+- Core provider skills are declared in `apm.yml` and deployed locally; do not
+  edit their generated copies under `.agents/skills/` or `.claude/skills/`.
+
 ## High-Signal Paths
 - `Makefile`: canonical command surface
 - `provider/pkg/`: hand-written provider runtime logic

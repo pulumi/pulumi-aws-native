@@ -1,9 +1,9 @@
 ---
-name: aws-native-provider-runtime-design
-description: Use when investigating or changing Pulumi AWS Native provider runtime behavior across the Pulumi provider protocol, generated CloudFormation metadata, and AWS Cloud Control API. Do not use for routine generated SDK churn or isolated schema/codegen edits with no runtime semantics.
+name: aws-native-runtime-investigation
+description: Use after triage or repository evidence establishes that an issue involves Pulumi AWS Native runtime behavior across the Pulumi provider protocol, generated CloudFormation metadata, and AWS Cloud Control API. Do not use for initial issue triage, routine generated SDK churn, or isolated schema/codegen edits with no runtime semantics.
 ---
 
-# AWS Native Provider Runtime
+# AWS Native Runtime Investigation
 
 Use this skill to find the relevant AWS Native lifecycle boundary and keep the
 change small. It is a routing aid, not a required planning framework or an
