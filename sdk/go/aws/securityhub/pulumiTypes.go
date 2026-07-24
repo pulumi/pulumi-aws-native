@@ -5847,6 +5847,343 @@ func (o ConnectorProviderPtrOutput) Azure() ConnectorAzureProviderConfigurationP
 	}).(ConnectorAzureProviderConfigurationPtrOutput)
 }
 
+// The configuration settings required to establish an integration between AWS Security Hub and Azure
+type ConnectorV2AzureProviderConfiguration struct {
+	// The ARN of the AWS Config connector used for the Azure integration
+	AwsConfigConnectorArn string `pulumi:"awsConfigConnectorArn"`
+	// The list of Azure regions to include in the connector scope
+	AzureRegions       []string                           `pulumi:"azureRegions"`
+	ScopeConfiguration ConnectorV2AzureScopeConfiguration `pulumi:"scopeConfiguration"`
+}
+
+// ConnectorV2AzureProviderConfigurationInput is an input type that accepts ConnectorV2AzureProviderConfigurationArgs and ConnectorV2AzureProviderConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorV2AzureProviderConfigurationInput` via:
+//
+//	ConnectorV2AzureProviderConfigurationArgs{...}
+type ConnectorV2AzureProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorV2AzureProviderConfigurationOutput() ConnectorV2AzureProviderConfigurationOutput
+	ToConnectorV2AzureProviderConfigurationOutputWithContext(context.Context) ConnectorV2AzureProviderConfigurationOutput
+}
+
+// The configuration settings required to establish an integration between AWS Security Hub and Azure
+type ConnectorV2AzureProviderConfigurationArgs struct {
+	// The ARN of the AWS Config connector used for the Azure integration
+	AwsConfigConnectorArn pulumi.StringInput `pulumi:"awsConfigConnectorArn"`
+	// The list of Azure regions to include in the connector scope
+	AzureRegions       pulumi.StringArrayInput                 `pulumi:"azureRegions"`
+	ScopeConfiguration ConnectorV2AzureScopeConfigurationInput `pulumi:"scopeConfiguration"`
+}
+
+func (ConnectorV2AzureProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2AzureProviderConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorV2AzureProviderConfigurationArgs) ToConnectorV2AzureProviderConfigurationOutput() ConnectorV2AzureProviderConfigurationOutput {
+	return i.ToConnectorV2AzureProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2AzureProviderConfigurationArgs) ToConnectorV2AzureProviderConfigurationOutputWithContext(ctx context.Context) ConnectorV2AzureProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2AzureProviderConfigurationOutput)
+}
+
+func (i ConnectorV2AzureProviderConfigurationArgs) ToConnectorV2AzureProviderConfigurationPtrOutput() ConnectorV2AzureProviderConfigurationPtrOutput {
+	return i.ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2AzureProviderConfigurationArgs) ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2AzureProviderConfigurationOutput).ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorV2AzureProviderConfigurationPtrInput is an input type that accepts ConnectorV2AzureProviderConfigurationArgs, ConnectorV2AzureProviderConfigurationPtr and ConnectorV2AzureProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorV2AzureProviderConfigurationPtrInput` via:
+//
+//	        ConnectorV2AzureProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorV2AzureProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2AzureProviderConfigurationPtrOutput() ConnectorV2AzureProviderConfigurationPtrOutput
+	ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(context.Context) ConnectorV2AzureProviderConfigurationPtrOutput
+}
+
+type connectorV2AzureProviderConfigurationPtrType ConnectorV2AzureProviderConfigurationArgs
+
+func ConnectorV2AzureProviderConfigurationPtr(v *ConnectorV2AzureProviderConfigurationArgs) ConnectorV2AzureProviderConfigurationPtrInput {
+	return (*connectorV2AzureProviderConfigurationPtrType)(v)
+}
+
+func (*connectorV2AzureProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2AzureProviderConfiguration)(nil)).Elem()
+}
+
+func (i *connectorV2AzureProviderConfigurationPtrType) ToConnectorV2AzureProviderConfigurationPtrOutput() ConnectorV2AzureProviderConfigurationPtrOutput {
+	return i.ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorV2AzureProviderConfigurationPtrType) ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2AzureProviderConfigurationPtrOutput)
+}
+
+// The configuration settings required to establish an integration between AWS Security Hub and Azure
+type ConnectorV2AzureProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2AzureProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2AzureProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2AzureProviderConfigurationOutput) ToConnectorV2AzureProviderConfigurationOutput() ConnectorV2AzureProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2AzureProviderConfigurationOutput) ToConnectorV2AzureProviderConfigurationOutputWithContext(ctx context.Context) ConnectorV2AzureProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2AzureProviderConfigurationOutput) ToConnectorV2AzureProviderConfigurationPtrOutput() ConnectorV2AzureProviderConfigurationPtrOutput {
+	return o.ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2AzureProviderConfigurationOutput) ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2AzureProviderConfiguration) *ConnectorV2AzureProviderConfiguration {
+		return &v
+	}).(ConnectorV2AzureProviderConfigurationPtrOutput)
+}
+
+// The ARN of the AWS Config connector used for the Azure integration
+func (o ConnectorV2AzureProviderConfigurationOutput) AwsConfigConnectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2AzureProviderConfiguration) string { return v.AwsConfigConnectorArn }).(pulumi.StringOutput)
+}
+
+// The list of Azure regions to include in the connector scope
+func (o ConnectorV2AzureProviderConfigurationOutput) AzureRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorV2AzureProviderConfiguration) []string { return v.AzureRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorV2AzureProviderConfigurationOutput) ScopeConfiguration() ConnectorV2AzureScopeConfigurationOutput {
+	return o.ApplyT(func(v ConnectorV2AzureProviderConfiguration) ConnectorV2AzureScopeConfiguration {
+		return v.ScopeConfiguration
+	}).(ConnectorV2AzureScopeConfigurationOutput)
+}
+
+type ConnectorV2AzureProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2AzureProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2AzureProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2AzureProviderConfigurationPtrOutput) ToConnectorV2AzureProviderConfigurationPtrOutput() ConnectorV2AzureProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2AzureProviderConfigurationPtrOutput) ToConnectorV2AzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2AzureProviderConfigurationPtrOutput) Elem() ConnectorV2AzureProviderConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorV2AzureProviderConfiguration) ConnectorV2AzureProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2AzureProviderConfiguration
+		return ret
+	}).(ConnectorV2AzureProviderConfigurationOutput)
+}
+
+// The ARN of the AWS Config connector used for the Azure integration
+func (o ConnectorV2AzureProviderConfigurationPtrOutput) AwsConfigConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2AzureProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsConfigConnectorArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of Azure regions to include in the connector scope
+func (o ConnectorV2AzureProviderConfigurationPtrOutput) AzureRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorV2AzureProviderConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorV2AzureProviderConfigurationPtrOutput) ScopeConfiguration() ConnectorV2AzureScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2AzureProviderConfiguration) *ConnectorV2AzureScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ScopeConfiguration
+	}).(ConnectorV2AzureScopeConfigurationPtrOutput)
+}
+
+// The scope configuration for an Azure connector
+type ConnectorV2AzureScopeConfiguration struct {
+	// The scope type for the Azure connector
+	ScopeType ConnectorV2AzureScopeConfigurationScopeType `pulumi:"scopeType"`
+	// The list of scope values for the Azure connector
+	ScopeValues []string `pulumi:"scopeValues"`
+}
+
+// ConnectorV2AzureScopeConfigurationInput is an input type that accepts ConnectorV2AzureScopeConfigurationArgs and ConnectorV2AzureScopeConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorV2AzureScopeConfigurationInput` via:
+//
+//	ConnectorV2AzureScopeConfigurationArgs{...}
+type ConnectorV2AzureScopeConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorV2AzureScopeConfigurationOutput() ConnectorV2AzureScopeConfigurationOutput
+	ToConnectorV2AzureScopeConfigurationOutputWithContext(context.Context) ConnectorV2AzureScopeConfigurationOutput
+}
+
+// The scope configuration for an Azure connector
+type ConnectorV2AzureScopeConfigurationArgs struct {
+	// The scope type for the Azure connector
+	ScopeType ConnectorV2AzureScopeConfigurationScopeTypeInput `pulumi:"scopeType"`
+	// The list of scope values for the Azure connector
+	ScopeValues pulumi.StringArrayInput `pulumi:"scopeValues"`
+}
+
+func (ConnectorV2AzureScopeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2AzureScopeConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorV2AzureScopeConfigurationArgs) ToConnectorV2AzureScopeConfigurationOutput() ConnectorV2AzureScopeConfigurationOutput {
+	return i.ToConnectorV2AzureScopeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2AzureScopeConfigurationArgs) ToConnectorV2AzureScopeConfigurationOutputWithContext(ctx context.Context) ConnectorV2AzureScopeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2AzureScopeConfigurationOutput)
+}
+
+func (i ConnectorV2AzureScopeConfigurationArgs) ToConnectorV2AzureScopeConfigurationPtrOutput() ConnectorV2AzureScopeConfigurationPtrOutput {
+	return i.ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2AzureScopeConfigurationArgs) ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2AzureScopeConfigurationOutput).ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorV2AzureScopeConfigurationPtrInput is an input type that accepts ConnectorV2AzureScopeConfigurationArgs, ConnectorV2AzureScopeConfigurationPtr and ConnectorV2AzureScopeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorV2AzureScopeConfigurationPtrInput` via:
+//
+//	        ConnectorV2AzureScopeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorV2AzureScopeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2AzureScopeConfigurationPtrOutput() ConnectorV2AzureScopeConfigurationPtrOutput
+	ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(context.Context) ConnectorV2AzureScopeConfigurationPtrOutput
+}
+
+type connectorV2AzureScopeConfigurationPtrType ConnectorV2AzureScopeConfigurationArgs
+
+func ConnectorV2AzureScopeConfigurationPtr(v *ConnectorV2AzureScopeConfigurationArgs) ConnectorV2AzureScopeConfigurationPtrInput {
+	return (*connectorV2AzureScopeConfigurationPtrType)(v)
+}
+
+func (*connectorV2AzureScopeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2AzureScopeConfiguration)(nil)).Elem()
+}
+
+func (i *connectorV2AzureScopeConfigurationPtrType) ToConnectorV2AzureScopeConfigurationPtrOutput() ConnectorV2AzureScopeConfigurationPtrOutput {
+	return i.ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorV2AzureScopeConfigurationPtrType) ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2AzureScopeConfigurationPtrOutput)
+}
+
+// The scope configuration for an Azure connector
+type ConnectorV2AzureScopeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2AzureScopeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2AzureScopeConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2AzureScopeConfigurationOutput) ToConnectorV2AzureScopeConfigurationOutput() ConnectorV2AzureScopeConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2AzureScopeConfigurationOutput) ToConnectorV2AzureScopeConfigurationOutputWithContext(ctx context.Context) ConnectorV2AzureScopeConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2AzureScopeConfigurationOutput) ToConnectorV2AzureScopeConfigurationPtrOutput() ConnectorV2AzureScopeConfigurationPtrOutput {
+	return o.ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2AzureScopeConfigurationOutput) ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureScopeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2AzureScopeConfiguration) *ConnectorV2AzureScopeConfiguration {
+		return &v
+	}).(ConnectorV2AzureScopeConfigurationPtrOutput)
+}
+
+// The scope type for the Azure connector
+func (o ConnectorV2AzureScopeConfigurationOutput) ScopeType() ConnectorV2AzureScopeConfigurationScopeTypeOutput {
+	return o.ApplyT(func(v ConnectorV2AzureScopeConfiguration) ConnectorV2AzureScopeConfigurationScopeType {
+		return v.ScopeType
+	}).(ConnectorV2AzureScopeConfigurationScopeTypeOutput)
+}
+
+// The list of scope values for the Azure connector
+func (o ConnectorV2AzureScopeConfigurationOutput) ScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorV2AzureScopeConfiguration) []string { return v.ScopeValues }).(pulumi.StringArrayOutput)
+}
+
+type ConnectorV2AzureScopeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2AzureScopeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2AzureScopeConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2AzureScopeConfigurationPtrOutput) ToConnectorV2AzureScopeConfigurationPtrOutput() ConnectorV2AzureScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2AzureScopeConfigurationPtrOutput) ToConnectorV2AzureScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2AzureScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2AzureScopeConfigurationPtrOutput) Elem() ConnectorV2AzureScopeConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorV2AzureScopeConfiguration) ConnectorV2AzureScopeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2AzureScopeConfiguration
+		return ret
+	}).(ConnectorV2AzureScopeConfigurationOutput)
+}
+
+// The scope type for the Azure connector
+func (o ConnectorV2AzureScopeConfigurationPtrOutput) ScopeType() ConnectorV2AzureScopeConfigurationScopeTypePtrOutput {
+	return o.ApplyT(func(v *ConnectorV2AzureScopeConfiguration) *ConnectorV2AzureScopeConfigurationScopeType {
+		if v == nil {
+			return nil
+		}
+		return &v.ScopeType
+	}).(ConnectorV2AzureScopeConfigurationScopeTypePtrOutput)
+}
+
+// The list of scope values for the Azure connector
+func (o ConnectorV2AzureScopeConfigurationPtrOutput) ScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorV2AzureScopeConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeValues
+	}).(pulumi.StringArrayOutput)
+}
+
 // A health issue associated with the connector
 type ConnectorV2HealthIssue struct {
 	// The code identifying the type of health issue
@@ -5900,8 +6237,151 @@ func (o ConnectorV2HealthIssueArrayOutput) Index(i pulumi.IntInput) ConnectorV2H
 	}).(ConnectorV2HealthIssueOutput)
 }
 
+// The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+type ConnectorV2JiraCloudProviderConfiguration struct {
+	// The project key for a Jira Cloud instance
+	ProjectKey string `pulumi:"projectKey"`
+}
+
+// ConnectorV2JiraCloudProviderConfigurationInput is an input type that accepts ConnectorV2JiraCloudProviderConfigurationArgs and ConnectorV2JiraCloudProviderConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorV2JiraCloudProviderConfigurationInput` via:
+//
+//	ConnectorV2JiraCloudProviderConfigurationArgs{...}
+type ConnectorV2JiraCloudProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorV2JiraCloudProviderConfigurationOutput() ConnectorV2JiraCloudProviderConfigurationOutput
+	ToConnectorV2JiraCloudProviderConfigurationOutputWithContext(context.Context) ConnectorV2JiraCloudProviderConfigurationOutput
+}
+
+// The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+type ConnectorV2JiraCloudProviderConfigurationArgs struct {
+	// The project key for a Jira Cloud instance
+	ProjectKey pulumi.StringInput `pulumi:"projectKey"`
+}
+
+func (ConnectorV2JiraCloudProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2JiraCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorV2JiraCloudProviderConfigurationArgs) ToConnectorV2JiraCloudProviderConfigurationOutput() ConnectorV2JiraCloudProviderConfigurationOutput {
+	return i.ToConnectorV2JiraCloudProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2JiraCloudProviderConfigurationArgs) ToConnectorV2JiraCloudProviderConfigurationOutputWithContext(ctx context.Context) ConnectorV2JiraCloudProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2JiraCloudProviderConfigurationOutput)
+}
+
+func (i ConnectorV2JiraCloudProviderConfigurationArgs) ToConnectorV2JiraCloudProviderConfigurationPtrOutput() ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return i.ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2JiraCloudProviderConfigurationArgs) ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2JiraCloudProviderConfigurationOutput).ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorV2JiraCloudProviderConfigurationPtrInput is an input type that accepts ConnectorV2JiraCloudProviderConfigurationArgs, ConnectorV2JiraCloudProviderConfigurationPtr and ConnectorV2JiraCloudProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorV2JiraCloudProviderConfigurationPtrInput` via:
+//
+//	        ConnectorV2JiraCloudProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorV2JiraCloudProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2JiraCloudProviderConfigurationPtrOutput() ConnectorV2JiraCloudProviderConfigurationPtrOutput
+	ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(context.Context) ConnectorV2JiraCloudProviderConfigurationPtrOutput
+}
+
+type connectorV2JiraCloudProviderConfigurationPtrType ConnectorV2JiraCloudProviderConfigurationArgs
+
+func ConnectorV2JiraCloudProviderConfigurationPtr(v *ConnectorV2JiraCloudProviderConfigurationArgs) ConnectorV2JiraCloudProviderConfigurationPtrInput {
+	return (*connectorV2JiraCloudProviderConfigurationPtrType)(v)
+}
+
+func (*connectorV2JiraCloudProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2JiraCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (i *connectorV2JiraCloudProviderConfigurationPtrType) ToConnectorV2JiraCloudProviderConfigurationPtrOutput() ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return i.ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorV2JiraCloudProviderConfigurationPtrType) ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2JiraCloudProviderConfigurationPtrOutput)
+}
+
+// The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+type ConnectorV2JiraCloudProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2JiraCloudProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2JiraCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2JiraCloudProviderConfigurationOutput) ToConnectorV2JiraCloudProviderConfigurationOutput() ConnectorV2JiraCloudProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2JiraCloudProviderConfigurationOutput) ToConnectorV2JiraCloudProviderConfigurationOutputWithContext(ctx context.Context) ConnectorV2JiraCloudProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2JiraCloudProviderConfigurationOutput) ToConnectorV2JiraCloudProviderConfigurationPtrOutput() ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return o.ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2JiraCloudProviderConfigurationOutput) ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2JiraCloudProviderConfiguration) *ConnectorV2JiraCloudProviderConfiguration {
+		return &v
+	}).(ConnectorV2JiraCloudProviderConfigurationPtrOutput)
+}
+
+// The project key for a Jira Cloud instance
+func (o ConnectorV2JiraCloudProviderConfigurationOutput) ProjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2JiraCloudProviderConfiguration) string { return v.ProjectKey }).(pulumi.StringOutput)
+}
+
+type ConnectorV2JiraCloudProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2JiraCloudProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2JiraCloudProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2JiraCloudProviderConfigurationPtrOutput) ToConnectorV2JiraCloudProviderConfigurationPtrOutput() ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2JiraCloudProviderConfigurationPtrOutput) ToConnectorV2JiraCloudProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2JiraCloudProviderConfigurationPtrOutput) Elem() ConnectorV2JiraCloudProviderConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorV2JiraCloudProviderConfiguration) ConnectorV2JiraCloudProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2JiraCloudProviderConfiguration
+		return ret
+	}).(ConnectorV2JiraCloudProviderConfigurationOutput)
+}
+
+// The project key for a Jira Cloud instance
+func (o ConnectorV2JiraCloudProviderConfigurationPtrOutput) ProjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2JiraCloudProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectKey
+	}).(pulumi.StringPtrOutput)
+}
+
 // The third-party provider configuration for the connector
 type ConnectorV2Provider struct {
+	Azure      *ConnectorV2AzureProviderConfiguration      `pulumi:"azure"`
+	JiraCloud  *ConnectorV2JiraCloudProviderConfiguration  `pulumi:"jiraCloud"`
+	ServiceNow *ConnectorV2ServiceNowProviderConfiguration `pulumi:"serviceNow"`
 }
 
 // ConnectorV2ProviderInput is an input type that accepts ConnectorV2ProviderArgs and ConnectorV2ProviderOutput values.
@@ -5917,6 +6397,9 @@ type ConnectorV2ProviderInput interface {
 
 // The third-party provider configuration for the connector
 type ConnectorV2ProviderArgs struct {
+	Azure      ConnectorV2AzureProviderConfigurationPtrInput      `pulumi:"azure"`
+	JiraCloud  ConnectorV2JiraCloudProviderConfigurationPtrInput  `pulumi:"jiraCloud"`
+	ServiceNow ConnectorV2ServiceNowProviderConfigurationPtrInput `pulumi:"serviceNow"`
 }
 
 func (ConnectorV2ProviderArgs) ElementType() reflect.Type {
@@ -5946,6 +6429,18 @@ func (o ConnectorV2ProviderOutput) ToConnectorV2ProviderOutputWithContext(ctx co
 	return o
 }
 
+func (o ConnectorV2ProviderOutput) Azure() ConnectorV2AzureProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorV2Provider) *ConnectorV2AzureProviderConfiguration { return v.Azure }).(ConnectorV2AzureProviderConfigurationPtrOutput)
+}
+
+func (o ConnectorV2ProviderOutput) JiraCloud() ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorV2Provider) *ConnectorV2JiraCloudProviderConfiguration { return v.JiraCloud }).(ConnectorV2JiraCloudProviderConfigurationPtrOutput)
+}
+
+func (o ConnectorV2ProviderOutput) ServiceNow() ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorV2Provider) *ConnectorV2ServiceNowProviderConfiguration { return v.ServiceNow }).(ConnectorV2ServiceNowProviderConfigurationPtrOutput)
+}
+
 type ConnectorV2ProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorV2ProviderPtrOutput) ElementType() reflect.Type {
@@ -5968,6 +6463,192 @@ func (o ConnectorV2ProviderPtrOutput) Elem() ConnectorV2ProviderOutput {
 		var ret ConnectorV2Provider
 		return ret
 	}).(ConnectorV2ProviderOutput)
+}
+
+func (o ConnectorV2ProviderPtrOutput) Azure() ConnectorV2AzureProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2Provider) *ConnectorV2AzureProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Azure
+	}).(ConnectorV2AzureProviderConfigurationPtrOutput)
+}
+
+func (o ConnectorV2ProviderPtrOutput) JiraCloud() ConnectorV2JiraCloudProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2Provider) *ConnectorV2JiraCloudProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.JiraCloud
+	}).(ConnectorV2JiraCloudProviderConfigurationPtrOutput)
+}
+
+func (o ConnectorV2ProviderPtrOutput) ServiceNow() ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2Provider) *ConnectorV2ServiceNowProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNow
+	}).(ConnectorV2ServiceNowProviderConfigurationPtrOutput)
+}
+
+// The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+type ConnectorV2ServiceNowProviderConfiguration struct {
+	// The instance name of ServiceNow ITSM
+	InstanceName string `pulumi:"instanceName"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ConnectorV2ServiceNowProviderConfigurationInput is an input type that accepts ConnectorV2ServiceNowProviderConfigurationArgs and ConnectorV2ServiceNowProviderConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorV2ServiceNowProviderConfigurationInput` via:
+//
+//	ConnectorV2ServiceNowProviderConfigurationArgs{...}
+type ConnectorV2ServiceNowProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorV2ServiceNowProviderConfigurationOutput() ConnectorV2ServiceNowProviderConfigurationOutput
+	ToConnectorV2ServiceNowProviderConfigurationOutputWithContext(context.Context) ConnectorV2ServiceNowProviderConfigurationOutput
+}
+
+// The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+type ConnectorV2ServiceNowProviderConfigurationArgs struct {
+	// The instance name of ServiceNow ITSM
+	InstanceName pulumi.StringInput `pulumi:"instanceName"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ConnectorV2ServiceNowProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ServiceNowProviderConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorV2ServiceNowProviderConfigurationArgs) ToConnectorV2ServiceNowProviderConfigurationOutput() ConnectorV2ServiceNowProviderConfigurationOutput {
+	return i.ToConnectorV2ServiceNowProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ServiceNowProviderConfigurationArgs) ToConnectorV2ServiceNowProviderConfigurationOutputWithContext(ctx context.Context) ConnectorV2ServiceNowProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ServiceNowProviderConfigurationOutput)
+}
+
+func (i ConnectorV2ServiceNowProviderConfigurationArgs) ToConnectorV2ServiceNowProviderConfigurationPtrOutput() ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return i.ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ServiceNowProviderConfigurationArgs) ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ServiceNowProviderConfigurationOutput).ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorV2ServiceNowProviderConfigurationPtrInput is an input type that accepts ConnectorV2ServiceNowProviderConfigurationArgs, ConnectorV2ServiceNowProviderConfigurationPtr and ConnectorV2ServiceNowProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorV2ServiceNowProviderConfigurationPtrInput` via:
+//
+//	        ConnectorV2ServiceNowProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorV2ServiceNowProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorV2ServiceNowProviderConfigurationPtrOutput() ConnectorV2ServiceNowProviderConfigurationPtrOutput
+	ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(context.Context) ConnectorV2ServiceNowProviderConfigurationPtrOutput
+}
+
+type connectorV2ServiceNowProviderConfigurationPtrType ConnectorV2ServiceNowProviderConfigurationArgs
+
+func ConnectorV2ServiceNowProviderConfigurationPtr(v *ConnectorV2ServiceNowProviderConfigurationArgs) ConnectorV2ServiceNowProviderConfigurationPtrInput {
+	return (*connectorV2ServiceNowProviderConfigurationPtrType)(v)
+}
+
+func (*connectorV2ServiceNowProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ServiceNowProviderConfiguration)(nil)).Elem()
+}
+
+func (i *connectorV2ServiceNowProviderConfigurationPtrType) ToConnectorV2ServiceNowProviderConfigurationPtrOutput() ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return i.ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorV2ServiceNowProviderConfigurationPtrType) ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ServiceNowProviderConfigurationPtrOutput)
+}
+
+// The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+type ConnectorV2ServiceNowProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ServiceNowProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ServiceNowProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2ServiceNowProviderConfigurationOutput) ToConnectorV2ServiceNowProviderConfigurationOutput() ConnectorV2ServiceNowProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2ServiceNowProviderConfigurationOutput) ToConnectorV2ServiceNowProviderConfigurationOutputWithContext(ctx context.Context) ConnectorV2ServiceNowProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorV2ServiceNowProviderConfigurationOutput) ToConnectorV2ServiceNowProviderConfigurationPtrOutput() ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return o.ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ServiceNowProviderConfigurationOutput) ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2ServiceNowProviderConfiguration) *ConnectorV2ServiceNowProviderConfiguration {
+		return &v
+	}).(ConnectorV2ServiceNowProviderConfigurationPtrOutput)
+}
+
+// The instance name of ServiceNow ITSM
+func (o ConnectorV2ServiceNowProviderConfigurationOutput) InstanceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2ServiceNowProviderConfiguration) string { return v.InstanceName }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+func (o ConnectorV2ServiceNowProviderConfigurationOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2ServiceNowProviderConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ConnectorV2ServiceNowProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ServiceNowProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ServiceNowProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorV2ServiceNowProviderConfigurationPtrOutput) ToConnectorV2ServiceNowProviderConfigurationPtrOutput() ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ServiceNowProviderConfigurationPtrOutput) ToConnectorV2ServiceNowProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorV2ServiceNowProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ServiceNowProviderConfigurationPtrOutput) Elem() ConnectorV2ServiceNowProviderConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorV2ServiceNowProviderConfiguration) ConnectorV2ServiceNowProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2ServiceNowProviderConfiguration
+		return ret
+	}).(ConnectorV2ServiceNowProviderConfigurationOutput)
+}
+
+// The instance name of ServiceNow ITSM
+func (o ConnectorV2ServiceNowProviderConfigurationPtrOutput) InstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ServiceNowProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+func (o ConnectorV2ServiceNowProviderConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorV2ServiceNowProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
@@ -9639,7 +10320,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureProviderConfigurationInput)(nil)).Elem(), ConnectorAzureProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationInput)(nil)).Elem(), ConnectorAzureScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProviderInput)(nil)).Elem(), ConnectorProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2AzureProviderConfigurationInput)(nil)).Elem(), ConnectorV2AzureProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2AzureProviderConfigurationPtrInput)(nil)).Elem(), ConnectorV2AzureProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2AzureScopeConfigurationInput)(nil)).Elem(), ConnectorV2AzureScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2AzureScopeConfigurationPtrInput)(nil)).Elem(), ConnectorV2AzureScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2JiraCloudProviderConfigurationInput)(nil)).Elem(), ConnectorV2JiraCloudProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2JiraCloudProviderConfigurationPtrInput)(nil)).Elem(), ConnectorV2JiraCloudProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ProviderInput)(nil)).Elem(), ConnectorV2ProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ServiceNowProviderConfigurationInput)(nil)).Elem(), ConnectorV2ServiceNowProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ServiceNowProviderConfigurationPtrInput)(nil)).Elem(), ConnectorV2ServiceNowProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightAwsSecurityFindingFiltersInput)(nil)).Elem(), InsightAwsSecurityFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterInput)(nil)).Elem(), InsightBooleanFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterArrayInput)(nil)).Elem(), InsightBooleanFilterArray{})
@@ -9735,10 +10424,18 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorHealthIssueArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorProviderOutput{})
 	pulumi.RegisterOutputType(ConnectorProviderPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2AzureProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorV2AzureProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2AzureScopeConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorV2AzureScopeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorV2HealthIssueOutput{})
 	pulumi.RegisterOutputType(ConnectorV2HealthIssueArrayOutput{})
+	pulumi.RegisterOutputType(ConnectorV2JiraCloudProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorV2JiraCloudProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorV2ProviderOutput{})
 	pulumi.RegisterOutputType(ConnectorV2ProviderPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ServiceNowProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ServiceNowProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersOutput{})
 	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersPtrOutput{})
 	pulumi.RegisterOutputType(InsightBooleanFilterOutput{})

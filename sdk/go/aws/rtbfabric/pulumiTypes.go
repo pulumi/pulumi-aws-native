@@ -714,6 +714,348 @@ func (o LinkAttributesPtrOutput) ResponderErrorMasking() LinkResponderErrorMaski
 	}).(LinkResponderErrorMaskingForHttpCodeArrayOutput)
 }
 
+type LinkFilter struct {
+	Criteria []LinkFilterCriterion `pulumi:"criteria"`
+}
+
+// LinkFilterInput is an input type that accepts LinkFilterArgs and LinkFilterOutput values.
+// You can construct a concrete instance of `LinkFilterInput` via:
+//
+//	LinkFilterArgs{...}
+type LinkFilterInput interface {
+	pulumi.Input
+
+	ToLinkFilterOutput() LinkFilterOutput
+	ToLinkFilterOutputWithContext(context.Context) LinkFilterOutput
+}
+
+type LinkFilterArgs struct {
+	Criteria LinkFilterCriterionArrayInput `pulumi:"criteria"`
+}
+
+func (LinkFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkFilter)(nil)).Elem()
+}
+
+func (i LinkFilterArgs) ToLinkFilterOutput() LinkFilterOutput {
+	return i.ToLinkFilterOutputWithContext(context.Background())
+}
+
+func (i LinkFilterArgs) ToLinkFilterOutputWithContext(ctx context.Context) LinkFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkFilterOutput)
+}
+
+// LinkFilterArrayInput is an input type that accepts LinkFilterArray and LinkFilterArrayOutput values.
+// You can construct a concrete instance of `LinkFilterArrayInput` via:
+//
+//	LinkFilterArray{ LinkFilterArgs{...} }
+type LinkFilterArrayInput interface {
+	pulumi.Input
+
+	ToLinkFilterArrayOutput() LinkFilterArrayOutput
+	ToLinkFilterArrayOutputWithContext(context.Context) LinkFilterArrayOutput
+}
+
+type LinkFilterArray []LinkFilterInput
+
+func (LinkFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkFilter)(nil)).Elem()
+}
+
+func (i LinkFilterArray) ToLinkFilterArrayOutput() LinkFilterArrayOutput {
+	return i.ToLinkFilterArrayOutputWithContext(context.Background())
+}
+
+func (i LinkFilterArray) ToLinkFilterArrayOutputWithContext(ctx context.Context) LinkFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkFilterArrayOutput)
+}
+
+type LinkFilterOutput struct{ *pulumi.OutputState }
+
+func (LinkFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkFilter)(nil)).Elem()
+}
+
+func (o LinkFilterOutput) ToLinkFilterOutput() LinkFilterOutput {
+	return o
+}
+
+func (o LinkFilterOutput) ToLinkFilterOutputWithContext(ctx context.Context) LinkFilterOutput {
+	return o
+}
+
+func (o LinkFilterOutput) Criteria() LinkFilterCriterionArrayOutput {
+	return o.ApplyT(func(v LinkFilter) []LinkFilterCriterion { return v.Criteria }).(LinkFilterCriterionArrayOutput)
+}
+
+type LinkFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkFilter)(nil)).Elem()
+}
+
+func (o LinkFilterArrayOutput) ToLinkFilterArrayOutput() LinkFilterArrayOutput {
+	return o
+}
+
+func (o LinkFilterArrayOutput) ToLinkFilterArrayOutputWithContext(ctx context.Context) LinkFilterArrayOutput {
+	return o
+}
+
+func (o LinkFilterArrayOutput) Index(i pulumi.IntInput) LinkFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkFilter {
+		return vs[0].([]LinkFilter)[vs[1].(int)]
+	}).(LinkFilterOutput)
+}
+
+type LinkFilterCriterion struct {
+	Path   string   `pulumi:"path"`
+	Values []string `pulumi:"values"`
+}
+
+// LinkFilterCriterionInput is an input type that accepts LinkFilterCriterionArgs and LinkFilterCriterionOutput values.
+// You can construct a concrete instance of `LinkFilterCriterionInput` via:
+//
+//	LinkFilterCriterionArgs{...}
+type LinkFilterCriterionInput interface {
+	pulumi.Input
+
+	ToLinkFilterCriterionOutput() LinkFilterCriterionOutput
+	ToLinkFilterCriterionOutputWithContext(context.Context) LinkFilterCriterionOutput
+}
+
+type LinkFilterCriterionArgs struct {
+	Path   pulumi.StringInput      `pulumi:"path"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (LinkFilterCriterionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkFilterCriterion)(nil)).Elem()
+}
+
+func (i LinkFilterCriterionArgs) ToLinkFilterCriterionOutput() LinkFilterCriterionOutput {
+	return i.ToLinkFilterCriterionOutputWithContext(context.Background())
+}
+
+func (i LinkFilterCriterionArgs) ToLinkFilterCriterionOutputWithContext(ctx context.Context) LinkFilterCriterionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkFilterCriterionOutput)
+}
+
+// LinkFilterCriterionArrayInput is an input type that accepts LinkFilterCriterionArray and LinkFilterCriterionArrayOutput values.
+// You can construct a concrete instance of `LinkFilterCriterionArrayInput` via:
+//
+//	LinkFilterCriterionArray{ LinkFilterCriterionArgs{...} }
+type LinkFilterCriterionArrayInput interface {
+	pulumi.Input
+
+	ToLinkFilterCriterionArrayOutput() LinkFilterCriterionArrayOutput
+	ToLinkFilterCriterionArrayOutputWithContext(context.Context) LinkFilterCriterionArrayOutput
+}
+
+type LinkFilterCriterionArray []LinkFilterCriterionInput
+
+func (LinkFilterCriterionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkFilterCriterion)(nil)).Elem()
+}
+
+func (i LinkFilterCriterionArray) ToLinkFilterCriterionArrayOutput() LinkFilterCriterionArrayOutput {
+	return i.ToLinkFilterCriterionArrayOutputWithContext(context.Background())
+}
+
+func (i LinkFilterCriterionArray) ToLinkFilterCriterionArrayOutputWithContext(ctx context.Context) LinkFilterCriterionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkFilterCriterionArrayOutput)
+}
+
+type LinkFilterCriterionOutput struct{ *pulumi.OutputState }
+
+func (LinkFilterCriterionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkFilterCriterion)(nil)).Elem()
+}
+
+func (o LinkFilterCriterionOutput) ToLinkFilterCriterionOutput() LinkFilterCriterionOutput {
+	return o
+}
+
+func (o LinkFilterCriterionOutput) ToLinkFilterCriterionOutputWithContext(ctx context.Context) LinkFilterCriterionOutput {
+	return o
+}
+
+func (o LinkFilterCriterionOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkFilterCriterion) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o LinkFilterCriterionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinkFilterCriterion) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type LinkFilterCriterionArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkFilterCriterionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkFilterCriterion)(nil)).Elem()
+}
+
+func (o LinkFilterCriterionArrayOutput) ToLinkFilterCriterionArrayOutput() LinkFilterCriterionArrayOutput {
+	return o
+}
+
+func (o LinkFilterCriterionArrayOutput) ToLinkFilterCriterionArrayOutputWithContext(ctx context.Context) LinkFilterCriterionArrayOutput {
+	return o
+}
+
+func (o LinkFilterCriterionArrayOutput) Index(i pulumi.IntInput) LinkFilterCriterionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkFilterCriterion {
+		return vs[0].([]LinkFilterCriterion)[vs[1].(int)]
+	}).(LinkFilterCriterionOutput)
+}
+
+type LinkHeaderTagAction struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// LinkHeaderTagActionInput is an input type that accepts LinkHeaderTagActionArgs and LinkHeaderTagActionOutput values.
+// You can construct a concrete instance of `LinkHeaderTagActionInput` via:
+//
+//	LinkHeaderTagActionArgs{...}
+type LinkHeaderTagActionInput interface {
+	pulumi.Input
+
+	ToLinkHeaderTagActionOutput() LinkHeaderTagActionOutput
+	ToLinkHeaderTagActionOutputWithContext(context.Context) LinkHeaderTagActionOutput
+}
+
+type LinkHeaderTagActionArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LinkHeaderTagActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkHeaderTagAction)(nil)).Elem()
+}
+
+func (i LinkHeaderTagActionArgs) ToLinkHeaderTagActionOutput() LinkHeaderTagActionOutput {
+	return i.ToLinkHeaderTagActionOutputWithContext(context.Background())
+}
+
+func (i LinkHeaderTagActionArgs) ToLinkHeaderTagActionOutputWithContext(ctx context.Context) LinkHeaderTagActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkHeaderTagActionOutput)
+}
+
+func (i LinkHeaderTagActionArgs) ToLinkHeaderTagActionPtrOutput() LinkHeaderTagActionPtrOutput {
+	return i.ToLinkHeaderTagActionPtrOutputWithContext(context.Background())
+}
+
+func (i LinkHeaderTagActionArgs) ToLinkHeaderTagActionPtrOutputWithContext(ctx context.Context) LinkHeaderTagActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkHeaderTagActionOutput).ToLinkHeaderTagActionPtrOutputWithContext(ctx)
+}
+
+// LinkHeaderTagActionPtrInput is an input type that accepts LinkHeaderTagActionArgs, LinkHeaderTagActionPtr and LinkHeaderTagActionPtrOutput values.
+// You can construct a concrete instance of `LinkHeaderTagActionPtrInput` via:
+//
+//	        LinkHeaderTagActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkHeaderTagActionPtrInput interface {
+	pulumi.Input
+
+	ToLinkHeaderTagActionPtrOutput() LinkHeaderTagActionPtrOutput
+	ToLinkHeaderTagActionPtrOutputWithContext(context.Context) LinkHeaderTagActionPtrOutput
+}
+
+type linkHeaderTagActionPtrType LinkHeaderTagActionArgs
+
+func LinkHeaderTagActionPtr(v *LinkHeaderTagActionArgs) LinkHeaderTagActionPtrInput {
+	return (*linkHeaderTagActionPtrType)(v)
+}
+
+func (*linkHeaderTagActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkHeaderTagAction)(nil)).Elem()
+}
+
+func (i *linkHeaderTagActionPtrType) ToLinkHeaderTagActionPtrOutput() LinkHeaderTagActionPtrOutput {
+	return i.ToLinkHeaderTagActionPtrOutputWithContext(context.Background())
+}
+
+func (i *linkHeaderTagActionPtrType) ToLinkHeaderTagActionPtrOutputWithContext(ctx context.Context) LinkHeaderTagActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkHeaderTagActionPtrOutput)
+}
+
+type LinkHeaderTagActionOutput struct{ *pulumi.OutputState }
+
+func (LinkHeaderTagActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkHeaderTagAction)(nil)).Elem()
+}
+
+func (o LinkHeaderTagActionOutput) ToLinkHeaderTagActionOutput() LinkHeaderTagActionOutput {
+	return o
+}
+
+func (o LinkHeaderTagActionOutput) ToLinkHeaderTagActionOutputWithContext(ctx context.Context) LinkHeaderTagActionOutput {
+	return o
+}
+
+func (o LinkHeaderTagActionOutput) ToLinkHeaderTagActionPtrOutput() LinkHeaderTagActionPtrOutput {
+	return o.ToLinkHeaderTagActionPtrOutputWithContext(context.Background())
+}
+
+func (o LinkHeaderTagActionOutput) ToLinkHeaderTagActionPtrOutputWithContext(ctx context.Context) LinkHeaderTagActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkHeaderTagAction) *LinkHeaderTagAction {
+		return &v
+	}).(LinkHeaderTagActionPtrOutput)
+}
+
+func (o LinkHeaderTagActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkHeaderTagAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LinkHeaderTagActionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkHeaderTagAction) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LinkHeaderTagActionPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkHeaderTagActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkHeaderTagAction)(nil)).Elem()
+}
+
+func (o LinkHeaderTagActionPtrOutput) ToLinkHeaderTagActionPtrOutput() LinkHeaderTagActionPtrOutput {
+	return o
+}
+
+func (o LinkHeaderTagActionPtrOutput) ToLinkHeaderTagActionPtrOutputWithContext(ctx context.Context) LinkHeaderTagActionPtrOutput {
+	return o
+}
+
+func (o LinkHeaderTagActionPtrOutput) Elem() LinkHeaderTagActionOutput {
+	return o.ApplyT(func(v *LinkHeaderTagAction) LinkHeaderTagAction {
+		if v != nil {
+			return *v
+		}
+		var ret LinkHeaderTagAction
+		return ret
+	}).(LinkHeaderTagActionOutput)
+}
+
+func (o LinkHeaderTagActionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkHeaderTagAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LinkHeaderTagActionPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkHeaderTagAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkLogSettings struct {
 	// Describes the configuration of a link application log.
 	ApplicationLogs LinkLogSettingsApplicationLogsProperties `pulumi:"applicationLogs"`
@@ -1101,6 +1443,8 @@ func (o LinkModuleConfigurationArrayOutput) Index(i pulumi.IntInput) LinkModuleC
 }
 
 type LinkModuleParameters struct {
+	NoBid            *LinkNoBidModuleParameters            `pulumi:"noBid"`
+	OpenRtbAttribute *LinkOpenRtbAttributeModuleParameters `pulumi:"openRtbAttribute"`
 }
 
 // LinkModuleParametersInput is an input type that accepts LinkModuleParametersArgs and LinkModuleParametersOutput values.
@@ -1115,6 +1459,8 @@ type LinkModuleParametersInput interface {
 }
 
 type LinkModuleParametersArgs struct {
+	NoBid            LinkNoBidModuleParametersPtrInput            `pulumi:"noBid"`
+	OpenRtbAttribute LinkOpenRtbAttributeModuleParametersPtrInput `pulumi:"openRtbAttribute"`
 }
 
 func (LinkModuleParametersArgs) ElementType() reflect.Type {
@@ -1194,6 +1540,14 @@ func (o LinkModuleParametersOutput) ToLinkModuleParametersPtrOutputWithContext(c
 	}).(LinkModuleParametersPtrOutput)
 }
 
+func (o LinkModuleParametersOutput) NoBid() LinkNoBidModuleParametersPtrOutput {
+	return o.ApplyT(func(v LinkModuleParameters) *LinkNoBidModuleParameters { return v.NoBid }).(LinkNoBidModuleParametersPtrOutput)
+}
+
+func (o LinkModuleParametersOutput) OpenRtbAttribute() LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return o.ApplyT(func(v LinkModuleParameters) *LinkOpenRtbAttributeModuleParameters { return v.OpenRtbAttribute }).(LinkOpenRtbAttributeModuleParametersPtrOutput)
+}
+
 type LinkModuleParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkModuleParametersPtrOutput) ElementType() reflect.Type {
@@ -1216,6 +1570,766 @@ func (o LinkModuleParametersPtrOutput) Elem() LinkModuleParametersOutput {
 		var ret LinkModuleParameters
 		return ret
 	}).(LinkModuleParametersOutput)
+}
+
+func (o LinkModuleParametersPtrOutput) NoBid() LinkNoBidModuleParametersPtrOutput {
+	return o.ApplyT(func(v *LinkModuleParameters) *LinkNoBidModuleParameters {
+		if v == nil {
+			return nil
+		}
+		return v.NoBid
+	}).(LinkNoBidModuleParametersPtrOutput)
+}
+
+func (o LinkModuleParametersPtrOutput) OpenRtbAttribute() LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return o.ApplyT(func(v *LinkModuleParameters) *LinkOpenRtbAttributeModuleParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OpenRtbAttribute
+	}).(LinkOpenRtbAttributeModuleParametersPtrOutput)
+}
+
+type LinkNoBidAction struct {
+	NoBidReasonCode *int `pulumi:"noBidReasonCode"`
+}
+
+// LinkNoBidActionInput is an input type that accepts LinkNoBidActionArgs and LinkNoBidActionOutput values.
+// You can construct a concrete instance of `LinkNoBidActionInput` via:
+//
+//	LinkNoBidActionArgs{...}
+type LinkNoBidActionInput interface {
+	pulumi.Input
+
+	ToLinkNoBidActionOutput() LinkNoBidActionOutput
+	ToLinkNoBidActionOutputWithContext(context.Context) LinkNoBidActionOutput
+}
+
+type LinkNoBidActionArgs struct {
+	NoBidReasonCode pulumi.IntPtrInput `pulumi:"noBidReasonCode"`
+}
+
+func (LinkNoBidActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkNoBidAction)(nil)).Elem()
+}
+
+func (i LinkNoBidActionArgs) ToLinkNoBidActionOutput() LinkNoBidActionOutput {
+	return i.ToLinkNoBidActionOutputWithContext(context.Background())
+}
+
+func (i LinkNoBidActionArgs) ToLinkNoBidActionOutputWithContext(ctx context.Context) LinkNoBidActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkNoBidActionOutput)
+}
+
+func (i LinkNoBidActionArgs) ToLinkNoBidActionPtrOutput() LinkNoBidActionPtrOutput {
+	return i.ToLinkNoBidActionPtrOutputWithContext(context.Background())
+}
+
+func (i LinkNoBidActionArgs) ToLinkNoBidActionPtrOutputWithContext(ctx context.Context) LinkNoBidActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkNoBidActionOutput).ToLinkNoBidActionPtrOutputWithContext(ctx)
+}
+
+// LinkNoBidActionPtrInput is an input type that accepts LinkNoBidActionArgs, LinkNoBidActionPtr and LinkNoBidActionPtrOutput values.
+// You can construct a concrete instance of `LinkNoBidActionPtrInput` via:
+//
+//	        LinkNoBidActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkNoBidActionPtrInput interface {
+	pulumi.Input
+
+	ToLinkNoBidActionPtrOutput() LinkNoBidActionPtrOutput
+	ToLinkNoBidActionPtrOutputWithContext(context.Context) LinkNoBidActionPtrOutput
+}
+
+type linkNoBidActionPtrType LinkNoBidActionArgs
+
+func LinkNoBidActionPtr(v *LinkNoBidActionArgs) LinkNoBidActionPtrInput {
+	return (*linkNoBidActionPtrType)(v)
+}
+
+func (*linkNoBidActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkNoBidAction)(nil)).Elem()
+}
+
+func (i *linkNoBidActionPtrType) ToLinkNoBidActionPtrOutput() LinkNoBidActionPtrOutput {
+	return i.ToLinkNoBidActionPtrOutputWithContext(context.Background())
+}
+
+func (i *linkNoBidActionPtrType) ToLinkNoBidActionPtrOutputWithContext(ctx context.Context) LinkNoBidActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkNoBidActionPtrOutput)
+}
+
+type LinkNoBidActionOutput struct{ *pulumi.OutputState }
+
+func (LinkNoBidActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkNoBidAction)(nil)).Elem()
+}
+
+func (o LinkNoBidActionOutput) ToLinkNoBidActionOutput() LinkNoBidActionOutput {
+	return o
+}
+
+func (o LinkNoBidActionOutput) ToLinkNoBidActionOutputWithContext(ctx context.Context) LinkNoBidActionOutput {
+	return o
+}
+
+func (o LinkNoBidActionOutput) ToLinkNoBidActionPtrOutput() LinkNoBidActionPtrOutput {
+	return o.ToLinkNoBidActionPtrOutputWithContext(context.Background())
+}
+
+func (o LinkNoBidActionOutput) ToLinkNoBidActionPtrOutputWithContext(ctx context.Context) LinkNoBidActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkNoBidAction) *LinkNoBidAction {
+		return &v
+	}).(LinkNoBidActionPtrOutput)
+}
+
+func (o LinkNoBidActionOutput) NoBidReasonCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkNoBidAction) *int { return v.NoBidReasonCode }).(pulumi.IntPtrOutput)
+}
+
+type LinkNoBidActionPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkNoBidActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkNoBidAction)(nil)).Elem()
+}
+
+func (o LinkNoBidActionPtrOutput) ToLinkNoBidActionPtrOutput() LinkNoBidActionPtrOutput {
+	return o
+}
+
+func (o LinkNoBidActionPtrOutput) ToLinkNoBidActionPtrOutputWithContext(ctx context.Context) LinkNoBidActionPtrOutput {
+	return o
+}
+
+func (o LinkNoBidActionPtrOutput) Elem() LinkNoBidActionOutput {
+	return o.ApplyT(func(v *LinkNoBidAction) LinkNoBidAction {
+		if v != nil {
+			return *v
+		}
+		var ret LinkNoBidAction
+		return ret
+	}).(LinkNoBidActionOutput)
+}
+
+func (o LinkNoBidActionPtrOutput) NoBidReasonCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkNoBidAction) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NoBidReasonCode
+	}).(pulumi.IntPtrOutput)
+}
+
+type LinkNoBidModuleParameters struct {
+	PassThroughPercentage *float64 `pulumi:"passThroughPercentage"`
+	Reason                *string  `pulumi:"reason"`
+	ReasonCode            *int     `pulumi:"reasonCode"`
+}
+
+// LinkNoBidModuleParametersInput is an input type that accepts LinkNoBidModuleParametersArgs and LinkNoBidModuleParametersOutput values.
+// You can construct a concrete instance of `LinkNoBidModuleParametersInput` via:
+//
+//	LinkNoBidModuleParametersArgs{...}
+type LinkNoBidModuleParametersInput interface {
+	pulumi.Input
+
+	ToLinkNoBidModuleParametersOutput() LinkNoBidModuleParametersOutput
+	ToLinkNoBidModuleParametersOutputWithContext(context.Context) LinkNoBidModuleParametersOutput
+}
+
+type LinkNoBidModuleParametersArgs struct {
+	PassThroughPercentage pulumi.Float64PtrInput `pulumi:"passThroughPercentage"`
+	Reason                pulumi.StringPtrInput  `pulumi:"reason"`
+	ReasonCode            pulumi.IntPtrInput     `pulumi:"reasonCode"`
+}
+
+func (LinkNoBidModuleParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkNoBidModuleParameters)(nil)).Elem()
+}
+
+func (i LinkNoBidModuleParametersArgs) ToLinkNoBidModuleParametersOutput() LinkNoBidModuleParametersOutput {
+	return i.ToLinkNoBidModuleParametersOutputWithContext(context.Background())
+}
+
+func (i LinkNoBidModuleParametersArgs) ToLinkNoBidModuleParametersOutputWithContext(ctx context.Context) LinkNoBidModuleParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkNoBidModuleParametersOutput)
+}
+
+func (i LinkNoBidModuleParametersArgs) ToLinkNoBidModuleParametersPtrOutput() LinkNoBidModuleParametersPtrOutput {
+	return i.ToLinkNoBidModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (i LinkNoBidModuleParametersArgs) ToLinkNoBidModuleParametersPtrOutputWithContext(ctx context.Context) LinkNoBidModuleParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkNoBidModuleParametersOutput).ToLinkNoBidModuleParametersPtrOutputWithContext(ctx)
+}
+
+// LinkNoBidModuleParametersPtrInput is an input type that accepts LinkNoBidModuleParametersArgs, LinkNoBidModuleParametersPtr and LinkNoBidModuleParametersPtrOutput values.
+// You can construct a concrete instance of `LinkNoBidModuleParametersPtrInput` via:
+//
+//	        LinkNoBidModuleParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkNoBidModuleParametersPtrInput interface {
+	pulumi.Input
+
+	ToLinkNoBidModuleParametersPtrOutput() LinkNoBidModuleParametersPtrOutput
+	ToLinkNoBidModuleParametersPtrOutputWithContext(context.Context) LinkNoBidModuleParametersPtrOutput
+}
+
+type linkNoBidModuleParametersPtrType LinkNoBidModuleParametersArgs
+
+func LinkNoBidModuleParametersPtr(v *LinkNoBidModuleParametersArgs) LinkNoBidModuleParametersPtrInput {
+	return (*linkNoBidModuleParametersPtrType)(v)
+}
+
+func (*linkNoBidModuleParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkNoBidModuleParameters)(nil)).Elem()
+}
+
+func (i *linkNoBidModuleParametersPtrType) ToLinkNoBidModuleParametersPtrOutput() LinkNoBidModuleParametersPtrOutput {
+	return i.ToLinkNoBidModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *linkNoBidModuleParametersPtrType) ToLinkNoBidModuleParametersPtrOutputWithContext(ctx context.Context) LinkNoBidModuleParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkNoBidModuleParametersPtrOutput)
+}
+
+type LinkNoBidModuleParametersOutput struct{ *pulumi.OutputState }
+
+func (LinkNoBidModuleParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkNoBidModuleParameters)(nil)).Elem()
+}
+
+func (o LinkNoBidModuleParametersOutput) ToLinkNoBidModuleParametersOutput() LinkNoBidModuleParametersOutput {
+	return o
+}
+
+func (o LinkNoBidModuleParametersOutput) ToLinkNoBidModuleParametersOutputWithContext(ctx context.Context) LinkNoBidModuleParametersOutput {
+	return o
+}
+
+func (o LinkNoBidModuleParametersOutput) ToLinkNoBidModuleParametersPtrOutput() LinkNoBidModuleParametersPtrOutput {
+	return o.ToLinkNoBidModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (o LinkNoBidModuleParametersOutput) ToLinkNoBidModuleParametersPtrOutputWithContext(ctx context.Context) LinkNoBidModuleParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkNoBidModuleParameters) *LinkNoBidModuleParameters {
+		return &v
+	}).(LinkNoBidModuleParametersPtrOutput)
+}
+
+func (o LinkNoBidModuleParametersOutput) PassThroughPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LinkNoBidModuleParameters) *float64 { return v.PassThroughPercentage }).(pulumi.Float64PtrOutput)
+}
+
+func (o LinkNoBidModuleParametersOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkNoBidModuleParameters) *string { return v.Reason }).(pulumi.StringPtrOutput)
+}
+
+func (o LinkNoBidModuleParametersOutput) ReasonCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkNoBidModuleParameters) *int { return v.ReasonCode }).(pulumi.IntPtrOutput)
+}
+
+type LinkNoBidModuleParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkNoBidModuleParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkNoBidModuleParameters)(nil)).Elem()
+}
+
+func (o LinkNoBidModuleParametersPtrOutput) ToLinkNoBidModuleParametersPtrOutput() LinkNoBidModuleParametersPtrOutput {
+	return o
+}
+
+func (o LinkNoBidModuleParametersPtrOutput) ToLinkNoBidModuleParametersPtrOutputWithContext(ctx context.Context) LinkNoBidModuleParametersPtrOutput {
+	return o
+}
+
+func (o LinkNoBidModuleParametersPtrOutput) Elem() LinkNoBidModuleParametersOutput {
+	return o.ApplyT(func(v *LinkNoBidModuleParameters) LinkNoBidModuleParameters {
+		if v != nil {
+			return *v
+		}
+		var ret LinkNoBidModuleParameters
+		return ret
+	}).(LinkNoBidModuleParametersOutput)
+}
+
+func (o LinkNoBidModuleParametersPtrOutput) PassThroughPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LinkNoBidModuleParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PassThroughPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LinkNoBidModuleParametersPtrOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkNoBidModuleParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reason
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LinkNoBidModuleParametersPtrOutput) ReasonCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkNoBidModuleParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReasonCode
+	}).(pulumi.IntPtrOutput)
+}
+
+type LinkOpenRtbAttributeModuleParameters struct {
+	Action              interface{}                                    `pulumi:"action"`
+	FilterConfiguration []LinkFilter                                   `pulumi:"filterConfiguration"`
+	FilterType          LinkOpenRtbAttributeModuleParametersFilterType `pulumi:"filterType"`
+	HoldbackPercentage  float64                                        `pulumi:"holdbackPercentage"`
+}
+
+// LinkOpenRtbAttributeModuleParametersInput is an input type that accepts LinkOpenRtbAttributeModuleParametersArgs and LinkOpenRtbAttributeModuleParametersOutput values.
+// You can construct a concrete instance of `LinkOpenRtbAttributeModuleParametersInput` via:
+//
+//	LinkOpenRtbAttributeModuleParametersArgs{...}
+type LinkOpenRtbAttributeModuleParametersInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersOutput() LinkOpenRtbAttributeModuleParametersOutput
+	ToLinkOpenRtbAttributeModuleParametersOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersOutput
+}
+
+type LinkOpenRtbAttributeModuleParametersArgs struct {
+	Action              pulumi.Input                                        `pulumi:"action"`
+	FilterConfiguration LinkFilterArrayInput                                `pulumi:"filterConfiguration"`
+	FilterType          LinkOpenRtbAttributeModuleParametersFilterTypeInput `pulumi:"filterType"`
+	HoldbackPercentage  pulumi.Float64Input                                 `pulumi:"holdbackPercentage"`
+}
+
+func (LinkOpenRtbAttributeModuleParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParameters)(nil)).Elem()
+}
+
+func (i LinkOpenRtbAttributeModuleParametersArgs) ToLinkOpenRtbAttributeModuleParametersOutput() LinkOpenRtbAttributeModuleParametersOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersOutputWithContext(context.Background())
+}
+
+func (i LinkOpenRtbAttributeModuleParametersArgs) ToLinkOpenRtbAttributeModuleParametersOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersOutput)
+}
+
+func (i LinkOpenRtbAttributeModuleParametersArgs) ToLinkOpenRtbAttributeModuleParametersPtrOutput() LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (i LinkOpenRtbAttributeModuleParametersArgs) ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersOutput).ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(ctx)
+}
+
+// LinkOpenRtbAttributeModuleParametersPtrInput is an input type that accepts LinkOpenRtbAttributeModuleParametersArgs, LinkOpenRtbAttributeModuleParametersPtr and LinkOpenRtbAttributeModuleParametersPtrOutput values.
+// You can construct a concrete instance of `LinkOpenRtbAttributeModuleParametersPtrInput` via:
+//
+//	        LinkOpenRtbAttributeModuleParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkOpenRtbAttributeModuleParametersPtrInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersPtrOutput() LinkOpenRtbAttributeModuleParametersPtrOutput
+	ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersPtrOutput
+}
+
+type linkOpenRtbAttributeModuleParametersPtrType LinkOpenRtbAttributeModuleParametersArgs
+
+func LinkOpenRtbAttributeModuleParametersPtr(v *LinkOpenRtbAttributeModuleParametersArgs) LinkOpenRtbAttributeModuleParametersPtrInput {
+	return (*linkOpenRtbAttributeModuleParametersPtrType)(v)
+}
+
+func (*linkOpenRtbAttributeModuleParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkOpenRtbAttributeModuleParameters)(nil)).Elem()
+}
+
+func (i *linkOpenRtbAttributeModuleParametersPtrType) ToLinkOpenRtbAttributeModuleParametersPtrOutput() LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *linkOpenRtbAttributeModuleParametersPtrType) ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersPtrOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParameters)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) ToLinkOpenRtbAttributeModuleParametersOutput() LinkOpenRtbAttributeModuleParametersOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) ToLinkOpenRtbAttributeModuleParametersOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) ToLinkOpenRtbAttributeModuleParametersPtrOutput() LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return o.ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(context.Background())
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkOpenRtbAttributeModuleParameters) *LinkOpenRtbAttributeModuleParameters {
+		return &v
+	}).(LinkOpenRtbAttributeModuleParametersPtrOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) Action() pulumi.AnyOutput {
+	return o.ApplyT(func(v LinkOpenRtbAttributeModuleParameters) interface{} { return v.Action }).(pulumi.AnyOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) FilterConfiguration() LinkFilterArrayOutput {
+	return o.ApplyT(func(v LinkOpenRtbAttributeModuleParameters) []LinkFilter { return v.FilterConfiguration }).(LinkFilterArrayOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) FilterType() LinkOpenRtbAttributeModuleParametersFilterTypeOutput {
+	return o.ApplyT(func(v LinkOpenRtbAttributeModuleParameters) LinkOpenRtbAttributeModuleParametersFilterType {
+		return v.FilterType
+	}).(LinkOpenRtbAttributeModuleParametersFilterTypeOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersOutput) HoldbackPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v LinkOpenRtbAttributeModuleParameters) float64 { return v.HoldbackPercentage }).(pulumi.Float64Output)
+}
+
+type LinkOpenRtbAttributeModuleParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkOpenRtbAttributeModuleParameters)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersPtrOutput) ToLinkOpenRtbAttributeModuleParametersPtrOutput() LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersPtrOutput) ToLinkOpenRtbAttributeModuleParametersPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersPtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersPtrOutput) Elem() LinkOpenRtbAttributeModuleParametersOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParameters) LinkOpenRtbAttributeModuleParameters {
+		if v != nil {
+			return *v
+		}
+		var ret LinkOpenRtbAttributeModuleParameters
+		return ret
+	}).(LinkOpenRtbAttributeModuleParametersOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersPtrOutput) Action() pulumi.AnyOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParameters) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(pulumi.AnyOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersPtrOutput) FilterConfiguration() LinkFilterArrayOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParameters) []LinkFilter {
+		if v == nil {
+			return nil
+		}
+		return v.FilterConfiguration
+	}).(LinkFilterArrayOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersPtrOutput) FilterType() LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParameters) *LinkOpenRtbAttributeModuleParametersFilterType {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterType
+	}).(LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersPtrOutput) HoldbackPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.HoldbackPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersAction0Properties struct {
+	NoBid LinkNoBidAction `pulumi:"noBid"`
+}
+
+// LinkOpenRtbAttributeModuleParametersAction0PropertiesInput is an input type that accepts LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs and LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput values.
+// You can construct a concrete instance of `LinkOpenRtbAttributeModuleParametersAction0PropertiesInput` via:
+//
+//	LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs{...}
+type LinkOpenRtbAttributeModuleParametersAction0PropertiesInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersAction0PropertiesOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput
+	ToLinkOpenRtbAttributeModuleParametersAction0PropertiesOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput
+}
+
+type LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs struct {
+	NoBid LinkNoBidActionInput `pulumi:"noBid"`
+}
+
+func (LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction0Properties)(nil)).Elem()
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersAction0PropertiesOutputWithContext(context.Background())
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput)
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput).ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(ctx)
+}
+
+// LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrInput is an input type that accepts LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs, LinkOpenRtbAttributeModuleParametersAction0PropertiesPtr and LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput values.
+// You can construct a concrete instance of `LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrInput` via:
+//
+//	        LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput
+	ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput
+}
+
+type linkOpenRtbAttributeModuleParametersAction0PropertiesPtrType LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs
+
+func LinkOpenRtbAttributeModuleParametersAction0PropertiesPtr(v *LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs) LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrInput {
+	return (*linkOpenRtbAttributeModuleParametersAction0PropertiesPtrType)(v)
+}
+
+func (*linkOpenRtbAttributeModuleParametersAction0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkOpenRtbAttributeModuleParametersAction0Properties)(nil)).Elem()
+}
+
+func (i *linkOpenRtbAttributeModuleParametersAction0PropertiesPtrType) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *linkOpenRtbAttributeModuleParametersAction0PropertiesPtrType) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction0Properties)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return o.ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkOpenRtbAttributeModuleParametersAction0Properties) *LinkOpenRtbAttributeModuleParametersAction0Properties {
+		return &v
+	}).(LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput) NoBid() LinkNoBidActionOutput {
+	return o.ApplyT(func(v LinkOpenRtbAttributeModuleParametersAction0Properties) LinkNoBidAction { return v.NoBid }).(LinkNoBidActionOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkOpenRtbAttributeModuleParametersAction0Properties)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput) ToLinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput) Elem() LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParametersAction0Properties) LinkOpenRtbAttributeModuleParametersAction0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret LinkOpenRtbAttributeModuleParametersAction0Properties
+		return ret
+	}).(LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput) NoBid() LinkNoBidActionPtrOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParametersAction0Properties) *LinkNoBidAction {
+		if v == nil {
+			return nil
+		}
+		return &v.NoBid
+	}).(LinkNoBidActionPtrOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersAction1Properties struct {
+	HeaderTag LinkHeaderTagAction `pulumi:"headerTag"`
+}
+
+// LinkOpenRtbAttributeModuleParametersAction1PropertiesInput is an input type that accepts LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs and LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput values.
+// You can construct a concrete instance of `LinkOpenRtbAttributeModuleParametersAction1PropertiesInput` via:
+//
+//	LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs{...}
+type LinkOpenRtbAttributeModuleParametersAction1PropertiesInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersAction1PropertiesOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput
+	ToLinkOpenRtbAttributeModuleParametersAction1PropertiesOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput
+}
+
+type LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs struct {
+	HeaderTag LinkHeaderTagActionInput `pulumi:"headerTag"`
+}
+
+func (LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction1Properties)(nil)).Elem()
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersAction1PropertiesOutputWithContext(context.Background())
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput)
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput).ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(ctx)
+}
+
+// LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrInput is an input type that accepts LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs, LinkOpenRtbAttributeModuleParametersAction1PropertiesPtr and LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput values.
+// You can construct a concrete instance of `LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrInput` via:
+//
+//	        LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput
+	ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput
+}
+
+type linkOpenRtbAttributeModuleParametersAction1PropertiesPtrType LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs
+
+func LinkOpenRtbAttributeModuleParametersAction1PropertiesPtr(v *LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs) LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrInput {
+	return (*linkOpenRtbAttributeModuleParametersAction1PropertiesPtrType)(v)
+}
+
+func (*linkOpenRtbAttributeModuleParametersAction1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkOpenRtbAttributeModuleParametersAction1Properties)(nil)).Elem()
+}
+
+func (i *linkOpenRtbAttributeModuleParametersAction1PropertiesPtrType) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return i.ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *linkOpenRtbAttributeModuleParametersAction1PropertiesPtrType) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction1Properties)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return o.ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkOpenRtbAttributeModuleParametersAction1Properties) *LinkOpenRtbAttributeModuleParametersAction1Properties {
+		return &v
+	}).(LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput) HeaderTag() LinkHeaderTagActionOutput {
+	return o.ApplyT(func(v LinkOpenRtbAttributeModuleParametersAction1Properties) LinkHeaderTagAction { return v.HeaderTag }).(LinkHeaderTagActionOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkOpenRtbAttributeModuleParametersAction1Properties)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput() LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput) ToLinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput) Elem() LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParametersAction1Properties) LinkOpenRtbAttributeModuleParametersAction1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret LinkOpenRtbAttributeModuleParametersAction1Properties
+		return ret
+	}).(LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput) HeaderTag() LinkHeaderTagActionPtrOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParametersAction1Properties) *LinkHeaderTagAction {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderTag
+	}).(LinkHeaderTagActionPtrOutput)
 }
 
 type LinkResponderErrorMaskingForHttpCode struct {
@@ -2257,6 +3371,617 @@ type RequesterGatewayTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type ResponderGatewayAutoScalingGroupsConfiguration struct {
+	AutoScalingGroupNameList []string                           `pulumi:"autoScalingGroupNameList"`
+	HealthCheckConfig        *ResponderGatewayHealthCheckConfig `pulumi:"healthCheckConfig"`
+	RoleArn                  string                             `pulumi:"roleArn"`
+}
+
+// ResponderGatewayAutoScalingGroupsConfigurationInput is an input type that accepts ResponderGatewayAutoScalingGroupsConfigurationArgs and ResponderGatewayAutoScalingGroupsConfigurationOutput values.
+// You can construct a concrete instance of `ResponderGatewayAutoScalingGroupsConfigurationInput` via:
+//
+//	ResponderGatewayAutoScalingGroupsConfigurationArgs{...}
+type ResponderGatewayAutoScalingGroupsConfigurationInput interface {
+	pulumi.Input
+
+	ToResponderGatewayAutoScalingGroupsConfigurationOutput() ResponderGatewayAutoScalingGroupsConfigurationOutput
+	ToResponderGatewayAutoScalingGroupsConfigurationOutputWithContext(context.Context) ResponderGatewayAutoScalingGroupsConfigurationOutput
+}
+
+type ResponderGatewayAutoScalingGroupsConfigurationArgs struct {
+	AutoScalingGroupNameList pulumi.StringArrayInput                   `pulumi:"autoScalingGroupNameList"`
+	HealthCheckConfig        ResponderGatewayHealthCheckConfigPtrInput `pulumi:"healthCheckConfig"`
+	RoleArn                  pulumi.StringInput                        `pulumi:"roleArn"`
+}
+
+func (ResponderGatewayAutoScalingGroupsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayAutoScalingGroupsConfiguration)(nil)).Elem()
+}
+
+func (i ResponderGatewayAutoScalingGroupsConfigurationArgs) ToResponderGatewayAutoScalingGroupsConfigurationOutput() ResponderGatewayAutoScalingGroupsConfigurationOutput {
+	return i.ToResponderGatewayAutoScalingGroupsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayAutoScalingGroupsConfigurationArgs) ToResponderGatewayAutoScalingGroupsConfigurationOutputWithContext(ctx context.Context) ResponderGatewayAutoScalingGroupsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayAutoScalingGroupsConfigurationOutput)
+}
+
+func (i ResponderGatewayAutoScalingGroupsConfigurationArgs) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutput() ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return i.ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayAutoScalingGroupsConfigurationArgs) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayAutoScalingGroupsConfigurationOutput).ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResponderGatewayAutoScalingGroupsConfigurationPtrInput is an input type that accepts ResponderGatewayAutoScalingGroupsConfigurationArgs, ResponderGatewayAutoScalingGroupsConfigurationPtr and ResponderGatewayAutoScalingGroupsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResponderGatewayAutoScalingGroupsConfigurationPtrInput` via:
+//
+//	        ResponderGatewayAutoScalingGroupsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponderGatewayAutoScalingGroupsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResponderGatewayAutoScalingGroupsConfigurationPtrOutput() ResponderGatewayAutoScalingGroupsConfigurationPtrOutput
+	ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(context.Context) ResponderGatewayAutoScalingGroupsConfigurationPtrOutput
+}
+
+type responderGatewayAutoScalingGroupsConfigurationPtrType ResponderGatewayAutoScalingGroupsConfigurationArgs
+
+func ResponderGatewayAutoScalingGroupsConfigurationPtr(v *ResponderGatewayAutoScalingGroupsConfigurationArgs) ResponderGatewayAutoScalingGroupsConfigurationPtrInput {
+	return (*responderGatewayAutoScalingGroupsConfigurationPtrType)(v)
+}
+
+func (*responderGatewayAutoScalingGroupsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayAutoScalingGroupsConfiguration)(nil)).Elem()
+}
+
+func (i *responderGatewayAutoScalingGroupsConfigurationPtrType) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutput() ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return i.ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *responderGatewayAutoScalingGroupsConfigurationPtrType) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayAutoScalingGroupsConfigurationPtrOutput)
+}
+
+type ResponderGatewayAutoScalingGroupsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayAutoScalingGroupsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayAutoScalingGroupsConfiguration)(nil)).Elem()
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationOutput) ToResponderGatewayAutoScalingGroupsConfigurationOutput() ResponderGatewayAutoScalingGroupsConfigurationOutput {
+	return o
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationOutput) ToResponderGatewayAutoScalingGroupsConfigurationOutputWithContext(ctx context.Context) ResponderGatewayAutoScalingGroupsConfigurationOutput {
+	return o
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationOutput) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutput() ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return o.ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationOutput) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponderGatewayAutoScalingGroupsConfiguration) *ResponderGatewayAutoScalingGroupsConfiguration {
+		return &v
+	}).(ResponderGatewayAutoScalingGroupsConfigurationPtrOutput)
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationOutput) AutoScalingGroupNameList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResponderGatewayAutoScalingGroupsConfiguration) []string { return v.AutoScalingGroupNameList }).(pulumi.StringArrayOutput)
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationOutput) HealthCheckConfig() ResponderGatewayHealthCheckConfigPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayAutoScalingGroupsConfiguration) *ResponderGatewayHealthCheckConfig {
+		return v.HealthCheckConfig
+	}).(ResponderGatewayHealthCheckConfigPtrOutput)
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayAutoScalingGroupsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type ResponderGatewayAutoScalingGroupsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayAutoScalingGroupsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayAutoScalingGroupsConfiguration)(nil)).Elem()
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationPtrOutput) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutput() ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationPtrOutput) ToResponderGatewayAutoScalingGroupsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationPtrOutput) Elem() ResponderGatewayAutoScalingGroupsConfigurationOutput {
+	return o.ApplyT(func(v *ResponderGatewayAutoScalingGroupsConfiguration) ResponderGatewayAutoScalingGroupsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResponderGatewayAutoScalingGroupsConfiguration
+		return ret
+	}).(ResponderGatewayAutoScalingGroupsConfigurationOutput)
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationPtrOutput) AutoScalingGroupNameList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResponderGatewayAutoScalingGroupsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingGroupNameList
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationPtrOutput) HealthCheckConfig() ResponderGatewayHealthCheckConfigPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayAutoScalingGroupsConfiguration) *ResponderGatewayHealthCheckConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckConfig
+	}).(ResponderGatewayHealthCheckConfigPtrOutput)
+}
+
+func (o ResponderGatewayAutoScalingGroupsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayAutoScalingGroupsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResponderGatewayEksEndpointsConfiguration struct {
+	ClusterApiServerCaCertificateChain string `pulumi:"clusterApiServerCaCertificateChain"`
+	ClusterApiServerEndpointUri        string `pulumi:"clusterApiServerEndpointUri"`
+	ClusterName                        string `pulumi:"clusterName"`
+	EndpointsResourceName              string `pulumi:"endpointsResourceName"`
+	EndpointsResourceNamespace         string `pulumi:"endpointsResourceNamespace"`
+	RoleArn                            string `pulumi:"roleArn"`
+}
+
+// ResponderGatewayEksEndpointsConfigurationInput is an input type that accepts ResponderGatewayEksEndpointsConfigurationArgs and ResponderGatewayEksEndpointsConfigurationOutput values.
+// You can construct a concrete instance of `ResponderGatewayEksEndpointsConfigurationInput` via:
+//
+//	ResponderGatewayEksEndpointsConfigurationArgs{...}
+type ResponderGatewayEksEndpointsConfigurationInput interface {
+	pulumi.Input
+
+	ToResponderGatewayEksEndpointsConfigurationOutput() ResponderGatewayEksEndpointsConfigurationOutput
+	ToResponderGatewayEksEndpointsConfigurationOutputWithContext(context.Context) ResponderGatewayEksEndpointsConfigurationOutput
+}
+
+type ResponderGatewayEksEndpointsConfigurationArgs struct {
+	ClusterApiServerCaCertificateChain pulumi.StringInput `pulumi:"clusterApiServerCaCertificateChain"`
+	ClusterApiServerEndpointUri        pulumi.StringInput `pulumi:"clusterApiServerEndpointUri"`
+	ClusterName                        pulumi.StringInput `pulumi:"clusterName"`
+	EndpointsResourceName              pulumi.StringInput `pulumi:"endpointsResourceName"`
+	EndpointsResourceNamespace         pulumi.StringInput `pulumi:"endpointsResourceNamespace"`
+	RoleArn                            pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (ResponderGatewayEksEndpointsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayEksEndpointsConfiguration)(nil)).Elem()
+}
+
+func (i ResponderGatewayEksEndpointsConfigurationArgs) ToResponderGatewayEksEndpointsConfigurationOutput() ResponderGatewayEksEndpointsConfigurationOutput {
+	return i.ToResponderGatewayEksEndpointsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayEksEndpointsConfigurationArgs) ToResponderGatewayEksEndpointsConfigurationOutputWithContext(ctx context.Context) ResponderGatewayEksEndpointsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayEksEndpointsConfigurationOutput)
+}
+
+func (i ResponderGatewayEksEndpointsConfigurationArgs) ToResponderGatewayEksEndpointsConfigurationPtrOutput() ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return i.ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayEksEndpointsConfigurationArgs) ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayEksEndpointsConfigurationOutput).ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResponderGatewayEksEndpointsConfigurationPtrInput is an input type that accepts ResponderGatewayEksEndpointsConfigurationArgs, ResponderGatewayEksEndpointsConfigurationPtr and ResponderGatewayEksEndpointsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResponderGatewayEksEndpointsConfigurationPtrInput` via:
+//
+//	        ResponderGatewayEksEndpointsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponderGatewayEksEndpointsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResponderGatewayEksEndpointsConfigurationPtrOutput() ResponderGatewayEksEndpointsConfigurationPtrOutput
+	ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(context.Context) ResponderGatewayEksEndpointsConfigurationPtrOutput
+}
+
+type responderGatewayEksEndpointsConfigurationPtrType ResponderGatewayEksEndpointsConfigurationArgs
+
+func ResponderGatewayEksEndpointsConfigurationPtr(v *ResponderGatewayEksEndpointsConfigurationArgs) ResponderGatewayEksEndpointsConfigurationPtrInput {
+	return (*responderGatewayEksEndpointsConfigurationPtrType)(v)
+}
+
+func (*responderGatewayEksEndpointsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayEksEndpointsConfiguration)(nil)).Elem()
+}
+
+func (i *responderGatewayEksEndpointsConfigurationPtrType) ToResponderGatewayEksEndpointsConfigurationPtrOutput() ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return i.ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *responderGatewayEksEndpointsConfigurationPtrType) ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayEksEndpointsConfigurationPtrOutput)
+}
+
+type ResponderGatewayEksEndpointsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayEksEndpointsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayEksEndpointsConfiguration)(nil)).Elem()
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) ToResponderGatewayEksEndpointsConfigurationOutput() ResponderGatewayEksEndpointsConfigurationOutput {
+	return o
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) ToResponderGatewayEksEndpointsConfigurationOutputWithContext(ctx context.Context) ResponderGatewayEksEndpointsConfigurationOutput {
+	return o
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) ToResponderGatewayEksEndpointsConfigurationPtrOutput() ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return o.ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponderGatewayEksEndpointsConfiguration) *ResponderGatewayEksEndpointsConfiguration {
+		return &v
+	}).(ResponderGatewayEksEndpointsConfigurationPtrOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) ClusterApiServerCaCertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayEksEndpointsConfiguration) string { return v.ClusterApiServerCaCertificateChain }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) ClusterApiServerEndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayEksEndpointsConfiguration) string { return v.ClusterApiServerEndpointUri }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayEksEndpointsConfiguration) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) EndpointsResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayEksEndpointsConfiguration) string { return v.EndpointsResourceName }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) EndpointsResourceNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayEksEndpointsConfiguration) string { return v.EndpointsResourceNamespace }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayEksEndpointsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type ResponderGatewayEksEndpointsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayEksEndpointsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayEksEndpointsConfiguration)(nil)).Elem()
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) ToResponderGatewayEksEndpointsConfigurationPtrOutput() ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) ToResponderGatewayEksEndpointsConfigurationPtrOutputWithContext(ctx context.Context) ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) Elem() ResponderGatewayEksEndpointsConfigurationOutput {
+	return o.ApplyT(func(v *ResponderGatewayEksEndpointsConfiguration) ResponderGatewayEksEndpointsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResponderGatewayEksEndpointsConfiguration
+		return ret
+	}).(ResponderGatewayEksEndpointsConfigurationOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) ClusterApiServerCaCertificateChain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayEksEndpointsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterApiServerCaCertificateChain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) ClusterApiServerEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayEksEndpointsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterApiServerEndpointUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayEksEndpointsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) EndpointsResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayEksEndpointsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointsResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) EndpointsResourceNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayEksEndpointsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointsResourceNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayEksEndpointsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayEksEndpointsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResponderGatewayHealthCheckConfig struct {
+	HealthyThresholdCount   *int                      `pulumi:"healthyThresholdCount"`
+	IntervalSeconds         *int                      `pulumi:"intervalSeconds"`
+	Path                    string                    `pulumi:"path"`
+	Port                    int                       `pulumi:"port"`
+	Protocol                *ResponderGatewayProtocol `pulumi:"protocol"`
+	StatusCodeMatcher       *string                   `pulumi:"statusCodeMatcher"`
+	TimeoutMs               *int                      `pulumi:"timeoutMs"`
+	UnhealthyThresholdCount *int                      `pulumi:"unhealthyThresholdCount"`
+}
+
+// ResponderGatewayHealthCheckConfigInput is an input type that accepts ResponderGatewayHealthCheckConfigArgs and ResponderGatewayHealthCheckConfigOutput values.
+// You can construct a concrete instance of `ResponderGatewayHealthCheckConfigInput` via:
+//
+//	ResponderGatewayHealthCheckConfigArgs{...}
+type ResponderGatewayHealthCheckConfigInput interface {
+	pulumi.Input
+
+	ToResponderGatewayHealthCheckConfigOutput() ResponderGatewayHealthCheckConfigOutput
+	ToResponderGatewayHealthCheckConfigOutputWithContext(context.Context) ResponderGatewayHealthCheckConfigOutput
+}
+
+type ResponderGatewayHealthCheckConfigArgs struct {
+	HealthyThresholdCount   pulumi.IntPtrInput               `pulumi:"healthyThresholdCount"`
+	IntervalSeconds         pulumi.IntPtrInput               `pulumi:"intervalSeconds"`
+	Path                    pulumi.StringInput               `pulumi:"path"`
+	Port                    pulumi.IntInput                  `pulumi:"port"`
+	Protocol                ResponderGatewayProtocolPtrInput `pulumi:"protocol"`
+	StatusCodeMatcher       pulumi.StringPtrInput            `pulumi:"statusCodeMatcher"`
+	TimeoutMs               pulumi.IntPtrInput               `pulumi:"timeoutMs"`
+	UnhealthyThresholdCount pulumi.IntPtrInput               `pulumi:"unhealthyThresholdCount"`
+}
+
+func (ResponderGatewayHealthCheckConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayHealthCheckConfig)(nil)).Elem()
+}
+
+func (i ResponderGatewayHealthCheckConfigArgs) ToResponderGatewayHealthCheckConfigOutput() ResponderGatewayHealthCheckConfigOutput {
+	return i.ToResponderGatewayHealthCheckConfigOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayHealthCheckConfigArgs) ToResponderGatewayHealthCheckConfigOutputWithContext(ctx context.Context) ResponderGatewayHealthCheckConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayHealthCheckConfigOutput)
+}
+
+func (i ResponderGatewayHealthCheckConfigArgs) ToResponderGatewayHealthCheckConfigPtrOutput() ResponderGatewayHealthCheckConfigPtrOutput {
+	return i.ToResponderGatewayHealthCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ResponderGatewayHealthCheckConfigArgs) ToResponderGatewayHealthCheckConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayHealthCheckConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayHealthCheckConfigOutput).ToResponderGatewayHealthCheckConfigPtrOutputWithContext(ctx)
+}
+
+// ResponderGatewayHealthCheckConfigPtrInput is an input type that accepts ResponderGatewayHealthCheckConfigArgs, ResponderGatewayHealthCheckConfigPtr and ResponderGatewayHealthCheckConfigPtrOutput values.
+// You can construct a concrete instance of `ResponderGatewayHealthCheckConfigPtrInput` via:
+//
+//	        ResponderGatewayHealthCheckConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponderGatewayHealthCheckConfigPtrInput interface {
+	pulumi.Input
+
+	ToResponderGatewayHealthCheckConfigPtrOutput() ResponderGatewayHealthCheckConfigPtrOutput
+	ToResponderGatewayHealthCheckConfigPtrOutputWithContext(context.Context) ResponderGatewayHealthCheckConfigPtrOutput
+}
+
+type responderGatewayHealthCheckConfigPtrType ResponderGatewayHealthCheckConfigArgs
+
+func ResponderGatewayHealthCheckConfigPtr(v *ResponderGatewayHealthCheckConfigArgs) ResponderGatewayHealthCheckConfigPtrInput {
+	return (*responderGatewayHealthCheckConfigPtrType)(v)
+}
+
+func (*responderGatewayHealthCheckConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayHealthCheckConfig)(nil)).Elem()
+}
+
+func (i *responderGatewayHealthCheckConfigPtrType) ToResponderGatewayHealthCheckConfigPtrOutput() ResponderGatewayHealthCheckConfigPtrOutput {
+	return i.ToResponderGatewayHealthCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *responderGatewayHealthCheckConfigPtrType) ToResponderGatewayHealthCheckConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayHealthCheckConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponderGatewayHealthCheckConfigPtrOutput)
+}
+
+type ResponderGatewayHealthCheckConfigOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayHealthCheckConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponderGatewayHealthCheckConfig)(nil)).Elem()
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) ToResponderGatewayHealthCheckConfigOutput() ResponderGatewayHealthCheckConfigOutput {
+	return o
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) ToResponderGatewayHealthCheckConfigOutputWithContext(ctx context.Context) ResponderGatewayHealthCheckConfigOutput {
+	return o
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) ToResponderGatewayHealthCheckConfigPtrOutput() ResponderGatewayHealthCheckConfigPtrOutput {
+	return o.ToResponderGatewayHealthCheckConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) ToResponderGatewayHealthCheckConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayHealthCheckConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponderGatewayHealthCheckConfig) *ResponderGatewayHealthCheckConfig {
+		return &v
+	}).(ResponderGatewayHealthCheckConfigPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) *int { return v.HealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) Protocol() ResponderGatewayProtocolPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) *ResponderGatewayProtocol { return v.Protocol }).(ResponderGatewayProtocolPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) StatusCodeMatcher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) *string { return v.StatusCodeMatcher }).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) TimeoutMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) *int { return v.TimeoutMs }).(pulumi.IntPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayHealthCheckConfig) *int { return v.UnhealthyThresholdCount }).(pulumi.IntPtrOutput)
+}
+
+type ResponderGatewayHealthCheckConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponderGatewayHealthCheckConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponderGatewayHealthCheckConfig)(nil)).Elem()
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) ToResponderGatewayHealthCheckConfigPtrOutput() ResponderGatewayHealthCheckConfigPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) ToResponderGatewayHealthCheckConfigPtrOutputWithContext(ctx context.Context) ResponderGatewayHealthCheckConfigPtrOutput {
+	return o
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) Elem() ResponderGatewayHealthCheckConfigOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) ResponderGatewayHealthCheckConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResponderGatewayHealthCheckConfig
+		return ret
+	}).(ResponderGatewayHealthCheckConfigOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyThresholdCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) Protocol() ResponderGatewayProtocolPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *ResponderGatewayProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(ResponderGatewayProtocolPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) StatusCodeMatcher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodeMatcher
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) TimeoutMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutMs
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ResponderGatewayHealthCheckConfigPtrOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayHealthCheckConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyThresholdCount
+	}).(pulumi.IntPtrOutput)
+}
+
 type ResponderGatewayListenerConfig struct {
 	Protocols []ResponderGatewayProtocol `pulumi:"protocols"`
 }
@@ -2391,6 +4116,8 @@ func (o ResponderGatewayListenerConfigPtrOutput) Protocols() ResponderGatewayPro
 }
 
 type ResponderGatewayManagedEndpointConfiguration struct {
+	AutoScalingGroupsConfiguration *ResponderGatewayAutoScalingGroupsConfiguration `pulumi:"autoScalingGroupsConfiguration"`
+	EksEndpointsConfiguration      *ResponderGatewayEksEndpointsConfiguration      `pulumi:"eksEndpointsConfiguration"`
 }
 
 // ResponderGatewayManagedEndpointConfigurationInput is an input type that accepts ResponderGatewayManagedEndpointConfigurationArgs and ResponderGatewayManagedEndpointConfigurationOutput values.
@@ -2405,6 +4132,8 @@ type ResponderGatewayManagedEndpointConfigurationInput interface {
 }
 
 type ResponderGatewayManagedEndpointConfigurationArgs struct {
+	AutoScalingGroupsConfiguration ResponderGatewayAutoScalingGroupsConfigurationPtrInput `pulumi:"autoScalingGroupsConfiguration"`
+	EksEndpointsConfiguration      ResponderGatewayEksEndpointsConfigurationPtrInput      `pulumi:"eksEndpointsConfiguration"`
 }
 
 func (ResponderGatewayManagedEndpointConfigurationArgs) ElementType() reflect.Type {
@@ -2484,6 +4213,18 @@ func (o ResponderGatewayManagedEndpointConfigurationOutput) ToResponderGatewayMa
 	}).(ResponderGatewayManagedEndpointConfigurationPtrOutput)
 }
 
+func (o ResponderGatewayManagedEndpointConfigurationOutput) AutoScalingGroupsConfiguration() ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayManagedEndpointConfiguration) *ResponderGatewayAutoScalingGroupsConfiguration {
+		return v.AutoScalingGroupsConfiguration
+	}).(ResponderGatewayAutoScalingGroupsConfigurationPtrOutput)
+}
+
+func (o ResponderGatewayManagedEndpointConfigurationOutput) EksEndpointsConfiguration() ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return o.ApplyT(func(v ResponderGatewayManagedEndpointConfiguration) *ResponderGatewayEksEndpointsConfiguration {
+		return v.EksEndpointsConfiguration
+	}).(ResponderGatewayEksEndpointsConfigurationPtrOutput)
+}
+
 type ResponderGatewayManagedEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ResponderGatewayManagedEndpointConfigurationPtrOutput) ElementType() reflect.Type {
@@ -2506,6 +4247,24 @@ func (o ResponderGatewayManagedEndpointConfigurationPtrOutput) Elem() ResponderG
 		var ret ResponderGatewayManagedEndpointConfiguration
 		return ret
 	}).(ResponderGatewayManagedEndpointConfigurationOutput)
+}
+
+func (o ResponderGatewayManagedEndpointConfigurationPtrOutput) AutoScalingGroupsConfiguration() ResponderGatewayAutoScalingGroupsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayManagedEndpointConfiguration) *ResponderGatewayAutoScalingGroupsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingGroupsConfiguration
+	}).(ResponderGatewayAutoScalingGroupsConfigurationPtrOutput)
+}
+
+func (o ResponderGatewayManagedEndpointConfigurationPtrOutput) EksEndpointsConfiguration() ResponderGatewayEksEndpointsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ResponderGatewayManagedEndpointConfiguration) *ResponderGatewayEksEndpointsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EksEndpointsConfiguration
+	}).(ResponderGatewayEksEndpointsConfigurationPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2663,6 +4422,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingForHttpCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkAttributesInput)(nil)).Elem(), LinkAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkAttributesPtrInput)(nil)).Elem(), LinkAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkFilterInput)(nil)).Elem(), LinkFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkFilterArrayInput)(nil)).Elem(), LinkFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkFilterCriterionInput)(nil)).Elem(), LinkFilterCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkFilterCriterionArrayInput)(nil)).Elem(), LinkFilterCriterionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkHeaderTagActionInput)(nil)).Elem(), LinkHeaderTagActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkHeaderTagActionPtrInput)(nil)).Elem(), LinkHeaderTagActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkLogSettingsInput)(nil)).Elem(), LinkLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkLogSettingsApplicationLogsPropertiesInput)(nil)).Elem(), LinkLogSettingsApplicationLogsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput)(nil)).Elem(), LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{})
@@ -2670,6 +4435,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleConfigurationArrayInput)(nil)).Elem(), LinkModuleConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleParametersInput)(nil)).Elem(), LinkModuleParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleParametersPtrInput)(nil)).Elem(), LinkModuleParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkNoBidActionInput)(nil)).Elem(), LinkNoBidActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkNoBidActionPtrInput)(nil)).Elem(), LinkNoBidActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkNoBidModuleParametersInput)(nil)).Elem(), LinkNoBidModuleParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkNoBidModuleParametersPtrInput)(nil)).Elem(), LinkNoBidModuleParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersPtrInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction0PropertiesInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersAction0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction1PropertiesInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersAction1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkRoutingRuleQueryStringKeyValuePairInput)(nil)).Elem(), LinkRoutingRuleQueryStringKeyValuePairArgs{})
@@ -2682,6 +4457,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput)(nil)).Elem(), OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayAutoScalingGroupsConfigurationInput)(nil)).Elem(), ResponderGatewayAutoScalingGroupsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayAutoScalingGroupsConfigurationPtrInput)(nil)).Elem(), ResponderGatewayAutoScalingGroupsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayEksEndpointsConfigurationInput)(nil)).Elem(), ResponderGatewayEksEndpointsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayEksEndpointsConfigurationPtrInput)(nil)).Elem(), ResponderGatewayEksEndpointsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayHealthCheckConfigInput)(nil)).Elem(), ResponderGatewayHealthCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayHealthCheckConfigPtrInput)(nil)).Elem(), ResponderGatewayHealthCheckConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayListenerConfigInput)(nil)).Elem(), ResponderGatewayListenerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayListenerConfigPtrInput)(nil)).Elem(), ResponderGatewayListenerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayManagedEndpointConfigurationInput)(nil)).Elem(), ResponderGatewayManagedEndpointConfigurationArgs{})
@@ -2700,6 +4481,12 @@ func init() {
 	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput{})
 	pulumi.RegisterOutputType(LinkAttributesOutput{})
 	pulumi.RegisterOutputType(LinkAttributesPtrOutput{})
+	pulumi.RegisterOutputType(LinkFilterOutput{})
+	pulumi.RegisterOutputType(LinkFilterArrayOutput{})
+	pulumi.RegisterOutputType(LinkFilterCriterionOutput{})
+	pulumi.RegisterOutputType(LinkFilterCriterionArrayOutput{})
+	pulumi.RegisterOutputType(LinkHeaderTagActionOutput{})
+	pulumi.RegisterOutputType(LinkHeaderTagActionPtrOutput{})
 	pulumi.RegisterOutputType(LinkLogSettingsOutput{})
 	pulumi.RegisterOutputType(LinkLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(LinkLogSettingsApplicationLogsPropertiesOutput{})
@@ -2710,6 +4497,16 @@ func init() {
 	pulumi.RegisterOutputType(LinkModuleConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LinkModuleParametersOutput{})
 	pulumi.RegisterOutputType(LinkModuleParametersPtrOutput{})
+	pulumi.RegisterOutputType(LinkNoBidActionOutput{})
+	pulumi.RegisterOutputType(LinkNoBidActionPtrOutput{})
+	pulumi.RegisterOutputType(LinkNoBidModuleParametersOutput{})
+	pulumi.RegisterOutputType(LinkNoBidModuleParametersPtrOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersPtrOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersAction0PropertiesOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersAction0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersAction1PropertiesOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersAction1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeArrayOutput{})
 	pulumi.RegisterOutputType(LinkRoutingRuleQueryStringKeyValuePairOutput{})
@@ -2726,6 +4523,12 @@ func init() {
 	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput{})
 	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayAutoScalingGroupsConfigurationOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayAutoScalingGroupsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayEksEndpointsConfigurationOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayEksEndpointsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayHealthCheckConfigOutput{})
+	pulumi.RegisterOutputType(ResponderGatewayHealthCheckConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayListenerConfigOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayListenerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayManagedEndpointConfigurationOutput{})

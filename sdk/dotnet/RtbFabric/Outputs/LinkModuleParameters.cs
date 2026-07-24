@@ -13,9 +13,17 @@ namespace Pulumi.AwsNative.RtbFabric.Outputs
     [OutputType]
     public sealed class LinkModuleParameters
     {
+        public readonly Outputs.LinkNoBidModuleParameters? NoBid;
+        public readonly Outputs.LinkOpenRtbAttributeModuleParameters? OpenRtbAttribute;
+
         [OutputConstructor]
-        private LinkModuleParameters()
+        private LinkModuleParameters(
+            Outputs.LinkNoBidModuleParameters? noBid,
+
+            Outputs.LinkOpenRtbAttributeModuleParameters? openRtbAttribute)
         {
+            NoBid = noBid;
+            OpenRtbAttribute = openRtbAttribute;
         }
     }
 }

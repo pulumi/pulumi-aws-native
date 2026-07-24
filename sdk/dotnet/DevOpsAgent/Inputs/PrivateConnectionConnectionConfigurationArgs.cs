@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
     /// </summary>
     public sealed class PrivateConnectionConnectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("selfManaged")]
+        public Input<Inputs.PrivateConnectionSelfManagedModeArgs>? SelfManaged { get; set; }
+
+        [Input("serviceManaged")]
+        public Input<Inputs.PrivateConnectionServiceManagedModeArgs>? ServiceManaged { get; set; }
+
         public PrivateConnectionConnectionConfigurationArgs()
         {
         }

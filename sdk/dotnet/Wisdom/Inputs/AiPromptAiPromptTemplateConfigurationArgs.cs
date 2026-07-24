@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class AiPromptAiPromptTemplateConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("textFullAiPromptEditTemplateConfiguration")]
+        public Input<Inputs.AiPromptTextFullAiPromptEditTemplateConfigurationArgs>? TextFullAiPromptEditTemplateConfiguration { get; set; }
+
         public AiPromptAiPromptTemplateConfigurationArgs()
         {
         }

@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ClusterOrchestratorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("eks")]
+        public Input<Inputs.ClusterOrchestratorEksConfigArgs>? Eks { get; set; }
+
+        [Input("slurm")]
+        public Input<Inputs.ClusterOrchestratorSlurmConfigArgs>? Slurm { get; set; }
+
         public ClusterOrchestratorArgs()
         {
         }

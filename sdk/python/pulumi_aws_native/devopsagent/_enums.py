@@ -7,9 +7,100 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AssociationAwsConfigurationAccountType',
+    'AssociationAwsResourceResourceType',
+    'AssociationGitHubConfigurationOwnerType',
+    'AssociationMcpServerGrafanaConfigurationToolsItem',
+    'AssociationSourceAwsConfigurationAccountType',
+    'PrivateConnectionServiceManagedModeDnsResolution',
+    'PrivateConnectionServiceManagedModeIpAddressType',
     'PrivateConnectionStatus',
+    'ServiceGitLabDetailsTokenType',
+    'ServiceNewRelicApiKeyConfigRegion',
+    'ServiceRegisteredGitLabServiceDetailsTokenType',
+    'ServiceRegisteredMcpServerDetailsAuthorizationMethod',
+    'ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod',
+    'ServiceRegisteredNewRelicDetailsRegion',
     'ServiceType',
 ]
+
+
+@pulumi.type_token("aws-native:devopsagent:AssociationAwsConfigurationAccountType")
+class AssociationAwsConfigurationAccountType(_builtins.str, Enum):
+    """
+    Account Type 'monitor' for DevOpsAgent monitoring
+    """
+    MONITOR = "monitor"
+
+
+@pulumi.type_token("aws-native:devopsagent:AssociationAwsResourceResourceType")
+class AssociationAwsResourceResourceType(_builtins.str, Enum):
+    """
+    Resource type
+    """
+    AWS_CLOUD_FORMATION_STACK = "AWS::CloudFormation::Stack"
+    AWSECR_REPOSITORY = "AWS::ECR::Repository"
+    AWSS3_BUCKET = "AWS::S3::Bucket"
+    AWSS3_OBJECT = "AWS::S3::Object"
+
+
+@pulumi.type_token("aws-native:devopsagent:AssociationGitHubConfigurationOwnerType")
+class AssociationGitHubConfigurationOwnerType(_builtins.str, Enum):
+    """
+    Type of repository owner
+    """
+    ORGANIZATION = "organization"
+    USER = "user"
+
+
+@pulumi.type_token("aws-native:devopsagent:AssociationMcpServerGrafanaConfigurationToolsItem")
+class AssociationMcpServerGrafanaConfigurationToolsItem(_builtins.str, Enum):
+    ALERTING = "alerting"
+    ANNOTATIONS = "annotations"
+    ASSERTS = "asserts"
+    CLOUDWATCH = "cloudwatch"
+    DASHBOARD = "dashboard"
+    DATASOURCE = "datasource"
+    ELASTICSEARCH = "elasticsearch"
+    EXAMPLES = "examples"
+    INCIDENT = "incident"
+    LOKI = "loki"
+    NAVIGATION = "navigation"
+    ONCALL = "oncall"
+    PROMETHEUS = "prometheus"
+    PYROSCOPE = "pyroscope"
+    RENDERING = "rendering"
+    RUNPANELQUERY = "runpanelquery"
+    SEARCH = "search"
+    SEARCHLOGS = "searchlogs"
+    SIFT = "sift"
+
+
+@pulumi.type_token("aws-native:devopsagent:AssociationSourceAwsConfigurationAccountType")
+class AssociationSourceAwsConfigurationAccountType(_builtins.str, Enum):
+    """
+    Account Type 'source' for DevOpsAgent monitoring
+    """
+    SOURCE = "source"
+
+
+@pulumi.type_token("aws-native:devopsagent:PrivateConnectionServiceManagedModeDnsResolution")
+class PrivateConnectionServiceManagedModeDnsResolution(_builtins.str, Enum):
+    """
+    DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+    """
+    PUBLIC = "PUBLIC"
+    IN_VPC = "IN_VPC"
+
+
+@pulumi.type_token("aws-native:devopsagent:PrivateConnectionServiceManagedModeIpAddressType")
+class PrivateConnectionServiceManagedModeIpAddressType(_builtins.str, Enum):
+    """
+    IP address type of the service-managed Resource Gateway.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUAL_STACK = "DUAL_STACK"
 
 
 @pulumi.type_token("aws-native:devopsagent:PrivateConnectionStatus")
@@ -22,6 +113,60 @@ class PrivateConnectionStatus(_builtins.str, Enum):
     CREATE_FAILED = "CREATE_FAILED"
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
     DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceGitLabDetailsTokenType")
+class ServiceGitLabDetailsTokenType(_builtins.str, Enum):
+    """
+    Type of GitLab access token
+    """
+    PERSONAL = "personal"
+    GROUP = "group"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceNewRelicApiKeyConfigRegion")
+class ServiceNewRelicApiKeyConfigRegion(_builtins.str, Enum):
+    """
+    New Relic region
+    """
+    US = "US"
+    EU = "EU"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredGitLabServiceDetailsTokenType")
+class ServiceRegisteredGitLabServiceDetailsTokenType(_builtins.str, Enum):
+    """
+    Type of GitLab access token
+    """
+    PERSONAL = "personal"
+    GROUP = "group"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredMcpServerDetailsAuthorizationMethod")
+class ServiceRegisteredMcpServerDetailsAuthorizationMethod(_builtins.str, Enum):
+    """
+    MCP server authorization method
+    """
+    OAUTH_CLIENT_CREDENTIALS = "oauth-client-credentials"
+    API_KEY = "api-key"
+    BEARER_TOKEN = "bearer-token"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod")
+class ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod(_builtins.str, Enum):
+    """
+    MCP server authorization method
+    """
+    BEARER_TOKEN = "bearer-token"
+
+
+@pulumi.type_token("aws-native:devopsagent:ServiceRegisteredNewRelicDetailsRegion")
+class ServiceRegisteredNewRelicDetailsRegion(_builtins.str, Enum):
+    """
+    New Relic region
+    """
+    US = "US"
+    EU = "EU"
 
 
 @pulumi.type_token("aws-native:devopsagent:ServiceType")

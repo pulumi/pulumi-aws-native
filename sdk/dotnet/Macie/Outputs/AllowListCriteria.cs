@@ -16,9 +16,23 @@ namespace Pulumi.AwsNative.Macie.Outputs
     [OutputType]
     public sealed class AllowListCriteria
     {
+        /// <summary>
+        /// The S3 object key for the AllowList.
+        /// </summary>
+        public readonly string? Regex;
+        /// <summary>
+        /// The S3 location for the AllowList.
+        /// </summary>
+        public readonly Outputs.AllowListS3WordsList? S3WordsList;
+
         [OutputConstructor]
-        private AllowListCriteria()
+        private AllowListCriteria(
+            string? regex,
+
+            Outputs.AllowListS3WordsList? s3WordsList)
         {
+            Regex = regex;
+            S3WordsList = s3WordsList;
         }
     }
 }

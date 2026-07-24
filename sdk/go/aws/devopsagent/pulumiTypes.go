@@ -525,8 +525,2572 @@ type AgentSpaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// AWS association for 'monitor' account
+type AssociationAwsConfiguration struct {
+	// AWS Account Id corresponding to provided resources
+	AccountId string `pulumi:"accountId"`
+	// Account Type 'monitor' for DevOpsAgent monitoring
+	AccountType AssociationAwsConfigurationAccountType `pulumi:"accountType"`
+	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+	AssumableRoleArn string                    `pulumi:"assumableRoleArn"`
+	Resources        []AssociationAwsResource  `pulumi:"resources"`
+	Tags             []AssociationKeyValuePair `pulumi:"tags"`
+}
+
+// AssociationAwsConfigurationInput is an input type that accepts AssociationAwsConfigurationArgs and AssociationAwsConfigurationOutput values.
+// You can construct a concrete instance of `AssociationAwsConfigurationInput` via:
+//
+//	AssociationAwsConfigurationArgs{...}
+type AssociationAwsConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationAwsConfigurationOutput() AssociationAwsConfigurationOutput
+	ToAssociationAwsConfigurationOutputWithContext(context.Context) AssociationAwsConfigurationOutput
+}
+
+// AWS association for 'monitor' account
+type AssociationAwsConfigurationArgs struct {
+	// AWS Account Id corresponding to provided resources
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Account Type 'monitor' for DevOpsAgent monitoring
+	AccountType AssociationAwsConfigurationAccountTypeInput `pulumi:"accountType"`
+	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+	AssumableRoleArn pulumi.StringInput                `pulumi:"assumableRoleArn"`
+	Resources        AssociationAwsResourceArrayInput  `pulumi:"resources"`
+	Tags             AssociationKeyValuePairArrayInput `pulumi:"tags"`
+}
+
+func (AssociationAwsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsConfiguration)(nil)).Elem()
+}
+
+func (i AssociationAwsConfigurationArgs) ToAssociationAwsConfigurationOutput() AssociationAwsConfigurationOutput {
+	return i.ToAssociationAwsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationAwsConfigurationArgs) ToAssociationAwsConfigurationOutputWithContext(ctx context.Context) AssociationAwsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAwsConfigurationOutput)
+}
+
+func (i AssociationAwsConfigurationArgs) ToAssociationAwsConfigurationPtrOutput() AssociationAwsConfigurationPtrOutput {
+	return i.ToAssociationAwsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationAwsConfigurationArgs) ToAssociationAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAwsConfigurationOutput).ToAssociationAwsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationAwsConfigurationPtrInput is an input type that accepts AssociationAwsConfigurationArgs, AssociationAwsConfigurationPtr and AssociationAwsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationAwsConfigurationPtrInput` via:
+//
+//	        AssociationAwsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationAwsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationAwsConfigurationPtrOutput() AssociationAwsConfigurationPtrOutput
+	ToAssociationAwsConfigurationPtrOutputWithContext(context.Context) AssociationAwsConfigurationPtrOutput
+}
+
+type associationAwsConfigurationPtrType AssociationAwsConfigurationArgs
+
+func AssociationAwsConfigurationPtr(v *AssociationAwsConfigurationArgs) AssociationAwsConfigurationPtrInput {
+	return (*associationAwsConfigurationPtrType)(v)
+}
+
+func (*associationAwsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAwsConfiguration)(nil)).Elem()
+}
+
+func (i *associationAwsConfigurationPtrType) ToAssociationAwsConfigurationPtrOutput() AssociationAwsConfigurationPtrOutput {
+	return i.ToAssociationAwsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationAwsConfigurationPtrType) ToAssociationAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAwsConfigurationPtrOutput)
+}
+
+// AWS association for 'monitor' account
+type AssociationAwsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsConfiguration)(nil)).Elem()
+}
+
+func (o AssociationAwsConfigurationOutput) ToAssociationAwsConfigurationOutput() AssociationAwsConfigurationOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationOutput) ToAssociationAwsConfigurationOutputWithContext(ctx context.Context) AssociationAwsConfigurationOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationOutput) ToAssociationAwsConfigurationPtrOutput() AssociationAwsConfigurationPtrOutput {
+	return o.ToAssociationAwsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAwsConfigurationOutput) ToAssociationAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationAwsConfiguration) *AssociationAwsConfiguration {
+		return &v
+	}).(AssociationAwsConfigurationPtrOutput)
+}
+
+// AWS Account Id corresponding to provided resources
+func (o AssociationAwsConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationAwsConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Account Type 'monitor' for DevOpsAgent monitoring
+func (o AssociationAwsConfigurationOutput) AccountType() AssociationAwsConfigurationAccountTypeOutput {
+	return o.ApplyT(func(v AssociationAwsConfiguration) AssociationAwsConfigurationAccountType { return v.AccountType }).(AssociationAwsConfigurationAccountTypeOutput)
+}
+
+// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+func (o AssociationAwsConfigurationOutput) AssumableRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationAwsConfiguration) string { return v.AssumableRoleArn }).(pulumi.StringOutput)
+}
+
+func (o AssociationAwsConfigurationOutput) Resources() AssociationAwsResourceArrayOutput {
+	return o.ApplyT(func(v AssociationAwsConfiguration) []AssociationAwsResource { return v.Resources }).(AssociationAwsResourceArrayOutput)
+}
+
+func (o AssociationAwsConfigurationOutput) Tags() AssociationKeyValuePairArrayOutput {
+	return o.ApplyT(func(v AssociationAwsConfiguration) []AssociationKeyValuePair { return v.Tags }).(AssociationKeyValuePairArrayOutput)
+}
+
+type AssociationAwsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAwsConfiguration)(nil)).Elem()
+}
+
+func (o AssociationAwsConfigurationPtrOutput) ToAssociationAwsConfigurationPtrOutput() AssociationAwsConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationPtrOutput) ToAssociationAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationAwsConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationAwsConfigurationPtrOutput) Elem() AssociationAwsConfigurationOutput {
+	return o.ApplyT(func(v *AssociationAwsConfiguration) AssociationAwsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationAwsConfiguration
+		return ret
+	}).(AssociationAwsConfigurationOutput)
+}
+
+// AWS Account Id corresponding to provided resources
+func (o AssociationAwsConfigurationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationAwsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Account Type 'monitor' for DevOpsAgent monitoring
+func (o AssociationAwsConfigurationPtrOutput) AccountType() AssociationAwsConfigurationAccountTypePtrOutput {
+	return o.ApplyT(func(v *AssociationAwsConfiguration) *AssociationAwsConfigurationAccountType {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountType
+	}).(AssociationAwsConfigurationAccountTypePtrOutput)
+}
+
+// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+func (o AssociationAwsConfigurationPtrOutput) AssumableRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationAwsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssumableRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AssociationAwsConfigurationPtrOutput) Resources() AssociationAwsResourceArrayOutput {
+	return o.ApplyT(func(v *AssociationAwsConfiguration) []AssociationAwsResource {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(AssociationAwsResourceArrayOutput)
+}
+
+func (o AssociationAwsConfigurationPtrOutput) Tags() AssociationKeyValuePairArrayOutput {
+	return o.ApplyT(func(v *AssociationAwsConfiguration) []AssociationKeyValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(AssociationKeyValuePairArrayOutput)
+}
+
+// AWS resource definition
+type AssociationAwsResource struct {
+	// The Amazon Resource Name (ARN) of the resource
+	ResourceArn string `pulumi:"resourceArn"`
+	// Additional metadata for the resource
+	ResourceMetadata interface{} `pulumi:"resourceMetadata"`
+	// Resource type
+	ResourceType *AssociationAwsResourceResourceType `pulumi:"resourceType"`
+}
+
+// AssociationAwsResourceInput is an input type that accepts AssociationAwsResourceArgs and AssociationAwsResourceOutput values.
+// You can construct a concrete instance of `AssociationAwsResourceInput` via:
+//
+//	AssociationAwsResourceArgs{...}
+type AssociationAwsResourceInput interface {
+	pulumi.Input
+
+	ToAssociationAwsResourceOutput() AssociationAwsResourceOutput
+	ToAssociationAwsResourceOutputWithContext(context.Context) AssociationAwsResourceOutput
+}
+
+// AWS resource definition
+type AssociationAwsResourceArgs struct {
+	// The Amazon Resource Name (ARN) of the resource
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// Additional metadata for the resource
+	ResourceMetadata pulumi.Input `pulumi:"resourceMetadata"`
+	// Resource type
+	ResourceType AssociationAwsResourceResourceTypePtrInput `pulumi:"resourceType"`
+}
+
+func (AssociationAwsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsResource)(nil)).Elem()
+}
+
+func (i AssociationAwsResourceArgs) ToAssociationAwsResourceOutput() AssociationAwsResourceOutput {
+	return i.ToAssociationAwsResourceOutputWithContext(context.Background())
+}
+
+func (i AssociationAwsResourceArgs) ToAssociationAwsResourceOutputWithContext(ctx context.Context) AssociationAwsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAwsResourceOutput)
+}
+
+// AssociationAwsResourceArrayInput is an input type that accepts AssociationAwsResourceArray and AssociationAwsResourceArrayOutput values.
+// You can construct a concrete instance of `AssociationAwsResourceArrayInput` via:
+//
+//	AssociationAwsResourceArray{ AssociationAwsResourceArgs{...} }
+type AssociationAwsResourceArrayInput interface {
+	pulumi.Input
+
+	ToAssociationAwsResourceArrayOutput() AssociationAwsResourceArrayOutput
+	ToAssociationAwsResourceArrayOutputWithContext(context.Context) AssociationAwsResourceArrayOutput
+}
+
+type AssociationAwsResourceArray []AssociationAwsResourceInput
+
+func (AssociationAwsResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationAwsResource)(nil)).Elem()
+}
+
+func (i AssociationAwsResourceArray) ToAssociationAwsResourceArrayOutput() AssociationAwsResourceArrayOutput {
+	return i.ToAssociationAwsResourceArrayOutputWithContext(context.Background())
+}
+
+func (i AssociationAwsResourceArray) ToAssociationAwsResourceArrayOutputWithContext(ctx context.Context) AssociationAwsResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAwsResourceArrayOutput)
+}
+
+// AWS resource definition
+type AssociationAwsResourceOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAwsResource)(nil)).Elem()
+}
+
+func (o AssociationAwsResourceOutput) ToAssociationAwsResourceOutput() AssociationAwsResourceOutput {
+	return o
+}
+
+func (o AssociationAwsResourceOutput) ToAssociationAwsResourceOutputWithContext(ctx context.Context) AssociationAwsResourceOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the resource
+func (o AssociationAwsResourceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationAwsResource) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Additional metadata for the resource
+func (o AssociationAwsResourceOutput) ResourceMetadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v AssociationAwsResource) interface{} { return v.ResourceMetadata }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o AssociationAwsResourceOutput) ResourceType() AssociationAwsResourceResourceTypePtrOutput {
+	return o.ApplyT(func(v AssociationAwsResource) *AssociationAwsResourceResourceType { return v.ResourceType }).(AssociationAwsResourceResourceTypePtrOutput)
+}
+
+type AssociationAwsResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (AssociationAwsResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationAwsResource)(nil)).Elem()
+}
+
+func (o AssociationAwsResourceArrayOutput) ToAssociationAwsResourceArrayOutput() AssociationAwsResourceArrayOutput {
+	return o
+}
+
+func (o AssociationAwsResourceArrayOutput) ToAssociationAwsResourceArrayOutputWithContext(ctx context.Context) AssociationAwsResourceArrayOutput {
+	return o
+}
+
+func (o AssociationAwsResourceArrayOutput) Index(i pulumi.IntInput) AssociationAwsResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssociationAwsResource {
+		return vs[0].([]AssociationAwsResource)[vs[1].(int)]
+	}).(AssociationAwsResourceOutput)
+}
+
+// Azure subscription integration configuration
+type AssociationAzureConfiguration struct {
+	// Azure subscription ID corresponding to provided resources
+	SubscriptionId string `pulumi:"subscriptionId"`
+}
+
+// AssociationAzureConfigurationInput is an input type that accepts AssociationAzureConfigurationArgs and AssociationAzureConfigurationOutput values.
+// You can construct a concrete instance of `AssociationAzureConfigurationInput` via:
+//
+//	AssociationAzureConfigurationArgs{...}
+type AssociationAzureConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationAzureConfigurationOutput() AssociationAzureConfigurationOutput
+	ToAssociationAzureConfigurationOutputWithContext(context.Context) AssociationAzureConfigurationOutput
+}
+
+// Azure subscription integration configuration
+type AssociationAzureConfigurationArgs struct {
+	// Azure subscription ID corresponding to provided resources
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+}
+
+func (AssociationAzureConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAzureConfiguration)(nil)).Elem()
+}
+
+func (i AssociationAzureConfigurationArgs) ToAssociationAzureConfigurationOutput() AssociationAzureConfigurationOutput {
+	return i.ToAssociationAzureConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationAzureConfigurationArgs) ToAssociationAzureConfigurationOutputWithContext(ctx context.Context) AssociationAzureConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAzureConfigurationOutput)
+}
+
+func (i AssociationAzureConfigurationArgs) ToAssociationAzureConfigurationPtrOutput() AssociationAzureConfigurationPtrOutput {
+	return i.ToAssociationAzureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationAzureConfigurationArgs) ToAssociationAzureConfigurationPtrOutputWithContext(ctx context.Context) AssociationAzureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAzureConfigurationOutput).ToAssociationAzureConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationAzureConfigurationPtrInput is an input type that accepts AssociationAzureConfigurationArgs, AssociationAzureConfigurationPtr and AssociationAzureConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationAzureConfigurationPtrInput` via:
+//
+//	        AssociationAzureConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationAzureConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationAzureConfigurationPtrOutput() AssociationAzureConfigurationPtrOutput
+	ToAssociationAzureConfigurationPtrOutputWithContext(context.Context) AssociationAzureConfigurationPtrOutput
+}
+
+type associationAzureConfigurationPtrType AssociationAzureConfigurationArgs
+
+func AssociationAzureConfigurationPtr(v *AssociationAzureConfigurationArgs) AssociationAzureConfigurationPtrInput {
+	return (*associationAzureConfigurationPtrType)(v)
+}
+
+func (*associationAzureConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAzureConfiguration)(nil)).Elem()
+}
+
+func (i *associationAzureConfigurationPtrType) ToAssociationAzureConfigurationPtrOutput() AssociationAzureConfigurationPtrOutput {
+	return i.ToAssociationAzureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationAzureConfigurationPtrType) ToAssociationAzureConfigurationPtrOutputWithContext(ctx context.Context) AssociationAzureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationAzureConfigurationPtrOutput)
+}
+
+// Azure subscription integration configuration
+type AssociationAzureConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationAzureConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationAzureConfiguration)(nil)).Elem()
+}
+
+func (o AssociationAzureConfigurationOutput) ToAssociationAzureConfigurationOutput() AssociationAzureConfigurationOutput {
+	return o
+}
+
+func (o AssociationAzureConfigurationOutput) ToAssociationAzureConfigurationOutputWithContext(ctx context.Context) AssociationAzureConfigurationOutput {
+	return o
+}
+
+func (o AssociationAzureConfigurationOutput) ToAssociationAzureConfigurationPtrOutput() AssociationAzureConfigurationPtrOutput {
+	return o.ToAssociationAzureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationAzureConfigurationOutput) ToAssociationAzureConfigurationPtrOutputWithContext(ctx context.Context) AssociationAzureConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationAzureConfiguration) *AssociationAzureConfiguration {
+		return &v
+	}).(AssociationAzureConfigurationPtrOutput)
+}
+
+// Azure subscription ID corresponding to provided resources
+func (o AssociationAzureConfigurationOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationAzureConfiguration) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+type AssociationAzureConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationAzureConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationAzureConfiguration)(nil)).Elem()
+}
+
+func (o AssociationAzureConfigurationPtrOutput) ToAssociationAzureConfigurationPtrOutput() AssociationAzureConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationAzureConfigurationPtrOutput) ToAssociationAzureConfigurationPtrOutputWithContext(ctx context.Context) AssociationAzureConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationAzureConfigurationPtrOutput) Elem() AssociationAzureConfigurationOutput {
+	return o.ApplyT(func(v *AssociationAzureConfiguration) AssociationAzureConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationAzureConfiguration
+		return ret
+	}).(AssociationAzureConfigurationOutput)
+}
+
+// Azure subscription ID corresponding to provided resources
+func (o AssociationAzureConfigurationPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationAzureConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dynatrace monitoring configuration
+type AssociationDynatraceConfiguration struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// Dynatrace environment id
+	EnvId string `pulumi:"envId"`
+	// List of Dynatrace resources to monitor
+	Resources []string `pulumi:"resources"`
+}
+
+// AssociationDynatraceConfigurationInput is an input type that accepts AssociationDynatraceConfigurationArgs and AssociationDynatraceConfigurationOutput values.
+// You can construct a concrete instance of `AssociationDynatraceConfigurationInput` via:
+//
+//	AssociationDynatraceConfigurationArgs{...}
+type AssociationDynatraceConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationDynatraceConfigurationOutput() AssociationDynatraceConfigurationOutput
+	ToAssociationDynatraceConfigurationOutputWithContext(context.Context) AssociationDynatraceConfigurationOutput
+}
+
+// Dynatrace monitoring configuration
+type AssociationDynatraceConfigurationArgs struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// Dynatrace environment id
+	EnvId pulumi.StringInput `pulumi:"envId"`
+	// List of Dynatrace resources to monitor
+	Resources pulumi.StringArrayInput `pulumi:"resources"`
+}
+
+func (AssociationDynatraceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationDynatraceConfiguration)(nil)).Elem()
+}
+
+func (i AssociationDynatraceConfigurationArgs) ToAssociationDynatraceConfigurationOutput() AssociationDynatraceConfigurationOutput {
+	return i.ToAssociationDynatraceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationDynatraceConfigurationArgs) ToAssociationDynatraceConfigurationOutputWithContext(ctx context.Context) AssociationDynatraceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationDynatraceConfigurationOutput)
+}
+
+func (i AssociationDynatraceConfigurationArgs) ToAssociationDynatraceConfigurationPtrOutput() AssociationDynatraceConfigurationPtrOutput {
+	return i.ToAssociationDynatraceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationDynatraceConfigurationArgs) ToAssociationDynatraceConfigurationPtrOutputWithContext(ctx context.Context) AssociationDynatraceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationDynatraceConfigurationOutput).ToAssociationDynatraceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationDynatraceConfigurationPtrInput is an input type that accepts AssociationDynatraceConfigurationArgs, AssociationDynatraceConfigurationPtr and AssociationDynatraceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationDynatraceConfigurationPtrInput` via:
+//
+//	        AssociationDynatraceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationDynatraceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationDynatraceConfigurationPtrOutput() AssociationDynatraceConfigurationPtrOutput
+	ToAssociationDynatraceConfigurationPtrOutputWithContext(context.Context) AssociationDynatraceConfigurationPtrOutput
+}
+
+type associationDynatraceConfigurationPtrType AssociationDynatraceConfigurationArgs
+
+func AssociationDynatraceConfigurationPtr(v *AssociationDynatraceConfigurationArgs) AssociationDynatraceConfigurationPtrInput {
+	return (*associationDynatraceConfigurationPtrType)(v)
+}
+
+func (*associationDynatraceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationDynatraceConfiguration)(nil)).Elem()
+}
+
+func (i *associationDynatraceConfigurationPtrType) ToAssociationDynatraceConfigurationPtrOutput() AssociationDynatraceConfigurationPtrOutput {
+	return i.ToAssociationDynatraceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationDynatraceConfigurationPtrType) ToAssociationDynatraceConfigurationPtrOutputWithContext(ctx context.Context) AssociationDynatraceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationDynatraceConfigurationPtrOutput)
+}
+
+// Dynatrace monitoring configuration
+type AssociationDynatraceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationDynatraceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationDynatraceConfiguration)(nil)).Elem()
+}
+
+func (o AssociationDynatraceConfigurationOutput) ToAssociationDynatraceConfigurationOutput() AssociationDynatraceConfigurationOutput {
+	return o
+}
+
+func (o AssociationDynatraceConfigurationOutput) ToAssociationDynatraceConfigurationOutputWithContext(ctx context.Context) AssociationDynatraceConfigurationOutput {
+	return o
+}
+
+func (o AssociationDynatraceConfigurationOutput) ToAssociationDynatraceConfigurationPtrOutput() AssociationDynatraceConfigurationPtrOutput {
+	return o.ToAssociationDynatraceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationDynatraceConfigurationOutput) ToAssociationDynatraceConfigurationPtrOutputWithContext(ctx context.Context) AssociationDynatraceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationDynatraceConfiguration) *AssociationDynatraceConfiguration {
+		return &v
+	}).(AssociationDynatraceConfigurationPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationDynatraceConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationDynatraceConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// Dynatrace environment id
+func (o AssociationDynatraceConfigurationOutput) EnvId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationDynatraceConfiguration) string { return v.EnvId }).(pulumi.StringOutput)
+}
+
+// List of Dynatrace resources to monitor
+func (o AssociationDynatraceConfigurationOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationDynatraceConfiguration) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+type AssociationDynatraceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationDynatraceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationDynatraceConfiguration)(nil)).Elem()
+}
+
+func (o AssociationDynatraceConfigurationPtrOutput) ToAssociationDynatraceConfigurationPtrOutput() AssociationDynatraceConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationDynatraceConfigurationPtrOutput) ToAssociationDynatraceConfigurationPtrOutputWithContext(ctx context.Context) AssociationDynatraceConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationDynatraceConfigurationPtrOutput) Elem() AssociationDynatraceConfigurationOutput {
+	return o.ApplyT(func(v *AssociationDynatraceConfiguration) AssociationDynatraceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationDynatraceConfiguration
+		return ret
+	}).(AssociationDynatraceConfigurationOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationDynatraceConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationDynatraceConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Dynatrace environment id
+func (o AssociationDynatraceConfigurationPtrOutput) EnvId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationDynatraceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EnvId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of Dynatrace resources to monitor
+func (o AssociationDynatraceConfigurationPtrOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssociationDynatraceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(pulumi.StringArrayOutput)
+}
+
+// EventChannelconfiguration
+type AssociationEventChannelConfiguration struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+}
+
+// AssociationEventChannelConfigurationInput is an input type that accepts AssociationEventChannelConfigurationArgs and AssociationEventChannelConfigurationOutput values.
+// You can construct a concrete instance of `AssociationEventChannelConfigurationInput` via:
+//
+//	AssociationEventChannelConfigurationArgs{...}
+type AssociationEventChannelConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationEventChannelConfigurationOutput() AssociationEventChannelConfigurationOutput
+	ToAssociationEventChannelConfigurationOutputWithContext(context.Context) AssociationEventChannelConfigurationOutput
+}
+
+// EventChannelconfiguration
+type AssociationEventChannelConfigurationArgs struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+}
+
+func (AssociationEventChannelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationEventChannelConfiguration)(nil)).Elem()
+}
+
+func (i AssociationEventChannelConfigurationArgs) ToAssociationEventChannelConfigurationOutput() AssociationEventChannelConfigurationOutput {
+	return i.ToAssociationEventChannelConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationEventChannelConfigurationArgs) ToAssociationEventChannelConfigurationOutputWithContext(ctx context.Context) AssociationEventChannelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationEventChannelConfigurationOutput)
+}
+
+func (i AssociationEventChannelConfigurationArgs) ToAssociationEventChannelConfigurationPtrOutput() AssociationEventChannelConfigurationPtrOutput {
+	return i.ToAssociationEventChannelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationEventChannelConfigurationArgs) ToAssociationEventChannelConfigurationPtrOutputWithContext(ctx context.Context) AssociationEventChannelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationEventChannelConfigurationOutput).ToAssociationEventChannelConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationEventChannelConfigurationPtrInput is an input type that accepts AssociationEventChannelConfigurationArgs, AssociationEventChannelConfigurationPtr and AssociationEventChannelConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationEventChannelConfigurationPtrInput` via:
+//
+//	        AssociationEventChannelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationEventChannelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationEventChannelConfigurationPtrOutput() AssociationEventChannelConfigurationPtrOutput
+	ToAssociationEventChannelConfigurationPtrOutputWithContext(context.Context) AssociationEventChannelConfigurationPtrOutput
+}
+
+type associationEventChannelConfigurationPtrType AssociationEventChannelConfigurationArgs
+
+func AssociationEventChannelConfigurationPtr(v *AssociationEventChannelConfigurationArgs) AssociationEventChannelConfigurationPtrInput {
+	return (*associationEventChannelConfigurationPtrType)(v)
+}
+
+func (*associationEventChannelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationEventChannelConfiguration)(nil)).Elem()
+}
+
+func (i *associationEventChannelConfigurationPtrType) ToAssociationEventChannelConfigurationPtrOutput() AssociationEventChannelConfigurationPtrOutput {
+	return i.ToAssociationEventChannelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationEventChannelConfigurationPtrType) ToAssociationEventChannelConfigurationPtrOutputWithContext(ctx context.Context) AssociationEventChannelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationEventChannelConfigurationPtrOutput)
+}
+
+// EventChannelconfiguration
+type AssociationEventChannelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationEventChannelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationEventChannelConfiguration)(nil)).Elem()
+}
+
+func (o AssociationEventChannelConfigurationOutput) ToAssociationEventChannelConfigurationOutput() AssociationEventChannelConfigurationOutput {
+	return o
+}
+
+func (o AssociationEventChannelConfigurationOutput) ToAssociationEventChannelConfigurationOutputWithContext(ctx context.Context) AssociationEventChannelConfigurationOutput {
+	return o
+}
+
+func (o AssociationEventChannelConfigurationOutput) ToAssociationEventChannelConfigurationPtrOutput() AssociationEventChannelConfigurationPtrOutput {
+	return o.ToAssociationEventChannelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationEventChannelConfigurationOutput) ToAssociationEventChannelConfigurationPtrOutputWithContext(ctx context.Context) AssociationEventChannelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationEventChannelConfiguration) *AssociationEventChannelConfiguration {
+		return &v
+	}).(AssociationEventChannelConfigurationPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationEventChannelConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationEventChannelConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+type AssociationEventChannelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationEventChannelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationEventChannelConfiguration)(nil)).Elem()
+}
+
+func (o AssociationEventChannelConfigurationPtrOutput) ToAssociationEventChannelConfigurationPtrOutput() AssociationEventChannelConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationEventChannelConfigurationPtrOutput) ToAssociationEventChannelConfigurationPtrOutputWithContext(ctx context.Context) AssociationEventChannelConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationEventChannelConfigurationPtrOutput) Elem() AssociationEventChannelConfigurationOutput {
+	return o.ApplyT(func(v *AssociationEventChannelConfiguration) AssociationEventChannelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationEventChannelConfiguration
+		return ret
+	}).(AssociationEventChannelConfigurationOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationEventChannelConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationEventChannelConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// GitHub repository integration configuration
+type AssociationGitHubConfiguration struct {
+	// Repository owner
+	Owner string `pulumi:"owner"`
+	// Type of repository owner
+	OwnerType AssociationGitHubConfigurationOwnerType `pulumi:"ownerType"`
+	// Associated Github repo ID
+	RepoId string `pulumi:"repoId"`
+	// Associated Github repo name
+	RepoName string `pulumi:"repoName"`
+}
+
+// AssociationGitHubConfigurationInput is an input type that accepts AssociationGitHubConfigurationArgs and AssociationGitHubConfigurationOutput values.
+// You can construct a concrete instance of `AssociationGitHubConfigurationInput` via:
+//
+//	AssociationGitHubConfigurationArgs{...}
+type AssociationGitHubConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationGitHubConfigurationOutput() AssociationGitHubConfigurationOutput
+	ToAssociationGitHubConfigurationOutputWithContext(context.Context) AssociationGitHubConfigurationOutput
+}
+
+// GitHub repository integration configuration
+type AssociationGitHubConfigurationArgs struct {
+	// Repository owner
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// Type of repository owner
+	OwnerType AssociationGitHubConfigurationOwnerTypeInput `pulumi:"ownerType"`
+	// Associated Github repo ID
+	RepoId pulumi.StringInput `pulumi:"repoId"`
+	// Associated Github repo name
+	RepoName pulumi.StringInput `pulumi:"repoName"`
+}
+
+func (AssociationGitHubConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationGitHubConfiguration)(nil)).Elem()
+}
+
+func (i AssociationGitHubConfigurationArgs) ToAssociationGitHubConfigurationOutput() AssociationGitHubConfigurationOutput {
+	return i.ToAssociationGitHubConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationGitHubConfigurationArgs) ToAssociationGitHubConfigurationOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationGitHubConfigurationOutput)
+}
+
+func (i AssociationGitHubConfigurationArgs) ToAssociationGitHubConfigurationPtrOutput() AssociationGitHubConfigurationPtrOutput {
+	return i.ToAssociationGitHubConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationGitHubConfigurationArgs) ToAssociationGitHubConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationGitHubConfigurationOutput).ToAssociationGitHubConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationGitHubConfigurationPtrInput is an input type that accepts AssociationGitHubConfigurationArgs, AssociationGitHubConfigurationPtr and AssociationGitHubConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationGitHubConfigurationPtrInput` via:
+//
+//	        AssociationGitHubConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationGitHubConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationGitHubConfigurationPtrOutput() AssociationGitHubConfigurationPtrOutput
+	ToAssociationGitHubConfigurationPtrOutputWithContext(context.Context) AssociationGitHubConfigurationPtrOutput
+}
+
+type associationGitHubConfigurationPtrType AssociationGitHubConfigurationArgs
+
+func AssociationGitHubConfigurationPtr(v *AssociationGitHubConfigurationArgs) AssociationGitHubConfigurationPtrInput {
+	return (*associationGitHubConfigurationPtrType)(v)
+}
+
+func (*associationGitHubConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationGitHubConfiguration)(nil)).Elem()
+}
+
+func (i *associationGitHubConfigurationPtrType) ToAssociationGitHubConfigurationPtrOutput() AssociationGitHubConfigurationPtrOutput {
+	return i.ToAssociationGitHubConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationGitHubConfigurationPtrType) ToAssociationGitHubConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationGitHubConfigurationPtrOutput)
+}
+
+// GitHub repository integration configuration
+type AssociationGitHubConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationGitHubConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationGitHubConfiguration)(nil)).Elem()
+}
+
+func (o AssociationGitHubConfigurationOutput) ToAssociationGitHubConfigurationOutput() AssociationGitHubConfigurationOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationOutput) ToAssociationGitHubConfigurationOutputWithContext(ctx context.Context) AssociationGitHubConfigurationOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationOutput) ToAssociationGitHubConfigurationPtrOutput() AssociationGitHubConfigurationPtrOutput {
+	return o.ToAssociationGitHubConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationGitHubConfigurationOutput) ToAssociationGitHubConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationGitHubConfiguration) *AssociationGitHubConfiguration {
+		return &v
+	}).(AssociationGitHubConfigurationPtrOutput)
+}
+
+// Repository owner
+func (o AssociationGitHubConfigurationOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationGitHubConfiguration) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Type of repository owner
+func (o AssociationGitHubConfigurationOutput) OwnerType() AssociationGitHubConfigurationOwnerTypeOutput {
+	return o.ApplyT(func(v AssociationGitHubConfiguration) AssociationGitHubConfigurationOwnerType { return v.OwnerType }).(AssociationGitHubConfigurationOwnerTypeOutput)
+}
+
+// Associated Github repo ID
+func (o AssociationGitHubConfigurationOutput) RepoId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationGitHubConfiguration) string { return v.RepoId }).(pulumi.StringOutput)
+}
+
+// Associated Github repo name
+func (o AssociationGitHubConfigurationOutput) RepoName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationGitHubConfiguration) string { return v.RepoName }).(pulumi.StringOutput)
+}
+
+type AssociationGitHubConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationGitHubConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationGitHubConfiguration)(nil)).Elem()
+}
+
+func (o AssociationGitHubConfigurationPtrOutput) ToAssociationGitHubConfigurationPtrOutput() AssociationGitHubConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationPtrOutput) ToAssociationGitHubConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitHubConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationGitHubConfigurationPtrOutput) Elem() AssociationGitHubConfigurationOutput {
+	return o.ApplyT(func(v *AssociationGitHubConfiguration) AssociationGitHubConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationGitHubConfiguration
+		return ret
+	}).(AssociationGitHubConfigurationOutput)
+}
+
+// Repository owner
+func (o AssociationGitHubConfigurationPtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitHubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of repository owner
+func (o AssociationGitHubConfigurationPtrOutput) OwnerType() AssociationGitHubConfigurationOwnerTypePtrOutput {
+	return o.ApplyT(func(v *AssociationGitHubConfiguration) *AssociationGitHubConfigurationOwnerType {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerType
+	}).(AssociationGitHubConfigurationOwnerTypePtrOutput)
+}
+
+// Associated Github repo ID
+func (o AssociationGitHubConfigurationPtrOutput) RepoId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitHubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepoId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Associated Github repo name
+func (o AssociationGitHubConfigurationPtrOutput) RepoName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitHubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepoName
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitLab project integration configuration
+type AssociationGitLabConfiguration struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// GitLab instance identifier
+	InstanceIdentifier *string `pulumi:"instanceIdentifier"`
+	// GitLab numeric project ID
+	ProjectId string `pulumi:"projectId"`
+	// Full GitLab project path (e.g., namespace/project-name)
+	ProjectPath string `pulumi:"projectPath"`
+}
+
+// AssociationGitLabConfigurationInput is an input type that accepts AssociationGitLabConfigurationArgs and AssociationGitLabConfigurationOutput values.
+// You can construct a concrete instance of `AssociationGitLabConfigurationInput` via:
+//
+//	AssociationGitLabConfigurationArgs{...}
+type AssociationGitLabConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationGitLabConfigurationOutput() AssociationGitLabConfigurationOutput
+	ToAssociationGitLabConfigurationOutputWithContext(context.Context) AssociationGitLabConfigurationOutput
+}
+
+// GitLab project integration configuration
+type AssociationGitLabConfigurationArgs struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// GitLab instance identifier
+	InstanceIdentifier pulumi.StringPtrInput `pulumi:"instanceIdentifier"`
+	// GitLab numeric project ID
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// Full GitLab project path (e.g., namespace/project-name)
+	ProjectPath pulumi.StringInput `pulumi:"projectPath"`
+}
+
+func (AssociationGitLabConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationGitLabConfiguration)(nil)).Elem()
+}
+
+func (i AssociationGitLabConfigurationArgs) ToAssociationGitLabConfigurationOutput() AssociationGitLabConfigurationOutput {
+	return i.ToAssociationGitLabConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationGitLabConfigurationArgs) ToAssociationGitLabConfigurationOutputWithContext(ctx context.Context) AssociationGitLabConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationGitLabConfigurationOutput)
+}
+
+func (i AssociationGitLabConfigurationArgs) ToAssociationGitLabConfigurationPtrOutput() AssociationGitLabConfigurationPtrOutput {
+	return i.ToAssociationGitLabConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationGitLabConfigurationArgs) ToAssociationGitLabConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitLabConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationGitLabConfigurationOutput).ToAssociationGitLabConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationGitLabConfigurationPtrInput is an input type that accepts AssociationGitLabConfigurationArgs, AssociationGitLabConfigurationPtr and AssociationGitLabConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationGitLabConfigurationPtrInput` via:
+//
+//	        AssociationGitLabConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationGitLabConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationGitLabConfigurationPtrOutput() AssociationGitLabConfigurationPtrOutput
+	ToAssociationGitLabConfigurationPtrOutputWithContext(context.Context) AssociationGitLabConfigurationPtrOutput
+}
+
+type associationGitLabConfigurationPtrType AssociationGitLabConfigurationArgs
+
+func AssociationGitLabConfigurationPtr(v *AssociationGitLabConfigurationArgs) AssociationGitLabConfigurationPtrInput {
+	return (*associationGitLabConfigurationPtrType)(v)
+}
+
+func (*associationGitLabConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationGitLabConfiguration)(nil)).Elem()
+}
+
+func (i *associationGitLabConfigurationPtrType) ToAssociationGitLabConfigurationPtrOutput() AssociationGitLabConfigurationPtrOutput {
+	return i.ToAssociationGitLabConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationGitLabConfigurationPtrType) ToAssociationGitLabConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitLabConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationGitLabConfigurationPtrOutput)
+}
+
+// GitLab project integration configuration
+type AssociationGitLabConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationGitLabConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationGitLabConfiguration)(nil)).Elem()
+}
+
+func (o AssociationGitLabConfigurationOutput) ToAssociationGitLabConfigurationOutput() AssociationGitLabConfigurationOutput {
+	return o
+}
+
+func (o AssociationGitLabConfigurationOutput) ToAssociationGitLabConfigurationOutputWithContext(ctx context.Context) AssociationGitLabConfigurationOutput {
+	return o
+}
+
+func (o AssociationGitLabConfigurationOutput) ToAssociationGitLabConfigurationPtrOutput() AssociationGitLabConfigurationPtrOutput {
+	return o.ToAssociationGitLabConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationGitLabConfigurationOutput) ToAssociationGitLabConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitLabConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationGitLabConfiguration) *AssociationGitLabConfiguration {
+		return &v
+	}).(AssociationGitLabConfigurationPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationGitLabConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationGitLabConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// GitLab instance identifier
+func (o AssociationGitLabConfigurationOutput) InstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationGitLabConfiguration) *string { return v.InstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// GitLab numeric project ID
+func (o AssociationGitLabConfigurationOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationGitLabConfiguration) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// Full GitLab project path (e.g., namespace/project-name)
+func (o AssociationGitLabConfigurationOutput) ProjectPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationGitLabConfiguration) string { return v.ProjectPath }).(pulumi.StringOutput)
+}
+
+type AssociationGitLabConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationGitLabConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationGitLabConfiguration)(nil)).Elem()
+}
+
+func (o AssociationGitLabConfigurationPtrOutput) ToAssociationGitLabConfigurationPtrOutput() AssociationGitLabConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationGitLabConfigurationPtrOutput) ToAssociationGitLabConfigurationPtrOutputWithContext(ctx context.Context) AssociationGitLabConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationGitLabConfigurationPtrOutput) Elem() AssociationGitLabConfigurationOutput {
+	return o.ApplyT(func(v *AssociationGitLabConfiguration) AssociationGitLabConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationGitLabConfiguration
+		return ret
+	}).(AssociationGitLabConfigurationOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationGitLabConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationGitLabConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// GitLab instance identifier
+func (o AssociationGitLabConfigurationPtrOutput) InstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitLabConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitLab numeric project ID
+func (o AssociationGitLabConfigurationPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitLabConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Full GitLab project path (e.g., namespace/project-name)
+func (o AssociationGitLabConfigurationPtrOutput) ProjectPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationGitLabConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair for tags
+type AssociationKeyValuePair struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AssociationKeyValuePairInput is an input type that accepts AssociationKeyValuePairArgs and AssociationKeyValuePairOutput values.
+// You can construct a concrete instance of `AssociationKeyValuePairInput` via:
+//
+//	AssociationKeyValuePairArgs{...}
+type AssociationKeyValuePairInput interface {
+	pulumi.Input
+
+	ToAssociationKeyValuePairOutput() AssociationKeyValuePairOutput
+	ToAssociationKeyValuePairOutputWithContext(context.Context) AssociationKeyValuePairOutput
+}
+
+// A key-value pair for tags
+type AssociationKeyValuePairArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AssociationKeyValuePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationKeyValuePair)(nil)).Elem()
+}
+
+func (i AssociationKeyValuePairArgs) ToAssociationKeyValuePairOutput() AssociationKeyValuePairOutput {
+	return i.ToAssociationKeyValuePairOutputWithContext(context.Background())
+}
+
+func (i AssociationKeyValuePairArgs) ToAssociationKeyValuePairOutputWithContext(ctx context.Context) AssociationKeyValuePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationKeyValuePairOutput)
+}
+
+// AssociationKeyValuePairArrayInput is an input type that accepts AssociationKeyValuePairArray and AssociationKeyValuePairArrayOutput values.
+// You can construct a concrete instance of `AssociationKeyValuePairArrayInput` via:
+//
+//	AssociationKeyValuePairArray{ AssociationKeyValuePairArgs{...} }
+type AssociationKeyValuePairArrayInput interface {
+	pulumi.Input
+
+	ToAssociationKeyValuePairArrayOutput() AssociationKeyValuePairArrayOutput
+	ToAssociationKeyValuePairArrayOutputWithContext(context.Context) AssociationKeyValuePairArrayOutput
+}
+
+type AssociationKeyValuePairArray []AssociationKeyValuePairInput
+
+func (AssociationKeyValuePairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationKeyValuePair)(nil)).Elem()
+}
+
+func (i AssociationKeyValuePairArray) ToAssociationKeyValuePairArrayOutput() AssociationKeyValuePairArrayOutput {
+	return i.ToAssociationKeyValuePairArrayOutputWithContext(context.Background())
+}
+
+func (i AssociationKeyValuePairArray) ToAssociationKeyValuePairArrayOutputWithContext(ctx context.Context) AssociationKeyValuePairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationKeyValuePairArrayOutput)
+}
+
+// A key-value pair for tags
+type AssociationKeyValuePairOutput struct{ *pulumi.OutputState }
+
+func (AssociationKeyValuePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationKeyValuePair)(nil)).Elem()
+}
+
+func (o AssociationKeyValuePairOutput) ToAssociationKeyValuePairOutput() AssociationKeyValuePairOutput {
+	return o
+}
+
+func (o AssociationKeyValuePairOutput) ToAssociationKeyValuePairOutputWithContext(ctx context.Context) AssociationKeyValuePairOutput {
+	return o
+}
+
+func (o AssociationKeyValuePairOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationKeyValuePair) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AssociationKeyValuePairOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationKeyValuePair) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AssociationKeyValuePairArrayOutput struct{ *pulumi.OutputState }
+
+func (AssociationKeyValuePairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssociationKeyValuePair)(nil)).Elem()
+}
+
+func (o AssociationKeyValuePairArrayOutput) ToAssociationKeyValuePairArrayOutput() AssociationKeyValuePairArrayOutput {
+	return o
+}
+
+func (o AssociationKeyValuePairArrayOutput) ToAssociationKeyValuePairArrayOutputWithContext(ctx context.Context) AssociationKeyValuePairArrayOutput {
+	return o
+}
+
+func (o AssociationKeyValuePairArrayOutput) Index(i pulumi.IntInput) AssociationKeyValuePairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssociationKeyValuePair {
+		return vs[0].([]AssociationKeyValuePair)[vs[1].(int)]
+	}).(AssociationKeyValuePairOutput)
+}
+
+// MCP server configuration
+type AssociationMcpServerConfiguration struct {
+	// The description of the MCP server
+	Description *string `pulumi:"description"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint *string `pulumi:"endpoint"`
+	// The name of the MCP server
+	Name *string `pulumi:"name"`
+	// List of MCP tools that can be used with the association
+	Tools []string `pulumi:"tools"`
+}
+
+// AssociationMcpServerConfigurationInput is an input type that accepts AssociationMcpServerConfigurationArgs and AssociationMcpServerConfigurationOutput values.
+// You can construct a concrete instance of `AssociationMcpServerConfigurationInput` via:
+//
+//	AssociationMcpServerConfigurationArgs{...}
+type AssociationMcpServerConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerConfigurationOutput() AssociationMcpServerConfigurationOutput
+	ToAssociationMcpServerConfigurationOutputWithContext(context.Context) AssociationMcpServerConfigurationOutput
+}
+
+// MCP server configuration
+type AssociationMcpServerConfigurationArgs struct {
+	// The description of the MCP server
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The name of the MCP server
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of MCP tools that can be used with the association
+	Tools pulumi.StringArrayInput `pulumi:"tools"`
+}
+
+func (AssociationMcpServerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerConfiguration)(nil)).Elem()
+}
+
+func (i AssociationMcpServerConfigurationArgs) ToAssociationMcpServerConfigurationOutput() AssociationMcpServerConfigurationOutput {
+	return i.ToAssociationMcpServerConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerConfigurationArgs) ToAssociationMcpServerConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerConfigurationOutput)
+}
+
+func (i AssociationMcpServerConfigurationArgs) ToAssociationMcpServerConfigurationPtrOutput() AssociationMcpServerConfigurationPtrOutput {
+	return i.ToAssociationMcpServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerConfigurationArgs) ToAssociationMcpServerConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerConfigurationOutput).ToAssociationMcpServerConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationMcpServerConfigurationPtrInput is an input type that accepts AssociationMcpServerConfigurationArgs, AssociationMcpServerConfigurationPtr and AssociationMcpServerConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationMcpServerConfigurationPtrInput` via:
+//
+//	        AssociationMcpServerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationMcpServerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerConfigurationPtrOutput() AssociationMcpServerConfigurationPtrOutput
+	ToAssociationMcpServerConfigurationPtrOutputWithContext(context.Context) AssociationMcpServerConfigurationPtrOutput
+}
+
+type associationMcpServerConfigurationPtrType AssociationMcpServerConfigurationArgs
+
+func AssociationMcpServerConfigurationPtr(v *AssociationMcpServerConfigurationArgs) AssociationMcpServerConfigurationPtrInput {
+	return (*associationMcpServerConfigurationPtrType)(v)
+}
+
+func (*associationMcpServerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerConfiguration)(nil)).Elem()
+}
+
+func (i *associationMcpServerConfigurationPtrType) ToAssociationMcpServerConfigurationPtrOutput() AssociationMcpServerConfigurationPtrOutput {
+	return i.ToAssociationMcpServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationMcpServerConfigurationPtrType) ToAssociationMcpServerConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerConfigurationPtrOutput)
+}
+
+// MCP server configuration
+type AssociationMcpServerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerConfigurationOutput) ToAssociationMcpServerConfigurationOutput() AssociationMcpServerConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerConfigurationOutput) ToAssociationMcpServerConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerConfigurationOutput) ToAssociationMcpServerConfigurationPtrOutput() AssociationMcpServerConfigurationPtrOutput {
+	return o.ToAssociationMcpServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerConfigurationOutput) ToAssociationMcpServerConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationMcpServerConfiguration) *AssociationMcpServerConfiguration {
+		return &v
+	}).(AssociationMcpServerConfigurationPtrOutput)
+}
+
+// The description of the MCP server
+func (o AssociationMcpServerConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The name of the MCP server
+func (o AssociationMcpServerConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// List of MCP tools that can be used with the association
+func (o AssociationMcpServerConfigurationOutput) Tools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationMcpServerConfiguration) []string { return v.Tools }).(pulumi.StringArrayOutput)
+}
+
+type AssociationMcpServerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerConfigurationPtrOutput) ToAssociationMcpServerConfigurationPtrOutput() AssociationMcpServerConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerConfigurationPtrOutput) ToAssociationMcpServerConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerConfigurationPtrOutput) Elem() AssociationMcpServerConfigurationOutput {
+	return o.ApplyT(func(v *AssociationMcpServerConfiguration) AssociationMcpServerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationMcpServerConfiguration
+		return ret
+	}).(AssociationMcpServerConfigurationOutput)
+}
+
+// The description of the MCP server
+func (o AssociationMcpServerConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the MCP server
+func (o AssociationMcpServerConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of MCP tools that can be used with the association
+func (o AssociationMcpServerConfigurationPtrOutput) Tools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssociationMcpServerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Tools
+	}).(pulumi.StringArrayOutput)
+}
+
+// Datadog MCP server configuration
+type AssociationMcpServerDatadogConfiguration struct {
+	// The description of the MCP server
+	Description *string `pulumi:"description"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint *string `pulumi:"endpoint"`
+	// The name of the MCP server
+	Name *string `pulumi:"name"`
+}
+
+// AssociationMcpServerDatadogConfigurationInput is an input type that accepts AssociationMcpServerDatadogConfigurationArgs and AssociationMcpServerDatadogConfigurationOutput values.
+// You can construct a concrete instance of `AssociationMcpServerDatadogConfigurationInput` via:
+//
+//	AssociationMcpServerDatadogConfigurationArgs{...}
+type AssociationMcpServerDatadogConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerDatadogConfigurationOutput() AssociationMcpServerDatadogConfigurationOutput
+	ToAssociationMcpServerDatadogConfigurationOutputWithContext(context.Context) AssociationMcpServerDatadogConfigurationOutput
+}
+
+// Datadog MCP server configuration
+type AssociationMcpServerDatadogConfigurationArgs struct {
+	// The description of the MCP server
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The name of the MCP server
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AssociationMcpServerDatadogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerDatadogConfiguration)(nil)).Elem()
+}
+
+func (i AssociationMcpServerDatadogConfigurationArgs) ToAssociationMcpServerDatadogConfigurationOutput() AssociationMcpServerDatadogConfigurationOutput {
+	return i.ToAssociationMcpServerDatadogConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerDatadogConfigurationArgs) ToAssociationMcpServerDatadogConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerDatadogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerDatadogConfigurationOutput)
+}
+
+func (i AssociationMcpServerDatadogConfigurationArgs) ToAssociationMcpServerDatadogConfigurationPtrOutput() AssociationMcpServerDatadogConfigurationPtrOutput {
+	return i.ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerDatadogConfigurationArgs) ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerDatadogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerDatadogConfigurationOutput).ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationMcpServerDatadogConfigurationPtrInput is an input type that accepts AssociationMcpServerDatadogConfigurationArgs, AssociationMcpServerDatadogConfigurationPtr and AssociationMcpServerDatadogConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationMcpServerDatadogConfigurationPtrInput` via:
+//
+//	        AssociationMcpServerDatadogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationMcpServerDatadogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerDatadogConfigurationPtrOutput() AssociationMcpServerDatadogConfigurationPtrOutput
+	ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(context.Context) AssociationMcpServerDatadogConfigurationPtrOutput
+}
+
+type associationMcpServerDatadogConfigurationPtrType AssociationMcpServerDatadogConfigurationArgs
+
+func AssociationMcpServerDatadogConfigurationPtr(v *AssociationMcpServerDatadogConfigurationArgs) AssociationMcpServerDatadogConfigurationPtrInput {
+	return (*associationMcpServerDatadogConfigurationPtrType)(v)
+}
+
+func (*associationMcpServerDatadogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerDatadogConfiguration)(nil)).Elem()
+}
+
+func (i *associationMcpServerDatadogConfigurationPtrType) ToAssociationMcpServerDatadogConfigurationPtrOutput() AssociationMcpServerDatadogConfigurationPtrOutput {
+	return i.ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationMcpServerDatadogConfigurationPtrType) ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerDatadogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerDatadogConfigurationPtrOutput)
+}
+
+// Datadog MCP server configuration
+type AssociationMcpServerDatadogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerDatadogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerDatadogConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerDatadogConfigurationOutput) ToAssociationMcpServerDatadogConfigurationOutput() AssociationMcpServerDatadogConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerDatadogConfigurationOutput) ToAssociationMcpServerDatadogConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerDatadogConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerDatadogConfigurationOutput) ToAssociationMcpServerDatadogConfigurationPtrOutput() AssociationMcpServerDatadogConfigurationPtrOutput {
+	return o.ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerDatadogConfigurationOutput) ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerDatadogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationMcpServerDatadogConfiguration) *AssociationMcpServerDatadogConfiguration {
+		return &v
+	}).(AssociationMcpServerDatadogConfigurationPtrOutput)
+}
+
+// The description of the MCP server
+func (o AssociationMcpServerDatadogConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerDatadogConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerDatadogConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerDatadogConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerDatadogConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerDatadogConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The name of the MCP server
+func (o AssociationMcpServerDatadogConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerDatadogConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AssociationMcpServerDatadogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerDatadogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerDatadogConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) ToAssociationMcpServerDatadogConfigurationPtrOutput() AssociationMcpServerDatadogConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) ToAssociationMcpServerDatadogConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerDatadogConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) Elem() AssociationMcpServerDatadogConfigurationOutput {
+	return o.ApplyT(func(v *AssociationMcpServerDatadogConfiguration) AssociationMcpServerDatadogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationMcpServerDatadogConfiguration
+		return ret
+	}).(AssociationMcpServerDatadogConfigurationOutput)
+}
+
+// The description of the MCP server
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerDatadogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerDatadogConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerDatadogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the MCP server
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerDatadogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Grafana MCP server configuration
+type AssociationMcpServerGrafanaConfiguration struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// List of tool categories to enable for the Grafana MCP server
+	Tools []AssociationMcpServerGrafanaConfigurationToolsItem `pulumi:"tools"`
+}
+
+// AssociationMcpServerGrafanaConfigurationInput is an input type that accepts AssociationMcpServerGrafanaConfigurationArgs and AssociationMcpServerGrafanaConfigurationOutput values.
+// You can construct a concrete instance of `AssociationMcpServerGrafanaConfigurationInput` via:
+//
+//	AssociationMcpServerGrafanaConfigurationArgs{...}
+type AssociationMcpServerGrafanaConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerGrafanaConfigurationOutput() AssociationMcpServerGrafanaConfigurationOutput
+	ToAssociationMcpServerGrafanaConfigurationOutputWithContext(context.Context) AssociationMcpServerGrafanaConfigurationOutput
+}
+
+// Grafana MCP server configuration
+type AssociationMcpServerGrafanaConfigurationArgs struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// List of tool categories to enable for the Grafana MCP server
+	Tools AssociationMcpServerGrafanaConfigurationToolsItemArrayInput `pulumi:"tools"`
+}
+
+func (AssociationMcpServerGrafanaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerGrafanaConfiguration)(nil)).Elem()
+}
+
+func (i AssociationMcpServerGrafanaConfigurationArgs) ToAssociationMcpServerGrafanaConfigurationOutput() AssociationMcpServerGrafanaConfigurationOutput {
+	return i.ToAssociationMcpServerGrafanaConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerGrafanaConfigurationArgs) ToAssociationMcpServerGrafanaConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerGrafanaConfigurationOutput)
+}
+
+func (i AssociationMcpServerGrafanaConfigurationArgs) ToAssociationMcpServerGrafanaConfigurationPtrOutput() AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return i.ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerGrafanaConfigurationArgs) ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerGrafanaConfigurationOutput).ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationMcpServerGrafanaConfigurationPtrInput is an input type that accepts AssociationMcpServerGrafanaConfigurationArgs, AssociationMcpServerGrafanaConfigurationPtr and AssociationMcpServerGrafanaConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationMcpServerGrafanaConfigurationPtrInput` via:
+//
+//	        AssociationMcpServerGrafanaConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationMcpServerGrafanaConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerGrafanaConfigurationPtrOutput() AssociationMcpServerGrafanaConfigurationPtrOutput
+	ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(context.Context) AssociationMcpServerGrafanaConfigurationPtrOutput
+}
+
+type associationMcpServerGrafanaConfigurationPtrType AssociationMcpServerGrafanaConfigurationArgs
+
+func AssociationMcpServerGrafanaConfigurationPtr(v *AssociationMcpServerGrafanaConfigurationArgs) AssociationMcpServerGrafanaConfigurationPtrInput {
+	return (*associationMcpServerGrafanaConfigurationPtrType)(v)
+}
+
+func (*associationMcpServerGrafanaConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerGrafanaConfiguration)(nil)).Elem()
+}
+
+func (i *associationMcpServerGrafanaConfigurationPtrType) ToAssociationMcpServerGrafanaConfigurationPtrOutput() AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return i.ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationMcpServerGrafanaConfigurationPtrType) ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerGrafanaConfigurationPtrOutput)
+}
+
+// Grafana MCP server configuration
+type AssociationMcpServerGrafanaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerGrafanaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerGrafanaConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerGrafanaConfigurationOutput) ToAssociationMcpServerGrafanaConfigurationOutput() AssociationMcpServerGrafanaConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationOutput) ToAssociationMcpServerGrafanaConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationOutput) ToAssociationMcpServerGrafanaConfigurationPtrOutput() AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return o.ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerGrafanaConfigurationOutput) ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationMcpServerGrafanaConfiguration) *AssociationMcpServerGrafanaConfiguration {
+		return &v
+	}).(AssociationMcpServerGrafanaConfigurationPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerGrafanaConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerGrafanaConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerGrafanaConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationMcpServerGrafanaConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// List of tool categories to enable for the Grafana MCP server
+func (o AssociationMcpServerGrafanaConfigurationOutput) Tools() AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput {
+	return o.ApplyT(func(v AssociationMcpServerGrafanaConfiguration) []AssociationMcpServerGrafanaConfigurationToolsItem {
+		return v.Tools
+	}).(AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput)
+}
+
+type AssociationMcpServerGrafanaConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerGrafanaConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerGrafanaConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerGrafanaConfigurationPtrOutput) ToAssociationMcpServerGrafanaConfigurationPtrOutput() AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationPtrOutput) ToAssociationMcpServerGrafanaConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerGrafanaConfigurationPtrOutput) Elem() AssociationMcpServerGrafanaConfigurationOutput {
+	return o.ApplyT(func(v *AssociationMcpServerGrafanaConfiguration) AssociationMcpServerGrafanaConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationMcpServerGrafanaConfiguration
+		return ret
+	}).(AssociationMcpServerGrafanaConfigurationOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerGrafanaConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerGrafanaConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerGrafanaConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerGrafanaConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of tool categories to enable for the Grafana MCP server
+func (o AssociationMcpServerGrafanaConfigurationPtrOutput) Tools() AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput {
+	return o.ApplyT(func(v *AssociationMcpServerGrafanaConfiguration) []AssociationMcpServerGrafanaConfigurationToolsItem {
+		if v == nil {
+			return nil
+		}
+		return v.Tools
+	}).(AssociationMcpServerGrafanaConfigurationToolsItemArrayOutput)
+}
+
+// NewRelic MCP server configuration
+type AssociationMcpServerNewRelicConfiguration struct {
+	// New Relic Account ID
+	AccountId string `pulumi:"accountId"`
+	// MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// AssociationMcpServerNewRelicConfigurationInput is an input type that accepts AssociationMcpServerNewRelicConfigurationArgs and AssociationMcpServerNewRelicConfigurationOutput values.
+// You can construct a concrete instance of `AssociationMcpServerNewRelicConfigurationInput` via:
+//
+//	AssociationMcpServerNewRelicConfigurationArgs{...}
+type AssociationMcpServerNewRelicConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerNewRelicConfigurationOutput() AssociationMcpServerNewRelicConfigurationOutput
+	ToAssociationMcpServerNewRelicConfigurationOutputWithContext(context.Context) AssociationMcpServerNewRelicConfigurationOutput
+}
+
+// NewRelic MCP server configuration
+type AssociationMcpServerNewRelicConfigurationArgs struct {
+	// New Relic Account ID
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (AssociationMcpServerNewRelicConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerNewRelicConfiguration)(nil)).Elem()
+}
+
+func (i AssociationMcpServerNewRelicConfigurationArgs) ToAssociationMcpServerNewRelicConfigurationOutput() AssociationMcpServerNewRelicConfigurationOutput {
+	return i.ToAssociationMcpServerNewRelicConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerNewRelicConfigurationArgs) ToAssociationMcpServerNewRelicConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerNewRelicConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerNewRelicConfigurationOutput)
+}
+
+func (i AssociationMcpServerNewRelicConfigurationArgs) ToAssociationMcpServerNewRelicConfigurationPtrOutput() AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return i.ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerNewRelicConfigurationArgs) ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerNewRelicConfigurationOutput).ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationMcpServerNewRelicConfigurationPtrInput is an input type that accepts AssociationMcpServerNewRelicConfigurationArgs, AssociationMcpServerNewRelicConfigurationPtr and AssociationMcpServerNewRelicConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationMcpServerNewRelicConfigurationPtrInput` via:
+//
+//	        AssociationMcpServerNewRelicConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationMcpServerNewRelicConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerNewRelicConfigurationPtrOutput() AssociationMcpServerNewRelicConfigurationPtrOutput
+	ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(context.Context) AssociationMcpServerNewRelicConfigurationPtrOutput
+}
+
+type associationMcpServerNewRelicConfigurationPtrType AssociationMcpServerNewRelicConfigurationArgs
+
+func AssociationMcpServerNewRelicConfigurationPtr(v *AssociationMcpServerNewRelicConfigurationArgs) AssociationMcpServerNewRelicConfigurationPtrInput {
+	return (*associationMcpServerNewRelicConfigurationPtrType)(v)
+}
+
+func (*associationMcpServerNewRelicConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerNewRelicConfiguration)(nil)).Elem()
+}
+
+func (i *associationMcpServerNewRelicConfigurationPtrType) ToAssociationMcpServerNewRelicConfigurationPtrOutput() AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return i.ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationMcpServerNewRelicConfigurationPtrType) ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerNewRelicConfigurationPtrOutput)
+}
+
+// NewRelic MCP server configuration
+type AssociationMcpServerNewRelicConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerNewRelicConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerNewRelicConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerNewRelicConfigurationOutput) ToAssociationMcpServerNewRelicConfigurationOutput() AssociationMcpServerNewRelicConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerNewRelicConfigurationOutput) ToAssociationMcpServerNewRelicConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerNewRelicConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerNewRelicConfigurationOutput) ToAssociationMcpServerNewRelicConfigurationPtrOutput() AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return o.ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerNewRelicConfigurationOutput) ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationMcpServerNewRelicConfiguration) *AssociationMcpServerNewRelicConfiguration {
+		return &v
+	}).(AssociationMcpServerNewRelicConfigurationPtrOutput)
+}
+
+// New Relic Account ID
+func (o AssociationMcpServerNewRelicConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationMcpServerNewRelicConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+func (o AssociationMcpServerNewRelicConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationMcpServerNewRelicConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type AssociationMcpServerNewRelicConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerNewRelicConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerNewRelicConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerNewRelicConfigurationPtrOutput) ToAssociationMcpServerNewRelicConfigurationPtrOutput() AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerNewRelicConfigurationPtrOutput) ToAssociationMcpServerNewRelicConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerNewRelicConfigurationPtrOutput) Elem() AssociationMcpServerNewRelicConfigurationOutput {
+	return o.ApplyT(func(v *AssociationMcpServerNewRelicConfiguration) AssociationMcpServerNewRelicConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationMcpServerNewRelicConfiguration
+		return ret
+	}).(AssociationMcpServerNewRelicConfigurationOutput)
+}
+
+// New Relic Account ID
+func (o AssociationMcpServerNewRelicConfigurationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerNewRelicConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+func (o AssociationMcpServerNewRelicConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerNewRelicConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// SigV4-authenticated MCP server configuration
+type AssociationMcpServerSigV4Configuration struct {
+	// List of MCP tools available for the association
+	Tools []string `pulumi:"tools"`
+}
+
+// AssociationMcpServerSigV4ConfigurationInput is an input type that accepts AssociationMcpServerSigV4ConfigurationArgs and AssociationMcpServerSigV4ConfigurationOutput values.
+// You can construct a concrete instance of `AssociationMcpServerSigV4ConfigurationInput` via:
+//
+//	AssociationMcpServerSigV4ConfigurationArgs{...}
+type AssociationMcpServerSigV4ConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerSigV4ConfigurationOutput() AssociationMcpServerSigV4ConfigurationOutput
+	ToAssociationMcpServerSigV4ConfigurationOutputWithContext(context.Context) AssociationMcpServerSigV4ConfigurationOutput
+}
+
+// SigV4-authenticated MCP server configuration
+type AssociationMcpServerSigV4ConfigurationArgs struct {
+	// List of MCP tools available for the association
+	Tools pulumi.StringArrayInput `pulumi:"tools"`
+}
+
+func (AssociationMcpServerSigV4ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerSigV4Configuration)(nil)).Elem()
+}
+
+func (i AssociationMcpServerSigV4ConfigurationArgs) ToAssociationMcpServerSigV4ConfigurationOutput() AssociationMcpServerSigV4ConfigurationOutput {
+	return i.ToAssociationMcpServerSigV4ConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerSigV4ConfigurationArgs) ToAssociationMcpServerSigV4ConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerSigV4ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerSigV4ConfigurationOutput)
+}
+
+func (i AssociationMcpServerSigV4ConfigurationArgs) ToAssociationMcpServerSigV4ConfigurationPtrOutput() AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return i.ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerSigV4ConfigurationArgs) ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerSigV4ConfigurationOutput).ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationMcpServerSigV4ConfigurationPtrInput is an input type that accepts AssociationMcpServerSigV4ConfigurationArgs, AssociationMcpServerSigV4ConfigurationPtr and AssociationMcpServerSigV4ConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationMcpServerSigV4ConfigurationPtrInput` via:
+//
+//	        AssociationMcpServerSigV4ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationMcpServerSigV4ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerSigV4ConfigurationPtrOutput() AssociationMcpServerSigV4ConfigurationPtrOutput
+	ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(context.Context) AssociationMcpServerSigV4ConfigurationPtrOutput
+}
+
+type associationMcpServerSigV4ConfigurationPtrType AssociationMcpServerSigV4ConfigurationArgs
+
+func AssociationMcpServerSigV4ConfigurationPtr(v *AssociationMcpServerSigV4ConfigurationArgs) AssociationMcpServerSigV4ConfigurationPtrInput {
+	return (*associationMcpServerSigV4ConfigurationPtrType)(v)
+}
+
+func (*associationMcpServerSigV4ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerSigV4Configuration)(nil)).Elem()
+}
+
+func (i *associationMcpServerSigV4ConfigurationPtrType) ToAssociationMcpServerSigV4ConfigurationPtrOutput() AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return i.ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationMcpServerSigV4ConfigurationPtrType) ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerSigV4ConfigurationPtrOutput)
+}
+
+// SigV4-authenticated MCP server configuration
+type AssociationMcpServerSigV4ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerSigV4ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerSigV4Configuration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerSigV4ConfigurationOutput) ToAssociationMcpServerSigV4ConfigurationOutput() AssociationMcpServerSigV4ConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerSigV4ConfigurationOutput) ToAssociationMcpServerSigV4ConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerSigV4ConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerSigV4ConfigurationOutput) ToAssociationMcpServerSigV4ConfigurationPtrOutput() AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return o.ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerSigV4ConfigurationOutput) ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationMcpServerSigV4Configuration) *AssociationMcpServerSigV4Configuration {
+		return &v
+	}).(AssociationMcpServerSigV4ConfigurationPtrOutput)
+}
+
+// List of MCP tools available for the association
+func (o AssociationMcpServerSigV4ConfigurationOutput) Tools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationMcpServerSigV4Configuration) []string { return v.Tools }).(pulumi.StringArrayOutput)
+}
+
+type AssociationMcpServerSigV4ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerSigV4ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerSigV4Configuration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerSigV4ConfigurationPtrOutput) ToAssociationMcpServerSigV4ConfigurationPtrOutput() AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerSigV4ConfigurationPtrOutput) ToAssociationMcpServerSigV4ConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerSigV4ConfigurationPtrOutput) Elem() AssociationMcpServerSigV4ConfigurationOutput {
+	return o.ApplyT(func(v *AssociationMcpServerSigV4Configuration) AssociationMcpServerSigV4Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationMcpServerSigV4Configuration
+		return ret
+	}).(AssociationMcpServerSigV4ConfigurationOutput)
+}
+
+// List of MCP tools available for the association
+func (o AssociationMcpServerSigV4ConfigurationPtrOutput) Tools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssociationMcpServerSigV4Configuration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Tools
+	}).(pulumi.StringArrayOutput)
+}
+
+// Splunk MCP server configuration
+type AssociationMcpServerSplunkConfiguration struct {
+	// The description of the MCP server
+	Description *string `pulumi:"description"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint *string `pulumi:"endpoint"`
+	// The name of the MCP server
+	Name *string `pulumi:"name"`
+}
+
+// AssociationMcpServerSplunkConfigurationInput is an input type that accepts AssociationMcpServerSplunkConfigurationArgs and AssociationMcpServerSplunkConfigurationOutput values.
+// You can construct a concrete instance of `AssociationMcpServerSplunkConfigurationInput` via:
+//
+//	AssociationMcpServerSplunkConfigurationArgs{...}
+type AssociationMcpServerSplunkConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerSplunkConfigurationOutput() AssociationMcpServerSplunkConfigurationOutput
+	ToAssociationMcpServerSplunkConfigurationOutputWithContext(context.Context) AssociationMcpServerSplunkConfigurationOutput
+}
+
+// Splunk MCP server configuration
+type AssociationMcpServerSplunkConfigurationArgs struct {
+	// The description of the MCP server
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The name of the MCP server
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AssociationMcpServerSplunkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerSplunkConfiguration)(nil)).Elem()
+}
+
+func (i AssociationMcpServerSplunkConfigurationArgs) ToAssociationMcpServerSplunkConfigurationOutput() AssociationMcpServerSplunkConfigurationOutput {
+	return i.ToAssociationMcpServerSplunkConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerSplunkConfigurationArgs) ToAssociationMcpServerSplunkConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerSplunkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerSplunkConfigurationOutput)
+}
+
+func (i AssociationMcpServerSplunkConfigurationArgs) ToAssociationMcpServerSplunkConfigurationPtrOutput() AssociationMcpServerSplunkConfigurationPtrOutput {
+	return i.ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationMcpServerSplunkConfigurationArgs) ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSplunkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerSplunkConfigurationOutput).ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationMcpServerSplunkConfigurationPtrInput is an input type that accepts AssociationMcpServerSplunkConfigurationArgs, AssociationMcpServerSplunkConfigurationPtr and AssociationMcpServerSplunkConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationMcpServerSplunkConfigurationPtrInput` via:
+//
+//	        AssociationMcpServerSplunkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationMcpServerSplunkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationMcpServerSplunkConfigurationPtrOutput() AssociationMcpServerSplunkConfigurationPtrOutput
+	ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(context.Context) AssociationMcpServerSplunkConfigurationPtrOutput
+}
+
+type associationMcpServerSplunkConfigurationPtrType AssociationMcpServerSplunkConfigurationArgs
+
+func AssociationMcpServerSplunkConfigurationPtr(v *AssociationMcpServerSplunkConfigurationArgs) AssociationMcpServerSplunkConfigurationPtrInput {
+	return (*associationMcpServerSplunkConfigurationPtrType)(v)
+}
+
+func (*associationMcpServerSplunkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerSplunkConfiguration)(nil)).Elem()
+}
+
+func (i *associationMcpServerSplunkConfigurationPtrType) ToAssociationMcpServerSplunkConfigurationPtrOutput() AssociationMcpServerSplunkConfigurationPtrOutput {
+	return i.ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationMcpServerSplunkConfigurationPtrType) ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSplunkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationMcpServerSplunkConfigurationPtrOutput)
+}
+
+// Splunk MCP server configuration
+type AssociationMcpServerSplunkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerSplunkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationMcpServerSplunkConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerSplunkConfigurationOutput) ToAssociationMcpServerSplunkConfigurationOutput() AssociationMcpServerSplunkConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerSplunkConfigurationOutput) ToAssociationMcpServerSplunkConfigurationOutputWithContext(ctx context.Context) AssociationMcpServerSplunkConfigurationOutput {
+	return o
+}
+
+func (o AssociationMcpServerSplunkConfigurationOutput) ToAssociationMcpServerSplunkConfigurationPtrOutput() AssociationMcpServerSplunkConfigurationPtrOutput {
+	return o.ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationMcpServerSplunkConfigurationOutput) ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSplunkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationMcpServerSplunkConfiguration) *AssociationMcpServerSplunkConfiguration {
+		return &v
+	}).(AssociationMcpServerSplunkConfigurationPtrOutput)
+}
+
+// The description of the MCP server
+func (o AssociationMcpServerSplunkConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerSplunkConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerSplunkConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerSplunkConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerSplunkConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerSplunkConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The name of the MCP server
+func (o AssociationMcpServerSplunkConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationMcpServerSplunkConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AssociationMcpServerSplunkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationMcpServerSplunkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationMcpServerSplunkConfiguration)(nil)).Elem()
+}
+
+func (o AssociationMcpServerSplunkConfigurationPtrOutput) ToAssociationMcpServerSplunkConfigurationPtrOutput() AssociationMcpServerSplunkConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerSplunkConfigurationPtrOutput) ToAssociationMcpServerSplunkConfigurationPtrOutputWithContext(ctx context.Context) AssociationMcpServerSplunkConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationMcpServerSplunkConfigurationPtrOutput) Elem() AssociationMcpServerSplunkConfigurationOutput {
+	return o.ApplyT(func(v *AssociationMcpServerSplunkConfiguration) AssociationMcpServerSplunkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationMcpServerSplunkConfiguration
+		return ret
+	}).(AssociationMcpServerSplunkConfigurationOutput)
+}
+
+// The description of the MCP server
+func (o AssociationMcpServerSplunkConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerSplunkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationMcpServerSplunkConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerSplunkConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o AssociationMcpServerSplunkConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerSplunkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the MCP server
+func (o AssociationMcpServerSplunkConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationMcpServerSplunkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// PagerDuty integration configuration
+type AssociationPagerDutyConfiguration struct {
+	// Email to be used in PagerDuty API header
+	CustomerEmail string `pulumi:"customerEmail"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// List of PagerDuty service IDs available for the association
+	Services []string `pulumi:"services"`
+}
+
+// AssociationPagerDutyConfigurationInput is an input type that accepts AssociationPagerDutyConfigurationArgs and AssociationPagerDutyConfigurationOutput values.
+// You can construct a concrete instance of `AssociationPagerDutyConfigurationInput` via:
+//
+//	AssociationPagerDutyConfigurationArgs{...}
+type AssociationPagerDutyConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationPagerDutyConfigurationOutput() AssociationPagerDutyConfigurationOutput
+	ToAssociationPagerDutyConfigurationOutputWithContext(context.Context) AssociationPagerDutyConfigurationOutput
+}
+
+// PagerDuty integration configuration
+type AssociationPagerDutyConfigurationArgs struct {
+	// Email to be used in PagerDuty API header
+	CustomerEmail pulumi.StringInput `pulumi:"customerEmail"`
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// List of PagerDuty service IDs available for the association
+	Services pulumi.StringArrayInput `pulumi:"services"`
+}
+
+func (AssociationPagerDutyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (i AssociationPagerDutyConfigurationArgs) ToAssociationPagerDutyConfigurationOutput() AssociationPagerDutyConfigurationOutput {
+	return i.ToAssociationPagerDutyConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationPagerDutyConfigurationArgs) ToAssociationPagerDutyConfigurationOutputWithContext(ctx context.Context) AssociationPagerDutyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPagerDutyConfigurationOutput)
+}
+
+func (i AssociationPagerDutyConfigurationArgs) ToAssociationPagerDutyConfigurationPtrOutput() AssociationPagerDutyConfigurationPtrOutput {
+	return i.ToAssociationPagerDutyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationPagerDutyConfigurationArgs) ToAssociationPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) AssociationPagerDutyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPagerDutyConfigurationOutput).ToAssociationPagerDutyConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationPagerDutyConfigurationPtrInput is an input type that accepts AssociationPagerDutyConfigurationArgs, AssociationPagerDutyConfigurationPtr and AssociationPagerDutyConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationPagerDutyConfigurationPtrInput` via:
+//
+//	        AssociationPagerDutyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationPagerDutyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationPagerDutyConfigurationPtrOutput() AssociationPagerDutyConfigurationPtrOutput
+	ToAssociationPagerDutyConfigurationPtrOutputWithContext(context.Context) AssociationPagerDutyConfigurationPtrOutput
+}
+
+type associationPagerDutyConfigurationPtrType AssociationPagerDutyConfigurationArgs
+
+func AssociationPagerDutyConfigurationPtr(v *AssociationPagerDutyConfigurationArgs) AssociationPagerDutyConfigurationPtrInput {
+	return (*associationPagerDutyConfigurationPtrType)(v)
+}
+
+func (*associationPagerDutyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (i *associationPagerDutyConfigurationPtrType) ToAssociationPagerDutyConfigurationPtrOutput() AssociationPagerDutyConfigurationPtrOutput {
+	return i.ToAssociationPagerDutyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationPagerDutyConfigurationPtrType) ToAssociationPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) AssociationPagerDutyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationPagerDutyConfigurationPtrOutput)
+}
+
+// PagerDuty integration configuration
+type AssociationPagerDutyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationPagerDutyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (o AssociationPagerDutyConfigurationOutput) ToAssociationPagerDutyConfigurationOutput() AssociationPagerDutyConfigurationOutput {
+	return o
+}
+
+func (o AssociationPagerDutyConfigurationOutput) ToAssociationPagerDutyConfigurationOutputWithContext(ctx context.Context) AssociationPagerDutyConfigurationOutput {
+	return o
+}
+
+func (o AssociationPagerDutyConfigurationOutput) ToAssociationPagerDutyConfigurationPtrOutput() AssociationPagerDutyConfigurationPtrOutput {
+	return o.ToAssociationPagerDutyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationPagerDutyConfigurationOutput) ToAssociationPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) AssociationPagerDutyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationPagerDutyConfiguration) *AssociationPagerDutyConfiguration {
+		return &v
+	}).(AssociationPagerDutyConfigurationPtrOutput)
+}
+
+// Email to be used in PagerDuty API header
+func (o AssociationPagerDutyConfigurationOutput) CustomerEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationPagerDutyConfiguration) string { return v.CustomerEmail }).(pulumi.StringOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationPagerDutyConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationPagerDutyConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// List of PagerDuty service IDs available for the association
+func (o AssociationPagerDutyConfigurationOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationPagerDutyConfiguration) []string { return v.Services }).(pulumi.StringArrayOutput)
+}
+
+type AssociationPagerDutyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationPagerDutyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (o AssociationPagerDutyConfigurationPtrOutput) ToAssociationPagerDutyConfigurationPtrOutput() AssociationPagerDutyConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationPagerDutyConfigurationPtrOutput) ToAssociationPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) AssociationPagerDutyConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationPagerDutyConfigurationPtrOutput) Elem() AssociationPagerDutyConfigurationOutput {
+	return o.ApplyT(func(v *AssociationPagerDutyConfiguration) AssociationPagerDutyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationPagerDutyConfiguration
+		return ret
+	}).(AssociationPagerDutyConfigurationOutput)
+}
+
+// Email to be used in PagerDuty API header
+func (o AssociationPagerDutyConfigurationPtrOutput) CustomerEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationPagerDutyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CustomerEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationPagerDutyConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationPagerDutyConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of PagerDuty service IDs available for the association
+func (o AssociationPagerDutyConfigurationPtrOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssociationPagerDutyConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Services
+	}).(pulumi.StringArrayOutput)
+}
+
 // The configuration that directs how AgentSpace interacts with the given service
 type AssociationServiceConfiguration struct {
+	Aws               *AssociationAwsConfiguration               `pulumi:"aws"`
+	Azure             *AssociationAzureConfiguration             `pulumi:"azure"`
+	Dynatrace         *AssociationDynatraceConfiguration         `pulumi:"dynatrace"`
+	EventChannel      *AssociationEventChannelConfiguration      `pulumi:"eventChannel"`
+	GitHub            *AssociationGitHubConfiguration            `pulumi:"gitHub"`
+	GitLab            *AssociationGitLabConfiguration            `pulumi:"gitLab"`
+	McpServer         *AssociationMcpServerConfiguration         `pulumi:"mcpServer"`
+	McpServerDatadog  *AssociationMcpServerDatadogConfiguration  `pulumi:"mcpServerDatadog"`
+	McpServerGrafana  *AssociationMcpServerGrafanaConfiguration  `pulumi:"mcpServerGrafana"`
+	McpServerNewRelic *AssociationMcpServerNewRelicConfiguration `pulumi:"mcpServerNewRelic"`
+	McpServerSigV4    *AssociationMcpServerSigV4Configuration    `pulumi:"mcpServerSigV4"`
+	McpServerSplunk   *AssociationMcpServerSplunkConfiguration   `pulumi:"mcpServerSplunk"`
+	PagerDuty         *AssociationPagerDutyConfiguration         `pulumi:"pagerDuty"`
+	ServiceNow        *AssociationServiceNowConfiguration        `pulumi:"serviceNow"`
+	Slack             *AssociationSlackConfiguration             `pulumi:"slack"`
+	SourceAws         *AssociationSourceAwsConfiguration         `pulumi:"sourceAws"`
 }
 
 // AssociationServiceConfigurationInput is an input type that accepts AssociationServiceConfigurationArgs and AssociationServiceConfigurationOutput values.
@@ -542,6 +3106,22 @@ type AssociationServiceConfigurationInput interface {
 
 // The configuration that directs how AgentSpace interacts with the given service
 type AssociationServiceConfigurationArgs struct {
+	Aws               AssociationAwsConfigurationPtrInput               `pulumi:"aws"`
+	Azure             AssociationAzureConfigurationPtrInput             `pulumi:"azure"`
+	Dynatrace         AssociationDynatraceConfigurationPtrInput         `pulumi:"dynatrace"`
+	EventChannel      AssociationEventChannelConfigurationPtrInput      `pulumi:"eventChannel"`
+	GitHub            AssociationGitHubConfigurationPtrInput            `pulumi:"gitHub"`
+	GitLab            AssociationGitLabConfigurationPtrInput            `pulumi:"gitLab"`
+	McpServer         AssociationMcpServerConfigurationPtrInput         `pulumi:"mcpServer"`
+	McpServerDatadog  AssociationMcpServerDatadogConfigurationPtrInput  `pulumi:"mcpServerDatadog"`
+	McpServerGrafana  AssociationMcpServerGrafanaConfigurationPtrInput  `pulumi:"mcpServerGrafana"`
+	McpServerNewRelic AssociationMcpServerNewRelicConfigurationPtrInput `pulumi:"mcpServerNewRelic"`
+	McpServerSigV4    AssociationMcpServerSigV4ConfigurationPtrInput    `pulumi:"mcpServerSigV4"`
+	McpServerSplunk   AssociationMcpServerSplunkConfigurationPtrInput   `pulumi:"mcpServerSplunk"`
+	PagerDuty         AssociationPagerDutyConfigurationPtrInput         `pulumi:"pagerDuty"`
+	ServiceNow        AssociationServiceNowConfigurationPtrInput        `pulumi:"serviceNow"`
+	Slack             AssociationSlackConfigurationPtrInput             `pulumi:"slack"`
+	SourceAws         AssociationSourceAwsConfigurationPtrInput         `pulumi:"sourceAws"`
 }
 
 func (AssociationServiceConfigurationArgs) ElementType() reflect.Type {
@@ -571,6 +3151,80 @@ func (o AssociationServiceConfigurationOutput) ToAssociationServiceConfiguration
 	return o
 }
 
+func (o AssociationServiceConfigurationOutput) Aws() AssociationAwsConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationAwsConfiguration { return v.Aws }).(AssociationAwsConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) Azure() AssociationAzureConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationAzureConfiguration { return v.Azure }).(AssociationAzureConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) Dynatrace() AssociationDynatraceConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationDynatraceConfiguration { return v.Dynatrace }).(AssociationDynatraceConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) EventChannel() AssociationEventChannelConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationEventChannelConfiguration { return v.EventChannel }).(AssociationEventChannelConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) GitHub() AssociationGitHubConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationGitHubConfiguration { return v.GitHub }).(AssociationGitHubConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) GitLab() AssociationGitLabConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationGitLabConfiguration { return v.GitLab }).(AssociationGitLabConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) McpServer() AssociationMcpServerConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationMcpServerConfiguration { return v.McpServer }).(AssociationMcpServerConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) McpServerDatadog() AssociationMcpServerDatadogConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationMcpServerDatadogConfiguration {
+		return v.McpServerDatadog
+	}).(AssociationMcpServerDatadogConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) McpServerGrafana() AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationMcpServerGrafanaConfiguration {
+		return v.McpServerGrafana
+	}).(AssociationMcpServerGrafanaConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) McpServerNewRelic() AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationMcpServerNewRelicConfiguration {
+		return v.McpServerNewRelic
+	}).(AssociationMcpServerNewRelicConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) McpServerSigV4() AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationMcpServerSigV4Configuration {
+		return v.McpServerSigV4
+	}).(AssociationMcpServerSigV4ConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) McpServerSplunk() AssociationMcpServerSplunkConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationMcpServerSplunkConfiguration {
+		return v.McpServerSplunk
+	}).(AssociationMcpServerSplunkConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) PagerDuty() AssociationPagerDutyConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationPagerDutyConfiguration { return v.PagerDuty }).(AssociationPagerDutyConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) ServiceNow() AssociationServiceNowConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationServiceNowConfiguration { return v.ServiceNow }).(AssociationServiceNowConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) Slack() AssociationSlackConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationSlackConfiguration { return v.Slack }).(AssociationSlackConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationOutput) SourceAws() AssociationSourceAwsConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationServiceConfiguration) *AssociationSourceAwsConfiguration { return v.SourceAws }).(AssociationSourceAwsConfigurationPtrOutput)
+}
+
 type AssociationServiceConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AssociationServiceConfigurationPtrOutput) ElementType() reflect.Type {
@@ -595,8 +3249,996 @@ func (o AssociationServiceConfigurationPtrOutput) Elem() AssociationServiceConfi
 	}).(AssociationServiceConfigurationOutput)
 }
 
+func (o AssociationServiceConfigurationPtrOutput) Aws() AssociationAwsConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationAwsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Aws
+	}).(AssociationAwsConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) Azure() AssociationAzureConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationAzureConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Azure
+	}).(AssociationAzureConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) Dynatrace() AssociationDynatraceConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationDynatraceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Dynatrace
+	}).(AssociationDynatraceConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) EventChannel() AssociationEventChannelConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationEventChannelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EventChannel
+	}).(AssociationEventChannelConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) GitHub() AssociationGitHubConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationGitHubConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GitHub
+	}).(AssociationGitHubConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) GitLab() AssociationGitLabConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationGitLabConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GitLab
+	}).(AssociationGitLabConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) McpServer() AssociationMcpServerConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationMcpServerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.McpServer
+	}).(AssociationMcpServerConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) McpServerDatadog() AssociationMcpServerDatadogConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationMcpServerDatadogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerDatadog
+	}).(AssociationMcpServerDatadogConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) McpServerGrafana() AssociationMcpServerGrafanaConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationMcpServerGrafanaConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerGrafana
+	}).(AssociationMcpServerGrafanaConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) McpServerNewRelic() AssociationMcpServerNewRelicConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationMcpServerNewRelicConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerNewRelic
+	}).(AssociationMcpServerNewRelicConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) McpServerSigV4() AssociationMcpServerSigV4ConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationMcpServerSigV4Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerSigV4
+	}).(AssociationMcpServerSigV4ConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) McpServerSplunk() AssociationMcpServerSplunkConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationMcpServerSplunkConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerSplunk
+	}).(AssociationMcpServerSplunkConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) PagerDuty() AssociationPagerDutyConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationPagerDutyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PagerDuty
+	}).(AssociationPagerDutyConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) ServiceNow() AssociationServiceNowConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationServiceNowConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNow
+	}).(AssociationServiceNowConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) Slack() AssociationSlackConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationSlackConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Slack
+	}).(AssociationSlackConfigurationPtrOutput)
+}
+
+func (o AssociationServiceConfigurationPtrOutput) SourceAws() AssociationSourceAwsConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceConfiguration) *AssociationSourceAwsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAws
+	}).(AssociationSourceAwsConfigurationPtrOutput)
+}
+
+// ServiceNow integration configuration
+type AssociationServiceNowConfiguration struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// ServiceNow instance ID
+	InstanceId *string `pulumi:"instanceId"`
+}
+
+// AssociationServiceNowConfigurationInput is an input type that accepts AssociationServiceNowConfigurationArgs and AssociationServiceNowConfigurationOutput values.
+// You can construct a concrete instance of `AssociationServiceNowConfigurationInput` via:
+//
+//	AssociationServiceNowConfigurationArgs{...}
+type AssociationServiceNowConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationServiceNowConfigurationOutput() AssociationServiceNowConfigurationOutput
+	ToAssociationServiceNowConfigurationOutputWithContext(context.Context) AssociationServiceNowConfigurationOutput
+}
+
+// ServiceNow integration configuration
+type AssociationServiceNowConfigurationArgs struct {
+	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// ServiceNow instance ID
+	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+}
+
+func (AssociationServiceNowConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationServiceNowConfiguration)(nil)).Elem()
+}
+
+func (i AssociationServiceNowConfigurationArgs) ToAssociationServiceNowConfigurationOutput() AssociationServiceNowConfigurationOutput {
+	return i.ToAssociationServiceNowConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationServiceNowConfigurationArgs) ToAssociationServiceNowConfigurationOutputWithContext(ctx context.Context) AssociationServiceNowConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationServiceNowConfigurationOutput)
+}
+
+func (i AssociationServiceNowConfigurationArgs) ToAssociationServiceNowConfigurationPtrOutput() AssociationServiceNowConfigurationPtrOutput {
+	return i.ToAssociationServiceNowConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationServiceNowConfigurationArgs) ToAssociationServiceNowConfigurationPtrOutputWithContext(ctx context.Context) AssociationServiceNowConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationServiceNowConfigurationOutput).ToAssociationServiceNowConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationServiceNowConfigurationPtrInput is an input type that accepts AssociationServiceNowConfigurationArgs, AssociationServiceNowConfigurationPtr and AssociationServiceNowConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationServiceNowConfigurationPtrInput` via:
+//
+//	        AssociationServiceNowConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationServiceNowConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationServiceNowConfigurationPtrOutput() AssociationServiceNowConfigurationPtrOutput
+	ToAssociationServiceNowConfigurationPtrOutputWithContext(context.Context) AssociationServiceNowConfigurationPtrOutput
+}
+
+type associationServiceNowConfigurationPtrType AssociationServiceNowConfigurationArgs
+
+func AssociationServiceNowConfigurationPtr(v *AssociationServiceNowConfigurationArgs) AssociationServiceNowConfigurationPtrInput {
+	return (*associationServiceNowConfigurationPtrType)(v)
+}
+
+func (*associationServiceNowConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationServiceNowConfiguration)(nil)).Elem()
+}
+
+func (i *associationServiceNowConfigurationPtrType) ToAssociationServiceNowConfigurationPtrOutput() AssociationServiceNowConfigurationPtrOutput {
+	return i.ToAssociationServiceNowConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationServiceNowConfigurationPtrType) ToAssociationServiceNowConfigurationPtrOutputWithContext(ctx context.Context) AssociationServiceNowConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationServiceNowConfigurationPtrOutput)
+}
+
+// ServiceNow integration configuration
+type AssociationServiceNowConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationServiceNowConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationServiceNowConfiguration)(nil)).Elem()
+}
+
+func (o AssociationServiceNowConfigurationOutput) ToAssociationServiceNowConfigurationOutput() AssociationServiceNowConfigurationOutput {
+	return o
+}
+
+func (o AssociationServiceNowConfigurationOutput) ToAssociationServiceNowConfigurationOutputWithContext(ctx context.Context) AssociationServiceNowConfigurationOutput {
+	return o
+}
+
+func (o AssociationServiceNowConfigurationOutput) ToAssociationServiceNowConfigurationPtrOutput() AssociationServiceNowConfigurationPtrOutput {
+	return o.ToAssociationServiceNowConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationServiceNowConfigurationOutput) ToAssociationServiceNowConfigurationPtrOutputWithContext(ctx context.Context) AssociationServiceNowConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationServiceNowConfiguration) *AssociationServiceNowConfiguration {
+		return &v
+	}).(AssociationServiceNowConfigurationPtrOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationServiceNowConfigurationOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationServiceNowConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// ServiceNow instance ID
+func (o AssociationServiceNowConfigurationOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationServiceNowConfiguration) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+type AssociationServiceNowConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationServiceNowConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationServiceNowConfiguration)(nil)).Elem()
+}
+
+func (o AssociationServiceNowConfigurationPtrOutput) ToAssociationServiceNowConfigurationPtrOutput() AssociationServiceNowConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationServiceNowConfigurationPtrOutput) ToAssociationServiceNowConfigurationPtrOutputWithContext(ctx context.Context) AssociationServiceNowConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationServiceNowConfigurationPtrOutput) Elem() AssociationServiceNowConfigurationOutput {
+	return o.ApplyT(func(v *AssociationServiceNowConfiguration) AssociationServiceNowConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationServiceNowConfiguration
+		return ret
+	}).(AssociationServiceNowConfigurationOutput)
+}
+
+// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+func (o AssociationServiceNowConfigurationPtrOutput) EnableWebhookUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceNowConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableWebhookUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// ServiceNow instance ID
+func (o AssociationServiceNowConfigurationPtrOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationServiceNowConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Slack channel configuration
+type AssociationSlackChannel struct {
+	// Slack channel ID
+	ChannelId string `pulumi:"channelId"`
+	// Slack channel name
+	ChannelName *string `pulumi:"channelName"`
+}
+
+// AssociationSlackChannelInput is an input type that accepts AssociationSlackChannelArgs and AssociationSlackChannelOutput values.
+// You can construct a concrete instance of `AssociationSlackChannelInput` via:
+//
+//	AssociationSlackChannelArgs{...}
+type AssociationSlackChannelInput interface {
+	pulumi.Input
+
+	ToAssociationSlackChannelOutput() AssociationSlackChannelOutput
+	ToAssociationSlackChannelOutputWithContext(context.Context) AssociationSlackChannelOutput
+}
+
+// Slack channel configuration
+type AssociationSlackChannelArgs struct {
+	// Slack channel ID
+	ChannelId pulumi.StringInput `pulumi:"channelId"`
+	// Slack channel name
+	ChannelName pulumi.StringPtrInput `pulumi:"channelName"`
+}
+
+func (AssociationSlackChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackChannel)(nil)).Elem()
+}
+
+func (i AssociationSlackChannelArgs) ToAssociationSlackChannelOutput() AssociationSlackChannelOutput {
+	return i.ToAssociationSlackChannelOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackChannelArgs) ToAssociationSlackChannelOutputWithContext(ctx context.Context) AssociationSlackChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackChannelOutput)
+}
+
+func (i AssociationSlackChannelArgs) ToAssociationSlackChannelPtrOutput() AssociationSlackChannelPtrOutput {
+	return i.ToAssociationSlackChannelPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackChannelArgs) ToAssociationSlackChannelPtrOutputWithContext(ctx context.Context) AssociationSlackChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackChannelOutput).ToAssociationSlackChannelPtrOutputWithContext(ctx)
+}
+
+// AssociationSlackChannelPtrInput is an input type that accepts AssociationSlackChannelArgs, AssociationSlackChannelPtr and AssociationSlackChannelPtrOutput values.
+// You can construct a concrete instance of `AssociationSlackChannelPtrInput` via:
+//
+//	        AssociationSlackChannelArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationSlackChannelPtrInput interface {
+	pulumi.Input
+
+	ToAssociationSlackChannelPtrOutput() AssociationSlackChannelPtrOutput
+	ToAssociationSlackChannelPtrOutputWithContext(context.Context) AssociationSlackChannelPtrOutput
+}
+
+type associationSlackChannelPtrType AssociationSlackChannelArgs
+
+func AssociationSlackChannelPtr(v *AssociationSlackChannelArgs) AssociationSlackChannelPtrInput {
+	return (*associationSlackChannelPtrType)(v)
+}
+
+func (*associationSlackChannelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackChannel)(nil)).Elem()
+}
+
+func (i *associationSlackChannelPtrType) ToAssociationSlackChannelPtrOutput() AssociationSlackChannelPtrOutput {
+	return i.ToAssociationSlackChannelPtrOutputWithContext(context.Background())
+}
+
+func (i *associationSlackChannelPtrType) ToAssociationSlackChannelPtrOutputWithContext(ctx context.Context) AssociationSlackChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackChannelPtrOutput)
+}
+
+// Slack channel configuration
+type AssociationSlackChannelOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackChannel)(nil)).Elem()
+}
+
+func (o AssociationSlackChannelOutput) ToAssociationSlackChannelOutput() AssociationSlackChannelOutput {
+	return o
+}
+
+func (o AssociationSlackChannelOutput) ToAssociationSlackChannelOutputWithContext(ctx context.Context) AssociationSlackChannelOutput {
+	return o
+}
+
+func (o AssociationSlackChannelOutput) ToAssociationSlackChannelPtrOutput() AssociationSlackChannelPtrOutput {
+	return o.ToAssociationSlackChannelPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSlackChannelOutput) ToAssociationSlackChannelPtrOutputWithContext(ctx context.Context) AssociationSlackChannelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationSlackChannel) *AssociationSlackChannel {
+		return &v
+	}).(AssociationSlackChannelPtrOutput)
+}
+
+// Slack channel ID
+func (o AssociationSlackChannelOutput) ChannelId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationSlackChannel) string { return v.ChannelId }).(pulumi.StringOutput)
+}
+
+// Slack channel name
+func (o AssociationSlackChannelOutput) ChannelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationSlackChannel) *string { return v.ChannelName }).(pulumi.StringPtrOutput)
+}
+
+type AssociationSlackChannelPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackChannel)(nil)).Elem()
+}
+
+func (o AssociationSlackChannelPtrOutput) ToAssociationSlackChannelPtrOutput() AssociationSlackChannelPtrOutput {
+	return o
+}
+
+func (o AssociationSlackChannelPtrOutput) ToAssociationSlackChannelPtrOutputWithContext(ctx context.Context) AssociationSlackChannelPtrOutput {
+	return o
+}
+
+func (o AssociationSlackChannelPtrOutput) Elem() AssociationSlackChannelOutput {
+	return o.ApplyT(func(v *AssociationSlackChannel) AssociationSlackChannel {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationSlackChannel
+		return ret
+	}).(AssociationSlackChannelOutput)
+}
+
+// Slack channel ID
+func (o AssociationSlackChannelPtrOutput) ChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackChannel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ChannelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Slack channel name
+func (o AssociationSlackChannelPtrOutput) ChannelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackChannel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Slack workspace integration configuration
+type AssociationSlackConfiguration struct {
+	TransmissionTarget AssociationSlackTransmissionTarget `pulumi:"transmissionTarget"`
+	// Associated Slack workspace ID
+	WorkspaceId string `pulumi:"workspaceId"`
+	// Associated Slack workspace name
+	WorkspaceName string `pulumi:"workspaceName"`
+}
+
+// AssociationSlackConfigurationInput is an input type that accepts AssociationSlackConfigurationArgs and AssociationSlackConfigurationOutput values.
+// You can construct a concrete instance of `AssociationSlackConfigurationInput` via:
+//
+//	AssociationSlackConfigurationArgs{...}
+type AssociationSlackConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationSlackConfigurationOutput() AssociationSlackConfigurationOutput
+	ToAssociationSlackConfigurationOutputWithContext(context.Context) AssociationSlackConfigurationOutput
+}
+
+// Slack workspace integration configuration
+type AssociationSlackConfigurationArgs struct {
+	TransmissionTarget AssociationSlackTransmissionTargetInput `pulumi:"transmissionTarget"`
+	// Associated Slack workspace ID
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	// Associated Slack workspace name
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
+}
+
+func (AssociationSlackConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackConfiguration)(nil)).Elem()
+}
+
+func (i AssociationSlackConfigurationArgs) ToAssociationSlackConfigurationOutput() AssociationSlackConfigurationOutput {
+	return i.ToAssociationSlackConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackConfigurationArgs) ToAssociationSlackConfigurationOutputWithContext(ctx context.Context) AssociationSlackConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackConfigurationOutput)
+}
+
+func (i AssociationSlackConfigurationArgs) ToAssociationSlackConfigurationPtrOutput() AssociationSlackConfigurationPtrOutput {
+	return i.ToAssociationSlackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackConfigurationArgs) ToAssociationSlackConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackConfigurationOutput).ToAssociationSlackConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationSlackConfigurationPtrInput is an input type that accepts AssociationSlackConfigurationArgs, AssociationSlackConfigurationPtr and AssociationSlackConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationSlackConfigurationPtrInput` via:
+//
+//	        AssociationSlackConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationSlackConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationSlackConfigurationPtrOutput() AssociationSlackConfigurationPtrOutput
+	ToAssociationSlackConfigurationPtrOutputWithContext(context.Context) AssociationSlackConfigurationPtrOutput
+}
+
+type associationSlackConfigurationPtrType AssociationSlackConfigurationArgs
+
+func AssociationSlackConfigurationPtr(v *AssociationSlackConfigurationArgs) AssociationSlackConfigurationPtrInput {
+	return (*associationSlackConfigurationPtrType)(v)
+}
+
+func (*associationSlackConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackConfiguration)(nil)).Elem()
+}
+
+func (i *associationSlackConfigurationPtrType) ToAssociationSlackConfigurationPtrOutput() AssociationSlackConfigurationPtrOutput {
+	return i.ToAssociationSlackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationSlackConfigurationPtrType) ToAssociationSlackConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackConfigurationPtrOutput)
+}
+
+// Slack workspace integration configuration
+type AssociationSlackConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackConfiguration)(nil)).Elem()
+}
+
+func (o AssociationSlackConfigurationOutput) ToAssociationSlackConfigurationOutput() AssociationSlackConfigurationOutput {
+	return o
+}
+
+func (o AssociationSlackConfigurationOutput) ToAssociationSlackConfigurationOutputWithContext(ctx context.Context) AssociationSlackConfigurationOutput {
+	return o
+}
+
+func (o AssociationSlackConfigurationOutput) ToAssociationSlackConfigurationPtrOutput() AssociationSlackConfigurationPtrOutput {
+	return o.ToAssociationSlackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSlackConfigurationOutput) ToAssociationSlackConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationSlackConfiguration) *AssociationSlackConfiguration {
+		return &v
+	}).(AssociationSlackConfigurationPtrOutput)
+}
+
+func (o AssociationSlackConfigurationOutput) TransmissionTarget() AssociationSlackTransmissionTargetOutput {
+	return o.ApplyT(func(v AssociationSlackConfiguration) AssociationSlackTransmissionTarget { return v.TransmissionTarget }).(AssociationSlackTransmissionTargetOutput)
+}
+
+// Associated Slack workspace ID
+func (o AssociationSlackConfigurationOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationSlackConfiguration) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// Associated Slack workspace name
+func (o AssociationSlackConfigurationOutput) WorkspaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationSlackConfiguration) string { return v.WorkspaceName }).(pulumi.StringOutput)
+}
+
+type AssociationSlackConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackConfiguration)(nil)).Elem()
+}
+
+func (o AssociationSlackConfigurationPtrOutput) ToAssociationSlackConfigurationPtrOutput() AssociationSlackConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationSlackConfigurationPtrOutput) ToAssociationSlackConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationSlackConfigurationPtrOutput) Elem() AssociationSlackConfigurationOutput {
+	return o.ApplyT(func(v *AssociationSlackConfiguration) AssociationSlackConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationSlackConfiguration
+		return ret
+	}).(AssociationSlackConfigurationOutput)
+}
+
+func (o AssociationSlackConfigurationPtrOutput) TransmissionTarget() AssociationSlackTransmissionTargetPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackConfiguration) *AssociationSlackTransmissionTarget {
+		if v == nil {
+			return nil
+		}
+		return &v.TransmissionTarget
+	}).(AssociationSlackTransmissionTargetPtrOutput)
+}
+
+// Associated Slack workspace ID
+func (o AssociationSlackConfigurationPtrOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Associated Slack workspace name
+func (o AssociationSlackConfigurationPtrOutput) WorkspaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Transmission targets for agent notifications
+type AssociationSlackTransmissionTarget struct {
+	// Destination for IncidentResponse agent.
+	IncidentResponseTarget AssociationSlackChannel `pulumi:"incidentResponseTarget"`
+}
+
+// AssociationSlackTransmissionTargetInput is an input type that accepts AssociationSlackTransmissionTargetArgs and AssociationSlackTransmissionTargetOutput values.
+// You can construct a concrete instance of `AssociationSlackTransmissionTargetInput` via:
+//
+//	AssociationSlackTransmissionTargetArgs{...}
+type AssociationSlackTransmissionTargetInput interface {
+	pulumi.Input
+
+	ToAssociationSlackTransmissionTargetOutput() AssociationSlackTransmissionTargetOutput
+	ToAssociationSlackTransmissionTargetOutputWithContext(context.Context) AssociationSlackTransmissionTargetOutput
+}
+
+// Transmission targets for agent notifications
+type AssociationSlackTransmissionTargetArgs struct {
+	// Destination for IncidentResponse agent.
+	IncidentResponseTarget AssociationSlackChannelInput `pulumi:"incidentResponseTarget"`
+}
+
+func (AssociationSlackTransmissionTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackTransmissionTarget)(nil)).Elem()
+}
+
+func (i AssociationSlackTransmissionTargetArgs) ToAssociationSlackTransmissionTargetOutput() AssociationSlackTransmissionTargetOutput {
+	return i.ToAssociationSlackTransmissionTargetOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackTransmissionTargetArgs) ToAssociationSlackTransmissionTargetOutputWithContext(ctx context.Context) AssociationSlackTransmissionTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackTransmissionTargetOutput)
+}
+
+func (i AssociationSlackTransmissionTargetArgs) ToAssociationSlackTransmissionTargetPtrOutput() AssociationSlackTransmissionTargetPtrOutput {
+	return i.ToAssociationSlackTransmissionTargetPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackTransmissionTargetArgs) ToAssociationSlackTransmissionTargetPtrOutputWithContext(ctx context.Context) AssociationSlackTransmissionTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackTransmissionTargetOutput).ToAssociationSlackTransmissionTargetPtrOutputWithContext(ctx)
+}
+
+// AssociationSlackTransmissionTargetPtrInput is an input type that accepts AssociationSlackTransmissionTargetArgs, AssociationSlackTransmissionTargetPtr and AssociationSlackTransmissionTargetPtrOutput values.
+// You can construct a concrete instance of `AssociationSlackTransmissionTargetPtrInput` via:
+//
+//	        AssociationSlackTransmissionTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationSlackTransmissionTargetPtrInput interface {
+	pulumi.Input
+
+	ToAssociationSlackTransmissionTargetPtrOutput() AssociationSlackTransmissionTargetPtrOutput
+	ToAssociationSlackTransmissionTargetPtrOutputWithContext(context.Context) AssociationSlackTransmissionTargetPtrOutput
+}
+
+type associationSlackTransmissionTargetPtrType AssociationSlackTransmissionTargetArgs
+
+func AssociationSlackTransmissionTargetPtr(v *AssociationSlackTransmissionTargetArgs) AssociationSlackTransmissionTargetPtrInput {
+	return (*associationSlackTransmissionTargetPtrType)(v)
+}
+
+func (*associationSlackTransmissionTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackTransmissionTarget)(nil)).Elem()
+}
+
+func (i *associationSlackTransmissionTargetPtrType) ToAssociationSlackTransmissionTargetPtrOutput() AssociationSlackTransmissionTargetPtrOutput {
+	return i.ToAssociationSlackTransmissionTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *associationSlackTransmissionTargetPtrType) ToAssociationSlackTransmissionTargetPtrOutputWithContext(ctx context.Context) AssociationSlackTransmissionTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackTransmissionTargetPtrOutput)
+}
+
+// Transmission targets for agent notifications
+type AssociationSlackTransmissionTargetOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackTransmissionTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackTransmissionTarget)(nil)).Elem()
+}
+
+func (o AssociationSlackTransmissionTargetOutput) ToAssociationSlackTransmissionTargetOutput() AssociationSlackTransmissionTargetOutput {
+	return o
+}
+
+func (o AssociationSlackTransmissionTargetOutput) ToAssociationSlackTransmissionTargetOutputWithContext(ctx context.Context) AssociationSlackTransmissionTargetOutput {
+	return o
+}
+
+func (o AssociationSlackTransmissionTargetOutput) ToAssociationSlackTransmissionTargetPtrOutput() AssociationSlackTransmissionTargetPtrOutput {
+	return o.ToAssociationSlackTransmissionTargetPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSlackTransmissionTargetOutput) ToAssociationSlackTransmissionTargetPtrOutputWithContext(ctx context.Context) AssociationSlackTransmissionTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationSlackTransmissionTarget) *AssociationSlackTransmissionTarget {
+		return &v
+	}).(AssociationSlackTransmissionTargetPtrOutput)
+}
+
+// Destination for IncidentResponse agent.
+func (o AssociationSlackTransmissionTargetOutput) IncidentResponseTarget() AssociationSlackChannelOutput {
+	return o.ApplyT(func(v AssociationSlackTransmissionTarget) AssociationSlackChannel { return v.IncidentResponseTarget }).(AssociationSlackChannelOutput)
+}
+
+type AssociationSlackTransmissionTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackTransmissionTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackTransmissionTarget)(nil)).Elem()
+}
+
+func (o AssociationSlackTransmissionTargetPtrOutput) ToAssociationSlackTransmissionTargetPtrOutput() AssociationSlackTransmissionTargetPtrOutput {
+	return o
+}
+
+func (o AssociationSlackTransmissionTargetPtrOutput) ToAssociationSlackTransmissionTargetPtrOutputWithContext(ctx context.Context) AssociationSlackTransmissionTargetPtrOutput {
+	return o
+}
+
+func (o AssociationSlackTransmissionTargetPtrOutput) Elem() AssociationSlackTransmissionTargetOutput {
+	return o.ApplyT(func(v *AssociationSlackTransmissionTarget) AssociationSlackTransmissionTarget {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationSlackTransmissionTarget
+		return ret
+	}).(AssociationSlackTransmissionTargetOutput)
+}
+
+// Destination for IncidentResponse agent.
+func (o AssociationSlackTransmissionTargetPtrOutput) IncidentResponseTarget() AssociationSlackChannelPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackTransmissionTarget) *AssociationSlackChannel {
+		if v == nil {
+			return nil
+		}
+		return &v.IncidentResponseTarget
+	}).(AssociationSlackChannelPtrOutput)
+}
+
+// AWS association for 'source' account
+type AssociationSourceAwsConfiguration struct {
+	// AWS Account Id corresponding to provided resources
+	AccountId string `pulumi:"accountId"`
+	// Account Type 'source' for DevOpsAgent monitoring
+	AccountType AssociationSourceAwsConfigurationAccountType `pulumi:"accountType"`
+	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+	AssumableRoleArn string                    `pulumi:"assumableRoleArn"`
+	Resources        []AssociationAwsResource  `pulumi:"resources"`
+	Tags             []AssociationKeyValuePair `pulumi:"tags"`
+}
+
+// AssociationSourceAwsConfigurationInput is an input type that accepts AssociationSourceAwsConfigurationArgs and AssociationSourceAwsConfigurationOutput values.
+// You can construct a concrete instance of `AssociationSourceAwsConfigurationInput` via:
+//
+//	AssociationSourceAwsConfigurationArgs{...}
+type AssociationSourceAwsConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationSourceAwsConfigurationOutput() AssociationSourceAwsConfigurationOutput
+	ToAssociationSourceAwsConfigurationOutputWithContext(context.Context) AssociationSourceAwsConfigurationOutput
+}
+
+// AWS association for 'source' account
+type AssociationSourceAwsConfigurationArgs struct {
+	// AWS Account Id corresponding to provided resources
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Account Type 'source' for DevOpsAgent monitoring
+	AccountType AssociationSourceAwsConfigurationAccountTypeInput `pulumi:"accountType"`
+	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+	AssumableRoleArn pulumi.StringInput                `pulumi:"assumableRoleArn"`
+	Resources        AssociationAwsResourceArrayInput  `pulumi:"resources"`
+	Tags             AssociationKeyValuePairArrayInput `pulumi:"tags"`
+}
+
+func (AssociationSourceAwsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSourceAwsConfiguration)(nil)).Elem()
+}
+
+func (i AssociationSourceAwsConfigurationArgs) ToAssociationSourceAwsConfigurationOutput() AssociationSourceAwsConfigurationOutput {
+	return i.ToAssociationSourceAwsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationSourceAwsConfigurationArgs) ToAssociationSourceAwsConfigurationOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSourceAwsConfigurationOutput)
+}
+
+func (i AssociationSourceAwsConfigurationArgs) ToAssociationSourceAwsConfigurationPtrOutput() AssociationSourceAwsConfigurationPtrOutput {
+	return i.ToAssociationSourceAwsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationSourceAwsConfigurationArgs) ToAssociationSourceAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSourceAwsConfigurationOutput).ToAssociationSourceAwsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationSourceAwsConfigurationPtrInput is an input type that accepts AssociationSourceAwsConfigurationArgs, AssociationSourceAwsConfigurationPtr and AssociationSourceAwsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationSourceAwsConfigurationPtrInput` via:
+//
+//	        AssociationSourceAwsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationSourceAwsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationSourceAwsConfigurationPtrOutput() AssociationSourceAwsConfigurationPtrOutput
+	ToAssociationSourceAwsConfigurationPtrOutputWithContext(context.Context) AssociationSourceAwsConfigurationPtrOutput
+}
+
+type associationSourceAwsConfigurationPtrType AssociationSourceAwsConfigurationArgs
+
+func AssociationSourceAwsConfigurationPtr(v *AssociationSourceAwsConfigurationArgs) AssociationSourceAwsConfigurationPtrInput {
+	return (*associationSourceAwsConfigurationPtrType)(v)
+}
+
+func (*associationSourceAwsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSourceAwsConfiguration)(nil)).Elem()
+}
+
+func (i *associationSourceAwsConfigurationPtrType) ToAssociationSourceAwsConfigurationPtrOutput() AssociationSourceAwsConfigurationPtrOutput {
+	return i.ToAssociationSourceAwsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationSourceAwsConfigurationPtrType) ToAssociationSourceAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSourceAwsConfigurationPtrOutput)
+}
+
+// AWS association for 'source' account
+type AssociationSourceAwsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationSourceAwsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSourceAwsConfiguration)(nil)).Elem()
+}
+
+func (o AssociationSourceAwsConfigurationOutput) ToAssociationSourceAwsConfigurationOutput() AssociationSourceAwsConfigurationOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationOutput) ToAssociationSourceAwsConfigurationOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationOutput) ToAssociationSourceAwsConfigurationPtrOutput() AssociationSourceAwsConfigurationPtrOutput {
+	return o.ToAssociationSourceAwsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSourceAwsConfigurationOutput) ToAssociationSourceAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationSourceAwsConfiguration) *AssociationSourceAwsConfiguration {
+		return &v
+	}).(AssociationSourceAwsConfigurationPtrOutput)
+}
+
+// AWS Account Id corresponding to provided resources
+func (o AssociationSourceAwsConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationSourceAwsConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Account Type 'source' for DevOpsAgent monitoring
+func (o AssociationSourceAwsConfigurationOutput) AccountType() AssociationSourceAwsConfigurationAccountTypeOutput {
+	return o.ApplyT(func(v AssociationSourceAwsConfiguration) AssociationSourceAwsConfigurationAccountType {
+		return v.AccountType
+	}).(AssociationSourceAwsConfigurationAccountTypeOutput)
+}
+
+// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+func (o AssociationSourceAwsConfigurationOutput) AssumableRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationSourceAwsConfiguration) string { return v.AssumableRoleArn }).(pulumi.StringOutput)
+}
+
+func (o AssociationSourceAwsConfigurationOutput) Resources() AssociationAwsResourceArrayOutput {
+	return o.ApplyT(func(v AssociationSourceAwsConfiguration) []AssociationAwsResource { return v.Resources }).(AssociationAwsResourceArrayOutput)
+}
+
+func (o AssociationSourceAwsConfigurationOutput) Tags() AssociationKeyValuePairArrayOutput {
+	return o.ApplyT(func(v AssociationSourceAwsConfiguration) []AssociationKeyValuePair { return v.Tags }).(AssociationKeyValuePairArrayOutput)
+}
+
+type AssociationSourceAwsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationSourceAwsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSourceAwsConfiguration)(nil)).Elem()
+}
+
+func (o AssociationSourceAwsConfigurationPtrOutput) ToAssociationSourceAwsConfigurationPtrOutput() AssociationSourceAwsConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationPtrOutput) ToAssociationSourceAwsConfigurationPtrOutputWithContext(ctx context.Context) AssociationSourceAwsConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationSourceAwsConfigurationPtrOutput) Elem() AssociationSourceAwsConfigurationOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfiguration) AssociationSourceAwsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationSourceAwsConfiguration
+		return ret
+	}).(AssociationSourceAwsConfigurationOutput)
+}
+
+// AWS Account Id corresponding to provided resources
+func (o AssociationSourceAwsConfigurationPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Account Type 'source' for DevOpsAgent monitoring
+func (o AssociationSourceAwsConfigurationPtrOutput) AccountType() AssociationSourceAwsConfigurationAccountTypePtrOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfiguration) *AssociationSourceAwsConfigurationAccountType {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountType
+	}).(AssociationSourceAwsConfigurationAccountTypePtrOutput)
+}
+
+// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+func (o AssociationSourceAwsConfigurationPtrOutput) AssumableRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssumableRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AssociationSourceAwsConfigurationPtrOutput) Resources() AssociationAwsResourceArrayOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfiguration) []AssociationAwsResource {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(AssociationAwsResourceArrayOutput)
+}
+
+func (o AssociationSourceAwsConfigurationPtrOutput) Tags() AssociationKeyValuePairArrayOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfiguration) []AssociationKeyValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(AssociationKeyValuePairArrayOutput)
+}
+
 // The connection configuration, either SelfManaged or ServiceManaged.
 type PrivateConnectionConnectionConfiguration struct {
+	SelfManaged    *PrivateConnectionSelfManagedMode    `pulumi:"selfManaged"`
+	ServiceManaged *PrivateConnectionServiceManagedMode `pulumi:"serviceManaged"`
 }
 
 // PrivateConnectionConnectionConfigurationInput is an input type that accepts PrivateConnectionConnectionConfigurationArgs and PrivateConnectionConnectionConfigurationOutput values.
@@ -612,6 +4254,8 @@ type PrivateConnectionConnectionConfigurationInput interface {
 
 // The connection configuration, either SelfManaged or ServiceManaged.
 type PrivateConnectionConnectionConfigurationArgs struct {
+	SelfManaged    PrivateConnectionSelfManagedModePtrInput    `pulumi:"selfManaged"`
+	ServiceManaged PrivateConnectionServiceManagedModePtrInput `pulumi:"serviceManaged"`
 }
 
 func (PrivateConnectionConnectionConfigurationArgs) ElementType() reflect.Type {
@@ -641,6 +4285,435 @@ func (o PrivateConnectionConnectionConfigurationOutput) ToPrivateConnectionConne
 	return o
 }
 
+func (o PrivateConnectionConnectionConfigurationOutput) SelfManaged() PrivateConnectionSelfManagedModePtrOutput {
+	return o.ApplyT(func(v PrivateConnectionConnectionConfiguration) *PrivateConnectionSelfManagedMode {
+		return v.SelfManaged
+	}).(PrivateConnectionSelfManagedModePtrOutput)
+}
+
+func (o PrivateConnectionConnectionConfigurationOutput) ServiceManaged() PrivateConnectionServiceManagedModePtrOutput {
+	return o.ApplyT(func(v PrivateConnectionConnectionConfiguration) *PrivateConnectionServiceManagedMode {
+		return v.ServiceManaged
+	}).(PrivateConnectionServiceManagedModePtrOutput)
+}
+
+// Configuration for a self-managed Private Connection.
+type PrivateConnectionSelfManagedMode struct {
+	// The ARN of the Resource Configuration.
+	ResourceConfigurationId string `pulumi:"resourceConfigurationId"`
+}
+
+// PrivateConnectionSelfManagedModeInput is an input type that accepts PrivateConnectionSelfManagedModeArgs and PrivateConnectionSelfManagedModeOutput values.
+// You can construct a concrete instance of `PrivateConnectionSelfManagedModeInput` via:
+//
+//	PrivateConnectionSelfManagedModeArgs{...}
+type PrivateConnectionSelfManagedModeInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionSelfManagedModeOutput() PrivateConnectionSelfManagedModeOutput
+	ToPrivateConnectionSelfManagedModeOutputWithContext(context.Context) PrivateConnectionSelfManagedModeOutput
+}
+
+// Configuration for a self-managed Private Connection.
+type PrivateConnectionSelfManagedModeArgs struct {
+	// The ARN of the Resource Configuration.
+	ResourceConfigurationId pulumi.StringInput `pulumi:"resourceConfigurationId"`
+}
+
+func (PrivateConnectionSelfManagedModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionSelfManagedMode)(nil)).Elem()
+}
+
+func (i PrivateConnectionSelfManagedModeArgs) ToPrivateConnectionSelfManagedModeOutput() PrivateConnectionSelfManagedModeOutput {
+	return i.ToPrivateConnectionSelfManagedModeOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionSelfManagedModeArgs) ToPrivateConnectionSelfManagedModeOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionSelfManagedModeOutput)
+}
+
+func (i PrivateConnectionSelfManagedModeArgs) ToPrivateConnectionSelfManagedModePtrOutput() PrivateConnectionSelfManagedModePtrOutput {
+	return i.ToPrivateConnectionSelfManagedModePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionSelfManagedModeArgs) ToPrivateConnectionSelfManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionSelfManagedModeOutput).ToPrivateConnectionSelfManagedModePtrOutputWithContext(ctx)
+}
+
+// PrivateConnectionSelfManagedModePtrInput is an input type that accepts PrivateConnectionSelfManagedModeArgs, PrivateConnectionSelfManagedModePtr and PrivateConnectionSelfManagedModePtrOutput values.
+// You can construct a concrete instance of `PrivateConnectionSelfManagedModePtrInput` via:
+//
+//	        PrivateConnectionSelfManagedModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateConnectionSelfManagedModePtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionSelfManagedModePtrOutput() PrivateConnectionSelfManagedModePtrOutput
+	ToPrivateConnectionSelfManagedModePtrOutputWithContext(context.Context) PrivateConnectionSelfManagedModePtrOutput
+}
+
+type privateConnectionSelfManagedModePtrType PrivateConnectionSelfManagedModeArgs
+
+func PrivateConnectionSelfManagedModePtr(v *PrivateConnectionSelfManagedModeArgs) PrivateConnectionSelfManagedModePtrInput {
+	return (*privateConnectionSelfManagedModePtrType)(v)
+}
+
+func (*privateConnectionSelfManagedModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionSelfManagedMode)(nil)).Elem()
+}
+
+func (i *privateConnectionSelfManagedModePtrType) ToPrivateConnectionSelfManagedModePtrOutput() PrivateConnectionSelfManagedModePtrOutput {
+	return i.ToPrivateConnectionSelfManagedModePtrOutputWithContext(context.Background())
+}
+
+func (i *privateConnectionSelfManagedModePtrType) ToPrivateConnectionSelfManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionSelfManagedModePtrOutput)
+}
+
+// Configuration for a self-managed Private Connection.
+type PrivateConnectionSelfManagedModeOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionSelfManagedModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionSelfManagedMode)(nil)).Elem()
+}
+
+func (o PrivateConnectionSelfManagedModeOutput) ToPrivateConnectionSelfManagedModeOutput() PrivateConnectionSelfManagedModeOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedModeOutput) ToPrivateConnectionSelfManagedModeOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedModeOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedModeOutput) ToPrivateConnectionSelfManagedModePtrOutput() PrivateConnectionSelfManagedModePtrOutput {
+	return o.ToPrivateConnectionSelfManagedModePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionSelfManagedModeOutput) ToPrivateConnectionSelfManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionSelfManagedMode) *PrivateConnectionSelfManagedMode {
+		return &v
+	}).(PrivateConnectionSelfManagedModePtrOutput)
+}
+
+// The ARN of the Resource Configuration.
+func (o PrivateConnectionSelfManagedModeOutput) ResourceConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateConnectionSelfManagedMode) string { return v.ResourceConfigurationId }).(pulumi.StringOutput)
+}
+
+type PrivateConnectionSelfManagedModePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionSelfManagedModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionSelfManagedMode)(nil)).Elem()
+}
+
+func (o PrivateConnectionSelfManagedModePtrOutput) ToPrivateConnectionSelfManagedModePtrOutput() PrivateConnectionSelfManagedModePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedModePtrOutput) ToPrivateConnectionSelfManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionSelfManagedModePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionSelfManagedModePtrOutput) Elem() PrivateConnectionSelfManagedModeOutput {
+	return o.ApplyT(func(v *PrivateConnectionSelfManagedMode) PrivateConnectionSelfManagedMode {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionSelfManagedMode
+		return ret
+	}).(PrivateConnectionSelfManagedModeOutput)
+}
+
+// The ARN of the Resource Configuration.
+func (o PrivateConnectionSelfManagedModePtrOutput) ResourceConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionSelfManagedMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for a service-managed Private Connection.
+type PrivateConnectionServiceManagedMode struct {
+	// DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+	DnsResolution *PrivateConnectionServiceManagedModeDnsResolution `pulumi:"dnsResolution"`
+	// IP address or DNS name of the target resource.
+	HostAddress string `pulumi:"hostAddress"`
+	// IP address type of the service-managed Resource Gateway.
+	IpAddressType *PrivateConnectionServiceManagedModeIpAddressType `pulumi:"ipAddressType"`
+	// Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
+	// TCP port ranges that a consumer can use to access the resource.
+	PortRanges []string `pulumi:"portRanges"`
+	// Security groups to attach to the service-managed Resource Gateway.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Subnets that the service-managed Resource Gateway will span.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// VPC to create the service-managed Resource Gateway in.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// PrivateConnectionServiceManagedModeInput is an input type that accepts PrivateConnectionServiceManagedModeArgs and PrivateConnectionServiceManagedModeOutput values.
+// You can construct a concrete instance of `PrivateConnectionServiceManagedModeInput` via:
+//
+//	PrivateConnectionServiceManagedModeArgs{...}
+type PrivateConnectionServiceManagedModeInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedModeOutput() PrivateConnectionServiceManagedModeOutput
+	ToPrivateConnectionServiceManagedModeOutputWithContext(context.Context) PrivateConnectionServiceManagedModeOutput
+}
+
+// Configuration for a service-managed Private Connection.
+type PrivateConnectionServiceManagedModeArgs struct {
+	// DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+	DnsResolution PrivateConnectionServiceManagedModeDnsResolutionPtrInput `pulumi:"dnsResolution"`
+	// IP address or DNS name of the target resource.
+	HostAddress pulumi.StringInput `pulumi:"hostAddress"`
+	// IP address type of the service-managed Resource Gateway.
+	IpAddressType PrivateConnectionServiceManagedModeIpAddressTypePtrInput `pulumi:"ipAddressType"`
+	// Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+	Ipv4AddressesPerEni pulumi.IntPtrInput `pulumi:"ipv4AddressesPerEni"`
+	// TCP port ranges that a consumer can use to access the resource.
+	PortRanges pulumi.StringArrayInput `pulumi:"portRanges"`
+	// Security groups to attach to the service-managed Resource Gateway.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// Subnets that the service-managed Resource Gateway will span.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// VPC to create the service-managed Resource Gateway in.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (PrivateConnectionServiceManagedModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedMode)(nil)).Elem()
+}
+
+func (i PrivateConnectionServiceManagedModeArgs) ToPrivateConnectionServiceManagedModeOutput() PrivateConnectionServiceManagedModeOutput {
+	return i.ToPrivateConnectionServiceManagedModeOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionServiceManagedModeArgs) ToPrivateConnectionServiceManagedModeOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionServiceManagedModeOutput)
+}
+
+func (i PrivateConnectionServiceManagedModeArgs) ToPrivateConnectionServiceManagedModePtrOutput() PrivateConnectionServiceManagedModePtrOutput {
+	return i.ToPrivateConnectionServiceManagedModePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateConnectionServiceManagedModeArgs) ToPrivateConnectionServiceManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionServiceManagedModeOutput).ToPrivateConnectionServiceManagedModePtrOutputWithContext(ctx)
+}
+
+// PrivateConnectionServiceManagedModePtrInput is an input type that accepts PrivateConnectionServiceManagedModeArgs, PrivateConnectionServiceManagedModePtr and PrivateConnectionServiceManagedModePtrOutput values.
+// You can construct a concrete instance of `PrivateConnectionServiceManagedModePtrInput` via:
+//
+//	        PrivateConnectionServiceManagedModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PrivateConnectionServiceManagedModePtrInput interface {
+	pulumi.Input
+
+	ToPrivateConnectionServiceManagedModePtrOutput() PrivateConnectionServiceManagedModePtrOutput
+	ToPrivateConnectionServiceManagedModePtrOutputWithContext(context.Context) PrivateConnectionServiceManagedModePtrOutput
+}
+
+type privateConnectionServiceManagedModePtrType PrivateConnectionServiceManagedModeArgs
+
+func PrivateConnectionServiceManagedModePtr(v *PrivateConnectionServiceManagedModeArgs) PrivateConnectionServiceManagedModePtrInput {
+	return (*privateConnectionServiceManagedModePtrType)(v)
+}
+
+func (*privateConnectionServiceManagedModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManagedMode)(nil)).Elem()
+}
+
+func (i *privateConnectionServiceManagedModePtrType) ToPrivateConnectionServiceManagedModePtrOutput() PrivateConnectionServiceManagedModePtrOutput {
+	return i.ToPrivateConnectionServiceManagedModePtrOutputWithContext(context.Background())
+}
+
+func (i *privateConnectionServiceManagedModePtrType) ToPrivateConnectionServiceManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateConnectionServiceManagedModePtrOutput)
+}
+
+// Configuration for a service-managed Private Connection.
+type PrivateConnectionServiceManagedModeOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateConnectionServiceManagedMode)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedModeOutput) ToPrivateConnectionServiceManagedModeOutput() PrivateConnectionServiceManagedModeOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeOutput) ToPrivateConnectionServiceManagedModeOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModeOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModeOutput) ToPrivateConnectionServiceManagedModePtrOutput() PrivateConnectionServiceManagedModePtrOutput {
+	return o.ToPrivateConnectionServiceManagedModePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateConnectionServiceManagedModeOutput) ToPrivateConnectionServiceManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateConnectionServiceManagedMode) *PrivateConnectionServiceManagedMode {
+		return &v
+	}).(PrivateConnectionServiceManagedModePtrOutput)
+}
+
+// DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+func (o PrivateConnectionServiceManagedModeOutput) DnsResolution() PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) *PrivateConnectionServiceManagedModeDnsResolution {
+		return v.DnsResolution
+	}).(PrivateConnectionServiceManagedModeDnsResolutionPtrOutput)
+}
+
+// IP address or DNS name of the target resource.
+func (o PrivateConnectionServiceManagedModeOutput) HostAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) string { return v.HostAddress }).(pulumi.StringOutput)
+}
+
+// IP address type of the service-managed Resource Gateway.
+func (o PrivateConnectionServiceManagedModeOutput) IpAddressType() PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) *PrivateConnectionServiceManagedModeIpAddressType {
+		return v.IpAddressType
+	}).(PrivateConnectionServiceManagedModeIpAddressTypePtrOutput)
+}
+
+// Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+func (o PrivateConnectionServiceManagedModeOutput) Ipv4AddressesPerEni() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) *int { return v.Ipv4AddressesPerEni }).(pulumi.IntPtrOutput)
+}
+
+// TCP port ranges that a consumer can use to access the resource.
+func (o PrivateConnectionServiceManagedModeOutput) PortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) []string { return v.PortRanges }).(pulumi.StringArrayOutput)
+}
+
+// Security groups to attach to the service-managed Resource Gateway.
+func (o PrivateConnectionServiceManagedModeOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// Subnets that the service-managed Resource Gateway will span.
+func (o PrivateConnectionServiceManagedModeOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// VPC to create the service-managed Resource Gateway in.
+func (o PrivateConnectionServiceManagedModeOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateConnectionServiceManagedMode) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type PrivateConnectionServiceManagedModePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateConnectionServiceManagedModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateConnectionServiceManagedMode)(nil)).Elem()
+}
+
+func (o PrivateConnectionServiceManagedModePtrOutput) ToPrivateConnectionServiceManagedModePtrOutput() PrivateConnectionServiceManagedModePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModePtrOutput) ToPrivateConnectionServiceManagedModePtrOutputWithContext(ctx context.Context) PrivateConnectionServiceManagedModePtrOutput {
+	return o
+}
+
+func (o PrivateConnectionServiceManagedModePtrOutput) Elem() PrivateConnectionServiceManagedModeOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) PrivateConnectionServiceManagedMode {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateConnectionServiceManagedMode
+		return ret
+	}).(PrivateConnectionServiceManagedModeOutput)
+}
+
+// DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+func (o PrivateConnectionServiceManagedModePtrOutput) DnsResolution() PrivateConnectionServiceManagedModeDnsResolutionPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) *PrivateConnectionServiceManagedModeDnsResolution {
+		if v == nil {
+			return nil
+		}
+		return v.DnsResolution
+	}).(PrivateConnectionServiceManagedModeDnsResolutionPtrOutput)
+}
+
+// IP address or DNS name of the target resource.
+func (o PrivateConnectionServiceManagedModePtrOutput) HostAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// IP address type of the service-managed Resource Gateway.
+func (o PrivateConnectionServiceManagedModePtrOutput) IpAddressType() PrivateConnectionServiceManagedModeIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) *PrivateConnectionServiceManagedModeIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(PrivateConnectionServiceManagedModeIpAddressTypePtrOutput)
+}
+
+// Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+func (o PrivateConnectionServiceManagedModePtrOutput) Ipv4AddressesPerEni() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv4AddressesPerEni
+	}).(pulumi.IntPtrOutput)
+}
+
+// TCP port ranges that a consumer can use to access the resource.
+func (o PrivateConnectionServiceManagedModePtrOutput) PortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PortRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// Security groups to attach to the service-managed Resource Gateway.
+func (o PrivateConnectionServiceManagedModePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Subnets that the service-managed Resource Gateway will span.
+func (o PrivateConnectionServiceManagedModePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// VPC to create the service-managed Resource Gateway in.
+func (o PrivateConnectionServiceManagedModePtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateConnectionServiceManagedMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type PrivateConnectionTag struct {
 	// The key name of the tag.
@@ -651,6 +4724,16 @@ type PrivateConnectionTag struct {
 
 // Additional details specific to the service type returned after registration
 type ServiceAdditionalServiceDetails struct {
+	AzureIdentity     *ServiceRegisteredAzureIdentityDetails    `pulumi:"azureIdentity"`
+	Dynatrace         *ServiceRegisteredDynatraceDetails        `pulumi:"dynatrace"`
+	GitLab            *ServiceRegisteredGitLabServiceDetails    `pulumi:"gitLab"`
+	McpServer         *ServiceRegisteredMcpServerDetails        `pulumi:"mcpServer"`
+	McpServerGrafana  *ServiceRegisteredMcpServerGrafanaDetails `pulumi:"mcpServerGrafana"`
+	McpServerNewRelic *ServiceRegisteredNewRelicDetails         `pulumi:"mcpServerNewRelic"`
+	McpServerSigV4    *ServiceRegisteredMcpServerSigV4Details   `pulumi:"mcpServerSigV4"`
+	McpServerSplunk   *ServiceRegisteredMcpServerDetails        `pulumi:"mcpServerSplunk"`
+	PagerDuty         *ServiceRegisteredPagerDutyDetails        `pulumi:"pagerDuty"`
+	ServiceNow        *ServiceRegisteredServiceNowDetails       `pulumi:"serviceNow"`
 }
 
 // Additional details specific to the service type returned after registration
@@ -666,6 +4749,50 @@ func (o ServiceAdditionalServiceDetailsOutput) ToServiceAdditionalServiceDetails
 
 func (o ServiceAdditionalServiceDetailsOutput) ToServiceAdditionalServiceDetailsOutputWithContext(ctx context.Context) ServiceAdditionalServiceDetailsOutput {
 	return o
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) AzureIdentity() ServiceRegisteredAzureIdentityDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredAzureIdentityDetails { return v.AzureIdentity }).(ServiceRegisteredAzureIdentityDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) Dynatrace() ServiceRegisteredDynatraceDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredDynatraceDetails { return v.Dynatrace }).(ServiceRegisteredDynatraceDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) GitLab() ServiceRegisteredGitLabServiceDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredGitLabServiceDetails { return v.GitLab }).(ServiceRegisteredGitLabServiceDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) McpServer() ServiceRegisteredMcpServerDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerDetails { return v.McpServer }).(ServiceRegisteredMcpServerDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) McpServerGrafana() ServiceRegisteredMcpServerGrafanaDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerGrafanaDetails {
+		return v.McpServerGrafana
+	}).(ServiceRegisteredMcpServerGrafanaDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) McpServerNewRelic() ServiceRegisteredNewRelicDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredNewRelicDetails { return v.McpServerNewRelic }).(ServiceRegisteredNewRelicDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) McpServerSigV4() ServiceRegisteredMcpServerSigV4DetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerSigV4Details {
+		return v.McpServerSigV4
+	}).(ServiceRegisteredMcpServerSigV4DetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) McpServerSplunk() ServiceRegisteredMcpServerDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerDetails { return v.McpServerSplunk }).(ServiceRegisteredMcpServerDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) PagerDuty() ServiceRegisteredPagerDutyDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredPagerDutyDetails { return v.PagerDuty }).(ServiceRegisteredPagerDutyDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) ServiceNow() ServiceRegisteredServiceNowDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredServiceNowDetails { return v.ServiceNow }).(ServiceRegisteredServiceNowDetailsPtrOutput)
 }
 
 type ServiceAdditionalServiceDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -692,8 +4819,661 @@ func (o ServiceAdditionalServiceDetailsPtrOutput) Elem() ServiceAdditionalServic
 	}).(ServiceAdditionalServiceDetailsOutput)
 }
 
+func (o ServiceAdditionalServiceDetailsPtrOutput) AzureIdentity() ServiceRegisteredAzureIdentityDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredAzureIdentityDetails {
+		if v == nil {
+			return nil
+		}
+		return v.AzureIdentity
+	}).(ServiceRegisteredAzureIdentityDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) Dynatrace() ServiceRegisteredDynatraceDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredDynatraceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.Dynatrace
+	}).(ServiceRegisteredDynatraceDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) GitLab() ServiceRegisteredGitLabServiceDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredGitLabServiceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.GitLab
+	}).(ServiceRegisteredGitLabServiceDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) McpServer() ServiceRegisteredMcpServerDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServer
+	}).(ServiceRegisteredMcpServerDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) McpServerGrafana() ServiceRegisteredMcpServerGrafanaDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerGrafanaDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerGrafana
+	}).(ServiceRegisteredMcpServerGrafanaDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) McpServerNewRelic() ServiceRegisteredNewRelicDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredNewRelicDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerNewRelic
+	}).(ServiceRegisteredNewRelicDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) McpServerSigV4() ServiceRegisteredMcpServerSigV4DetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerSigV4Details {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerSigV4
+	}).(ServiceRegisteredMcpServerSigV4DetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) McpServerSplunk() ServiceRegisteredMcpServerDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredMcpServerDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerSplunk
+	}).(ServiceRegisteredMcpServerDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) PagerDuty() ServiceRegisteredPagerDutyDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredPagerDutyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.PagerDuty
+	}).(ServiceRegisteredPagerDutyDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) ServiceNow() ServiceRegisteredServiceNowDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredServiceNowDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNow
+	}).(ServiceRegisteredServiceNowDetailsPtrOutput)
+}
+
+// API key authentication details
+type ServiceApiKeyDetails struct {
+	// HTTP header name to send the API key
+	ApiKeyHeader string `pulumi:"apiKeyHeader"`
+	// User friendly API key name
+	ApiKeyName string `pulumi:"apiKeyName"`
+	// API key value
+	ApiKeyValue string `pulumi:"apiKeyValue"`
+}
+
+// ServiceApiKeyDetailsInput is an input type that accepts ServiceApiKeyDetailsArgs and ServiceApiKeyDetailsOutput values.
+// You can construct a concrete instance of `ServiceApiKeyDetailsInput` via:
+//
+//	ServiceApiKeyDetailsArgs{...}
+type ServiceApiKeyDetailsInput interface {
+	pulumi.Input
+
+	ToServiceApiKeyDetailsOutput() ServiceApiKeyDetailsOutput
+	ToServiceApiKeyDetailsOutputWithContext(context.Context) ServiceApiKeyDetailsOutput
+}
+
+// API key authentication details
+type ServiceApiKeyDetailsArgs struct {
+	// HTTP header name to send the API key
+	ApiKeyHeader pulumi.StringInput `pulumi:"apiKeyHeader"`
+	// User friendly API key name
+	ApiKeyName pulumi.StringInput `pulumi:"apiKeyName"`
+	// API key value
+	ApiKeyValue pulumi.StringInput `pulumi:"apiKeyValue"`
+}
+
+func (ServiceApiKeyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceApiKeyDetails)(nil)).Elem()
+}
+
+func (i ServiceApiKeyDetailsArgs) ToServiceApiKeyDetailsOutput() ServiceApiKeyDetailsOutput {
+	return i.ToServiceApiKeyDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceApiKeyDetailsArgs) ToServiceApiKeyDetailsOutputWithContext(ctx context.Context) ServiceApiKeyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiKeyDetailsOutput)
+}
+
+func (i ServiceApiKeyDetailsArgs) ToServiceApiKeyDetailsPtrOutput() ServiceApiKeyDetailsPtrOutput {
+	return i.ToServiceApiKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceApiKeyDetailsArgs) ToServiceApiKeyDetailsPtrOutputWithContext(ctx context.Context) ServiceApiKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiKeyDetailsOutput).ToServiceApiKeyDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceApiKeyDetailsPtrInput is an input type that accepts ServiceApiKeyDetailsArgs, ServiceApiKeyDetailsPtr and ServiceApiKeyDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceApiKeyDetailsPtrInput` via:
+//
+//	        ServiceApiKeyDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceApiKeyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceApiKeyDetailsPtrOutput() ServiceApiKeyDetailsPtrOutput
+	ToServiceApiKeyDetailsPtrOutputWithContext(context.Context) ServiceApiKeyDetailsPtrOutput
+}
+
+type serviceApiKeyDetailsPtrType ServiceApiKeyDetailsArgs
+
+func ServiceApiKeyDetailsPtr(v *ServiceApiKeyDetailsArgs) ServiceApiKeyDetailsPtrInput {
+	return (*serviceApiKeyDetailsPtrType)(v)
+}
+
+func (*serviceApiKeyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceApiKeyDetails)(nil)).Elem()
+}
+
+func (i *serviceApiKeyDetailsPtrType) ToServiceApiKeyDetailsPtrOutput() ServiceApiKeyDetailsPtrOutput {
+	return i.ToServiceApiKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceApiKeyDetailsPtrType) ToServiceApiKeyDetailsPtrOutputWithContext(ctx context.Context) ServiceApiKeyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceApiKeyDetailsPtrOutput)
+}
+
+// API key authentication details
+type ServiceApiKeyDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceApiKeyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceApiKeyDetails)(nil)).Elem()
+}
+
+func (o ServiceApiKeyDetailsOutput) ToServiceApiKeyDetailsOutput() ServiceApiKeyDetailsOutput {
+	return o
+}
+
+func (o ServiceApiKeyDetailsOutput) ToServiceApiKeyDetailsOutputWithContext(ctx context.Context) ServiceApiKeyDetailsOutput {
+	return o
+}
+
+func (o ServiceApiKeyDetailsOutput) ToServiceApiKeyDetailsPtrOutput() ServiceApiKeyDetailsPtrOutput {
+	return o.ToServiceApiKeyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceApiKeyDetailsOutput) ToServiceApiKeyDetailsPtrOutputWithContext(ctx context.Context) ServiceApiKeyDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceApiKeyDetails) *ServiceApiKeyDetails {
+		return &v
+	}).(ServiceApiKeyDetailsPtrOutput)
+}
+
+// HTTP header name to send the API key
+func (o ServiceApiKeyDetailsOutput) ApiKeyHeader() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceApiKeyDetails) string { return v.ApiKeyHeader }).(pulumi.StringOutput)
+}
+
+// User friendly API key name
+func (o ServiceApiKeyDetailsOutput) ApiKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceApiKeyDetails) string { return v.ApiKeyName }).(pulumi.StringOutput)
+}
+
+// API key value
+func (o ServiceApiKeyDetailsOutput) ApiKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceApiKeyDetails) string { return v.ApiKeyValue }).(pulumi.StringOutput)
+}
+
+type ServiceApiKeyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceApiKeyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceApiKeyDetails)(nil)).Elem()
+}
+
+func (o ServiceApiKeyDetailsPtrOutput) ToServiceApiKeyDetailsPtrOutput() ServiceApiKeyDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceApiKeyDetailsPtrOutput) ToServiceApiKeyDetailsPtrOutputWithContext(ctx context.Context) ServiceApiKeyDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceApiKeyDetailsPtrOutput) Elem() ServiceApiKeyDetailsOutput {
+	return o.ApplyT(func(v *ServiceApiKeyDetails) ServiceApiKeyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceApiKeyDetails
+		return ret
+	}).(ServiceApiKeyDetailsOutput)
+}
+
+// HTTP header name to send the API key
+func (o ServiceApiKeyDetailsPtrOutput) ApiKeyHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceApiKeyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKeyHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// User friendly API key name
+func (o ServiceApiKeyDetailsPtrOutput) ApiKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceApiKeyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// API key value
+func (o ServiceApiKeyDetailsPtrOutput) ApiKeyValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceApiKeyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKeyValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Identity service configuration for federated identity
+type ServiceAzureIdentityServiceDetails struct {
+	// Azure AD application client ID
+	ClientId string `pulumi:"clientId"`
+	// Azure AD tenant ID
+	TenantId string `pulumi:"tenantId"`
+	// ARN of the IAM role for web identity token exchange
+	WebIdentityRoleArn string `pulumi:"webIdentityRoleArn"`
+	// List of audiences for the web identity token
+	WebIdentityTokenAudiences []string `pulumi:"webIdentityTokenAudiences"`
+}
+
+// ServiceAzureIdentityServiceDetailsInput is an input type that accepts ServiceAzureIdentityServiceDetailsArgs and ServiceAzureIdentityServiceDetailsOutput values.
+// You can construct a concrete instance of `ServiceAzureIdentityServiceDetailsInput` via:
+//
+//	ServiceAzureIdentityServiceDetailsArgs{...}
+type ServiceAzureIdentityServiceDetailsInput interface {
+	pulumi.Input
+
+	ToServiceAzureIdentityServiceDetailsOutput() ServiceAzureIdentityServiceDetailsOutput
+	ToServiceAzureIdentityServiceDetailsOutputWithContext(context.Context) ServiceAzureIdentityServiceDetailsOutput
+}
+
+// Azure Identity service configuration for federated identity
+type ServiceAzureIdentityServiceDetailsArgs struct {
+	// Azure AD application client ID
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Azure AD tenant ID
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// ARN of the IAM role for web identity token exchange
+	WebIdentityRoleArn pulumi.StringInput `pulumi:"webIdentityRoleArn"`
+	// List of audiences for the web identity token
+	WebIdentityTokenAudiences pulumi.StringArrayInput `pulumi:"webIdentityTokenAudiences"`
+}
+
+func (ServiceAzureIdentityServiceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAzureIdentityServiceDetails)(nil)).Elem()
+}
+
+func (i ServiceAzureIdentityServiceDetailsArgs) ToServiceAzureIdentityServiceDetailsOutput() ServiceAzureIdentityServiceDetailsOutput {
+	return i.ToServiceAzureIdentityServiceDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceAzureIdentityServiceDetailsArgs) ToServiceAzureIdentityServiceDetailsOutputWithContext(ctx context.Context) ServiceAzureIdentityServiceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureIdentityServiceDetailsOutput)
+}
+
+func (i ServiceAzureIdentityServiceDetailsArgs) ToServiceAzureIdentityServiceDetailsPtrOutput() ServiceAzureIdentityServiceDetailsPtrOutput {
+	return i.ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAzureIdentityServiceDetailsArgs) ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceAzureIdentityServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureIdentityServiceDetailsOutput).ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceAzureIdentityServiceDetailsPtrInput is an input type that accepts ServiceAzureIdentityServiceDetailsArgs, ServiceAzureIdentityServiceDetailsPtr and ServiceAzureIdentityServiceDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceAzureIdentityServiceDetailsPtrInput` via:
+//
+//	        ServiceAzureIdentityServiceDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceAzureIdentityServiceDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceAzureIdentityServiceDetailsPtrOutput() ServiceAzureIdentityServiceDetailsPtrOutput
+	ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(context.Context) ServiceAzureIdentityServiceDetailsPtrOutput
+}
+
+type serviceAzureIdentityServiceDetailsPtrType ServiceAzureIdentityServiceDetailsArgs
+
+func ServiceAzureIdentityServiceDetailsPtr(v *ServiceAzureIdentityServiceDetailsArgs) ServiceAzureIdentityServiceDetailsPtrInput {
+	return (*serviceAzureIdentityServiceDetailsPtrType)(v)
+}
+
+func (*serviceAzureIdentityServiceDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAzureIdentityServiceDetails)(nil)).Elem()
+}
+
+func (i *serviceAzureIdentityServiceDetailsPtrType) ToServiceAzureIdentityServiceDetailsPtrOutput() ServiceAzureIdentityServiceDetailsPtrOutput {
+	return i.ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAzureIdentityServiceDetailsPtrType) ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceAzureIdentityServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureIdentityServiceDetailsPtrOutput)
+}
+
+// Azure Identity service configuration for federated identity
+type ServiceAzureIdentityServiceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceAzureIdentityServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAzureIdentityServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceAzureIdentityServiceDetailsOutput) ToServiceAzureIdentityServiceDetailsOutput() ServiceAzureIdentityServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceAzureIdentityServiceDetailsOutput) ToServiceAzureIdentityServiceDetailsOutputWithContext(ctx context.Context) ServiceAzureIdentityServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceAzureIdentityServiceDetailsOutput) ToServiceAzureIdentityServiceDetailsPtrOutput() ServiceAzureIdentityServiceDetailsPtrOutput {
+	return o.ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAzureIdentityServiceDetailsOutput) ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceAzureIdentityServiceDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAzureIdentityServiceDetails) *ServiceAzureIdentityServiceDetails {
+		return &v
+	}).(ServiceAzureIdentityServiceDetailsPtrOutput)
+}
+
+// Azure AD application client ID
+func (o ServiceAzureIdentityServiceDetailsOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAzureIdentityServiceDetails) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Azure AD tenant ID
+func (o ServiceAzureIdentityServiceDetailsOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAzureIdentityServiceDetails) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role for web identity token exchange
+func (o ServiceAzureIdentityServiceDetailsOutput) WebIdentityRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAzureIdentityServiceDetails) string { return v.WebIdentityRoleArn }).(pulumi.StringOutput)
+}
+
+// List of audiences for the web identity token
+func (o ServiceAzureIdentityServiceDetailsOutput) WebIdentityTokenAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAzureIdentityServiceDetails) []string { return v.WebIdentityTokenAudiences }).(pulumi.StringArrayOutput)
+}
+
+type ServiceAzureIdentityServiceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAzureIdentityServiceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAzureIdentityServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceAzureIdentityServiceDetailsPtrOutput) ToServiceAzureIdentityServiceDetailsPtrOutput() ServiceAzureIdentityServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceAzureIdentityServiceDetailsPtrOutput) ToServiceAzureIdentityServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceAzureIdentityServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceAzureIdentityServiceDetailsPtrOutput) Elem() ServiceAzureIdentityServiceDetailsOutput {
+	return o.ApplyT(func(v *ServiceAzureIdentityServiceDetails) ServiceAzureIdentityServiceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAzureIdentityServiceDetails
+		return ret
+	}).(ServiceAzureIdentityServiceDetailsOutput)
+}
+
+// Azure AD application client ID
+func (o ServiceAzureIdentityServiceDetailsPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureIdentityServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure AD tenant ID
+func (o ServiceAzureIdentityServiceDetailsPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureIdentityServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role for web identity token exchange
+func (o ServiceAzureIdentityServiceDetailsPtrOutput) WebIdentityRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureIdentityServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebIdentityRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of audiences for the web identity token
+func (o ServiceAzureIdentityServiceDetailsPtrOutput) WebIdentityTokenAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAzureIdentityServiceDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WebIdentityTokenAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Bearer token authentication details
+type ServiceBearerTokenDetails struct {
+	// HTTP header name to send the bearer token
+	AuthorizationHeader *string `pulumi:"authorizationHeader"`
+	// User friendly bearer token name
+	TokenName string `pulumi:"tokenName"`
+	// Bearer token value
+	TokenValue string `pulumi:"tokenValue"`
+}
+
+// ServiceBearerTokenDetailsInput is an input type that accepts ServiceBearerTokenDetailsArgs and ServiceBearerTokenDetailsOutput values.
+// You can construct a concrete instance of `ServiceBearerTokenDetailsInput` via:
+//
+//	ServiceBearerTokenDetailsArgs{...}
+type ServiceBearerTokenDetailsInput interface {
+	pulumi.Input
+
+	ToServiceBearerTokenDetailsOutput() ServiceBearerTokenDetailsOutput
+	ToServiceBearerTokenDetailsOutputWithContext(context.Context) ServiceBearerTokenDetailsOutput
+}
+
+// Bearer token authentication details
+type ServiceBearerTokenDetailsArgs struct {
+	// HTTP header name to send the bearer token
+	AuthorizationHeader pulumi.StringPtrInput `pulumi:"authorizationHeader"`
+	// User friendly bearer token name
+	TokenName pulumi.StringInput `pulumi:"tokenName"`
+	// Bearer token value
+	TokenValue pulumi.StringInput `pulumi:"tokenValue"`
+}
+
+func (ServiceBearerTokenDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBearerTokenDetails)(nil)).Elem()
+}
+
+func (i ServiceBearerTokenDetailsArgs) ToServiceBearerTokenDetailsOutput() ServiceBearerTokenDetailsOutput {
+	return i.ToServiceBearerTokenDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceBearerTokenDetailsArgs) ToServiceBearerTokenDetailsOutputWithContext(ctx context.Context) ServiceBearerTokenDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBearerTokenDetailsOutput)
+}
+
+func (i ServiceBearerTokenDetailsArgs) ToServiceBearerTokenDetailsPtrOutput() ServiceBearerTokenDetailsPtrOutput {
+	return i.ToServiceBearerTokenDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceBearerTokenDetailsArgs) ToServiceBearerTokenDetailsPtrOutputWithContext(ctx context.Context) ServiceBearerTokenDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBearerTokenDetailsOutput).ToServiceBearerTokenDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceBearerTokenDetailsPtrInput is an input type that accepts ServiceBearerTokenDetailsArgs, ServiceBearerTokenDetailsPtr and ServiceBearerTokenDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceBearerTokenDetailsPtrInput` via:
+//
+//	        ServiceBearerTokenDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceBearerTokenDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceBearerTokenDetailsPtrOutput() ServiceBearerTokenDetailsPtrOutput
+	ToServiceBearerTokenDetailsPtrOutputWithContext(context.Context) ServiceBearerTokenDetailsPtrOutput
+}
+
+type serviceBearerTokenDetailsPtrType ServiceBearerTokenDetailsArgs
+
+func ServiceBearerTokenDetailsPtr(v *ServiceBearerTokenDetailsArgs) ServiceBearerTokenDetailsPtrInput {
+	return (*serviceBearerTokenDetailsPtrType)(v)
+}
+
+func (*serviceBearerTokenDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBearerTokenDetails)(nil)).Elem()
+}
+
+func (i *serviceBearerTokenDetailsPtrType) ToServiceBearerTokenDetailsPtrOutput() ServiceBearerTokenDetailsPtrOutput {
+	return i.ToServiceBearerTokenDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceBearerTokenDetailsPtrType) ToServiceBearerTokenDetailsPtrOutputWithContext(ctx context.Context) ServiceBearerTokenDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBearerTokenDetailsPtrOutput)
+}
+
+// Bearer token authentication details
+type ServiceBearerTokenDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceBearerTokenDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBearerTokenDetails)(nil)).Elem()
+}
+
+func (o ServiceBearerTokenDetailsOutput) ToServiceBearerTokenDetailsOutput() ServiceBearerTokenDetailsOutput {
+	return o
+}
+
+func (o ServiceBearerTokenDetailsOutput) ToServiceBearerTokenDetailsOutputWithContext(ctx context.Context) ServiceBearerTokenDetailsOutput {
+	return o
+}
+
+func (o ServiceBearerTokenDetailsOutput) ToServiceBearerTokenDetailsPtrOutput() ServiceBearerTokenDetailsPtrOutput {
+	return o.ToServiceBearerTokenDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceBearerTokenDetailsOutput) ToServiceBearerTokenDetailsPtrOutputWithContext(ctx context.Context) ServiceBearerTokenDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceBearerTokenDetails) *ServiceBearerTokenDetails {
+		return &v
+	}).(ServiceBearerTokenDetailsPtrOutput)
+}
+
+// HTTP header name to send the bearer token
+func (o ServiceBearerTokenDetailsOutput) AuthorizationHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBearerTokenDetails) *string { return v.AuthorizationHeader }).(pulumi.StringPtrOutput)
+}
+
+// User friendly bearer token name
+func (o ServiceBearerTokenDetailsOutput) TokenName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBearerTokenDetails) string { return v.TokenName }).(pulumi.StringOutput)
+}
+
+// Bearer token value
+func (o ServiceBearerTokenDetailsOutput) TokenValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBearerTokenDetails) string { return v.TokenValue }).(pulumi.StringOutput)
+}
+
+type ServiceBearerTokenDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceBearerTokenDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBearerTokenDetails)(nil)).Elem()
+}
+
+func (o ServiceBearerTokenDetailsPtrOutput) ToServiceBearerTokenDetailsPtrOutput() ServiceBearerTokenDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceBearerTokenDetailsPtrOutput) ToServiceBearerTokenDetailsPtrOutputWithContext(ctx context.Context) ServiceBearerTokenDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceBearerTokenDetailsPtrOutput) Elem() ServiceBearerTokenDetailsOutput {
+	return o.ApplyT(func(v *ServiceBearerTokenDetails) ServiceBearerTokenDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceBearerTokenDetails
+		return ret
+	}).(ServiceBearerTokenDetailsOutput)
+}
+
+// HTTP header name to send the bearer token
+func (o ServiceBearerTokenDetailsPtrOutput) AuthorizationHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBearerTokenDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// User friendly bearer token name
+func (o ServiceBearerTokenDetailsPtrOutput) TokenName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBearerTokenDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Bearer token value
+func (o ServiceBearerTokenDetailsPtrOutput) TokenValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBearerTokenDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenValue
+	}).(pulumi.StringPtrOutput)
+}
+
 // Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
 type ServiceDetails struct {
+	AzureIdentity     *ServiceAzureIdentityServiceDetails `pulumi:"azureIdentity"`
+	Dynatrace         *ServiceDynatraceServiceDetails     `pulumi:"dynatrace"`
+	GitLab            *ServiceGitLabDetails               `pulumi:"gitLab"`
+	McpServer         *ServiceMcpServerDetails            `pulumi:"mcpServer"`
+	McpServerGrafana  *ServiceMcpServerGrafanaDetails     `pulumi:"mcpServerGrafana"`
+	McpServerNewRelic *ServiceNewRelicServiceDetails      `pulumi:"mcpServerNewRelic"`
+	McpServerSigV4    *ServiceMcpServerSigV4Details       `pulumi:"mcpServerSigV4"`
+	McpServerSplunk   *ServiceMcpServerSplunkDetails      `pulumi:"mcpServerSplunk"`
+	PagerDuty         *ServicePagerDutyDetails            `pulumi:"pagerDuty"`
+	ServiceNow        *ServiceNowServiceDetails           `pulumi:"serviceNow"`
 }
 
 // ServiceDetailsInput is an input type that accepts ServiceDetailsArgs and ServiceDetailsOutput values.
@@ -709,6 +5489,16 @@ type ServiceDetailsInput interface {
 
 // Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
 type ServiceDetailsArgs struct {
+	AzureIdentity     ServiceAzureIdentityServiceDetailsPtrInput `pulumi:"azureIdentity"`
+	Dynatrace         ServiceDynatraceServiceDetailsPtrInput     `pulumi:"dynatrace"`
+	GitLab            ServiceGitLabDetailsPtrInput               `pulumi:"gitLab"`
+	McpServer         ServiceMcpServerDetailsPtrInput            `pulumi:"mcpServer"`
+	McpServerGrafana  ServiceMcpServerGrafanaDetailsPtrInput     `pulumi:"mcpServerGrafana"`
+	McpServerNewRelic ServiceNewRelicServiceDetailsPtrInput      `pulumi:"mcpServerNewRelic"`
+	McpServerSigV4    ServiceMcpServerSigV4DetailsPtrInput       `pulumi:"mcpServerSigV4"`
+	McpServerSplunk   ServiceMcpServerSplunkDetailsPtrInput      `pulumi:"mcpServerSplunk"`
+	PagerDuty         ServicePagerDutyDetailsPtrInput            `pulumi:"pagerDuty"`
+	ServiceNow        ServiceNowServiceDetailsPtrInput           `pulumi:"serviceNow"`
 }
 
 func (ServiceDetailsArgs) ElementType() reflect.Type {
@@ -789,6 +5579,46 @@ func (o ServiceDetailsOutput) ToServiceDetailsPtrOutputWithContext(ctx context.C
 	}).(ServiceDetailsPtrOutput)
 }
 
+func (o ServiceDetailsOutput) AzureIdentity() ServiceAzureIdentityServiceDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceAzureIdentityServiceDetails { return v.AzureIdentity }).(ServiceAzureIdentityServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) Dynatrace() ServiceDynatraceServiceDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceDynatraceServiceDetails { return v.Dynatrace }).(ServiceDynatraceServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) GitLab() ServiceGitLabDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceGitLabDetails { return v.GitLab }).(ServiceGitLabDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) McpServer() ServiceMcpServerDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceMcpServerDetails { return v.McpServer }).(ServiceMcpServerDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) McpServerGrafana() ServiceMcpServerGrafanaDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceMcpServerGrafanaDetails { return v.McpServerGrafana }).(ServiceMcpServerGrafanaDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) McpServerNewRelic() ServiceNewRelicServiceDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceNewRelicServiceDetails { return v.McpServerNewRelic }).(ServiceNewRelicServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) McpServerSigV4() ServiceMcpServerSigV4DetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceMcpServerSigV4Details { return v.McpServerSigV4 }).(ServiceMcpServerSigV4DetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) McpServerSplunk() ServiceMcpServerSplunkDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceMcpServerSplunkDetails { return v.McpServerSplunk }).(ServiceMcpServerSplunkDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) PagerDuty() ServicePagerDutyDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServicePagerDutyDetails { return v.PagerDuty }).(ServicePagerDutyDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) ServiceNow() ServiceNowServiceDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceNowServiceDetails { return v.ServiceNow }).(ServiceNowServiceDetailsPtrOutput)
+}
+
 type ServiceDetailsPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceDetailsPtrOutput) ElementType() reflect.Type {
@@ -813,6 +5643,4433 @@ func (o ServiceDetailsPtrOutput) Elem() ServiceDetailsOutput {
 	}).(ServiceDetailsOutput)
 }
 
+func (o ServiceDetailsPtrOutput) AzureIdentity() ServiceAzureIdentityServiceDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceAzureIdentityServiceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.AzureIdentity
+	}).(ServiceAzureIdentityServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) Dynatrace() ServiceDynatraceServiceDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceDynatraceServiceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.Dynatrace
+	}).(ServiceDynatraceServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) GitLab() ServiceGitLabDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceGitLabDetails {
+		if v == nil {
+			return nil
+		}
+		return v.GitLab
+	}).(ServiceGitLabDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) McpServer() ServiceMcpServerDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceMcpServerDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServer
+	}).(ServiceMcpServerDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) McpServerGrafana() ServiceMcpServerGrafanaDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceMcpServerGrafanaDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerGrafana
+	}).(ServiceMcpServerGrafanaDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) McpServerNewRelic() ServiceNewRelicServiceDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceNewRelicServiceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerNewRelic
+	}).(ServiceNewRelicServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) McpServerSigV4() ServiceMcpServerSigV4DetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceMcpServerSigV4Details {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerSigV4
+	}).(ServiceMcpServerSigV4DetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) McpServerSplunk() ServiceMcpServerSplunkDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceMcpServerSplunkDetails {
+		if v == nil {
+			return nil
+		}
+		return v.McpServerSplunk
+	}).(ServiceMcpServerSplunkDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) PagerDuty() ServicePagerDutyDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServicePagerDutyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.PagerDuty
+	}).(ServicePagerDutyDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) ServiceNow() ServiceNowServiceDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceNowServiceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNow
+	}).(ServiceNowServiceDetailsPtrOutput)
+}
+
+// Dynatrace OAuth authorization configuration
+type ServiceDynatraceAuthorizationConfig struct {
+	OAuthClientCredentials *ServiceOAuthClientDetails `pulumi:"oAuthClientCredentials"`
+}
+
+// ServiceDynatraceAuthorizationConfigInput is an input type that accepts ServiceDynatraceAuthorizationConfigArgs and ServiceDynatraceAuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServiceDynatraceAuthorizationConfigInput` via:
+//
+//	ServiceDynatraceAuthorizationConfigArgs{...}
+type ServiceDynatraceAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServiceDynatraceAuthorizationConfigOutput() ServiceDynatraceAuthorizationConfigOutput
+	ToServiceDynatraceAuthorizationConfigOutputWithContext(context.Context) ServiceDynatraceAuthorizationConfigOutput
+}
+
+// Dynatrace OAuth authorization configuration
+type ServiceDynatraceAuthorizationConfigArgs struct {
+	OAuthClientCredentials ServiceOAuthClientDetailsPtrInput `pulumi:"oAuthClientCredentials"`
+}
+
+func (ServiceDynatraceAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDynatraceAuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServiceDynatraceAuthorizationConfigArgs) ToServiceDynatraceAuthorizationConfigOutput() ServiceDynatraceAuthorizationConfigOutput {
+	return i.ToServiceDynatraceAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceDynatraceAuthorizationConfigArgs) ToServiceDynatraceAuthorizationConfigOutputWithContext(ctx context.Context) ServiceDynatraceAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDynatraceAuthorizationConfigOutput)
+}
+
+func (i ServiceDynatraceAuthorizationConfigArgs) ToServiceDynatraceAuthorizationConfigPtrOutput() ServiceDynatraceAuthorizationConfigPtrOutput {
+	return i.ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDynatraceAuthorizationConfigArgs) ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceDynatraceAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDynatraceAuthorizationConfigOutput).ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceDynatraceAuthorizationConfigPtrInput is an input type that accepts ServiceDynatraceAuthorizationConfigArgs, ServiceDynatraceAuthorizationConfigPtr and ServiceDynatraceAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceDynatraceAuthorizationConfigPtrInput` via:
+//
+//	        ServiceDynatraceAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDynatraceAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceDynatraceAuthorizationConfigPtrOutput() ServiceDynatraceAuthorizationConfigPtrOutput
+	ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(context.Context) ServiceDynatraceAuthorizationConfigPtrOutput
+}
+
+type serviceDynatraceAuthorizationConfigPtrType ServiceDynatraceAuthorizationConfigArgs
+
+func ServiceDynatraceAuthorizationConfigPtr(v *ServiceDynatraceAuthorizationConfigArgs) ServiceDynatraceAuthorizationConfigPtrInput {
+	return (*serviceDynatraceAuthorizationConfigPtrType)(v)
+}
+
+func (*serviceDynatraceAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDynatraceAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *serviceDynatraceAuthorizationConfigPtrType) ToServiceDynatraceAuthorizationConfigPtrOutput() ServiceDynatraceAuthorizationConfigPtrOutput {
+	return i.ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDynatraceAuthorizationConfigPtrType) ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceDynatraceAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDynatraceAuthorizationConfigPtrOutput)
+}
+
+// Dynatrace OAuth authorization configuration
+type ServiceDynatraceAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceDynatraceAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDynatraceAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceDynatraceAuthorizationConfigOutput) ToServiceDynatraceAuthorizationConfigOutput() ServiceDynatraceAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceDynatraceAuthorizationConfigOutput) ToServiceDynatraceAuthorizationConfigOutputWithContext(ctx context.Context) ServiceDynatraceAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceDynatraceAuthorizationConfigOutput) ToServiceDynatraceAuthorizationConfigPtrOutput() ServiceDynatraceAuthorizationConfigPtrOutput {
+	return o.ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDynatraceAuthorizationConfigOutput) ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceDynatraceAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDynatraceAuthorizationConfig) *ServiceDynatraceAuthorizationConfig {
+		return &v
+	}).(ServiceDynatraceAuthorizationConfigPtrOutput)
+}
+
+func (o ServiceDynatraceAuthorizationConfigOutput) OAuthClientCredentials() ServiceOAuthClientDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDynatraceAuthorizationConfig) *ServiceOAuthClientDetails {
+		return v.OAuthClientCredentials
+	}).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+type ServiceDynatraceAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDynatraceAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDynatraceAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceDynatraceAuthorizationConfigPtrOutput) ToServiceDynatraceAuthorizationConfigPtrOutput() ServiceDynatraceAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceDynatraceAuthorizationConfigPtrOutput) ToServiceDynatraceAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceDynatraceAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceDynatraceAuthorizationConfigPtrOutput) Elem() ServiceDynatraceAuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServiceDynatraceAuthorizationConfig) ServiceDynatraceAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDynatraceAuthorizationConfig
+		return ret
+	}).(ServiceDynatraceAuthorizationConfigOutput)
+}
+
+func (o ServiceDynatraceAuthorizationConfigPtrOutput) OAuthClientCredentials() ServiceOAuthClientDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDynatraceAuthorizationConfig) *ServiceOAuthClientDetails {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthClientCredentials
+	}).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+// Dynatrace service configuration
+type ServiceDynatraceServiceDetails struct {
+	// Dynatrace resource account URN
+	AccountUrn          string                               `pulumi:"accountUrn"`
+	AuthorizationConfig *ServiceDynatraceAuthorizationConfig `pulumi:"authorizationConfig"`
+}
+
+// ServiceDynatraceServiceDetailsInput is an input type that accepts ServiceDynatraceServiceDetailsArgs and ServiceDynatraceServiceDetailsOutput values.
+// You can construct a concrete instance of `ServiceDynatraceServiceDetailsInput` via:
+//
+//	ServiceDynatraceServiceDetailsArgs{...}
+type ServiceDynatraceServiceDetailsInput interface {
+	pulumi.Input
+
+	ToServiceDynatraceServiceDetailsOutput() ServiceDynatraceServiceDetailsOutput
+	ToServiceDynatraceServiceDetailsOutputWithContext(context.Context) ServiceDynatraceServiceDetailsOutput
+}
+
+// Dynatrace service configuration
+type ServiceDynatraceServiceDetailsArgs struct {
+	// Dynatrace resource account URN
+	AccountUrn          pulumi.StringInput                          `pulumi:"accountUrn"`
+	AuthorizationConfig ServiceDynatraceAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
+}
+
+func (ServiceDynatraceServiceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDynatraceServiceDetails)(nil)).Elem()
+}
+
+func (i ServiceDynatraceServiceDetailsArgs) ToServiceDynatraceServiceDetailsOutput() ServiceDynatraceServiceDetailsOutput {
+	return i.ToServiceDynatraceServiceDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceDynatraceServiceDetailsArgs) ToServiceDynatraceServiceDetailsOutputWithContext(ctx context.Context) ServiceDynatraceServiceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDynatraceServiceDetailsOutput)
+}
+
+func (i ServiceDynatraceServiceDetailsArgs) ToServiceDynatraceServiceDetailsPtrOutput() ServiceDynatraceServiceDetailsPtrOutput {
+	return i.ToServiceDynatraceServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDynatraceServiceDetailsArgs) ToServiceDynatraceServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceDynatraceServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDynatraceServiceDetailsOutput).ToServiceDynatraceServiceDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceDynatraceServiceDetailsPtrInput is an input type that accepts ServiceDynatraceServiceDetailsArgs, ServiceDynatraceServiceDetailsPtr and ServiceDynatraceServiceDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceDynatraceServiceDetailsPtrInput` via:
+//
+//	        ServiceDynatraceServiceDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDynatraceServiceDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceDynatraceServiceDetailsPtrOutput() ServiceDynatraceServiceDetailsPtrOutput
+	ToServiceDynatraceServiceDetailsPtrOutputWithContext(context.Context) ServiceDynatraceServiceDetailsPtrOutput
+}
+
+type serviceDynatraceServiceDetailsPtrType ServiceDynatraceServiceDetailsArgs
+
+func ServiceDynatraceServiceDetailsPtr(v *ServiceDynatraceServiceDetailsArgs) ServiceDynatraceServiceDetailsPtrInput {
+	return (*serviceDynatraceServiceDetailsPtrType)(v)
+}
+
+func (*serviceDynatraceServiceDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDynatraceServiceDetails)(nil)).Elem()
+}
+
+func (i *serviceDynatraceServiceDetailsPtrType) ToServiceDynatraceServiceDetailsPtrOutput() ServiceDynatraceServiceDetailsPtrOutput {
+	return i.ToServiceDynatraceServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDynatraceServiceDetailsPtrType) ToServiceDynatraceServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceDynatraceServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDynatraceServiceDetailsPtrOutput)
+}
+
+// Dynatrace service configuration
+type ServiceDynatraceServiceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceDynatraceServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDynatraceServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceDynatraceServiceDetailsOutput) ToServiceDynatraceServiceDetailsOutput() ServiceDynatraceServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceDynatraceServiceDetailsOutput) ToServiceDynatraceServiceDetailsOutputWithContext(ctx context.Context) ServiceDynatraceServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceDynatraceServiceDetailsOutput) ToServiceDynatraceServiceDetailsPtrOutput() ServiceDynatraceServiceDetailsPtrOutput {
+	return o.ToServiceDynatraceServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDynatraceServiceDetailsOutput) ToServiceDynatraceServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceDynatraceServiceDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDynatraceServiceDetails) *ServiceDynatraceServiceDetails {
+		return &v
+	}).(ServiceDynatraceServiceDetailsPtrOutput)
+}
+
+// Dynatrace resource account URN
+func (o ServiceDynatraceServiceDetailsOutput) AccountUrn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceDynatraceServiceDetails) string { return v.AccountUrn }).(pulumi.StringOutput)
+}
+
+func (o ServiceDynatraceServiceDetailsOutput) AuthorizationConfig() ServiceDynatraceAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v ServiceDynatraceServiceDetails) *ServiceDynatraceAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(ServiceDynatraceAuthorizationConfigPtrOutput)
+}
+
+type ServiceDynatraceServiceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDynatraceServiceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDynatraceServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceDynatraceServiceDetailsPtrOutput) ToServiceDynatraceServiceDetailsPtrOutput() ServiceDynatraceServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceDynatraceServiceDetailsPtrOutput) ToServiceDynatraceServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceDynatraceServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceDynatraceServiceDetailsPtrOutput) Elem() ServiceDynatraceServiceDetailsOutput {
+	return o.ApplyT(func(v *ServiceDynatraceServiceDetails) ServiceDynatraceServiceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDynatraceServiceDetails
+		return ret
+	}).(ServiceDynatraceServiceDetailsOutput)
+}
+
+// Dynatrace resource account URN
+func (o ServiceDynatraceServiceDetailsPtrOutput) AccountUrn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDynatraceServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountUrn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDynatraceServiceDetailsPtrOutput) AuthorizationConfig() ServiceDynatraceAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceDynatraceServiceDetails) *ServiceDynatraceAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationConfig
+	}).(ServiceDynatraceAuthorizationConfigPtrOutput)
+}
+
+// GitLab service configuration
+type ServiceGitLabDetails struct {
+	// Optional GitLab group ID for group-level access tokens
+	GroupId *string `pulumi:"groupId"`
+	// GitLab instance URL
+	TargetUrl string `pulumi:"targetUrl"`
+	// Type of GitLab access token
+	TokenType ServiceGitLabDetailsTokenType `pulumi:"tokenType"`
+	// GitLab access token value
+	TokenValue string `pulumi:"tokenValue"`
+}
+
+// ServiceGitLabDetailsInput is an input type that accepts ServiceGitLabDetailsArgs and ServiceGitLabDetailsOutput values.
+// You can construct a concrete instance of `ServiceGitLabDetailsInput` via:
+//
+//	ServiceGitLabDetailsArgs{...}
+type ServiceGitLabDetailsInput interface {
+	pulumi.Input
+
+	ToServiceGitLabDetailsOutput() ServiceGitLabDetailsOutput
+	ToServiceGitLabDetailsOutputWithContext(context.Context) ServiceGitLabDetailsOutput
+}
+
+// GitLab service configuration
+type ServiceGitLabDetailsArgs struct {
+	// Optional GitLab group ID for group-level access tokens
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// GitLab instance URL
+	TargetUrl pulumi.StringInput `pulumi:"targetUrl"`
+	// Type of GitLab access token
+	TokenType ServiceGitLabDetailsTokenTypeInput `pulumi:"tokenType"`
+	// GitLab access token value
+	TokenValue pulumi.StringInput `pulumi:"tokenValue"`
+}
+
+func (ServiceGitLabDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitLabDetails)(nil)).Elem()
+}
+
+func (i ServiceGitLabDetailsArgs) ToServiceGitLabDetailsOutput() ServiceGitLabDetailsOutput {
+	return i.ToServiceGitLabDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceGitLabDetailsArgs) ToServiceGitLabDetailsOutputWithContext(ctx context.Context) ServiceGitLabDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitLabDetailsOutput)
+}
+
+func (i ServiceGitLabDetailsArgs) ToServiceGitLabDetailsPtrOutput() ServiceGitLabDetailsPtrOutput {
+	return i.ToServiceGitLabDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGitLabDetailsArgs) ToServiceGitLabDetailsPtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitLabDetailsOutput).ToServiceGitLabDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceGitLabDetailsPtrInput is an input type that accepts ServiceGitLabDetailsArgs, ServiceGitLabDetailsPtr and ServiceGitLabDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceGitLabDetailsPtrInput` via:
+//
+//	        ServiceGitLabDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGitLabDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceGitLabDetailsPtrOutput() ServiceGitLabDetailsPtrOutput
+	ToServiceGitLabDetailsPtrOutputWithContext(context.Context) ServiceGitLabDetailsPtrOutput
+}
+
+type serviceGitLabDetailsPtrType ServiceGitLabDetailsArgs
+
+func ServiceGitLabDetailsPtr(v *ServiceGitLabDetailsArgs) ServiceGitLabDetailsPtrInput {
+	return (*serviceGitLabDetailsPtrType)(v)
+}
+
+func (*serviceGitLabDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitLabDetails)(nil)).Elem()
+}
+
+func (i *serviceGitLabDetailsPtrType) ToServiceGitLabDetailsPtrOutput() ServiceGitLabDetailsPtrOutput {
+	return i.ToServiceGitLabDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGitLabDetailsPtrType) ToServiceGitLabDetailsPtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitLabDetailsPtrOutput)
+}
+
+// GitLab service configuration
+type ServiceGitLabDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitLabDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitLabDetails)(nil)).Elem()
+}
+
+func (o ServiceGitLabDetailsOutput) ToServiceGitLabDetailsOutput() ServiceGitLabDetailsOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsOutput) ToServiceGitLabDetailsOutputWithContext(ctx context.Context) ServiceGitLabDetailsOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsOutput) ToServiceGitLabDetailsPtrOutput() ServiceGitLabDetailsPtrOutput {
+	return o.ToServiceGitLabDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitLabDetailsOutput) ToServiceGitLabDetailsPtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGitLabDetails) *ServiceGitLabDetails {
+		return &v
+	}).(ServiceGitLabDetailsPtrOutput)
+}
+
+// Optional GitLab group ID for group-level access tokens
+func (o ServiceGitLabDetailsOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGitLabDetails) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// GitLab instance URL
+func (o ServiceGitLabDetailsOutput) TargetUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceGitLabDetails) string { return v.TargetUrl }).(pulumi.StringOutput)
+}
+
+// Type of GitLab access token
+func (o ServiceGitLabDetailsOutput) TokenType() ServiceGitLabDetailsTokenTypeOutput {
+	return o.ApplyT(func(v ServiceGitLabDetails) ServiceGitLabDetailsTokenType { return v.TokenType }).(ServiceGitLabDetailsTokenTypeOutput)
+}
+
+// GitLab access token value
+func (o ServiceGitLabDetailsOutput) TokenValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceGitLabDetails) string { return v.TokenValue }).(pulumi.StringOutput)
+}
+
+type ServiceGitLabDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitLabDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitLabDetails)(nil)).Elem()
+}
+
+func (o ServiceGitLabDetailsPtrOutput) ToServiceGitLabDetailsPtrOutput() ServiceGitLabDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsPtrOutput) ToServiceGitLabDetailsPtrOutputWithContext(ctx context.Context) ServiceGitLabDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitLabDetailsPtrOutput) Elem() ServiceGitLabDetailsOutput {
+	return o.ApplyT(func(v *ServiceGitLabDetails) ServiceGitLabDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGitLabDetails
+		return ret
+	}).(ServiceGitLabDetailsOutput)
+}
+
+// Optional GitLab group ID for group-level access tokens
+func (o ServiceGitLabDetailsPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitLabDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitLab instance URL
+func (o ServiceGitLabDetailsPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitLabDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of GitLab access token
+func (o ServiceGitLabDetailsPtrOutput) TokenType() ServiceGitLabDetailsTokenTypePtrOutput {
+	return o.ApplyT(func(v *ServiceGitLabDetails) *ServiceGitLabDetailsTokenType {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenType
+	}).(ServiceGitLabDetailsTokenTypePtrOutput)
+}
+
+// GitLab access token value
+func (o ServiceGitLabDetailsPtrOutput) TokenValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitLabDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server authorization configuration
+type ServiceMcpServerAuthorizationConfig struct {
+	ApiKey                 *ServiceApiKeyDetails                         `pulumi:"apiKey"`
+	OAuthClientCredentials *ServiceMcpServerOAuthClientCredentialsConfig `pulumi:"oAuthClientCredentials"`
+}
+
+// ServiceMcpServerAuthorizationConfigInput is an input type that accepts ServiceMcpServerAuthorizationConfigArgs and ServiceMcpServerAuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServiceMcpServerAuthorizationConfigInput` via:
+//
+//	ServiceMcpServerAuthorizationConfigArgs{...}
+type ServiceMcpServerAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerAuthorizationConfigOutput() ServiceMcpServerAuthorizationConfigOutput
+	ToServiceMcpServerAuthorizationConfigOutputWithContext(context.Context) ServiceMcpServerAuthorizationConfigOutput
+}
+
+// MCP server authorization configuration
+type ServiceMcpServerAuthorizationConfigArgs struct {
+	ApiKey                 ServiceApiKeyDetailsPtrInput                         `pulumi:"apiKey"`
+	OAuthClientCredentials ServiceMcpServerOAuthClientCredentialsConfigPtrInput `pulumi:"oAuthClientCredentials"`
+}
+
+func (ServiceMcpServerAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerAuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServiceMcpServerAuthorizationConfigArgs) ToServiceMcpServerAuthorizationConfigOutput() ServiceMcpServerAuthorizationConfigOutput {
+	return i.ToServiceMcpServerAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerAuthorizationConfigArgs) ToServiceMcpServerAuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerAuthorizationConfigOutput)
+}
+
+func (i ServiceMcpServerAuthorizationConfigArgs) ToServiceMcpServerAuthorizationConfigPtrOutput() ServiceMcpServerAuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerAuthorizationConfigArgs) ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerAuthorizationConfigOutput).ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerAuthorizationConfigPtrInput is an input type that accepts ServiceMcpServerAuthorizationConfigArgs, ServiceMcpServerAuthorizationConfigPtr and ServiceMcpServerAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerAuthorizationConfigPtrInput` via:
+//
+//	        ServiceMcpServerAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerAuthorizationConfigPtrOutput() ServiceMcpServerAuthorizationConfigPtrOutput
+	ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(context.Context) ServiceMcpServerAuthorizationConfigPtrOutput
+}
+
+type serviceMcpServerAuthorizationConfigPtrType ServiceMcpServerAuthorizationConfigArgs
+
+func ServiceMcpServerAuthorizationConfigPtr(v *ServiceMcpServerAuthorizationConfigArgs) ServiceMcpServerAuthorizationConfigPtrInput {
+	return (*serviceMcpServerAuthorizationConfigPtrType)(v)
+}
+
+func (*serviceMcpServerAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *serviceMcpServerAuthorizationConfigPtrType) ToServiceMcpServerAuthorizationConfigPtrOutput() ServiceMcpServerAuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerAuthorizationConfigPtrType) ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerAuthorizationConfigPtrOutput)
+}
+
+// MCP server authorization configuration
+type ServiceMcpServerAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerAuthorizationConfigOutput) ToServiceMcpServerAuthorizationConfigOutput() ServiceMcpServerAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerAuthorizationConfigOutput) ToServiceMcpServerAuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerAuthorizationConfigOutput) ToServiceMcpServerAuthorizationConfigPtrOutput() ServiceMcpServerAuthorizationConfigPtrOutput {
+	return o.ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerAuthorizationConfigOutput) ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerAuthorizationConfig) *ServiceMcpServerAuthorizationConfig {
+		return &v
+	}).(ServiceMcpServerAuthorizationConfigPtrOutput)
+}
+
+func (o ServiceMcpServerAuthorizationConfigOutput) ApiKey() ServiceApiKeyDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerAuthorizationConfig) *ServiceApiKeyDetails { return v.ApiKey }).(ServiceApiKeyDetailsPtrOutput)
+}
+
+func (o ServiceMcpServerAuthorizationConfigOutput) OAuthClientCredentials() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerAuthorizationConfig) *ServiceMcpServerOAuthClientCredentialsConfig {
+		return v.OAuthClientCredentials
+	}).(ServiceMcpServerOAuthClientCredentialsConfigPtrOutput)
+}
+
+type ServiceMcpServerAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerAuthorizationConfigPtrOutput) ToServiceMcpServerAuthorizationConfigPtrOutput() ServiceMcpServerAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerAuthorizationConfigPtrOutput) ToServiceMcpServerAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerAuthorizationConfigPtrOutput) Elem() ServiceMcpServerAuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServiceMcpServerAuthorizationConfig) ServiceMcpServerAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerAuthorizationConfig
+		return ret
+	}).(ServiceMcpServerAuthorizationConfigOutput)
+}
+
+func (o ServiceMcpServerAuthorizationConfigPtrOutput) ApiKey() ServiceApiKeyDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerAuthorizationConfig) *ServiceApiKeyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKey
+	}).(ServiceApiKeyDetailsPtrOutput)
+}
+
+func (o ServiceMcpServerAuthorizationConfigPtrOutput) OAuthClientCredentials() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerAuthorizationConfig) *ServiceMcpServerOAuthClientCredentialsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthClientCredentials
+	}).(ServiceMcpServerOAuthClientCredentialsConfigPtrOutput)
+}
+
+// MCP server configuration
+type ServiceMcpServerDetails struct {
+	AuthorizationConfig ServiceMcpServerAuthorizationConfig `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description *string `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// MCP server name
+	Name string `pulumi:"name"`
+}
+
+// ServiceMcpServerDetailsInput is an input type that accepts ServiceMcpServerDetailsArgs and ServiceMcpServerDetailsOutput values.
+// You can construct a concrete instance of `ServiceMcpServerDetailsInput` via:
+//
+//	ServiceMcpServerDetailsArgs{...}
+type ServiceMcpServerDetailsInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerDetailsOutput() ServiceMcpServerDetailsOutput
+	ToServiceMcpServerDetailsOutputWithContext(context.Context) ServiceMcpServerDetailsOutput
+}
+
+// MCP server configuration
+type ServiceMcpServerDetailsArgs struct {
+	AuthorizationConfig ServiceMcpServerAuthorizationConfigInput `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// MCP server name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ServiceMcpServerDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerDetails)(nil)).Elem()
+}
+
+func (i ServiceMcpServerDetailsArgs) ToServiceMcpServerDetailsOutput() ServiceMcpServerDetailsOutput {
+	return i.ToServiceMcpServerDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerDetailsArgs) ToServiceMcpServerDetailsOutputWithContext(ctx context.Context) ServiceMcpServerDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerDetailsOutput)
+}
+
+func (i ServiceMcpServerDetailsArgs) ToServiceMcpServerDetailsPtrOutput() ServiceMcpServerDetailsPtrOutput {
+	return i.ToServiceMcpServerDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerDetailsArgs) ToServiceMcpServerDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerDetailsOutput).ToServiceMcpServerDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerDetailsPtrInput is an input type that accepts ServiceMcpServerDetailsArgs, ServiceMcpServerDetailsPtr and ServiceMcpServerDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerDetailsPtrInput` via:
+//
+//	        ServiceMcpServerDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerDetailsPtrOutput() ServiceMcpServerDetailsPtrOutput
+	ToServiceMcpServerDetailsPtrOutputWithContext(context.Context) ServiceMcpServerDetailsPtrOutput
+}
+
+type serviceMcpServerDetailsPtrType ServiceMcpServerDetailsArgs
+
+func ServiceMcpServerDetailsPtr(v *ServiceMcpServerDetailsArgs) ServiceMcpServerDetailsPtrInput {
+	return (*serviceMcpServerDetailsPtrType)(v)
+}
+
+func (*serviceMcpServerDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerDetails)(nil)).Elem()
+}
+
+func (i *serviceMcpServerDetailsPtrType) ToServiceMcpServerDetailsPtrOutput() ServiceMcpServerDetailsPtrOutput {
+	return i.ToServiceMcpServerDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerDetailsPtrType) ToServiceMcpServerDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerDetailsPtrOutput)
+}
+
+// MCP server configuration
+type ServiceMcpServerDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerDetails)(nil)).Elem()
+}
+
+func (o ServiceMcpServerDetailsOutput) ToServiceMcpServerDetailsOutput() ServiceMcpServerDetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerDetailsOutput) ToServiceMcpServerDetailsOutputWithContext(ctx context.Context) ServiceMcpServerDetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerDetailsOutput) ToServiceMcpServerDetailsPtrOutput() ServiceMcpServerDetailsPtrOutput {
+	return o.ToServiceMcpServerDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerDetailsOutput) ToServiceMcpServerDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerDetails) *ServiceMcpServerDetails {
+		return &v
+	}).(ServiceMcpServerDetailsPtrOutput)
+}
+
+func (o ServiceMcpServerDetailsOutput) AuthorizationConfig() ServiceMcpServerAuthorizationConfigOutput {
+	return o.ApplyT(func(v ServiceMcpServerDetails) ServiceMcpServerAuthorizationConfig { return v.AuthorizationConfig }).(ServiceMcpServerAuthorizationConfigOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerDetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerDetails) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerDetailsOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerDetails) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ServiceMcpServerDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerDetails)(nil)).Elem()
+}
+
+func (o ServiceMcpServerDetailsPtrOutput) ToServiceMcpServerDetailsPtrOutput() ServiceMcpServerDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerDetailsPtrOutput) ToServiceMcpServerDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerDetailsPtrOutput) Elem() ServiceMcpServerDetailsOutput {
+	return o.ApplyT(func(v *ServiceMcpServerDetails) ServiceMcpServerDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerDetails
+		return ret
+	}).(ServiceMcpServerDetailsOutput)
+}
+
+func (o ServiceMcpServerDetailsPtrOutput) AuthorizationConfig() ServiceMcpServerAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerDetails) *ServiceMcpServerAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationConfig
+	}).(ServiceMcpServerAuthorizationConfigPtrOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerDetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerDetailsPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Grafana MCP server authorization configuration
+type ServiceMcpServerGrafanaAuthorizationConfig struct {
+	BearerToken *ServiceBearerTokenDetails `pulumi:"bearerToken"`
+}
+
+// ServiceMcpServerGrafanaAuthorizationConfigInput is an input type that accepts ServiceMcpServerGrafanaAuthorizationConfigArgs and ServiceMcpServerGrafanaAuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServiceMcpServerGrafanaAuthorizationConfigInput` via:
+//
+//	ServiceMcpServerGrafanaAuthorizationConfigArgs{...}
+type ServiceMcpServerGrafanaAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerGrafanaAuthorizationConfigOutput() ServiceMcpServerGrafanaAuthorizationConfigOutput
+	ToServiceMcpServerGrafanaAuthorizationConfigOutputWithContext(context.Context) ServiceMcpServerGrafanaAuthorizationConfigOutput
+}
+
+// Grafana MCP server authorization configuration
+type ServiceMcpServerGrafanaAuthorizationConfigArgs struct {
+	BearerToken ServiceBearerTokenDetailsPtrInput `pulumi:"bearerToken"`
+}
+
+func (ServiceMcpServerGrafanaAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerGrafanaAuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServiceMcpServerGrafanaAuthorizationConfigArgs) ToServiceMcpServerGrafanaAuthorizationConfigOutput() ServiceMcpServerGrafanaAuthorizationConfigOutput {
+	return i.ToServiceMcpServerGrafanaAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerGrafanaAuthorizationConfigArgs) ToServiceMcpServerGrafanaAuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerGrafanaAuthorizationConfigOutput)
+}
+
+func (i ServiceMcpServerGrafanaAuthorizationConfigArgs) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutput() ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerGrafanaAuthorizationConfigArgs) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerGrafanaAuthorizationConfigOutput).ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerGrafanaAuthorizationConfigPtrInput is an input type that accepts ServiceMcpServerGrafanaAuthorizationConfigArgs, ServiceMcpServerGrafanaAuthorizationConfigPtr and ServiceMcpServerGrafanaAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerGrafanaAuthorizationConfigPtrInput` via:
+//
+//	        ServiceMcpServerGrafanaAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerGrafanaAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerGrafanaAuthorizationConfigPtrOutput() ServiceMcpServerGrafanaAuthorizationConfigPtrOutput
+	ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(context.Context) ServiceMcpServerGrafanaAuthorizationConfigPtrOutput
+}
+
+type serviceMcpServerGrafanaAuthorizationConfigPtrType ServiceMcpServerGrafanaAuthorizationConfigArgs
+
+func ServiceMcpServerGrafanaAuthorizationConfigPtr(v *ServiceMcpServerGrafanaAuthorizationConfigArgs) ServiceMcpServerGrafanaAuthorizationConfigPtrInput {
+	return (*serviceMcpServerGrafanaAuthorizationConfigPtrType)(v)
+}
+
+func (*serviceMcpServerGrafanaAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerGrafanaAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *serviceMcpServerGrafanaAuthorizationConfigPtrType) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutput() ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerGrafanaAuthorizationConfigPtrType) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerGrafanaAuthorizationConfigPtrOutput)
+}
+
+// Grafana MCP server authorization configuration
+type ServiceMcpServerGrafanaAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerGrafanaAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerGrafanaAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigOutput) ToServiceMcpServerGrafanaAuthorizationConfigOutput() ServiceMcpServerGrafanaAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigOutput) ToServiceMcpServerGrafanaAuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigOutput) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutput() ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return o.ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigOutput) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerGrafanaAuthorizationConfig) *ServiceMcpServerGrafanaAuthorizationConfig {
+		return &v
+	}).(ServiceMcpServerGrafanaAuthorizationConfigPtrOutput)
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigOutput) BearerToken() ServiceBearerTokenDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerGrafanaAuthorizationConfig) *ServiceBearerTokenDetails { return v.BearerToken }).(ServiceBearerTokenDetailsPtrOutput)
+}
+
+type ServiceMcpServerGrafanaAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerGrafanaAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerGrafanaAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigPtrOutput) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutput() ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigPtrOutput) ToServiceMcpServerGrafanaAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigPtrOutput) Elem() ServiceMcpServerGrafanaAuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServiceMcpServerGrafanaAuthorizationConfig) ServiceMcpServerGrafanaAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerGrafanaAuthorizationConfig
+		return ret
+	}).(ServiceMcpServerGrafanaAuthorizationConfigOutput)
+}
+
+func (o ServiceMcpServerGrafanaAuthorizationConfigPtrOutput) BearerToken() ServiceBearerTokenDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerGrafanaAuthorizationConfig) *ServiceBearerTokenDetails {
+		if v == nil {
+			return nil
+		}
+		return v.BearerToken
+	}).(ServiceBearerTokenDetailsPtrOutput)
+}
+
+// Grafana MCP server configuration
+type ServiceMcpServerGrafanaDetails struct {
+	AuthorizationConfig ServiceMcpServerGrafanaAuthorizationConfig `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description *string `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// MCP server name
+	Name string `pulumi:"name"`
+}
+
+// ServiceMcpServerGrafanaDetailsInput is an input type that accepts ServiceMcpServerGrafanaDetailsArgs and ServiceMcpServerGrafanaDetailsOutput values.
+// You can construct a concrete instance of `ServiceMcpServerGrafanaDetailsInput` via:
+//
+//	ServiceMcpServerGrafanaDetailsArgs{...}
+type ServiceMcpServerGrafanaDetailsInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerGrafanaDetailsOutput() ServiceMcpServerGrafanaDetailsOutput
+	ToServiceMcpServerGrafanaDetailsOutputWithContext(context.Context) ServiceMcpServerGrafanaDetailsOutput
+}
+
+// Grafana MCP server configuration
+type ServiceMcpServerGrafanaDetailsArgs struct {
+	AuthorizationConfig ServiceMcpServerGrafanaAuthorizationConfigInput `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// MCP server name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ServiceMcpServerGrafanaDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerGrafanaDetails)(nil)).Elem()
+}
+
+func (i ServiceMcpServerGrafanaDetailsArgs) ToServiceMcpServerGrafanaDetailsOutput() ServiceMcpServerGrafanaDetailsOutput {
+	return i.ToServiceMcpServerGrafanaDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerGrafanaDetailsArgs) ToServiceMcpServerGrafanaDetailsOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerGrafanaDetailsOutput)
+}
+
+func (i ServiceMcpServerGrafanaDetailsArgs) ToServiceMcpServerGrafanaDetailsPtrOutput() ServiceMcpServerGrafanaDetailsPtrOutput {
+	return i.ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerGrafanaDetailsArgs) ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerGrafanaDetailsOutput).ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerGrafanaDetailsPtrInput is an input type that accepts ServiceMcpServerGrafanaDetailsArgs, ServiceMcpServerGrafanaDetailsPtr and ServiceMcpServerGrafanaDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerGrafanaDetailsPtrInput` via:
+//
+//	        ServiceMcpServerGrafanaDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerGrafanaDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerGrafanaDetailsPtrOutput() ServiceMcpServerGrafanaDetailsPtrOutput
+	ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(context.Context) ServiceMcpServerGrafanaDetailsPtrOutput
+}
+
+type serviceMcpServerGrafanaDetailsPtrType ServiceMcpServerGrafanaDetailsArgs
+
+func ServiceMcpServerGrafanaDetailsPtr(v *ServiceMcpServerGrafanaDetailsArgs) ServiceMcpServerGrafanaDetailsPtrInput {
+	return (*serviceMcpServerGrafanaDetailsPtrType)(v)
+}
+
+func (*serviceMcpServerGrafanaDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerGrafanaDetails)(nil)).Elem()
+}
+
+func (i *serviceMcpServerGrafanaDetailsPtrType) ToServiceMcpServerGrafanaDetailsPtrOutput() ServiceMcpServerGrafanaDetailsPtrOutput {
+	return i.ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerGrafanaDetailsPtrType) ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerGrafanaDetailsPtrOutput)
+}
+
+// Grafana MCP server configuration
+type ServiceMcpServerGrafanaDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerGrafanaDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerGrafanaDetails)(nil)).Elem()
+}
+
+func (o ServiceMcpServerGrafanaDetailsOutput) ToServiceMcpServerGrafanaDetailsOutput() ServiceMcpServerGrafanaDetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaDetailsOutput) ToServiceMcpServerGrafanaDetailsOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaDetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaDetailsOutput) ToServiceMcpServerGrafanaDetailsPtrOutput() ServiceMcpServerGrafanaDetailsPtrOutput {
+	return o.ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerGrafanaDetailsOutput) ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerGrafanaDetails) *ServiceMcpServerGrafanaDetails {
+		return &v
+	}).(ServiceMcpServerGrafanaDetailsPtrOutput)
+}
+
+func (o ServiceMcpServerGrafanaDetailsOutput) AuthorizationConfig() ServiceMcpServerGrafanaAuthorizationConfigOutput {
+	return o.ApplyT(func(v ServiceMcpServerGrafanaDetails) ServiceMcpServerGrafanaAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(ServiceMcpServerGrafanaAuthorizationConfigOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerGrafanaDetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerGrafanaDetails) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerGrafanaDetailsOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerGrafanaDetails) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerGrafanaDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerGrafanaDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ServiceMcpServerGrafanaDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerGrafanaDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerGrafanaDetails)(nil)).Elem()
+}
+
+func (o ServiceMcpServerGrafanaDetailsPtrOutput) ToServiceMcpServerGrafanaDetailsPtrOutput() ServiceMcpServerGrafanaDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaDetailsPtrOutput) ToServiceMcpServerGrafanaDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerGrafanaDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerGrafanaDetailsPtrOutput) Elem() ServiceMcpServerGrafanaDetailsOutput {
+	return o.ApplyT(func(v *ServiceMcpServerGrafanaDetails) ServiceMcpServerGrafanaDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerGrafanaDetails
+		return ret
+	}).(ServiceMcpServerGrafanaDetailsOutput)
+}
+
+func (o ServiceMcpServerGrafanaDetailsPtrOutput) AuthorizationConfig() ServiceMcpServerGrafanaAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerGrafanaDetails) *ServiceMcpServerGrafanaAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationConfig
+	}).(ServiceMcpServerGrafanaAuthorizationConfigPtrOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerGrafanaDetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerGrafanaDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerGrafanaDetailsPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerGrafanaDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerGrafanaDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerGrafanaDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server OAuth client credentials configuration
+type ServiceMcpServerOAuthClientCredentialsConfig struct {
+	// OAuth client ID
+	ClientId string `pulumi:"clientId"`
+	// User friendly OAuth client name
+	ClientName *string `pulumi:"clientName"`
+	// OAuth client secret
+	ClientSecret string `pulumi:"clientSecret"`
+	// OAuth token exchange parameters
+	ExchangeParameters interface{} `pulumi:"exchangeParameters"`
+	// OAuth token exchange URL
+	ExchangeUrl string `pulumi:"exchangeUrl"`
+	// OAuth scopes
+	Scopes []string `pulumi:"scopes"`
+}
+
+// ServiceMcpServerOAuthClientCredentialsConfigInput is an input type that accepts ServiceMcpServerOAuthClientCredentialsConfigArgs and ServiceMcpServerOAuthClientCredentialsConfigOutput values.
+// You can construct a concrete instance of `ServiceMcpServerOAuthClientCredentialsConfigInput` via:
+//
+//	ServiceMcpServerOAuthClientCredentialsConfigArgs{...}
+type ServiceMcpServerOAuthClientCredentialsConfigInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerOAuthClientCredentialsConfigOutput() ServiceMcpServerOAuthClientCredentialsConfigOutput
+	ToServiceMcpServerOAuthClientCredentialsConfigOutputWithContext(context.Context) ServiceMcpServerOAuthClientCredentialsConfigOutput
+}
+
+// MCP server OAuth client credentials configuration
+type ServiceMcpServerOAuthClientCredentialsConfigArgs struct {
+	// OAuth client ID
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// User friendly OAuth client name
+	ClientName pulumi.StringPtrInput `pulumi:"clientName"`
+	// OAuth client secret
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// OAuth token exchange parameters
+	ExchangeParameters pulumi.Input `pulumi:"exchangeParameters"`
+	// OAuth token exchange URL
+	ExchangeUrl pulumi.StringInput `pulumi:"exchangeUrl"`
+	// OAuth scopes
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (ServiceMcpServerOAuthClientCredentialsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerOAuthClientCredentialsConfig)(nil)).Elem()
+}
+
+func (i ServiceMcpServerOAuthClientCredentialsConfigArgs) ToServiceMcpServerOAuthClientCredentialsConfigOutput() ServiceMcpServerOAuthClientCredentialsConfigOutput {
+	return i.ToServiceMcpServerOAuthClientCredentialsConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerOAuthClientCredentialsConfigArgs) ToServiceMcpServerOAuthClientCredentialsConfigOutputWithContext(ctx context.Context) ServiceMcpServerOAuthClientCredentialsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerOAuthClientCredentialsConfigOutput)
+}
+
+func (i ServiceMcpServerOAuthClientCredentialsConfigArgs) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutput() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return i.ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerOAuthClientCredentialsConfigArgs) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerOAuthClientCredentialsConfigOutput).ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerOAuthClientCredentialsConfigPtrInput is an input type that accepts ServiceMcpServerOAuthClientCredentialsConfigArgs, ServiceMcpServerOAuthClientCredentialsConfigPtr and ServiceMcpServerOAuthClientCredentialsConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerOAuthClientCredentialsConfigPtrInput` via:
+//
+//	        ServiceMcpServerOAuthClientCredentialsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerOAuthClientCredentialsConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerOAuthClientCredentialsConfigPtrOutput() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput
+	ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(context.Context) ServiceMcpServerOAuthClientCredentialsConfigPtrOutput
+}
+
+type serviceMcpServerOAuthClientCredentialsConfigPtrType ServiceMcpServerOAuthClientCredentialsConfigArgs
+
+func ServiceMcpServerOAuthClientCredentialsConfigPtr(v *ServiceMcpServerOAuthClientCredentialsConfigArgs) ServiceMcpServerOAuthClientCredentialsConfigPtrInput {
+	return (*serviceMcpServerOAuthClientCredentialsConfigPtrType)(v)
+}
+
+func (*serviceMcpServerOAuthClientCredentialsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerOAuthClientCredentialsConfig)(nil)).Elem()
+}
+
+func (i *serviceMcpServerOAuthClientCredentialsConfigPtrType) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutput() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return i.ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerOAuthClientCredentialsConfigPtrType) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerOAuthClientCredentialsConfigPtrOutput)
+}
+
+// MCP server OAuth client credentials configuration
+type ServiceMcpServerOAuthClientCredentialsConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerOAuthClientCredentialsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerOAuthClientCredentialsConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ToServiceMcpServerOAuthClientCredentialsConfigOutput() ServiceMcpServerOAuthClientCredentialsConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ToServiceMcpServerOAuthClientCredentialsConfigOutputWithContext(ctx context.Context) ServiceMcpServerOAuthClientCredentialsConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutput() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return o.ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerOAuthClientCredentialsConfig) *ServiceMcpServerOAuthClientCredentialsConfig {
+		return &v
+	}).(ServiceMcpServerOAuthClientCredentialsConfigPtrOutput)
+}
+
+// OAuth client ID
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerOAuthClientCredentialsConfig) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// User friendly OAuth client name
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ClientName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerOAuthClientCredentialsConfig) *string { return v.ClientName }).(pulumi.StringPtrOutput)
+}
+
+// OAuth client secret
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerOAuthClientCredentialsConfig) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// OAuth token exchange parameters
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ExchangeParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServiceMcpServerOAuthClientCredentialsConfig) interface{} { return v.ExchangeParameters }).(pulumi.AnyOutput)
+}
+
+// OAuth token exchange URL
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) ExchangeUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerOAuthClientCredentialsConfig) string { return v.ExchangeUrl }).(pulumi.StringOutput)
+}
+
+// OAuth scopes
+func (o ServiceMcpServerOAuthClientCredentialsConfigOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceMcpServerOAuthClientCredentialsConfig) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ServiceMcpServerOAuthClientCredentialsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerOAuthClientCredentialsConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutput() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ToServiceMcpServerOAuthClientCredentialsConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) Elem() ServiceMcpServerOAuthClientCredentialsConfigOutput {
+	return o.ApplyT(func(v *ServiceMcpServerOAuthClientCredentialsConfig) ServiceMcpServerOAuthClientCredentialsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerOAuthClientCredentialsConfig
+		return ret
+	}).(ServiceMcpServerOAuthClientCredentialsConfigOutput)
+}
+
+// OAuth client ID
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerOAuthClientCredentialsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User friendly OAuth client name
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ClientName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerOAuthClientCredentialsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientName
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth client secret
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerOAuthClientCredentialsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth token exchange parameters
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ExchangeParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ServiceMcpServerOAuthClientCredentialsConfig) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ExchangeParameters
+	}).(pulumi.AnyOutput)
+}
+
+// OAuth token exchange URL
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) ExchangeUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerOAuthClientCredentialsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExchangeUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth scopes
+func (o ServiceMcpServerOAuthClientCredentialsConfigPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceMcpServerOAuthClientCredentialsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// SigV4 authorization configuration for MCP server
+type ServiceMcpServerSigV4AuthorizationConfig struct {
+	// Custom headers for the SigV4 MCP server
+	CustomHeaders map[string]string `pulumi:"customHeaders"`
+	// IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+	McpRoleArn *string `pulumi:"mcpRoleArn"`
+	// AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+	Region string `pulumi:"region"`
+	// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+	RoleArn *string `pulumi:"roleArn"`
+	// AWS service name for SigV4 signing
+	Service string `pulumi:"service"`
+}
+
+// ServiceMcpServerSigV4AuthorizationConfigInput is an input type that accepts ServiceMcpServerSigV4AuthorizationConfigArgs and ServiceMcpServerSigV4AuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSigV4AuthorizationConfigInput` via:
+//
+//	ServiceMcpServerSigV4AuthorizationConfigArgs{...}
+type ServiceMcpServerSigV4AuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSigV4AuthorizationConfigOutput() ServiceMcpServerSigV4AuthorizationConfigOutput
+	ToServiceMcpServerSigV4AuthorizationConfigOutputWithContext(context.Context) ServiceMcpServerSigV4AuthorizationConfigOutput
+}
+
+// SigV4 authorization configuration for MCP server
+type ServiceMcpServerSigV4AuthorizationConfigArgs struct {
+	// Custom headers for the SigV4 MCP server
+	CustomHeaders pulumi.StringMapInput `pulumi:"customHeaders"`
+	// IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+	McpRoleArn pulumi.StringPtrInput `pulumi:"mcpRoleArn"`
+	// AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// AWS service name for SigV4 signing
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (ServiceMcpServerSigV4AuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSigV4AuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServiceMcpServerSigV4AuthorizationConfigArgs) ToServiceMcpServerSigV4AuthorizationConfigOutput() ServiceMcpServerSigV4AuthorizationConfigOutput {
+	return i.ToServiceMcpServerSigV4AuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSigV4AuthorizationConfigArgs) ToServiceMcpServerSigV4AuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerSigV4AuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSigV4AuthorizationConfigOutput)
+}
+
+func (i ServiceMcpServerSigV4AuthorizationConfigArgs) ToServiceMcpServerSigV4AuthorizationConfigPtrOutput() ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSigV4AuthorizationConfigArgs) ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSigV4AuthorizationConfigOutput).ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerSigV4AuthorizationConfigPtrInput is an input type that accepts ServiceMcpServerSigV4AuthorizationConfigArgs, ServiceMcpServerSigV4AuthorizationConfigPtr and ServiceMcpServerSigV4AuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSigV4AuthorizationConfigPtrInput` via:
+//
+//	        ServiceMcpServerSigV4AuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerSigV4AuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSigV4AuthorizationConfigPtrOutput() ServiceMcpServerSigV4AuthorizationConfigPtrOutput
+	ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(context.Context) ServiceMcpServerSigV4AuthorizationConfigPtrOutput
+}
+
+type serviceMcpServerSigV4AuthorizationConfigPtrType ServiceMcpServerSigV4AuthorizationConfigArgs
+
+func ServiceMcpServerSigV4AuthorizationConfigPtr(v *ServiceMcpServerSigV4AuthorizationConfigArgs) ServiceMcpServerSigV4AuthorizationConfigPtrInput {
+	return (*serviceMcpServerSigV4AuthorizationConfigPtrType)(v)
+}
+
+func (*serviceMcpServerSigV4AuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSigV4AuthorizationConfig)(nil)).Elem()
+}
+
+func (i *serviceMcpServerSigV4AuthorizationConfigPtrType) ToServiceMcpServerSigV4AuthorizationConfigPtrOutput() ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerSigV4AuthorizationConfigPtrType) ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSigV4AuthorizationConfigPtrOutput)
+}
+
+// SigV4 authorization configuration for MCP server
+type ServiceMcpServerSigV4AuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSigV4AuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSigV4AuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) ToServiceMcpServerSigV4AuthorizationConfigOutput() ServiceMcpServerSigV4AuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) ToServiceMcpServerSigV4AuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerSigV4AuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) ToServiceMcpServerSigV4AuthorizationConfigPtrOutput() ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return o.ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerSigV4AuthorizationConfig) *ServiceMcpServerSigV4AuthorizationConfig {
+		return &v
+	}).(ServiceMcpServerSigV4AuthorizationConfigPtrOutput)
+}
+
+// Custom headers for the SigV4 MCP server
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) CustomHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4AuthorizationConfig) map[string]string { return v.CustomHeaders }).(pulumi.StringMapOutput)
+}
+
+// IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) McpRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4AuthorizationConfig) *string { return v.McpRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4AuthorizationConfig) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4AuthorizationConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// AWS service name for SigV4 signing
+func (o ServiceMcpServerSigV4AuthorizationConfigOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4AuthorizationConfig) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type ServiceMcpServerSigV4AuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSigV4AuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSigV4AuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) ToServiceMcpServerSigV4AuthorizationConfigPtrOutput() ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) ToServiceMcpServerSigV4AuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) Elem() ServiceMcpServerSigV4AuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4AuthorizationConfig) ServiceMcpServerSigV4AuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerSigV4AuthorizationConfig
+		return ret
+	}).(ServiceMcpServerSigV4AuthorizationConfigOutput)
+}
+
+// Custom headers for the SigV4 MCP server
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) CustomHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4AuthorizationConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomHeaders
+	}).(pulumi.StringMapOutput)
+}
+
+// IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) McpRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4AuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.McpRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4AuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4AuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS service name for SigV4 signing
+func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4AuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// SigV4-authenticated MCP server configuration
+type ServiceMcpServerSigV4Details struct {
+	AuthorizationConfig ServiceMcpServerSigV4AuthorizationConfig `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description *string `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// MCP server name
+	Name string `pulumi:"name"`
+}
+
+// ServiceMcpServerSigV4DetailsInput is an input type that accepts ServiceMcpServerSigV4DetailsArgs and ServiceMcpServerSigV4DetailsOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSigV4DetailsInput` via:
+//
+//	ServiceMcpServerSigV4DetailsArgs{...}
+type ServiceMcpServerSigV4DetailsInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSigV4DetailsOutput() ServiceMcpServerSigV4DetailsOutput
+	ToServiceMcpServerSigV4DetailsOutputWithContext(context.Context) ServiceMcpServerSigV4DetailsOutput
+}
+
+// SigV4-authenticated MCP server configuration
+type ServiceMcpServerSigV4DetailsArgs struct {
+	AuthorizationConfig ServiceMcpServerSigV4AuthorizationConfigInput `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// MCP server name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ServiceMcpServerSigV4DetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSigV4Details)(nil)).Elem()
+}
+
+func (i ServiceMcpServerSigV4DetailsArgs) ToServiceMcpServerSigV4DetailsOutput() ServiceMcpServerSigV4DetailsOutput {
+	return i.ToServiceMcpServerSigV4DetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSigV4DetailsArgs) ToServiceMcpServerSigV4DetailsOutputWithContext(ctx context.Context) ServiceMcpServerSigV4DetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSigV4DetailsOutput)
+}
+
+func (i ServiceMcpServerSigV4DetailsArgs) ToServiceMcpServerSigV4DetailsPtrOutput() ServiceMcpServerSigV4DetailsPtrOutput {
+	return i.ToServiceMcpServerSigV4DetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSigV4DetailsArgs) ToServiceMcpServerSigV4DetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4DetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSigV4DetailsOutput).ToServiceMcpServerSigV4DetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerSigV4DetailsPtrInput is an input type that accepts ServiceMcpServerSigV4DetailsArgs, ServiceMcpServerSigV4DetailsPtr and ServiceMcpServerSigV4DetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSigV4DetailsPtrInput` via:
+//
+//	        ServiceMcpServerSigV4DetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerSigV4DetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSigV4DetailsPtrOutput() ServiceMcpServerSigV4DetailsPtrOutput
+	ToServiceMcpServerSigV4DetailsPtrOutputWithContext(context.Context) ServiceMcpServerSigV4DetailsPtrOutput
+}
+
+type serviceMcpServerSigV4DetailsPtrType ServiceMcpServerSigV4DetailsArgs
+
+func ServiceMcpServerSigV4DetailsPtr(v *ServiceMcpServerSigV4DetailsArgs) ServiceMcpServerSigV4DetailsPtrInput {
+	return (*serviceMcpServerSigV4DetailsPtrType)(v)
+}
+
+func (*serviceMcpServerSigV4DetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSigV4Details)(nil)).Elem()
+}
+
+func (i *serviceMcpServerSigV4DetailsPtrType) ToServiceMcpServerSigV4DetailsPtrOutput() ServiceMcpServerSigV4DetailsPtrOutput {
+	return i.ToServiceMcpServerSigV4DetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerSigV4DetailsPtrType) ToServiceMcpServerSigV4DetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4DetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSigV4DetailsPtrOutput)
+}
+
+// SigV4-authenticated MCP server configuration
+type ServiceMcpServerSigV4DetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSigV4DetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSigV4Details)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSigV4DetailsOutput) ToServiceMcpServerSigV4DetailsOutput() ServiceMcpServerSigV4DetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4DetailsOutput) ToServiceMcpServerSigV4DetailsOutputWithContext(ctx context.Context) ServiceMcpServerSigV4DetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4DetailsOutput) ToServiceMcpServerSigV4DetailsPtrOutput() ServiceMcpServerSigV4DetailsPtrOutput {
+	return o.ToServiceMcpServerSigV4DetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerSigV4DetailsOutput) ToServiceMcpServerSigV4DetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4DetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerSigV4Details) *ServiceMcpServerSigV4Details {
+		return &v
+	}).(ServiceMcpServerSigV4DetailsPtrOutput)
+}
+
+func (o ServiceMcpServerSigV4DetailsOutput) AuthorizationConfig() ServiceMcpServerSigV4AuthorizationConfigOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4Details) ServiceMcpServerSigV4AuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(ServiceMcpServerSigV4AuthorizationConfigOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerSigV4DetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4Details) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerSigV4DetailsOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4Details) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerSigV4DetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerSigV4Details) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ServiceMcpServerSigV4DetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSigV4DetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSigV4Details)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSigV4DetailsPtrOutput) ToServiceMcpServerSigV4DetailsPtrOutput() ServiceMcpServerSigV4DetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4DetailsPtrOutput) ToServiceMcpServerSigV4DetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSigV4DetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSigV4DetailsPtrOutput) Elem() ServiceMcpServerSigV4DetailsOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4Details) ServiceMcpServerSigV4Details {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerSigV4Details
+		return ret
+	}).(ServiceMcpServerSigV4DetailsOutput)
+}
+
+func (o ServiceMcpServerSigV4DetailsPtrOutput) AuthorizationConfig() ServiceMcpServerSigV4AuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4Details) *ServiceMcpServerSigV4AuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationConfig
+	}).(ServiceMcpServerSigV4AuthorizationConfigPtrOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerSigV4DetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerSigV4DetailsPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerSigV4DetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server splunk authorization configuration
+type ServiceMcpServerSplunkAuthorizationConfig struct {
+	BearerToken *ServiceBearerTokenDetails `pulumi:"bearerToken"`
+}
+
+// ServiceMcpServerSplunkAuthorizationConfigInput is an input type that accepts ServiceMcpServerSplunkAuthorizationConfigArgs and ServiceMcpServerSplunkAuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSplunkAuthorizationConfigInput` via:
+//
+//	ServiceMcpServerSplunkAuthorizationConfigArgs{...}
+type ServiceMcpServerSplunkAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSplunkAuthorizationConfigOutput() ServiceMcpServerSplunkAuthorizationConfigOutput
+	ToServiceMcpServerSplunkAuthorizationConfigOutputWithContext(context.Context) ServiceMcpServerSplunkAuthorizationConfigOutput
+}
+
+// MCP server splunk authorization configuration
+type ServiceMcpServerSplunkAuthorizationConfigArgs struct {
+	BearerToken ServiceBearerTokenDetailsPtrInput `pulumi:"bearerToken"`
+}
+
+func (ServiceMcpServerSplunkAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSplunkAuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServiceMcpServerSplunkAuthorizationConfigArgs) ToServiceMcpServerSplunkAuthorizationConfigOutput() ServiceMcpServerSplunkAuthorizationConfigOutput {
+	return i.ToServiceMcpServerSplunkAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSplunkAuthorizationConfigArgs) ToServiceMcpServerSplunkAuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerSplunkAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSplunkAuthorizationConfigOutput)
+}
+
+func (i ServiceMcpServerSplunkAuthorizationConfigArgs) ToServiceMcpServerSplunkAuthorizationConfigPtrOutput() ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSplunkAuthorizationConfigArgs) ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSplunkAuthorizationConfigOutput).ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerSplunkAuthorizationConfigPtrInput is an input type that accepts ServiceMcpServerSplunkAuthorizationConfigArgs, ServiceMcpServerSplunkAuthorizationConfigPtr and ServiceMcpServerSplunkAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSplunkAuthorizationConfigPtrInput` via:
+//
+//	        ServiceMcpServerSplunkAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerSplunkAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSplunkAuthorizationConfigPtrOutput() ServiceMcpServerSplunkAuthorizationConfigPtrOutput
+	ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(context.Context) ServiceMcpServerSplunkAuthorizationConfigPtrOutput
+}
+
+type serviceMcpServerSplunkAuthorizationConfigPtrType ServiceMcpServerSplunkAuthorizationConfigArgs
+
+func ServiceMcpServerSplunkAuthorizationConfigPtr(v *ServiceMcpServerSplunkAuthorizationConfigArgs) ServiceMcpServerSplunkAuthorizationConfigPtrInput {
+	return (*serviceMcpServerSplunkAuthorizationConfigPtrType)(v)
+}
+
+func (*serviceMcpServerSplunkAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSplunkAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *serviceMcpServerSplunkAuthorizationConfigPtrType) ToServiceMcpServerSplunkAuthorizationConfigPtrOutput() ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return i.ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerSplunkAuthorizationConfigPtrType) ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSplunkAuthorizationConfigPtrOutput)
+}
+
+// MCP server splunk authorization configuration
+type ServiceMcpServerSplunkAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSplunkAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSplunkAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigOutput) ToServiceMcpServerSplunkAuthorizationConfigOutput() ServiceMcpServerSplunkAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigOutput) ToServiceMcpServerSplunkAuthorizationConfigOutputWithContext(ctx context.Context) ServiceMcpServerSplunkAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigOutput) ToServiceMcpServerSplunkAuthorizationConfigPtrOutput() ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return o.ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigOutput) ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerSplunkAuthorizationConfig) *ServiceMcpServerSplunkAuthorizationConfig {
+		return &v
+	}).(ServiceMcpServerSplunkAuthorizationConfigPtrOutput)
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigOutput) BearerToken() ServiceBearerTokenDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerSplunkAuthorizationConfig) *ServiceBearerTokenDetails { return v.BearerToken }).(ServiceBearerTokenDetailsPtrOutput)
+}
+
+type ServiceMcpServerSplunkAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSplunkAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSplunkAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigPtrOutput) ToServiceMcpServerSplunkAuthorizationConfigPtrOutput() ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigPtrOutput) ToServiceMcpServerSplunkAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigPtrOutput) Elem() ServiceMcpServerSplunkAuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSplunkAuthorizationConfig) ServiceMcpServerSplunkAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerSplunkAuthorizationConfig
+		return ret
+	}).(ServiceMcpServerSplunkAuthorizationConfigOutput)
+}
+
+func (o ServiceMcpServerSplunkAuthorizationConfigPtrOutput) BearerToken() ServiceBearerTokenDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSplunkAuthorizationConfig) *ServiceBearerTokenDetails {
+		if v == nil {
+			return nil
+		}
+		return v.BearerToken
+	}).(ServiceBearerTokenDetailsPtrOutput)
+}
+
+// Splunk MCP server configuration
+type ServiceMcpServerSplunkDetails struct {
+	AuthorizationConfig ServiceMcpServerSplunkAuthorizationConfig `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description *string `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// MCP server name
+	Name string `pulumi:"name"`
+}
+
+// ServiceMcpServerSplunkDetailsInput is an input type that accepts ServiceMcpServerSplunkDetailsArgs and ServiceMcpServerSplunkDetailsOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSplunkDetailsInput` via:
+//
+//	ServiceMcpServerSplunkDetailsArgs{...}
+type ServiceMcpServerSplunkDetailsInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSplunkDetailsOutput() ServiceMcpServerSplunkDetailsOutput
+	ToServiceMcpServerSplunkDetailsOutputWithContext(context.Context) ServiceMcpServerSplunkDetailsOutput
+}
+
+// Splunk MCP server configuration
+type ServiceMcpServerSplunkDetailsArgs struct {
+	AuthorizationConfig ServiceMcpServerSplunkAuthorizationConfigInput `pulumi:"authorizationConfig"`
+	// Optional description for the MCP server
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// MCP server name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ServiceMcpServerSplunkDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSplunkDetails)(nil)).Elem()
+}
+
+func (i ServiceMcpServerSplunkDetailsArgs) ToServiceMcpServerSplunkDetailsOutput() ServiceMcpServerSplunkDetailsOutput {
+	return i.ToServiceMcpServerSplunkDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSplunkDetailsArgs) ToServiceMcpServerSplunkDetailsOutputWithContext(ctx context.Context) ServiceMcpServerSplunkDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSplunkDetailsOutput)
+}
+
+func (i ServiceMcpServerSplunkDetailsArgs) ToServiceMcpServerSplunkDetailsPtrOutput() ServiceMcpServerSplunkDetailsPtrOutput {
+	return i.ToServiceMcpServerSplunkDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceMcpServerSplunkDetailsArgs) ToServiceMcpServerSplunkDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSplunkDetailsOutput).ToServiceMcpServerSplunkDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceMcpServerSplunkDetailsPtrInput is an input type that accepts ServiceMcpServerSplunkDetailsArgs, ServiceMcpServerSplunkDetailsPtr and ServiceMcpServerSplunkDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceMcpServerSplunkDetailsPtrInput` via:
+//
+//	        ServiceMcpServerSplunkDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceMcpServerSplunkDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceMcpServerSplunkDetailsPtrOutput() ServiceMcpServerSplunkDetailsPtrOutput
+	ToServiceMcpServerSplunkDetailsPtrOutputWithContext(context.Context) ServiceMcpServerSplunkDetailsPtrOutput
+}
+
+type serviceMcpServerSplunkDetailsPtrType ServiceMcpServerSplunkDetailsArgs
+
+func ServiceMcpServerSplunkDetailsPtr(v *ServiceMcpServerSplunkDetailsArgs) ServiceMcpServerSplunkDetailsPtrInput {
+	return (*serviceMcpServerSplunkDetailsPtrType)(v)
+}
+
+func (*serviceMcpServerSplunkDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSplunkDetails)(nil)).Elem()
+}
+
+func (i *serviceMcpServerSplunkDetailsPtrType) ToServiceMcpServerSplunkDetailsPtrOutput() ServiceMcpServerSplunkDetailsPtrOutput {
+	return i.ToServiceMcpServerSplunkDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceMcpServerSplunkDetailsPtrType) ToServiceMcpServerSplunkDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceMcpServerSplunkDetailsPtrOutput)
+}
+
+// Splunk MCP server configuration
+type ServiceMcpServerSplunkDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSplunkDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceMcpServerSplunkDetails)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSplunkDetailsOutput) ToServiceMcpServerSplunkDetailsOutput() ServiceMcpServerSplunkDetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkDetailsOutput) ToServiceMcpServerSplunkDetailsOutputWithContext(ctx context.Context) ServiceMcpServerSplunkDetailsOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkDetailsOutput) ToServiceMcpServerSplunkDetailsPtrOutput() ServiceMcpServerSplunkDetailsPtrOutput {
+	return o.ToServiceMcpServerSplunkDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceMcpServerSplunkDetailsOutput) ToServiceMcpServerSplunkDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceMcpServerSplunkDetails) *ServiceMcpServerSplunkDetails {
+		return &v
+	}).(ServiceMcpServerSplunkDetailsPtrOutput)
+}
+
+func (o ServiceMcpServerSplunkDetailsOutput) AuthorizationConfig() ServiceMcpServerSplunkAuthorizationConfigOutput {
+	return o.ApplyT(func(v ServiceMcpServerSplunkDetails) ServiceMcpServerSplunkAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(ServiceMcpServerSplunkAuthorizationConfigOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerSplunkDetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerSplunkDetails) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerSplunkDetailsOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerSplunkDetails) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerSplunkDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceMcpServerSplunkDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ServiceMcpServerSplunkDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceMcpServerSplunkDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceMcpServerSplunkDetails)(nil)).Elem()
+}
+
+func (o ServiceMcpServerSplunkDetailsPtrOutput) ToServiceMcpServerSplunkDetailsPtrOutput() ServiceMcpServerSplunkDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkDetailsPtrOutput) ToServiceMcpServerSplunkDetailsPtrOutputWithContext(ctx context.Context) ServiceMcpServerSplunkDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceMcpServerSplunkDetailsPtrOutput) Elem() ServiceMcpServerSplunkDetailsOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSplunkDetails) ServiceMcpServerSplunkDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceMcpServerSplunkDetails
+		return ret
+	}).(ServiceMcpServerSplunkDetailsOutput)
+}
+
+func (o ServiceMcpServerSplunkDetailsPtrOutput) AuthorizationConfig() ServiceMcpServerSplunkAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSplunkDetails) *ServiceMcpServerSplunkAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationConfig
+	}).(ServiceMcpServerSplunkAuthorizationConfigPtrOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceMcpServerSplunkDetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSplunkDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceMcpServerSplunkDetailsPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSplunkDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server name
+func (o ServiceMcpServerSplunkDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerSplunkDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// New Relic API key configuration
+type ServiceNewRelicApiKeyConfig struct {
+	// New Relic Account ID
+	AccountId string `pulumi:"accountId"`
+	// List of alert policy IDs
+	AlertPolicyIds []string `pulumi:"alertPolicyIds"`
+	// New Relic User API Key
+	ApiKey string `pulumi:"apiKey"`
+	// List of monitored APM application IDs
+	ApplicationIds []string `pulumi:"applicationIds"`
+	// List of globally unique IDs for New Relic resources
+	EntityGuids []string `pulumi:"entityGuids"`
+	// New Relic region
+	Region ServiceNewRelicApiKeyConfigRegion `pulumi:"region"`
+}
+
+// ServiceNewRelicApiKeyConfigInput is an input type that accepts ServiceNewRelicApiKeyConfigArgs and ServiceNewRelicApiKeyConfigOutput values.
+// You can construct a concrete instance of `ServiceNewRelicApiKeyConfigInput` via:
+//
+//	ServiceNewRelicApiKeyConfigArgs{...}
+type ServiceNewRelicApiKeyConfigInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicApiKeyConfigOutput() ServiceNewRelicApiKeyConfigOutput
+	ToServiceNewRelicApiKeyConfigOutputWithContext(context.Context) ServiceNewRelicApiKeyConfigOutput
+}
+
+// New Relic API key configuration
+type ServiceNewRelicApiKeyConfigArgs struct {
+	// New Relic Account ID
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// List of alert policy IDs
+	AlertPolicyIds pulumi.StringArrayInput `pulumi:"alertPolicyIds"`
+	// New Relic User API Key
+	ApiKey pulumi.StringInput `pulumi:"apiKey"`
+	// List of monitored APM application IDs
+	ApplicationIds pulumi.StringArrayInput `pulumi:"applicationIds"`
+	// List of globally unique IDs for New Relic resources
+	EntityGuids pulumi.StringArrayInput `pulumi:"entityGuids"`
+	// New Relic region
+	Region ServiceNewRelicApiKeyConfigRegionInput `pulumi:"region"`
+}
+
+func (ServiceNewRelicApiKeyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicApiKeyConfig)(nil)).Elem()
+}
+
+func (i ServiceNewRelicApiKeyConfigArgs) ToServiceNewRelicApiKeyConfigOutput() ServiceNewRelicApiKeyConfigOutput {
+	return i.ToServiceNewRelicApiKeyConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceNewRelicApiKeyConfigArgs) ToServiceNewRelicApiKeyConfigOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicApiKeyConfigOutput)
+}
+
+func (i ServiceNewRelicApiKeyConfigArgs) ToServiceNewRelicApiKeyConfigPtrOutput() ServiceNewRelicApiKeyConfigPtrOutput {
+	return i.ToServiceNewRelicApiKeyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNewRelicApiKeyConfigArgs) ToServiceNewRelicApiKeyConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicApiKeyConfigOutput).ToServiceNewRelicApiKeyConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceNewRelicApiKeyConfigPtrInput is an input type that accepts ServiceNewRelicApiKeyConfigArgs, ServiceNewRelicApiKeyConfigPtr and ServiceNewRelicApiKeyConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceNewRelicApiKeyConfigPtrInput` via:
+//
+//	        ServiceNewRelicApiKeyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNewRelicApiKeyConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicApiKeyConfigPtrOutput() ServiceNewRelicApiKeyConfigPtrOutput
+	ToServiceNewRelicApiKeyConfigPtrOutputWithContext(context.Context) ServiceNewRelicApiKeyConfigPtrOutput
+}
+
+type serviceNewRelicApiKeyConfigPtrType ServiceNewRelicApiKeyConfigArgs
+
+func ServiceNewRelicApiKeyConfigPtr(v *ServiceNewRelicApiKeyConfigArgs) ServiceNewRelicApiKeyConfigPtrInput {
+	return (*serviceNewRelicApiKeyConfigPtrType)(v)
+}
+
+func (*serviceNewRelicApiKeyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNewRelicApiKeyConfig)(nil)).Elem()
+}
+
+func (i *serviceNewRelicApiKeyConfigPtrType) ToServiceNewRelicApiKeyConfigPtrOutput() ServiceNewRelicApiKeyConfigPtrOutput {
+	return i.ToServiceNewRelicApiKeyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNewRelicApiKeyConfigPtrType) ToServiceNewRelicApiKeyConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicApiKeyConfigPtrOutput)
+}
+
+// New Relic API key configuration
+type ServiceNewRelicApiKeyConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicApiKeyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicApiKeyConfig)(nil)).Elem()
+}
+
+func (o ServiceNewRelicApiKeyConfigOutput) ToServiceNewRelicApiKeyConfigOutput() ServiceNewRelicApiKeyConfigOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigOutput) ToServiceNewRelicApiKeyConfigOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigOutput) ToServiceNewRelicApiKeyConfigPtrOutput() ServiceNewRelicApiKeyConfigPtrOutput {
+	return o.ToServiceNewRelicApiKeyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNewRelicApiKeyConfigOutput) ToServiceNewRelicApiKeyConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNewRelicApiKeyConfig) *ServiceNewRelicApiKeyConfig {
+		return &v
+	}).(ServiceNewRelicApiKeyConfigPtrOutput)
+}
+
+// New Relic Account ID
+func (o ServiceNewRelicApiKeyConfigOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceNewRelicApiKeyConfig) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// List of alert policy IDs
+func (o ServiceNewRelicApiKeyConfigOutput) AlertPolicyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNewRelicApiKeyConfig) []string { return v.AlertPolicyIds }).(pulumi.StringArrayOutput)
+}
+
+// New Relic User API Key
+func (o ServiceNewRelicApiKeyConfigOutput) ApiKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceNewRelicApiKeyConfig) string { return v.ApiKey }).(pulumi.StringOutput)
+}
+
+// List of monitored APM application IDs
+func (o ServiceNewRelicApiKeyConfigOutput) ApplicationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNewRelicApiKeyConfig) []string { return v.ApplicationIds }).(pulumi.StringArrayOutput)
+}
+
+// List of globally unique IDs for New Relic resources
+func (o ServiceNewRelicApiKeyConfigOutput) EntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNewRelicApiKeyConfig) []string { return v.EntityGuids }).(pulumi.StringArrayOutput)
+}
+
+// New Relic region
+func (o ServiceNewRelicApiKeyConfigOutput) Region() ServiceNewRelicApiKeyConfigRegionOutput {
+	return o.ApplyT(func(v ServiceNewRelicApiKeyConfig) ServiceNewRelicApiKeyConfigRegion { return v.Region }).(ServiceNewRelicApiKeyConfigRegionOutput)
+}
+
+type ServiceNewRelicApiKeyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicApiKeyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNewRelicApiKeyConfig)(nil)).Elem()
+}
+
+func (o ServiceNewRelicApiKeyConfigPtrOutput) ToServiceNewRelicApiKeyConfigPtrOutput() ServiceNewRelicApiKeyConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigPtrOutput) ToServiceNewRelicApiKeyConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicApiKeyConfigPtrOutput) Elem() ServiceNewRelicApiKeyConfigOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfig) ServiceNewRelicApiKeyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNewRelicApiKeyConfig
+		return ret
+	}).(ServiceNewRelicApiKeyConfigOutput)
+}
+
+// New Relic Account ID
+func (o ServiceNewRelicApiKeyConfigPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of alert policy IDs
+func (o ServiceNewRelicApiKeyConfigPtrOutput) AlertPolicyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlertPolicyIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// New Relic User API Key
+func (o ServiceNewRelicApiKeyConfigPtrOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of monitored APM application IDs
+func (o ServiceNewRelicApiKeyConfigPtrOutput) ApplicationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of globally unique IDs for New Relic resources
+func (o ServiceNewRelicApiKeyConfigPtrOutput) EntityGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityGuids
+	}).(pulumi.StringArrayOutput)
+}
+
+// New Relic region
+func (o ServiceNewRelicApiKeyConfigPtrOutput) Region() ServiceNewRelicApiKeyConfigRegionPtrOutput {
+	return o.ApplyT(func(v *ServiceNewRelicApiKeyConfig) *ServiceNewRelicApiKeyConfigRegion {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(ServiceNewRelicApiKeyConfigRegionPtrOutput)
+}
+
+// New Relic authorization configuration
+type ServiceNewRelicAuthorizationConfig struct {
+	ApiKey ServiceNewRelicApiKeyConfig `pulumi:"apiKey"`
+}
+
+// ServiceNewRelicAuthorizationConfigInput is an input type that accepts ServiceNewRelicAuthorizationConfigArgs and ServiceNewRelicAuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServiceNewRelicAuthorizationConfigInput` via:
+//
+//	ServiceNewRelicAuthorizationConfigArgs{...}
+type ServiceNewRelicAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicAuthorizationConfigOutput() ServiceNewRelicAuthorizationConfigOutput
+	ToServiceNewRelicAuthorizationConfigOutputWithContext(context.Context) ServiceNewRelicAuthorizationConfigOutput
+}
+
+// New Relic authorization configuration
+type ServiceNewRelicAuthorizationConfigArgs struct {
+	ApiKey ServiceNewRelicApiKeyConfigInput `pulumi:"apiKey"`
+}
+
+func (ServiceNewRelicAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicAuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServiceNewRelicAuthorizationConfigArgs) ToServiceNewRelicAuthorizationConfigOutput() ServiceNewRelicAuthorizationConfigOutput {
+	return i.ToServiceNewRelicAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceNewRelicAuthorizationConfigArgs) ToServiceNewRelicAuthorizationConfigOutputWithContext(ctx context.Context) ServiceNewRelicAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicAuthorizationConfigOutput)
+}
+
+func (i ServiceNewRelicAuthorizationConfigArgs) ToServiceNewRelicAuthorizationConfigPtrOutput() ServiceNewRelicAuthorizationConfigPtrOutput {
+	return i.ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNewRelicAuthorizationConfigArgs) ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicAuthorizationConfigOutput).ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceNewRelicAuthorizationConfigPtrInput is an input type that accepts ServiceNewRelicAuthorizationConfigArgs, ServiceNewRelicAuthorizationConfigPtr and ServiceNewRelicAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceNewRelicAuthorizationConfigPtrInput` via:
+//
+//	        ServiceNewRelicAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNewRelicAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicAuthorizationConfigPtrOutput() ServiceNewRelicAuthorizationConfigPtrOutput
+	ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(context.Context) ServiceNewRelicAuthorizationConfigPtrOutput
+}
+
+type serviceNewRelicAuthorizationConfigPtrType ServiceNewRelicAuthorizationConfigArgs
+
+func ServiceNewRelicAuthorizationConfigPtr(v *ServiceNewRelicAuthorizationConfigArgs) ServiceNewRelicAuthorizationConfigPtrInput {
+	return (*serviceNewRelicAuthorizationConfigPtrType)(v)
+}
+
+func (*serviceNewRelicAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNewRelicAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *serviceNewRelicAuthorizationConfigPtrType) ToServiceNewRelicAuthorizationConfigPtrOutput() ServiceNewRelicAuthorizationConfigPtrOutput {
+	return i.ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNewRelicAuthorizationConfigPtrType) ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicAuthorizationConfigPtrOutput)
+}
+
+// New Relic authorization configuration
+type ServiceNewRelicAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceNewRelicAuthorizationConfigOutput) ToServiceNewRelicAuthorizationConfigOutput() ServiceNewRelicAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceNewRelicAuthorizationConfigOutput) ToServiceNewRelicAuthorizationConfigOutputWithContext(ctx context.Context) ServiceNewRelicAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceNewRelicAuthorizationConfigOutput) ToServiceNewRelicAuthorizationConfigPtrOutput() ServiceNewRelicAuthorizationConfigPtrOutput {
+	return o.ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNewRelicAuthorizationConfigOutput) ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNewRelicAuthorizationConfig) *ServiceNewRelicAuthorizationConfig {
+		return &v
+	}).(ServiceNewRelicAuthorizationConfigPtrOutput)
+}
+
+func (o ServiceNewRelicAuthorizationConfigOutput) ApiKey() ServiceNewRelicApiKeyConfigOutput {
+	return o.ApplyT(func(v ServiceNewRelicAuthorizationConfig) ServiceNewRelicApiKeyConfig { return v.ApiKey }).(ServiceNewRelicApiKeyConfigOutput)
+}
+
+type ServiceNewRelicAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNewRelicAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceNewRelicAuthorizationConfigPtrOutput) ToServiceNewRelicAuthorizationConfigPtrOutput() ServiceNewRelicAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicAuthorizationConfigPtrOutput) ToServiceNewRelicAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNewRelicAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicAuthorizationConfigPtrOutput) Elem() ServiceNewRelicAuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServiceNewRelicAuthorizationConfig) ServiceNewRelicAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNewRelicAuthorizationConfig
+		return ret
+	}).(ServiceNewRelicAuthorizationConfigOutput)
+}
+
+func (o ServiceNewRelicAuthorizationConfigPtrOutput) ApiKey() ServiceNewRelicApiKeyConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceNewRelicAuthorizationConfig) *ServiceNewRelicApiKeyConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKey
+	}).(ServiceNewRelicApiKeyConfigPtrOutput)
+}
+
+// New Relic service configuration
+type ServiceNewRelicServiceDetails struct {
+	AuthorizationConfig ServiceNewRelicAuthorizationConfig `pulumi:"authorizationConfig"`
+}
+
+// ServiceNewRelicServiceDetailsInput is an input type that accepts ServiceNewRelicServiceDetailsArgs and ServiceNewRelicServiceDetailsOutput values.
+// You can construct a concrete instance of `ServiceNewRelicServiceDetailsInput` via:
+//
+//	ServiceNewRelicServiceDetailsArgs{...}
+type ServiceNewRelicServiceDetailsInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicServiceDetailsOutput() ServiceNewRelicServiceDetailsOutput
+	ToServiceNewRelicServiceDetailsOutputWithContext(context.Context) ServiceNewRelicServiceDetailsOutput
+}
+
+// New Relic service configuration
+type ServiceNewRelicServiceDetailsArgs struct {
+	AuthorizationConfig ServiceNewRelicAuthorizationConfigInput `pulumi:"authorizationConfig"`
+}
+
+func (ServiceNewRelicServiceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicServiceDetails)(nil)).Elem()
+}
+
+func (i ServiceNewRelicServiceDetailsArgs) ToServiceNewRelicServiceDetailsOutput() ServiceNewRelicServiceDetailsOutput {
+	return i.ToServiceNewRelicServiceDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceNewRelicServiceDetailsArgs) ToServiceNewRelicServiceDetailsOutputWithContext(ctx context.Context) ServiceNewRelicServiceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicServiceDetailsOutput)
+}
+
+func (i ServiceNewRelicServiceDetailsArgs) ToServiceNewRelicServiceDetailsPtrOutput() ServiceNewRelicServiceDetailsPtrOutput {
+	return i.ToServiceNewRelicServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNewRelicServiceDetailsArgs) ToServiceNewRelicServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNewRelicServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicServiceDetailsOutput).ToServiceNewRelicServiceDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceNewRelicServiceDetailsPtrInput is an input type that accepts ServiceNewRelicServiceDetailsArgs, ServiceNewRelicServiceDetailsPtr and ServiceNewRelicServiceDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceNewRelicServiceDetailsPtrInput` via:
+//
+//	        ServiceNewRelicServiceDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNewRelicServiceDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceNewRelicServiceDetailsPtrOutput() ServiceNewRelicServiceDetailsPtrOutput
+	ToServiceNewRelicServiceDetailsPtrOutputWithContext(context.Context) ServiceNewRelicServiceDetailsPtrOutput
+}
+
+type serviceNewRelicServiceDetailsPtrType ServiceNewRelicServiceDetailsArgs
+
+func ServiceNewRelicServiceDetailsPtr(v *ServiceNewRelicServiceDetailsArgs) ServiceNewRelicServiceDetailsPtrInput {
+	return (*serviceNewRelicServiceDetailsPtrType)(v)
+}
+
+func (*serviceNewRelicServiceDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNewRelicServiceDetails)(nil)).Elem()
+}
+
+func (i *serviceNewRelicServiceDetailsPtrType) ToServiceNewRelicServiceDetailsPtrOutput() ServiceNewRelicServiceDetailsPtrOutput {
+	return i.ToServiceNewRelicServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNewRelicServiceDetailsPtrType) ToServiceNewRelicServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNewRelicServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNewRelicServiceDetailsPtrOutput)
+}
+
+// New Relic service configuration
+type ServiceNewRelicServiceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNewRelicServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceNewRelicServiceDetailsOutput) ToServiceNewRelicServiceDetailsOutput() ServiceNewRelicServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceNewRelicServiceDetailsOutput) ToServiceNewRelicServiceDetailsOutputWithContext(ctx context.Context) ServiceNewRelicServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceNewRelicServiceDetailsOutput) ToServiceNewRelicServiceDetailsPtrOutput() ServiceNewRelicServiceDetailsPtrOutput {
+	return o.ToServiceNewRelicServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNewRelicServiceDetailsOutput) ToServiceNewRelicServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNewRelicServiceDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNewRelicServiceDetails) *ServiceNewRelicServiceDetails {
+		return &v
+	}).(ServiceNewRelicServiceDetailsPtrOutput)
+}
+
+func (o ServiceNewRelicServiceDetailsOutput) AuthorizationConfig() ServiceNewRelicAuthorizationConfigOutput {
+	return o.ApplyT(func(v ServiceNewRelicServiceDetails) ServiceNewRelicAuthorizationConfig { return v.AuthorizationConfig }).(ServiceNewRelicAuthorizationConfigOutput)
+}
+
+type ServiceNewRelicServiceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNewRelicServiceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNewRelicServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceNewRelicServiceDetailsPtrOutput) ToServiceNewRelicServiceDetailsPtrOutput() ServiceNewRelicServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicServiceDetailsPtrOutput) ToServiceNewRelicServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNewRelicServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceNewRelicServiceDetailsPtrOutput) Elem() ServiceNewRelicServiceDetailsOutput {
+	return o.ApplyT(func(v *ServiceNewRelicServiceDetails) ServiceNewRelicServiceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNewRelicServiceDetails
+		return ret
+	}).(ServiceNewRelicServiceDetailsOutput)
+}
+
+func (o ServiceNewRelicServiceDetailsPtrOutput) AuthorizationConfig() ServiceNewRelicAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceNewRelicServiceDetails) *ServiceNewRelicAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationConfig
+	}).(ServiceNewRelicAuthorizationConfigPtrOutput)
+}
+
+// ServiceNow OAuth authorization configuration
+type ServiceNowAuthorizationConfig struct {
+	OAuthClientCredentials *ServiceOAuthClientDetails `pulumi:"oAuthClientCredentials"`
+}
+
+// ServiceNowAuthorizationConfigInput is an input type that accepts ServiceNowAuthorizationConfigArgs and ServiceNowAuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServiceNowAuthorizationConfigInput` via:
+//
+//	ServiceNowAuthorizationConfigArgs{...}
+type ServiceNowAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServiceNowAuthorizationConfigOutput() ServiceNowAuthorizationConfigOutput
+	ToServiceNowAuthorizationConfigOutputWithContext(context.Context) ServiceNowAuthorizationConfigOutput
+}
+
+// ServiceNow OAuth authorization configuration
+type ServiceNowAuthorizationConfigArgs struct {
+	OAuthClientCredentials ServiceOAuthClientDetailsPtrInput `pulumi:"oAuthClientCredentials"`
+}
+
+func (ServiceNowAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNowAuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServiceNowAuthorizationConfigArgs) ToServiceNowAuthorizationConfigOutput() ServiceNowAuthorizationConfigOutput {
+	return i.ToServiceNowAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceNowAuthorizationConfigArgs) ToServiceNowAuthorizationConfigOutputWithContext(ctx context.Context) ServiceNowAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowAuthorizationConfigOutput)
+}
+
+func (i ServiceNowAuthorizationConfigArgs) ToServiceNowAuthorizationConfigPtrOutput() ServiceNowAuthorizationConfigPtrOutput {
+	return i.ToServiceNowAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNowAuthorizationConfigArgs) ToServiceNowAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNowAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowAuthorizationConfigOutput).ToServiceNowAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceNowAuthorizationConfigPtrInput is an input type that accepts ServiceNowAuthorizationConfigArgs, ServiceNowAuthorizationConfigPtr and ServiceNowAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceNowAuthorizationConfigPtrInput` via:
+//
+//	        ServiceNowAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNowAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceNowAuthorizationConfigPtrOutput() ServiceNowAuthorizationConfigPtrOutput
+	ToServiceNowAuthorizationConfigPtrOutputWithContext(context.Context) ServiceNowAuthorizationConfigPtrOutput
+}
+
+type serviceNowAuthorizationConfigPtrType ServiceNowAuthorizationConfigArgs
+
+func ServiceNowAuthorizationConfigPtr(v *ServiceNowAuthorizationConfigArgs) ServiceNowAuthorizationConfigPtrInput {
+	return (*serviceNowAuthorizationConfigPtrType)(v)
+}
+
+func (*serviceNowAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNowAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *serviceNowAuthorizationConfigPtrType) ToServiceNowAuthorizationConfigPtrOutput() ServiceNowAuthorizationConfigPtrOutput {
+	return i.ToServiceNowAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNowAuthorizationConfigPtrType) ToServiceNowAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNowAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowAuthorizationConfigPtrOutput)
+}
+
+// ServiceNow OAuth authorization configuration
+type ServiceNowAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceNowAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNowAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceNowAuthorizationConfigOutput) ToServiceNowAuthorizationConfigOutput() ServiceNowAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceNowAuthorizationConfigOutput) ToServiceNowAuthorizationConfigOutputWithContext(ctx context.Context) ServiceNowAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServiceNowAuthorizationConfigOutput) ToServiceNowAuthorizationConfigPtrOutput() ServiceNowAuthorizationConfigPtrOutput {
+	return o.ToServiceNowAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNowAuthorizationConfigOutput) ToServiceNowAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNowAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNowAuthorizationConfig) *ServiceNowAuthorizationConfig {
+		return &v
+	}).(ServiceNowAuthorizationConfigPtrOutput)
+}
+
+func (o ServiceNowAuthorizationConfigOutput) OAuthClientCredentials() ServiceOAuthClientDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceNowAuthorizationConfig) *ServiceOAuthClientDetails { return v.OAuthClientCredentials }).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+type ServiceNowAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNowAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNowAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServiceNowAuthorizationConfigPtrOutput) ToServiceNowAuthorizationConfigPtrOutput() ServiceNowAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNowAuthorizationConfigPtrOutput) ToServiceNowAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServiceNowAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNowAuthorizationConfigPtrOutput) Elem() ServiceNowAuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServiceNowAuthorizationConfig) ServiceNowAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNowAuthorizationConfig
+		return ret
+	}).(ServiceNowAuthorizationConfigOutput)
+}
+
+func (o ServiceNowAuthorizationConfigPtrOutput) OAuthClientCredentials() ServiceOAuthClientDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceNowAuthorizationConfig) *ServiceOAuthClientDetails {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthClientCredentials
+	}).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+// ServiceNow service configuration
+type ServiceNowServiceDetails struct {
+	AuthorizationConfig *ServiceNowAuthorizationConfig `pulumi:"authorizationConfig"`
+	// ServiceNow instance URL
+	InstanceUrl string `pulumi:"instanceUrl"`
+}
+
+// ServiceNowServiceDetailsInput is an input type that accepts ServiceNowServiceDetailsArgs and ServiceNowServiceDetailsOutput values.
+// You can construct a concrete instance of `ServiceNowServiceDetailsInput` via:
+//
+//	ServiceNowServiceDetailsArgs{...}
+type ServiceNowServiceDetailsInput interface {
+	pulumi.Input
+
+	ToServiceNowServiceDetailsOutput() ServiceNowServiceDetailsOutput
+	ToServiceNowServiceDetailsOutputWithContext(context.Context) ServiceNowServiceDetailsOutput
+}
+
+// ServiceNow service configuration
+type ServiceNowServiceDetailsArgs struct {
+	AuthorizationConfig ServiceNowAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
+	// ServiceNow instance URL
+	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
+}
+
+func (ServiceNowServiceDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNowServiceDetails)(nil)).Elem()
+}
+
+func (i ServiceNowServiceDetailsArgs) ToServiceNowServiceDetailsOutput() ServiceNowServiceDetailsOutput {
+	return i.ToServiceNowServiceDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceNowServiceDetailsArgs) ToServiceNowServiceDetailsOutputWithContext(ctx context.Context) ServiceNowServiceDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowServiceDetailsOutput)
+}
+
+func (i ServiceNowServiceDetailsArgs) ToServiceNowServiceDetailsPtrOutput() ServiceNowServiceDetailsPtrOutput {
+	return i.ToServiceNowServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNowServiceDetailsArgs) ToServiceNowServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNowServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowServiceDetailsOutput).ToServiceNowServiceDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceNowServiceDetailsPtrInput is an input type that accepts ServiceNowServiceDetailsArgs, ServiceNowServiceDetailsPtr and ServiceNowServiceDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceNowServiceDetailsPtrInput` via:
+//
+//	        ServiceNowServiceDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNowServiceDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceNowServiceDetailsPtrOutput() ServiceNowServiceDetailsPtrOutput
+	ToServiceNowServiceDetailsPtrOutputWithContext(context.Context) ServiceNowServiceDetailsPtrOutput
+}
+
+type serviceNowServiceDetailsPtrType ServiceNowServiceDetailsArgs
+
+func ServiceNowServiceDetailsPtr(v *ServiceNowServiceDetailsArgs) ServiceNowServiceDetailsPtrInput {
+	return (*serviceNowServiceDetailsPtrType)(v)
+}
+
+func (*serviceNowServiceDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNowServiceDetails)(nil)).Elem()
+}
+
+func (i *serviceNowServiceDetailsPtrType) ToServiceNowServiceDetailsPtrOutput() ServiceNowServiceDetailsPtrOutput {
+	return i.ToServiceNowServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNowServiceDetailsPtrType) ToServiceNowServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNowServiceDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowServiceDetailsPtrOutput)
+}
+
+// ServiceNow service configuration
+type ServiceNowServiceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceNowServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNowServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceNowServiceDetailsOutput) ToServiceNowServiceDetailsOutput() ServiceNowServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceNowServiceDetailsOutput) ToServiceNowServiceDetailsOutputWithContext(ctx context.Context) ServiceNowServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceNowServiceDetailsOutput) ToServiceNowServiceDetailsPtrOutput() ServiceNowServiceDetailsPtrOutput {
+	return o.ToServiceNowServiceDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNowServiceDetailsOutput) ToServiceNowServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNowServiceDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNowServiceDetails) *ServiceNowServiceDetails {
+		return &v
+	}).(ServiceNowServiceDetailsPtrOutput)
+}
+
+func (o ServiceNowServiceDetailsOutput) AuthorizationConfig() ServiceNowAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v ServiceNowServiceDetails) *ServiceNowAuthorizationConfig { return v.AuthorizationConfig }).(ServiceNowAuthorizationConfigPtrOutput)
+}
+
+// ServiceNow instance URL
+func (o ServiceNowServiceDetailsOutput) InstanceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceNowServiceDetails) string { return v.InstanceUrl }).(pulumi.StringOutput)
+}
+
+type ServiceNowServiceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNowServiceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNowServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceNowServiceDetailsPtrOutput) ToServiceNowServiceDetailsPtrOutput() ServiceNowServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceNowServiceDetailsPtrOutput) ToServiceNowServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceNowServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceNowServiceDetailsPtrOutput) Elem() ServiceNowServiceDetailsOutput {
+	return o.ApplyT(func(v *ServiceNowServiceDetails) ServiceNowServiceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNowServiceDetails
+		return ret
+	}).(ServiceNowServiceDetailsOutput)
+}
+
+func (o ServiceNowServiceDetailsPtrOutput) AuthorizationConfig() ServiceNowAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceNowServiceDetails) *ServiceNowAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationConfig
+	}).(ServiceNowAuthorizationConfigPtrOutput)
+}
+
+// ServiceNow instance URL
+func (o ServiceNowServiceDetailsPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceNowServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth client credentials
+type ServiceOAuthClientDetails struct {
+	// OAuth client ID
+	ClientId string `pulumi:"clientId"`
+	// User friendly OAuth client name
+	ClientName *string `pulumi:"clientName"`
+	// OAuth client secret
+	ClientSecret string `pulumi:"clientSecret"`
+	// OAuth token exchange parameters
+	ExchangeParameters interface{} `pulumi:"exchangeParameters"`
+}
+
+// ServiceOAuthClientDetailsInput is an input type that accepts ServiceOAuthClientDetailsArgs and ServiceOAuthClientDetailsOutput values.
+// You can construct a concrete instance of `ServiceOAuthClientDetailsInput` via:
+//
+//	ServiceOAuthClientDetailsArgs{...}
+type ServiceOAuthClientDetailsInput interface {
+	pulumi.Input
+
+	ToServiceOAuthClientDetailsOutput() ServiceOAuthClientDetailsOutput
+	ToServiceOAuthClientDetailsOutputWithContext(context.Context) ServiceOAuthClientDetailsOutput
+}
+
+// OAuth client credentials
+type ServiceOAuthClientDetailsArgs struct {
+	// OAuth client ID
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// User friendly OAuth client name
+	ClientName pulumi.StringPtrInput `pulumi:"clientName"`
+	// OAuth client secret
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// OAuth token exchange parameters
+	ExchangeParameters pulumi.Input `pulumi:"exchangeParameters"`
+}
+
+func (ServiceOAuthClientDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOAuthClientDetails)(nil)).Elem()
+}
+
+func (i ServiceOAuthClientDetailsArgs) ToServiceOAuthClientDetailsOutput() ServiceOAuthClientDetailsOutput {
+	return i.ToServiceOAuthClientDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceOAuthClientDetailsArgs) ToServiceOAuthClientDetailsOutputWithContext(ctx context.Context) ServiceOAuthClientDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOAuthClientDetailsOutput)
+}
+
+func (i ServiceOAuthClientDetailsArgs) ToServiceOAuthClientDetailsPtrOutput() ServiceOAuthClientDetailsPtrOutput {
+	return i.ToServiceOAuthClientDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceOAuthClientDetailsArgs) ToServiceOAuthClientDetailsPtrOutputWithContext(ctx context.Context) ServiceOAuthClientDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOAuthClientDetailsOutput).ToServiceOAuthClientDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceOAuthClientDetailsPtrInput is an input type that accepts ServiceOAuthClientDetailsArgs, ServiceOAuthClientDetailsPtr and ServiceOAuthClientDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceOAuthClientDetailsPtrInput` via:
+//
+//	        ServiceOAuthClientDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceOAuthClientDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceOAuthClientDetailsPtrOutput() ServiceOAuthClientDetailsPtrOutput
+	ToServiceOAuthClientDetailsPtrOutputWithContext(context.Context) ServiceOAuthClientDetailsPtrOutput
+}
+
+type serviceOAuthClientDetailsPtrType ServiceOAuthClientDetailsArgs
+
+func ServiceOAuthClientDetailsPtr(v *ServiceOAuthClientDetailsArgs) ServiceOAuthClientDetailsPtrInput {
+	return (*serviceOAuthClientDetailsPtrType)(v)
+}
+
+func (*serviceOAuthClientDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceOAuthClientDetails)(nil)).Elem()
+}
+
+func (i *serviceOAuthClientDetailsPtrType) ToServiceOAuthClientDetailsPtrOutput() ServiceOAuthClientDetailsPtrOutput {
+	return i.ToServiceOAuthClientDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceOAuthClientDetailsPtrType) ToServiceOAuthClientDetailsPtrOutputWithContext(ctx context.Context) ServiceOAuthClientDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+// OAuth client credentials
+type ServiceOAuthClientDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceOAuthClientDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOAuthClientDetails)(nil)).Elem()
+}
+
+func (o ServiceOAuthClientDetailsOutput) ToServiceOAuthClientDetailsOutput() ServiceOAuthClientDetailsOutput {
+	return o
+}
+
+func (o ServiceOAuthClientDetailsOutput) ToServiceOAuthClientDetailsOutputWithContext(ctx context.Context) ServiceOAuthClientDetailsOutput {
+	return o
+}
+
+func (o ServiceOAuthClientDetailsOutput) ToServiceOAuthClientDetailsPtrOutput() ServiceOAuthClientDetailsPtrOutput {
+	return o.ToServiceOAuthClientDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceOAuthClientDetailsOutput) ToServiceOAuthClientDetailsPtrOutputWithContext(ctx context.Context) ServiceOAuthClientDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceOAuthClientDetails) *ServiceOAuthClientDetails {
+		return &v
+	}).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+// OAuth client ID
+func (o ServiceOAuthClientDetailsOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceOAuthClientDetails) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// User friendly OAuth client name
+func (o ServiceOAuthClientDetailsOutput) ClientName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceOAuthClientDetails) *string { return v.ClientName }).(pulumi.StringPtrOutput)
+}
+
+// OAuth client secret
+func (o ServiceOAuthClientDetailsOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceOAuthClientDetails) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// OAuth token exchange parameters
+func (o ServiceOAuthClientDetailsOutput) ExchangeParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServiceOAuthClientDetails) interface{} { return v.ExchangeParameters }).(pulumi.AnyOutput)
+}
+
+type ServiceOAuthClientDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceOAuthClientDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceOAuthClientDetails)(nil)).Elem()
+}
+
+func (o ServiceOAuthClientDetailsPtrOutput) ToServiceOAuthClientDetailsPtrOutput() ServiceOAuthClientDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceOAuthClientDetailsPtrOutput) ToServiceOAuthClientDetailsPtrOutputWithContext(ctx context.Context) ServiceOAuthClientDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceOAuthClientDetailsPtrOutput) Elem() ServiceOAuthClientDetailsOutput {
+	return o.ApplyT(func(v *ServiceOAuthClientDetails) ServiceOAuthClientDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceOAuthClientDetails
+		return ret
+	}).(ServiceOAuthClientDetailsOutput)
+}
+
+// OAuth client ID
+func (o ServiceOAuthClientDetailsPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceOAuthClientDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// User friendly OAuth client name
+func (o ServiceOAuthClientDetailsPtrOutput) ClientName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceOAuthClientDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientName
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth client secret
+func (o ServiceOAuthClientDetailsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceOAuthClientDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth token exchange parameters
+func (o ServiceOAuthClientDetailsPtrOutput) ExchangeParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ServiceOAuthClientDetails) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ExchangeParameters
+	}).(pulumi.AnyOutput)
+}
+
+// PagerDuty OAuth authorization configuration
+type ServicePagerDutyAuthorizationConfig struct {
+	OAuthClientCredentials *ServiceOAuthClientDetails `pulumi:"oAuthClientCredentials"`
+}
+
+// ServicePagerDutyAuthorizationConfigInput is an input type that accepts ServicePagerDutyAuthorizationConfigArgs and ServicePagerDutyAuthorizationConfigOutput values.
+// You can construct a concrete instance of `ServicePagerDutyAuthorizationConfigInput` via:
+//
+//	ServicePagerDutyAuthorizationConfigArgs{...}
+type ServicePagerDutyAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToServicePagerDutyAuthorizationConfigOutput() ServicePagerDutyAuthorizationConfigOutput
+	ToServicePagerDutyAuthorizationConfigOutputWithContext(context.Context) ServicePagerDutyAuthorizationConfigOutput
+}
+
+// PagerDuty OAuth authorization configuration
+type ServicePagerDutyAuthorizationConfigArgs struct {
+	OAuthClientCredentials ServiceOAuthClientDetailsPtrInput `pulumi:"oAuthClientCredentials"`
+}
+
+func (ServicePagerDutyAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePagerDutyAuthorizationConfig)(nil)).Elem()
+}
+
+func (i ServicePagerDutyAuthorizationConfigArgs) ToServicePagerDutyAuthorizationConfigOutput() ServicePagerDutyAuthorizationConfigOutput {
+	return i.ToServicePagerDutyAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i ServicePagerDutyAuthorizationConfigArgs) ToServicePagerDutyAuthorizationConfigOutputWithContext(ctx context.Context) ServicePagerDutyAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePagerDutyAuthorizationConfigOutput)
+}
+
+func (i ServicePagerDutyAuthorizationConfigArgs) ToServicePagerDutyAuthorizationConfigPtrOutput() ServicePagerDutyAuthorizationConfigPtrOutput {
+	return i.ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServicePagerDutyAuthorizationConfigArgs) ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServicePagerDutyAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePagerDutyAuthorizationConfigOutput).ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// ServicePagerDutyAuthorizationConfigPtrInput is an input type that accepts ServicePagerDutyAuthorizationConfigArgs, ServicePagerDutyAuthorizationConfigPtr and ServicePagerDutyAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `ServicePagerDutyAuthorizationConfigPtrInput` via:
+//
+//	        ServicePagerDutyAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicePagerDutyAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToServicePagerDutyAuthorizationConfigPtrOutput() ServicePagerDutyAuthorizationConfigPtrOutput
+	ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(context.Context) ServicePagerDutyAuthorizationConfigPtrOutput
+}
+
+type servicePagerDutyAuthorizationConfigPtrType ServicePagerDutyAuthorizationConfigArgs
+
+func ServicePagerDutyAuthorizationConfigPtr(v *ServicePagerDutyAuthorizationConfigArgs) ServicePagerDutyAuthorizationConfigPtrInput {
+	return (*servicePagerDutyAuthorizationConfigPtrType)(v)
+}
+
+func (*servicePagerDutyAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePagerDutyAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *servicePagerDutyAuthorizationConfigPtrType) ToServicePagerDutyAuthorizationConfigPtrOutput() ServicePagerDutyAuthorizationConfigPtrOutput {
+	return i.ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *servicePagerDutyAuthorizationConfigPtrType) ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServicePagerDutyAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePagerDutyAuthorizationConfigPtrOutput)
+}
+
+// PagerDuty OAuth authorization configuration
+type ServicePagerDutyAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (ServicePagerDutyAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePagerDutyAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServicePagerDutyAuthorizationConfigOutput) ToServicePagerDutyAuthorizationConfigOutput() ServicePagerDutyAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServicePagerDutyAuthorizationConfigOutput) ToServicePagerDutyAuthorizationConfigOutputWithContext(ctx context.Context) ServicePagerDutyAuthorizationConfigOutput {
+	return o
+}
+
+func (o ServicePagerDutyAuthorizationConfigOutput) ToServicePagerDutyAuthorizationConfigPtrOutput() ServicePagerDutyAuthorizationConfigPtrOutput {
+	return o.ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePagerDutyAuthorizationConfigOutput) ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServicePagerDutyAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePagerDutyAuthorizationConfig) *ServicePagerDutyAuthorizationConfig {
+		return &v
+	}).(ServicePagerDutyAuthorizationConfigPtrOutput)
+}
+
+func (o ServicePagerDutyAuthorizationConfigOutput) OAuthClientCredentials() ServiceOAuthClientDetailsPtrOutput {
+	return o.ApplyT(func(v ServicePagerDutyAuthorizationConfig) *ServiceOAuthClientDetails {
+		return v.OAuthClientCredentials
+	}).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+type ServicePagerDutyAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePagerDutyAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePagerDutyAuthorizationConfig)(nil)).Elem()
+}
+
+func (o ServicePagerDutyAuthorizationConfigPtrOutput) ToServicePagerDutyAuthorizationConfigPtrOutput() ServicePagerDutyAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServicePagerDutyAuthorizationConfigPtrOutput) ToServicePagerDutyAuthorizationConfigPtrOutputWithContext(ctx context.Context) ServicePagerDutyAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o ServicePagerDutyAuthorizationConfigPtrOutput) Elem() ServicePagerDutyAuthorizationConfigOutput {
+	return o.ApplyT(func(v *ServicePagerDutyAuthorizationConfig) ServicePagerDutyAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePagerDutyAuthorizationConfig
+		return ret
+	}).(ServicePagerDutyAuthorizationConfigOutput)
+}
+
+func (o ServicePagerDutyAuthorizationConfigPtrOutput) OAuthClientCredentials() ServiceOAuthClientDetailsPtrOutput {
+	return o.ApplyT(func(v *ServicePagerDutyAuthorizationConfig) *ServiceOAuthClientDetails {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthClientCredentials
+	}).(ServiceOAuthClientDetailsPtrOutput)
+}
+
+// PagerDuty service configuration
+type ServicePagerDutyDetails struct {
+	AuthorizationConfig ServicePagerDutyAuthorizationConfig `pulumi:"authorizationConfig"`
+	// PagerDuty scopes
+	Scopes []string `pulumi:"scopes"`
+}
+
+// ServicePagerDutyDetailsInput is an input type that accepts ServicePagerDutyDetailsArgs and ServicePagerDutyDetailsOutput values.
+// You can construct a concrete instance of `ServicePagerDutyDetailsInput` via:
+//
+//	ServicePagerDutyDetailsArgs{...}
+type ServicePagerDutyDetailsInput interface {
+	pulumi.Input
+
+	ToServicePagerDutyDetailsOutput() ServicePagerDutyDetailsOutput
+	ToServicePagerDutyDetailsOutputWithContext(context.Context) ServicePagerDutyDetailsOutput
+}
+
+// PagerDuty service configuration
+type ServicePagerDutyDetailsArgs struct {
+	AuthorizationConfig ServicePagerDutyAuthorizationConfigInput `pulumi:"authorizationConfig"`
+	// PagerDuty scopes
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (ServicePagerDutyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePagerDutyDetails)(nil)).Elem()
+}
+
+func (i ServicePagerDutyDetailsArgs) ToServicePagerDutyDetailsOutput() ServicePagerDutyDetailsOutput {
+	return i.ToServicePagerDutyDetailsOutputWithContext(context.Background())
+}
+
+func (i ServicePagerDutyDetailsArgs) ToServicePagerDutyDetailsOutputWithContext(ctx context.Context) ServicePagerDutyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePagerDutyDetailsOutput)
+}
+
+func (i ServicePagerDutyDetailsArgs) ToServicePagerDutyDetailsPtrOutput() ServicePagerDutyDetailsPtrOutput {
+	return i.ToServicePagerDutyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServicePagerDutyDetailsArgs) ToServicePagerDutyDetailsPtrOutputWithContext(ctx context.Context) ServicePagerDutyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePagerDutyDetailsOutput).ToServicePagerDutyDetailsPtrOutputWithContext(ctx)
+}
+
+// ServicePagerDutyDetailsPtrInput is an input type that accepts ServicePagerDutyDetailsArgs, ServicePagerDutyDetailsPtr and ServicePagerDutyDetailsPtrOutput values.
+// You can construct a concrete instance of `ServicePagerDutyDetailsPtrInput` via:
+//
+//	        ServicePagerDutyDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicePagerDutyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServicePagerDutyDetailsPtrOutput() ServicePagerDutyDetailsPtrOutput
+	ToServicePagerDutyDetailsPtrOutputWithContext(context.Context) ServicePagerDutyDetailsPtrOutput
+}
+
+type servicePagerDutyDetailsPtrType ServicePagerDutyDetailsArgs
+
+func ServicePagerDutyDetailsPtr(v *ServicePagerDutyDetailsArgs) ServicePagerDutyDetailsPtrInput {
+	return (*servicePagerDutyDetailsPtrType)(v)
+}
+
+func (*servicePagerDutyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePagerDutyDetails)(nil)).Elem()
+}
+
+func (i *servicePagerDutyDetailsPtrType) ToServicePagerDutyDetailsPtrOutput() ServicePagerDutyDetailsPtrOutput {
+	return i.ToServicePagerDutyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *servicePagerDutyDetailsPtrType) ToServicePagerDutyDetailsPtrOutputWithContext(ctx context.Context) ServicePagerDutyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePagerDutyDetailsPtrOutput)
+}
+
+// PagerDuty service configuration
+type ServicePagerDutyDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServicePagerDutyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePagerDutyDetails)(nil)).Elem()
+}
+
+func (o ServicePagerDutyDetailsOutput) ToServicePagerDutyDetailsOutput() ServicePagerDutyDetailsOutput {
+	return o
+}
+
+func (o ServicePagerDutyDetailsOutput) ToServicePagerDutyDetailsOutputWithContext(ctx context.Context) ServicePagerDutyDetailsOutput {
+	return o
+}
+
+func (o ServicePagerDutyDetailsOutput) ToServicePagerDutyDetailsPtrOutput() ServicePagerDutyDetailsPtrOutput {
+	return o.ToServicePagerDutyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePagerDutyDetailsOutput) ToServicePagerDutyDetailsPtrOutputWithContext(ctx context.Context) ServicePagerDutyDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePagerDutyDetails) *ServicePagerDutyDetails {
+		return &v
+	}).(ServicePagerDutyDetailsPtrOutput)
+}
+
+func (o ServicePagerDutyDetailsOutput) AuthorizationConfig() ServicePagerDutyAuthorizationConfigOutput {
+	return o.ApplyT(func(v ServicePagerDutyDetails) ServicePagerDutyAuthorizationConfig { return v.AuthorizationConfig }).(ServicePagerDutyAuthorizationConfigOutput)
+}
+
+// PagerDuty scopes
+func (o ServicePagerDutyDetailsOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServicePagerDutyDetails) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ServicePagerDutyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePagerDutyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePagerDutyDetails)(nil)).Elem()
+}
+
+func (o ServicePagerDutyDetailsPtrOutput) ToServicePagerDutyDetailsPtrOutput() ServicePagerDutyDetailsPtrOutput {
+	return o
+}
+
+func (o ServicePagerDutyDetailsPtrOutput) ToServicePagerDutyDetailsPtrOutputWithContext(ctx context.Context) ServicePagerDutyDetailsPtrOutput {
+	return o
+}
+
+func (o ServicePagerDutyDetailsPtrOutput) Elem() ServicePagerDutyDetailsOutput {
+	return o.ApplyT(func(v *ServicePagerDutyDetails) ServicePagerDutyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePagerDutyDetails
+		return ret
+	}).(ServicePagerDutyDetailsOutput)
+}
+
+func (o ServicePagerDutyDetailsPtrOutput) AuthorizationConfig() ServicePagerDutyAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *ServicePagerDutyDetails) *ServicePagerDutyAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationConfig
+	}).(ServicePagerDutyAuthorizationConfigPtrOutput)
+}
+
+// PagerDuty scopes
+func (o ServicePagerDutyDetailsPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServicePagerDutyDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Azure Identity service details returned after registration
+type ServiceRegisteredAzureIdentityDetails struct {
+	// Azure AD application client ID
+	ClientId string `pulumi:"clientId"`
+	// Azure AD tenant ID
+	TenantId string `pulumi:"tenantId"`
+	// ARN of the IAM role for web identity token exchange
+	WebIdentityRoleArn string `pulumi:"webIdentityRoleArn"`
+	// List of audiences for the web identity token
+	WebIdentityTokenAudiences []string `pulumi:"webIdentityTokenAudiences"`
+}
+
+// Azure Identity service details returned after registration
+type ServiceRegisteredAzureIdentityDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredAzureIdentityDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredAzureIdentityDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredAzureIdentityDetailsOutput) ToServiceRegisteredAzureIdentityDetailsOutput() ServiceRegisteredAzureIdentityDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredAzureIdentityDetailsOutput) ToServiceRegisteredAzureIdentityDetailsOutputWithContext(ctx context.Context) ServiceRegisteredAzureIdentityDetailsOutput {
+	return o
+}
+
+// Azure AD application client ID
+func (o ServiceRegisteredAzureIdentityDetailsOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredAzureIdentityDetails) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Azure AD tenant ID
+func (o ServiceRegisteredAzureIdentityDetailsOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredAzureIdentityDetails) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role for web identity token exchange
+func (o ServiceRegisteredAzureIdentityDetailsOutput) WebIdentityRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredAzureIdentityDetails) string { return v.WebIdentityRoleArn }).(pulumi.StringOutput)
+}
+
+// List of audiences for the web identity token
+func (o ServiceRegisteredAzureIdentityDetailsOutput) WebIdentityTokenAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceRegisteredAzureIdentityDetails) []string { return v.WebIdentityTokenAudiences }).(pulumi.StringArrayOutput)
+}
+
+type ServiceRegisteredAzureIdentityDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredAzureIdentityDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredAzureIdentityDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredAzureIdentityDetailsPtrOutput) ToServiceRegisteredAzureIdentityDetailsPtrOutput() ServiceRegisteredAzureIdentityDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredAzureIdentityDetailsPtrOutput) ToServiceRegisteredAzureIdentityDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredAzureIdentityDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredAzureIdentityDetailsPtrOutput) Elem() ServiceRegisteredAzureIdentityDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredAzureIdentityDetails) ServiceRegisteredAzureIdentityDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredAzureIdentityDetails
+		return ret
+	}).(ServiceRegisteredAzureIdentityDetailsOutput)
+}
+
+// Azure AD application client ID
+func (o ServiceRegisteredAzureIdentityDetailsPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredAzureIdentityDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure AD tenant ID
+func (o ServiceRegisteredAzureIdentityDetailsPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredAzureIdentityDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role for web identity token exchange
+func (o ServiceRegisteredAzureIdentityDetailsPtrOutput) WebIdentityRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredAzureIdentityDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebIdentityRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of audiences for the web identity token
+func (o ServiceRegisteredAzureIdentityDetailsPtrOutput) WebIdentityTokenAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceRegisteredAzureIdentityDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WebIdentityTokenAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Dynatrace service details returned after registration
+type ServiceRegisteredDynatraceDetails struct {
+	// Dynatrace resource account URN
+	AccountUrn string `pulumi:"accountUrn"`
+}
+
+// Dynatrace service details returned after registration
+type ServiceRegisteredDynatraceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredDynatraceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredDynatraceDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredDynatraceDetailsOutput) ToServiceRegisteredDynatraceDetailsOutput() ServiceRegisteredDynatraceDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredDynatraceDetailsOutput) ToServiceRegisteredDynatraceDetailsOutputWithContext(ctx context.Context) ServiceRegisteredDynatraceDetailsOutput {
+	return o
+}
+
+// Dynatrace resource account URN
+func (o ServiceRegisteredDynatraceDetailsOutput) AccountUrn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredDynatraceDetails) string { return v.AccountUrn }).(pulumi.StringOutput)
+}
+
+type ServiceRegisteredDynatraceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredDynatraceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredDynatraceDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredDynatraceDetailsPtrOutput) ToServiceRegisteredDynatraceDetailsPtrOutput() ServiceRegisteredDynatraceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredDynatraceDetailsPtrOutput) ToServiceRegisteredDynatraceDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredDynatraceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredDynatraceDetailsPtrOutput) Elem() ServiceRegisteredDynatraceDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredDynatraceDetails) ServiceRegisteredDynatraceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredDynatraceDetails
+		return ret
+	}).(ServiceRegisteredDynatraceDetailsOutput)
+}
+
+// Dynatrace resource account URN
+func (o ServiceRegisteredDynatraceDetailsPtrOutput) AccountUrn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredDynatraceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountUrn
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitLab service details returned after registration
+type ServiceRegisteredGitLabServiceDetails struct {
+	// Optional GitLab group ID for group-level access tokens
+	GroupId *string `pulumi:"groupId"`
+	// GitLab instance URL
+	TargetUrl string `pulumi:"targetUrl"`
+	// Type of GitLab access token
+	TokenType ServiceRegisteredGitLabServiceDetailsTokenType `pulumi:"tokenType"`
+}
+
+// GitLab service details returned after registration
+type ServiceRegisteredGitLabServiceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitLabServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredGitLabServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsOutput) ToServiceRegisteredGitLabServiceDetailsOutput() ServiceRegisteredGitLabServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsOutput) ToServiceRegisteredGitLabServiceDetailsOutputWithContext(ctx context.Context) ServiceRegisteredGitLabServiceDetailsOutput {
+	return o
+}
+
+// Optional GitLab group ID for group-level access tokens
+func (o ServiceRegisteredGitLabServiceDetailsOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitLabServiceDetails) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// GitLab instance URL
+func (o ServiceRegisteredGitLabServiceDetailsOutput) TargetUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitLabServiceDetails) string { return v.TargetUrl }).(pulumi.StringOutput)
+}
+
+// Type of GitLab access token
+func (o ServiceRegisteredGitLabServiceDetailsOutput) TokenType() ServiceRegisteredGitLabServiceDetailsTokenTypeOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitLabServiceDetails) ServiceRegisteredGitLabServiceDetailsTokenType {
+		return v.TokenType
+	}).(ServiceRegisteredGitLabServiceDetailsTokenTypeOutput)
+}
+
+type ServiceRegisteredGitLabServiceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitLabServiceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredGitLabServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsPtrOutput) ToServiceRegisteredGitLabServiceDetailsPtrOutput() ServiceRegisteredGitLabServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsPtrOutput) ToServiceRegisteredGitLabServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredGitLabServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitLabServiceDetailsPtrOutput) Elem() ServiceRegisteredGitLabServiceDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitLabServiceDetails) ServiceRegisteredGitLabServiceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredGitLabServiceDetails
+		return ret
+	}).(ServiceRegisteredGitLabServiceDetailsOutput)
+}
+
+// Optional GitLab group ID for group-level access tokens
+func (o ServiceRegisteredGitLabServiceDetailsPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitLabServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitLab instance URL
+func (o ServiceRegisteredGitLabServiceDetailsPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitLabServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of GitLab access token
+func (o ServiceRegisteredGitLabServiceDetailsPtrOutput) TokenType() ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitLabServiceDetails) *ServiceRegisteredGitLabServiceDetailsTokenType {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenType
+	}).(ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput)
+}
+
+// MCP server details returned after registration
+type ServiceRegisteredMcpServerDetails struct {
+	// API key header name if using API key authentication
+	ApiKeyHeader *string `pulumi:"apiKeyHeader"`
+	// MCP server authorization method
+	AuthorizationMethod ServiceRegisteredMcpServerDetailsAuthorizationMethod `pulumi:"authorizationMethod"`
+	// Optional description for the MCP server
+	Description *string `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// MCP server name
+	Name string `pulumi:"name"`
+}
+
+// MCP server details returned after registration
+type ServiceRegisteredMcpServerDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredMcpServerDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerDetailsOutput) ToServiceRegisteredMcpServerDetailsOutput() ServiceRegisteredMcpServerDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerDetailsOutput) ToServiceRegisteredMcpServerDetailsOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerDetailsOutput {
+	return o
+}
+
+// API key header name if using API key authentication
+func (o ServiceRegisteredMcpServerDetailsOutput) ApiKeyHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerDetails) *string { return v.ApiKeyHeader }).(pulumi.StringPtrOutput)
+}
+
+// MCP server authorization method
+func (o ServiceRegisteredMcpServerDetailsOutput) AuthorizationMethod() ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerDetails) ServiceRegisteredMcpServerDetailsAuthorizationMethod {
+		return v.AuthorizationMethod
+	}).(ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceRegisteredMcpServerDetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerDetails) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceRegisteredMcpServerDetailsOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerDetails) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// MCP server name
+func (o ServiceRegisteredMcpServerDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ServiceRegisteredMcpServerDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredMcpServerDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) ToServiceRegisteredMcpServerDetailsPtrOutput() ServiceRegisteredMcpServerDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) ToServiceRegisteredMcpServerDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) Elem() ServiceRegisteredMcpServerDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerDetails) ServiceRegisteredMcpServerDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredMcpServerDetails
+		return ret
+	}).(ServiceRegisteredMcpServerDetailsOutput)
+}
+
+// API key header name if using API key authentication
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) ApiKeyHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server authorization method
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) AuthorizationMethod() ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerDetails) *ServiceRegisteredMcpServerDetailsAuthorizationMethod {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationMethod
+	}).(ServiceRegisteredMcpServerDetailsAuthorizationMethodPtrOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server name
+func (o ServiceRegisteredMcpServerDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Grafana MCP server details returned after registration
+type ServiceRegisteredMcpServerGrafanaDetails struct {
+	// MCP server authorization method
+	AuthorizationMethod ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod `pulumi:"authorizationMethod"`
+	// Optional description for the MCP server
+	Description *string `pulumi:"description"`
+	// MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// MCP server name
+	Name *string `pulumi:"name"`
+}
+
+// Grafana MCP server details returned after registration
+type ServiceRegisteredMcpServerGrafanaDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerGrafanaDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredMcpServerGrafanaDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsOutput) ToServiceRegisteredMcpServerGrafanaDetailsOutput() ServiceRegisteredMcpServerGrafanaDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsOutput) ToServiceRegisteredMcpServerGrafanaDetailsOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerGrafanaDetailsOutput {
+	return o
+}
+
+// MCP server authorization method
+func (o ServiceRegisteredMcpServerGrafanaDetailsOutput) AuthorizationMethod() ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerGrafanaDetails) ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod {
+		return v.AuthorizationMethod
+	}).(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceRegisteredMcpServerGrafanaDetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerGrafanaDetails) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceRegisteredMcpServerGrafanaDetailsOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerGrafanaDetails) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// MCP server name
+func (o ServiceRegisteredMcpServerGrafanaDetailsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerGrafanaDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredMcpServerGrafanaDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredMcpServerGrafanaDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) ToServiceRegisteredMcpServerGrafanaDetailsPtrOutput() ServiceRegisteredMcpServerGrafanaDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) ToServiceRegisteredMcpServerGrafanaDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerGrafanaDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) Elem() ServiceRegisteredMcpServerGrafanaDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerGrafanaDetails) ServiceRegisteredMcpServerGrafanaDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredMcpServerGrafanaDetails
+		return ret
+	}).(ServiceRegisteredMcpServerGrafanaDetailsOutput)
+}
+
+// MCP server authorization method
+func (o ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) AuthorizationMethod() ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerGrafanaDetails) *ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationMethod
+	}).(ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethodPtrOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerGrafanaDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server endpoint URL
+func (o ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerGrafanaDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// MCP server name
+func (o ServiceRegisteredMcpServerGrafanaDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerGrafanaDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// SigV4-authenticated MCP server details returned after registration
+type ServiceRegisteredMcpServerSigV4Details struct {
+	// Custom headers for the SigV4 MCP server
+	CustomHeaders map[string]string `pulumi:"customHeaders"`
+	// Optional description for the MCP server
+	Description *string `pulumi:"description"`
+	// The MCP server endpoint URL
+	Endpoint string `pulumi:"endpoint"`
+	// IAM role ARN for SigV4 signing. Absent when no dedicated role is configured.
+	McpRoleArn *string `pulumi:"mcpRoleArn"`
+	// The MCP server name
+	Name string `pulumi:"name"`
+	// AWS region for SigV4 signing
+	Region string `pulumi:"region"`
+	// Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing
+	RoleArn string `pulumi:"roleArn"`
+	// AWS service name for SigV4 signing
+	Service string `pulumi:"service"`
+}
+
+// SigV4-authenticated MCP server details returned after registration
+type ServiceRegisteredMcpServerSigV4DetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerSigV4DetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredMcpServerSigV4Details)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) ToServiceRegisteredMcpServerSigV4DetailsOutput() ServiceRegisteredMcpServerSigV4DetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) ToServiceRegisteredMcpServerSigV4DetailsOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerSigV4DetailsOutput {
+	return o
+}
+
+// Custom headers for the SigV4 MCP server
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) CustomHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) map[string]string { return v.CustomHeaders }).(pulumi.StringMapOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The MCP server endpoint URL
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// IAM role ARN for SigV4 signing. Absent when no dedicated role is configured.
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) McpRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) *string { return v.McpRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The MCP server name
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// AWS region for SigV4 signing
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// AWS service name for SigV4 signing
+func (o ServiceRegisteredMcpServerSigV4DetailsOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredMcpServerSigV4Details) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type ServiceRegisteredMcpServerSigV4DetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredMcpServerSigV4DetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredMcpServerSigV4Details)(nil)).Elem()
+}
+
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) ToServiceRegisteredMcpServerSigV4DetailsPtrOutput() ServiceRegisteredMcpServerSigV4DetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) ToServiceRegisteredMcpServerSigV4DetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredMcpServerSigV4DetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) Elem() ServiceRegisteredMcpServerSigV4DetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) ServiceRegisteredMcpServerSigV4Details {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredMcpServerSigV4Details
+		return ret
+	}).(ServiceRegisteredMcpServerSigV4DetailsOutput)
+}
+
+// Custom headers for the SigV4 MCP server
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) CustomHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomHeaders
+	}).(pulumi.StringMapOutput)
+}
+
+// Optional description for the MCP server
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MCP server endpoint URL
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// IAM role ARN for SigV4 signing. Absent when no dedicated role is configured.
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) McpRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return v.McpRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MCP server name
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region for SigV4 signing
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS service name for SigV4 signing
+func (o ServiceRegisteredMcpServerSigV4DetailsPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredMcpServerSigV4Details) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// New Relic service details returned after registration
+type ServiceRegisteredNewRelicDetails struct {
+	// New Relic account ID
+	AccountId string `pulumi:"accountId"`
+	// Optional user description
+	Description *string `pulumi:"description"`
+	// New Relic region
+	Region ServiceRegisteredNewRelicDetailsRegion `pulumi:"region"`
+}
+
+// New Relic service details returned after registration
+type ServiceRegisteredNewRelicDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredNewRelicDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredNewRelicDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredNewRelicDetailsOutput) ToServiceRegisteredNewRelicDetailsOutput() ServiceRegisteredNewRelicDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredNewRelicDetailsOutput) ToServiceRegisteredNewRelicDetailsOutputWithContext(ctx context.Context) ServiceRegisteredNewRelicDetailsOutput {
+	return o
+}
+
+// New Relic account ID
+func (o ServiceRegisteredNewRelicDetailsOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredNewRelicDetails) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Optional user description
+func (o ServiceRegisteredNewRelicDetailsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredNewRelicDetails) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// New Relic region
+func (o ServiceRegisteredNewRelicDetailsOutput) Region() ServiceRegisteredNewRelicDetailsRegionOutput {
+	return o.ApplyT(func(v ServiceRegisteredNewRelicDetails) ServiceRegisteredNewRelicDetailsRegion { return v.Region }).(ServiceRegisteredNewRelicDetailsRegionOutput)
+}
+
+type ServiceRegisteredNewRelicDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredNewRelicDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredNewRelicDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredNewRelicDetailsPtrOutput) ToServiceRegisteredNewRelicDetailsPtrOutput() ServiceRegisteredNewRelicDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredNewRelicDetailsPtrOutput) ToServiceRegisteredNewRelicDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredNewRelicDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredNewRelicDetailsPtrOutput) Elem() ServiceRegisteredNewRelicDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredNewRelicDetails) ServiceRegisteredNewRelicDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredNewRelicDetails
+		return ret
+	}).(ServiceRegisteredNewRelicDetailsOutput)
+}
+
+// New Relic account ID
+func (o ServiceRegisteredNewRelicDetailsPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredNewRelicDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional user description
+func (o ServiceRegisteredNewRelicDetailsPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredNewRelicDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// New Relic region
+func (o ServiceRegisteredNewRelicDetailsPtrOutput) Region() ServiceRegisteredNewRelicDetailsRegionPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredNewRelicDetails) *ServiceRegisteredNewRelicDetailsRegion {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(ServiceRegisteredNewRelicDetailsRegionPtrOutput)
+}
+
+// PagerDuty service details returned after registration
+type ServiceRegisteredPagerDutyDetails struct {
+	// The scopes assigned to the service
+	Scopes []string `pulumi:"scopes"`
+}
+
+// PagerDuty service details returned after registration
+type ServiceRegisteredPagerDutyDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredPagerDutyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredPagerDutyDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredPagerDutyDetailsOutput) ToServiceRegisteredPagerDutyDetailsOutput() ServiceRegisteredPagerDutyDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredPagerDutyDetailsOutput) ToServiceRegisteredPagerDutyDetailsOutputWithContext(ctx context.Context) ServiceRegisteredPagerDutyDetailsOutput {
+	return o
+}
+
+// The scopes assigned to the service
+func (o ServiceRegisteredPagerDutyDetailsOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceRegisteredPagerDutyDetails) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ServiceRegisteredPagerDutyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredPagerDutyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredPagerDutyDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredPagerDutyDetailsPtrOutput) ToServiceRegisteredPagerDutyDetailsPtrOutput() ServiceRegisteredPagerDutyDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredPagerDutyDetailsPtrOutput) ToServiceRegisteredPagerDutyDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredPagerDutyDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredPagerDutyDetailsPtrOutput) Elem() ServiceRegisteredPagerDutyDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredPagerDutyDetails) ServiceRegisteredPagerDutyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredPagerDutyDetails
+		return ret
+	}).(ServiceRegisteredPagerDutyDetailsOutput)
+}
+
+// The scopes assigned to the service
+func (o ServiceRegisteredPagerDutyDetailsPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceRegisteredPagerDutyDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// ServiceNow service details returned after registration
+type ServiceRegisteredServiceNowDetails struct {
+	// ServiceNow instance URL
+	InstanceUrl string `pulumi:"instanceUrl"`
+}
+
+// ServiceNow service details returned after registration
+type ServiceRegisteredServiceNowDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredServiceNowDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredServiceNowDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredServiceNowDetailsOutput) ToServiceRegisteredServiceNowDetailsOutput() ServiceRegisteredServiceNowDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredServiceNowDetailsOutput) ToServiceRegisteredServiceNowDetailsOutputWithContext(ctx context.Context) ServiceRegisteredServiceNowDetailsOutput {
+	return o
+}
+
+// ServiceNow instance URL
+func (o ServiceRegisteredServiceNowDetailsOutput) InstanceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredServiceNowDetails) string { return v.InstanceUrl }).(pulumi.StringOutput)
+}
+
+type ServiceRegisteredServiceNowDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredServiceNowDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredServiceNowDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredServiceNowDetailsPtrOutput) ToServiceRegisteredServiceNowDetailsPtrOutput() ServiceRegisteredServiceNowDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredServiceNowDetailsPtrOutput) ToServiceRegisteredServiceNowDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredServiceNowDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredServiceNowDetailsPtrOutput) Elem() ServiceRegisteredServiceNowDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredServiceNowDetails) ServiceRegisteredServiceNowDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredServiceNowDetails
+		return ret
+	}).(ServiceRegisteredServiceNowDetailsOutput)
+}
+
+// ServiceNow instance URL
+func (o ServiceRegisteredServiceNowDetailsPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredServiceNowDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ServiceTag struct {
 	// The key name of the tag.
@@ -828,21 +10085,219 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdcAuthConfigurationPtrInput)(nil)).Elem(), AgentSpaceIdcAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppPtrInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationInput)(nil)).Elem(), AssociationAwsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationPtrInput)(nil)).Elem(), AssociationAwsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceInput)(nil)).Elem(), AssociationAwsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceArrayInput)(nil)).Elem(), AssociationAwsResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAzureConfigurationInput)(nil)).Elem(), AssociationAzureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAzureConfigurationPtrInput)(nil)).Elem(), AssociationAzureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationDynatraceConfigurationInput)(nil)).Elem(), AssociationDynatraceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationDynatraceConfigurationPtrInput)(nil)).Elem(), AssociationDynatraceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationEventChannelConfigurationInput)(nil)).Elem(), AssociationEventChannelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationEventChannelConfigurationPtrInput)(nil)).Elem(), AssociationEventChannelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationGitHubConfigurationInput)(nil)).Elem(), AssociationGitHubConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationGitHubConfigurationPtrInput)(nil)).Elem(), AssociationGitHubConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationGitLabConfigurationInput)(nil)).Elem(), AssociationGitLabConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationGitLabConfigurationPtrInput)(nil)).Elem(), AssociationGitLabConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationKeyValuePairInput)(nil)).Elem(), AssociationKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationKeyValuePairArrayInput)(nil)).Elem(), AssociationKeyValuePairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerConfigurationInput)(nil)).Elem(), AssociationMcpServerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerDatadogConfigurationInput)(nil)).Elem(), AssociationMcpServerDatadogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerDatadogConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerDatadogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationInput)(nil)).Elem(), AssociationMcpServerGrafanaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerGrafanaConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerGrafanaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerNewRelicConfigurationInput)(nil)).Elem(), AssociationMcpServerNewRelicConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerNewRelicConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerNewRelicConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerSigV4ConfigurationInput)(nil)).Elem(), AssociationMcpServerSigV4ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerSigV4ConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerSigV4ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerSplunkConfigurationInput)(nil)).Elem(), AssociationMcpServerSplunkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationMcpServerSplunkConfigurationPtrInput)(nil)).Elem(), AssociationMcpServerSplunkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPagerDutyConfigurationInput)(nil)).Elem(), AssociationPagerDutyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationPagerDutyConfigurationPtrInput)(nil)).Elem(), AssociationPagerDutyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceConfigurationInput)(nil)).Elem(), AssociationServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceNowConfigurationInput)(nil)).Elem(), AssociationServiceNowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceNowConfigurationPtrInput)(nil)).Elem(), AssociationServiceNowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackChannelInput)(nil)).Elem(), AssociationSlackChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackChannelPtrInput)(nil)).Elem(), AssociationSlackChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackConfigurationInput)(nil)).Elem(), AssociationSlackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackConfigurationPtrInput)(nil)).Elem(), AssociationSlackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackTransmissionTargetInput)(nil)).Elem(), AssociationSlackTransmissionTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackTransmissionTargetPtrInput)(nil)).Elem(), AssociationSlackTransmissionTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationInput)(nil)).Elem(), AssociationSourceAwsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSourceAwsConfigurationPtrInput)(nil)).Elem(), AssociationSourceAwsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionConnectionConfigurationInput)(nil)).Elem(), PrivateConnectionConnectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionSelfManagedModeInput)(nil)).Elem(), PrivateConnectionSelfManagedModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionSelfManagedModePtrInput)(nil)).Elem(), PrivateConnectionSelfManagedModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeInput)(nil)).Elem(), PrivateConnectionServiceManagedModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModePtrInput)(nil)).Elem(), PrivateConnectionServiceManagedModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceApiKeyDetailsInput)(nil)).Elem(), ServiceApiKeyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceApiKeyDetailsPtrInput)(nil)).Elem(), ServiceApiKeyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAzureIdentityServiceDetailsInput)(nil)).Elem(), ServiceAzureIdentityServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAzureIdentityServiceDetailsPtrInput)(nil)).Elem(), ServiceAzureIdentityServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceBearerTokenDetailsInput)(nil)).Elem(), ServiceBearerTokenDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceBearerTokenDetailsPtrInput)(nil)).Elem(), ServiceBearerTokenDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDetailsInput)(nil)).Elem(), ServiceDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDetailsPtrInput)(nil)).Elem(), ServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDynatraceAuthorizationConfigInput)(nil)).Elem(), ServiceDynatraceAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDynatraceAuthorizationConfigPtrInput)(nil)).Elem(), ServiceDynatraceAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDynatraceServiceDetailsInput)(nil)).Elem(), ServiceDynatraceServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDynatraceServiceDetailsPtrInput)(nil)).Elem(), ServiceDynatraceServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsInput)(nil)).Elem(), ServiceGitLabDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsPtrInput)(nil)).Elem(), ServiceGitLabDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerAuthorizationConfigInput)(nil)).Elem(), ServiceMcpServerAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerAuthorizationConfigPtrInput)(nil)).Elem(), ServiceMcpServerAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerDetailsInput)(nil)).Elem(), ServiceMcpServerDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerDetailsPtrInput)(nil)).Elem(), ServiceMcpServerDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerGrafanaAuthorizationConfigInput)(nil)).Elem(), ServiceMcpServerGrafanaAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerGrafanaAuthorizationConfigPtrInput)(nil)).Elem(), ServiceMcpServerGrafanaAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerGrafanaDetailsInput)(nil)).Elem(), ServiceMcpServerGrafanaDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerGrafanaDetailsPtrInput)(nil)).Elem(), ServiceMcpServerGrafanaDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerOAuthClientCredentialsConfigInput)(nil)).Elem(), ServiceMcpServerOAuthClientCredentialsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerOAuthClientCredentialsConfigPtrInput)(nil)).Elem(), ServiceMcpServerOAuthClientCredentialsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSigV4AuthorizationConfigInput)(nil)).Elem(), ServiceMcpServerSigV4AuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSigV4AuthorizationConfigPtrInput)(nil)).Elem(), ServiceMcpServerSigV4AuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSigV4DetailsInput)(nil)).Elem(), ServiceMcpServerSigV4DetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSigV4DetailsPtrInput)(nil)).Elem(), ServiceMcpServerSigV4DetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSplunkAuthorizationConfigInput)(nil)).Elem(), ServiceMcpServerSplunkAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSplunkAuthorizationConfigPtrInput)(nil)).Elem(), ServiceMcpServerSplunkAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSplunkDetailsInput)(nil)).Elem(), ServiceMcpServerSplunkDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerSplunkDetailsPtrInput)(nil)).Elem(), ServiceMcpServerSplunkDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicApiKeyConfigInput)(nil)).Elem(), ServiceNewRelicApiKeyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicApiKeyConfigPtrInput)(nil)).Elem(), ServiceNewRelicApiKeyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicAuthorizationConfigInput)(nil)).Elem(), ServiceNewRelicAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicAuthorizationConfigPtrInput)(nil)).Elem(), ServiceNewRelicAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicServiceDetailsInput)(nil)).Elem(), ServiceNewRelicServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicServiceDetailsPtrInput)(nil)).Elem(), ServiceNewRelicServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNowAuthorizationConfigInput)(nil)).Elem(), ServiceNowAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNowAuthorizationConfigPtrInput)(nil)).Elem(), ServiceNowAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNowServiceDetailsInput)(nil)).Elem(), ServiceNowServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNowServiceDetailsPtrInput)(nil)).Elem(), ServiceNowServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceOAuthClientDetailsInput)(nil)).Elem(), ServiceOAuthClientDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceOAuthClientDetailsPtrInput)(nil)).Elem(), ServiceOAuthClientDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePagerDutyAuthorizationConfigInput)(nil)).Elem(), ServicePagerDutyAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePagerDutyAuthorizationConfigPtrInput)(nil)).Elem(), ServicePagerDutyAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePagerDutyDetailsInput)(nil)).Elem(), ServicePagerDutyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePagerDutyDetailsPtrInput)(nil)).Elem(), ServicePagerDutyDetailsArgs{})
 	pulumi.RegisterOutputType(AgentSpaceIamAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIamAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIdcAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIdcAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppPtrOutput{})
+	pulumi.RegisterOutputType(AssociationAwsConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationAwsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationAwsResourceOutput{})
+	pulumi.RegisterOutputType(AssociationAwsResourceArrayOutput{})
+	pulumi.RegisterOutputType(AssociationAzureConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationAzureConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationDynatraceConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationDynatraceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationEventChannelConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationEventChannelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationGitHubConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationGitHubConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationGitLabConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationGitLabConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationKeyValuePairOutput{})
+	pulumi.RegisterOutputType(AssociationKeyValuePairArrayOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerDatadogConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerDatadogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerGrafanaConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerGrafanaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerNewRelicConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerNewRelicConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerSigV4ConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerSigV4ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerSplunkConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationMcpServerSplunkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationPagerDutyConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationPagerDutyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationServiceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationServiceNowConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationServiceNowConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationSlackChannelOutput{})
+	pulumi.RegisterOutputType(AssociationSlackChannelPtrOutput{})
+	pulumi.RegisterOutputType(AssociationSlackConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationSlackConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationSlackTransmissionTargetOutput{})
+	pulumi.RegisterOutputType(AssociationSlackTransmissionTargetPtrOutput{})
+	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationSourceAwsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionConnectionConfigurationOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionSelfManagedModeOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionSelfManagedModePtrOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeOutput{})
+	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalServiceDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceApiKeyDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceApiKeyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAzureIdentityServiceDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceAzureIdentityServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceBearerTokenDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceBearerTokenDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDynatraceAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServiceDynatraceAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDynatraceServiceDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceDynatraceServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGitLabDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceGitLabDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerGrafanaAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerGrafanaAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerGrafanaDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerGrafanaDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerOAuthClientCredentialsConfigOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerOAuthClientCredentialsConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSigV4AuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSigV4AuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSigV4DetailsOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSigV4DetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSplunkAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSplunkAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSplunkDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceMcpServerSplunkDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicApiKeyConfigOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicApiKeyConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicServiceDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceNewRelicServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNowAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServiceNowAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNowServiceDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceNowServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceOAuthClientDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceOAuthClientDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServicePagerDutyAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(ServicePagerDutyAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServicePagerDutyDetailsOutput{})
+	pulumi.RegisterOutputType(ServicePagerDutyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredAzureIdentityDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredAzureIdentityDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredDynatraceDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredDynatraceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerGrafanaDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerGrafanaDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerSigV4DetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredMcpServerSigV4DetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredNewRelicDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredNewRelicDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredPagerDutyDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredPagerDutyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredServiceNowDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredServiceNowDetailsPtrOutput{})
 }

@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ClusterInstanceStorageConfig
     {
+        public readonly Outputs.ClusterEbsVolumeConfig? EbsVolumeConfig;
+        public readonly Outputs.ClusterInstanceStorageFsxLustreConfig? FsxLustreConfig;
+        public readonly Outputs.ClusterFsxOpenZfsConfig? FsxOpenZfsConfig;
+
         [OutputConstructor]
-        private ClusterInstanceStorageConfig()
+        private ClusterInstanceStorageConfig(
+            Outputs.ClusterEbsVolumeConfig? ebsVolumeConfig,
+
+            Outputs.ClusterInstanceStorageFsxLustreConfig? fsxLustreConfig,
+
+            Outputs.ClusterFsxOpenZfsConfig? fsxOpenZfsConfig)
         {
+            EbsVolumeConfig = ebsVolumeConfig;
+            FsxLustreConfig = fsxLustreConfig;
+            FsxOpenZfsConfig = fsxOpenZfsConfig;
         }
     }
 }

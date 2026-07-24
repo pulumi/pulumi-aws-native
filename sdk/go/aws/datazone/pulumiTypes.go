@@ -10045,8 +10045,150 @@ func (o FormTypeModelPtrOutput) Smithy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The properties of the domain unit owners group.
+type OwnerGroupProperties struct {
+	// The ID of the domain unit owners group.
+	GroupIdentifier *string `pulumi:"groupIdentifier"`
+}
+
+// OwnerGroupPropertiesInput is an input type that accepts OwnerGroupPropertiesArgs and OwnerGroupPropertiesOutput values.
+// You can construct a concrete instance of `OwnerGroupPropertiesInput` via:
+//
+//	OwnerGroupPropertiesArgs{...}
+type OwnerGroupPropertiesInput interface {
+	pulumi.Input
+
+	ToOwnerGroupPropertiesOutput() OwnerGroupPropertiesOutput
+	ToOwnerGroupPropertiesOutputWithContext(context.Context) OwnerGroupPropertiesOutput
+}
+
+// The properties of the domain unit owners group.
+type OwnerGroupPropertiesArgs struct {
+	// The ID of the domain unit owners group.
+	GroupIdentifier pulumi.StringPtrInput `pulumi:"groupIdentifier"`
+}
+
+func (OwnerGroupPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerGroupProperties)(nil)).Elem()
+}
+
+func (i OwnerGroupPropertiesArgs) ToOwnerGroupPropertiesOutput() OwnerGroupPropertiesOutput {
+	return i.ToOwnerGroupPropertiesOutputWithContext(context.Background())
+}
+
+func (i OwnerGroupPropertiesArgs) ToOwnerGroupPropertiesOutputWithContext(ctx context.Context) OwnerGroupPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwnerGroupPropertiesOutput)
+}
+
+func (i OwnerGroupPropertiesArgs) ToOwnerGroupPropertiesPtrOutput() OwnerGroupPropertiesPtrOutput {
+	return i.ToOwnerGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OwnerGroupPropertiesArgs) ToOwnerGroupPropertiesPtrOutputWithContext(ctx context.Context) OwnerGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwnerGroupPropertiesOutput).ToOwnerGroupPropertiesPtrOutputWithContext(ctx)
+}
+
+// OwnerGroupPropertiesPtrInput is an input type that accepts OwnerGroupPropertiesArgs, OwnerGroupPropertiesPtr and OwnerGroupPropertiesPtrOutput values.
+// You can construct a concrete instance of `OwnerGroupPropertiesPtrInput` via:
+//
+//	        OwnerGroupPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OwnerGroupPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOwnerGroupPropertiesPtrOutput() OwnerGroupPropertiesPtrOutput
+	ToOwnerGroupPropertiesPtrOutputWithContext(context.Context) OwnerGroupPropertiesPtrOutput
+}
+
+type ownerGroupPropertiesPtrType OwnerGroupPropertiesArgs
+
+func OwnerGroupPropertiesPtr(v *OwnerGroupPropertiesArgs) OwnerGroupPropertiesPtrInput {
+	return (*ownerGroupPropertiesPtrType)(v)
+}
+
+func (*ownerGroupPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OwnerGroupProperties)(nil)).Elem()
+}
+
+func (i *ownerGroupPropertiesPtrType) ToOwnerGroupPropertiesPtrOutput() OwnerGroupPropertiesPtrOutput {
+	return i.ToOwnerGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ownerGroupPropertiesPtrType) ToOwnerGroupPropertiesPtrOutputWithContext(ctx context.Context) OwnerGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwnerGroupPropertiesPtrOutput)
+}
+
+// The properties of the domain unit owners group.
+type OwnerGroupPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OwnerGroupPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerGroupProperties)(nil)).Elem()
+}
+
+func (o OwnerGroupPropertiesOutput) ToOwnerGroupPropertiesOutput() OwnerGroupPropertiesOutput {
+	return o
+}
+
+func (o OwnerGroupPropertiesOutput) ToOwnerGroupPropertiesOutputWithContext(ctx context.Context) OwnerGroupPropertiesOutput {
+	return o
+}
+
+func (o OwnerGroupPropertiesOutput) ToOwnerGroupPropertiesPtrOutput() OwnerGroupPropertiesPtrOutput {
+	return o.ToOwnerGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OwnerGroupPropertiesOutput) ToOwnerGroupPropertiesPtrOutputWithContext(ctx context.Context) OwnerGroupPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OwnerGroupProperties) *OwnerGroupProperties {
+		return &v
+	}).(OwnerGroupPropertiesPtrOutput)
+}
+
+// The ID of the domain unit owners group.
+func (o OwnerGroupPropertiesOutput) GroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OwnerGroupProperties) *string { return v.GroupIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type OwnerGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OwnerGroupPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OwnerGroupProperties)(nil)).Elem()
+}
+
+func (o OwnerGroupPropertiesPtrOutput) ToOwnerGroupPropertiesPtrOutput() OwnerGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o OwnerGroupPropertiesPtrOutput) ToOwnerGroupPropertiesPtrOutputWithContext(ctx context.Context) OwnerGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o OwnerGroupPropertiesPtrOutput) Elem() OwnerGroupPropertiesOutput {
+	return o.ApplyT(func(v *OwnerGroupProperties) OwnerGroupProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OwnerGroupProperties
+		return ret
+	}).(OwnerGroupPropertiesOutput)
+}
+
+// The ID of the domain unit owners group.
+func (o OwnerGroupPropertiesPtrOutput) GroupIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OwnerGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties of a domain unit's owner.
 type OwnerProperties struct {
+	Group *OwnerGroupProperties `pulumi:"group"`
+	User  *OwnerUserProperties  `pulumi:"user"`
 }
 
 // OwnerPropertiesInput is an input type that accepts OwnerPropertiesArgs and OwnerPropertiesOutput values.
@@ -10062,6 +10204,8 @@ type OwnerPropertiesInput interface {
 
 // The properties of a domain unit's owner.
 type OwnerPropertiesArgs struct {
+	Group OwnerGroupPropertiesPtrInput `pulumi:"group"`
+	User  OwnerUserPropertiesPtrInput  `pulumi:"user"`
 }
 
 func (OwnerPropertiesArgs) ElementType() reflect.Type {
@@ -10089,6 +10233,154 @@ func (o OwnerPropertiesOutput) ToOwnerPropertiesOutput() OwnerPropertiesOutput {
 
 func (o OwnerPropertiesOutput) ToOwnerPropertiesOutputWithContext(ctx context.Context) OwnerPropertiesOutput {
 	return o
+}
+
+func (o OwnerPropertiesOutput) Group() OwnerGroupPropertiesPtrOutput {
+	return o.ApplyT(func(v OwnerProperties) *OwnerGroupProperties { return v.Group }).(OwnerGroupPropertiesPtrOutput)
+}
+
+func (o OwnerPropertiesOutput) User() OwnerUserPropertiesPtrOutput {
+	return o.ApplyT(func(v OwnerProperties) *OwnerUserProperties { return v.User }).(OwnerUserPropertiesPtrOutput)
+}
+
+// The properties of the owner user.
+type OwnerUserProperties struct {
+	// The ID of the owner user.
+	UserIdentifier *string `pulumi:"userIdentifier"`
+}
+
+// OwnerUserPropertiesInput is an input type that accepts OwnerUserPropertiesArgs and OwnerUserPropertiesOutput values.
+// You can construct a concrete instance of `OwnerUserPropertiesInput` via:
+//
+//	OwnerUserPropertiesArgs{...}
+type OwnerUserPropertiesInput interface {
+	pulumi.Input
+
+	ToOwnerUserPropertiesOutput() OwnerUserPropertiesOutput
+	ToOwnerUserPropertiesOutputWithContext(context.Context) OwnerUserPropertiesOutput
+}
+
+// The properties of the owner user.
+type OwnerUserPropertiesArgs struct {
+	// The ID of the owner user.
+	UserIdentifier pulumi.StringPtrInput `pulumi:"userIdentifier"`
+}
+
+func (OwnerUserPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerUserProperties)(nil)).Elem()
+}
+
+func (i OwnerUserPropertiesArgs) ToOwnerUserPropertiesOutput() OwnerUserPropertiesOutput {
+	return i.ToOwnerUserPropertiesOutputWithContext(context.Background())
+}
+
+func (i OwnerUserPropertiesArgs) ToOwnerUserPropertiesOutputWithContext(ctx context.Context) OwnerUserPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwnerUserPropertiesOutput)
+}
+
+func (i OwnerUserPropertiesArgs) ToOwnerUserPropertiesPtrOutput() OwnerUserPropertiesPtrOutput {
+	return i.ToOwnerUserPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OwnerUserPropertiesArgs) ToOwnerUserPropertiesPtrOutputWithContext(ctx context.Context) OwnerUserPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwnerUserPropertiesOutput).ToOwnerUserPropertiesPtrOutputWithContext(ctx)
+}
+
+// OwnerUserPropertiesPtrInput is an input type that accepts OwnerUserPropertiesArgs, OwnerUserPropertiesPtr and OwnerUserPropertiesPtrOutput values.
+// You can construct a concrete instance of `OwnerUserPropertiesPtrInput` via:
+//
+//	        OwnerUserPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OwnerUserPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOwnerUserPropertiesPtrOutput() OwnerUserPropertiesPtrOutput
+	ToOwnerUserPropertiesPtrOutputWithContext(context.Context) OwnerUserPropertiesPtrOutput
+}
+
+type ownerUserPropertiesPtrType OwnerUserPropertiesArgs
+
+func OwnerUserPropertiesPtr(v *OwnerUserPropertiesArgs) OwnerUserPropertiesPtrInput {
+	return (*ownerUserPropertiesPtrType)(v)
+}
+
+func (*ownerUserPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OwnerUserProperties)(nil)).Elem()
+}
+
+func (i *ownerUserPropertiesPtrType) ToOwnerUserPropertiesPtrOutput() OwnerUserPropertiesPtrOutput {
+	return i.ToOwnerUserPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ownerUserPropertiesPtrType) ToOwnerUserPropertiesPtrOutputWithContext(ctx context.Context) OwnerUserPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OwnerUserPropertiesPtrOutput)
+}
+
+// The properties of the owner user.
+type OwnerUserPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OwnerUserPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OwnerUserProperties)(nil)).Elem()
+}
+
+func (o OwnerUserPropertiesOutput) ToOwnerUserPropertiesOutput() OwnerUserPropertiesOutput {
+	return o
+}
+
+func (o OwnerUserPropertiesOutput) ToOwnerUserPropertiesOutputWithContext(ctx context.Context) OwnerUserPropertiesOutput {
+	return o
+}
+
+func (o OwnerUserPropertiesOutput) ToOwnerUserPropertiesPtrOutput() OwnerUserPropertiesPtrOutput {
+	return o.ToOwnerUserPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OwnerUserPropertiesOutput) ToOwnerUserPropertiesPtrOutputWithContext(ctx context.Context) OwnerUserPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OwnerUserProperties) *OwnerUserProperties {
+		return &v
+	}).(OwnerUserPropertiesPtrOutput)
+}
+
+// The ID of the owner user.
+func (o OwnerUserPropertiesOutput) UserIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OwnerUserProperties) *string { return v.UserIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type OwnerUserPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OwnerUserPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OwnerUserProperties)(nil)).Elem()
+}
+
+func (o OwnerUserPropertiesPtrOutput) ToOwnerUserPropertiesPtrOutput() OwnerUserPropertiesPtrOutput {
+	return o
+}
+
+func (o OwnerUserPropertiesPtrOutput) ToOwnerUserPropertiesPtrOutputWithContext(ctx context.Context) OwnerUserPropertiesPtrOutput {
+	return o
+}
+
+func (o OwnerUserPropertiesPtrOutput) Elem() OwnerUserPropertiesOutput {
+	return o.ApplyT(func(v *OwnerUserProperties) OwnerUserProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OwnerUserProperties
+		return ret
+	}).(OwnerUserPropertiesOutput)
+}
+
+// The ID of the owner user.
+func (o OwnerUserPropertiesPtrOutput) UserIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OwnerUserProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 type PolicyGrantAddToProjectMemberPoolPolicyGrantDetail struct {
@@ -17117,7 +17409,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileEnvironmentParameterArrayInput)(nil)).Elem(), EnvironmentProfileEnvironmentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeModelInput)(nil)).Elem(), FormTypeModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OwnerGroupPropertiesInput)(nil)).Elem(), OwnerGroupPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OwnerGroupPropertiesPtrInput)(nil)).Elem(), OwnerGroupPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OwnerPropertiesInput)(nil)).Elem(), OwnerPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OwnerUserPropertiesInput)(nil)).Elem(), OwnerUserPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OwnerUserPropertiesPtrInput)(nil)).Elem(), OwnerUserPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantAddToProjectMemberPoolPolicyGrantDetailInput)(nil)).Elem(), PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantAddToProjectMemberPoolPolicyGrantDetailPtrInput)(nil)).Elem(), PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyGrantAllDomainUnitsGrantFilterInput)(nil)).Elem(), PolicyGrantAllDomainUnitsGrantFilterArgs{})
@@ -17353,7 +17649,11 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentProfileEnvironmentParameterArrayOutput{})
 	pulumi.RegisterOutputType(FormTypeModelOutput{})
 	pulumi.RegisterOutputType(FormTypeModelPtrOutput{})
+	pulumi.RegisterOutputType(OwnerGroupPropertiesOutput{})
+	pulumi.RegisterOutputType(OwnerGroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OwnerPropertiesOutput{})
+	pulumi.RegisterOutputType(OwnerUserPropertiesOutput{})
+	pulumi.RegisterOutputType(OwnerUserPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantAddToProjectMemberPoolPolicyGrantDetailOutput{})
 	pulumi.RegisterOutputType(PolicyGrantAddToProjectMemberPoolPolicyGrantDetailPtrOutput{})
 	pulumi.RegisterOutputType(PolicyGrantAllDomainUnitsGrantFilterOutput{})

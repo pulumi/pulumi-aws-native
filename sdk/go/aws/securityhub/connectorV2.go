@@ -61,6 +61,8 @@ func NewConnectorV2(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"kmsKeyArn",
 		"name",
+		"provider.azure.awsConfigConnectorArn",
+		"provider.serviceNow.instanceName",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

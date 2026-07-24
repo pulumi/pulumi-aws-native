@@ -1695,6 +1695,9 @@ func (ctx *cfSchemaContext) propertyTypeSpec(
 		// Preserve a previous special case, see https://github.com/pulumi/pulumi-aws-native/issues/644
 		if parentName == "LoggingClusterLogging" && typName == "ClusterLogging" {
 			typName = "ClusterLoggingEnabledTypes"
+		} else if ctx.cfTypeName == "AWS::SageMaker::Cluster" && schemaName == "ClusterFsxLustreConfig" {
+			// Avoid colliding with ClusterFSxLustreConfig when SDKs normalize acronym casing.
+			typName = "ClusterInstanceStorageFsxLustreConfig"
 		} else if !strings.HasPrefix(schemaName, ctx.resourceName) {
 			// Create a full type name by turning Foo into ResourceFoo.
 			fullTypName := fmt.Sprintf("%s%s", ctx.resourceName, schemaName)
@@ -1715,6 +1718,19 @@ func (ctx *cfSchemaContext) propertyTypeSpec(
 			fmt.Printf("definition %s not found in resource %s\n", schemaName, ctx.cfTypeName)
 			return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 		}
+
+		// Explicitly typed object unions may declare their properties only within their branches.
+		// Merge non-conflicting branch properties so SDKs and provider metadata retain a named,
+		// traversable object. Cloud Control remains responsible for enforcing the union constraint.
+		if (len(typeSchema.AnyOf) > 0 || len(typeSchema.OneOf) > 0) &&
+			len(typeSchema.Type) == 1 && typeSchema.Type.Contains(jsschema.ObjectType) {
+			merged, ok := mergeObjectUnionProperties(typeSchema)
+			if !ok {
+				return ctx.propertyTypeSpec(typName, typeSchema)
+			}
+			typeSchema = merged
+		}
+
 		var mapType *jsschema.Schema
 		if typeSchema.AdditionalProperties != nil && typeSchema.AdditionalProperties.Schema != nil {
 			mapType = typeSchema.AdditionalProperties.Schema

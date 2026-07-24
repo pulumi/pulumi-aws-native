@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.PcaConnectorScep.Inputs
 
     public sealed class ConnectorMobileDeviceManagementArgs : global::Pulumi.ResourceArgs
     {
+        [Input("intune")]
+        public Input<Inputs.ConnectorIntuneConfigurationArgs>? Intune { get; set; }
+
         public ConnectorMobileDeviceManagementArgs()
         {
         }

@@ -15,6 +15,20 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
     /// </summary>
     public sealed class MultiplexprogramMultiplexVideoSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The constant bitrate configuration for the video encode.
+        /// When this field is defined, StatmuxSettings must be undefined.
+        /// </summary>
+        [Input("constantBitrate")]
+        public Input<int>? ConstantBitrate { get; set; }
+
+        /// <summary>
+        /// Statmux rate control settings.
+        /// When this field is defined, ConstantBitrate must be undefined.
+        /// </summary>
+        [Input("statmuxSettings")]
+        public Input<Inputs.MultiplexprogramMultiplexStatmuxVideoSettingsArgs>? StatmuxSettings { get; set; }
+
         public MultiplexprogramMultiplexVideoSettingsArgs()
         {
         }

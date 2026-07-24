@@ -3,6 +3,8 @@
 package schema
 
 import (
+	"encoding/json"
+
 	jsschema "github.com/pulumi/jsschema"
 )
 
@@ -34,6 +36,51 @@ func FlattenJSSchema(sch *jsschema.Schema) jsschema.SchemaList {
 		schemas[i] = merged
 	}
 	return schemas
+}
+
+// mergeObjectUnionProperties combines non-conflicting object union branches into one object schema.
+// It preserves unconditional required properties from the outer schema but drops branch-specific requirements,
+// which cannot be represented after merging the branches.
+func mergeObjectUnionProperties(sch *jsschema.Schema) (*jsschema.Schema, bool) {
+	if len(sch.AnyOf) == 0 && len(sch.OneOf) == 0 {
+		return nil, false
+	}
+
+	properties := mergeMaps(map[string]*jsschema.Schema{}, sch.Properties)
+	for _, branch := range FlattenJSSchema(sch) {
+		if len(branch.Type) != 1 || !branch.Type.Contains(jsschema.ObjectType) || len(branch.Properties) == 0 {
+			return nil, false
+		}
+		for name, property := range branch.Properties {
+			if baseProperty, ok := sch.Properties[name]; ok && schemasEqual(baseProperty, property) {
+				continue
+			}
+			if existing, ok := properties[name]; ok && !schemasEqual(existing, property) {
+				return nil, false
+			}
+			properties[name] = property
+		}
+	}
+
+	merged := jsschema.New()
+	MergeJSSchema(merged, sch)
+	merged.AnyOf = nil
+	merged.OneOf = nil
+	merged.Properties = properties
+	merged.Required = append([]string(nil), sch.Required...)
+	return merged, true
+}
+
+func schemasEqual(left, right *jsschema.Schema) bool {
+	leftJSON, err := json.Marshal(left)
+	if err != nil {
+		return false
+	}
+	rightJSON, err := json.Marshal(right)
+	if err != nil {
+		return false
+	}
+	return string(leftJSON) == string(rightJSON)
 }
 
 func NormaliseTypes(sch *jsschema.Schema) *jsschema.Schema {

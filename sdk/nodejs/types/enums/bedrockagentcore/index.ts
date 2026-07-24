@@ -920,6 +920,16 @@ export const RuntimeInboundTokenClaimValueType = {
  */
 export type RuntimeInboundTokenClaimValueType = (typeof RuntimeInboundTokenClaimValueType)[keyof typeof RuntimeInboundTokenClaimValueType];
 
+export const RuntimeManagedVpcResourceEndpointIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+/**
+ * The IP address type for the endpoint
+ */
+export type RuntimeManagedVpcResourceEndpointIpAddressType = (typeof RuntimeManagedVpcResourceEndpointIpAddressType)[keyof typeof RuntimeManagedVpcResourceEndpointIpAddressType];
+
 export const RuntimeNetworkMode = {
     Public: "PUBLIC",
     Vpc: "VPC",

@@ -579,6 +579,171 @@ func (o LinkDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinkOpenRtbAttributeModuleParametersFilterType string
+
+const (
+	LinkOpenRtbAttributeModuleParametersFilterTypeInclude = LinkOpenRtbAttributeModuleParametersFilterType("INCLUDE")
+	LinkOpenRtbAttributeModuleParametersFilterTypeExclude = LinkOpenRtbAttributeModuleParametersFilterType("EXCLUDE")
+)
+
+func (LinkOpenRtbAttributeModuleParametersFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersFilterType)(nil)).Elem()
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToLinkOpenRtbAttributeModuleParametersFilterTypeOutput() LinkOpenRtbAttributeModuleParametersFilterTypeOutput {
+	return pulumi.ToOutput(e).(LinkOpenRtbAttributeModuleParametersFilterTypeOutput)
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToLinkOpenRtbAttributeModuleParametersFilterTypeOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LinkOpenRtbAttributeModuleParametersFilterTypeOutput)
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutput() LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return e.ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return LinkOpenRtbAttributeModuleParametersFilterType(e).ToLinkOpenRtbAttributeModuleParametersFilterTypeOutputWithContext(ctx).ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LinkOpenRtbAttributeModuleParametersFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LinkOpenRtbAttributeModuleParametersFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersFilterType)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToLinkOpenRtbAttributeModuleParametersFilterTypeOutput() LinkOpenRtbAttributeModuleParametersFilterTypeOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToLinkOpenRtbAttributeModuleParametersFilterTypeOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersFilterTypeOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutput() LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return o.ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkOpenRtbAttributeModuleParametersFilterType) *LinkOpenRtbAttributeModuleParametersFilterType {
+		return &v
+	}).(LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinkOpenRtbAttributeModuleParametersFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinkOpenRtbAttributeModuleParametersFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkOpenRtbAttributeModuleParametersFilterType)(nil)).Elem()
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutput() LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return o
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput) Elem() LinkOpenRtbAttributeModuleParametersFilterTypeOutput {
+	return o.ApplyT(func(v *LinkOpenRtbAttributeModuleParametersFilterType) LinkOpenRtbAttributeModuleParametersFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret LinkOpenRtbAttributeModuleParametersFilterType
+		return ret
+	}).(LinkOpenRtbAttributeModuleParametersFilterTypeOutput)
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LinkOpenRtbAttributeModuleParametersFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LinkOpenRtbAttributeModuleParametersFilterTypeInput is an input type that accepts values of the LinkOpenRtbAttributeModuleParametersFilterType enum
+// A concrete instance of `LinkOpenRtbAttributeModuleParametersFilterTypeInput` can be one of the following:
+//
+//	LinkOpenRtbAttributeModuleParametersFilterTypeInclude
+//	LinkOpenRtbAttributeModuleParametersFilterTypeExclude
+type LinkOpenRtbAttributeModuleParametersFilterTypeInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersFilterTypeOutput() LinkOpenRtbAttributeModuleParametersFilterTypeOutput
+	ToLinkOpenRtbAttributeModuleParametersFilterTypeOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersFilterTypeOutput
+}
+
+var linkOpenRtbAttributeModuleParametersFilterTypePtrType = reflect.TypeOf((**LinkOpenRtbAttributeModuleParametersFilterType)(nil)).Elem()
+
+type LinkOpenRtbAttributeModuleParametersFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutput() LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput
+	ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(context.Context) LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput
+}
+
+type linkOpenRtbAttributeModuleParametersFilterTypePtr string
+
+func LinkOpenRtbAttributeModuleParametersFilterTypePtr(v string) LinkOpenRtbAttributeModuleParametersFilterTypePtrInput {
+	return (*linkOpenRtbAttributeModuleParametersFilterTypePtr)(&v)
+}
+
+func (*linkOpenRtbAttributeModuleParametersFilterTypePtr) ElementType() reflect.Type {
+	return linkOpenRtbAttributeModuleParametersFilterTypePtrType
+}
+
+func (in *linkOpenRtbAttributeModuleParametersFilterTypePtr) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutput() LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput)
+}
+
+func (in *linkOpenRtbAttributeModuleParametersFilterTypePtr) ToLinkOpenRtbAttributeModuleParametersFilterTypePtrOutputWithContext(ctx context.Context) LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput)
+}
+
 // The action for the error..
 type LinkResponderErrorMaskingForHttpCodeAction string
 
@@ -2301,6 +2466,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingTypeInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingTypePtrInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingLoggingTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersFilterTypeInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersFilterType("INCLUDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkOpenRtbAttributeModuleParametersFilterTypePtrInput)(nil)).Elem(), LinkOpenRtbAttributeModuleParametersFilterType("INCLUDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeActionInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeActionPtrInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingLoggingTypeInput)(nil)).Elem(), LinkResponderErrorMaskingLoggingType("NONE"))
@@ -2325,6 +2492,8 @@ func init() {
 	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput{})
 	pulumi.RegisterOutputType(LinkDirectionOutput{})
 	pulumi.RegisterOutputType(LinkDirectionPtrOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersFilterTypeOutput{})
+	pulumi.RegisterOutputType(LinkOpenRtbAttributeModuleParametersFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeActionOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeActionPtrOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingLoggingTypeOutput{})

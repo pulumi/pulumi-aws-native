@@ -29,6 +29,7 @@ __all__ = [
     'AutomationRulesFindingFieldsUpdateVerificationState',
     'ConfigurationPolicyParameterConfigurationValueType',
     'ConnectorAzureScopeConfigurationScopeType',
+    'ConnectorV2AzureScopeConfigurationScopeType',
     'DelegatedAdminStatus',
     'FindingAggregatorRegionLinkingMode',
     'InsightDateRangeUnit',
@@ -309,6 +310,15 @@ class ConfigurationPolicyParameterConfigurationValueType(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:securityhub:ConnectorAzureScopeConfigurationScopeType")
 class ConnectorAzureScopeConfigurationScopeType(_builtins.str, Enum):
+    """
+    The scope type for the Azure connector
+    """
+    TENANT = "TENANT"
+    SUBSCRIPTION = "SUBSCRIPTION"
+
+
+@pulumi.type_token("aws-native:securityhub:ConnectorV2AzureScopeConfigurationScopeType")
+class ConnectorV2AzureScopeConfigurationScopeType(_builtins.str, Enum):
     """
     The scope type for the Azure connector
     """

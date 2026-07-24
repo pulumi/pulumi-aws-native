@@ -11,6 +11,234 @@ namespace Pulumi.AwsNative.S3
 {
     /// <summary>
     /// The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
+    /// 
+    /// ## Example Usage
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageLensConfigurationExample = new AwsNative.S3.StorageLens("storageLensConfigurationExample", new()
+    ///     {
+    ///         StorageLensConfiguration = new AwsNative.S3.Inputs.StorageLensConfigurationArgs
+    ///         {
+    ///             Id = "StorageLensAdvancedConfiguration",
+    ///             AccountLevel = new AwsNative.S3.Inputs.StorageLensAccountLevelArgs
+    ///             {
+    ///                 ActivityMetrics = new AwsNative.S3.Inputs.StorageLensActivityMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 AdvancedCostOptimizationMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedCostOptimizationMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 AdvancedDataProtectionMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedDataProtectionMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 DetailedStatusCodesMetrics = new AwsNative.S3.Inputs.StorageLensDetailedStatusCodesMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 BucketLevel = new AwsNative.S3.Inputs.StorageLensBucketLevelArgs
+    ///                 {
+    ///                     ActivityMetrics = new AwsNative.S3.Inputs.StorageLensActivityMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     AdvancedCostOptimizationMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedCostOptimizationMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     AdvancedDataProtectionMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedDataProtectionMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     DetailedStatusCodesMetrics = new AwsNative.S3.Inputs.StorageLensDetailedStatusCodesMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     PrefixLevel = new AwsNative.S3.Inputs.StorageLensPrefixLevelArgs
+    ///                     {
+    ///                         StorageMetrics = new AwsNative.S3.Inputs.StorageLensPrefixLevelStorageMetricsArgs
+    ///                         {
+    ///                             IsEnabled = true,
+    ///                             SelectionCriteria = new AwsNative.S3.Inputs.StorageLensSelectionCriteriaArgs
+    ///                             {
+    ///                                 MaxDepth = 5,
+    ///                                 MinStorageBytesPercentage = 1.23,
+    ///                                 Delimiter = "/",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Exclude = new AwsNative.S3.Inputs.StorageLensBucketsAndRegionsArgs
+    ///             {
+    ///                 Buckets = new[]
+    ///                 {
+    ///                     "arn:aws:s3:::source_bucket_1",
+    ///                     "arn:aws:s3:::source_bucket_2",
+    ///                 },
+    ///             },
+    ///             IsEnabled = true,
+    ///             DataExport = new AwsNative.S3.Inputs.StorageLensDataExportArgs
+    ///             {
+    ///                 S3BucketDestination = new AwsNative.S3.Inputs.StorageLensS3BucketDestinationArgs
+    ///                 {
+    ///                     OutputSchemaVersion = AwsNative.S3.StorageLensS3BucketDestinationOutputSchemaVersion.V1,
+    ///                     Format = AwsNative.S3.StorageLensS3BucketDestinationFormat.Csv,
+    ///                     AccountId = "111122223333",
+    ///                     Arn = "arn:aws:s3:::destination_bucket",
+    ///                     Prefix = "output-path-prefix",
+    ///                     Encryption = new AwsNative.S3.Inputs.StorageLensEncryptionArgs
+    ///                     {
+    ///                         Sses3 = null,
+    ///                     },
+    ///                 },
+    ///                 CloudWatchMetrics = new AwsNative.S3.Inputs.StorageLensCloudWatchMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new AwsNative.Inputs.TagArgs
+    ///             {
+    ///                 Key = "tag-key-1",
+    ///                 Value = "tag-value-1",
+    ///             },
+    ///             new AwsNative.Inputs.TagArgs
+    ///             {
+    ///                 Key = "tag-key-2",
+    ///                 Value = "tag-value-2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Example
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageLensConfigurationExample = new AwsNative.S3.StorageLens("storageLensConfigurationExample", new()
+    ///     {
+    ///         StorageLensConfiguration = new AwsNative.S3.Inputs.StorageLensConfigurationArgs
+    ///         {
+    ///             Id = "StorageLensAdvancedConfiguration",
+    ///             AccountLevel = new AwsNative.S3.Inputs.StorageLensAccountLevelArgs
+    ///             {
+    ///                 ActivityMetrics = new AwsNative.S3.Inputs.StorageLensActivityMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 AdvancedCostOptimizationMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedCostOptimizationMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 AdvancedDataProtectionMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedDataProtectionMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 DetailedStatusCodesMetrics = new AwsNative.S3.Inputs.StorageLensDetailedStatusCodesMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///                 BucketLevel = new AwsNative.S3.Inputs.StorageLensBucketLevelArgs
+    ///                 {
+    ///                     ActivityMetrics = new AwsNative.S3.Inputs.StorageLensActivityMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     AdvancedCostOptimizationMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedCostOptimizationMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     AdvancedDataProtectionMetrics = new AwsNative.S3.Inputs.StorageLensAdvancedDataProtectionMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     DetailedStatusCodesMetrics = new AwsNative.S3.Inputs.StorageLensDetailedStatusCodesMetricsArgs
+    ///                     {
+    ///                         IsEnabled = true,
+    ///                     },
+    ///                     PrefixLevel = new AwsNative.S3.Inputs.StorageLensPrefixLevelArgs
+    ///                     {
+    ///                         StorageMetrics = new AwsNative.S3.Inputs.StorageLensPrefixLevelStorageMetricsArgs
+    ///                         {
+    ///                             IsEnabled = true,
+    ///                             SelectionCriteria = new AwsNative.S3.Inputs.StorageLensSelectionCriteriaArgs
+    ///                             {
+    ///                                 MaxDepth = 5,
+    ///                                 MinStorageBytesPercentage = 1.23,
+    ///                                 Delimiter = "/",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Exclude = new AwsNative.S3.Inputs.StorageLensBucketsAndRegionsArgs
+    ///             {
+    ///                 Buckets = new[]
+    ///                 {
+    ///                     "arn:aws:s3:::source_bucket_1",
+    ///                     "arn:aws:s3:::source_bucket_2",
+    ///                 },
+    ///             },
+    ///             IsEnabled = true,
+    ///             DataExport = new AwsNative.S3.Inputs.StorageLensDataExportArgs
+    ///             {
+    ///                 S3BucketDestination = new AwsNative.S3.Inputs.StorageLensS3BucketDestinationArgs
+    ///                 {
+    ///                     OutputSchemaVersion = AwsNative.S3.StorageLensS3BucketDestinationOutputSchemaVersion.V1,
+    ///                     Format = AwsNative.S3.StorageLensS3BucketDestinationFormat.Csv,
+    ///                     AccountId = "111122223333",
+    ///                     Arn = "arn:aws:s3:::destination_bucket",
+    ///                     Prefix = "output-path-prefix",
+    ///                     Encryption = new AwsNative.S3.Inputs.StorageLensEncryptionArgs
+    ///                     {
+    ///                         Sses3 = null,
+    ///                     },
+    ///                 },
+    ///                 CloudWatchMetrics = new AwsNative.S3.Inputs.StorageLensCloudWatchMetricsArgs
+    ///                 {
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new AwsNative.Inputs.TagArgs
+    ///             {
+    ///                 Key = "tag-key-1",
+    ///                 Value = "tag-value-1",
+    ///             },
+    ///             new AwsNative.Inputs.TagArgs
+    ///             {
+    ///                 Key = "tag-key-2",
+    ///                 Value = "tag-value-2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:StorageLens")]
     public partial class StorageLens : global::Pulumi.CustomResource

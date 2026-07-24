@@ -13,11 +13,14 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ApplicationDefinition0Properties',
     'ApplicationDefinition1Properties',
+    'EnvironmentEfsStorageConfiguration',
+    'EnvironmentFsxStorageConfiguration',
     'EnvironmentHighAvailabilityConfig',
     'EnvironmentStorageConfiguration',
 ]
@@ -61,6 +64,112 @@ class ApplicationDefinition1Properties(dict):
     @pulumi.getter
     def content(self) -> _builtins.str:
         return pulumi.get(self, "content")
+
+
+@pulumi.output_type
+class EnvironmentEfsStorageConfiguration(dict):
+    """
+    Defines the storage configuration for an Amazon EFS file system.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "mountPoint":
+            suggest = "mount_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentEfsStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentEfsStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentEfsStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_id: _builtins.str,
+                 mount_point: _builtins.str):
+        """
+        Defines the storage configuration for an Amazon EFS file system.
+
+        :param _builtins.str file_system_id: The file system identifier.
+        :param _builtins.str mount_point: The mount point for the file system.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "mount_point", mount_point)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> _builtins.str:
+        """
+        The file system identifier.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> _builtins.str:
+        """
+        The mount point for the file system.
+        """
+        return pulumi.get(self, "mount_point")
+
+
+@pulumi.output_type
+class EnvironmentFsxStorageConfiguration(dict):
+    """
+    Defines the storage configuration for an Amazon FSx file system.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemId":
+            suggest = "file_system_id"
+        elif key == "mountPoint":
+            suggest = "mount_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentFsxStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentFsxStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentFsxStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_id: _builtins.str,
+                 mount_point: _builtins.str):
+        """
+        Defines the storage configuration for an Amazon FSx file system.
+
+        :param _builtins.str file_system_id: The file system identifier.
+        :param _builtins.str mount_point: The mount point for the file system.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "mount_point", mount_point)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> _builtins.str:
+        """
+        The file system identifier.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> _builtins.str:
+        """
+        The mount point for the file system.
+        """
+        return pulumi.get(self, "mount_point")
 
 
 @pulumi.output_type
@@ -108,10 +217,25 @@ class EnvironmentStorageConfiguration(dict):
     """
     Defines the storage configuration for an environment.
     """
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 efs: Optional['outputs.EnvironmentEfsStorageConfiguration'] = None,
+                 fsx: Optional['outputs.EnvironmentFsxStorageConfiguration'] = None):
         """
         Defines the storage configuration for an environment.
         """
-        pass
+        if efs is not None:
+            pulumi.set(__self__, "efs", efs)
+        if fsx is not None:
+            pulumi.set(__self__, "fsx", fsx)
+
+    @_builtins.property
+    @pulumi.getter
+    def efs(self) -> Optional['outputs.EnvironmentEfsStorageConfiguration']:
+        return pulumi.get(self, "efs")
+
+    @_builtins.property
+    @pulumi.getter
+    def fsx(self) -> Optional['outputs.EnvironmentFsxStorageConfiguration']:
+        return pulumi.get(self, "fsx")
 
 

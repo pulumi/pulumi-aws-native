@@ -16,9 +16,20 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensEncryption
     {
+        public readonly Outputs.StorageLensSsekms? Ssekms;
+        /// <summary>
+        /// S3 default server-side encryption.
+        /// </summary>
+        public readonly object? Sses3;
+
         [OutputConstructor]
-        private StorageLensEncryption()
+        private StorageLensEncryption(
+            Outputs.StorageLensSsekms? ssekms,
+
+            object? sses3)
         {
+            Ssekms = ssekms;
+            Sses3 = sses3;
         }
     }
 }

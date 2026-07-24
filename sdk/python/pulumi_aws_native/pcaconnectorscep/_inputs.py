@@ -16,16 +16,60 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConnectorIntuneConfigurationArgs',
+    'ConnectorIntuneConfigurationArgsDict',
     'ConnectorMobileDeviceManagementArgs',
     'ConnectorMobileDeviceManagementArgsDict',
 ]
 
+class ConnectorIntuneConfigurationArgsDict(TypedDict):
+    azure_application_id: pulumi.Input[_builtins.str]
+    domain: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConnectorIntuneConfigurationArgs:
+    def __init__(__self__, *,
+                 azure_application_id: pulumi.Input[_builtins.str],
+                 domain: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "azure_application_id", azure_application_id)
+        pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter(name="azureApplicationId")
+    def azure_application_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "azure_application_id")
+
+    @azure_application_id.setter
+    def azure_application_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "azure_application_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain", value)
+
+
 class ConnectorMobileDeviceManagementArgsDict(TypedDict):
-    pass
+    intune: NotRequired[pulumi.Input[Optional['ConnectorIntuneConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ConnectorMobileDeviceManagementArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 intune: pulumi.Input[Optional['ConnectorIntuneConfigurationArgs']] = None):
+        if intune is not None:
+            pulumi.set(__self__, "intune", intune)
+
+    @_builtins.property
+    @pulumi.getter
+    def intune(self) -> pulumi.Input[Optional['ConnectorIntuneConfigurationArgs']]:
+        return pulumi.get(self, "intune")
+
+    @intune.setter
+    def intune(self, value: pulumi.Input[Optional['ConnectorIntuneConfigurationArgs']]):
+        pulumi.set(self, "intune", value)
 
 

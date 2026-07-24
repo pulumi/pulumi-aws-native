@@ -13,7 +13,156 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ConnectorIntuneConfiguration struct {
+	AzureApplicationId string `pulumi:"azureApplicationId"`
+	Domain             string `pulumi:"domain"`
+}
+
+// ConnectorIntuneConfigurationInput is an input type that accepts ConnectorIntuneConfigurationArgs and ConnectorIntuneConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorIntuneConfigurationInput` via:
+//
+//	ConnectorIntuneConfigurationArgs{...}
+type ConnectorIntuneConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorIntuneConfigurationOutput() ConnectorIntuneConfigurationOutput
+	ToConnectorIntuneConfigurationOutputWithContext(context.Context) ConnectorIntuneConfigurationOutput
+}
+
+type ConnectorIntuneConfigurationArgs struct {
+	AzureApplicationId pulumi.StringInput `pulumi:"azureApplicationId"`
+	Domain             pulumi.StringInput `pulumi:"domain"`
+}
+
+func (ConnectorIntuneConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorIntuneConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorIntuneConfigurationArgs) ToConnectorIntuneConfigurationOutput() ConnectorIntuneConfigurationOutput {
+	return i.ToConnectorIntuneConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorIntuneConfigurationArgs) ToConnectorIntuneConfigurationOutputWithContext(ctx context.Context) ConnectorIntuneConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorIntuneConfigurationOutput)
+}
+
+func (i ConnectorIntuneConfigurationArgs) ToConnectorIntuneConfigurationPtrOutput() ConnectorIntuneConfigurationPtrOutput {
+	return i.ToConnectorIntuneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorIntuneConfigurationArgs) ToConnectorIntuneConfigurationPtrOutputWithContext(ctx context.Context) ConnectorIntuneConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorIntuneConfigurationOutput).ToConnectorIntuneConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorIntuneConfigurationPtrInput is an input type that accepts ConnectorIntuneConfigurationArgs, ConnectorIntuneConfigurationPtr and ConnectorIntuneConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorIntuneConfigurationPtrInput` via:
+//
+//	        ConnectorIntuneConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorIntuneConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorIntuneConfigurationPtrOutput() ConnectorIntuneConfigurationPtrOutput
+	ToConnectorIntuneConfigurationPtrOutputWithContext(context.Context) ConnectorIntuneConfigurationPtrOutput
+}
+
+type connectorIntuneConfigurationPtrType ConnectorIntuneConfigurationArgs
+
+func ConnectorIntuneConfigurationPtr(v *ConnectorIntuneConfigurationArgs) ConnectorIntuneConfigurationPtrInput {
+	return (*connectorIntuneConfigurationPtrType)(v)
+}
+
+func (*connectorIntuneConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorIntuneConfiguration)(nil)).Elem()
+}
+
+func (i *connectorIntuneConfigurationPtrType) ToConnectorIntuneConfigurationPtrOutput() ConnectorIntuneConfigurationPtrOutput {
+	return i.ToConnectorIntuneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorIntuneConfigurationPtrType) ToConnectorIntuneConfigurationPtrOutputWithContext(ctx context.Context) ConnectorIntuneConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorIntuneConfigurationPtrOutput)
+}
+
+type ConnectorIntuneConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorIntuneConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorIntuneConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorIntuneConfigurationOutput) ToConnectorIntuneConfigurationOutput() ConnectorIntuneConfigurationOutput {
+	return o
+}
+
+func (o ConnectorIntuneConfigurationOutput) ToConnectorIntuneConfigurationOutputWithContext(ctx context.Context) ConnectorIntuneConfigurationOutput {
+	return o
+}
+
+func (o ConnectorIntuneConfigurationOutput) ToConnectorIntuneConfigurationPtrOutput() ConnectorIntuneConfigurationPtrOutput {
+	return o.ToConnectorIntuneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorIntuneConfigurationOutput) ToConnectorIntuneConfigurationPtrOutputWithContext(ctx context.Context) ConnectorIntuneConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorIntuneConfiguration) *ConnectorIntuneConfiguration {
+		return &v
+	}).(ConnectorIntuneConfigurationPtrOutput)
+}
+
+func (o ConnectorIntuneConfigurationOutput) AzureApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorIntuneConfiguration) string { return v.AzureApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ConnectorIntuneConfigurationOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorIntuneConfiguration) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+type ConnectorIntuneConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorIntuneConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorIntuneConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorIntuneConfigurationPtrOutput) ToConnectorIntuneConfigurationPtrOutput() ConnectorIntuneConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorIntuneConfigurationPtrOutput) ToConnectorIntuneConfigurationPtrOutputWithContext(ctx context.Context) ConnectorIntuneConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorIntuneConfigurationPtrOutput) Elem() ConnectorIntuneConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorIntuneConfiguration) ConnectorIntuneConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorIntuneConfiguration
+		return ret
+	}).(ConnectorIntuneConfigurationOutput)
+}
+
+func (o ConnectorIntuneConfigurationPtrOutput) AzureApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorIntuneConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorIntuneConfigurationPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorIntuneConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectorMobileDeviceManagement struct {
+	Intune *ConnectorIntuneConfiguration `pulumi:"intune"`
 }
 
 // ConnectorMobileDeviceManagementInput is an input type that accepts ConnectorMobileDeviceManagementArgs and ConnectorMobileDeviceManagementOutput values.
@@ -28,6 +177,7 @@ type ConnectorMobileDeviceManagementInput interface {
 }
 
 type ConnectorMobileDeviceManagementArgs struct {
+	Intune ConnectorIntuneConfigurationPtrInput `pulumi:"intune"`
 }
 
 func (ConnectorMobileDeviceManagementArgs) ElementType() reflect.Type {
@@ -107,6 +257,10 @@ func (o ConnectorMobileDeviceManagementOutput) ToConnectorMobileDeviceManagement
 	}).(ConnectorMobileDeviceManagementPtrOutput)
 }
 
+func (o ConnectorMobileDeviceManagementOutput) Intune() ConnectorIntuneConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorMobileDeviceManagement) *ConnectorIntuneConfiguration { return v.Intune }).(ConnectorIntuneConfigurationPtrOutput)
+}
+
 type ConnectorMobileDeviceManagementPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMobileDeviceManagementPtrOutput) ElementType() reflect.Type {
@@ -129,6 +283,15 @@ func (o ConnectorMobileDeviceManagementPtrOutput) Elem() ConnectorMobileDeviceMa
 		var ret ConnectorMobileDeviceManagement
 		return ret
 	}).(ConnectorMobileDeviceManagementOutput)
+}
+
+func (o ConnectorMobileDeviceManagementPtrOutput) Intune() ConnectorIntuneConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorMobileDeviceManagement) *ConnectorIntuneConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Intune
+	}).(ConnectorIntuneConfigurationPtrOutput)
 }
 
 type ConnectorOpenIdConfiguration struct {
@@ -224,8 +387,12 @@ func (o ConnectorOpenIdConfigurationPtrOutput) Subject() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorIntuneConfigurationInput)(nil)).Elem(), ConnectorIntuneConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorIntuneConfigurationPtrInput)(nil)).Elem(), ConnectorIntuneConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorMobileDeviceManagementInput)(nil)).Elem(), ConnectorMobileDeviceManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorMobileDeviceManagementPtrInput)(nil)).Elem(), ConnectorMobileDeviceManagementArgs{})
+	pulumi.RegisterOutputType(ConnectorIntuneConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorIntuneConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMobileDeviceManagementOutput{})
 	pulumi.RegisterOutputType(ConnectorMobileDeviceManagementPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorOpenIdConfigurationOutput{})

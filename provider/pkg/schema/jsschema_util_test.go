@@ -109,6 +109,56 @@ func TestFlattenJSSchema(t *testing.T) {
 
 }
 
+func TestMergeObjectUnionProperties(t *testing.T) {
+	t.Run("rejects unsupported branches", func(t *testing.T) {
+		tests := map[string]*jsschema.Schema{
+			"no union": {
+				Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
+			},
+			"non-object branch": {
+				Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
+				OneOf: jsschema.SchemaList{
+					&jsschema.Schema{Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+				},
+			},
+			"empty object branch": {
+				Type:  jsschema.PrimitiveTypes{jsschema.ObjectType},
+				OneOf: jsschema.SchemaList{jsschema.New()},
+			},
+		}
+		for name, schema := range tests {
+			t.Run(name, func(t *testing.T) {
+				_, ok := mergeObjectUnionProperties(schema)
+				assert.False(t, ok)
+			})
+		}
+	})
+
+	t.Run("merges structurally identical properties", func(t *testing.T) {
+		const valueProperty = "Value"
+		schema := &jsschema.Schema{
+			Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
+			OneOf: jsschema.SchemaList{
+				&jsschema.Schema{Properties: map[string]*jsschema.Schema{
+					valueProperty: {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+				}},
+				&jsschema.Schema{Properties: map[string]*jsschema.Schema{
+					valueProperty: {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+					"Other":       {Type: jsschema.PrimitiveTypes{jsschema.BooleanType}},
+				}},
+			},
+		}
+
+		merged, ok := mergeObjectUnionProperties(schema)
+		if assert.True(t, ok) {
+			assert.Equal(t, map[string]*jsschema.Schema{
+				valueProperty: {Type: jsschema.PrimitiveTypes{jsschema.StringType}},
+				"Other":       {Type: jsschema.PrimitiveTypes{jsschema.BooleanType}},
+			}, merged.Properties)
+		}
+	})
+}
+
 func TestMergeJSSchema(t *testing.T) {
 
 	intoEmpty := func(as AlmostJSSchema) bool {

@@ -20,10 +20,64 @@ __all__ = [
     'AgentSpaceIamAuthConfiguration',
     'AgentSpaceIdcAuthConfiguration',
     'AgentSpaceOperatorApp',
+    'AssociationAwsConfiguration',
+    'AssociationAwsResource',
+    'AssociationAzureConfiguration',
+    'AssociationDynatraceConfiguration',
+    'AssociationEventChannelConfiguration',
+    'AssociationGitHubConfiguration',
+    'AssociationGitLabConfiguration',
+    'AssociationKeyValuePair',
+    'AssociationMcpServerConfiguration',
+    'AssociationMcpServerDatadogConfiguration',
+    'AssociationMcpServerGrafanaConfiguration',
+    'AssociationMcpServerNewRelicConfiguration',
+    'AssociationMcpServerSigV4Configuration',
+    'AssociationMcpServerSplunkConfiguration',
+    'AssociationPagerDutyConfiguration',
     'AssociationServiceConfiguration',
+    'AssociationServiceNowConfiguration',
+    'AssociationSlackChannel',
+    'AssociationSlackConfiguration',
+    'AssociationSlackTransmissionTarget',
+    'AssociationSourceAwsConfiguration',
     'PrivateConnectionConnectionConfiguration',
+    'PrivateConnectionSelfManagedMode',
+    'PrivateConnectionServiceManagedMode',
     'ServiceAdditionalServiceDetails',
+    'ServiceApiKeyDetails',
+    'ServiceAzureIdentityServiceDetails',
+    'ServiceBearerTokenDetails',
     'ServiceDetails',
+    'ServiceDynatraceAuthorizationConfig',
+    'ServiceDynatraceServiceDetails',
+    'ServiceGitLabDetails',
+    'ServiceMcpServerAuthorizationConfig',
+    'ServiceMcpServerDetails',
+    'ServiceMcpServerGrafanaAuthorizationConfig',
+    'ServiceMcpServerGrafanaDetails',
+    'ServiceMcpServerOAuthClientCredentialsConfig',
+    'ServiceMcpServerSigV4AuthorizationConfig',
+    'ServiceMcpServerSigV4Details',
+    'ServiceMcpServerSplunkAuthorizationConfig',
+    'ServiceMcpServerSplunkDetails',
+    'ServiceNewRelicApiKeyConfig',
+    'ServiceNewRelicAuthorizationConfig',
+    'ServiceNewRelicServiceDetails',
+    'ServiceNowAuthorizationConfig',
+    'ServiceNowServiceDetails',
+    'ServiceOAuthClientDetails',
+    'ServicePagerDutyAuthorizationConfig',
+    'ServicePagerDutyDetails',
+    'ServiceRegisteredAzureIdentityDetails',
+    'ServiceRegisteredDynatraceDetails',
+    'ServiceRegisteredGitLabServiceDetails',
+    'ServiceRegisteredMcpServerDetails',
+    'ServiceRegisteredMcpServerGrafanaDetails',
+    'ServiceRegisteredMcpServerSigV4Details',
+    'ServiceRegisteredNewRelicDetails',
+    'ServiceRegisteredPagerDutyDetails',
+    'ServiceRegisteredServiceNowDetails',
 ]
 
 @pulumi.output_type
@@ -165,15 +219,1399 @@ class AgentSpaceOperatorApp(dict):
 
 
 @pulumi.output_type
+class AssociationAwsConfiguration(dict):
+    """
+    AWS association for 'monitor' account
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "accountType":
+            suggest = "account_type"
+        elif key == "assumableRoleArn":
+            suggest = "assumable_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationAwsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationAwsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationAwsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: _builtins.str,
+                 account_type: 'AssociationAwsConfigurationAccountType',
+                 assumable_role_arn: _builtins.str,
+                 resources: Optional[Sequence['outputs.AssociationAwsResource']] = None,
+                 tags: Optional[Sequence['outputs.AssociationKeyValuePair']] = None):
+        """
+        AWS association for 'monitor' account
+
+        :param _builtins.str account_id: AWS Account Id corresponding to provided resources
+        :param 'AssociationAwsConfigurationAccountType' account_type: Account Type 'monitor' for DevOpsAgent monitoring
+        :param _builtins.str assumable_role_arn: Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "account_type", account_type)
+        pulumi.set(__self__, "assumable_role_arn", assumable_role_arn)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        AWS Account Id corresponding to provided resources
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> 'AssociationAwsConfigurationAccountType':
+        """
+        Account Type 'monitor' for DevOpsAgent monitoring
+        """
+        return pulumi.get(self, "account_type")
+
+    @_builtins.property
+    @pulumi.getter(name="assumableRoleArn")
+    def assumable_role_arn(self) -> _builtins.str:
+        """
+        Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        return pulumi.get(self, "assumable_role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence['outputs.AssociationAwsResource']]:
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.AssociationKeyValuePair']]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AssociationAwsResource(dict):
+    """
+    AWS resource definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "resourceMetadata":
+            suggest = "resource_metadata"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationAwsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationAwsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationAwsResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_arn: _builtins.str,
+                 resource_metadata: Optional[Any] = None,
+                 resource_type: Optional['AssociationAwsResourceResourceType'] = None):
+        """
+        AWS resource definition
+
+        :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the resource
+        :param Any resource_metadata: Additional metadata for the resource
+        :param 'AssociationAwsResourceResourceType' resource_type: Resource type
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        if resource_metadata is not None:
+            pulumi.set(__self__, "resource_metadata", resource_metadata)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the resource
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceMetadata")
+    def resource_metadata(self) -> Optional[Any]:
+        """
+        Additional metadata for the resource
+        """
+        return pulumi.get(self, "resource_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional['AssociationAwsResourceResourceType']:
+        """
+        Resource type
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class AssociationAzureConfiguration(dict):
+    """
+    Azure subscription integration configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationAzureConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationAzureConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationAzureConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subscription_id: _builtins.str):
+        """
+        Azure subscription integration configuration
+
+        :param _builtins.str subscription_id: Azure subscription ID corresponding to provided resources
+        """
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> _builtins.str:
+        """
+        Azure subscription ID corresponding to provided resources
+        """
+        return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class AssociationDynatraceConfiguration(dict):
+    """
+    Dynatrace monitoring configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "envId":
+            suggest = "env_id"
+        elif key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationDynatraceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationDynatraceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationDynatraceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 env_id: _builtins.str,
+                 enable_webhook_updates: Optional[_builtins.bool] = None,
+                 resources: Optional[Sequence[_builtins.str]] = None):
+        """
+        Dynatrace monitoring configuration
+
+        :param _builtins.str env_id: Dynatrace environment id
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param Sequence[_builtins.str] resources: List of Dynatrace resources to monitor
+        """
+        pulumi.set(__self__, "env_id", env_id)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @_builtins.property
+    @pulumi.getter(name="envId")
+    def env_id(self) -> _builtins.str:
+        """
+        Dynatrace environment id
+        """
+        return pulumi.get(self, "env_id")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of Dynatrace resources to monitor
+        """
+        return pulumi.get(self, "resources")
+
+
+@pulumi.output_type
+class AssociationEventChannelConfiguration(dict):
+    """
+    EventChannelconfiguration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationEventChannelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationEventChannelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationEventChannelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_webhook_updates: Optional[_builtins.bool] = None):
+        """
+        EventChannelconfiguration
+
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+
+@pulumi.output_type
+class AssociationGitHubConfiguration(dict):
+    """
+    GitHub repository integration configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ownerType":
+            suggest = "owner_type"
+        elif key == "repoId":
+            suggest = "repo_id"
+        elif key == "repoName":
+            suggest = "repo_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationGitHubConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationGitHubConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationGitHubConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 owner: _builtins.str,
+                 owner_type: 'AssociationGitHubConfigurationOwnerType',
+                 repo_id: _builtins.str,
+                 repo_name: _builtins.str):
+        """
+        GitHub repository integration configuration
+
+        :param _builtins.str owner: Repository owner
+        :param 'AssociationGitHubConfigurationOwnerType' owner_type: Type of repository owner
+        :param _builtins.str repo_id: Associated Github repo ID
+        :param _builtins.str repo_name: Associated Github repo name
+        """
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_type", owner_type)
+        pulumi.set(__self__, "repo_id", repo_id)
+        pulumi.set(__self__, "repo_name", repo_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        """
+        Repository owner
+        """
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> 'AssociationGitHubConfigurationOwnerType':
+        """
+        Type of repository owner
+        """
+        return pulumi.get(self, "owner_type")
+
+    @_builtins.property
+    @pulumi.getter(name="repoId")
+    def repo_id(self) -> _builtins.str:
+        """
+        Associated Github repo ID
+        """
+        return pulumi.get(self, "repo_id")
+
+    @_builtins.property
+    @pulumi.getter(name="repoName")
+    def repo_name(self) -> _builtins.str:
+        """
+        Associated Github repo name
+        """
+        return pulumi.get(self, "repo_name")
+
+
+@pulumi.output_type
+class AssociationGitLabConfiguration(dict):
+    """
+    GitLab project integration configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "projectId":
+            suggest = "project_id"
+        elif key == "projectPath":
+            suggest = "project_path"
+        elif key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+        elif key == "instanceIdentifier":
+            suggest = "instance_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationGitLabConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationGitLabConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationGitLabConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 project_id: _builtins.str,
+                 project_path: _builtins.str,
+                 enable_webhook_updates: Optional[_builtins.bool] = None,
+                 instance_identifier: Optional[_builtins.str] = None):
+        """
+        GitLab project integration configuration
+
+        :param _builtins.str project_id: GitLab numeric project ID
+        :param _builtins.str project_path: Full GitLab project path (e.g., namespace/project-name)
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param _builtins.str instance_identifier: GitLab instance identifier
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "project_path", project_path)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if instance_identifier is not None:
+            pulumi.set(__self__, "instance_identifier", instance_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> _builtins.str:
+        """
+        GitLab numeric project ID
+        """
+        return pulumi.get(self, "project_id")
+
+    @_builtins.property
+    @pulumi.getter(name="projectPath")
+    def project_path(self) -> _builtins.str:
+        """
+        Full GitLab project path (e.g., namespace/project-name)
+        """
+        return pulumi.get(self, "project_path")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceIdentifier")
+    def instance_identifier(self) -> Optional[_builtins.str]:
+        """
+        GitLab instance identifier
+        """
+        return pulumi.get(self, "instance_identifier")
+
+
+@pulumi.output_type
+class AssociationKeyValuePair(dict):
+    """
+    A key-value pair for tags
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        A key-value pair for tags
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AssociationMcpServerConfiguration(dict):
+    """
+    MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationMcpServerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationMcpServerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationMcpServerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tools: Sequence[_builtins.str],
+                 description: Optional[_builtins.str] = None,
+                 enable_webhook_updates: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        MCP server configuration
+
+        :param Sequence[_builtins.str] tools: List of MCP tools that can be used with the association
+        :param _builtins.str description: The description of the MCP server
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: The name of the MCP server
+        """
+        pulumi.set(__self__, "tools", tools)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def tools(self) -> Sequence[_builtins.str]:
+        """
+        List of MCP tools that can be used with the association
+        """
+        return pulumi.get(self, "tools")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the MCP server
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AssociationMcpServerDatadogConfiguration(dict):
+    """
+    Datadog MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationMcpServerDatadogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationMcpServerDatadogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationMcpServerDatadogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 enable_webhook_updates: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        Datadog MCP server configuration
+
+        :param _builtins.str description: The description of the MCP server
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: The name of the MCP server
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the MCP server
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AssociationMcpServerGrafanaConfiguration(dict):
+    """
+    Grafana MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationMcpServerGrafanaConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationMcpServerGrafanaConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationMcpServerGrafanaConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: _builtins.str,
+                 enable_webhook_updates: Optional[_builtins.bool] = None,
+                 tools: Optional[Sequence['AssociationMcpServerGrafanaConfigurationToolsItem']] = None):
+        """
+        Grafana MCP server configuration
+
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param Sequence['AssociationMcpServerGrafanaConfigurationToolsItem'] tools: List of tool categories to enable for the Grafana MCP server
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if tools is not None:
+            pulumi.set(__self__, "tools", tools)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @_builtins.property
+    @pulumi.getter
+    def tools(self) -> Optional[Sequence['AssociationMcpServerGrafanaConfigurationToolsItem']]:
+        """
+        List of tool categories to enable for the Grafana MCP server
+        """
+        return pulumi.get(self, "tools")
+
+
+@pulumi.output_type
+class AssociationMcpServerNewRelicConfiguration(dict):
+    """
+    NewRelic MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationMcpServerNewRelicConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationMcpServerNewRelicConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationMcpServerNewRelicConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: _builtins.str,
+                 endpoint: _builtins.str):
+        """
+        NewRelic MCP server configuration
+
+        :param _builtins.str account_id: New Relic Account ID
+        :param _builtins.str endpoint: MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        New Relic Account ID
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class AssociationMcpServerSigV4Configuration(dict):
+    """
+    SigV4-authenticated MCP server configuration
+    """
+    def __init__(__self__, *,
+                 tools: Sequence[_builtins.str]):
+        """
+        SigV4-authenticated MCP server configuration
+
+        :param Sequence[_builtins.str] tools: List of MCP tools available for the association
+        """
+        pulumi.set(__self__, "tools", tools)
+
+    @_builtins.property
+    @pulumi.getter
+    def tools(self) -> Sequence[_builtins.str]:
+        """
+        List of MCP tools available for the association
+        """
+        return pulumi.get(self, "tools")
+
+
+@pulumi.output_type
+class AssociationMcpServerSplunkConfiguration(dict):
+    """
+    Splunk MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationMcpServerSplunkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationMcpServerSplunkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationMcpServerSplunkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 enable_webhook_updates: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        Splunk MCP server configuration
+
+        :param _builtins.str description: The description of the MCP server
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: The name of the MCP server
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the MCP server
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AssociationPagerDutyConfiguration(dict):
+    """
+    PagerDuty integration configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerEmail":
+            suggest = "customer_email"
+        elif key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationPagerDutyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationPagerDutyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationPagerDutyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_email: _builtins.str,
+                 services: Sequence[_builtins.str],
+                 enable_webhook_updates: Optional[_builtins.bool] = None):
+        """
+        PagerDuty integration configuration
+
+        :param _builtins.str customer_email: Email to be used in PagerDuty API header
+        :param Sequence[_builtins.str] services: List of PagerDuty service IDs available for the association
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        pulumi.set(__self__, "customer_email", customer_email)
+        pulumi.set(__self__, "services", services)
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+
+    @_builtins.property
+    @pulumi.getter(name="customerEmail")
+    def customer_email(self) -> _builtins.str:
+        """
+        Email to be used in PagerDuty API header
+        """
+        return pulumi.get(self, "customer_email")
+
+    @_builtins.property
+    @pulumi.getter
+    def services(self) -> Sequence[_builtins.str]:
+        """
+        List of PagerDuty service IDs available for the association
+        """
+        return pulumi.get(self, "services")
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+
+@pulumi.output_type
 class AssociationServiceConfiguration(dict):
     """
     The configuration that directs how AgentSpace interacts with the given service
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventChannel":
+            suggest = "event_channel"
+        elif key == "gitHub":
+            suggest = "git_hub"
+        elif key == "gitLab":
+            suggest = "git_lab"
+        elif key == "mcpServer":
+            suggest = "mcp_server"
+        elif key == "mcpServerDatadog":
+            suggest = "mcp_server_datadog"
+        elif key == "mcpServerGrafana":
+            suggest = "mcp_server_grafana"
+        elif key == "mcpServerNewRelic":
+            suggest = "mcp_server_new_relic"
+        elif key == "mcpServerSigV4":
+            suggest = "mcp_server_sig_v4"
+        elif key == "mcpServerSplunk":
+            suggest = "mcp_server_splunk"
+        elif key == "pagerDuty":
+            suggest = "pager_duty"
+        elif key == "serviceNow":
+            suggest = "service_now"
+        elif key == "sourceAws":
+            suggest = "source_aws"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationServiceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationServiceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationServiceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws: Optional['outputs.AssociationAwsConfiguration'] = None,
+                 azure: Optional['outputs.AssociationAzureConfiguration'] = None,
+                 dynatrace: Optional['outputs.AssociationDynatraceConfiguration'] = None,
+                 event_channel: Optional['outputs.AssociationEventChannelConfiguration'] = None,
+                 git_hub: Optional['outputs.AssociationGitHubConfiguration'] = None,
+                 git_lab: Optional['outputs.AssociationGitLabConfiguration'] = None,
+                 mcp_server: Optional['outputs.AssociationMcpServerConfiguration'] = None,
+                 mcp_server_datadog: Optional['outputs.AssociationMcpServerDatadogConfiguration'] = None,
+                 mcp_server_grafana: Optional['outputs.AssociationMcpServerGrafanaConfiguration'] = None,
+                 mcp_server_new_relic: Optional['outputs.AssociationMcpServerNewRelicConfiguration'] = None,
+                 mcp_server_sig_v4: Optional['outputs.AssociationMcpServerSigV4Configuration'] = None,
+                 mcp_server_splunk: Optional['outputs.AssociationMcpServerSplunkConfiguration'] = None,
+                 pager_duty: Optional['outputs.AssociationPagerDutyConfiguration'] = None,
+                 service_now: Optional['outputs.AssociationServiceNowConfiguration'] = None,
+                 slack: Optional['outputs.AssociationSlackConfiguration'] = None,
+                 source_aws: Optional['outputs.AssociationSourceAwsConfiguration'] = None):
         """
         The configuration that directs how AgentSpace interacts with the given service
         """
-        pass
+        if aws is not None:
+            pulumi.set(__self__, "aws", aws)
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if dynatrace is not None:
+            pulumi.set(__self__, "dynatrace", dynatrace)
+        if event_channel is not None:
+            pulumi.set(__self__, "event_channel", event_channel)
+        if git_hub is not None:
+            pulumi.set(__self__, "git_hub", git_hub)
+        if git_lab is not None:
+            pulumi.set(__self__, "git_lab", git_lab)
+        if mcp_server is not None:
+            pulumi.set(__self__, "mcp_server", mcp_server)
+        if mcp_server_datadog is not None:
+            pulumi.set(__self__, "mcp_server_datadog", mcp_server_datadog)
+        if mcp_server_grafana is not None:
+            pulumi.set(__self__, "mcp_server_grafana", mcp_server_grafana)
+        if mcp_server_new_relic is not None:
+            pulumi.set(__self__, "mcp_server_new_relic", mcp_server_new_relic)
+        if mcp_server_sig_v4 is not None:
+            pulumi.set(__self__, "mcp_server_sig_v4", mcp_server_sig_v4)
+        if mcp_server_splunk is not None:
+            pulumi.set(__self__, "mcp_server_splunk", mcp_server_splunk)
+        if pager_duty is not None:
+            pulumi.set(__self__, "pager_duty", pager_duty)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+        if slack is not None:
+            pulumi.set(__self__, "slack", slack)
+        if source_aws is not None:
+            pulumi.set(__self__, "source_aws", source_aws)
+
+    @_builtins.property
+    @pulumi.getter
+    def aws(self) -> Optional['outputs.AssociationAwsConfiguration']:
+        return pulumi.get(self, "aws")
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> Optional['outputs.AssociationAzureConfiguration']:
+        return pulumi.get(self, "azure")
+
+    @_builtins.property
+    @pulumi.getter
+    def dynatrace(self) -> Optional['outputs.AssociationDynatraceConfiguration']:
+        return pulumi.get(self, "dynatrace")
+
+    @_builtins.property
+    @pulumi.getter(name="eventChannel")
+    def event_channel(self) -> Optional['outputs.AssociationEventChannelConfiguration']:
+        return pulumi.get(self, "event_channel")
+
+    @_builtins.property
+    @pulumi.getter(name="gitHub")
+    def git_hub(self) -> Optional['outputs.AssociationGitHubConfiguration']:
+        return pulumi.get(self, "git_hub")
+
+    @_builtins.property
+    @pulumi.getter(name="gitLab")
+    def git_lab(self) -> Optional['outputs.AssociationGitLabConfiguration']:
+        return pulumi.get(self, "git_lab")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> Optional['outputs.AssociationMcpServerConfiguration']:
+        return pulumi.get(self, "mcp_server")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerDatadog")
+    def mcp_server_datadog(self) -> Optional['outputs.AssociationMcpServerDatadogConfiguration']:
+        return pulumi.get(self, "mcp_server_datadog")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerGrafana")
+    def mcp_server_grafana(self) -> Optional['outputs.AssociationMcpServerGrafanaConfiguration']:
+        return pulumi.get(self, "mcp_server_grafana")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerNewRelic")
+    def mcp_server_new_relic(self) -> Optional['outputs.AssociationMcpServerNewRelicConfiguration']:
+        return pulumi.get(self, "mcp_server_new_relic")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSigV4")
+    def mcp_server_sig_v4(self) -> Optional['outputs.AssociationMcpServerSigV4Configuration']:
+        return pulumi.get(self, "mcp_server_sig_v4")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSplunk")
+    def mcp_server_splunk(self) -> Optional['outputs.AssociationMcpServerSplunkConfiguration']:
+        return pulumi.get(self, "mcp_server_splunk")
+
+    @_builtins.property
+    @pulumi.getter(name="pagerDuty")
+    def pager_duty(self) -> Optional['outputs.AssociationPagerDutyConfiguration']:
+        return pulumi.get(self, "pager_duty")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> Optional['outputs.AssociationServiceNowConfiguration']:
+        return pulumi.get(self, "service_now")
+
+    @_builtins.property
+    @pulumi.getter
+    def slack(self) -> Optional['outputs.AssociationSlackConfiguration']:
+        return pulumi.get(self, "slack")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAws")
+    def source_aws(self) -> Optional['outputs.AssociationSourceAwsConfiguration']:
+        return pulumi.get(self, "source_aws")
+
+
+@pulumi.output_type
+class AssociationServiceNowConfiguration(dict):
+    """
+    ServiceNow integration configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableWebhookUpdates":
+            suggest = "enable_webhook_updates"
+        elif key == "instanceId":
+            suggest = "instance_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationServiceNowConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationServiceNowConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationServiceNowConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_webhook_updates: Optional[_builtins.bool] = None,
+                 instance_id: Optional[_builtins.str] = None):
+        """
+        ServiceNow integration configuration
+
+        :param _builtins.bool enable_webhook_updates: When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        :param _builtins.str instance_id: ServiceNow instance ID
+        """
+        if enable_webhook_updates is not None:
+            pulumi.set(__self__, "enable_webhook_updates", enable_webhook_updates)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+
+    @_builtins.property
+    @pulumi.getter(name="enableWebhookUpdates")
+    def enable_webhook_updates(self) -> Optional[_builtins.bool]:
+        """
+        When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+        """
+        return pulumi.get(self, "enable_webhook_updates")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[_builtins.str]:
+        """
+        ServiceNow instance ID
+        """
+        return pulumi.get(self, "instance_id")
+
+
+@pulumi.output_type
+class AssociationSlackChannel(dict):
+    """
+    Slack channel configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelId":
+            suggest = "channel_id"
+        elif key == "channelName":
+            suggest = "channel_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationSlackChannel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationSlackChannel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationSlackChannel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_id: _builtins.str,
+                 channel_name: Optional[_builtins.str] = None):
+        """
+        Slack channel configuration
+
+        :param _builtins.str channel_id: Slack channel ID
+        :param _builtins.str channel_name: Slack channel name
+        """
+        pulumi.set(__self__, "channel_id", channel_id)
+        if channel_name is not None:
+            pulumi.set(__self__, "channel_name", channel_name)
+
+    @_builtins.property
+    @pulumi.getter(name="channelId")
+    def channel_id(self) -> _builtins.str:
+        """
+        Slack channel ID
+        """
+        return pulumi.get(self, "channel_id")
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> Optional[_builtins.str]:
+        """
+        Slack channel name
+        """
+        return pulumi.get(self, "channel_name")
+
+
+@pulumi.output_type
+class AssociationSlackConfiguration(dict):
+    """
+    Slack workspace integration configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transmissionTarget":
+            suggest = "transmission_target"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+        elif key == "workspaceName":
+            suggest = "workspace_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationSlackConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationSlackConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationSlackConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transmission_target: 'outputs.AssociationSlackTransmissionTarget',
+                 workspace_id: _builtins.str,
+                 workspace_name: _builtins.str):
+        """
+        Slack workspace integration configuration
+
+        :param _builtins.str workspace_id: Associated Slack workspace ID
+        :param _builtins.str workspace_name: Associated Slack workspace name
+        """
+        pulumi.set(__self__, "transmission_target", transmission_target)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+        pulumi.set(__self__, "workspace_name", workspace_name)
+
+    @_builtins.property
+    @pulumi.getter(name="transmissionTarget")
+    def transmission_target(self) -> 'outputs.AssociationSlackTransmissionTarget':
+        return pulumi.get(self, "transmission_target")
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> _builtins.str:
+        """
+        Associated Slack workspace ID
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> _builtins.str:
+        """
+        Associated Slack workspace name
+        """
+        return pulumi.get(self, "workspace_name")
+
+
+@pulumi.output_type
+class AssociationSlackTransmissionTarget(dict):
+    """
+    Transmission targets for agent notifications
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentResponseTarget":
+            suggest = "incident_response_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationSlackTransmissionTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationSlackTransmissionTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationSlackTransmissionTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 incident_response_target: 'outputs.AssociationSlackChannel'):
+        """
+        Transmission targets for agent notifications
+
+        :param 'AssociationSlackChannel' incident_response_target: Destination for IncidentResponse agent.
+        """
+        pulumi.set(__self__, "incident_response_target", incident_response_target)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentResponseTarget")
+    def incident_response_target(self) -> 'outputs.AssociationSlackChannel':
+        """
+        Destination for IncidentResponse agent.
+        """
+        return pulumi.get(self, "incident_response_target")
+
+
+@pulumi.output_type
+class AssociationSourceAwsConfiguration(dict):
+    """
+    AWS association for 'source' account
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "accountType":
+            suggest = "account_type"
+        elif key == "assumableRoleArn":
+            suggest = "assumable_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssociationSourceAwsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssociationSourceAwsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssociationSourceAwsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: _builtins.str,
+                 account_type: 'AssociationSourceAwsConfigurationAccountType',
+                 assumable_role_arn: _builtins.str,
+                 resources: Optional[Sequence['outputs.AssociationAwsResource']] = None,
+                 tags: Optional[Sequence['outputs.AssociationKeyValuePair']] = None):
+        """
+        AWS association for 'source' account
+
+        :param _builtins.str account_id: AWS Account Id corresponding to provided resources
+        :param 'AssociationSourceAwsConfigurationAccountType' account_type: Account Type 'source' for DevOpsAgent monitoring
+        :param _builtins.str assumable_role_arn: Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "account_type", account_type)
+        pulumi.set(__self__, "assumable_role_arn", assumable_role_arn)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        AWS Account Id corresponding to provided resources
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="accountType")
+    def account_type(self) -> 'AssociationSourceAwsConfigurationAccountType':
+        """
+        Account Type 'source' for DevOpsAgent monitoring
+        """
+        return pulumi.get(self, "account_type")
+
+    @_builtins.property
+    @pulumi.getter(name="assumableRoleArn")
+    def assumable_role_arn(self) -> _builtins.str:
+        """
+        Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
+        """
+        return pulumi.get(self, "assumable_role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence['outputs.AssociationAwsResource']]:
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.AssociationKeyValuePair']]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -181,11 +1619,222 @@ class PrivateConnectionConnectionConfiguration(dict):
     """
     The connection configuration, either SelfManaged or ServiceManaged.
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selfManaged":
+            suggest = "self_managed"
+        elif key == "serviceManaged":
+            suggest = "service_managed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateConnectionConnectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateConnectionConnectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateConnectionConnectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 self_managed: Optional['outputs.PrivateConnectionSelfManagedMode'] = None,
+                 service_managed: Optional['outputs.PrivateConnectionServiceManagedMode'] = None):
         """
         The connection configuration, either SelfManaged or ServiceManaged.
         """
-        pass
+        if self_managed is not None:
+            pulumi.set(__self__, "self_managed", self_managed)
+        if service_managed is not None:
+            pulumi.set(__self__, "service_managed", service_managed)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManaged")
+    def self_managed(self) -> Optional['outputs.PrivateConnectionSelfManagedMode']:
+        return pulumi.get(self, "self_managed")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceManaged")
+    def service_managed(self) -> Optional['outputs.PrivateConnectionServiceManagedMode']:
+        return pulumi.get(self, "service_managed")
+
+
+@pulumi.output_type
+class PrivateConnectionSelfManagedMode(dict):
+    """
+    Configuration for a self-managed Private Connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationId":
+            suggest = "resource_configuration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateConnectionSelfManagedMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateConnectionSelfManagedMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateConnectionSelfManagedMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_id: _builtins.str):
+        """
+        Configuration for a self-managed Private Connection.
+
+        :param _builtins.str resource_configuration_id: The ARN of the Resource Configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_id", resource_configuration_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationId")
+    def resource_configuration_id(self) -> _builtins.str:
+        """
+        The ARN of the Resource Configuration.
+        """
+        return pulumi.get(self, "resource_configuration_id")
+
+
+@pulumi.output_type
+class PrivateConnectionServiceManagedMode(dict):
+    """
+    Configuration for a service-managed Private Connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostAddress":
+            suggest = "host_address"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+        elif key == "dnsResolution":
+            suggest = "dns_resolution"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "ipv4AddressesPerEni":
+            suggest = "ipv4_addresses_per_eni"
+        elif key == "portRanges":
+            suggest = "port_ranges"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateConnectionServiceManagedMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateConnectionServiceManagedMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateConnectionServiceManagedMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_address: _builtins.str,
+                 vpc_id: _builtins.str,
+                 dns_resolution: Optional['PrivateConnectionServiceManagedModeDnsResolution'] = None,
+                 ip_address_type: Optional['PrivateConnectionServiceManagedModeIpAddressType'] = None,
+                 ipv4_addresses_per_eni: Optional[_builtins.int] = None,
+                 port_ranges: Optional[Sequence[_builtins.str]] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 subnet_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        Configuration for a service-managed Private Connection.
+
+        :param _builtins.str host_address: IP address or DNS name of the target resource.
+        :param _builtins.str vpc_id: VPC to create the service-managed Resource Gateway in.
+        :param 'PrivateConnectionServiceManagedModeDnsResolution' dns_resolution: DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+        :param 'PrivateConnectionServiceManagedModeIpAddressType' ip_address_type: IP address type of the service-managed Resource Gateway.
+        :param _builtins.int ipv4_addresses_per_eni: Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+        :param Sequence[_builtins.str] port_ranges: TCP port ranges that a consumer can use to access the resource.
+        :param Sequence[_builtins.str] security_group_ids: Security groups to attach to the service-managed Resource Gateway.
+        :param Sequence[_builtins.str] subnet_ids: Subnets that the service-managed Resource Gateway will span.
+        """
+        pulumi.set(__self__, "host_address", host_address)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if dns_resolution is not None:
+            pulumi.set(__self__, "dns_resolution", dns_resolution)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ipv4_addresses_per_eni is not None:
+            pulumi.set(__self__, "ipv4_addresses_per_eni", ipv4_addresses_per_eni)
+        if port_ranges is not None:
+            pulumi.set(__self__, "port_ranges", port_ranges)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="hostAddress")
+    def host_address(self) -> _builtins.str:
+        """
+        IP address or DNS name of the target resource.
+        """
+        return pulumi.get(self, "host_address")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> _builtins.str:
+        """
+        VPC to create the service-managed Resource Gateway in.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsResolution")
+    def dns_resolution(self) -> Optional['PrivateConnectionServiceManagedModeDnsResolution']:
+        """
+        DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set.
+        """
+        return pulumi.get(self, "dns_resolution")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional['PrivateConnectionServiceManagedModeIpAddressType']:
+        """
+        IP address type of the service-managed Resource Gateway.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4AddressesPerEni")
+    def ipv4_addresses_per_eni(self) -> Optional[_builtins.int]:
+        """
+        Number of IPv4 addresses in each ENI for the service-managed Resource Gateway.
+        """
+        return pulumi.get(self, "ipv4_addresses_per_eni")
+
+    @_builtins.property
+    @pulumi.getter(name="portRanges")
+    def port_ranges(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        TCP port ranges that a consumer can use to access the resource.
+        """
+        return pulumi.get(self, "port_ranges")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Security groups to attach to the service-managed Resource Gateway.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Subnets that the service-managed Resource Gateway will span.
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type
@@ -193,11 +1842,335 @@ class ServiceAdditionalServiceDetails(dict):
     """
     Additional details specific to the service type returned after registration
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureIdentity":
+            suggest = "azure_identity"
+        elif key == "gitLab":
+            suggest = "git_lab"
+        elif key == "mcpServer":
+            suggest = "mcp_server"
+        elif key == "mcpServerGrafana":
+            suggest = "mcp_server_grafana"
+        elif key == "mcpServerNewRelic":
+            suggest = "mcp_server_new_relic"
+        elif key == "mcpServerSigV4":
+            suggest = "mcp_server_sig_v4"
+        elif key == "mcpServerSplunk":
+            suggest = "mcp_server_splunk"
+        elif key == "pagerDuty":
+            suggest = "pager_duty"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAdditionalServiceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAdditionalServiceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAdditionalServiceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_identity: Optional['outputs.ServiceRegisteredAzureIdentityDetails'] = None,
+                 dynatrace: Optional['outputs.ServiceRegisteredDynatraceDetails'] = None,
+                 git_lab: Optional['outputs.ServiceRegisteredGitLabServiceDetails'] = None,
+                 mcp_server: Optional['outputs.ServiceRegisteredMcpServerDetails'] = None,
+                 mcp_server_grafana: Optional['outputs.ServiceRegisteredMcpServerGrafanaDetails'] = None,
+                 mcp_server_new_relic: Optional['outputs.ServiceRegisteredNewRelicDetails'] = None,
+                 mcp_server_sig_v4: Optional['outputs.ServiceRegisteredMcpServerSigV4Details'] = None,
+                 mcp_server_splunk: Optional['outputs.ServiceRegisteredMcpServerDetails'] = None,
+                 pager_duty: Optional['outputs.ServiceRegisteredPagerDutyDetails'] = None,
+                 service_now: Optional['outputs.ServiceRegisteredServiceNowDetails'] = None):
         """
         Additional details specific to the service type returned after registration
         """
-        pass
+        if azure_identity is not None:
+            pulumi.set(__self__, "azure_identity", azure_identity)
+        if dynatrace is not None:
+            pulumi.set(__self__, "dynatrace", dynatrace)
+        if git_lab is not None:
+            pulumi.set(__self__, "git_lab", git_lab)
+        if mcp_server is not None:
+            pulumi.set(__self__, "mcp_server", mcp_server)
+        if mcp_server_grafana is not None:
+            pulumi.set(__self__, "mcp_server_grafana", mcp_server_grafana)
+        if mcp_server_new_relic is not None:
+            pulumi.set(__self__, "mcp_server_new_relic", mcp_server_new_relic)
+        if mcp_server_sig_v4 is not None:
+            pulumi.set(__self__, "mcp_server_sig_v4", mcp_server_sig_v4)
+        if mcp_server_splunk is not None:
+            pulumi.set(__self__, "mcp_server_splunk", mcp_server_splunk)
+        if pager_duty is not None:
+            pulumi.set(__self__, "pager_duty", pager_duty)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter(name="azureIdentity")
+    def azure_identity(self) -> Optional['outputs.ServiceRegisteredAzureIdentityDetails']:
+        return pulumi.get(self, "azure_identity")
+
+    @_builtins.property
+    @pulumi.getter
+    def dynatrace(self) -> Optional['outputs.ServiceRegisteredDynatraceDetails']:
+        return pulumi.get(self, "dynatrace")
+
+    @_builtins.property
+    @pulumi.getter(name="gitLab")
+    def git_lab(self) -> Optional['outputs.ServiceRegisteredGitLabServiceDetails']:
+        return pulumi.get(self, "git_lab")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> Optional['outputs.ServiceRegisteredMcpServerDetails']:
+        return pulumi.get(self, "mcp_server")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerGrafana")
+    def mcp_server_grafana(self) -> Optional['outputs.ServiceRegisteredMcpServerGrafanaDetails']:
+        return pulumi.get(self, "mcp_server_grafana")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerNewRelic")
+    def mcp_server_new_relic(self) -> Optional['outputs.ServiceRegisteredNewRelicDetails']:
+        return pulumi.get(self, "mcp_server_new_relic")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSigV4")
+    def mcp_server_sig_v4(self) -> Optional['outputs.ServiceRegisteredMcpServerSigV4Details']:
+        return pulumi.get(self, "mcp_server_sig_v4")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSplunk")
+    def mcp_server_splunk(self) -> Optional['outputs.ServiceRegisteredMcpServerDetails']:
+        return pulumi.get(self, "mcp_server_splunk")
+
+    @_builtins.property
+    @pulumi.getter(name="pagerDuty")
+    def pager_duty(self) -> Optional['outputs.ServiceRegisteredPagerDutyDetails']:
+        return pulumi.get(self, "pager_duty")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> Optional['outputs.ServiceRegisteredServiceNowDetails']:
+        return pulumi.get(self, "service_now")
+
+
+@pulumi.output_type
+class ServiceApiKeyDetails(dict):
+    """
+    API key authentication details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKeyHeader":
+            suggest = "api_key_header"
+        elif key == "apiKeyName":
+            suggest = "api_key_name"
+        elif key == "apiKeyValue":
+            suggest = "api_key_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceApiKeyDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceApiKeyDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceApiKeyDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key_header: _builtins.str,
+                 api_key_name: _builtins.str,
+                 api_key_value: _builtins.str):
+        """
+        API key authentication details
+
+        :param _builtins.str api_key_header: HTTP header name to send the API key
+        :param _builtins.str api_key_name: User friendly API key name
+        :param _builtins.str api_key_value: API key value
+        """
+        pulumi.set(__self__, "api_key_header", api_key_header)
+        pulumi.set(__self__, "api_key_name", api_key_name)
+        pulumi.set(__self__, "api_key_value", api_key_value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyHeader")
+    def api_key_header(self) -> _builtins.str:
+        """
+        HTTP header name to send the API key
+        """
+        return pulumi.get(self, "api_key_header")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyName")
+    def api_key_name(self) -> _builtins.str:
+        """
+        User friendly API key name
+        """
+        return pulumi.get(self, "api_key_name")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyValue")
+    def api_key_value(self) -> _builtins.str:
+        """
+        API key value
+        """
+        return pulumi.get(self, "api_key_value")
+
+
+@pulumi.output_type
+class ServiceAzureIdentityServiceDetails(dict):
+    """
+    Azure Identity service configuration for federated identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "webIdentityRoleArn":
+            suggest = "web_identity_role_arn"
+        elif key == "webIdentityTokenAudiences":
+            suggest = "web_identity_token_audiences"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAzureIdentityServiceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAzureIdentityServiceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAzureIdentityServiceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 web_identity_role_arn: _builtins.str,
+                 web_identity_token_audiences: Sequence[_builtins.str]):
+        """
+        Azure Identity service configuration for federated identity
+
+        :param _builtins.str client_id: Azure AD application client ID
+        :param _builtins.str tenant_id: Azure AD tenant ID
+        :param _builtins.str web_identity_role_arn: ARN of the IAM role for web identity token exchange
+        :param Sequence[_builtins.str] web_identity_token_audiences: List of audiences for the web identity token
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "web_identity_role_arn", web_identity_role_arn)
+        pulumi.set(__self__, "web_identity_token_audiences", web_identity_token_audiences)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        Azure AD application client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        Azure AD tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="webIdentityRoleArn")
+    def web_identity_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role for web identity token exchange
+        """
+        return pulumi.get(self, "web_identity_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="webIdentityTokenAudiences")
+    def web_identity_token_audiences(self) -> Sequence[_builtins.str]:
+        """
+        List of audiences for the web identity token
+        """
+        return pulumi.get(self, "web_identity_token_audiences")
+
+
+@pulumi.output_type
+class ServiceBearerTokenDetails(dict):
+    """
+    Bearer token authentication details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenName":
+            suggest = "token_name"
+        elif key == "tokenValue":
+            suggest = "token_value"
+        elif key == "authorizationHeader":
+            suggest = "authorization_header"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceBearerTokenDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceBearerTokenDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceBearerTokenDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token_name: _builtins.str,
+                 token_value: _builtins.str,
+                 authorization_header: Optional[_builtins.str] = None):
+        """
+        Bearer token authentication details
+
+        :param _builtins.str token_name: User friendly bearer token name
+        :param _builtins.str token_value: Bearer token value
+        :param _builtins.str authorization_header: HTTP header name to send the bearer token
+        """
+        pulumi.set(__self__, "token_name", token_name)
+        pulumi.set(__self__, "token_value", token_value)
+        if authorization_header is not None:
+            pulumi.set(__self__, "authorization_header", authorization_header)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenName")
+    def token_name(self) -> _builtins.str:
+        """
+        User friendly bearer token name
+        """
+        return pulumi.get(self, "token_name")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> _builtins.str:
+        """
+        Bearer token value
+        """
+        return pulumi.get(self, "token_value")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationHeader")
+    def authorization_header(self) -> Optional[_builtins.str]:
+        """
+        HTTP header name to send the bearer token
+        """
+        return pulumi.get(self, "authorization_header")
 
 
 @pulumi.output_type
@@ -205,10 +2178,1908 @@ class ServiceDetails(dict):
     """
     Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
     """
-    def __init__(__self__):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureIdentity":
+            suggest = "azure_identity"
+        elif key == "gitLab":
+            suggest = "git_lab"
+        elif key == "mcpServer":
+            suggest = "mcp_server"
+        elif key == "mcpServerGrafana":
+            suggest = "mcp_server_grafana"
+        elif key == "mcpServerNewRelic":
+            suggest = "mcp_server_new_relic"
+        elif key == "mcpServerSigV4":
+            suggest = "mcp_server_sig_v4"
+        elif key == "mcpServerSplunk":
+            suggest = "mcp_server_splunk"
+        elif key == "pagerDuty":
+            suggest = "pager_duty"
+        elif key == "serviceNow":
+            suggest = "service_now"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_identity: Optional['outputs.ServiceAzureIdentityServiceDetails'] = None,
+                 dynatrace: Optional['outputs.ServiceDynatraceServiceDetails'] = None,
+                 git_lab: Optional['outputs.ServiceGitLabDetails'] = None,
+                 mcp_server: Optional['outputs.ServiceMcpServerDetails'] = None,
+                 mcp_server_grafana: Optional['outputs.ServiceMcpServerGrafanaDetails'] = None,
+                 mcp_server_new_relic: Optional['outputs.ServiceNewRelicServiceDetails'] = None,
+                 mcp_server_sig_v4: Optional['outputs.ServiceMcpServerSigV4Details'] = None,
+                 mcp_server_splunk: Optional['outputs.ServiceMcpServerSplunkDetails'] = None,
+                 pager_duty: Optional['outputs.ServicePagerDutyDetails'] = None,
+                 service_now: Optional['outputs.ServiceNowServiceDetails'] = None):
         """
         Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
         """
-        pass
+        if azure_identity is not None:
+            pulumi.set(__self__, "azure_identity", azure_identity)
+        if dynatrace is not None:
+            pulumi.set(__self__, "dynatrace", dynatrace)
+        if git_lab is not None:
+            pulumi.set(__self__, "git_lab", git_lab)
+        if mcp_server is not None:
+            pulumi.set(__self__, "mcp_server", mcp_server)
+        if mcp_server_grafana is not None:
+            pulumi.set(__self__, "mcp_server_grafana", mcp_server_grafana)
+        if mcp_server_new_relic is not None:
+            pulumi.set(__self__, "mcp_server_new_relic", mcp_server_new_relic)
+        if mcp_server_sig_v4 is not None:
+            pulumi.set(__self__, "mcp_server_sig_v4", mcp_server_sig_v4)
+        if mcp_server_splunk is not None:
+            pulumi.set(__self__, "mcp_server_splunk", mcp_server_splunk)
+        if pager_duty is not None:
+            pulumi.set(__self__, "pager_duty", pager_duty)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter(name="azureIdentity")
+    def azure_identity(self) -> Optional['outputs.ServiceAzureIdentityServiceDetails']:
+        return pulumi.get(self, "azure_identity")
+
+    @_builtins.property
+    @pulumi.getter
+    def dynatrace(self) -> Optional['outputs.ServiceDynatraceServiceDetails']:
+        return pulumi.get(self, "dynatrace")
+
+    @_builtins.property
+    @pulumi.getter(name="gitLab")
+    def git_lab(self) -> Optional['outputs.ServiceGitLabDetails']:
+        return pulumi.get(self, "git_lab")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> Optional['outputs.ServiceMcpServerDetails']:
+        return pulumi.get(self, "mcp_server")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerGrafana")
+    def mcp_server_grafana(self) -> Optional['outputs.ServiceMcpServerGrafanaDetails']:
+        return pulumi.get(self, "mcp_server_grafana")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerNewRelic")
+    def mcp_server_new_relic(self) -> Optional['outputs.ServiceNewRelicServiceDetails']:
+        return pulumi.get(self, "mcp_server_new_relic")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSigV4")
+    def mcp_server_sig_v4(self) -> Optional['outputs.ServiceMcpServerSigV4Details']:
+        return pulumi.get(self, "mcp_server_sig_v4")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServerSplunk")
+    def mcp_server_splunk(self) -> Optional['outputs.ServiceMcpServerSplunkDetails']:
+        return pulumi.get(self, "mcp_server_splunk")
+
+    @_builtins.property
+    @pulumi.getter(name="pagerDuty")
+    def pager_duty(self) -> Optional['outputs.ServicePagerDutyDetails']:
+        return pulumi.get(self, "pager_duty")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> Optional['outputs.ServiceNowServiceDetails']:
+        return pulumi.get(self, "service_now")
+
+
+@pulumi.output_type
+class ServiceDynatraceAuthorizationConfig(dict):
+    """
+    Dynatrace OAuth authorization configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oAuthClientCredentials":
+            suggest = "o_auth_client_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDynatraceAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDynatraceAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDynatraceAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 o_auth_client_credentials: Optional['outputs.ServiceOAuthClientDetails'] = None):
+        """
+        Dynatrace OAuth authorization configuration
+        """
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> Optional['outputs.ServiceOAuthClientDetails']:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+
+@pulumi.output_type
+class ServiceDynatraceServiceDetails(dict):
+    """
+    Dynatrace service configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountUrn":
+            suggest = "account_urn"
+        elif key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDynatraceServiceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDynatraceServiceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDynatraceServiceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_urn: _builtins.str,
+                 authorization_config: Optional['outputs.ServiceDynatraceAuthorizationConfig'] = None):
+        """
+        Dynatrace service configuration
+
+        :param _builtins.str account_urn: Dynatrace resource account URN
+        """
+        pulumi.set(__self__, "account_urn", account_urn)
+        if authorization_config is not None:
+            pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @_builtins.property
+    @pulumi.getter(name="accountUrn")
+    def account_urn(self) -> _builtins.str:
+        """
+        Dynatrace resource account URN
+        """
+        return pulumi.get(self, "account_urn")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> Optional['outputs.ServiceDynatraceAuthorizationConfig']:
+        return pulumi.get(self, "authorization_config")
+
+
+@pulumi.output_type
+class ServiceGitLabDetails(dict):
+    """
+    GitLab service configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetUrl":
+            suggest = "target_url"
+        elif key == "tokenType":
+            suggest = "token_type"
+        elif key == "tokenValue":
+            suggest = "token_value"
+        elif key == "groupId":
+            suggest = "group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceGitLabDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceGitLabDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceGitLabDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_url: _builtins.str,
+                 token_type: 'ServiceGitLabDetailsTokenType',
+                 token_value: _builtins.str,
+                 group_id: Optional[_builtins.str] = None):
+        """
+        GitLab service configuration
+
+        :param _builtins.str target_url: GitLab instance URL
+        :param 'ServiceGitLabDetailsTokenType' token_type: Type of GitLab access token
+        :param _builtins.str token_value: GitLab access token value
+        :param _builtins.str group_id: Optional GitLab group ID for group-level access tokens
+        """
+        pulumi.set(__self__, "target_url", target_url)
+        pulumi.set(__self__, "token_type", token_type)
+        pulumi.set(__self__, "token_value", token_value)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> _builtins.str:
+        """
+        GitLab instance URL
+        """
+        return pulumi.get(self, "target_url")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> 'ServiceGitLabDetailsTokenType':
+        """
+        Type of GitLab access token
+        """
+        return pulumi.get(self, "token_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> _builtins.str:
+        """
+        GitLab access token value
+        """
+        return pulumi.get(self, "token_value")
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[_builtins.str]:
+        """
+        Optional GitLab group ID for group-level access tokens
+        """
+        return pulumi.get(self, "group_id")
+
+
+@pulumi.output_type
+class ServiceMcpServerAuthorizationConfig(dict):
+    """
+    MCP server authorization configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "oAuthClientCredentials":
+            suggest = "o_auth_client_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.ServiceApiKeyDetails'] = None,
+                 o_auth_client_credentials: Optional['outputs.ServiceMcpServerOAuthClientCredentialsConfig'] = None):
+        """
+        MCP server authorization configuration
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.ServiceApiKeyDetails']:
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> Optional['outputs.ServiceMcpServerOAuthClientCredentialsConfig']:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+
+@pulumi.output_type
+class ServiceMcpServerDetails(dict):
+    """
+    MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_config: 'outputs.ServiceMcpServerAuthorizationConfig',
+                 endpoint: _builtins.str,
+                 name: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        MCP server configuration
+
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: MCP server name
+        :param _builtins.str description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> 'outputs.ServiceMcpServerAuthorizationConfig':
+        return pulumi.get(self, "authorization_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ServiceMcpServerGrafanaAuthorizationConfig(dict):
+    """
+    Grafana MCP server authorization configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bearerToken":
+            suggest = "bearer_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerGrafanaAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerGrafanaAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerGrafanaAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bearer_token: Optional['outputs.ServiceBearerTokenDetails'] = None):
+        """
+        Grafana MCP server authorization configuration
+        """
+        if bearer_token is not None:
+            pulumi.set(__self__, "bearer_token", bearer_token)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> Optional['outputs.ServiceBearerTokenDetails']:
+        return pulumi.get(self, "bearer_token")
+
+
+@pulumi.output_type
+class ServiceMcpServerGrafanaDetails(dict):
+    """
+    Grafana MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerGrafanaDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerGrafanaDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerGrafanaDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_config: 'outputs.ServiceMcpServerGrafanaAuthorizationConfig',
+                 endpoint: _builtins.str,
+                 name: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        Grafana MCP server configuration
+
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: MCP server name
+        :param _builtins.str description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> 'outputs.ServiceMcpServerGrafanaAuthorizationConfig':
+        return pulumi.get(self, "authorization_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ServiceMcpServerOAuthClientCredentialsConfig(dict):
+    """
+    MCP server OAuth client credentials configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "exchangeUrl":
+            suggest = "exchange_url"
+        elif key == "clientName":
+            suggest = "client_name"
+        elif key == "exchangeParameters":
+            suggest = "exchange_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerOAuthClientCredentialsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerOAuthClientCredentialsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerOAuthClientCredentialsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str,
+                 exchange_url: _builtins.str,
+                 client_name: Optional[_builtins.str] = None,
+                 exchange_parameters: Optional[Any] = None,
+                 scopes: Optional[Sequence[_builtins.str]] = None):
+        """
+        MCP server OAuth client credentials configuration
+
+        :param _builtins.str client_id: OAuth client ID
+        :param _builtins.str client_secret: OAuth client secret
+        :param _builtins.str exchange_url: OAuth token exchange URL
+        :param _builtins.str client_name: User friendly OAuth client name
+        :param Any exchange_parameters: OAuth token exchange parameters
+        :param Sequence[_builtins.str] scopes: OAuth scopes
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "exchange_url", exchange_url)
+        if client_name is not None:
+            pulumi.set(__self__, "client_name", client_name)
+        if exchange_parameters is not None:
+            pulumi.set(__self__, "exchange_parameters", exchange_parameters)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        OAuth client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        """
+        OAuth client secret
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="exchangeUrl")
+    def exchange_url(self) -> _builtins.str:
+        """
+        OAuth token exchange URL
+        """
+        return pulumi.get(self, "exchange_url")
+
+    @_builtins.property
+    @pulumi.getter(name="clientName")
+    def client_name(self) -> Optional[_builtins.str]:
+        """
+        User friendly OAuth client name
+        """
+        return pulumi.get(self, "client_name")
+
+    @_builtins.property
+    @pulumi.getter(name="exchangeParameters")
+    def exchange_parameters(self) -> Optional[Any]:
+        """
+        OAuth token exchange parameters
+        """
+        return pulumi.get(self, "exchange_parameters")
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        OAuth scopes
+        """
+        return pulumi.get(self, "scopes")
+
+
+@pulumi.output_type
+class ServiceMcpServerSigV4AuthorizationConfig(dict):
+    """
+    SigV4 authorization configuration for MCP server
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHeaders":
+            suggest = "custom_headers"
+        elif key == "mcpRoleArn":
+            suggest = "mcp_role_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerSigV4AuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerSigV4AuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerSigV4AuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: _builtins.str,
+                 service: _builtins.str,
+                 custom_headers: Optional[Mapping[str, _builtins.str]] = None,
+                 mcp_role_arn: Optional[_builtins.str] = None,
+                 role_arn: Optional[_builtins.str] = None):
+        """
+        SigV4 authorization configuration for MCP server
+
+        :param _builtins.str region: AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+        :param _builtins.str service: AWS service name for SigV4 signing
+        :param Mapping[str, _builtins.str] custom_headers: Custom headers for the SigV4 MCP server
+        :param _builtins.str mcp_role_arn: IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+        :param _builtins.str role_arn: Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "service", service)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
+        if mcp_role_arn is not None:
+            pulumi.set(__self__, "mcp_role_arn", mcp_role_arn)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> _builtins.str:
+        """
+        AWS service name for SigV4 signing
+        """
+        return pulumi.get(self, "service")
+
+    @_builtins.property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Custom headers for the SigV4 MCP server
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpRoleArn")
+    def mcp_role_arn(self) -> Optional[_builtins.str]:
+        """
+        IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
+        """
+        return pulumi.get(self, "mcp_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[_builtins.str]:
+        """
+        Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class ServiceMcpServerSigV4Details(dict):
+    """
+    SigV4-authenticated MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerSigV4Details. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerSigV4Details.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerSigV4Details.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_config: 'outputs.ServiceMcpServerSigV4AuthorizationConfig',
+                 endpoint: _builtins.str,
+                 name: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        SigV4-authenticated MCP server configuration
+
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: MCP server name
+        :param _builtins.str description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> 'outputs.ServiceMcpServerSigV4AuthorizationConfig':
+        return pulumi.get(self, "authorization_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ServiceMcpServerSplunkAuthorizationConfig(dict):
+    """
+    MCP server splunk authorization configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bearerToken":
+            suggest = "bearer_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerSplunkAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerSplunkAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerSplunkAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bearer_token: Optional['outputs.ServiceBearerTokenDetails'] = None):
+        """
+        MCP server splunk authorization configuration
+        """
+        if bearer_token is not None:
+            pulumi.set(__self__, "bearer_token", bearer_token)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> Optional['outputs.ServiceBearerTokenDetails']:
+        return pulumi.get(self, "bearer_token")
+
+
+@pulumi.output_type
+class ServiceMcpServerSplunkDetails(dict):
+    """
+    Splunk MCP server configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceMcpServerSplunkDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceMcpServerSplunkDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceMcpServerSplunkDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_config: 'outputs.ServiceMcpServerSplunkAuthorizationConfig',
+                 endpoint: _builtins.str,
+                 name: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        Splunk MCP server configuration
+
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: MCP server name
+        :param _builtins.str description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> 'outputs.ServiceMcpServerSplunkAuthorizationConfig':
+        return pulumi.get(self, "authorization_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ServiceNewRelicApiKeyConfig(dict):
+    """
+    New Relic API key configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "alertPolicyIds":
+            suggest = "alert_policy_ids"
+        elif key == "applicationIds":
+            suggest = "application_ids"
+        elif key == "entityGuids":
+            suggest = "entity_guids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNewRelicApiKeyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNewRelicApiKeyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNewRelicApiKeyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: _builtins.str,
+                 api_key: _builtins.str,
+                 region: 'ServiceNewRelicApiKeyConfigRegion',
+                 alert_policy_ids: Optional[Sequence[_builtins.str]] = None,
+                 application_ids: Optional[Sequence[_builtins.str]] = None,
+                 entity_guids: Optional[Sequence[_builtins.str]] = None):
+        """
+        New Relic API key configuration
+
+        :param _builtins.str account_id: New Relic Account ID
+        :param _builtins.str api_key: New Relic User API Key
+        :param 'ServiceNewRelicApiKeyConfigRegion' region: New Relic region
+        :param Sequence[_builtins.str] alert_policy_ids: List of alert policy IDs
+        :param Sequence[_builtins.str] application_ids: List of monitored APM application IDs
+        :param Sequence[_builtins.str] entity_guids: List of globally unique IDs for New Relic resources
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "region", region)
+        if alert_policy_ids is not None:
+            pulumi.set(__self__, "alert_policy_ids", alert_policy_ids)
+        if application_ids is not None:
+            pulumi.set(__self__, "application_ids", application_ids)
+        if entity_guids is not None:
+            pulumi.set(__self__, "entity_guids", entity_guids)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        New Relic Account ID
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        """
+        New Relic User API Key
+        """
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> 'ServiceNewRelicApiKeyConfigRegion':
+        """
+        New Relic region
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="alertPolicyIds")
+    def alert_policy_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of alert policy IDs
+        """
+        return pulumi.get(self, "alert_policy_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationIds")
+    def application_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of monitored APM application IDs
+        """
+        return pulumi.get(self, "application_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="entityGuids")
+    def entity_guids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of globally unique IDs for New Relic resources
+        """
+        return pulumi.get(self, "entity_guids")
+
+
+@pulumi.output_type
+class ServiceNewRelicAuthorizationConfig(dict):
+    """
+    New Relic authorization configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNewRelicAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNewRelicAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNewRelicAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: 'outputs.ServiceNewRelicApiKeyConfig'):
+        """
+        New Relic authorization configuration
+        """
+        pulumi.set(__self__, "api_key", api_key)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> 'outputs.ServiceNewRelicApiKeyConfig':
+        return pulumi.get(self, "api_key")
+
+
+@pulumi.output_type
+class ServiceNewRelicServiceDetails(dict):
+    """
+    New Relic service configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNewRelicServiceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNewRelicServiceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNewRelicServiceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_config: 'outputs.ServiceNewRelicAuthorizationConfig'):
+        """
+        New Relic service configuration
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> 'outputs.ServiceNewRelicAuthorizationConfig':
+        return pulumi.get(self, "authorization_config")
+
+
+@pulumi.output_type
+class ServiceNowAuthorizationConfig(dict):
+    """
+    ServiceNow OAuth authorization configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oAuthClientCredentials":
+            suggest = "o_auth_client_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNowAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNowAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNowAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 o_auth_client_credentials: Optional['outputs.ServiceOAuthClientDetails'] = None):
+        """
+        ServiceNow OAuth authorization configuration
+        """
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> Optional['outputs.ServiceOAuthClientDetails']:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+
+@pulumi.output_type
+class ServiceNowServiceDetails(dict):
+    """
+    ServiceNow service configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+        elif key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNowServiceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNowServiceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNowServiceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_url: _builtins.str,
+                 authorization_config: Optional['outputs.ServiceNowAuthorizationConfig'] = None):
+        """
+        ServiceNow service configuration
+
+        :param _builtins.str instance_url: ServiceNow instance URL
+        """
+        pulumi.set(__self__, "instance_url", instance_url)
+        if authorization_config is not None:
+            pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceUrl")
+    def instance_url(self) -> _builtins.str:
+        """
+        ServiceNow instance URL
+        """
+        return pulumi.get(self, "instance_url")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> Optional['outputs.ServiceNowAuthorizationConfig']:
+        return pulumi.get(self, "authorization_config")
+
+
+@pulumi.output_type
+class ServiceOAuthClientDetails(dict):
+    """
+    OAuth client credentials
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientName":
+            suggest = "client_name"
+        elif key == "exchangeParameters":
+            suggest = "exchange_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceOAuthClientDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceOAuthClientDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceOAuthClientDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 client_secret: _builtins.str,
+                 client_name: Optional[_builtins.str] = None,
+                 exchange_parameters: Optional[Any] = None):
+        """
+        OAuth client credentials
+
+        :param _builtins.str client_id: OAuth client ID
+        :param _builtins.str client_secret: OAuth client secret
+        :param _builtins.str client_name: User friendly OAuth client name
+        :param Any exchange_parameters: OAuth token exchange parameters
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        if client_name is not None:
+            pulumi.set(__self__, "client_name", client_name)
+        if exchange_parameters is not None:
+            pulumi.set(__self__, "exchange_parameters", exchange_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        OAuth client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> _builtins.str:
+        """
+        OAuth client secret
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientName")
+    def client_name(self) -> Optional[_builtins.str]:
+        """
+        User friendly OAuth client name
+        """
+        return pulumi.get(self, "client_name")
+
+    @_builtins.property
+    @pulumi.getter(name="exchangeParameters")
+    def exchange_parameters(self) -> Optional[Any]:
+        """
+        OAuth token exchange parameters
+        """
+        return pulumi.get(self, "exchange_parameters")
+
+
+@pulumi.output_type
+class ServicePagerDutyAuthorizationConfig(dict):
+    """
+    PagerDuty OAuth authorization configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oAuthClientCredentials":
+            suggest = "o_auth_client_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePagerDutyAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePagerDutyAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePagerDutyAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 o_auth_client_credentials: Optional['outputs.ServiceOAuthClientDetails'] = None):
+        """
+        PagerDuty OAuth authorization configuration
+        """
+        if o_auth_client_credentials is not None:
+            pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthClientCredentials")
+    def o_auth_client_credentials(self) -> Optional['outputs.ServiceOAuthClientDetails']:
+        return pulumi.get(self, "o_auth_client_credentials")
+
+
+@pulumi.output_type
+class ServicePagerDutyDetails(dict):
+    """
+    PagerDuty service configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePagerDutyDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePagerDutyDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePagerDutyDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_config: 'outputs.ServicePagerDutyAuthorizationConfig',
+                 scopes: Sequence[_builtins.str]):
+        """
+        PagerDuty service configuration
+
+        :param Sequence[_builtins.str] scopes: PagerDuty scopes
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "scopes", scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> 'outputs.ServicePagerDutyAuthorizationConfig':
+        return pulumi.get(self, "authorization_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> Sequence[_builtins.str]:
+        """
+        PagerDuty scopes
+        """
+        return pulumi.get(self, "scopes")
+
+
+@pulumi.output_type
+class ServiceRegisteredAzureIdentityDetails(dict):
+    """
+    Azure Identity service details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "webIdentityRoleArn":
+            suggest = "web_identity_role_arn"
+        elif key == "webIdentityTokenAudiences":
+            suggest = "web_identity_token_audiences"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredAzureIdentityDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredAzureIdentityDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredAzureIdentityDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 web_identity_role_arn: _builtins.str,
+                 web_identity_token_audiences: Sequence[_builtins.str]):
+        """
+        Azure Identity service details returned after registration
+
+        :param _builtins.str client_id: Azure AD application client ID
+        :param _builtins.str tenant_id: Azure AD tenant ID
+        :param _builtins.str web_identity_role_arn: ARN of the IAM role for web identity token exchange
+        :param Sequence[_builtins.str] web_identity_token_audiences: List of audiences for the web identity token
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "web_identity_role_arn", web_identity_role_arn)
+        pulumi.set(__self__, "web_identity_token_audiences", web_identity_token_audiences)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        Azure AD application client ID
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        Azure AD tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="webIdentityRoleArn")
+    def web_identity_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role for web identity token exchange
+        """
+        return pulumi.get(self, "web_identity_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="webIdentityTokenAudiences")
+    def web_identity_token_audiences(self) -> Sequence[_builtins.str]:
+        """
+        List of audiences for the web identity token
+        """
+        return pulumi.get(self, "web_identity_token_audiences")
+
+
+@pulumi.output_type
+class ServiceRegisteredDynatraceDetails(dict):
+    """
+    Dynatrace service details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountUrn":
+            suggest = "account_urn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredDynatraceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredDynatraceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredDynatraceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_urn: _builtins.str):
+        """
+        Dynatrace service details returned after registration
+
+        :param _builtins.str account_urn: Dynatrace resource account URN
+        """
+        pulumi.set(__self__, "account_urn", account_urn)
+
+    @_builtins.property
+    @pulumi.getter(name="accountUrn")
+    def account_urn(self) -> _builtins.str:
+        """
+        Dynatrace resource account URN
+        """
+        return pulumi.get(self, "account_urn")
+
+
+@pulumi.output_type
+class ServiceRegisteredGitLabServiceDetails(dict):
+    """
+    GitLab service details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetUrl":
+            suggest = "target_url"
+        elif key == "tokenType":
+            suggest = "token_type"
+        elif key == "groupId":
+            suggest = "group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredGitLabServiceDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredGitLabServiceDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredGitLabServiceDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_url: _builtins.str,
+                 token_type: 'ServiceRegisteredGitLabServiceDetailsTokenType',
+                 group_id: Optional[_builtins.str] = None):
+        """
+        GitLab service details returned after registration
+
+        :param _builtins.str target_url: GitLab instance URL
+        :param 'ServiceRegisteredGitLabServiceDetailsTokenType' token_type: Type of GitLab access token
+        :param _builtins.str group_id: Optional GitLab group ID for group-level access tokens
+        """
+        pulumi.set(__self__, "target_url", target_url)
+        pulumi.set(__self__, "token_type", token_type)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> _builtins.str:
+        """
+        GitLab instance URL
+        """
+        return pulumi.get(self, "target_url")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> 'ServiceRegisteredGitLabServiceDetailsTokenType':
+        """
+        Type of GitLab access token
+        """
+        return pulumi.get(self, "token_type")
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[_builtins.str]:
+        """
+        Optional GitLab group ID for group-level access tokens
+        """
+        return pulumi.get(self, "group_id")
+
+
+@pulumi.output_type
+class ServiceRegisteredMcpServerDetails(dict):
+    """
+    MCP server details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationMethod":
+            suggest = "authorization_method"
+        elif key == "apiKeyHeader":
+            suggest = "api_key_header"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredMcpServerDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredMcpServerDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredMcpServerDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_method: 'ServiceRegisteredMcpServerDetailsAuthorizationMethod',
+                 endpoint: _builtins.str,
+                 name: _builtins.str,
+                 api_key_header: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None):
+        """
+        MCP server details returned after registration
+
+        :param 'ServiceRegisteredMcpServerDetailsAuthorizationMethod' authorization_method: MCP server authorization method
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str name: MCP server name
+        :param _builtins.str api_key_header: API key header name if using API key authentication
+        :param _builtins.str description: Optional description for the MCP server
+        """
+        pulumi.set(__self__, "authorization_method", authorization_method)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        if api_key_header is not None:
+            pulumi.set(__self__, "api_key_header", api_key_header)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationMethod")
+    def authorization_method(self) -> 'ServiceRegisteredMcpServerDetailsAuthorizationMethod':
+        """
+        MCP server authorization method
+        """
+        return pulumi.get(self, "authorization_method")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyHeader")
+    def api_key_header(self) -> Optional[_builtins.str]:
+        """
+        API key header name if using API key authentication
+        """
+        return pulumi.get(self, "api_key_header")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ServiceRegisteredMcpServerGrafanaDetails(dict):
+    """
+    Grafana MCP server details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationMethod":
+            suggest = "authorization_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredMcpServerGrafanaDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredMcpServerGrafanaDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredMcpServerGrafanaDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_method: 'ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod',
+                 endpoint: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        Grafana MCP server details returned after registration
+
+        :param 'ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod' authorization_method: MCP server authorization method
+        :param _builtins.str endpoint: MCP server endpoint URL
+        :param _builtins.str description: Optional description for the MCP server
+        :param _builtins.str name: MCP server name
+        """
+        pulumi.set(__self__, "authorization_method", authorization_method)
+        pulumi.set(__self__, "endpoint", endpoint)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationMethod")
+    def authorization_method(self) -> 'ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod':
+        """
+        MCP server authorization method
+        """
+        return pulumi.get(self, "authorization_method")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        MCP server name
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ServiceRegisteredMcpServerSigV4Details(dict):
+    """
+    SigV4-authenticated MCP server details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "customHeaders":
+            suggest = "custom_headers"
+        elif key == "mcpRoleArn":
+            suggest = "mcp_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredMcpServerSigV4Details. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredMcpServerSigV4Details.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredMcpServerSigV4Details.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: _builtins.str,
+                 name: _builtins.str,
+                 region: _builtins.str,
+                 role_arn: _builtins.str,
+                 service: _builtins.str,
+                 custom_headers: Optional[Mapping[str, _builtins.str]] = None,
+                 description: Optional[_builtins.str] = None,
+                 mcp_role_arn: Optional[_builtins.str] = None):
+        """
+        SigV4-authenticated MCP server details returned after registration
+
+        :param _builtins.str endpoint: The MCP server endpoint URL
+        :param _builtins.str name: The MCP server name
+        :param _builtins.str region: AWS region for SigV4 signing
+        :param _builtins.str role_arn: Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing
+        :param _builtins.str service: AWS service name for SigV4 signing
+        :param Mapping[str, _builtins.str] custom_headers: Custom headers for the SigV4 MCP server
+        :param _builtins.str description: Optional description for the MCP server
+        :param _builtins.str mcp_role_arn: IAM role ARN for SigV4 signing. Absent when no dedicated role is configured.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "service", service)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if mcp_role_arn is not None:
+            pulumi.set(__self__, "mcp_role_arn", mcp_role_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        The MCP server endpoint URL
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The MCP server name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        AWS region for SigV4 signing
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> _builtins.str:
+        """
+        AWS service name for SigV4 signing
+        """
+        return pulumi.get(self, "service")
+
+    @_builtins.property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Custom headers for the SigV4 MCP server
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional description for the MCP server
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpRoleArn")
+    def mcp_role_arn(self) -> Optional[_builtins.str]:
+        """
+        IAM role ARN for SigV4 signing. Absent when no dedicated role is configured.
+        """
+        return pulumi.get(self, "mcp_role_arn")
+
+
+@pulumi.output_type
+class ServiceRegisteredNewRelicDetails(dict):
+    """
+    New Relic service details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredNewRelicDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredNewRelicDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredNewRelicDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: _builtins.str,
+                 region: 'ServiceRegisteredNewRelicDetailsRegion',
+                 description: Optional[_builtins.str] = None):
+        """
+        New Relic service details returned after registration
+
+        :param _builtins.str account_id: New Relic account ID
+        :param 'ServiceRegisteredNewRelicDetailsRegion' region: New Relic region
+        :param _builtins.str description: Optional user description
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "region", region)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        New Relic account ID
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> 'ServiceRegisteredNewRelicDetailsRegion':
+        """
+        New Relic region
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Optional user description
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ServiceRegisteredPagerDutyDetails(dict):
+    """
+    PagerDuty service details returned after registration
+    """
+    def __init__(__self__, *,
+                 scopes: Sequence[_builtins.str]):
+        """
+        PagerDuty service details returned after registration
+
+        :param Sequence[_builtins.str] scopes: The scopes assigned to the service
+        """
+        pulumi.set(__self__, "scopes", scopes)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> Sequence[_builtins.str]:
+        """
+        The scopes assigned to the service
+        """
+        return pulumi.get(self, "scopes")
+
+
+@pulumi.output_type
+class ServiceRegisteredServiceNowDetails(dict):
+    """
+    ServiceNow service details returned after registration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceUrl":
+            suggest = "instance_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegisteredServiceNowDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceRegisteredServiceNowDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceRegisteredServiceNowDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_url: _builtins.str):
+        """
+        ServiceNow service details returned after registration
+
+        :param _builtins.str instance_url: ServiceNow instance URL
+        """
+        pulumi.set(__self__, "instance_url", instance_url)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceUrl")
+    def instance_url(self) -> _builtins.str:
+        """
+        ServiceNow instance URL
+        """
+        return pulumi.get(self, "instance_url")
 
 

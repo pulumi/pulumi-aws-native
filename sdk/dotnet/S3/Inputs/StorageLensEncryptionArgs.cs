@@ -15,6 +15,15 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensEncryptionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("ssekms")]
+        public Input<Inputs.StorageLensSsekmsArgs>? Ssekms { get; set; }
+
+        /// <summary>
+        /// S3 default server-side encryption.
+        /// </summary>
+        [Input("sses3")]
+        public Input<object>? Sses3 { get; set; }
+
         public StorageLensEncryptionArgs()
         {
         }

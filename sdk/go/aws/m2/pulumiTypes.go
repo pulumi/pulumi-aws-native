@@ -279,6 +279,324 @@ func (o ApplicationDefinition1PropertiesPtrOutput) Content() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the storage configuration for an Amazon EFS file system.
+type EnvironmentEfsStorageConfiguration struct {
+	// The file system identifier.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The mount point for the file system.
+	MountPoint string `pulumi:"mountPoint"`
+}
+
+// EnvironmentEfsStorageConfigurationInput is an input type that accepts EnvironmentEfsStorageConfigurationArgs and EnvironmentEfsStorageConfigurationOutput values.
+// You can construct a concrete instance of `EnvironmentEfsStorageConfigurationInput` via:
+//
+//	EnvironmentEfsStorageConfigurationArgs{...}
+type EnvironmentEfsStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToEnvironmentEfsStorageConfigurationOutput() EnvironmentEfsStorageConfigurationOutput
+	ToEnvironmentEfsStorageConfigurationOutputWithContext(context.Context) EnvironmentEfsStorageConfigurationOutput
+}
+
+// Defines the storage configuration for an Amazon EFS file system.
+type EnvironmentEfsStorageConfigurationArgs struct {
+	// The file system identifier.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The mount point for the file system.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+}
+
+func (EnvironmentEfsStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEfsStorageConfiguration)(nil)).Elem()
+}
+
+func (i EnvironmentEfsStorageConfigurationArgs) ToEnvironmentEfsStorageConfigurationOutput() EnvironmentEfsStorageConfigurationOutput {
+	return i.ToEnvironmentEfsStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i EnvironmentEfsStorageConfigurationArgs) ToEnvironmentEfsStorageConfigurationOutputWithContext(ctx context.Context) EnvironmentEfsStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEfsStorageConfigurationOutput)
+}
+
+func (i EnvironmentEfsStorageConfigurationArgs) ToEnvironmentEfsStorageConfigurationPtrOutput() EnvironmentEfsStorageConfigurationPtrOutput {
+	return i.ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentEfsStorageConfigurationArgs) ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentEfsStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEfsStorageConfigurationOutput).ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// EnvironmentEfsStorageConfigurationPtrInput is an input type that accepts EnvironmentEfsStorageConfigurationArgs, EnvironmentEfsStorageConfigurationPtr and EnvironmentEfsStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `EnvironmentEfsStorageConfigurationPtrInput` via:
+//
+//	        EnvironmentEfsStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnvironmentEfsStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentEfsStorageConfigurationPtrOutput() EnvironmentEfsStorageConfigurationPtrOutput
+	ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(context.Context) EnvironmentEfsStorageConfigurationPtrOutput
+}
+
+type environmentEfsStorageConfigurationPtrType EnvironmentEfsStorageConfigurationArgs
+
+func EnvironmentEfsStorageConfigurationPtr(v *EnvironmentEfsStorageConfigurationArgs) EnvironmentEfsStorageConfigurationPtrInput {
+	return (*environmentEfsStorageConfigurationPtrType)(v)
+}
+
+func (*environmentEfsStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentEfsStorageConfiguration)(nil)).Elem()
+}
+
+func (i *environmentEfsStorageConfigurationPtrType) ToEnvironmentEfsStorageConfigurationPtrOutput() EnvironmentEfsStorageConfigurationPtrOutput {
+	return i.ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *environmentEfsStorageConfigurationPtrType) ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentEfsStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEfsStorageConfigurationPtrOutput)
+}
+
+// Defines the storage configuration for an Amazon EFS file system.
+type EnvironmentEfsStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentEfsStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEfsStorageConfiguration)(nil)).Elem()
+}
+
+func (o EnvironmentEfsStorageConfigurationOutput) ToEnvironmentEfsStorageConfigurationOutput() EnvironmentEfsStorageConfigurationOutput {
+	return o
+}
+
+func (o EnvironmentEfsStorageConfigurationOutput) ToEnvironmentEfsStorageConfigurationOutputWithContext(ctx context.Context) EnvironmentEfsStorageConfigurationOutput {
+	return o
+}
+
+func (o EnvironmentEfsStorageConfigurationOutput) ToEnvironmentEfsStorageConfigurationPtrOutput() EnvironmentEfsStorageConfigurationPtrOutput {
+	return o.ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentEfsStorageConfigurationOutput) ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentEfsStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentEfsStorageConfiguration) *EnvironmentEfsStorageConfiguration {
+		return &v
+	}).(EnvironmentEfsStorageConfigurationPtrOutput)
+}
+
+// The file system identifier.
+func (o EnvironmentEfsStorageConfigurationOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentEfsStorageConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The mount point for the file system.
+func (o EnvironmentEfsStorageConfigurationOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentEfsStorageConfiguration) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+type EnvironmentEfsStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentEfsStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentEfsStorageConfiguration)(nil)).Elem()
+}
+
+func (o EnvironmentEfsStorageConfigurationPtrOutput) ToEnvironmentEfsStorageConfigurationPtrOutput() EnvironmentEfsStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o EnvironmentEfsStorageConfigurationPtrOutput) ToEnvironmentEfsStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentEfsStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o EnvironmentEfsStorageConfigurationPtrOutput) Elem() EnvironmentEfsStorageConfigurationOutput {
+	return o.ApplyT(func(v *EnvironmentEfsStorageConfiguration) EnvironmentEfsStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentEfsStorageConfiguration
+		return ret
+	}).(EnvironmentEfsStorageConfigurationOutput)
+}
+
+// The file system identifier.
+func (o EnvironmentEfsStorageConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEfsStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mount point for the file system.
+func (o EnvironmentEfsStorageConfigurationPtrOutput) MountPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentEfsStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the storage configuration for an Amazon FSx file system.
+type EnvironmentFsxStorageConfiguration struct {
+	// The file system identifier.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The mount point for the file system.
+	MountPoint string `pulumi:"mountPoint"`
+}
+
+// EnvironmentFsxStorageConfigurationInput is an input type that accepts EnvironmentFsxStorageConfigurationArgs and EnvironmentFsxStorageConfigurationOutput values.
+// You can construct a concrete instance of `EnvironmentFsxStorageConfigurationInput` via:
+//
+//	EnvironmentFsxStorageConfigurationArgs{...}
+type EnvironmentFsxStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToEnvironmentFsxStorageConfigurationOutput() EnvironmentFsxStorageConfigurationOutput
+	ToEnvironmentFsxStorageConfigurationOutputWithContext(context.Context) EnvironmentFsxStorageConfigurationOutput
+}
+
+// Defines the storage configuration for an Amazon FSx file system.
+type EnvironmentFsxStorageConfigurationArgs struct {
+	// The file system identifier.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The mount point for the file system.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+}
+
+func (EnvironmentFsxStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentFsxStorageConfiguration)(nil)).Elem()
+}
+
+func (i EnvironmentFsxStorageConfigurationArgs) ToEnvironmentFsxStorageConfigurationOutput() EnvironmentFsxStorageConfigurationOutput {
+	return i.ToEnvironmentFsxStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i EnvironmentFsxStorageConfigurationArgs) ToEnvironmentFsxStorageConfigurationOutputWithContext(ctx context.Context) EnvironmentFsxStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFsxStorageConfigurationOutput)
+}
+
+func (i EnvironmentFsxStorageConfigurationArgs) ToEnvironmentFsxStorageConfigurationPtrOutput() EnvironmentFsxStorageConfigurationPtrOutput {
+	return i.ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentFsxStorageConfigurationArgs) ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentFsxStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFsxStorageConfigurationOutput).ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// EnvironmentFsxStorageConfigurationPtrInput is an input type that accepts EnvironmentFsxStorageConfigurationArgs, EnvironmentFsxStorageConfigurationPtr and EnvironmentFsxStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `EnvironmentFsxStorageConfigurationPtrInput` via:
+//
+//	        EnvironmentFsxStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnvironmentFsxStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentFsxStorageConfigurationPtrOutput() EnvironmentFsxStorageConfigurationPtrOutput
+	ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(context.Context) EnvironmentFsxStorageConfigurationPtrOutput
+}
+
+type environmentFsxStorageConfigurationPtrType EnvironmentFsxStorageConfigurationArgs
+
+func EnvironmentFsxStorageConfigurationPtr(v *EnvironmentFsxStorageConfigurationArgs) EnvironmentFsxStorageConfigurationPtrInput {
+	return (*environmentFsxStorageConfigurationPtrType)(v)
+}
+
+func (*environmentFsxStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentFsxStorageConfiguration)(nil)).Elem()
+}
+
+func (i *environmentFsxStorageConfigurationPtrType) ToEnvironmentFsxStorageConfigurationPtrOutput() EnvironmentFsxStorageConfigurationPtrOutput {
+	return i.ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *environmentFsxStorageConfigurationPtrType) ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentFsxStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFsxStorageConfigurationPtrOutput)
+}
+
+// Defines the storage configuration for an Amazon FSx file system.
+type EnvironmentFsxStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentFsxStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentFsxStorageConfiguration)(nil)).Elem()
+}
+
+func (o EnvironmentFsxStorageConfigurationOutput) ToEnvironmentFsxStorageConfigurationOutput() EnvironmentFsxStorageConfigurationOutput {
+	return o
+}
+
+func (o EnvironmentFsxStorageConfigurationOutput) ToEnvironmentFsxStorageConfigurationOutputWithContext(ctx context.Context) EnvironmentFsxStorageConfigurationOutput {
+	return o
+}
+
+func (o EnvironmentFsxStorageConfigurationOutput) ToEnvironmentFsxStorageConfigurationPtrOutput() EnvironmentFsxStorageConfigurationPtrOutput {
+	return o.ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentFsxStorageConfigurationOutput) ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentFsxStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentFsxStorageConfiguration) *EnvironmentFsxStorageConfiguration {
+		return &v
+	}).(EnvironmentFsxStorageConfigurationPtrOutput)
+}
+
+// The file system identifier.
+func (o EnvironmentFsxStorageConfigurationOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentFsxStorageConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The mount point for the file system.
+func (o EnvironmentFsxStorageConfigurationOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentFsxStorageConfiguration) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+type EnvironmentFsxStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentFsxStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentFsxStorageConfiguration)(nil)).Elem()
+}
+
+func (o EnvironmentFsxStorageConfigurationPtrOutput) ToEnvironmentFsxStorageConfigurationPtrOutput() EnvironmentFsxStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o EnvironmentFsxStorageConfigurationPtrOutput) ToEnvironmentFsxStorageConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentFsxStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o EnvironmentFsxStorageConfigurationPtrOutput) Elem() EnvironmentFsxStorageConfigurationOutput {
+	return o.ApplyT(func(v *EnvironmentFsxStorageConfiguration) EnvironmentFsxStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentFsxStorageConfiguration
+		return ret
+	}).(EnvironmentFsxStorageConfigurationOutput)
+}
+
+// The file system identifier.
+func (o EnvironmentFsxStorageConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentFsxStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mount point for the file system.
+func (o EnvironmentFsxStorageConfigurationPtrOutput) MountPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentFsxStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPoint
+	}).(pulumi.StringPtrOutput)
+}
+
 // Defines the details of a high availability configuration.
 type EnvironmentHighAvailabilityConfig struct {
 	// The number of instances in a high availability configuration. The minimum possible value is 1 and the maximum is 100.
@@ -421,6 +739,8 @@ func (o EnvironmentHighAvailabilityConfigPtrOutput) DesiredCapacity() pulumi.Int
 
 // Defines the storage configuration for an environment.
 type EnvironmentStorageConfiguration struct {
+	Efs *EnvironmentEfsStorageConfiguration `pulumi:"efs"`
+	Fsx *EnvironmentFsxStorageConfiguration `pulumi:"fsx"`
 }
 
 // EnvironmentStorageConfigurationInput is an input type that accepts EnvironmentStorageConfigurationArgs and EnvironmentStorageConfigurationOutput values.
@@ -436,6 +756,8 @@ type EnvironmentStorageConfigurationInput interface {
 
 // Defines the storage configuration for an environment.
 type EnvironmentStorageConfigurationArgs struct {
+	Efs EnvironmentEfsStorageConfigurationPtrInput `pulumi:"efs"`
+	Fsx EnvironmentFsxStorageConfigurationPtrInput `pulumi:"fsx"`
 }
 
 func (EnvironmentStorageConfigurationArgs) ElementType() reflect.Type {
@@ -490,6 +812,14 @@ func (o EnvironmentStorageConfigurationOutput) ToEnvironmentStorageConfiguration
 	return o
 }
 
+func (o EnvironmentStorageConfigurationOutput) Efs() EnvironmentEfsStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v EnvironmentStorageConfiguration) *EnvironmentEfsStorageConfiguration { return v.Efs }).(EnvironmentEfsStorageConfigurationPtrOutput)
+}
+
+func (o EnvironmentStorageConfigurationOutput) Fsx() EnvironmentFsxStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v EnvironmentStorageConfiguration) *EnvironmentFsxStorageConfiguration { return v.Fsx }).(EnvironmentFsxStorageConfigurationPtrOutput)
+}
+
 type EnvironmentStorageConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentStorageConfigurationArrayOutput) ElementType() reflect.Type {
@@ -515,6 +845,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinition0PropertiesPtrInput)(nil)).Elem(), ApplicationDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinition1PropertiesInput)(nil)).Elem(), ApplicationDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinition1PropertiesPtrInput)(nil)).Elem(), ApplicationDefinition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEfsStorageConfigurationInput)(nil)).Elem(), EnvironmentEfsStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEfsStorageConfigurationPtrInput)(nil)).Elem(), EnvironmentEfsStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFsxStorageConfigurationInput)(nil)).Elem(), EnvironmentFsxStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentFsxStorageConfigurationPtrInput)(nil)).Elem(), EnvironmentFsxStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHighAvailabilityConfigInput)(nil)).Elem(), EnvironmentHighAvailabilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHighAvailabilityConfigPtrInput)(nil)).Elem(), EnvironmentHighAvailabilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStorageConfigurationInput)(nil)).Elem(), EnvironmentStorageConfigurationArgs{})
@@ -523,6 +857,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationDefinition0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinition1PropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinition1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentEfsStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(EnvironmentEfsStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentFsxStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(EnvironmentFsxStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentHighAvailabilityConfigOutput{})
 	pulumi.RegisterOutputType(EnvironmentHighAvailabilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStorageConfigurationOutput{})

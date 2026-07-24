@@ -2805,6 +2805,174 @@ func (in *clusterNodeRecoveryPtr) ToClusterNodeRecoveryPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterNodeRecoveryPtrOutput)
 }
 
+// The strategy for managing Slurm configuration on the cluster.
+type ClusterOrchestratorSlurmConfigSlurmConfigStrategy string
+
+const (
+	ClusterOrchestratorSlurmConfigSlurmConfigStrategyOverwrite = ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Overwrite")
+	ClusterOrchestratorSlurmConfigSlurmConfigStrategyManaged   = ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Managed")
+	ClusterOrchestratorSlurmConfigSlurmConfigStrategyMerge     = ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Merge")
+)
+
+func (ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOrchestratorSlurmConfigSlurmConfigStrategy)(nil)).Elem()
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput {
+	return pulumi.ToOutput(e).(ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput)
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyOutputWithContext(ctx context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput)
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return e.ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(ctx context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return ClusterOrchestratorSlurmConfigSlurmConfigStrategy(e).ToClusterOrchestratorSlurmConfigSlurmConfigStrategyOutputWithContext(ctx).ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOrchestratorSlurmConfigSlurmConfigStrategy)(nil)).Elem()
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput {
+	return o
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyOutputWithContext(ctx context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput {
+	return o
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return o.ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(ctx context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOrchestratorSlurmConfigSlurmConfigStrategy) *ClusterOrchestratorSlurmConfigSlurmConfigStrategy {
+		return &v
+	}).(ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput)
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterOrchestratorSlurmConfigSlurmConfigStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOrchestratorSlurmConfigSlurmConfigStrategy)(nil)).Elem()
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(ctx context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput) Elem() ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput {
+	return o.ApplyT(func(v *ClusterOrchestratorSlurmConfigSlurmConfigStrategy) ClusterOrchestratorSlurmConfigSlurmConfigStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOrchestratorSlurmConfigSlurmConfigStrategy
+		return ret
+	}).(ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput)
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterOrchestratorSlurmConfigSlurmConfigStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterOrchestratorSlurmConfigSlurmConfigStrategyInput is an input type that accepts values of the ClusterOrchestratorSlurmConfigSlurmConfigStrategy enum
+// A concrete instance of `ClusterOrchestratorSlurmConfigSlurmConfigStrategyInput` can be one of the following:
+//
+//	ClusterOrchestratorSlurmConfigSlurmConfigStrategyOverwrite
+//	ClusterOrchestratorSlurmConfigSlurmConfigStrategyManaged
+//	ClusterOrchestratorSlurmConfigSlurmConfigStrategyMerge
+type ClusterOrchestratorSlurmConfigSlurmConfigStrategyInput interface {
+	pulumi.Input
+
+	ToClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput
+	ToClusterOrchestratorSlurmConfigSlurmConfigStrategyOutputWithContext(context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput
+}
+
+var clusterOrchestratorSlurmConfigSlurmConfigStrategyPtrType = reflect.TypeOf((**ClusterOrchestratorSlurmConfigSlurmConfigStrategy)(nil)).Elem()
+
+type ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrInput interface {
+	pulumi.Input
+
+	ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput
+	ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput
+}
+
+type clusterOrchestratorSlurmConfigSlurmConfigStrategyPtr string
+
+func ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtr(v string) ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrInput {
+	return (*clusterOrchestratorSlurmConfigSlurmConfigStrategyPtr)(&v)
+}
+
+func (*clusterOrchestratorSlurmConfigSlurmConfigStrategyPtr) ElementType() reflect.Type {
+	return clusterOrchestratorSlurmConfigSlurmConfigStrategyPtrType
+}
+
+func (in *clusterOrchestratorSlurmConfigSlurmConfigStrategyPtr) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput() ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput)
+}
+
+func (in *clusterOrchestratorSlurmConfigSlurmConfigStrategyPtr) ToClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutputWithContext(ctx context.Context) ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput)
+}
+
 // The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
 type ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy string
 
@@ -25990,6 +26158,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModePtrInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryPtrInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorSlurmConfigSlurmConfigStrategyInput)(nil)).Elem(), ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Overwrite"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrInput)(nil)).Elem(), ClusterOrchestratorSlurmConfigSlurmConfigStrategy("Overwrite"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyInput)(nil)).Elem(), ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrInput)(nil)).Elem(), ClusterSharedEnvironmentConfigFSxLustreDeletionPolicy("Keep"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSlurmConfigNodeTypeInput)(nil)).Elem(), ClusterSlurmConfigNodeType("Controller"))
@@ -26273,6 +26443,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeProvisioningModePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOrchestratorSlurmConfigSlurmConfigStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterSharedEnvironmentConfigFSxLustreDeletionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSlurmConfigNodeTypeOutput{})

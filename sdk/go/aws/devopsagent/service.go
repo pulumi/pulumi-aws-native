@@ -47,6 +47,15 @@ func NewService(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"kmsKeyArn",
+		"serviceDetails.azureIdentity",
+		"serviceDetails.dynatrace",
+		"serviceDetails.gitLab",
+		"serviceDetails.mcpServer",
+		"serviceDetails.mcpServerGrafana",
+		"serviceDetails.mcpServerNewRelic",
+		"serviceDetails.mcpServerSplunk",
+		"serviceDetails.pagerDuty",
+		"serviceDetails.serviceNow",
 		"serviceType",
 	})
 	opts = append(opts, replaceOnChanges)
