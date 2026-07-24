@@ -1,0 +1,7 @@
+interface:
+  display_name: "AWS Native Runtime Investigation"
+  short_description: "Investigate AWS Native runtime behavior"
+  default_prompt: "Use $aws-native-runtime-investigation to trace this established AWS Native runtime issue to its owning boundary and identify the smallest evidence-backed next step."
+
+policy:
+  allow_implicit_invocation: true
