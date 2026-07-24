@@ -17,15 +17,19 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     public sealed class ServiceMcpServerAuthorizationConfig
     {
         public readonly Outputs.ServiceApiKeyDetails? ApiKey;
+        public readonly Outputs.ServiceBearerTokenDetails? BearerToken;
         public readonly Outputs.ServiceMcpServerOAuthClientCredentialsConfig? OAuthClientCredentials;
 
         [OutputConstructor]
         private ServiceMcpServerAuthorizationConfig(
             Outputs.ServiceApiKeyDetails? apiKey,
 
+            Outputs.ServiceBearerTokenDetails? bearerToken,
+
             Outputs.ServiceMcpServerOAuthClientCredentialsConfig? oAuthClientCredentials)
         {
             ApiKey = apiKey;
+            BearerToken = bearerToken;
             OAuthClientCredentials = oAuthClientCredentials;
         }
     }

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.ClusterEbsVolumeConfigArgs>? EbsVolumeConfig { get; set; }
 
         [Input("fsxLustreConfig")]
-        public Input<Inputs.ClusterFsxLustreConfigArgs>? FsxLustreConfig { get; set; }
+        public Input<Inputs.ClusterInstanceStorageFsxLustreConfigArgs>? FsxLustreConfig { get; set; }
 
         [Input("fsxOpenZfsConfig")]
         public Input<Inputs.ClusterFsxOpenZfsConfigArgs>? FsxOpenZfsConfig { get; set; }

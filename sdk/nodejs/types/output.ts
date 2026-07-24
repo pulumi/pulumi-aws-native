@@ -33265,6 +33265,7 @@ export namespace devopsagent {
      */
     export interface ServiceMcpServerAuthorizationConfig {
         apiKey?: outputs.devopsagent.ServiceApiKeyDetails;
+        bearerToken?: outputs.devopsagent.ServiceBearerTokenDetails;
         oAuthClientCredentials?: outputs.devopsagent.ServiceMcpServerOAuthClientCredentialsConfig;
     }
 
@@ -114660,24 +114661,6 @@ export namespace sagemaker {
     }
 
     /**
-     * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-     */
-    export interface ClusterFsxLustreConfig {
-        /**
-         * The DNS name of the FSx for Lustre file system.
-         */
-        dnsName: string;
-        /**
-         * The mount name of the FSx for Lustre file system.
-         */
-        mountName: string;
-        /**
-         * The mount path for the FSx for Lustre file system.
-         */
-        mountPath?: string;
-    }
-
-    /**
      * Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
      */
     export interface ClusterFsxOpenZfsConfig {
@@ -114747,8 +114730,26 @@ export namespace sagemaker {
      */
     export interface ClusterInstanceStorageConfig {
         ebsVolumeConfig?: outputs.sagemaker.ClusterEbsVolumeConfig;
-        fsxLustreConfig?: outputs.sagemaker.ClusterFsxLustreConfig;
+        fsxLustreConfig?: outputs.sagemaker.ClusterInstanceStorageFsxLustreConfig;
         fsxOpenZfsConfig?: outputs.sagemaker.ClusterFsxOpenZfsConfig;
+    }
+
+    /**
+     * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+     */
+    export interface ClusterInstanceStorageFsxLustreConfig {
+        /**
+         * The DNS name of the FSx for Lustre file system.
+         */
+        dnsName: string;
+        /**
+         * The mount name of the FSx for Lustre file system.
+         */
+        mountName: string;
+        /**
+         * The mount path for the FSx for Lustre file system.
+         */
+        mountPath?: string;
     }
 
     /**

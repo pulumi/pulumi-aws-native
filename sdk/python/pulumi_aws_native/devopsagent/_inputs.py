@@ -2638,18 +2638,22 @@ class ServiceMcpServerAuthorizationConfigArgsDict(TypedDict):
     MCP server authorization configuration
     """
     api_key: NotRequired[pulumi.Input[Optional['ServiceApiKeyDetailsArgsDict']]]
+    bearer_token: NotRequired[pulumi.Input[Optional['ServiceBearerTokenDetailsArgsDict']]]
     o_auth_client_credentials: NotRequired[pulumi.Input[Optional['ServiceMcpServerOAuthClientCredentialsConfigArgsDict']]]
 
 @pulumi.input_type
 class ServiceMcpServerAuthorizationConfigArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional['ServiceApiKeyDetailsArgs']] = None,
+                 bearer_token: pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']] = None,
                  o_auth_client_credentials: pulumi.Input[Optional['ServiceMcpServerOAuthClientCredentialsConfigArgs']] = None):
         """
         MCP server authorization configuration
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if bearer_token is not None:
+            pulumi.set(__self__, "bearer_token", bearer_token)
         if o_auth_client_credentials is not None:
             pulumi.set(__self__, "o_auth_client_credentials", o_auth_client_credentials)
 
@@ -2661,6 +2665,15 @@ class ServiceMcpServerAuthorizationConfigArgs:
     @api_key.setter
     def api_key(self, value: pulumi.Input[Optional['ServiceApiKeyDetailsArgs']]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']]:
+        return pulumi.get(self, "bearer_token")
+
+    @bearer_token.setter
+    def bearer_token(self, value: pulumi.Input[Optional['ServiceBearerTokenDetailsArgs']]):
+        pulumi.set(self, "bearer_token", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuthClientCredentials")

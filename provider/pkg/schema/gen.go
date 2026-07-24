@@ -1695,6 +1695,9 @@ func (ctx *cfSchemaContext) propertyTypeSpec(
 		// Preserve a previous special case, see https://github.com/pulumi/pulumi-aws-native/issues/644
 		if parentName == "LoggingClusterLogging" && typName == "ClusterLogging" {
 			typName = "ClusterLoggingEnabledTypes"
+		} else if ctx.cfTypeName == "AWS::SageMaker::Cluster" && schemaName == "ClusterFsxLustreConfig" {
+			// Avoid colliding with ClusterFSxLustreConfig when SDKs normalize acronym casing.
+			typName = "ClusterInstanceStorageFsxLustreConfig"
 		} else if !strings.HasPrefix(schemaName, ctx.resourceName) {
 			// Create a full type name by turning Foo into ResourceFoo.
 			fullTypName := fmt.Sprintf("%s%s", ctx.resourceName, schemaName)

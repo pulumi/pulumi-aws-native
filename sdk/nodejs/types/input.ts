@@ -31755,6 +31755,7 @@ export namespace devopsagent {
      */
     export interface ServiceMcpServerAuthorizationConfigArgs {
         apiKey?: pulumi.Input<inputs.devopsagent.ServiceApiKeyDetailsArgs | undefined>;
+        bearerToken?: pulumi.Input<inputs.devopsagent.ServiceBearerTokenDetailsArgs | undefined>;
         oAuthClientCredentials?: pulumi.Input<inputs.devopsagent.ServiceMcpServerOAuthClientCredentialsConfigArgs | undefined>;
     }
 
@@ -110394,24 +110395,6 @@ export namespace sagemaker {
     }
 
     /**
-     * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-     */
-    export interface ClusterFsxLustreConfigArgs {
-        /**
-         * The DNS name of the FSx for Lustre file system.
-         */
-        dnsName: pulumi.Input<string>;
-        /**
-         * The mount name of the FSx for Lustre file system.
-         */
-        mountName: pulumi.Input<string>;
-        /**
-         * The mount path for the FSx for Lustre file system.
-         */
-        mountPath?: pulumi.Input<string | undefined>;
-    }
-
-    /**
      * Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
      */
     export interface ClusterFsxOpenZfsConfigArgs {
@@ -110481,8 +110464,26 @@ export namespace sagemaker {
      */
     export interface ClusterInstanceStorageConfigArgs {
         ebsVolumeConfig?: pulumi.Input<inputs.sagemaker.ClusterEbsVolumeConfigArgs | undefined>;
-        fsxLustreConfig?: pulumi.Input<inputs.sagemaker.ClusterFsxLustreConfigArgs | undefined>;
+        fsxLustreConfig?: pulumi.Input<inputs.sagemaker.ClusterInstanceStorageFsxLustreConfigArgs | undefined>;
         fsxOpenZfsConfig?: pulumi.Input<inputs.sagemaker.ClusterFsxOpenZfsConfigArgs | undefined>;
+    }
+
+    /**
+     * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+     */
+    export interface ClusterInstanceStorageFsxLustreConfigArgs {
+        /**
+         * The DNS name of the FSx for Lustre file system.
+         */
+        dnsName: pulumi.Input<string>;
+        /**
+         * The mount name of the FSx for Lustre file system.
+         */
+        mountName: pulumi.Input<string>;
+        /**
+         * The mount path for the FSx for Lustre file system.
+         */
+        mountPath?: pulumi.Input<string | undefined>;
     }
 
     /**

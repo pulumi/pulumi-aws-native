@@ -221257,20 +221257,16 @@
                     "replaceOnChanges": true
                 },
                 "gitLab": {
-                    "$ref": "#/types/aws-native:devopsagent:ServiceGitLabDetails",
-                    "replaceOnChanges": true
+                    "$ref": "#/types/aws-native:devopsagent:ServiceGitLabDetails"
                 },
                 "mcpServer": {
-                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerDetails",
-                    "replaceOnChanges": true
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerDetails"
                 },
                 "mcpServerGrafana": {
-                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerGrafanaDetails",
-                    "replaceOnChanges": true
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerGrafanaDetails"
                 },
                 "mcpServerNewRelic": {
-                    "$ref": "#/types/aws-native:devopsagent:ServiceNewRelicServiceDetails",
-                    "replaceOnChanges": true
+                    "$ref": "#/types/aws-native:devopsagent:ServiceNewRelicServiceDetails"
                 },
                 "mcpServerSigV4": {
                     "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerSigV4Details"
@@ -221353,6 +221349,9 @@
             "properties": {
                 "apiKey": {
                     "$ref": "#/types/aws-native:devopsagent:ServiceApiKeyDetails"
+                },
+                "bearerToken": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceBearerTokenDetails"
                 },
                 "oAuthClientCredentials": {
                     "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerOAuthClientCredentialsConfig"
@@ -333937,27 +333936,6 @@
                 "sizeInGiB"
             ]
         },
-        "aws-native:sagemaker:ClusterFsxLustreConfig": {
-            "type": "object",
-            "properties": {
-                "dnsName": {
-                    "type": "string",
-                    "description": "The DNS name of the FSx for Lustre file system."
-                },
-                "mountName": {
-                    "type": "string",
-                    "description": "The mount name of the FSx for Lustre file system."
-                },
-                "mountPath": {
-                    "type": "string",
-                    "description": "The mount path for the FSx for Lustre file system."
-                }
-            },
-            "required": [
-                "dnsName",
-                "mountName"
-            ]
-        },
         "aws-native:sagemaker:ClusterFsxOpenZfsConfig": {
             "type": "object",
             "properties": {
@@ -334077,12 +334055,33 @@
                     "$ref": "#/types/aws-native:sagemaker:ClusterEbsVolumeConfig"
                 },
                 "fsxLustreConfig": {
-                    "$ref": "#/types/aws-native:sagemaker:ClusterFsxLustreConfig"
+                    "$ref": "#/types/aws-native:sagemaker:ClusterInstanceStorageFsxLustreConfig"
                 },
                 "fsxOpenZfsConfig": {
                     "$ref": "#/types/aws-native:sagemaker:ClusterFsxOpenZfsConfig"
                 }
             }
+        },
+        "aws-native:sagemaker:ClusterInstanceStorageFsxLustreConfig": {
+            "type": "object",
+            "properties": {
+                "dnsName": {
+                    "type": "string",
+                    "description": "The DNS name of the FSx for Lustre file system."
+                },
+                "mountName": {
+                    "type": "string",
+                    "description": "The mount name of the FSx for Lustre file system."
+                },
+                "mountPath": {
+                    "type": "string",
+                    "description": "The mount path for the FSx for Lustre file system."
+                }
+            },
+            "required": [
+                "dnsName",
+                "mountName"
+            ]
         },
         "aws-native:sagemaker:ClusterKubernetesConfig": {
             "type": "object",

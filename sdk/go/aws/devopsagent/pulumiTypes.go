@@ -5462,7 +5462,7 @@ func (o ServiceBearerTokenDetailsPtrOutput) TokenValue() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
 type ServiceDetails struct {
 	AzureIdentity     *ServiceAzureIdentityServiceDetails `pulumi:"azureIdentity"`
 	Dynatrace         *ServiceDynatraceServiceDetails     `pulumi:"dynatrace"`
@@ -5487,7 +5487,7 @@ type ServiceDetailsInput interface {
 	ToServiceDetailsOutputWithContext(context.Context) ServiceDetailsOutput
 }
 
-// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
 type ServiceDetailsArgs struct {
 	AzureIdentity     ServiceAzureIdentityServiceDetailsPtrInput `pulumi:"azureIdentity"`
 	Dynatrace         ServiceDynatraceServiceDetailsPtrInput     `pulumi:"dynatrace"`
@@ -5554,7 +5554,7 @@ func (i *serviceDetailsPtrType) ToServiceDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDetailsPtrOutput)
 }
 
-// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
 type ServiceDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServiceDetailsOutput) ElementType() reflect.Type {
@@ -6228,6 +6228,7 @@ func (o ServiceGitLabDetailsPtrOutput) TokenValue() pulumi.StringPtrOutput {
 // MCP server authorization configuration
 type ServiceMcpServerAuthorizationConfig struct {
 	ApiKey                 *ServiceApiKeyDetails                         `pulumi:"apiKey"`
+	BearerToken            *ServiceBearerTokenDetails                    `pulumi:"bearerToken"`
 	OAuthClientCredentials *ServiceMcpServerOAuthClientCredentialsConfig `pulumi:"oAuthClientCredentials"`
 }
 
@@ -6245,6 +6246,7 @@ type ServiceMcpServerAuthorizationConfigInput interface {
 // MCP server authorization configuration
 type ServiceMcpServerAuthorizationConfigArgs struct {
 	ApiKey                 ServiceApiKeyDetailsPtrInput                         `pulumi:"apiKey"`
+	BearerToken            ServiceBearerTokenDetailsPtrInput                    `pulumi:"bearerToken"`
 	OAuthClientCredentials ServiceMcpServerOAuthClientCredentialsConfigPtrInput `pulumi:"oAuthClientCredentials"`
 }
 
@@ -6330,6 +6332,10 @@ func (o ServiceMcpServerAuthorizationConfigOutput) ApiKey() ServiceApiKeyDetails
 	return o.ApplyT(func(v ServiceMcpServerAuthorizationConfig) *ServiceApiKeyDetails { return v.ApiKey }).(ServiceApiKeyDetailsPtrOutput)
 }
 
+func (o ServiceMcpServerAuthorizationConfigOutput) BearerToken() ServiceBearerTokenDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceMcpServerAuthorizationConfig) *ServiceBearerTokenDetails { return v.BearerToken }).(ServiceBearerTokenDetailsPtrOutput)
+}
+
 func (o ServiceMcpServerAuthorizationConfigOutput) OAuthClientCredentials() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {
 	return o.ApplyT(func(v ServiceMcpServerAuthorizationConfig) *ServiceMcpServerOAuthClientCredentialsConfig {
 		return v.OAuthClientCredentials
@@ -6367,6 +6373,15 @@ func (o ServiceMcpServerAuthorizationConfigPtrOutput) ApiKey() ServiceApiKeyDeta
 		}
 		return v.ApiKey
 	}).(ServiceApiKeyDetailsPtrOutput)
+}
+
+func (o ServiceMcpServerAuthorizationConfigPtrOutput) BearerToken() ServiceBearerTokenDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceMcpServerAuthorizationConfig) *ServiceBearerTokenDetails {
+		if v == nil {
+			return nil
+		}
+		return v.BearerToken
+	}).(ServiceBearerTokenDetailsPtrOutput)
 }
 
 func (o ServiceMcpServerAuthorizationConfigPtrOutput) OAuthClientCredentials() ServiceMcpServerOAuthClientCredentialsConfigPtrOutput {

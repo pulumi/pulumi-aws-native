@@ -3,6 +3,8 @@
 package schema
 
 import (
+	"encoding/json"
+
 	jsschema "github.com/pulumi/jsschema"
 )
 
@@ -50,10 +52,10 @@ func mergeObjectUnionProperties(sch *jsschema.Schema) (*jsschema.Schema, bool) {
 			return nil, false
 		}
 		for name, property := range branch.Properties {
-			if baseProperty, ok := sch.Properties[name]; ok && baseProperty == property {
+			if baseProperty, ok := sch.Properties[name]; ok && schemasEqual(baseProperty, property) {
 				continue
 			}
-			if existing, ok := properties[name]; ok && existing != property {
+			if existing, ok := properties[name]; ok && !schemasEqual(existing, property) {
 				return nil, false
 			}
 			properties[name] = property
@@ -67,6 +69,18 @@ func mergeObjectUnionProperties(sch *jsschema.Schema) (*jsschema.Schema, bool) {
 	merged.Properties = properties
 	merged.Required = append([]string(nil), sch.Required...)
 	return merged, true
+}
+
+func schemasEqual(left, right *jsschema.Schema) bool {
+	leftJSON, err := json.Marshal(left)
+	if err != nil {
+		return false
+	}
+	rightJSON, err := json.Marshal(right)
+	if err != nil {
+		return false
+	}
+	return string(leftJSON) == string(rightJSON)
 }
 
 func NormaliseTypes(sch *jsschema.Schema) *jsschema.Schema {

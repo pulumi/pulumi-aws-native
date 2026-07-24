@@ -62,6 +62,8 @@ __all__ = [
     'AppResourceSpecArgsDict',
     'ClusterAlarmDetailsArgs',
     'ClusterAlarmDetailsArgsDict',
+    'ClusterAutoPatchConfigArgs',
+    'ClusterAutoPatchConfigArgsDict',
     'ClusterAutoScalingConfigArgs',
     'ClusterAutoScalingConfigArgsDict',
     'ClusterCapacityRequirementsArgs',
@@ -76,8 +78,6 @@ __all__ = [
     'ClusterEnvironmentConfigArgsDict',
     'ClusterFSxLustreConfigArgs',
     'ClusterFSxLustreConfigArgsDict',
-    'ClusterFsxLustreConfigArgs',
-    'ClusterFsxLustreConfigArgsDict',
     'ClusterFsxOpenZfsConfigArgs',
     'ClusterFsxOpenZfsConfigArgsDict',
     'ClusterInstanceGroupArgs',
@@ -86,6 +86,8 @@ __all__ = [
     'ClusterInstanceRequirementsArgsDict',
     'ClusterInstanceStorageConfigArgs',
     'ClusterInstanceStorageConfigArgsDict',
+    'ClusterInstanceStorageFsxLustreConfigArgs',
+    'ClusterInstanceStorageFsxLustreConfigArgsDict',
     'ClusterKubernetesConfigArgs',
     'ClusterKubernetesConfigArgsDict',
     'ClusterKubernetesTaintArgs',
@@ -102,6 +104,8 @@ __all__ = [
     'ClusterOrchestratorEksConfigArgsDict',
     'ClusterOrchestratorSlurmConfigArgs',
     'ClusterOrchestratorSlurmConfigArgsDict',
+    'ClusterPatchScheduleArgs',
+    'ClusterPatchScheduleArgsDict',
     'ClusterRestrictedInstanceGroupArgs',
     'ClusterRestrictedInstanceGroupArgsDict',
     'ClusterRestrictedInstanceGroupsConfigArgs',
@@ -2061,6 +2065,65 @@ class ClusterAlarmDetailsArgs:
         pulumi.set(self, "alarm_name", value)
 
 
+class ClusterAutoPatchConfigArgsDict(TypedDict):
+    """
+    The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+    """
+    patching_strategy: pulumi.Input['ClusterAutoPatchConfigPatchingStrategy']
+    """
+    The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+    """
+    deployment_config: NotRequired[pulumi.Input[Optional['ClusterDeploymentConfigArgsDict']]]
+    patch_schedule: NotRequired[pulumi.Input[Optional['ClusterPatchScheduleArgsDict']]]
+
+@pulumi.input_type
+class ClusterAutoPatchConfigArgs:
+    def __init__(__self__, *,
+                 patching_strategy: pulumi.Input['ClusterAutoPatchConfigPatchingStrategy'],
+                 deployment_config: pulumi.Input[Optional['ClusterDeploymentConfigArgs']] = None,
+                 patch_schedule: pulumi.Input[Optional['ClusterPatchScheduleArgs']] = None):
+        """
+        The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+
+        :param pulumi.Input['ClusterAutoPatchConfigPatchingStrategy'] patching_strategy: The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+        """
+        pulumi.set(__self__, "patching_strategy", patching_strategy)
+        if deployment_config is not None:
+            pulumi.set(__self__, "deployment_config", deployment_config)
+        if patch_schedule is not None:
+            pulumi.set(__self__, "patch_schedule", patch_schedule)
+
+    @_builtins.property
+    @pulumi.getter(name="patchingStrategy")
+    def patching_strategy(self) -> pulumi.Input['ClusterAutoPatchConfigPatchingStrategy']:
+        """
+        The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+        """
+        return pulumi.get(self, "patching_strategy")
+
+    @patching_strategy.setter
+    def patching_strategy(self, value: pulumi.Input['ClusterAutoPatchConfigPatchingStrategy']):
+        pulumi.set(self, "patching_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentConfig")
+    def deployment_config(self) -> pulumi.Input[Optional['ClusterDeploymentConfigArgs']]:
+        return pulumi.get(self, "deployment_config")
+
+    @deployment_config.setter
+    def deployment_config(self, value: pulumi.Input[Optional['ClusterDeploymentConfigArgs']]):
+        pulumi.set(self, "deployment_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="patchSchedule")
+    def patch_schedule(self) -> pulumi.Input[Optional['ClusterPatchScheduleArgs']]:
+        return pulumi.get(self, "patch_schedule")
+
+    @patch_schedule.setter
+    def patch_schedule(self, value: pulumi.Input[Optional['ClusterPatchScheduleArgs']]):
+        pulumi.set(self, "patch_schedule", value)
+
+
 class ClusterAutoScalingConfigArgsDict(TypedDict):
     """
     Configuration for cluster auto-scaling
@@ -2403,78 +2466,6 @@ class ClusterFSxLustreConfigArgs:
         pulumi.set(self, "size_in_gi_b", value)
 
 
-class ClusterFsxLustreConfigArgsDict(TypedDict):
-    """
-    Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-    """
-    dns_name: pulumi.Input[_builtins.str]
-    """
-    The DNS name of the FSx for Lustre file system.
-    """
-    mount_name: pulumi.Input[_builtins.str]
-    """
-    The mount name of the FSx for Lustre file system.
-    """
-    mount_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The mount path for the FSx for Lustre file system.
-    """
-
-@pulumi.input_type
-class ClusterFsxLustreConfigArgs:
-    def __init__(__self__, *,
-                 dns_name: pulumi.Input[_builtins.str],
-                 mount_name: pulumi.Input[_builtins.str],
-                 mount_path: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
-
-        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the FSx for Lustre file system.
-        :param pulumi.Input[_builtins.str] mount_name: The mount name of the FSx for Lustre file system.
-        :param pulumi.Input[_builtins.str] mount_path: The mount path for the FSx for Lustre file system.
-        """
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "mount_name", mount_name)
-        if mount_path is not None:
-            pulumi.set(__self__, "mount_path", mount_path)
-
-    @_builtins.property
-    @pulumi.getter(name="dnsName")
-    def dns_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The DNS name of the FSx for Lustre file system.
-        """
-        return pulumi.get(self, "dns_name")
-
-    @dns_name.setter
-    def dns_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dns_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mountName")
-    def mount_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The mount name of the FSx for Lustre file system.
-        """
-        return pulumi.get(self, "mount_name")
-
-    @mount_name.setter
-    def mount_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "mount_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mountPath")
-    def mount_path(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The mount path for the FSx for Lustre file system.
-        """
-        return pulumi.get(self, "mount_path")
-
-    @mount_path.setter
-    def mount_path(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "mount_path", value)
-
-
 class ClusterFsxOpenZfsConfigArgsDict(TypedDict):
     """
     Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
@@ -2538,6 +2529,7 @@ class ClusterInstanceGroupArgsDict(TypedDict):
     The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
     """
     instance_group_name: pulumi.Input[_builtins.str]
+    auto_patch_config: NotRequired[pulumi.Input[Optional['ClusterAutoPatchConfigArgsDict']]]
     capacity_requirements: NotRequired[pulumi.Input[Optional['ClusterCapacityRequirementsArgsDict']]]
     current_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2573,6 +2565,7 @@ class ClusterInstanceGroupArgs:
                  execution_role: pulumi.Input[_builtins.str],
                  instance_count: pulumi.Input[_builtins.int],
                  instance_group_name: pulumi.Input[_builtins.str],
+                 auto_patch_config: pulumi.Input[Optional['ClusterAutoPatchConfigArgs']] = None,
                  capacity_requirements: pulumi.Input[Optional['ClusterCapacityRequirementsArgs']] = None,
                  current_count: pulumi.Input[Optional[_builtins.int]] = None,
                  image_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2601,6 +2594,8 @@ class ClusterInstanceGroupArgs:
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
+        if auto_patch_config is not None:
+            pulumi.set(__self__, "auto_patch_config", auto_patch_config)
         if capacity_requirements is not None:
             pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
@@ -2663,6 +2658,15 @@ class ClusterInstanceGroupArgs:
     @instance_group_name.setter
     def instance_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "instance_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoPatchConfig")
+    def auto_patch_config(self) -> pulumi.Input[Optional['ClusterAutoPatchConfigArgs']]:
+        return pulumi.get(self, "auto_patch_config")
+
+    @auto_patch_config.setter
+    def auto_patch_config(self, value: pulumi.Input[Optional['ClusterAutoPatchConfigArgs']]):
+        pulumi.set(self, "auto_patch_config", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityRequirements")
@@ -2859,14 +2863,14 @@ class ClusterInstanceStorageConfigArgsDict(TypedDict):
     Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
     """
     ebs_volume_config: NotRequired[pulumi.Input[Optional['ClusterEbsVolumeConfigArgsDict']]]
-    fsx_lustre_config: NotRequired[pulumi.Input[Optional['ClusterFsxLustreConfigArgsDict']]]
+    fsx_lustre_config: NotRequired[pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgsDict']]]
     fsx_open_zfs_config: NotRequired[pulumi.Input[Optional['ClusterFsxOpenZfsConfigArgsDict']]]
 
 @pulumi.input_type
 class ClusterInstanceStorageConfigArgs:
     def __init__(__self__, *,
                  ebs_volume_config: pulumi.Input[Optional['ClusterEbsVolumeConfigArgs']] = None,
-                 fsx_lustre_config: pulumi.Input[Optional['ClusterFsxLustreConfigArgs']] = None,
+                 fsx_lustre_config: pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgs']] = None,
                  fsx_open_zfs_config: pulumi.Input[Optional['ClusterFsxOpenZfsConfigArgs']] = None):
         """
         Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
@@ -2889,11 +2893,11 @@ class ClusterInstanceStorageConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="fsxLustreConfig")
-    def fsx_lustre_config(self) -> pulumi.Input[Optional['ClusterFsxLustreConfigArgs']]:
+    def fsx_lustre_config(self) -> pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgs']]:
         return pulumi.get(self, "fsx_lustre_config")
 
     @fsx_lustre_config.setter
-    def fsx_lustre_config(self, value: pulumi.Input[Optional['ClusterFsxLustreConfigArgs']]):
+    def fsx_lustre_config(self, value: pulumi.Input[Optional['ClusterInstanceStorageFsxLustreConfigArgs']]):
         pulumi.set(self, "fsx_lustre_config", value)
 
     @_builtins.property
@@ -2904,6 +2908,78 @@ class ClusterInstanceStorageConfigArgs:
     @fsx_open_zfs_config.setter
     def fsx_open_zfs_config(self, value: pulumi.Input[Optional['ClusterFsxOpenZfsConfigArgs']]):
         pulumi.set(self, "fsx_open_zfs_config", value)
+
+
+class ClusterInstanceStorageFsxLustreConfigArgsDict(TypedDict):
+    """
+    Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+    """
+    dns_name: pulumi.Input[_builtins.str]
+    """
+    The DNS name of the FSx for Lustre file system.
+    """
+    mount_name: pulumi.Input[_builtins.str]
+    """
+    The mount name of the FSx for Lustre file system.
+    """
+    mount_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The mount path for the FSx for Lustre file system.
+    """
+
+@pulumi.input_type
+class ClusterInstanceStorageFsxLustreConfigArgs:
+    def __init__(__self__, *,
+                 dns_name: pulumi.Input[_builtins.str],
+                 mount_name: pulumi.Input[_builtins.str],
+                 mount_path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+
+        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] mount_name: The mount name of the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] mount_path: The mount path for the FSx for Lustre file system.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "mount_name", mount_name)
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The DNS name of the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dns_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The mount name of the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "mount_name")
+
+    @mount_name.setter
+    def mount_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mount_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The mount path for the FSx for Lustre file system.
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mount_path", value)
 
 
 class ClusterKubernetesConfigArgsDict(TypedDict):
@@ -3243,6 +3319,40 @@ class ClusterOrchestratorSlurmConfigArgs:
     @slurm_config_strategy.setter
     def slurm_config_strategy(self, value: pulumi.Input[Optional['ClusterOrchestratorSlurmConfigSlurmConfigStrategy']]):
         pulumi.set(self, "slurm_config_strategy", value)
+
+
+class ClusterPatchScheduleArgsDict(TypedDict):
+    """
+    The schedule configuration for automatic patching.
+    """
+    next_patch_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+    """
+
+@pulumi.input_type
+class ClusterPatchScheduleArgs:
+    def __init__(__self__, *,
+                 next_patch_date: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The schedule configuration for automatic patching.
+
+        :param pulumi.Input[_builtins.str] next_patch_date: The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        """
+        if next_patch_date is not None:
+            pulumi.set(__self__, "next_patch_date", next_patch_date)
+
+    @_builtins.property
+    @pulumi.getter(name="nextPatchDate")
+    def next_patch_date(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        """
+        return pulumi.get(self, "next_patch_date")
+
+    @next_patch_date.setter
+    def next_patch_date(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "next_patch_date", value)
 
 
 class ClusterRestrictedInstanceGroupArgsDict(TypedDict):

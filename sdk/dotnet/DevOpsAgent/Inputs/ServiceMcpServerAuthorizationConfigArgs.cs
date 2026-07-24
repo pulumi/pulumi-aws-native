@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
         [Input("apiKey")]
         public Input<Inputs.ServiceApiKeyDetailsArgs>? ApiKey { get; set; }
 
+        [Input("bearerToken")]
+        public Input<Inputs.ServiceBearerTokenDetailsArgs>? BearerToken { get; set; }
+
         [Input("oAuthClientCredentials")]
         public Input<Inputs.ServiceMcpServerOAuthClientCredentialsConfigArgs>? OAuthClientCredentials { get; set; }
 
