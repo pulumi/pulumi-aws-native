@@ -1,3 +1,3 @@
 module github.com/pulumi/pulumi-aws-native/provider/pkg/provider/testdata
 
-go 1.25.6
+go 1.25.11
