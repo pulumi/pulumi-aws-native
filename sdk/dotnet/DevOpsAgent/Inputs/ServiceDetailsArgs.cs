@@ -15,6 +15,36 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
     /// </summary>
     public sealed class ServiceDetailsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("azureIdentity")]
+        public Input<Inputs.ServiceAzureIdentityServiceDetailsArgs>? AzureIdentity { get; set; }
+
+        [Input("dynatrace")]
+        public Input<Inputs.ServiceDynatraceServiceDetailsArgs>? Dynatrace { get; set; }
+
+        [Input("gitLab")]
+        public Input<Inputs.ServiceGitLabDetailsArgs>? GitLab { get; set; }
+
+        [Input("mcpServer")]
+        public Input<Inputs.ServiceMcpServerDetailsArgs>? McpServer { get; set; }
+
+        [Input("mcpServerGrafana")]
+        public Input<Inputs.ServiceMcpServerGrafanaDetailsArgs>? McpServerGrafana { get; set; }
+
+        [Input("mcpServerNewRelic")]
+        public Input<Inputs.ServiceNewRelicServiceDetailsArgs>? McpServerNewRelic { get; set; }
+
+        [Input("mcpServerSigV4")]
+        public Input<Inputs.ServiceMcpServerSigV4DetailsArgs>? McpServerSigV4 { get; set; }
+
+        [Input("mcpServerSplunk")]
+        public Input<Inputs.ServiceMcpServerSplunkDetailsArgs>? McpServerSplunk { get; set; }
+
+        [Input("pagerDuty")]
+        public Input<Inputs.ServicePagerDutyDetailsArgs>? PagerDuty { get; set; }
+
+        [Input("serviceNow")]
+        public Input<Inputs.ServiceNowServiceDetailsArgs>? ServiceNow { get; set; }
+
         public ServiceDetailsArgs()
         {
         }

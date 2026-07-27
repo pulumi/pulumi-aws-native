@@ -6562,6 +6562,167 @@ func (o BucketOwnershipControlsRuleArrayOutput) Index(i pulumi.IntInput) BucketO
 	}).(BucketOwnershipControlsRuleOutput)
 }
 
+// Amazon S3 keys for log objects are partitioned in the following format:
+//
+//	 ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``
+//	PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
+type BucketPartitionedPrefix struct {
+	// Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+	//  For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+	//   For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+	PartitionDateSource *BucketPartitionedPrefixPartitionDateSource `pulumi:"partitionDateSource"`
+}
+
+// BucketPartitionedPrefixInput is an input type that accepts BucketPartitionedPrefixArgs and BucketPartitionedPrefixOutput values.
+// You can construct a concrete instance of `BucketPartitionedPrefixInput` via:
+//
+//	BucketPartitionedPrefixArgs{...}
+type BucketPartitionedPrefixInput interface {
+	pulumi.Input
+
+	ToBucketPartitionedPrefixOutput() BucketPartitionedPrefixOutput
+	ToBucketPartitionedPrefixOutputWithContext(context.Context) BucketPartitionedPrefixOutput
+}
+
+// Amazon S3 keys for log objects are partitioned in the following format:
+//
+//	 ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``
+//	PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
+type BucketPartitionedPrefixArgs struct {
+	// Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+	//  For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+	//   For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+	PartitionDateSource BucketPartitionedPrefixPartitionDateSourcePtrInput `pulumi:"partitionDateSource"`
+}
+
+func (BucketPartitionedPrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (i BucketPartitionedPrefixArgs) ToBucketPartitionedPrefixOutput() BucketPartitionedPrefixOutput {
+	return i.ToBucketPartitionedPrefixOutputWithContext(context.Background())
+}
+
+func (i BucketPartitionedPrefixArgs) ToBucketPartitionedPrefixOutputWithContext(ctx context.Context) BucketPartitionedPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPartitionedPrefixOutput)
+}
+
+func (i BucketPartitionedPrefixArgs) ToBucketPartitionedPrefixPtrOutput() BucketPartitionedPrefixPtrOutput {
+	return i.ToBucketPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i BucketPartitionedPrefixArgs) ToBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPartitionedPrefixOutput).ToBucketPartitionedPrefixPtrOutputWithContext(ctx)
+}
+
+// BucketPartitionedPrefixPtrInput is an input type that accepts BucketPartitionedPrefixArgs, BucketPartitionedPrefixPtr and BucketPartitionedPrefixPtrOutput values.
+// You can construct a concrete instance of `BucketPartitionedPrefixPtrInput` via:
+//
+//	        BucketPartitionedPrefixArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketPartitionedPrefixPtrInput interface {
+	pulumi.Input
+
+	ToBucketPartitionedPrefixPtrOutput() BucketPartitionedPrefixPtrOutput
+	ToBucketPartitionedPrefixPtrOutputWithContext(context.Context) BucketPartitionedPrefixPtrOutput
+}
+
+type bucketPartitionedPrefixPtrType BucketPartitionedPrefixArgs
+
+func BucketPartitionedPrefixPtr(v *BucketPartitionedPrefixArgs) BucketPartitionedPrefixPtrInput {
+	return (*bucketPartitionedPrefixPtrType)(v)
+}
+
+func (*bucketPartitionedPrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (i *bucketPartitionedPrefixPtrType) ToBucketPartitionedPrefixPtrOutput() BucketPartitionedPrefixPtrOutput {
+	return i.ToBucketPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketPartitionedPrefixPtrType) ToBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPartitionedPrefixPtrOutput)
+}
+
+// Amazon S3 keys for log objects are partitioned in the following format:
+//
+//	 ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``
+//	PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
+type BucketPartitionedPrefixOutput struct{ *pulumi.OutputState }
+
+func (BucketPartitionedPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (o BucketPartitionedPrefixOutput) ToBucketPartitionedPrefixOutput() BucketPartitionedPrefixOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixOutput) ToBucketPartitionedPrefixOutputWithContext(ctx context.Context) BucketPartitionedPrefixOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixOutput) ToBucketPartitionedPrefixPtrOutput() BucketPartitionedPrefixPtrOutput {
+	return o.ToBucketPartitionedPrefixPtrOutputWithContext(context.Background())
+}
+
+func (o BucketPartitionedPrefixOutput) ToBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPartitionedPrefix) *BucketPartitionedPrefix {
+		return &v
+	}).(BucketPartitionedPrefixPtrOutput)
+}
+
+// Specifies the partition date source for the partitioned prefix. “PartitionDateSource“ can be “EventTime“ or “DeliveryTime“.
+//
+//	For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+//	 For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+func (o BucketPartitionedPrefixOutput) PartitionDateSource() BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return o.ApplyT(func(v BucketPartitionedPrefix) *BucketPartitionedPrefixPartitionDateSource {
+		return v.PartitionDateSource
+	}).(BucketPartitionedPrefixPartitionDateSourcePtrOutput)
+}
+
+type BucketPartitionedPrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketPartitionedPrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketPartitionedPrefix)(nil)).Elem()
+}
+
+func (o BucketPartitionedPrefixPtrOutput) ToBucketPartitionedPrefixPtrOutput() BucketPartitionedPrefixPtrOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixPtrOutput) ToBucketPartitionedPrefixPtrOutputWithContext(ctx context.Context) BucketPartitionedPrefixPtrOutput {
+	return o
+}
+
+func (o BucketPartitionedPrefixPtrOutput) Elem() BucketPartitionedPrefixOutput {
+	return o.ApplyT(func(v *BucketPartitionedPrefix) BucketPartitionedPrefix {
+		if v != nil {
+			return *v
+		}
+		var ret BucketPartitionedPrefix
+		return ret
+	}).(BucketPartitionedPrefixOutput)
+}
+
+// Specifies the partition date source for the partitioned prefix. “PartitionDateSource“ can be “EventTime“ or “DeliveryTime“.
+//
+//	For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+//	 For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+func (o BucketPartitionedPrefixPtrOutput) PartitionDateSource() BucketPartitionedPrefixPartitionDateSourcePtrOutput {
+	return o.ApplyT(func(v *BucketPartitionedPrefix) *BucketPartitionedPrefixPartitionDateSource {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionDateSource
+	}).(BucketPartitionedPrefixPartitionDateSourcePtrOutput)
+}
+
 // The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
 type BucketPublicAccessBlockConfiguration struct {
 	// Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
@@ -10433,6 +10594,9 @@ func (o BucketTagFilterArrayOutput) Index(i pulumi.IntInput) BucketTagFilterOutp
 
 // Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
 type BucketTargetObjectKeyFormat struct {
+	PartitionedPrefix *BucketPartitionedPrefix `pulumi:"partitionedPrefix"`
+	// This format defaults the prefix to the given log file prefix for delivering server access log file.
+	SimplePrefix interface{} `pulumi:"simplePrefix"`
 }
 
 // BucketTargetObjectKeyFormatInput is an input type that accepts BucketTargetObjectKeyFormatArgs and BucketTargetObjectKeyFormatOutput values.
@@ -10448,6 +10612,9 @@ type BucketTargetObjectKeyFormatInput interface {
 
 // Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
 type BucketTargetObjectKeyFormatArgs struct {
+	PartitionedPrefix BucketPartitionedPrefixPtrInput `pulumi:"partitionedPrefix"`
+	// This format defaults the prefix to the given log file prefix for delivering server access log file.
+	SimplePrefix pulumi.Input `pulumi:"simplePrefix"`
 }
 
 func (BucketTargetObjectKeyFormatArgs) ElementType() reflect.Type {
@@ -10528,6 +10695,15 @@ func (o BucketTargetObjectKeyFormatOutput) ToBucketTargetObjectKeyFormatPtrOutpu
 	}).(BucketTargetObjectKeyFormatPtrOutput)
 }
 
+func (o BucketTargetObjectKeyFormatOutput) PartitionedPrefix() BucketPartitionedPrefixPtrOutput {
+	return o.ApplyT(func(v BucketTargetObjectKeyFormat) *BucketPartitionedPrefix { return v.PartitionedPrefix }).(BucketPartitionedPrefixPtrOutput)
+}
+
+// This format defaults the prefix to the given log file prefix for delivering server access log file.
+func (o BucketTargetObjectKeyFormatOutput) SimplePrefix() pulumi.AnyOutput {
+	return o.ApplyT(func(v BucketTargetObjectKeyFormat) interface{} { return v.SimplePrefix }).(pulumi.AnyOutput)
+}
+
 type BucketTargetObjectKeyFormatPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketTargetObjectKeyFormatPtrOutput) ElementType() reflect.Type {
@@ -10550,6 +10726,25 @@ func (o BucketTargetObjectKeyFormatPtrOutput) Elem() BucketTargetObjectKeyFormat
 		var ret BucketTargetObjectKeyFormat
 		return ret
 	}).(BucketTargetObjectKeyFormatOutput)
+}
+
+func (o BucketTargetObjectKeyFormatPtrOutput) PartitionedPrefix() BucketPartitionedPrefixPtrOutput {
+	return o.ApplyT(func(v *BucketTargetObjectKeyFormat) *BucketPartitionedPrefix {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionedPrefix
+	}).(BucketPartitionedPrefixPtrOutput)
+}
+
+// This format defaults the prefix to the given log file prefix for delivering server access log file.
+func (o BucketTargetObjectKeyFormatPtrOutput) SimplePrefix() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BucketTargetObjectKeyFormat) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SimplePrefix
+	}).(pulumi.AnyOutput)
 }
 
 // The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without additional operational overhead.
@@ -13424,6 +13619,9 @@ func (o StorageLensDetailedStatusCodesMetricsPtrOutput) IsEnabled() pulumi.BoolP
 
 // Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
 type StorageLensEncryption struct {
+	Ssekms *StorageLensSsekms `pulumi:"ssekms"`
+	// S3 default server-side encryption.
+	Sses3 interface{} `pulumi:"sses3"`
 }
 
 // StorageLensEncryptionInput is an input type that accepts StorageLensEncryptionArgs and StorageLensEncryptionOutput values.
@@ -13439,6 +13637,9 @@ type StorageLensEncryptionInput interface {
 
 // Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
 type StorageLensEncryptionArgs struct {
+	Ssekms StorageLensSsekmsPtrInput `pulumi:"ssekms"`
+	// S3 default server-side encryption.
+	Sses3 pulumi.Input `pulumi:"sses3"`
 }
 
 func (StorageLensEncryptionArgs) ElementType() reflect.Type {
@@ -13519,6 +13720,15 @@ func (o StorageLensEncryptionOutput) ToStorageLensEncryptionPtrOutputWithContext
 	}).(StorageLensEncryptionPtrOutput)
 }
 
+func (o StorageLensEncryptionOutput) Ssekms() StorageLensSsekmsPtrOutput {
+	return o.ApplyT(func(v StorageLensEncryption) *StorageLensSsekms { return v.Ssekms }).(StorageLensSsekmsPtrOutput)
+}
+
+// S3 default server-side encryption.
+func (o StorageLensEncryptionOutput) Sses3() pulumi.AnyOutput {
+	return o.ApplyT(func(v StorageLensEncryption) interface{} { return v.Sses3 }).(pulumi.AnyOutput)
+}
+
 type StorageLensEncryptionPtrOutput struct{ *pulumi.OutputState }
 
 func (StorageLensEncryptionPtrOutput) ElementType() reflect.Type {
@@ -13541,6 +13751,25 @@ func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
 		var ret StorageLensEncryption
 		return ret
 	}).(StorageLensEncryptionOutput)
+}
+
+func (o StorageLensEncryptionPtrOutput) Ssekms() StorageLensSsekmsPtrOutput {
+	return o.ApplyT(func(v *StorageLensEncryption) *StorageLensSsekms {
+		if v == nil {
+			return nil
+		}
+		return v.Ssekms
+	}).(StorageLensSsekmsPtrOutput)
+}
+
+// S3 default server-side encryption.
+func (o StorageLensEncryptionPtrOutput) Sses3() pulumi.AnyOutput {
+	return o.ApplyT(func(v *StorageLensEncryption) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Sses3
+	}).(pulumi.AnyOutput)
 }
 
 // Expanded Prefixes Data Export.
@@ -15771,6 +16000,146 @@ func (o StorageLensSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
+// AWS KMS server-side encryption.
+type StorageLensSsekms struct {
+	// The ARN of the KMS key to use for encryption.
+	KeyId string `pulumi:"keyId"`
+}
+
+// StorageLensSsekmsInput is an input type that accepts StorageLensSsekmsArgs and StorageLensSsekmsOutput values.
+// You can construct a concrete instance of `StorageLensSsekmsInput` via:
+//
+//	StorageLensSsekmsArgs{...}
+type StorageLensSsekmsInput interface {
+	pulumi.Input
+
+	ToStorageLensSsekmsOutput() StorageLensSsekmsOutput
+	ToStorageLensSsekmsOutputWithContext(context.Context) StorageLensSsekmsOutput
+}
+
+// AWS KMS server-side encryption.
+type StorageLensSsekmsArgs struct {
+	// The ARN of the KMS key to use for encryption.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+}
+
+func (StorageLensSsekmsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensSsekms)(nil)).Elem()
+}
+
+func (i StorageLensSsekmsArgs) ToStorageLensSsekmsOutput() StorageLensSsekmsOutput {
+	return i.ToStorageLensSsekmsOutputWithContext(context.Background())
+}
+
+func (i StorageLensSsekmsArgs) ToStorageLensSsekmsOutputWithContext(ctx context.Context) StorageLensSsekmsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSsekmsOutput)
+}
+
+func (i StorageLensSsekmsArgs) ToStorageLensSsekmsPtrOutput() StorageLensSsekmsPtrOutput {
+	return i.ToStorageLensSsekmsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensSsekmsArgs) ToStorageLensSsekmsPtrOutputWithContext(ctx context.Context) StorageLensSsekmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSsekmsOutput).ToStorageLensSsekmsPtrOutputWithContext(ctx)
+}
+
+// StorageLensSsekmsPtrInput is an input type that accepts StorageLensSsekmsArgs, StorageLensSsekmsPtr and StorageLensSsekmsPtrOutput values.
+// You can construct a concrete instance of `StorageLensSsekmsPtrInput` via:
+//
+//	        StorageLensSsekmsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensSsekmsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensSsekmsPtrOutput() StorageLensSsekmsPtrOutput
+	ToStorageLensSsekmsPtrOutputWithContext(context.Context) StorageLensSsekmsPtrOutput
+}
+
+type storageLensSsekmsPtrType StorageLensSsekmsArgs
+
+func StorageLensSsekmsPtr(v *StorageLensSsekmsArgs) StorageLensSsekmsPtrInput {
+	return (*storageLensSsekmsPtrType)(v)
+}
+
+func (*storageLensSsekmsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensSsekms)(nil)).Elem()
+}
+
+func (i *storageLensSsekmsPtrType) ToStorageLensSsekmsPtrOutput() StorageLensSsekmsPtrOutput {
+	return i.ToStorageLensSsekmsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensSsekmsPtrType) ToStorageLensSsekmsPtrOutputWithContext(ctx context.Context) StorageLensSsekmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSsekmsPtrOutput)
+}
+
+// AWS KMS server-side encryption.
+type StorageLensSsekmsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensSsekmsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensSsekms)(nil)).Elem()
+}
+
+func (o StorageLensSsekmsOutput) ToStorageLensSsekmsOutput() StorageLensSsekmsOutput {
+	return o
+}
+
+func (o StorageLensSsekmsOutput) ToStorageLensSsekmsOutputWithContext(ctx context.Context) StorageLensSsekmsOutput {
+	return o
+}
+
+func (o StorageLensSsekmsOutput) ToStorageLensSsekmsPtrOutput() StorageLensSsekmsPtrOutput {
+	return o.ToStorageLensSsekmsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensSsekmsOutput) ToStorageLensSsekmsPtrOutputWithContext(ctx context.Context) StorageLensSsekmsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensSsekms) *StorageLensSsekms {
+		return &v
+	}).(StorageLensSsekmsPtrOutput)
+}
+
+// The ARN of the KMS key to use for encryption.
+func (o StorageLensSsekmsOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensSsekms) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+type StorageLensSsekmsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensSsekmsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensSsekms)(nil)).Elem()
+}
+
+func (o StorageLensSsekmsPtrOutput) ToStorageLensSsekmsPtrOutput() StorageLensSsekmsPtrOutput {
+	return o
+}
+
+func (o StorageLensSsekmsPtrOutput) ToStorageLensSsekmsPtrOutputWithContext(ctx context.Context) StorageLensSsekmsPtrOutput {
+	return o
+}
+
+func (o StorageLensSsekmsPtrOutput) Elem() StorageLensSsekmsOutput {
+	return o.ApplyT(func(v *StorageLensSsekms) StorageLensSsekms {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensSsekms
+		return ret
+	}).(StorageLensSsekmsOutput)
+}
+
+// The ARN of the KMS key to use for encryption.
+func (o StorageLensSsekmsPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensSsekms) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 // S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensTableDestination struct {
 	// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
@@ -16020,6 +16389,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsPtrInput)(nil)).Elem(), BucketOwnershipControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleInput)(nil)).Elem(), BucketOwnershipControlsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleArrayInput)(nil)).Elem(), BucketOwnershipControlsRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPartitionedPrefixInput)(nil)).Elem(), BucketPartitionedPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPartitionedPrefixPtrInput)(nil)).Elem(), BucketPartitionedPrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockConfigurationInput)(nil)).Elem(), BucketPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), BucketPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketQueueConfigurationInput)(nil)).Elem(), BucketQueueConfigurationArgs{})
@@ -16131,6 +16502,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationPtrInput)(nil)).Elem(), StorageLensS3BucketDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSelectionCriteriaInput)(nil)).Elem(), StorageLensSelectionCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSelectionCriteriaPtrInput)(nil)).Elem(), StorageLensSelectionCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSsekmsInput)(nil)).Elem(), StorageLensSsekmsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSsekmsPtrInput)(nil)).Elem(), StorageLensSsekmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensTableDestinationInput)(nil)).Elem(), StorageLensTableDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensTableDestinationPtrInput)(nil)).Elem(), StorageLensTableDestinationArgs{})
 	pulumi.RegisterOutputType(AccessGrantGranteeOutput{})
@@ -16216,6 +16589,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketOwnershipControlsPtrOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketPartitionedPrefixOutput{})
+	pulumi.RegisterOutputType(BucketPartitionedPrefixPtrOutput{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketQueueConfigurationOutput{})
@@ -16330,6 +16705,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensS3BucketDestinationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensSsekmsOutput{})
+	pulumi.RegisterOutputType(StorageLensSsekmsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensTableDestinationOutput{})
 	pulumi.RegisterOutputType(StorageLensTableDestinationPtrOutput{})
 }

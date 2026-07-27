@@ -16,9 +16,49 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     [OutputType]
     public sealed class ServiceDetails
     {
+        public readonly Outputs.ServiceAzureIdentityServiceDetails? AzureIdentity;
+        public readonly Outputs.ServiceDynatraceServiceDetails? Dynatrace;
+        public readonly Outputs.ServiceGitLabDetails? GitLab;
+        public readonly Outputs.ServiceMcpServerDetails? McpServer;
+        public readonly Outputs.ServiceMcpServerGrafanaDetails? McpServerGrafana;
+        public readonly Outputs.ServiceNewRelicServiceDetails? McpServerNewRelic;
+        public readonly Outputs.ServiceMcpServerSigV4Details? McpServerSigV4;
+        public readonly Outputs.ServiceMcpServerSplunkDetails? McpServerSplunk;
+        public readonly Outputs.ServicePagerDutyDetails? PagerDuty;
+        public readonly Outputs.ServiceNowServiceDetails? ServiceNow;
+
         [OutputConstructor]
-        private ServiceDetails()
+        private ServiceDetails(
+            Outputs.ServiceAzureIdentityServiceDetails? azureIdentity,
+
+            Outputs.ServiceDynatraceServiceDetails? dynatrace,
+
+            Outputs.ServiceGitLabDetails? gitLab,
+
+            Outputs.ServiceMcpServerDetails? mcpServer,
+
+            Outputs.ServiceMcpServerGrafanaDetails? mcpServerGrafana,
+
+            Outputs.ServiceNewRelicServiceDetails? mcpServerNewRelic,
+
+            Outputs.ServiceMcpServerSigV4Details? mcpServerSigV4,
+
+            Outputs.ServiceMcpServerSplunkDetails? mcpServerSplunk,
+
+            Outputs.ServicePagerDutyDetails? pagerDuty,
+
+            Outputs.ServiceNowServiceDetails? serviceNow)
         {
+            AzureIdentity = azureIdentity;
+            Dynatrace = dynatrace;
+            GitLab = gitLab;
+            McpServer = mcpServer;
+            McpServerGrafana = mcpServerGrafana;
+            McpServerNewRelic = mcpServerNewRelic;
+            McpServerSigV4 = mcpServerSigV4;
+            McpServerSplunk = mcpServerSplunk;
+            PagerDuty = pagerDuty;
+            ServiceNow = serviceNow;
         }
     }
 }

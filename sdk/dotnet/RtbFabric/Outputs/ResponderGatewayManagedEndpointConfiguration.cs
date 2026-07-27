@@ -13,9 +13,17 @@ namespace Pulumi.AwsNative.RtbFabric.Outputs
     [OutputType]
     public sealed class ResponderGatewayManagedEndpointConfiguration
     {
+        public readonly Outputs.ResponderGatewayAutoScalingGroupsConfiguration? AutoScalingGroupsConfiguration;
+        public readonly Outputs.ResponderGatewayEksEndpointsConfiguration? EksEndpointsConfiguration;
+
         [OutputConstructor]
-        private ResponderGatewayManagedEndpointConfiguration()
+        private ResponderGatewayManagedEndpointConfiguration(
+            Outputs.ResponderGatewayAutoScalingGroupsConfiguration? autoScalingGroupsConfiguration,
+
+            Outputs.ResponderGatewayEksEndpointsConfiguration? eksEndpointsConfiguration)
         {
+            AutoScalingGroupsConfiguration = autoScalingGroupsConfiguration;
+            EksEndpointsConfiguration = eksEndpointsConfiguration;
         }
     }
 }

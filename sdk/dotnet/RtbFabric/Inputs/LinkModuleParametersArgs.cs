@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.RtbFabric.Inputs
 
     public sealed class LinkModuleParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("noBid")]
+        public Input<Inputs.LinkNoBidModuleParametersArgs>? NoBid { get; set; }
+
+        [Input("openRtbAttribute")]
+        public Input<Inputs.LinkOpenRtbAttributeModuleParametersArgs>? OpenRtbAttribute { get; set; }
+
         public LinkModuleParametersArgs()
         {
         }

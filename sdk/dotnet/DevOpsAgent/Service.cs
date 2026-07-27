@@ -89,6 +89,11 @@ namespace Pulumi.AwsNative.DevOpsAgent
                 ReplaceOnChanges =
                 {
                     "kmsKeyArn",
+                    "serviceDetails.azureIdentity",
+                    "serviceDetails.dynatrace",
+                    "serviceDetails.mcpServerSplunk",
+                    "serviceDetails.pagerDuty",
+                    "serviceDetails.serviceNow",
                     "serviceType",
                 },
             };

@@ -92,8 +92,16 @@ __all__ = [
     'ConnectorAzureScopeConfigurationArgsDict',
     'ConnectorProviderArgs',
     'ConnectorProviderArgsDict',
+    'ConnectorV2AzureProviderConfigurationArgs',
+    'ConnectorV2AzureProviderConfigurationArgsDict',
+    'ConnectorV2AzureScopeConfigurationArgs',
+    'ConnectorV2AzureScopeConfigurationArgsDict',
+    'ConnectorV2JiraCloudProviderConfigurationArgs',
+    'ConnectorV2JiraCloudProviderConfigurationArgsDict',
     'ConnectorV2ProviderArgs',
     'ConnectorV2ProviderArgsDict',
+    'ConnectorV2ServiceNowProviderConfigurationArgs',
+    'ConnectorV2ServiceNowProviderConfigurationArgsDict',
     'InsightAwsSecurityFindingFiltersArgs',
     'InsightAwsSecurityFindingFiltersArgsDict',
     'InsightBooleanFilterArgs',
@@ -3540,19 +3548,258 @@ class ConnectorProviderArgs:
         pulumi.set(self, "azure", value)
 
 
+class ConnectorV2AzureProviderConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings required to establish an integration between AWS Security Hub and Azure
+    """
+    aws_config_connector_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Config connector used for the Azure integration
+    """
+    azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Azure regions to include in the connector scope
+    """
+    scope_configuration: pulumi.Input['ConnectorV2AzureScopeConfigurationArgsDict']
+
+@pulumi.input_type
+class ConnectorV2AzureProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 aws_config_connector_arn: pulumi.Input[_builtins.str],
+                 azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 scope_configuration: pulumi.Input['ConnectorV2AzureScopeConfigurationArgs']):
+        """
+        The configuration settings required to establish an integration between AWS Security Hub and Azure
+
+        :param pulumi.Input[_builtins.str] aws_config_connector_arn: The ARN of the AWS Config connector used for the Azure integration
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] azure_regions: The list of Azure regions to include in the connector scope
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "azure_regions", azure_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Config connector used for the Azure integration
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @aws_config_connector_arn.setter
+    def aws_config_connector_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aws_config_connector_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureRegions")
+    def azure_regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of Azure regions to include in the connector scope
+        """
+        return pulumi.get(self, "azure_regions")
+
+    @azure_regions.setter
+    def azure_regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "azure_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> pulumi.Input['ConnectorV2AzureScopeConfigurationArgs']:
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: pulumi.Input['ConnectorV2AzureScopeConfigurationArgs']):
+        pulumi.set(self, "scope_configuration", value)
+
+
+class ConnectorV2AzureScopeConfigurationArgsDict(TypedDict):
+    """
+    The scope configuration for an Azure connector
+    """
+    scope_type: pulumi.Input['ConnectorV2AzureScopeConfigurationScopeType']
+    """
+    The scope type for the Azure connector
+    """
+    scope_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of scope values for the Azure connector
+    """
+
+@pulumi.input_type
+class ConnectorV2AzureScopeConfigurationArgs:
+    def __init__(__self__, *,
+                 scope_type: pulumi.Input['ConnectorV2AzureScopeConfigurationScopeType'],
+                 scope_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The scope configuration for an Azure connector
+
+        :param pulumi.Input['ConnectorV2AzureScopeConfigurationScopeType'] scope_type: The scope type for the Azure connector
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: The list of scope values for the Azure connector
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> pulumi.Input['ConnectorV2AzureScopeConfigurationScopeType']:
+        """
+        The scope type for the Azure connector
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: pulumi.Input['ConnectorV2AzureScopeConfigurationScopeType']):
+        pulumi.set(self, "scope_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of scope values for the Azure connector
+        """
+        return pulumi.get(self, "scope_values")
+
+    @scope_values.setter
+    def scope_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "scope_values", value)
+
+
+class ConnectorV2JiraCloudProviderConfigurationArgsDict(TypedDict):
+    """
+    The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+    """
+    project_key: pulumi.Input[_builtins.str]
+    """
+    The project key for a Jira Cloud instance
+    """
+
+@pulumi.input_type
+class ConnectorV2JiraCloudProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 project_key: pulumi.Input[_builtins.str]):
+        """
+        The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+
+        :param pulumi.Input[_builtins.str] project_key: The project key for a Jira Cloud instance
+        """
+        pulumi.set(__self__, "project_key", project_key)
+
+    @_builtins.property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The project key for a Jira Cloud instance
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_key", value)
+
+
 class ConnectorV2ProviderArgsDict(TypedDict):
     """
     The third-party provider configuration for the connector
     """
-    pass
+    azure: NotRequired[pulumi.Input[Optional['ConnectorV2AzureProviderConfigurationArgsDict']]]
+    jira_cloud: NotRequired[pulumi.Input[Optional['ConnectorV2JiraCloudProviderConfigurationArgsDict']]]
+    service_now: NotRequired[pulumi.Input[Optional['ConnectorV2ServiceNowProviderConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ConnectorV2ProviderArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 azure: pulumi.Input[Optional['ConnectorV2AzureProviderConfigurationArgs']] = None,
+                 jira_cloud: pulumi.Input[Optional['ConnectorV2JiraCloudProviderConfigurationArgs']] = None,
+                 service_now: pulumi.Input[Optional['ConnectorV2ServiceNowProviderConfigurationArgs']] = None):
         """
         The third-party provider configuration for the connector
         """
-        pass
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if jira_cloud is not None:
+            pulumi.set(__self__, "jira_cloud", jira_cloud)
+        if service_now is not None:
+            pulumi.set(__self__, "service_now", service_now)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> pulumi.Input[Optional['ConnectorV2AzureProviderConfigurationArgs']]:
+        return pulumi.get(self, "azure")
+
+    @azure.setter
+    def azure(self, value: pulumi.Input[Optional['ConnectorV2AzureProviderConfigurationArgs']]):
+        pulumi.set(self, "azure", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jiraCloud")
+    def jira_cloud(self) -> pulumi.Input[Optional['ConnectorV2JiraCloudProviderConfigurationArgs']]:
+        return pulumi.get(self, "jira_cloud")
+
+    @jira_cloud.setter
+    def jira_cloud(self, value: pulumi.Input[Optional['ConnectorV2JiraCloudProviderConfigurationArgs']]):
+        pulumi.set(self, "jira_cloud", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNow")
+    def service_now(self) -> pulumi.Input[Optional['ConnectorV2ServiceNowProviderConfigurationArgs']]:
+        return pulumi.get(self, "service_now")
+
+    @service_now.setter
+    def service_now(self, value: pulumi.Input[Optional['ConnectorV2ServiceNowProviderConfigurationArgs']]):
+        pulumi.set(self, "service_now", value)
+
+
+class ConnectorV2ServiceNowProviderConfigurationArgsDict(TypedDict):
+    """
+    The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+    """
+    instance_name: pulumi.Input[_builtins.str]
+    """
+    The instance name of ServiceNow ITSM
+    """
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+    """
+
+@pulumi.input_type
+class ConnectorV2ServiceNowProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 instance_name: pulumi.Input[_builtins.str],
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+
+        :param pulumi.Input[_builtins.str] instance_name: The instance name of ServiceNow ITSM
+        :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+        """
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The instance name of ServiceNow ITSM
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class InsightAwsSecurityFindingFiltersArgsDict(TypedDict):

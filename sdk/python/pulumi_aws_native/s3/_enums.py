@@ -32,6 +32,7 @@ __all__ = [
     'BucketNamespace',
     'BucketNoncurrentVersionTransitionStorageClass',
     'BucketOwnershipControlsRuleObjectOwnership',
+    'BucketPartitionedPrefixPartitionDateSource',
     'BucketRecordExpirationExpiration',
     'BucketRedirectAllRequestsToProtocol',
     'BucketRedirectRuleProtocol',
@@ -301,6 +302,17 @@ class BucketOwnershipControlsRuleObjectOwnership(_builtins.str, Enum):
     OBJECT_WRITER = "ObjectWriter"
     BUCKET_OWNER_PREFERRED = "BucketOwnerPreferred"
     BUCKET_OWNER_ENFORCED = "BucketOwnerEnforced"
+
+
+@pulumi.type_token("aws-native:s3:BucketPartitionedPrefixPartitionDateSource")
+class BucketPartitionedPrefixPartitionDateSource(_builtins.str, Enum):
+    """
+    Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+     For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+      For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+    """
+    EVENT_TIME = "EventTime"
+    DELIVERY_TIME = "DeliveryTime"
 
 
 @pulumi.type_token("aws-native:s3:BucketRecordExpirationExpiration")

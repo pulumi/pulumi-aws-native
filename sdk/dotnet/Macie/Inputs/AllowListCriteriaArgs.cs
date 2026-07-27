@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.Macie.Inputs
     /// </summary>
     public sealed class AllowListCriteriaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 object key for the AllowList.
+        /// </summary>
+        [Input("regex")]
+        public Input<string>? Regex { get; set; }
+
+        /// <summary>
+        /// The S3 location for the AllowList.
+        /// </summary>
+        [Input("s3WordsList")]
+        public Input<Inputs.AllowListS3WordsListArgs>? S3WordsList { get; set; }
+
         public AllowListCriteriaArgs()
         {
         }

@@ -16,9 +16,25 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     [OutputType]
     public sealed class MultiplexprogramMultiplexVideoSettings
     {
+        /// <summary>
+        /// The constant bitrate configuration for the video encode.
+        /// When this field is defined, StatmuxSettings must be undefined.
+        /// </summary>
+        public readonly int? ConstantBitrate;
+        /// <summary>
+        /// Statmux rate control settings.
+        /// When this field is defined, ConstantBitrate must be undefined.
+        /// </summary>
+        public readonly Outputs.MultiplexprogramMultiplexStatmuxVideoSettings? StatmuxSettings;
+
         [OutputConstructor]
-        private MultiplexprogramMultiplexVideoSettings()
+        private MultiplexprogramMultiplexVideoSettings(
+            int? constantBitrate,
+
+            Outputs.MultiplexprogramMultiplexStatmuxVideoSettings? statmuxSettings)
         {
+            ConstantBitrate = constantBitrate;
+            StatmuxSettings = statmuxSettings;
         }
     }
 }

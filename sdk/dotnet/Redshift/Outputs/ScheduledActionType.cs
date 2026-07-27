@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Redshift.Outputs
     [OutputType]
     public sealed class ScheduledActionType
     {
+        public readonly Outputs.ScheduledActionPauseClusterMessage? PauseCluster;
+        public readonly Outputs.ScheduledActionResizeClusterMessage? ResizeCluster;
+        public readonly Outputs.ScheduledActionResumeClusterMessage? ResumeCluster;
+
         [OutputConstructor]
-        private ScheduledActionType()
+        private ScheduledActionType(
+            Outputs.ScheduledActionPauseClusterMessage? pauseCluster,
+
+            Outputs.ScheduledActionResizeClusterMessage? resizeCluster,
+
+            Outputs.ScheduledActionResumeClusterMessage? resumeCluster)
         {
+            PauseCluster = pauseCluster;
+            ResizeCluster = resizeCluster;
+            ResumeCluster = resumeCluster;
         }
     }
 }

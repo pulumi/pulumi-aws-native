@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class QueueSchedulingConfiguration
     {
+        public readonly Outputs.QueuePriorityBalancedSchedulingConfiguration? PriorityBalanced;
+        public readonly Outputs.QueuePriorityFifoSchedulingConfiguration? PriorityFifo;
+        public readonly Outputs.QueueWeightedBalancedSchedulingConfiguration? WeightedBalanced;
+
         [OutputConstructor]
-        private QueueSchedulingConfiguration()
+        private QueueSchedulingConfiguration(
+            Outputs.QueuePriorityBalancedSchedulingConfiguration? priorityBalanced,
+
+            Outputs.QueuePriorityFifoSchedulingConfiguration? priorityFifo,
+
+            Outputs.QueueWeightedBalancedSchedulingConfiguration? weightedBalanced)
         {
+            PriorityBalanced = priorityBalanced;
+            PriorityFifo = priorityFifo;
+            WeightedBalanced = weightedBalanced;
         }
     }
 }

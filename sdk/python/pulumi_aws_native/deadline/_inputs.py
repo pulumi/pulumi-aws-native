@@ -64,8 +64,22 @@ __all__ = [
     'QueueJobRunAsUserArgsDict',
     'QueuePosixUserArgs',
     'QueuePosixUserArgsDict',
+    'QueuePriorityBalancedSchedulingConfigurationArgs',
+    'QueuePriorityBalancedSchedulingConfigurationArgsDict',
+    'QueuePriorityFifoSchedulingConfigurationArgs',
+    'QueuePriorityFifoSchedulingConfigurationArgsDict',
     'QueueSchedulingConfigurationArgs',
     'QueueSchedulingConfigurationArgsDict',
+    'QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs',
+    'QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgsDict',
+    'QueueSchedulingMaxPriorityOverridePropertiesArgs',
+    'QueueSchedulingMaxPriorityOverridePropertiesArgsDict',
+    'QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs',
+    'QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgsDict',
+    'QueueSchedulingMinPriorityOverridePropertiesArgs',
+    'QueueSchedulingMinPriorityOverridePropertiesArgsDict',
+    'QueueWeightedBalancedSchedulingConfigurationArgs',
+    'QueueWeightedBalancedSchedulingConfigurationArgsDict',
     'QueueWindowsUserArgs',
     'QueueWindowsUserArgsDict',
     'StorageProfileFileSystemLocationArgs',
@@ -1304,13 +1318,233 @@ class QueuePosixUserArgs:
         pulumi.set(self, "user", value)
 
 
-class QueueSchedulingConfigurationArgsDict(TypedDict):
+class QueuePriorityBalancedSchedulingConfigurationArgsDict(TypedDict):
+    rendering_task_buffer: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class QueuePriorityBalancedSchedulingConfigurationArgs:
+    def __init__(__self__, *,
+                 rendering_task_buffer: pulumi.Input[Optional[_builtins.int]] = None):
+        if rendering_task_buffer is not None:
+            pulumi.set(__self__, "rendering_task_buffer", rendering_task_buffer)
+
+    @_builtins.property
+    @pulumi.getter(name="renderingTaskBuffer")
+    def rendering_task_buffer(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "rendering_task_buffer")
+
+    @rendering_task_buffer.setter
+    def rendering_task_buffer(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rendering_task_buffer", value)
+
+
+class QueuePriorityFifoSchedulingConfigurationArgsDict(TypedDict):
     pass
 
 @pulumi.input_type
-class QueueSchedulingConfigurationArgs:
+class QueuePriorityFifoSchedulingConfigurationArgs:
     def __init__(__self__):
         pass
+
+
+class QueueSchedulingConfigurationArgsDict(TypedDict):
+    priority_balanced: NotRequired[pulumi.Input[Optional['QueuePriorityBalancedSchedulingConfigurationArgsDict']]]
+    priority_fifo: NotRequired[pulumi.Input[Optional['QueuePriorityFifoSchedulingConfigurationArgsDict']]]
+    weighted_balanced: NotRequired[pulumi.Input[Optional['QueueWeightedBalancedSchedulingConfigurationArgsDict']]]
+
+@pulumi.input_type
+class QueueSchedulingConfigurationArgs:
+    def __init__(__self__, *,
+                 priority_balanced: pulumi.Input[Optional['QueuePriorityBalancedSchedulingConfigurationArgs']] = None,
+                 priority_fifo: pulumi.Input[Optional['QueuePriorityFifoSchedulingConfigurationArgs']] = None,
+                 weighted_balanced: pulumi.Input[Optional['QueueWeightedBalancedSchedulingConfigurationArgs']] = None):
+        if priority_balanced is not None:
+            pulumi.set(__self__, "priority_balanced", priority_balanced)
+        if priority_fifo is not None:
+            pulumi.set(__self__, "priority_fifo", priority_fifo)
+        if weighted_balanced is not None:
+            pulumi.set(__self__, "weighted_balanced", weighted_balanced)
+
+    @_builtins.property
+    @pulumi.getter(name="priorityBalanced")
+    def priority_balanced(self) -> pulumi.Input[Optional['QueuePriorityBalancedSchedulingConfigurationArgs']]:
+        return pulumi.get(self, "priority_balanced")
+
+    @priority_balanced.setter
+    def priority_balanced(self, value: pulumi.Input[Optional['QueuePriorityBalancedSchedulingConfigurationArgs']]):
+        pulumi.set(self, "priority_balanced", value)
+
+    @_builtins.property
+    @pulumi.getter(name="priorityFifo")
+    def priority_fifo(self) -> pulumi.Input[Optional['QueuePriorityFifoSchedulingConfigurationArgs']]:
+        return pulumi.get(self, "priority_fifo")
+
+    @priority_fifo.setter
+    def priority_fifo(self, value: pulumi.Input[Optional['QueuePriorityFifoSchedulingConfigurationArgs']]):
+        pulumi.set(self, "priority_fifo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weightedBalanced")
+    def weighted_balanced(self) -> pulumi.Input[Optional['QueueWeightedBalancedSchedulingConfigurationArgs']]:
+        return pulumi.get(self, "weighted_balanced")
+
+    @weighted_balanced.setter
+    def weighted_balanced(self, value: pulumi.Input[Optional['QueueWeightedBalancedSchedulingConfigurationArgs']]):
+        pulumi.set(self, "weighted_balanced", value)
+
+
+class QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs:
+    def __init__(__self__):
+        pass
+
+
+class QueueSchedulingMaxPriorityOverridePropertiesArgsDict(TypedDict):
+    always_schedule_first: pulumi.Input['QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgsDict']
+
+@pulumi.input_type
+class QueueSchedulingMaxPriorityOverridePropertiesArgs:
+    def __init__(__self__, *,
+                 always_schedule_first: pulumi.Input['QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs']):
+        pulumi.set(__self__, "always_schedule_first", always_schedule_first)
+
+    @_builtins.property
+    @pulumi.getter(name="alwaysScheduleFirst")
+    def always_schedule_first(self) -> pulumi.Input['QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs']:
+        return pulumi.get(self, "always_schedule_first")
+
+    @always_schedule_first.setter
+    def always_schedule_first(self, value: pulumi.Input['QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirstArgs']):
+        pulumi.set(self, "always_schedule_first", value)
+
+
+class QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs:
+    def __init__(__self__):
+        pass
+
+
+class QueueSchedulingMinPriorityOverridePropertiesArgsDict(TypedDict):
+    always_schedule_last: pulumi.Input['QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgsDict']
+
+@pulumi.input_type
+class QueueSchedulingMinPriorityOverridePropertiesArgs:
+    def __init__(__self__, *,
+                 always_schedule_last: pulumi.Input['QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs']):
+        pulumi.set(__self__, "always_schedule_last", always_schedule_last)
+
+    @_builtins.property
+    @pulumi.getter(name="alwaysScheduleLast")
+    def always_schedule_last(self) -> pulumi.Input['QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs']:
+        return pulumi.get(self, "always_schedule_last")
+
+    @always_schedule_last.setter
+    def always_schedule_last(self, value: pulumi.Input['QueueSchedulingMinPriorityOverrideAlwaysScheduleLastArgs']):
+        pulumi.set(self, "always_schedule_last", value)
+
+
+class QueueWeightedBalancedSchedulingConfigurationArgsDict(TypedDict):
+    error_weight: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    max_priority_override: NotRequired[pulumi.Input[Optional['QueueSchedulingMaxPriorityOverridePropertiesArgsDict']]]
+    min_priority_override: NotRequired[pulumi.Input[Optional['QueueSchedulingMinPriorityOverridePropertiesArgsDict']]]
+    priority_weight: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    rendering_task_buffer: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    rendering_task_weight: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    submission_time_weight: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+
+@pulumi.input_type
+class QueueWeightedBalancedSchedulingConfigurationArgs:
+    def __init__(__self__, *,
+                 error_weight: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_priority_override: pulumi.Input[Optional['QueueSchedulingMaxPriorityOverridePropertiesArgs']] = None,
+                 min_priority_override: pulumi.Input[Optional['QueueSchedulingMinPriorityOverridePropertiesArgs']] = None,
+                 priority_weight: pulumi.Input[Optional[_builtins.float]] = None,
+                 rendering_task_buffer: pulumi.Input[Optional[_builtins.int]] = None,
+                 rendering_task_weight: pulumi.Input[Optional[_builtins.float]] = None,
+                 submission_time_weight: pulumi.Input[Optional[_builtins.float]] = None):
+        if error_weight is not None:
+            pulumi.set(__self__, "error_weight", error_weight)
+        if max_priority_override is not None:
+            pulumi.set(__self__, "max_priority_override", max_priority_override)
+        if min_priority_override is not None:
+            pulumi.set(__self__, "min_priority_override", min_priority_override)
+        if priority_weight is not None:
+            pulumi.set(__self__, "priority_weight", priority_weight)
+        if rendering_task_buffer is not None:
+            pulumi.set(__self__, "rendering_task_buffer", rendering_task_buffer)
+        if rendering_task_weight is not None:
+            pulumi.set(__self__, "rendering_task_weight", rendering_task_weight)
+        if submission_time_weight is not None:
+            pulumi.set(__self__, "submission_time_weight", submission_time_weight)
+
+    @_builtins.property
+    @pulumi.getter(name="errorWeight")
+    def error_weight(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "error_weight")
+
+    @error_weight.setter
+    def error_weight(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "error_weight", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPriorityOverride")
+    def max_priority_override(self) -> pulumi.Input[Optional['QueueSchedulingMaxPriorityOverridePropertiesArgs']]:
+        return pulumi.get(self, "max_priority_override")
+
+    @max_priority_override.setter
+    def max_priority_override(self, value: pulumi.Input[Optional['QueueSchedulingMaxPriorityOverridePropertiesArgs']]):
+        pulumi.set(self, "max_priority_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minPriorityOverride")
+    def min_priority_override(self) -> pulumi.Input[Optional['QueueSchedulingMinPriorityOverridePropertiesArgs']]:
+        return pulumi.get(self, "min_priority_override")
+
+    @min_priority_override.setter
+    def min_priority_override(self, value: pulumi.Input[Optional['QueueSchedulingMinPriorityOverridePropertiesArgs']]):
+        pulumi.set(self, "min_priority_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="priorityWeight")
+    def priority_weight(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "priority_weight")
+
+    @priority_weight.setter
+    def priority_weight(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "priority_weight", value)
+
+    @_builtins.property
+    @pulumi.getter(name="renderingTaskBuffer")
+    def rendering_task_buffer(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "rendering_task_buffer")
+
+    @rendering_task_buffer.setter
+    def rendering_task_buffer(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rendering_task_buffer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="renderingTaskWeight")
+    def rendering_task_weight(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "rendering_task_weight")
+
+    @rendering_task_weight.setter
+    def rendering_task_weight(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "rendering_task_weight", value)
+
+    @_builtins.property
+    @pulumi.getter(name="submissionTimeWeight")
+    def submission_time_weight(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "submission_time_weight")
+
+    @submission_time_weight.setter
+    def submission_time_weight(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "submission_time_weight", value)
 
 
 class QueueWindowsUserArgsDict(TypedDict):

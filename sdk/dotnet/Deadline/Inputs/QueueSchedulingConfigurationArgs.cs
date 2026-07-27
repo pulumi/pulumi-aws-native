@@ -12,6 +12,15 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class QueueSchedulingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("priorityBalanced")]
+        public Input<Inputs.QueuePriorityBalancedSchedulingConfigurationArgs>? PriorityBalanced { get; set; }
+
+        [Input("priorityFifo")]
+        public Input<Inputs.QueuePriorityFifoSchedulingConfigurationArgs>? PriorityFifo { get; set; }
+
+        [Input("weightedBalanced")]
+        public Input<Inputs.QueueWeightedBalancedSchedulingConfigurationArgs>? WeightedBalanced { get; set; }
+
         public QueueSchedulingConfigurationArgs()
         {
         }

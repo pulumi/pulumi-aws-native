@@ -13,9 +13,12 @@ namespace Pulumi.AwsNative.PcaConnectorScep.Outputs
     [OutputType]
     public sealed class ConnectorMobileDeviceManagement
     {
+        public readonly Outputs.ConnectorIntuneConfiguration? Intune;
+
         [OutputConstructor]
-        private ConnectorMobileDeviceManagement()
+        private ConnectorMobileDeviceManagement(Outputs.ConnectorIntuneConfiguration? intune)
         {
+            Intune = intune;
         }
     }
 }

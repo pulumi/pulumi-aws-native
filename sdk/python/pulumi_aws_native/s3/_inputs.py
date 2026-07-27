@@ -98,6 +98,8 @@ __all__ = [
     'BucketOwnershipControlsArgsDict',
     'BucketOwnershipControlsRuleArgs',
     'BucketOwnershipControlsRuleArgsDict',
+    'BucketPartitionedPrefixArgs',
+    'BucketPartitionedPrefixArgsDict',
     'BucketPublicAccessBlockConfigurationArgs',
     'BucketPublicAccessBlockConfigurationArgsDict',
     'BucketQueueConfigurationArgs',
@@ -214,6 +216,8 @@ __all__ = [
     'StorageLensS3BucketDestinationArgsDict',
     'StorageLensSelectionCriteriaArgs',
     'StorageLensSelectionCriteriaArgsDict',
+    'StorageLensSsekmsArgs',
+    'StorageLensSsekmsArgsDict',
     'StorageLensTableDestinationArgs',
     'StorageLensTableDestinationArgsDict',
 ]
@@ -2852,6 +2856,50 @@ class BucketOwnershipControlsRuleArgs:
         pulumi.set(self, "object_ownership", value)
 
 
+class BucketPartitionedPrefixArgsDict(TypedDict):
+    """
+    Amazon S3 keys for log objects are partitioned in the following format:
+      ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``
+     PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
+    """
+    partition_date_source: NotRequired[pulumi.Input[Optional['BucketPartitionedPrefixPartitionDateSource']]]
+    """
+    Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+     For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+      For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+    """
+
+@pulumi.input_type
+class BucketPartitionedPrefixArgs:
+    def __init__(__self__, *,
+                 partition_date_source: pulumi.Input[Optional['BucketPartitionedPrefixPartitionDateSource']] = None):
+        """
+        Amazon S3 keys for log objects are partitioned in the following format:
+          ``[DestinationPrefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]``
+         PartitionedPrefix defaults to EventTime delivery when server access logs are delivered.
+
+        :param pulumi.Input['BucketPartitionedPrefixPartitionDateSource'] partition_date_source: Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+                For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+                 For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+        """
+        if partition_date_source is not None:
+            pulumi.set(__self__, "partition_date_source", partition_date_source)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionDateSource")
+    def partition_date_source(self) -> pulumi.Input[Optional['BucketPartitionedPrefixPartitionDateSource']]:
+        """
+        Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+         For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+          For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+        """
+        return pulumi.get(self, "partition_date_source")
+
+    @partition_date_source.setter
+    def partition_date_source(self, value: pulumi.Input[Optional['BucketPartitionedPrefixPartitionDateSource']]):
+        pulumi.set(self, "partition_date_source", value)
+
+
 class BucketPublicAccessBlockConfigurationArgsDict(TypedDict):
     """
     The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
@@ -4879,15 +4927,47 @@ class BucketTargetObjectKeyFormatArgsDict(TypedDict):
     """
     Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
     """
-    pass
+    partitioned_prefix: NotRequired[pulumi.Input[Optional['BucketPartitionedPrefixArgsDict']]]
+    simple_prefix: NotRequired[Any]
+    """
+    This format defaults the prefix to the given log file prefix for delivering server access log file.
+    """
 
 @pulumi.input_type
 class BucketTargetObjectKeyFormatArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 partitioned_prefix: pulumi.Input[Optional['BucketPartitionedPrefixArgs']] = None,
+                 simple_prefix: Optional[Any] = None):
         """
         Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+
+        :param Any simple_prefix: This format defaults the prefix to the given log file prefix for delivering server access log file.
         """
-        pass
+        if partitioned_prefix is not None:
+            pulumi.set(__self__, "partitioned_prefix", partitioned_prefix)
+        if simple_prefix is not None:
+            pulumi.set(__self__, "simple_prefix", simple_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionedPrefix")
+    def partitioned_prefix(self) -> pulumi.Input[Optional['BucketPartitionedPrefixArgs']]:
+        return pulumi.get(self, "partitioned_prefix")
+
+    @partitioned_prefix.setter
+    def partitioned_prefix(self, value: pulumi.Input[Optional['BucketPartitionedPrefixArgs']]):
+        pulumi.set(self, "partitioned_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="simplePrefix")
+    def simple_prefix(self) -> Optional[Any]:
+        """
+        This format defaults the prefix to the given log file prefix for delivering server access log file.
+        """
+        return pulumi.get(self, "simple_prefix")
+
+    @simple_prefix.setter
+    def simple_prefix(self, value: Optional[Any]):
+        pulumi.set(self, "simple_prefix", value)
 
 
 class BucketTieringArgsDict(TypedDict):
@@ -6243,15 +6323,47 @@ class StorageLensEncryptionArgsDict(TypedDict):
     """
     Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
     """
-    pass
+    ssekms: NotRequired[pulumi.Input[Optional['StorageLensSsekmsArgsDict']]]
+    sses3: NotRequired[Any]
+    """
+    S3 default server-side encryption.
+    """
 
 @pulumi.input_type
 class StorageLensEncryptionArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 ssekms: pulumi.Input[Optional['StorageLensSsekmsArgs']] = None,
+                 sses3: Optional[Any] = None):
         """
         Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
+
+        :param Any sses3: S3 default server-side encryption.
         """
-        pass
+        if ssekms is not None:
+            pulumi.set(__self__, "ssekms", ssekms)
+        if sses3 is not None:
+            pulumi.set(__self__, "sses3", sses3)
+
+    @_builtins.property
+    @pulumi.getter
+    def ssekms(self) -> pulumi.Input[Optional['StorageLensSsekmsArgs']]:
+        return pulumi.get(self, "ssekms")
+
+    @ssekms.setter
+    def ssekms(self, value: pulumi.Input[Optional['StorageLensSsekmsArgs']]):
+        pulumi.set(self, "ssekms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sses3(self) -> Optional[Any]:
+        """
+        S3 default server-side encryption.
+        """
+        return pulumi.get(self, "sses3")
+
+    @sses3.setter
+    def sses3(self, value: Optional[Any]):
+        pulumi.set(self, "sses3", value)
 
 
 class StorageLensExpandedPrefixesDataExportArgsDict(TypedDict):
@@ -7201,6 +7313,39 @@ class StorageLensSelectionCriteriaArgs:
     @min_storage_bytes_percentage.setter
     def min_storage_bytes_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_storage_bytes_percentage", value)
+
+
+class StorageLensSsekmsArgsDict(TypedDict):
+    """
+    AWS KMS server-side encryption.
+    """
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The ARN of the KMS key to use for encryption.
+    """
+
+@pulumi.input_type
+class StorageLensSsekmsArgs:
+    def __init__(__self__, *,
+                 key_id: pulumi.Input[_builtins.str]):
+        """
+        AWS KMS server-side encryption.
+
+        :param pulumi.Input[_builtins.str] key_id: The ARN of the KMS key to use for encryption.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the KMS key to use for encryption.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_id", value)
 
 
 class StorageLensTableDestinationArgsDict(TypedDict):

@@ -152,8 +152,12 @@ __all__ = [
     'EnvironmentProfileEnvironmentParameterArgsDict',
     'FormTypeModelArgs',
     'FormTypeModelArgsDict',
+    'OwnerGroupPropertiesArgs',
+    'OwnerGroupPropertiesArgsDict',
     'OwnerPropertiesArgs',
     'OwnerPropertiesArgsDict',
+    'OwnerUserPropertiesArgs',
+    'OwnerUserPropertiesArgsDict',
     'PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgs',
     'PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict',
     'PolicyGrantAllDomainUnitsGrantFilterArgs',
@@ -3202,19 +3206,111 @@ class FormTypeModelArgs:
         pulumi.set(self, "smithy", value)
 
 
+class OwnerGroupPropertiesArgsDict(TypedDict):
+    """
+    The properties of the domain unit owners group.
+    """
+    group_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the domain unit owners group.
+    """
+
+@pulumi.input_type
+class OwnerGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The properties of the domain unit owners group.
+
+        :param pulumi.Input[_builtins.str] group_identifier: The ID of the domain unit owners group.
+        """
+        if group_identifier is not None:
+            pulumi.set(__self__, "group_identifier", group_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIdentifier")
+    def group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the domain unit owners group.
+        """
+        return pulumi.get(self, "group_identifier")
+
+    @group_identifier.setter
+    def group_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_identifier", value)
+
+
 class OwnerPropertiesArgsDict(TypedDict):
     """
     The properties of a domain unit's owner.
     """
-    pass
+    group: NotRequired[pulumi.Input[Optional['OwnerGroupPropertiesArgsDict']]]
+    user: NotRequired[pulumi.Input[Optional['OwnerUserPropertiesArgsDict']]]
 
 @pulumi.input_type
 class OwnerPropertiesArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 group: pulumi.Input[Optional['OwnerGroupPropertiesArgs']] = None,
+                 user: pulumi.Input[Optional['OwnerUserPropertiesArgs']] = None):
         """
         The properties of a domain unit's owner.
         """
-        pass
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> pulumi.Input[Optional['OwnerGroupPropertiesArgs']]:
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: pulumi.Input[Optional['OwnerGroupPropertiesArgs']]):
+        pulumi.set(self, "group", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[Optional['OwnerUserPropertiesArgs']]:
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[Optional['OwnerUserPropertiesArgs']]):
+        pulumi.set(self, "user", value)
+
+
+class OwnerUserPropertiesArgsDict(TypedDict):
+    """
+    The properties of the owner user.
+    """
+    user_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the owner user.
+    """
+
+@pulumi.input_type
+class OwnerUserPropertiesArgs:
+    def __init__(__self__, *,
+                 user_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The properties of the owner user.
+
+        :param pulumi.Input[_builtins.str] user_identifier: The ID of the owner user.
+        """
+        if user_identifier is not None:
+            pulumi.set(__self__, "user_identifier", user_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="userIdentifier")
+    def user_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the owner user.
+        """
+        return pulumi.get(self, "user_identifier")
+
+    @user_identifier.setter
+    def user_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_identifier", value)
 
 
 class PolicyGrantAddToProjectMemberPoolPolicyGrantDetailArgsDict(TypedDict):

@@ -42,7 +42,14 @@ __all__ = [
     'QueueJobAttachmentSettings',
     'QueueJobRunAsUser',
     'QueuePosixUser',
+    'QueuePriorityBalancedSchedulingConfiguration',
+    'QueuePriorityFifoSchedulingConfiguration',
     'QueueSchedulingConfiguration',
+    'QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst',
+    'QueueSchedulingMaxPriorityOverrideProperties',
+    'QueueSchedulingMinPriorityOverrideAlwaysScheduleLast',
+    'QueueSchedulingMinPriorityOverrideProperties',
+    'QueueWeightedBalancedSchedulingConfiguration',
     'QueueWindowsUser',
     'StorageProfileFileSystemLocation',
 ]
@@ -1151,9 +1158,249 @@ class QueuePosixUser(dict):
 
 
 @pulumi.output_type
-class QueueSchedulingConfiguration(dict):
+class QueuePriorityBalancedSchedulingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "renderingTaskBuffer":
+            suggest = "rendering_task_buffer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueuePriorityBalancedSchedulingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueuePriorityBalancedSchedulingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueuePriorityBalancedSchedulingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rendering_task_buffer: Optional[_builtins.int] = None):
+        if rendering_task_buffer is not None:
+            pulumi.set(__self__, "rendering_task_buffer", rendering_task_buffer)
+
+    @_builtins.property
+    @pulumi.getter(name="renderingTaskBuffer")
+    def rendering_task_buffer(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "rendering_task_buffer")
+
+
+@pulumi.output_type
+class QueuePriorityFifoSchedulingConfiguration(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class QueueSchedulingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "priorityBalanced":
+            suggest = "priority_balanced"
+        elif key == "priorityFifo":
+            suggest = "priority_fifo"
+        elif key == "weightedBalanced":
+            suggest = "weighted_balanced"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueSchedulingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueSchedulingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueSchedulingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 priority_balanced: Optional['outputs.QueuePriorityBalancedSchedulingConfiguration'] = None,
+                 priority_fifo: Optional['outputs.QueuePriorityFifoSchedulingConfiguration'] = None,
+                 weighted_balanced: Optional['outputs.QueueWeightedBalancedSchedulingConfiguration'] = None):
+        if priority_balanced is not None:
+            pulumi.set(__self__, "priority_balanced", priority_balanced)
+        if priority_fifo is not None:
+            pulumi.set(__self__, "priority_fifo", priority_fifo)
+        if weighted_balanced is not None:
+            pulumi.set(__self__, "weighted_balanced", weighted_balanced)
+
+    @_builtins.property
+    @pulumi.getter(name="priorityBalanced")
+    def priority_balanced(self) -> Optional['outputs.QueuePriorityBalancedSchedulingConfiguration']:
+        return pulumi.get(self, "priority_balanced")
+
+    @_builtins.property
+    @pulumi.getter(name="priorityFifo")
+    def priority_fifo(self) -> Optional['outputs.QueuePriorityFifoSchedulingConfiguration']:
+        return pulumi.get(self, "priority_fifo")
+
+    @_builtins.property
+    @pulumi.getter(name="weightedBalanced")
+    def weighted_balanced(self) -> Optional['outputs.QueueWeightedBalancedSchedulingConfiguration']:
+        return pulumi.get(self, "weighted_balanced")
+
+
+@pulumi.output_type
+class QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class QueueSchedulingMaxPriorityOverrideProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysScheduleFirst":
+            suggest = "always_schedule_first"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueSchedulingMaxPriorityOverrideProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueSchedulingMaxPriorityOverrideProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueSchedulingMaxPriorityOverrideProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 always_schedule_first: 'outputs.QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst'):
+        pulumi.set(__self__, "always_schedule_first", always_schedule_first)
+
+    @_builtins.property
+    @pulumi.getter(name="alwaysScheduleFirst")
+    def always_schedule_first(self) -> 'outputs.QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst':
+        return pulumi.get(self, "always_schedule_first")
+
+
+@pulumi.output_type
+class QueueSchedulingMinPriorityOverrideAlwaysScheduleLast(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class QueueSchedulingMinPriorityOverrideProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysScheduleLast":
+            suggest = "always_schedule_last"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueSchedulingMinPriorityOverrideProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueSchedulingMinPriorityOverrideProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueSchedulingMinPriorityOverrideProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 always_schedule_last: 'outputs.QueueSchedulingMinPriorityOverrideAlwaysScheduleLast'):
+        pulumi.set(__self__, "always_schedule_last", always_schedule_last)
+
+    @_builtins.property
+    @pulumi.getter(name="alwaysScheduleLast")
+    def always_schedule_last(self) -> 'outputs.QueueSchedulingMinPriorityOverrideAlwaysScheduleLast':
+        return pulumi.get(self, "always_schedule_last")
+
+
+@pulumi.output_type
+class QueueWeightedBalancedSchedulingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorWeight":
+            suggest = "error_weight"
+        elif key == "maxPriorityOverride":
+            suggest = "max_priority_override"
+        elif key == "minPriorityOverride":
+            suggest = "min_priority_override"
+        elif key == "priorityWeight":
+            suggest = "priority_weight"
+        elif key == "renderingTaskBuffer":
+            suggest = "rendering_task_buffer"
+        elif key == "renderingTaskWeight":
+            suggest = "rendering_task_weight"
+        elif key == "submissionTimeWeight":
+            suggest = "submission_time_weight"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueWeightedBalancedSchedulingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueWeightedBalancedSchedulingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueWeightedBalancedSchedulingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_weight: Optional[_builtins.float] = None,
+                 max_priority_override: Optional['outputs.QueueSchedulingMaxPriorityOverrideProperties'] = None,
+                 min_priority_override: Optional['outputs.QueueSchedulingMinPriorityOverrideProperties'] = None,
+                 priority_weight: Optional[_builtins.float] = None,
+                 rendering_task_buffer: Optional[_builtins.int] = None,
+                 rendering_task_weight: Optional[_builtins.float] = None,
+                 submission_time_weight: Optional[_builtins.float] = None):
+        if error_weight is not None:
+            pulumi.set(__self__, "error_weight", error_weight)
+        if max_priority_override is not None:
+            pulumi.set(__self__, "max_priority_override", max_priority_override)
+        if min_priority_override is not None:
+            pulumi.set(__self__, "min_priority_override", min_priority_override)
+        if priority_weight is not None:
+            pulumi.set(__self__, "priority_weight", priority_weight)
+        if rendering_task_buffer is not None:
+            pulumi.set(__self__, "rendering_task_buffer", rendering_task_buffer)
+        if rendering_task_weight is not None:
+            pulumi.set(__self__, "rendering_task_weight", rendering_task_weight)
+        if submission_time_weight is not None:
+            pulumi.set(__self__, "submission_time_weight", submission_time_weight)
+
+    @_builtins.property
+    @pulumi.getter(name="errorWeight")
+    def error_weight(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "error_weight")
+
+    @_builtins.property
+    @pulumi.getter(name="maxPriorityOverride")
+    def max_priority_override(self) -> Optional['outputs.QueueSchedulingMaxPriorityOverrideProperties']:
+        return pulumi.get(self, "max_priority_override")
+
+    @_builtins.property
+    @pulumi.getter(name="minPriorityOverride")
+    def min_priority_override(self) -> Optional['outputs.QueueSchedulingMinPriorityOverrideProperties']:
+        return pulumi.get(self, "min_priority_override")
+
+    @_builtins.property
+    @pulumi.getter(name="priorityWeight")
+    def priority_weight(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "priority_weight")
+
+    @_builtins.property
+    @pulumi.getter(name="renderingTaskBuffer")
+    def rendering_task_buffer(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "rendering_task_buffer")
+
+    @_builtins.property
+    @pulumi.getter(name="renderingTaskWeight")
+    def rendering_task_weight(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "rendering_task_weight")
+
+    @_builtins.property
+    @pulumi.getter(name="submissionTimeWeight")
+    def submission_time_weight(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "submission_time_weight")
 
 
 @pulumi.output_type

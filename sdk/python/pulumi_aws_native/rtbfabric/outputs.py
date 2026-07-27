@@ -23,11 +23,19 @@ __all__ = [
     'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties',
     'InboundExternalLinkResponderErrorMaskingForHttpCode',
     'LinkAttributes',
+    'LinkFilter',
+    'LinkFilterCriterion',
+    'LinkHeaderTagAction',
     'LinkLogSettings',
     'LinkLogSettingsApplicationLogsProperties',
     'LinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties',
     'LinkModuleConfiguration',
     'LinkModuleParameters',
+    'LinkNoBidAction',
+    'LinkNoBidModuleParameters',
+    'LinkOpenRtbAttributeModuleParameters',
+    'LinkOpenRtbAttributeModuleParametersAction0Properties',
+    'LinkOpenRtbAttributeModuleParametersAction1Properties',
     'LinkResponderErrorMaskingForHttpCode',
     'LinkRoutingRuleQueryStringKeyValuePair',
     'LinkRoutingRuleRuleCondition',
@@ -36,6 +44,9 @@ __all__ = [
     'OutboundExternalLinkLinkLogSettingsApplicationLogsProperties',
     'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties',
     'OutboundExternalLinkResponderErrorMaskingForHttpCode',
+    'ResponderGatewayAutoScalingGroupsConfiguration',
+    'ResponderGatewayEksEndpointsConfiguration',
+    'ResponderGatewayHealthCheckConfig',
     'ResponderGatewayListenerConfig',
     'ResponderGatewayManagedEndpointConfiguration',
     'ResponderGatewayTrustStoreConfiguration',
@@ -283,6 +294,56 @@ class LinkAttributes(dict):
 
 
 @pulumi.output_type
+class LinkFilter(dict):
+    def __init__(__self__, *,
+                 criteria: Sequence['outputs.LinkFilterCriterion']):
+        pulumi.set(__self__, "criteria", criteria)
+
+    @_builtins.property
+    @pulumi.getter
+    def criteria(self) -> Sequence['outputs.LinkFilterCriterion']:
+        return pulumi.get(self, "criteria")
+
+
+@pulumi.output_type
+class LinkFilterCriterion(dict):
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class LinkHeaderTagAction(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LinkLogSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -447,8 +508,232 @@ class LinkModuleConfiguration(dict):
 
 @pulumi.output_type
 class LinkModuleParameters(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noBid":
+            suggest = "no_bid"
+        elif key == "openRtbAttribute":
+            suggest = "open_rtb_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkModuleParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkModuleParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkModuleParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_bid: Optional['outputs.LinkNoBidModuleParameters'] = None,
+                 open_rtb_attribute: Optional['outputs.LinkOpenRtbAttributeModuleParameters'] = None):
+        if no_bid is not None:
+            pulumi.set(__self__, "no_bid", no_bid)
+        if open_rtb_attribute is not None:
+            pulumi.set(__self__, "open_rtb_attribute", open_rtb_attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="noBid")
+    def no_bid(self) -> Optional['outputs.LinkNoBidModuleParameters']:
+        return pulumi.get(self, "no_bid")
+
+    @_builtins.property
+    @pulumi.getter(name="openRtbAttribute")
+    def open_rtb_attribute(self) -> Optional['outputs.LinkOpenRtbAttributeModuleParameters']:
+        return pulumi.get(self, "open_rtb_attribute")
+
+
+@pulumi.output_type
+class LinkNoBidAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noBidReasonCode":
+            suggest = "no_bid_reason_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkNoBidAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkNoBidAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkNoBidAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_bid_reason_code: Optional[_builtins.int] = None):
+        if no_bid_reason_code is not None:
+            pulumi.set(__self__, "no_bid_reason_code", no_bid_reason_code)
+
+    @_builtins.property
+    @pulumi.getter(name="noBidReasonCode")
+    def no_bid_reason_code(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "no_bid_reason_code")
+
+
+@pulumi.output_type
+class LinkNoBidModuleParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passThroughPercentage":
+            suggest = "pass_through_percentage"
+        elif key == "reasonCode":
+            suggest = "reason_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkNoBidModuleParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkNoBidModuleParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkNoBidModuleParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pass_through_percentage: Optional[_builtins.float] = None,
+                 reason: Optional[_builtins.str] = None,
+                 reason_code: Optional[_builtins.int] = None):
+        if pass_through_percentage is not None:
+            pulumi.set(__self__, "pass_through_percentage", pass_through_percentage)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if reason_code is not None:
+            pulumi.set(__self__, "reason_code", reason_code)
+
+    @_builtins.property
+    @pulumi.getter(name="passThroughPercentage")
+    def pass_through_percentage(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "pass_through_percentage")
+
+    @_builtins.property
+    @pulumi.getter
+    def reason(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "reason")
+
+    @_builtins.property
+    @pulumi.getter(name="reasonCode")
+    def reason_code(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "reason_code")
+
+
+@pulumi.output_type
+class LinkOpenRtbAttributeModuleParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterConfiguration":
+            suggest = "filter_configuration"
+        elif key == "filterType":
+            suggest = "filter_type"
+        elif key == "holdbackPercentage":
+            suggest = "holdback_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkOpenRtbAttributeModuleParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkOpenRtbAttributeModuleParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkOpenRtbAttributeModuleParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Any,
+                 filter_configuration: Sequence['outputs.LinkFilter'],
+                 filter_type: 'LinkOpenRtbAttributeModuleParametersFilterType',
+                 holdback_percentage: _builtins.float):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "filter_configuration", filter_configuration)
+        pulumi.set(__self__, "filter_type", filter_type)
+        pulumi.set(__self__, "holdback_percentage", holdback_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Any:
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Sequence['outputs.LinkFilter']:
+        return pulumi.get(self, "filter_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> 'LinkOpenRtbAttributeModuleParametersFilterType':
+        return pulumi.get(self, "filter_type")
+
+    @_builtins.property
+    @pulumi.getter(name="holdbackPercentage")
+    def holdback_percentage(self) -> _builtins.float:
+        return pulumi.get(self, "holdback_percentage")
+
+
+@pulumi.output_type
+class LinkOpenRtbAttributeModuleParametersAction0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noBid":
+            suggest = "no_bid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkOpenRtbAttributeModuleParametersAction0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkOpenRtbAttributeModuleParametersAction0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkOpenRtbAttributeModuleParametersAction0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_bid: 'outputs.LinkNoBidAction'):
+        pulumi.set(__self__, "no_bid", no_bid)
+
+    @_builtins.property
+    @pulumi.getter(name="noBid")
+    def no_bid(self) -> 'outputs.LinkNoBidAction':
+        return pulumi.get(self, "no_bid")
+
+
+@pulumi.output_type
+class LinkOpenRtbAttributeModuleParametersAction1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerTag":
+            suggest = "header_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkOpenRtbAttributeModuleParametersAction1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkOpenRtbAttributeModuleParametersAction1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkOpenRtbAttributeModuleParametersAction1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_tag: 'outputs.LinkHeaderTagAction'):
+        pulumi.set(__self__, "header_tag", header_tag)
+
+    @_builtins.property
+    @pulumi.getter(name="headerTag")
+    def header_tag(self) -> 'outputs.LinkHeaderTagAction':
+        return pulumi.get(self, "header_tag")
 
 
 @pulumi.output_type
@@ -856,6 +1141,220 @@ class OutboundExternalLinkResponderErrorMaskingForHttpCode(dict):
 
 
 @pulumi.output_type
+class ResponderGatewayAutoScalingGroupsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalingGroupNameList":
+            suggest = "auto_scaling_group_name_list"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "healthCheckConfig":
+            suggest = "health_check_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponderGatewayAutoScalingGroupsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponderGatewayAutoScalingGroupsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponderGatewayAutoScalingGroupsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_scaling_group_name_list: Sequence[_builtins.str],
+                 role_arn: _builtins.str,
+                 health_check_config: Optional['outputs.ResponderGatewayHealthCheckConfig'] = None):
+        pulumi.set(__self__, "auto_scaling_group_name_list", auto_scaling_group_name_list)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if health_check_config is not None:
+            pulumi.set(__self__, "health_check_config", health_check_config)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingGroupNameList")
+    def auto_scaling_group_name_list(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "auto_scaling_group_name_list")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckConfig")
+    def health_check_config(self) -> Optional['outputs.ResponderGatewayHealthCheckConfig']:
+        return pulumi.get(self, "health_check_config")
+
+
+@pulumi.output_type
+class ResponderGatewayEksEndpointsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterApiServerCaCertificateChain":
+            suggest = "cluster_api_server_ca_certificate_chain"
+        elif key == "clusterApiServerEndpointUri":
+            suggest = "cluster_api_server_endpoint_uri"
+        elif key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "endpointsResourceName":
+            suggest = "endpoints_resource_name"
+        elif key == "endpointsResourceNamespace":
+            suggest = "endpoints_resource_namespace"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponderGatewayEksEndpointsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponderGatewayEksEndpointsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponderGatewayEksEndpointsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_api_server_ca_certificate_chain: _builtins.str,
+                 cluster_api_server_endpoint_uri: _builtins.str,
+                 cluster_name: _builtins.str,
+                 endpoints_resource_name: _builtins.str,
+                 endpoints_resource_namespace: _builtins.str,
+                 role_arn: _builtins.str):
+        pulumi.set(__self__, "cluster_api_server_ca_certificate_chain", cluster_api_server_ca_certificate_chain)
+        pulumi.set(__self__, "cluster_api_server_endpoint_uri", cluster_api_server_endpoint_uri)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "endpoints_resource_name", endpoints_resource_name)
+        pulumi.set(__self__, "endpoints_resource_namespace", endpoints_resource_namespace)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterApiServerCaCertificateChain")
+    def cluster_api_server_ca_certificate_chain(self) -> _builtins.str:
+        return pulumi.get(self, "cluster_api_server_ca_certificate_chain")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterApiServerEndpointUri")
+    def cluster_api_server_endpoint_uri(self) -> _builtins.str:
+        return pulumi.get(self, "cluster_api_server_endpoint_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> _builtins.str:
+        return pulumi.get(self, "cluster_name")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointsResourceName")
+    def endpoints_resource_name(self) -> _builtins.str:
+        return pulumi.get(self, "endpoints_resource_name")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointsResourceNamespace")
+    def endpoints_resource_namespace(self) -> _builtins.str:
+        return pulumi.get(self, "endpoints_resource_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class ResponderGatewayHealthCheckConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthyThresholdCount":
+            suggest = "healthy_threshold_count"
+        elif key == "intervalSeconds":
+            suggest = "interval_seconds"
+        elif key == "statusCodeMatcher":
+            suggest = "status_code_matcher"
+        elif key == "timeoutMs":
+            suggest = "timeout_ms"
+        elif key == "unhealthyThresholdCount":
+            suggest = "unhealthy_threshold_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponderGatewayHealthCheckConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponderGatewayHealthCheckConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponderGatewayHealthCheckConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 port: _builtins.int,
+                 healthy_threshold_count: Optional[_builtins.int] = None,
+                 interval_seconds: Optional[_builtins.int] = None,
+                 protocol: Optional['ResponderGatewayProtocol'] = None,
+                 status_code_matcher: Optional[_builtins.str] = None,
+                 timeout_ms: Optional[_builtins.int] = None,
+                 unhealthy_threshold_count: Optional[_builtins.int] = None):
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        if healthy_threshold_count is not None:
+            pulumi.set(__self__, "healthy_threshold_count", healthy_threshold_count)
+        if interval_seconds is not None:
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if status_code_matcher is not None:
+            pulumi.set(__self__, "status_code_matcher", status_code_matcher)
+        if timeout_ms is not None:
+            pulumi.set(__self__, "timeout_ms", timeout_ms)
+        if unhealthy_threshold_count is not None:
+            pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="healthyThresholdCount")
+    def healthy_threshold_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "healthy_threshold_count")
+
+    @_builtins.property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "interval_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional['ResponderGatewayProtocol']:
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCodeMatcher")
+    def status_code_matcher(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status_code_matcher")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMs")
+    def timeout_ms(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "timeout_ms")
+
+    @_builtins.property
+    @pulumi.getter(name="unhealthyThresholdCount")
+    def unhealthy_threshold_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "unhealthy_threshold_count")
+
+
+@pulumi.output_type
 class ResponderGatewayListenerConfig(dict):
     def __init__(__self__, *,
                  protocols: Sequence['ResponderGatewayProtocol']):
@@ -869,8 +1368,42 @@ class ResponderGatewayListenerConfig(dict):
 
 @pulumi.output_type
 class ResponderGatewayManagedEndpointConfiguration(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalingGroupsConfiguration":
+            suggest = "auto_scaling_groups_configuration"
+        elif key == "eksEndpointsConfiguration":
+            suggest = "eks_endpoints_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponderGatewayManagedEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponderGatewayManagedEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponderGatewayManagedEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_scaling_groups_configuration: Optional['outputs.ResponderGatewayAutoScalingGroupsConfiguration'] = None,
+                 eks_endpoints_configuration: Optional['outputs.ResponderGatewayEksEndpointsConfiguration'] = None):
+        if auto_scaling_groups_configuration is not None:
+            pulumi.set(__self__, "auto_scaling_groups_configuration", auto_scaling_groups_configuration)
+        if eks_endpoints_configuration is not None:
+            pulumi.set(__self__, "eks_endpoints_configuration", eks_endpoints_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingGroupsConfiguration")
+    def auto_scaling_groups_configuration(self) -> Optional['outputs.ResponderGatewayAutoScalingGroupsConfiguration']:
+        return pulumi.get(self, "auto_scaling_groups_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="eksEndpointsConfiguration")
+    def eks_endpoints_configuration(self) -> Optional['outputs.ResponderGatewayEksEndpointsConfiguration']:
+        return pulumi.get(self, "eks_endpoints_configuration")
 
 
 @pulumi.output_type

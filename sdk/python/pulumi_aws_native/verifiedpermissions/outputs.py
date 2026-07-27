@@ -37,6 +37,7 @@ __all__ = [
     'PolicyStoreDefault',
     'PolicyStoreDeletionProtection',
     'PolicyStoreEncryptionSettings',
+    'PolicyStoreKmsEncryptionSettings',
     'PolicyStoreKmsEncryptionState',
     'PolicyStoreSchemaDefinition',
     'PolicyStoreValidationSettings',
@@ -639,8 +640,77 @@ class PolicyStoreDeletionProtection(dict):
 
 @pulumi.output_type
 class PolicyStoreEncryptionSettings(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsEncryptionSettings":
+            suggest = "kms_encryption_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStoreEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStoreEncryptionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStoreEncryptionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default: Optional['outputs.PolicyStoreDefault'] = None,
+                 kms_encryption_settings: Optional['outputs.PolicyStoreKmsEncryptionSettings'] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if kms_encryption_settings is not None:
+            pulumi.set(__self__, "kms_encryption_settings", kms_encryption_settings)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional['outputs.PolicyStoreDefault']:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsEncryptionSettings")
+    def kms_encryption_settings(self) -> Optional['outputs.PolicyStoreKmsEncryptionSettings']:
+        return pulumi.get(self, "kms_encryption_settings")
+
+
+@pulumi.output_type
+class PolicyStoreKmsEncryptionSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionContext":
+            suggest = "encryption_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyStoreKmsEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyStoreKmsEncryptionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyStoreKmsEncryptionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 encryption_context: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "key", key)
+        if encryption_context is not None:
+            pulumi.set(__self__, "encryption_context", encryption_context)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionContext")
+    def encryption_context(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "encryption_context")
 
 
 @pulumi.output_type

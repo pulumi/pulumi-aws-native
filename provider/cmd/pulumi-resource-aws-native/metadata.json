@@ -198235,6 +198235,52 @@
                 }
             }
         },
+        "aws-native:bedrockagentcore:RuntimeManagedVpcResource": {
+            "type": "object",
+            "properties": {
+                "endpointIpAddressType": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:RuntimeManagedVpcResourceEndpointIpAddressType",
+                    "description": "The IP address type for the endpoint"
+                },
+                "routingDomain": {
+                    "type": "string",
+                    "description": "An intermediate domain to use as the resource configuration endpoint instead of the actual target domain"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security group IDs"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The subnet IDs"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Tags to apply to the managed VPC Lattice resource gateway"
+                },
+                "vpcIdentifier": {
+                    "type": "string",
+                    "description": "The VPC identifier"
+                }
+            },
+            "required": [
+                "endpointIpAddressType",
+                "subnetIds",
+                "vpcIdentifier"
+            ]
+        },
+        "aws-native:bedrockagentcore:RuntimeManagedVpcResourceEndpointIpAddressType": {
+            "type": "string"
+        },
         "aws-native:bedrockagentcore:RuntimeNetworkConfiguration": {
             "type": "object",
             "properties": {
@@ -198254,7 +198300,15 @@
             "type": "string"
         },
         "aws-native:bedrockagentcore:RuntimePrivateEndpoint": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "managedVpcResource": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:RuntimeManagedVpcResource"
+                },
+                "selfManagedLatticeResource": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:RuntimeSelfManagedLatticeResource"
+                }
+            }
         },
         "aws-native:bedrockagentcore:RuntimePrivateEndpointOverride": {
             "type": "object",
@@ -198320,6 +198374,18 @@
             "required": [
                 "bucket",
                 "prefix"
+            ]
+        },
+        "aws-native:bedrockagentcore:RuntimeSelfManagedLatticeResource": {
+            "type": "object",
+            "properties": {
+                "resourceConfigurationIdentifier": {
+                    "type": "string",
+                    "description": "The identifier of the VPC Lattice resource configuration"
+                }
+            },
+            "required": [
+                "resourceConfigurationIdentifier"
             ]
         },
         "aws-native:bedrockagentcore:RuntimeSessionStorageConfiguration": {
@@ -218661,11 +218727,37 @@
         "aws-native:datazone:OwnerEntityType": {
             "type": "string"
         },
+        "aws-native:datazone:OwnerGroupProperties": {
+            "type": "object",
+            "properties": {
+                "groupIdentifier": {
+                    "type": "string",
+                    "description": "The ID of the domain unit owners group."
+                }
+            }
+        },
         "aws-native:datazone:OwnerProperties": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "group": {
+                    "$ref": "#/types/aws-native:datazone:OwnerGroupProperties"
+                },
+                "user": {
+                    "$ref": "#/types/aws-native:datazone:OwnerUserProperties"
+                }
+            }
         },
         "aws-native:datazone:OwnerType": {
             "type": "string"
+        },
+        "aws-native:datazone:OwnerUserProperties": {
+            "type": "object",
+            "properties": {
+                "userIdentifier": {
+                    "type": "string",
+                    "description": "The ID of the owner user."
+                }
+            }
         },
         "aws-native:datazone:PolicyGrantAddToProjectMemberPoolPolicyGrantDetail": {
             "type": "object",
@@ -220006,11 +220098,83 @@
                 "user"
             ]
         },
+        "aws-native:deadline:QueuePriorityBalancedSchedulingConfiguration": {
+            "type": "object",
+            "properties": {
+                "renderingTaskBuffer": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:deadline:QueuePriorityFifoSchedulingConfiguration": {
+            "type": "object"
+        },
         "aws-native:deadline:QueueRunAs": {
             "type": "string"
         },
         "aws-native:deadline:QueueSchedulingConfiguration": {
+            "type": "object",
+            "properties": {
+                "priorityBalanced": {
+                    "$ref": "#/types/aws-native:deadline:QueuePriorityBalancedSchedulingConfiguration"
+                },
+                "priorityFifo": {
+                    "$ref": "#/types/aws-native:deadline:QueuePriorityFifoSchedulingConfiguration"
+                },
+                "weightedBalanced": {
+                    "$ref": "#/types/aws-native:deadline:QueueWeightedBalancedSchedulingConfiguration"
+                }
+            }
+        },
+        "aws-native:deadline:QueueSchedulingMaxPriorityOverride0Properties": {
+            "type": "object",
+            "properties": {
+                "alwaysScheduleFirst": {
+                    "$ref": "#/types/aws-native:deadline:QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst"
+                }
+            },
+            "required": [
+                "alwaysScheduleFirst"
+            ]
+        },
+        "aws-native:deadline:QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst": {
             "type": "object"
+        },
+        "aws-native:deadline:QueueSchedulingMaxPriorityOverrideProperties": {
+            "type": "object",
+            "properties": {
+                "alwaysScheduleFirst": {
+                    "$ref": "#/types/aws-native:deadline:QueueSchedulingMaxPriorityOverrideAlwaysScheduleFirst"
+                }
+            },
+            "required": [
+                "alwaysScheduleFirst"
+            ]
+        },
+        "aws-native:deadline:QueueSchedulingMinPriorityOverride0Properties": {
+            "type": "object",
+            "properties": {
+                "alwaysScheduleLast": {
+                    "$ref": "#/types/aws-native:deadline:QueueSchedulingMinPriorityOverrideAlwaysScheduleLast"
+                }
+            },
+            "required": [
+                "alwaysScheduleLast"
+            ]
+        },
+        "aws-native:deadline:QueueSchedulingMinPriorityOverrideAlwaysScheduleLast": {
+            "type": "object"
+        },
+        "aws-native:deadline:QueueSchedulingMinPriorityOverrideProperties": {
+            "type": "object",
+            "properties": {
+                "alwaysScheduleLast": {
+                    "$ref": "#/types/aws-native:deadline:QueueSchedulingMinPriorityOverrideAlwaysScheduleLast"
+                }
+            },
+            "required": [
+                "alwaysScheduleLast"
+            ]
         },
         "aws-native:deadline:QueueTag": {
             "type": "object",
@@ -220028,6 +220192,32 @@
                 "key",
                 "value"
             ]
+        },
+        "aws-native:deadline:QueueWeightedBalancedSchedulingConfiguration": {
+            "type": "object",
+            "properties": {
+                "errorWeight": {
+                    "type": "number"
+                },
+                "maxPriorityOverride": {
+                    "$ref": "#/types/aws-native:deadline:QueueSchedulingMaxPriorityOverrideProperties"
+                },
+                "minPriorityOverride": {
+                    "$ref": "#/types/aws-native:deadline:QueueSchedulingMinPriorityOverrideProperties"
+                },
+                "priorityWeight": {
+                    "type": "number"
+                },
+                "renderingTaskBuffer": {
+                    "type": "integer"
+                },
+                "renderingTaskWeight": {
+                    "type": "number"
+                },
+                "submissionTimeWeight": {
+                    "type": "number"
+                }
+            }
         },
         "aws-native:deadline:QueueWindowsUser": {
             "type": "object",
@@ -220352,11 +220542,573 @@
                 "value"
             ]
         },
+        "aws-native:devopsagent:AssociationAwsConfiguration": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "AWS Account Id corresponding to provided resources"
+                },
+                "accountType": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationAwsConfigurationAccountType",
+                    "description": "Account Type 'monitor' for DevOpsAgent monitoring"
+                },
+                "assumableRoleArn": {
+                    "type": "string",
+                    "description": "Role ARN to be assumed by DevOpsAgent to operate on behalf of customer"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devopsagent:AssociationAwsResource"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devopsagent:AssociationKeyValuePair"
+                    }
+                }
+            },
+            "required": [
+                "accountId",
+                "accountType",
+                "assumableRoleArn"
+            ]
+        },
+        "aws-native:devopsagent:AssociationAwsConfigurationAccountType": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:AssociationAwsResource": {
+            "type": "object",
+            "properties": {
+                "resourceArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the resource"
+                },
+                "resourceMetadata": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Additional metadata for the resource"
+                },
+                "resourceType": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationAwsResourceResourceType",
+                    "description": "Resource type"
+                }
+            },
+            "required": [
+                "resourceArn"
+            ]
+        },
+        "aws-native:devopsagent:AssociationAwsResourceResourceType": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:AssociationAzureConfiguration": {
+            "type": "object",
+            "properties": {
+                "subscriptionId": {
+                    "type": "string",
+                    "description": "Azure subscription ID corresponding to provided resources"
+                }
+            },
+            "required": [
+                "subscriptionId"
+            ]
+        },
+        "aws-native:devopsagent:AssociationDynatraceConfiguration": {
+            "type": "object",
+            "properties": {
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "envId": {
+                    "type": "string",
+                    "description": "Dynatrace environment id"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Dynatrace resources to monitor"
+                }
+            },
+            "required": [
+                "envId"
+            ]
+        },
+        "aws-native:devopsagent:AssociationEventChannelConfiguration": {
+            "type": "object",
+            "properties": {
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                }
+            }
+        },
+        "aws-native:devopsagent:AssociationGitHubConfiguration": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "type": "string",
+                    "description": "Repository owner"
+                },
+                "ownerType": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationGitHubConfigurationOwnerType",
+                    "description": "Type of repository owner"
+                },
+                "repoId": {
+                    "type": "string",
+                    "description": "Associated Github repo ID"
+                },
+                "repoName": {
+                    "type": "string",
+                    "description": "Associated Github repo name"
+                }
+            },
+            "required": [
+                "owner",
+                "ownerType",
+                "repoId",
+                "repoName"
+            ]
+        },
+        "aws-native:devopsagent:AssociationGitHubConfigurationOwnerType": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:AssociationGitLabConfiguration": {
+            "type": "object",
+            "properties": {
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "instanceIdentifier": {
+                    "type": "string",
+                    "description": "GitLab instance identifier"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "GitLab numeric project ID"
+                },
+                "projectPath": {
+                    "type": "string",
+                    "description": "Full GitLab project path (e.g., namespace/project-name)"
+                }
+            },
+            "required": [
+                "projectId",
+                "projectPath"
+            ]
+        },
+        "aws-native:devopsagent:AssociationKeyValuePair": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:devopsagent:AssociationMcpServerConfiguration": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the MCP server"
+                },
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the MCP server"
+                },
+                "tools": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of MCP tools that can be used with the association"
+                }
+            },
+            "required": [
+                "tools"
+            ]
+        },
+        "aws-native:devopsagent:AssociationMcpServerDatadogConfiguration": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the MCP server"
+                },
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the MCP server"
+                }
+            }
+        },
+        "aws-native:devopsagent:AssociationMcpServerGrafanaConfiguration": {
+            "type": "object",
+            "properties": {
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "tools": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devopsagent:AssociationMcpServerGrafanaConfigurationToolsItem"
+                    },
+                    "description": "List of tool categories to enable for the Grafana MCP server"
+                }
+            },
+            "required": [
+                "endpoint"
+            ]
+        },
+        "aws-native:devopsagent:AssociationMcpServerGrafanaConfigurationToolsItem": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:AssociationMcpServerNewRelicConfiguration": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "New Relic Account ID"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL (e.g., https://mcp.newrelic.com/mcp/)"
+                }
+            },
+            "required": [
+                "accountId",
+                "endpoint"
+            ]
+        },
+        "aws-native:devopsagent:AssociationMcpServerSigV4Configuration": {
+            "type": "object",
+            "properties": {
+                "tools": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of MCP tools available for the association"
+                }
+            },
+            "required": [
+                "tools"
+            ]
+        },
+        "aws-native:devopsagent:AssociationMcpServerSplunkConfiguration": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the MCP server"
+                },
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the MCP server"
+                }
+            }
+        },
+        "aws-native:devopsagent:AssociationPagerDutyConfiguration": {
+            "type": "object",
+            "properties": {
+                "customerEmail": {
+                    "type": "string",
+                    "description": "Email to be used in PagerDuty API header"
+                },
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of PagerDuty service IDs available for the association"
+                }
+            },
+            "required": [
+                "customerEmail",
+                "services"
+            ]
+        },
         "aws-native:devopsagent:AssociationServiceConfiguration": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "aws": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationAwsConfiguration"
+                },
+                "azure": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationAzureConfiguration"
+                },
+                "dynatrace": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationDynatraceConfiguration"
+                },
+                "eventChannel": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationEventChannelConfiguration"
+                },
+                "gitHub": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationGitHubConfiguration"
+                },
+                "gitLab": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationGitLabConfiguration"
+                },
+                "mcpServer": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationMcpServerConfiguration"
+                },
+                "mcpServerDatadog": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationMcpServerDatadogConfiguration"
+                },
+                "mcpServerGrafana": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationMcpServerGrafanaConfiguration"
+                },
+                "mcpServerNewRelic": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationMcpServerNewRelicConfiguration"
+                },
+                "mcpServerSigV4": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationMcpServerSigV4Configuration"
+                },
+                "mcpServerSplunk": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationMcpServerSplunkConfiguration"
+                },
+                "pagerDuty": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationPagerDutyConfiguration"
+                },
+                "serviceNow": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationServiceNowConfiguration"
+                },
+                "slack": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationSlackConfiguration"
+                },
+                "sourceAws": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationSourceAwsConfiguration"
+                }
+            },
+            "irreversibleNames": {
+                "mcpServer": "MCPServer",
+                "mcpServerDatadog": "MCPServerDatadog",
+                "mcpServerGrafana": "MCPServerGrafana",
+                "mcpServerNewRelic": "MCPServerNewRelic",
+                "mcpServerSigV4": "MCPServerSigV4",
+                "mcpServerSplunk": "MCPServerSplunk"
+            }
+        },
+        "aws-native:devopsagent:AssociationServiceNowConfiguration": {
+            "type": "object",
+            "properties": {
+                "enableWebhookUpdates": {
+                    "type": "boolean",
+                    "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service"
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "ServiceNow instance ID"
+                }
+            }
+        },
+        "aws-native:devopsagent:AssociationSlackChannel": {
+            "type": "object",
+            "properties": {
+                "channelId": {
+                    "type": "string",
+                    "description": "Slack channel ID"
+                },
+                "channelName": {
+                    "type": "string",
+                    "description": "Slack channel name"
+                }
+            },
+            "required": [
+                "channelId"
+            ]
+        },
+        "aws-native:devopsagent:AssociationSlackConfiguration": {
+            "type": "object",
+            "properties": {
+                "transmissionTarget": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationSlackTransmissionTarget"
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "Associated Slack workspace ID"
+                },
+                "workspaceName": {
+                    "type": "string",
+                    "description": "Associated Slack workspace name"
+                }
+            },
+            "required": [
+                "transmissionTarget",
+                "workspaceId",
+                "workspaceName"
+            ]
+        },
+        "aws-native:devopsagent:AssociationSlackTransmissionTarget": {
+            "type": "object",
+            "properties": {
+                "incidentResponseTarget": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationSlackChannel",
+                    "description": "Destination for IncidentResponse agent."
+                }
+            },
+            "required": [
+                "incidentResponseTarget"
+            ]
+        },
+        "aws-native:devopsagent:AssociationSourceAwsConfiguration": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "AWS Account Id corresponding to provided resources"
+                },
+                "accountType": {
+                    "$ref": "#/types/aws-native:devopsagent:AssociationSourceAwsConfigurationAccountType",
+                    "description": "Account Type 'source' for DevOpsAgent monitoring"
+                },
+                "assumableRoleArn": {
+                    "type": "string",
+                    "description": "Role ARN to be assumed by DevOpsAgent to operate on behalf of customer"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devopsagent:AssociationAwsResource"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:devopsagent:AssociationKeyValuePair"
+                    }
+                }
+            },
+            "required": [
+                "accountId",
+                "accountType",
+                "assumableRoleArn"
+            ]
+        },
+        "aws-native:devopsagent:AssociationSourceAwsConfigurationAccountType": {
+            "type": "string"
         },
         "aws-native:devopsagent:PrivateConnectionConnectionConfiguration": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "selfManaged": {
+                    "$ref": "#/types/aws-native:devopsagent:PrivateConnectionSelfManagedMode"
+                },
+                "serviceManaged": {
+                    "$ref": "#/types/aws-native:devopsagent:PrivateConnectionServiceManagedMode"
+                }
+            }
+        },
+        "aws-native:devopsagent:PrivateConnectionSelfManagedMode": {
+            "type": "object",
+            "properties": {
+                "resourceConfigurationId": {
+                    "type": "string",
+                    "description": "The ARN of the Resource Configuration."
+                }
+            },
+            "required": [
+                "resourceConfigurationId"
+            ]
+        },
+        "aws-native:devopsagent:PrivateConnectionServiceManagedMode": {
+            "type": "object",
+            "properties": {
+                "dnsResolution": {
+                    "$ref": "#/types/aws-native:devopsagent:PrivateConnectionServiceManagedModeDnsResolution",
+                    "description": "DNS resolution mode for the resource gateway. Defaults to PUBLIC when not set."
+                },
+                "hostAddress": {
+                    "type": "string",
+                    "description": "IP address or DNS name of the target resource."
+                },
+                "ipAddressType": {
+                    "$ref": "#/types/aws-native:devopsagent:PrivateConnectionServiceManagedModeIpAddressType",
+                    "description": "IP address type of the service-managed Resource Gateway."
+                },
+                "ipv4AddressesPerEni": {
+                    "type": "integer",
+                    "description": "Number of IPv4 addresses in each ENI for the service-managed Resource Gateway."
+                },
+                "portRanges": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "TCP port ranges that a consumer can use to access the resource."
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Security groups to attach to the service-managed Resource Gateway."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Subnets that the service-managed Resource Gateway will span."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "VPC to create the service-managed Resource Gateway in."
+                }
+            },
+            "required": [
+                "hostAddress",
+                "vpcId"
+            ]
+        },
+        "aws-native:devopsagent:PrivateConnectionServiceManagedModeDnsResolution": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:PrivateConnectionServiceManagedModeIpAddressType": {
+            "type": "string"
         },
         "aws-native:devopsagent:PrivateConnectionStatus": {
             "type": "string"
@@ -220379,10 +221131,785 @@
             ]
         },
         "aws-native:devopsagent:ServiceAdditionalServiceDetails": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "azureIdentity": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredAzureIdentityDetails"
+                },
+                "dynatrace": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredDynatraceDetails"
+                },
+                "gitLab": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredGitLabServiceDetails"
+                },
+                "mcpServer": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredMcpServerDetails"
+                },
+                "mcpServerGrafana": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredMcpServerGrafanaDetails"
+                },
+                "mcpServerNewRelic": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredNewRelicDetails"
+                },
+                "mcpServerSigV4": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredMcpServerSigV4Details"
+                },
+                "mcpServerSplunk": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredMcpServerDetails"
+                },
+                "pagerDuty": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredPagerDutyDetails"
+                },
+                "serviceNow": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredServiceNowDetails"
+                }
+            },
+            "irreversibleNames": {
+                "mcpServer": "MCPServer",
+                "mcpServerGrafana": "MCPServerGrafana",
+                "mcpServerNewRelic": "MCPServerNewRelic",
+                "mcpServerSigV4": "MCPServerSigV4",
+                "mcpServerSplunk": "MCPServerSplunk"
+            }
+        },
+        "aws-native:devopsagent:ServiceApiKeyDetails": {
+            "type": "object",
+            "properties": {
+                "apiKeyHeader": {
+                    "type": "string",
+                    "description": "HTTP header name to send the API key"
+                },
+                "apiKeyName": {
+                    "type": "string",
+                    "description": "User friendly API key name"
+                },
+                "apiKeyValue": {
+                    "type": "string",
+                    "description": "API key value"
+                }
+            },
+            "required": [
+                "apiKeyHeader",
+                "apiKeyName",
+                "apiKeyValue"
+            ]
+        },
+        "aws-native:devopsagent:ServiceAzureIdentityServiceDetails": {
+            "type": "object",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "Azure AD application client ID"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "Azure AD tenant ID"
+                },
+                "webIdentityRoleArn": {
+                    "type": "string",
+                    "description": "ARN of the IAM role for web identity token exchange"
+                },
+                "webIdentityTokenAudiences": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of audiences for the web identity token"
+                }
+            },
+            "required": [
+                "clientId",
+                "tenantId",
+                "webIdentityRoleArn",
+                "webIdentityTokenAudiences"
+            ]
+        },
+        "aws-native:devopsagent:ServiceBearerTokenDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationHeader": {
+                    "type": "string",
+                    "description": "HTTP header name to send the bearer token"
+                },
+                "tokenName": {
+                    "type": "string",
+                    "description": "User friendly bearer token name"
+                },
+                "tokenValue": {
+                    "type": "string",
+                    "description": "Bearer token value"
+                }
+            },
+            "required": [
+                "tokenName",
+                "tokenValue"
+            ]
         },
         "aws-native:devopsagent:ServiceDetails": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "azureIdentity": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceAzureIdentityServiceDetails",
+                    "replaceOnChanges": true
+                },
+                "dynatrace": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceDynatraceServiceDetails",
+                    "replaceOnChanges": true
+                },
+                "gitLab": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceGitLabDetails"
+                },
+                "mcpServer": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerDetails"
+                },
+                "mcpServerGrafana": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerGrafanaDetails"
+                },
+                "mcpServerNewRelic": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceNewRelicServiceDetails"
+                },
+                "mcpServerSigV4": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerSigV4Details"
+                },
+                "mcpServerSplunk": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerSplunkDetails",
+                    "replaceOnChanges": true
+                },
+                "pagerDuty": {
+                    "$ref": "#/types/aws-native:devopsagent:ServicePagerDutyDetails",
+                    "replaceOnChanges": true
+                },
+                "serviceNow": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceNowServiceDetails",
+                    "replaceOnChanges": true
+                }
+            },
+            "irreversibleNames": {
+                "mcpServer": "MCPServer",
+                "mcpServerGrafana": "MCPServerGrafana",
+                "mcpServerNewRelic": "MCPServerNewRelic",
+                "mcpServerSigV4": "MCPServerSigV4",
+                "mcpServerSplunk": "MCPServerSplunk"
+            }
+        },
+        "aws-native:devopsagent:ServiceDynatraceAuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "oAuthClientCredentials": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceOAuthClientDetails"
+                }
+            }
+        },
+        "aws-native:devopsagent:ServiceDynatraceServiceDetails": {
+            "type": "object",
+            "properties": {
+                "accountUrn": {
+                    "type": "string",
+                    "description": "Dynatrace resource account URN"
+                },
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceDynatraceAuthorizationConfig"
+                }
+            },
+            "required": [
+                "accountUrn"
+            ]
+        },
+        "aws-native:devopsagent:ServiceGitLabDetails": {
+            "type": "object",
+            "properties": {
+                "groupId": {
+                    "type": "string",
+                    "description": "Optional GitLab group ID for group-level access tokens"
+                },
+                "targetUrl": {
+                    "type": "string",
+                    "description": "GitLab instance URL"
+                },
+                "tokenType": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceGitLabDetailsTokenType",
+                    "description": "Type of GitLab access token"
+                },
+                "tokenValue": {
+                    "type": "string",
+                    "description": "GitLab access token value"
+                }
+            },
+            "required": [
+                "targetUrl",
+                "tokenType",
+                "tokenValue"
+            ]
+        },
+        "aws-native:devopsagent:ServiceGitLabDetailsTokenType": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:ServiceMcpServerAuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceApiKeyDetails"
+                },
+                "bearerToken": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceBearerTokenDetails"
+                },
+                "oAuthClientCredentials": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerOAuthClientCredentialsConfig"
+                }
+            }
+        },
+        "aws-native:devopsagent:ServiceMcpServerDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerAuthorizationConfig"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the MCP server"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "MCP server name"
+                }
+            },
+            "required": [
+                "authorizationConfig",
+                "endpoint",
+                "name"
+            ]
+        },
+        "aws-native:devopsagent:ServiceMcpServerGrafanaAuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "bearerToken": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceBearerTokenDetails"
+                }
+            }
+        },
+        "aws-native:devopsagent:ServiceMcpServerGrafanaDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerGrafanaAuthorizationConfig"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the MCP server"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "MCP server name"
+                }
+            },
+            "required": [
+                "authorizationConfig",
+                "endpoint",
+                "name"
+            ]
+        },
+        "aws-native:devopsagent:ServiceMcpServerOAuthClientCredentialsConfig": {
+            "type": "object",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "OAuth client ID"
+                },
+                "clientName": {
+                    "type": "string",
+                    "description": "User friendly OAuth client name"
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "description": "OAuth client secret"
+                },
+                "exchangeParameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "OAuth token exchange parameters"
+                },
+                "exchangeUrl": {
+                    "type": "string",
+                    "description": "OAuth token exchange URL"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "OAuth scopes"
+                }
+            },
+            "required": [
+                "clientId",
+                "clientSecret",
+                "exchangeUrl"
+            ]
+        },
+        "aws-native:devopsagent:ServiceMcpServerSigV4AuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "customHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Custom headers for the SigV4 MCP server"
+                },
+                "mcpRoleArn": {
+                    "type": "string",
+                    "description": "IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association."
+                },
+                "region": {
+                    "type": "string",
+                    "description": "AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "AWS service name for SigV4 signing"
+                }
+            },
+            "required": [
+                "region",
+                "service"
+            ]
+        },
+        "aws-native:devopsagent:ServiceMcpServerSigV4Details": {
+            "type": "object",
+            "properties": {
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerSigV4AuthorizationConfig"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the MCP server"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "MCP server name"
+                }
+            },
+            "required": [
+                "authorizationConfig",
+                "endpoint",
+                "name"
+            ]
+        },
+        "aws-native:devopsagent:ServiceMcpServerSplunkAuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "bearerToken": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceBearerTokenDetails"
+                }
+            }
+        },
+        "aws-native:devopsagent:ServiceMcpServerSplunkDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceMcpServerSplunkAuthorizationConfig"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the MCP server"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "MCP server name"
+                }
+            },
+            "required": [
+                "authorizationConfig",
+                "endpoint",
+                "name"
+            ]
+        },
+        "aws-native:devopsagent:ServiceNewRelicApiKeyConfig": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "New Relic Account ID"
+                },
+                "alertPolicyIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of alert policy IDs"
+                },
+                "apiKey": {
+                    "type": "string",
+                    "description": "New Relic User API Key"
+                },
+                "applicationIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of monitored APM application IDs"
+                },
+                "entityGuids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of globally unique IDs for New Relic resources"
+                },
+                "region": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceNewRelicApiKeyConfigRegion",
+                    "description": "New Relic region"
+                }
+            },
+            "required": [
+                "accountId",
+                "apiKey",
+                "region"
+            ]
+        },
+        "aws-native:devopsagent:ServiceNewRelicApiKeyConfigRegion": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:ServiceNewRelicAuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceNewRelicApiKeyConfig"
+                }
+            },
+            "required": [
+                "apiKey"
+            ]
+        },
+        "aws-native:devopsagent:ServiceNewRelicServiceDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceNewRelicAuthorizationConfig"
+                }
+            },
+            "required": [
+                "authorizationConfig"
+            ]
+        },
+        "aws-native:devopsagent:ServiceNowAuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "oAuthClientCredentials": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceOAuthClientDetails"
+                }
+            }
+        },
+        "aws-native:devopsagent:ServiceNowServiceDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceNowAuthorizationConfig"
+                },
+                "instanceUrl": {
+                    "type": "string",
+                    "description": "ServiceNow instance URL"
+                }
+            },
+            "required": [
+                "instanceUrl"
+            ]
+        },
+        "aws-native:devopsagent:ServiceOAuthClientDetails": {
+            "type": "object",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "OAuth client ID"
+                },
+                "clientName": {
+                    "type": "string",
+                    "description": "User friendly OAuth client name"
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "description": "OAuth client secret"
+                },
+                "exchangeParameters": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "OAuth token exchange parameters"
+                }
+            },
+            "required": [
+                "clientId",
+                "clientSecret"
+            ]
+        },
+        "aws-native:devopsagent:ServicePagerDutyAuthorizationConfig": {
+            "type": "object",
+            "properties": {
+                "oAuthClientCredentials": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceOAuthClientDetails"
+                }
+            }
+        },
+        "aws-native:devopsagent:ServicePagerDutyDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationConfig": {
+                    "$ref": "#/types/aws-native:devopsagent:ServicePagerDutyAuthorizationConfig"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "PagerDuty scopes"
+                }
+            },
+            "required": [
+                "authorizationConfig",
+                "scopes"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredAzureIdentityDetails": {
+            "type": "object",
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "Azure AD application client ID"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "Azure AD tenant ID"
+                },
+                "webIdentityRoleArn": {
+                    "type": "string",
+                    "description": "ARN of the IAM role for web identity token exchange"
+                },
+                "webIdentityTokenAudiences": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of audiences for the web identity token"
+                }
+            },
+            "required": [
+                "clientId",
+                "tenantId",
+                "webIdentityRoleArn",
+                "webIdentityTokenAudiences"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredDynatraceDetails": {
+            "type": "object",
+            "properties": {
+                "accountUrn": {
+                    "type": "string",
+                    "description": "Dynatrace resource account URN"
+                }
+            },
+            "required": [
+                "accountUrn"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredGitLabServiceDetails": {
+            "type": "object",
+            "properties": {
+                "groupId": {
+                    "type": "string",
+                    "description": "Optional GitLab group ID for group-level access tokens"
+                },
+                "targetUrl": {
+                    "type": "string",
+                    "description": "GitLab instance URL"
+                },
+                "tokenType": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredGitLabServiceDetailsTokenType",
+                    "description": "Type of GitLab access token"
+                }
+            },
+            "required": [
+                "targetUrl",
+                "tokenType"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredGitLabServiceDetailsTokenType": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:ServiceRegisteredMcpServerDetails": {
+            "type": "object",
+            "properties": {
+                "apiKeyHeader": {
+                    "type": "string",
+                    "description": "API key header name if using API key authentication"
+                },
+                "authorizationMethod": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredMcpServerDetailsAuthorizationMethod",
+                    "description": "MCP server authorization method"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the MCP server"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "MCP server name"
+                }
+            },
+            "required": [
+                "authorizationMethod",
+                "endpoint",
+                "name"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredMcpServerDetailsAuthorizationMethod": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:ServiceRegisteredMcpServerGrafanaDetails": {
+            "type": "object",
+            "properties": {
+                "authorizationMethod": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod",
+                    "description": "MCP server authorization method"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the MCP server"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "MCP server endpoint URL"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "MCP server name"
+                }
+            },
+            "required": [
+                "authorizationMethod",
+                "endpoint"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:ServiceRegisteredMcpServerSigV4Details": {
+            "type": "object",
+            "properties": {
+                "customHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Custom headers for the SigV4 MCP server"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional description for the MCP server"
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "The MCP server endpoint URL"
+                },
+                "mcpRoleArn": {
+                    "type": "string",
+                    "description": "IAM role ARN for SigV4 signing. Absent when no dedicated role is configured."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The MCP server name"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "AWS region for SigV4 signing"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "Deprecated - use McpRoleArn instead. IAM role ARN for SigV4 signing"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "AWS service name for SigV4 signing"
+                }
+            },
+            "required": [
+                "endpoint",
+                "name",
+                "region",
+                "roleArn",
+                "service"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredNewRelicDetails": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "New Relic account ID"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Optional user description"
+                },
+                "region": {
+                    "$ref": "#/types/aws-native:devopsagent:ServiceRegisteredNewRelicDetailsRegion",
+                    "description": "New Relic region"
+                }
+            },
+            "required": [
+                "accountId",
+                "region"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredNewRelicDetailsRegion": {
+            "type": "string"
+        },
+        "aws-native:devopsagent:ServiceRegisteredPagerDutyDetails": {
+            "type": "object",
+            "properties": {
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The scopes assigned to the service"
+                }
+            },
+            "required": [
+                "scopes"
+            ]
+        },
+        "aws-native:devopsagent:ServiceRegisteredServiceNowDetails": {
+            "type": "object",
+            "properties": {
+                "instanceUrl": {
+                    "type": "string",
+                    "description": "ServiceNow instance URL"
+                }
+            },
+            "required": [
+                "instanceUrl"
+            ]
         },
         "aws-native:devopsagent:ServiceTag": {
             "type": "object",
@@ -243426,7 +244953,15 @@
             ]
         },
         "aws-native:greengrassv2:DeploymentIoTJobRateIncreaseCriteria": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "numberOfNotifiedThings": {
+                    "type": "integer"
+                },
+                "numberOfSucceededThings": {
+                    "type": "integer"
+                }
+            }
         },
         "aws-native:greengrassv2:DeploymentIoTJobTimeoutConfig": {
             "type": "object",
@@ -264940,8 +266475,42 @@
         "aws-native:m2:ApplicationEngineType": {
             "type": "string"
         },
+        "aws-native:m2:EnvironmentEfsStorageConfiguration": {
+            "type": "object",
+            "properties": {
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The file system identifier."
+                },
+                "mountPoint": {
+                    "type": "string",
+                    "description": "The mount point for the file system."
+                }
+            },
+            "required": [
+                "fileSystemId",
+                "mountPoint"
+            ]
+        },
         "aws-native:m2:EnvironmentEngineType": {
             "type": "string"
+        },
+        "aws-native:m2:EnvironmentFsxStorageConfiguration": {
+            "type": "object",
+            "properties": {
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The file system identifier."
+                },
+                "mountPoint": {
+                    "type": "string",
+                    "description": "The mount point for the file system."
+                }
+            },
+            "required": [
+                "fileSystemId",
+                "mountPoint"
+            ]
         },
         "aws-native:m2:EnvironmentHighAvailabilityConfig": {
             "type": "object",
@@ -264959,10 +266528,46 @@
             "type": "string"
         },
         "aws-native:m2:EnvironmentStorageConfiguration": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "efs": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentEfsStorageConfiguration"
+                },
+                "fsx": {
+                    "$ref": "#/types/aws-native:m2:EnvironmentFsxStorageConfiguration"
+                }
+            }
         },
         "aws-native:macie:AllowListCriteria": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "The S3 object key for the AllowList."
+                },
+                "s3WordsList": {
+                    "$ref": "#/types/aws-native:macie:AllowListS3WordsList",
+                    "description": "The S3 location for the AllowList."
+                }
+            },
+            "irreversibleNames": {
+                "s3WordsList": "S3WordsList"
+            }
+        },
+        "aws-native:macie:AllowListS3WordsList": {
+            "type": "object",
+            "properties": {
+                "bucketName": {
+                    "type": "string"
+                },
+                "objectKey": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "bucketName",
+                "objectKey"
+            ]
         },
         "aws-native:macie:AllowListStatus": {
             "type": "string"
@@ -268051,8 +269656,35 @@
                 "programNumber"
             ]
         },
+        "aws-native:medialive:MultiplexprogramMultiplexStatmuxVideoSettings": {
+            "type": "object",
+            "properties": {
+                "maximumBitrate": {
+                    "type": "integer",
+                    "description": "Maximum statmux bitrate."
+                },
+                "minimumBitrate": {
+                    "type": "integer",
+                    "description": "Minimum statmux bitrate."
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The purpose of the priority is to use a combination of the\\nmultiplex rate control algorithm and the QVBR capability of the\\nencoder to prioritize the video quality of some channels in a\\nmultiplex over others.  Channels that have a higher priority will\\nget higher video quality at the expense of the video quality of\\nother channels in the multiplex with lower priority."
+                }
+            }
+        },
         "aws-native:medialive:MultiplexprogramMultiplexVideoSettings": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "constantBitrate": {
+                    "type": "integer",
+                    "description": "The constant bitrate configuration for the video encode.\nWhen this field is defined, StatmuxSettings must be undefined."
+                },
+                "statmuxSettings": {
+                    "$ref": "#/types/aws-native:medialive:MultiplexprogramMultiplexStatmuxVideoSettings",
+                    "description": "Statmux rate control settings.\nWhen this field is defined, ConstantBitrate must be undefined."
+                }
+            }
         },
         "aws-native:medialive:MultiplexprogramPreferredChannelPipeline": {
             "type": "string"
@@ -278526,8 +280158,28 @@
         "aws-native:pcaconnectorad:TemplateValidityPeriodType": {
             "type": "string"
         },
+        "aws-native:pcaconnectorscep:ConnectorIntuneConfiguration": {
+            "type": "object",
+            "properties": {
+                "azureApplicationId": {
+                    "type": "string"
+                },
+                "domain": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "azureApplicationId",
+                "domain"
+            ]
+        },
         "aws-native:pcaconnectorscep:ConnectorMobileDeviceManagement": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "intune": {
+                    "$ref": "#/types/aws-native:pcaconnectorscep:ConnectorIntuneConfiguration"
+                }
+            }
         },
         "aws-native:pcaconnectorscep:ConnectorOpenIdConfiguration": {
             "type": "object",
@@ -324302,11 +325954,67 @@
                 "key"
             ]
         },
+        "aws-native:redshift:ScheduledActionPauseClusterMessage": {
+            "type": "object",
+            "properties": {
+                "clusterIdentifier": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clusterIdentifier"
+            ]
+        },
+        "aws-native:redshift:ScheduledActionResizeClusterMessage": {
+            "type": "object",
+            "properties": {
+                "classic": {
+                    "type": "boolean"
+                },
+                "clusterIdentifier": {
+                    "type": "string"
+                },
+                "clusterType": {
+                    "type": "string"
+                },
+                "nodeType": {
+                    "type": "string"
+                },
+                "numberOfNodes": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "clusterIdentifier"
+            ]
+        },
+        "aws-native:redshift:ScheduledActionResumeClusterMessage": {
+            "type": "object",
+            "properties": {
+                "clusterIdentifier": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clusterIdentifier"
+            ]
+        },
         "aws-native:redshift:ScheduledActionState": {
             "type": "string"
         },
         "aws-native:redshift:ScheduledActionType": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "pauseCluster": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionPauseClusterMessage"
+                },
+                "resizeCluster": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionResizeClusterMessage"
+                },
+                "resumeCluster": {
+                    "$ref": "#/types/aws-native:redshift:ScheduledActionResumeClusterMessage"
+                }
+            }
         },
         "aws-native:redshift:VpcEndpointProperties": {
             "type": "object",
@@ -327179,6 +328887,53 @@
         "aws-native:rtbfabric:LinkDirection": {
             "type": "string"
         },
+        "aws-native:rtbfabric:LinkFilter": {
+            "type": "object",
+            "properties": {
+                "criteria": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rtbfabric:LinkFilterCriterion"
+                    }
+                }
+            },
+            "required": [
+                "criteria"
+            ]
+        },
+        "aws-native:rtbfabric:LinkFilterCriterion": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "type": "string"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "path",
+                "values"
+            ]
+        },
+        "aws-native:rtbfabric:LinkHeaderTagAction": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "value"
+            ]
+        },
         "aws-native:rtbfabric:LinkLogSettings": {
             "type": "object",
             "properties": {
@@ -327241,7 +328996,95 @@
             ]
         },
         "aws-native:rtbfabric:LinkModuleParameters": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "noBid": {
+                    "$ref": "#/types/aws-native:rtbfabric:LinkNoBidModuleParameters"
+                },
+                "openRtbAttribute": {
+                    "$ref": "#/types/aws-native:rtbfabric:LinkOpenRtbAttributeModuleParameters"
+                }
+            }
+        },
+        "aws-native:rtbfabric:LinkNoBidAction": {
+            "type": "object",
+            "properties": {
+                "noBidReasonCode": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:rtbfabric:LinkNoBidModuleParameters": {
+            "type": "object",
+            "properties": {
+                "passThroughPercentage": {
+                    "type": "number"
+                },
+                "reason": {
+                    "type": "string"
+                },
+                "reasonCode": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:rtbfabric:LinkOpenRtbAttributeModuleParameters": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/types/aws-native:rtbfabric:LinkOpenRtbAttributeModuleParametersAction0Properties"
+                        },
+                        {
+                            "$ref": "#/types/aws-native:rtbfabric:LinkOpenRtbAttributeModuleParametersAction1Properties"
+                        }
+                    ]
+                },
+                "filterConfiguration": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rtbfabric:LinkFilter"
+                    }
+                },
+                "filterType": {
+                    "$ref": "#/types/aws-native:rtbfabric:LinkOpenRtbAttributeModuleParametersFilterType"
+                },
+                "holdbackPercentage": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "action",
+                "filterConfiguration",
+                "filterType",
+                "holdbackPercentage"
+            ]
+        },
+        "aws-native:rtbfabric:LinkOpenRtbAttributeModuleParametersAction0Properties": {
+            "type": "object",
+            "properties": {
+                "noBid": {
+                    "$ref": "#/types/aws-native:rtbfabric:LinkNoBidAction"
+                }
+            },
+            "required": [
+                "noBid"
+            ]
+        },
+        "aws-native:rtbfabric:LinkOpenRtbAttributeModuleParametersAction1Properties": {
+            "type": "object",
+            "properties": {
+                "headerTag": {
+                    "$ref": "#/types/aws-native:rtbfabric:LinkHeaderTagAction"
+                }
+            },
+            "required": [
+                "headerTag"
+            ]
+        },
+        "aws-native:rtbfabric:LinkOpenRtbAttributeModuleParametersFilterType": {
+            "type": "string"
         },
         "aws-native:rtbfabric:LinkResponderErrorMaskingForHttpCode": {
             "type": "object",
@@ -327482,11 +329325,96 @@
                 "key"
             ]
         },
+        "aws-native:rtbfabric:ResponderGatewayAutoScalingGroupsConfiguration": {
+            "type": "object",
+            "properties": {
+                "autoScalingGroupNameList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "healthCheckConfig": {
+                    "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayHealthCheckConfig"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "autoScalingGroupNameList",
+                "roleArn"
+            ]
+        },
         "aws-native:rtbfabric:ResponderGatewayCertificateAssociationStatus": {
             "type": "string"
         },
+        "aws-native:rtbfabric:ResponderGatewayEksEndpointsConfiguration": {
+            "type": "object",
+            "properties": {
+                "clusterApiServerCaCertificateChain": {
+                    "type": "string"
+                },
+                "clusterApiServerEndpointUri": {
+                    "type": "string"
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "endpointsResourceName": {
+                    "type": "string"
+                },
+                "endpointsResourceNamespace": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "clusterApiServerCaCertificateChain",
+                "clusterApiServerEndpointUri",
+                "clusterName",
+                "endpointsResourceName",
+                "endpointsResourceNamespace",
+                "roleArn"
+            ]
+        },
         "aws-native:rtbfabric:ResponderGatewayGatewayType": {
             "type": "string"
+        },
+        "aws-native:rtbfabric:ResponderGatewayHealthCheckConfig": {
+            "type": "object",
+            "properties": {
+                "healthyThresholdCount": {
+                    "type": "integer"
+                },
+                "intervalSeconds": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "protocol": {
+                    "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayProtocol"
+                },
+                "statusCodeMatcher": {
+                    "type": "string"
+                },
+                "timeoutMs": {
+                    "type": "integer"
+                },
+                "unhealthyThresholdCount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "path",
+                "port"
+            ]
         },
         "aws-native:rtbfabric:ResponderGatewayListenerConfig": {
             "type": "object",
@@ -327503,7 +329431,15 @@
             ]
         },
         "aws-native:rtbfabric:ResponderGatewayManagedEndpointConfiguration": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "autoScalingGroupsConfiguration": {
+                    "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayAutoScalingGroupsConfiguration"
+                },
+                "eksEndpointsConfiguration": {
+                    "$ref": "#/types/aws-native:rtbfabric:ResponderGatewayEksEndpointsConfiguration"
+                }
+            }
         },
         "aws-native:rtbfabric:ResponderGatewayProtocol": {
             "type": "string"
@@ -328674,6 +330610,18 @@
         "aws-native:s3:BucketOwnershipControlsRuleObjectOwnership": {
             "type": "string"
         },
+        "aws-native:s3:BucketPartitionedPrefix": {
+            "type": "object",
+            "properties": {
+                "partitionDateSource": {
+                    "$ref": "#/types/aws-native:s3:BucketPartitionedPrefixPartitionDateSource",
+                    "description": "Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.\n For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files. \n  For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key."
+                }
+            }
+        },
+        "aws-native:s3:BucketPartitionedPrefixPartitionDateSource": {
+            "type": "string"
+        },
         "aws-native:s3:BucketPublicAccessBlockConfiguration": {
             "type": "object",
             "properties": {
@@ -329230,7 +331178,16 @@
             ]
         },
         "aws-native:s3:BucketTargetObjectKeyFormat": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "partitionedPrefix": {
+                    "$ref": "#/types/aws-native:s3:BucketPartitionedPrefix"
+                },
+                "simplePrefix": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "This format defaults the prefix to the given log file prefix for delivering server access log file."
+                }
+            }
         },
         "aws-native:s3:BucketTiering": {
             "type": "object",
@@ -329612,7 +331569,20 @@
             }
         },
         "aws-native:s3:StorageLensEncryption": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "ssekms": {
+                    "$ref": "#/types/aws-native:s3:StorageLensSsekms"
+                },
+                "sses3": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "S3 default server-side encryption."
+                }
+            },
+            "irreversibleNames": {
+                "ssekms": "SSEKMS",
+                "sses3": "SSES3"
+            }
         },
         "aws-native:s3:StorageLensExpandedPrefixesDataExport": {
             "type": "object",
@@ -329891,6 +331861,18 @@
                     "description": "The minimum storage bytes threshold for the prefixes to be included in the analysis."
                 }
             }
+        },
+        "aws-native:s3:StorageLensSsekms": {
+            "type": "object",
+            "properties": {
+                "keyId": {
+                    "type": "string",
+                    "description": "The ARN of the KMS key to use for encryption."
+                }
+            },
+            "required": [
+                "keyId"
+            ]
         },
         "aws-native:s3:StorageLensTableDestination": {
             "type": "object",
@@ -331911,6 +333893,24 @@
                 }
             }
         },
+        "aws-native:sagemaker:ClusterEbsVolumeConfig": {
+            "type": "object",
+            "properties": {
+                "rootVolume": {
+                    "type": "boolean"
+                },
+                "volumeKmsKeyId": {
+                    "type": "string"
+                },
+                "volumeSizeInGb": {
+                    "type": "integer",
+                    "description": "The size in gigabytes (GB) of the additional EBS volume to be attached to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker."
+                }
+            },
+            "irreversibleNames": {
+                "volumeSizeInGb": "VolumeSizeInGB"
+            }
+        },
         "aws-native:sagemaker:ClusterEnvironmentConfig": {
             "type": "object",
             "properties": {
@@ -331934,6 +333934,22 @@
             "required": [
                 "perUnitStorageThroughput",
                 "sizeInGiB"
+            ]
+        },
+        "aws-native:sagemaker:ClusterFsxOpenZfsConfig": {
+            "type": "object",
+            "properties": {
+                "dnsName": {
+                    "type": "string",
+                    "description": "The DNS name of the FSx for OpenZFS file system."
+                },
+                "mountPath": {
+                    "type": "string",
+                    "description": "The mount path for the FSx for OpenZFS file system."
+                }
+            },
+            "required": [
+                "dnsName"
             ]
         },
         "aws-native:sagemaker:ClusterInstanceGroup": {
@@ -332033,7 +334049,39 @@
             ]
         },
         "aws-native:sagemaker:ClusterInstanceStorageConfig": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "ebsVolumeConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:ClusterEbsVolumeConfig"
+                },
+                "fsxLustreConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:ClusterInstanceStorageFsxLustreConfig"
+                },
+                "fsxOpenZfsConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:ClusterFsxOpenZfsConfig"
+                }
+            }
+        },
+        "aws-native:sagemaker:ClusterInstanceStorageFsxLustreConfig": {
+            "type": "object",
+            "properties": {
+                "dnsName": {
+                    "type": "string",
+                    "description": "The DNS name of the FSx for Lustre file system."
+                },
+                "mountName": {
+                    "type": "string",
+                    "description": "The mount name of the FSx for Lustre file system."
+                },
+                "mountPath": {
+                    "type": "string",
+                    "description": "The mount path for the FSx for Lustre file system."
+                }
+            },
+            "required": [
+                "dnsName",
+                "mountName"
+            ]
         },
         "aws-native:sagemaker:ClusterKubernetesConfig": {
             "type": "object",
@@ -332121,7 +334169,40 @@
             "type": "object"
         },
         "aws-native:sagemaker:ClusterOrchestrator": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "eks": {
+                    "$ref": "#/types/aws-native:sagemaker:ClusterOrchestratorEksConfig",
+                    "replaceOnChanges": true
+                },
+                "slurm": {
+                    "$ref": "#/types/aws-native:sagemaker:ClusterOrchestratorSlurmConfig"
+                }
+            }
+        },
+        "aws-native:sagemaker:ClusterOrchestratorEksConfig": {
+            "type": "object",
+            "properties": {
+                "clusterArn": {
+                    "type": "string",
+                    "description": "The ARN of the EKS cluster, such as arn:aws:eks:us-west-2:123456789012:cluster/my-eks-cluster"
+                }
+            },
+            "required": [
+                "clusterArn"
+            ]
+        },
+        "aws-native:sagemaker:ClusterOrchestratorSlurmConfig": {
+            "type": "object",
+            "properties": {
+                "slurmConfigStrategy": {
+                    "$ref": "#/types/aws-native:sagemaker:ClusterOrchestratorSlurmConfigSlurmConfigStrategy",
+                    "description": "The strategy for managing Slurm configuration on the cluster."
+                }
+            }
+        },
+        "aws-native:sagemaker:ClusterOrchestratorSlurmConfigSlurmConfigStrategy": {
+            "type": "string"
         },
         "aws-native:sagemaker:ClusterPatchSchedule": {
             "type": "object",
@@ -341758,6 +343839,56 @@
                 "azure"
             ]
         },
+        "aws-native:securityhub:ConnectorV2AzureProviderConfiguration": {
+            "type": "object",
+            "properties": {
+                "awsConfigConnectorArn": {
+                    "type": "string",
+                    "description": "The ARN of the AWS Config connector used for the Azure integration",
+                    "replaceOnChanges": true
+                },
+                "azureRegions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of Azure regions to include in the connector scope"
+                },
+                "scopeConfiguration": {
+                    "$ref": "#/types/aws-native:securityhub:ConnectorV2AzureScopeConfiguration"
+                }
+            },
+            "required": [
+                "awsConfigConnectorArn",
+                "azureRegions",
+                "scopeConfiguration"
+            ],
+            "irreversibleNames": {
+                "awsConfigConnectorArn": "AWSConfigConnectorArn"
+            }
+        },
+        "aws-native:securityhub:ConnectorV2AzureScopeConfiguration": {
+            "type": "object",
+            "properties": {
+                "scopeType": {
+                    "$ref": "#/types/aws-native:securityhub:ConnectorV2AzureScopeConfigurationScopeType",
+                    "description": "The scope type for the Azure connector"
+                },
+                "scopeValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of scope values for the Azure connector"
+                }
+            },
+            "required": [
+                "scopeType"
+            ]
+        },
+        "aws-native:securityhub:ConnectorV2AzureScopeConfigurationScopeType": {
+            "type": "string"
+        },
         "aws-native:securityhub:ConnectorV2HealthIssue": {
             "type": "object",
             "properties": {
@@ -341775,8 +343906,49 @@
                 "message"
             ]
         },
+        "aws-native:securityhub:ConnectorV2JiraCloudProviderConfiguration": {
+            "type": "object",
+            "properties": {
+                "projectKey": {
+                    "type": "string",
+                    "description": "The project key for a Jira Cloud instance"
+                }
+            },
+            "required": [
+                "projectKey"
+            ]
+        },
         "aws-native:securityhub:ConnectorV2Provider": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "azure": {
+                    "$ref": "#/types/aws-native:securityhub:ConnectorV2AzureProviderConfiguration"
+                },
+                "jiraCloud": {
+                    "$ref": "#/types/aws-native:securityhub:ConnectorV2JiraCloudProviderConfiguration"
+                },
+                "serviceNow": {
+                    "$ref": "#/types/aws-native:securityhub:ConnectorV2ServiceNowProviderConfiguration"
+                }
+            }
+        },
+        "aws-native:securityhub:ConnectorV2ServiceNowProviderConfiguration": {
+            "type": "object",
+            "properties": {
+                "instanceName": {
+                    "type": "string",
+                    "description": "The instance name of ServiceNow ITSM",
+                    "replaceOnChanges": true
+                },
+                "secretArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials"
+                }
+            },
+            "required": [
+                "instanceName",
+                "secretArn"
+            ]
         },
         "aws-native:securityhub:DelegatedAdminStatus": {
             "type": "string"
@@ -349730,7 +351902,32 @@
             ]
         },
         "aws-native:verifiedpermissions:PolicyStoreEncryptionSettings": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "default": {
+                    "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreDefault"
+                },
+                "kmsEncryptionSettings": {
+                    "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreKmsEncryptionSettings"
+                }
+            }
+        },
+        "aws-native:verifiedpermissions:PolicyStoreKmsEncryptionSettings": {
+            "type": "object",
+            "properties": {
+                "encryptionContext": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "key": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key"
+            ]
         },
         "aws-native:verifiedpermissions:PolicyStoreKmsEncryptionState": {
             "type": "object",
@@ -354954,13 +357151,32 @@
             "type": "string"
         },
         "aws-native:wisdom:AiPromptAiPromptTemplateConfiguration": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "textFullAiPromptEditTemplateConfiguration": {
+                    "$ref": "#/types/aws-native:wisdom:AiPromptTextFullAiPromptEditTemplateConfiguration"
+                }
+            },
+            "irreversibleNames": {
+                "textFullAiPromptEditTemplateConfiguration": "TextFullAIPromptEditTemplateConfiguration"
+            }
         },
         "aws-native:wisdom:AiPromptAiPromptTemplateType": {
             "type": "string"
         },
         "aws-native:wisdom:AiPromptAiPromptType": {
             "type": "string"
+        },
+        "aws-native:wisdom:AiPromptTextFullAiPromptEditTemplateConfiguration": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "text"
+            ]
         },
         "aws-native:wisdom:AssistantAssociationAssociationData0Properties": {
             "type": "object",

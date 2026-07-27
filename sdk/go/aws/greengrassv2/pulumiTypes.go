@@ -3138,6 +3138,8 @@ func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) RateIncreaseCriteria() 
 }
 
 type DeploymentIoTJobRateIncreaseCriteria struct {
+	NumberOfNotifiedThings  *int `pulumi:"numberOfNotifiedThings"`
+	NumberOfSucceededThings *int `pulumi:"numberOfSucceededThings"`
 }
 
 // DeploymentIoTJobRateIncreaseCriteriaInput is an input type that accepts DeploymentIoTJobRateIncreaseCriteriaArgs and DeploymentIoTJobRateIncreaseCriteriaOutput values.
@@ -3152,6 +3154,8 @@ type DeploymentIoTJobRateIncreaseCriteriaInput interface {
 }
 
 type DeploymentIoTJobRateIncreaseCriteriaArgs struct {
+	NumberOfNotifiedThings  pulumi.IntPtrInput `pulumi:"numberOfNotifiedThings"`
+	NumberOfSucceededThings pulumi.IntPtrInput `pulumi:"numberOfSucceededThings"`
 }
 
 func (DeploymentIoTJobRateIncreaseCriteriaArgs) ElementType() reflect.Type {
@@ -3231,6 +3235,14 @@ func (o DeploymentIoTJobRateIncreaseCriteriaOutput) ToDeploymentIoTJobRateIncrea
 	}).(DeploymentIoTJobRateIncreaseCriteriaPtrOutput)
 }
 
+func (o DeploymentIoTJobRateIncreaseCriteriaOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobRateIncreaseCriteria) *int { return v.NumberOfNotifiedThings }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobRateIncreaseCriteria) *int { return v.NumberOfSucceededThings }).(pulumi.IntPtrOutput)
+}
+
 type DeploymentIoTJobRateIncreaseCriteriaPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ElementType() reflect.Type {
@@ -3253,6 +3265,24 @@ func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) Elem() DeploymentIoTJobRa
 		var ret DeploymentIoTJobRateIncreaseCriteria
 		return ret
 	}).(DeploymentIoTJobRateIncreaseCriteriaOutput)
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobRateIncreaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfNotifiedThings
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobRateIncreaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfSucceededThings
+	}).(pulumi.IntPtrOutput)
 }
 
 type DeploymentIoTJobTimeoutConfig struct {

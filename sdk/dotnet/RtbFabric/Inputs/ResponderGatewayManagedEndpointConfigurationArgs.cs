@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.RtbFabric.Inputs
 
     public sealed class ResponderGatewayManagedEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoScalingGroupsConfiguration")]
+        public Input<Inputs.ResponderGatewayAutoScalingGroupsConfigurationArgs>? AutoScalingGroupsConfiguration { get; set; }
+
+        [Input("eksEndpointsConfiguration")]
+        public Input<Inputs.ResponderGatewayEksEndpointsConfigurationArgs>? EksEndpointsConfiguration { get; set; }
+
         public ResponderGatewayManagedEndpointConfigurationArgs()
         {
         }

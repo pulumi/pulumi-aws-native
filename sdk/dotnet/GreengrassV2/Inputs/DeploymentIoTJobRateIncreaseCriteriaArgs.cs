@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
 
     public sealed class DeploymentIoTJobRateIncreaseCriteriaArgs : global::Pulumi.ResourceArgs
     {
+        [Input("numberOfNotifiedThings")]
+        public Input<int>? NumberOfNotifiedThings { get; set; }
+
+        [Input("numberOfSucceededThings")]
+        public Input<int>? NumberOfSucceededThings { get; set; }
+
         public DeploymentIoTJobRateIncreaseCriteriaArgs()
         {
         }
