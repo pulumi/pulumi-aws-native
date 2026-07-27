@@ -2776,7 +2776,7 @@ class DataSourceSageMakerRunConfigurationInputArgsDict(TypedDict):
     """
     The configuration details of the Amazon SageMaker data source.
     """
-    tracking_assets: pulumi.Input[Mapping[str, Any]]
+    tracking_assets: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The tracking assets of the Amazon SageMaker run.
     """
@@ -2784,24 +2784,24 @@ class DataSourceSageMakerRunConfigurationInputArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceSageMakerRunConfigurationInputArgs:
     def __init__(__self__, *,
-                 tracking_assets: pulumi.Input[Mapping[str, Any]]):
+                 tracking_assets: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]):
         """
         The configuration details of the Amazon SageMaker data source.
 
-        :param pulumi.Input[Mapping[str, Any]] tracking_assets: The tracking assets of the Amazon SageMaker run.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] tracking_assets: The tracking assets of the Amazon SageMaker run.
         """
         pulumi.set(__self__, "tracking_assets", tracking_assets)
 
     @_builtins.property
     @pulumi.getter(name="trackingAssets")
-    def tracking_assets(self) -> pulumi.Input[Mapping[str, Any]]:
+    def tracking_assets(self) -> pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]:
         """
         The tracking assets of the Amazon SageMaker run.
         """
         return pulumi.get(self, "tracking_assets")
 
     @tracking_assets.setter
-    def tracking_assets(self, value: pulumi.Input[Mapping[str, Any]]):
+    def tracking_assets(self, value: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "tracking_assets", value)
 
 

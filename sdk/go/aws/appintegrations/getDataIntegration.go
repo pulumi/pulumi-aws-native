@@ -40,7 +40,7 @@ type LookupDataIntegrationResult struct {
 	// The name of the data integration.
 	Name *string `pulumi:"name"`
 	// The configuration for what data should be pulled from the source.
-	ObjectConfiguration map[string]interface{} `pulumi:"objectConfiguration"`
+	ObjectConfiguration map[string]map[string][]string `pulumi:"objectConfiguration"`
 	// The tags (keys and values) associated with the data integration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -103,8 +103,8 @@ func (o LookupDataIntegrationResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The configuration for what data should be pulled from the source.
-func (o LookupDataIntegrationResultOutput) ObjectConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupDataIntegrationResult) map[string]interface{} { return v.ObjectConfiguration }).(pulumi.MapOutput)
+func (o LookupDataIntegrationResultOutput) ObjectConfiguration() pulumi.StringArrayMapMapOutput {
+	return o.ApplyT(func(v LookupDataIntegrationResult) map[string]map[string][]string { return v.ObjectConfiguration }).(pulumi.StringArrayMapMapOutput)
 }
 
 // The tags (keys and values) associated with the data integration.

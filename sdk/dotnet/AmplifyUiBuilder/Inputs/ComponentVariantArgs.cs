@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     public sealed class ComponentVariantArgs : global::Pulumi.ResourceArgs
     {
         [Input("overrides")]
-        private InputMap<object>? _overrides;
+        private InputMap<ImmutableDictionary<string, string>>? _overrides;
 
         /// <summary>
         /// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
         /// </summary>
-        public InputMap<object> Overrides
+        public InputMap<ImmutableDictionary<string, string>> Overrides
         {
-            get => _overrides ?? (_overrides = new InputMap<object>());
+            get => _overrides ?? (_overrides = new InputMap<ImmutableDictionary<string, string>>());
             set => _overrides = value;
         }
 

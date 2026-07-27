@@ -48,7 +48,7 @@ export interface GetDataIntegrationResult {
     /**
      * The configuration for what data should be pulled from the source.
      */
-    readonly objectConfiguration?: {[key: string]: any};
+    readonly objectConfiguration?: {[key: string]: {[key: string]: string[]}};
     /**
      * The tags (keys and values) associated with the data integration.
      */

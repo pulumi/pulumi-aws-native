@@ -146,7 +146,7 @@ class GetComponentResult:
 
     @_builtins.property
     @pulumi.getter
-    def overrides(self) -> Optional[Mapping[str, Any]]:
+    def overrides(self) -> Optional[Mapping[str, Mapping[str, _builtins.str]]]:
         """
         Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         """

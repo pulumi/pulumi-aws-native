@@ -1515,7 +1515,7 @@ export namespace amplifyuibuilder {
         /**
          * The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
          */
-        overrides?: pulumi.Input<{[key: string]: any} | undefined>;
+        overrides?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>} | undefined>;
         /**
          * The combination of variants that comprise this variant.
          */
@@ -11909,7 +11909,7 @@ export namespace bcmdataexports {
         /**
          * The table configuration.
          */
-        tableConfigurations?: pulumi.Input<{[key: string]: any} | undefined>;
+        tableConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>} | undefined>;
     }
 
     export interface ExportDestinationConfigurationsArgs {
@@ -30397,7 +30397,7 @@ export namespace datazone {
         /**
          * The tracking assets of the Amazon SageMaker run.
          */
-        trackingAssets: pulumi.Input<{[key: string]: any}>;
+        trackingAssets: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     }
 
     /**
@@ -49988,7 +49988,7 @@ export namespace inspector {
 export namespace inspectorv2 {
     export interface CisScanConfigurationCisTargetsArgs {
         accountIds: pulumi.Input<pulumi.Input<string>[]>;
-        targetResourceTags: pulumi.Input<{[key: string]: any}>;
+        targetResourceTags: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     }
 
     export interface CisScanConfigurationDailyScheduleArgs {

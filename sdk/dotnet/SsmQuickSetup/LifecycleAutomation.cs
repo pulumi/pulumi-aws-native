@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SsmQuickSetup
         /// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         /// </summary>
         [Output("automationParameters")]
-        public Output<ImmutableDictionary<string, object>> AutomationParameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, ImmutableArray<string>>> AutomationParameters { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier used for generating a unique logical ID for the custom resource
@@ -101,14 +101,14 @@ namespace Pulumi.AwsNative.SsmQuickSetup
         public Input<string> AutomationDocument { get; set; } = null!;
 
         [Input("automationParameters", required: true)]
-        private InputMap<object>? _automationParameters;
+        private InputMap<ImmutableArray<string>>? _automationParameters;
 
         /// <summary>
         /// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
         /// </summary>
-        public InputMap<object> AutomationParameters
+        public InputMap<ImmutableArray<string>> AutomationParameters
         {
-            get => _automationParameters ?? (_automationParameters = new InputMap<object>());
+            get => _automationParameters ?? (_automationParameters = new InputMap<ImmutableArray<string>>());
             set => _automationParameters = value;
         }
 

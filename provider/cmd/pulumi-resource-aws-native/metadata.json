@@ -1803,7 +1803,10 @@
                 "overrides": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "description": "Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` ."
                 },
@@ -1899,7 +1902,10 @@
                 "overrides": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "description": "Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` ."
                 },
@@ -7687,7 +7693,13 @@
                 "objectConfiguration": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "description": "The configuration for what data should be pulled from the source."
                 },
@@ -7736,7 +7748,13 @@
                 "objectConfiguration": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
                     },
                     "description": "The configuration for what data should be pulled from the source."
                 },
@@ -158954,7 +158972,10 @@
                 "automationParameters": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "description": "A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow."
                 },
@@ -158982,7 +159003,10 @@
                 "automationParameters": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "description": "A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow."
                 },
@@ -171878,7 +171902,10 @@
                 "overrides": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "description": "The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` ."
                 },
@@ -186385,7 +186412,10 @@
                 "tableConfigurations": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
                     },
                     "description": "The table configuration."
                 }
@@ -218444,7 +218474,10 @@
                 "trackingAssets": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "description": "The tracking assets of the Amazon SageMaker run."
                 }
@@ -246220,7 +246253,10 @@
                 "targetResourceTags": {
                     "type": "object",
                     "additionalProperties": {
-                        "$ref": "pulumi.json#/Any"
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },

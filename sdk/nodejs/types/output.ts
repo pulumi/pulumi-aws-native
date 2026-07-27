@@ -1411,7 +1411,7 @@ export namespace amplifyuibuilder {
         /**
          * The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
          */
-        overrides?: {[key: string]: any};
+        overrides?: {[key: string]: {[key: string]: string}};
         /**
          * The combination of variants that comprise this variant.
          */
@@ -11845,7 +11845,7 @@ export namespace bcmdataexports {
         /**
          * The table configuration.
          */
-        tableConfigurations?: {[key: string]: any};
+        tableConfigurations?: {[key: string]: {[key: string]: string}};
     }
 
     export interface ExportDestinationConfigurations {
@@ -31835,7 +31835,7 @@ export namespace datazone {
         /**
          * The tracking assets of the Amazon SageMaker run.
          */
-        trackingAssets: {[key: string]: any};
+        trackingAssets: {[key: string]: string[]};
     }
 
     /**
@@ -52584,7 +52584,7 @@ export namespace inspector {
 export namespace inspectorv2 {
     export interface CisScanConfigurationCisTargets {
         accountIds: string[];
-        targetResourceTags: {[key: string]: any};
+        targetResourceTags: {[key: string]: string[]};
     }
 
     export interface CisScanConfigurationDailySchedule {

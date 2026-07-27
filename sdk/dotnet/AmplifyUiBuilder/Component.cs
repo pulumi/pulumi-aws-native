@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         /// </summary>
         [Output("overrides")]
-        public Output<ImmutableDictionary<string, object>?> Overrides { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, ImmutableDictionary<string, string>>?> Overrides { get; private set; } = null!;
 
         /// <summary>
         /// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
@@ -240,14 +240,14 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Input<string>? Name { get; set; }
 
         [Input("overrides")]
-        private InputMap<object>? _overrides;
+        private InputMap<ImmutableDictionary<string, string>>? _overrides;
 
         /// <summary>
         /// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         /// </summary>
-        public InputMap<object> Overrides
+        public InputMap<ImmutableDictionary<string, string>> Overrides
         {
-            get => _overrides ?? (_overrides = new InputMap<object>());
+            get => _overrides ?? (_overrides = new InputMap<ImmutableDictionary<string, string>>());
             set => _overrides = value;
         }
 

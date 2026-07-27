@@ -33,7 +33,7 @@ type LookupLifecycleAutomationResult struct {
 	// The name of the Automation document to execute
 	AutomationDocument *string `pulumi:"automationDocument"`
 	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
-	AutomationParameters map[string]interface{} `pulumi:"automationParameters"`
+	AutomationParameters map[string][]string `pulumi:"automationParameters"`
 	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,8 +81,8 @@ func (o LookupLifecycleAutomationResultOutput) AutomationDocument() pulumi.Strin
 }
 
 // A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
-func (o LookupLifecycleAutomationResultOutput) AutomationParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v LookupLifecycleAutomationResult) map[string]interface{} { return v.AutomationParameters }).(pulumi.MapOutput)
+func (o LookupLifecycleAutomationResultOutput) AutomationParameters() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v LookupLifecycleAutomationResult) map[string][]string { return v.AutomationParameters }).(pulumi.StringArrayMapOutput)
 }
 
 // Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.

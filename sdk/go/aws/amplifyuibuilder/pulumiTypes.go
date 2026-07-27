@@ -2636,7 +2636,7 @@ func (o ComponentSortPropertyArrayOutput) Index(i pulumi.IntInput) ComponentSort
 
 type ComponentVariant struct {
 	// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
-	Overrides map[string]interface{} `pulumi:"overrides"`
+	Overrides map[string]map[string]string `pulumi:"overrides"`
 	// The combination of variants that comprise this variant.
 	VariantValues map[string]string `pulumi:"variantValues"`
 }
@@ -2654,7 +2654,7 @@ type ComponentVariantInput interface {
 
 type ComponentVariantArgs struct {
 	// The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
-	Overrides pulumi.MapInput `pulumi:"overrides"`
+	Overrides pulumi.StringMapMapInput `pulumi:"overrides"`
 	// The combination of variants that comprise this variant.
 	VariantValues pulumi.StringMapInput `pulumi:"variantValues"`
 }
@@ -2711,8 +2711,8 @@ func (o ComponentVariantOutput) ToComponentVariantOutputWithContext(ctx context.
 }
 
 // The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
-func (o ComponentVariantOutput) Overrides() pulumi.MapOutput {
-	return o.ApplyT(func(v ComponentVariant) map[string]interface{} { return v.Overrides }).(pulumi.MapOutput)
+func (o ComponentVariantOutput) Overrides() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v ComponentVariant) map[string]map[string]string { return v.Overrides }).(pulumi.StringMapMapOutput)
 }
 
 // The combination of variants that comprise this variant.

@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// The configuration for what data should be pulled from the source.
         /// </summary>
         [Output("objectConfiguration")]
-        public Output<ImmutableDictionary<string, object>?> ObjectConfiguration { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, ImmutableDictionary<string, ImmutableArray<string>>>?> ObjectConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the data and how often it should be pulled from the source.
@@ -151,14 +151,14 @@ namespace Pulumi.AwsNative.AppIntegrations
         public Input<string>? Name { get; set; }
 
         [Input("objectConfiguration")]
-        private InputMap<object>? _objectConfiguration;
+        private InputMap<ImmutableDictionary<string, ImmutableArray<string>>>? _objectConfiguration;
 
         /// <summary>
         /// The configuration for what data should be pulled from the source.
         /// </summary>
-        public InputMap<object> ObjectConfiguration
+        public InputMap<ImmutableDictionary<string, ImmutableArray<string>>> ObjectConfiguration
         {
-            get => _objectConfiguration ?? (_objectConfiguration = new InputMap<object>());
+            get => _objectConfiguration ?? (_objectConfiguration = new InputMap<ImmutableDictionary<string, ImmutableArray<string>>>());
             set => _objectConfiguration = value;
         }
 

@@ -30,7 +30,7 @@ type DataIntegration struct {
 	// The name of the data integration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The configuration for what data should be pulled from the source.
-	ObjectConfiguration pulumi.MapOutput `pulumi:"objectConfiguration"`
+	ObjectConfiguration pulumi.StringArrayMapMapOutput `pulumi:"objectConfiguration"`
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfigPtrOutput `pulumi:"scheduleConfig"`
 	// The URI of the data source.
@@ -100,7 +100,7 @@ type dataIntegrationArgs struct {
 	// The name of the data integration.
 	Name *string `pulumi:"name"`
 	// The configuration for what data should be pulled from the source.
-	ObjectConfiguration map[string]interface{} `pulumi:"objectConfiguration"`
+	ObjectConfiguration map[string]map[string][]string `pulumi:"objectConfiguration"`
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig *DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
 	// The URI of the data source.
@@ -120,7 +120,7 @@ type DataIntegrationArgs struct {
 	// The name of the data integration.
 	Name pulumi.StringPtrInput
 	// The configuration for what data should be pulled from the source.
-	ObjectConfiguration pulumi.MapInput
+	ObjectConfiguration pulumi.StringArrayMapMapInput
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfigPtrInput
 	// The URI of the data source.
@@ -197,8 +197,8 @@ func (o DataIntegrationOutput) Name() pulumi.StringOutput {
 }
 
 // The configuration for what data should be pulled from the source.
-func (o DataIntegrationOutput) ObjectConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v *DataIntegration) pulumi.MapOutput { return v.ObjectConfiguration }).(pulumi.MapOutput)
+func (o DataIntegrationOutput) ObjectConfiguration() pulumi.StringArrayMapMapOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringArrayMapMapOutput { return v.ObjectConfiguration }).(pulumi.StringArrayMapMapOutput)
 }
 
 // The name of the data and how often it should be pulled from the source.

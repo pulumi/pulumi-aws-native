@@ -30,7 +30,7 @@ class ComponentArgs:
                  environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentEventArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 overrides: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentPropertyArgs']]]] = None,
                  schema_version: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -47,7 +47,7 @@ class ComponentArgs:
         :param pulumi.Input[_builtins.str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentEventArgs']]] events: Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
         :param pulumi.Input[_builtins.str] name: The name of the component.
-        :param pulumi.Input[Mapping[str, Any]] overrides: Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] overrides: Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]] properties: Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
         :param pulumi.Input[_builtins.str] schema_version: The schema version of the component when it was imported.
         :param pulumi.Input[_builtins.str] source_id: The unique ID of the component in its original source system, such as Figma.
@@ -181,14 +181,14 @@ class ComponentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def overrides(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
+    def overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
         Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
+    def overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "overrides", value)
 
     @_builtins.property
@@ -266,7 +266,7 @@ class Component(pulumi.CustomResource):
                  environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 overrides: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
                  schema_version: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -286,7 +286,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]] events: Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
         :param pulumi.Input[_builtins.str] name: The name of the component.
-        :param pulumi.Input[Mapping[str, Any]] overrides: Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] overrides: Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]] properties: Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
         :param pulumi.Input[_builtins.str] schema_version: The schema version of the component when it was imported.
         :param pulumi.Input[_builtins.str] source_id: The unique ID of the component in its original source system, such as Figma.
@@ -325,7 +325,7 @@ class Component(pulumi.CustomResource):
                  environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 overrides: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
                  schema_version: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -490,7 +490,7 @@ class Component(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def overrides(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def overrides(self) -> pulumi.Output[Optional[Mapping[str, Mapping[str, _builtins.str]]]]:
         """
         Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
         """

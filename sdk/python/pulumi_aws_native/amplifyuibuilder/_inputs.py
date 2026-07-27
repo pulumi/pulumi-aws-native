@@ -1596,7 +1596,7 @@ class ComponentSortPropertyArgs:
 
 
 class ComponentVariantArgsDict(TypedDict):
-    overrides: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
+    overrides: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]]
     """
     The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
     """
@@ -1608,10 +1608,10 @@ class ComponentVariantArgsDict(TypedDict):
 @pulumi.input_type
 class ComponentVariantArgs:
     def __init__(__self__, *,
-                 overrides: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  variant_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] overrides: The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] overrides: The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variant_values: The combination of variants that comprise this variant.
         """
         if overrides is not None:
@@ -1621,14 +1621,14 @@ class ComponentVariantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def overrides(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
+    def overrides(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
         The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides` .
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
+    def overrides(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "overrides", value)
 
     @_builtins.property

@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The configuration for what data should be pulled from the source.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? ObjectConfiguration;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, ImmutableArray<string>>>? ObjectConfiguration;
         /// <summary>
         /// The tags (keys and values) associated with the data integration.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.AppIntegrations
 
             string? name,
 
-            ImmutableDictionary<string, object>? objectConfiguration,
+            ImmutableDictionary<string, ImmutableDictionary<string, ImmutableArray<string>>>? objectConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {

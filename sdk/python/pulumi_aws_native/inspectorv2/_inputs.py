@@ -66,13 +66,13 @@ __all__ = [
 
 class CisScanConfigurationCisTargetsArgsDict(TypedDict):
     account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    target_resource_tags: pulumi.Input[Mapping[str, Any]]
+    target_resource_tags: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class CisScanConfigurationCisTargetsArgs:
     def __init__(__self__, *,
                  account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 target_resource_tags: pulumi.Input[Mapping[str, Any]]):
+                 target_resource_tags: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(__self__, "account_ids", account_ids)
         pulumi.set(__self__, "target_resource_tags", target_resource_tags)
 
@@ -87,11 +87,11 @@ class CisScanConfigurationCisTargetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetResourceTags")
-    def target_resource_tags(self) -> pulumi.Input[Mapping[str, Any]]:
+    def target_resource_tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]:
         return pulumi.get(self, "target_resource_tags")
 
     @target_resource_tags.setter
-    def target_resource_tags(self, value: pulumi.Input[Mapping[str, Any]]):
+    def target_resource_tags(self, value: pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]):
         pulumi.set(self, "target_resource_tags", value)
 
 

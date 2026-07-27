@@ -45,7 +45,7 @@ export class LifecycleAutomation extends pulumi.CustomResource {
     /**
      * A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
      */
-    declare public readonly automationParameters: pulumi.Output<{[key: string]: any}>;
+    declare public readonly automationParameters: pulumi.Output<{[key: string]: string[]}>;
     /**
      * A unique identifier used for generating a unique logical ID for the custom resource
      */
@@ -105,7 +105,7 @@ export interface LifecycleAutomationArgs {
     /**
      * A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
      */
-    automationParameters: pulumi.Input<{[key: string]: any}>;
+    automationParameters: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     /**
      * A unique identifier used for generating a unique logical ID for the custom resource
      */

@@ -14,8 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CisScanConfigurationCisTargets struct {
-	AccountIds         []string               `pulumi:"accountIds"`
-	TargetResourceTags map[string]interface{} `pulumi:"targetResourceTags"`
+	AccountIds         []string            `pulumi:"accountIds"`
+	TargetResourceTags map[string][]string `pulumi:"targetResourceTags"`
 }
 
 // CisScanConfigurationCisTargetsInput is an input type that accepts CisScanConfigurationCisTargetsArgs and CisScanConfigurationCisTargetsOutput values.
@@ -30,8 +30,8 @@ type CisScanConfigurationCisTargetsInput interface {
 }
 
 type CisScanConfigurationCisTargetsArgs struct {
-	AccountIds         pulumi.StringArrayInput `pulumi:"accountIds"`
-	TargetResourceTags pulumi.MapInput         `pulumi:"targetResourceTags"`
+	AccountIds         pulumi.StringArrayInput    `pulumi:"accountIds"`
+	TargetResourceTags pulumi.StringArrayMapInput `pulumi:"targetResourceTags"`
 }
 
 func (CisScanConfigurationCisTargetsArgs) ElementType() reflect.Type {
@@ -64,8 +64,8 @@ func (o CisScanConfigurationCisTargetsOutput) AccountIds() pulumi.StringArrayOut
 	return o.ApplyT(func(v CisScanConfigurationCisTargets) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-func (o CisScanConfigurationCisTargetsOutput) TargetResourceTags() pulumi.MapOutput {
-	return o.ApplyT(func(v CisScanConfigurationCisTargets) map[string]interface{} { return v.TargetResourceTags }).(pulumi.MapOutput)
+func (o CisScanConfigurationCisTargetsOutput) TargetResourceTags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v CisScanConfigurationCisTargets) map[string][]string { return v.TargetResourceTags }).(pulumi.StringArrayMapOutput)
 }
 
 type CisScanConfigurationCisTargetsPtrOutput struct{ *pulumi.OutputState }
@@ -101,13 +101,13 @@ func (o CisScanConfigurationCisTargetsPtrOutput) AccountIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o CisScanConfigurationCisTargetsPtrOutput) TargetResourceTags() pulumi.MapOutput {
-	return o.ApplyT(func(v *CisScanConfigurationCisTargets) map[string]interface{} {
+func (o CisScanConfigurationCisTargetsPtrOutput) TargetResourceTags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *CisScanConfigurationCisTargets) map[string][]string {
 		if v == nil {
 			return nil
 		}
 		return v.TargetResourceTags
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringArrayMapOutput)
 }
 
 type CisScanConfigurationDailySchedule struct {

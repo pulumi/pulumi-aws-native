@@ -16,14 +16,14 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     public sealed class DataSourceSageMakerRunConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("trackingAssets", required: true)]
-        private InputMap<object>? _trackingAssets;
+        private InputMap<ImmutableArray<string>>? _trackingAssets;
 
         /// <summary>
         /// The tracking assets of the Amazon SageMaker run.
         /// </summary>
-        public InputMap<object> TrackingAssets
+        public InputMap<ImmutableArray<string>> TrackingAssets
         {
-            get => _trackingAssets ?? (_trackingAssets = new InputMap<object>());
+            get => _trackingAssets ?? (_trackingAssets = new InputMap<ImmutableArray<string>>());
             set => _trackingAssets = value;
         }
 

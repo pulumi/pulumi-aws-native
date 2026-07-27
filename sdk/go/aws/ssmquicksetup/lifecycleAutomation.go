@@ -21,7 +21,7 @@ type LifecycleAutomation struct {
 	// The name of the Automation document to execute
 	AutomationDocument pulumi.StringOutput `pulumi:"automationDocument"`
 	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
-	AutomationParameters pulumi.MapOutput `pulumi:"automationParameters"`
+	AutomationParameters pulumi.StringArrayMapOutput `pulumi:"automationParameters"`
 	// A unique identifier used for generating a unique logical ID for the custom resource
 	ResourceKey pulumi.StringOutput `pulumi:"resourceKey"`
 	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
@@ -84,7 +84,7 @@ type lifecycleAutomationArgs struct {
 	// The name of the Automation document to execute
 	AutomationDocument string `pulumi:"automationDocument"`
 	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
-	AutomationParameters map[string]interface{} `pulumi:"automationParameters"`
+	AutomationParameters map[string][]string `pulumi:"automationParameters"`
 	// A unique identifier used for generating a unique logical ID for the custom resource
 	ResourceKey string `pulumi:"resourceKey"`
 	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
@@ -96,7 +96,7 @@ type LifecycleAutomationArgs struct {
 	// The name of the Automation document to execute
 	AutomationDocument pulumi.StringInput
 	// A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
-	AutomationParameters pulumi.MapInput
+	AutomationParameters pulumi.StringArrayMapInput
 	// A unique identifier used for generating a unique logical ID for the custom resource
 	ResourceKey pulumi.StringInput
 	// Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
@@ -151,8 +151,8 @@ func (o LifecycleAutomationOutput) AutomationDocument() pulumi.StringOutput {
 }
 
 // A map of key-value parameters passed to the Automation document during execution. Each parameter name maps to a list of values, even for single values. Parameters can include configuration-specific values for your automation workflow.
-func (o LifecycleAutomationOutput) AutomationParameters() pulumi.MapOutput {
-	return o.ApplyT(func(v *LifecycleAutomation) pulumi.MapOutput { return v.AutomationParameters }).(pulumi.MapOutput)
+func (o LifecycleAutomationOutput) AutomationParameters() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *LifecycleAutomation) pulumi.StringArrayMapOutput { return v.AutomationParameters }).(pulumi.StringArrayMapOutput)
 }
 
 // A unique identifier used for generating a unique logical ID for the custom resource

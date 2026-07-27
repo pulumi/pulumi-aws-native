@@ -38,7 +38,7 @@ type Component struct {
 	// The name of the component.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
-	Overrides pulumi.MapOutput `pulumi:"overrides"`
+	Overrides pulumi.StringMapMapOutput `pulumi:"overrides"`
 	// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
 	Properties ComponentPropertyMapOutput `pulumi:"properties"`
 	// The schema version of the component when it was imported.
@@ -113,7 +113,7 @@ type componentArgs struct {
 	// The name of the component.
 	Name *string `pulumi:"name"`
 	// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
-	Overrides map[string]interface{} `pulumi:"overrides"`
+	Overrides map[string]map[string]string `pulumi:"overrides"`
 	// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
 	Properties map[string]ComponentProperty `pulumi:"properties"`
 	// The schema version of the component when it was imported.
@@ -145,7 +145,7 @@ type ComponentArgs struct {
 	// The name of the component.
 	Name pulumi.StringPtrInput
 	// Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
-	Overrides pulumi.MapInput
+	Overrides pulumi.StringMapMapInput
 	// Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
 	Properties ComponentPropertyMapInput
 	// The schema version of the component when it was imported.
@@ -251,8 +251,8 @@ func (o ComponentOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
-func (o ComponentOutput) Overrides() pulumi.MapOutput {
-	return o.ApplyT(func(v *Component) pulumi.MapOutput { return v.Overrides }).(pulumi.MapOutput)
+func (o ComponentOutput) Overrides() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringMapMapOutput { return v.Overrides }).(pulumi.StringMapMapOutput)
 }
 
 // Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
