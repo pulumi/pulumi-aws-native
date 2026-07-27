@@ -37,6 +37,7 @@ type LookupDbSubnetGroupArgs struct {
 }
 
 type LookupDbSubnetGroupResult struct {
+	DbSubnetGroupArn *string `pulumi:"dbSubnetGroupArn"`
 	// The description for the DB subnet group.
 	DbSubnetGroupDescription *string `pulumi:"dbSubnetGroupDescription"`
 	// The EC2 Subnet IDs for the DB subnet group.
@@ -81,6 +82,10 @@ func (o LookupDbSubnetGroupResultOutput) ToLookupDbSubnetGroupResultOutput() Loo
 
 func (o LookupDbSubnetGroupResultOutput) ToLookupDbSubnetGroupResultOutputWithContext(ctx context.Context) LookupDbSubnetGroupResultOutput {
 	return o
+}
+
+func (o LookupDbSubnetGroupResultOutput) DbSubnetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbSubnetGroupResult) *string { return v.DbSubnetGroupArn }).(pulumi.StringPtrOutput)
 }
 
 // The description for the DB subnet group.

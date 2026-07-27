@@ -1,0 +1,83 @@
+{
+  "typeName" : "AWS::ImageBuilder::WorkflowExecution",
+  "description" : "Represents a runtime instance of an EC2 Image Builder workflow. Workflow executions are created automatically when an image build runs a workflow.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the workflow execution."
+    },
+    "WorkflowExecutionId" : {
+      "type" : "string",
+      "description" : "The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.",
+      "pattern" : "^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "WorkflowBuildVersionArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource that defines the specified runtime instance of the workflow.",
+      "maxLength" : 1024
+    },
+    "ImageBuildVersionArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the image resource build version that the specified runtime instance of the workflow created."
+    },
+    "Type" : {
+      "type" : "string",
+      "description" : "The type of workflow that Image Builder ran for the specified runtime instance of the workflow.",
+      "enum" : [ "BUILD", "TEST", "DISTRIBUTION" ]
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The current runtime status for the specified runtime instance of the workflow.",
+      "enum" : [ "PENDING", "SKIPPED", "RUNNING", "COMPLETED", "FAILED", "ROLLBACK_IN_PROGRESS", "ROLLBACK_COMPLETED", "CANCELLED" ]
+    },
+    "TotalStepCount" : {
+      "type" : "integer",
+      "description" : "The total number of steps in the specified runtime instance of the workflow that ran."
+    },
+    "TotalStepsSucceeded" : {
+      "type" : "integer",
+      "description" : "A runtime count for the number of steps that ran successfully in the specified runtime instance of the workflow."
+    },
+    "TotalStepsFailed" : {
+      "type" : "integer",
+      "description" : "A runtime count for the number of steps that failed in the specified runtime instance of the workflow."
+    },
+    "TotalStepsSkipped" : {
+      "type" : "integer",
+      "description" : "A runtime count for the number of steps that were skipped in the specified runtime instance of the workflow."
+    },
+    "StartTime" : {
+      "type" : "string",
+      "description" : "The timestamp when the specified runtime instance of the workflow started."
+    },
+    "EndTime" : {
+      "type" : "string",
+      "description" : "The timestamp when the specified runtime instance of the workflow finished."
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/ImageBuildVersionArn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/WorkflowExecutionId", "/properties/WorkflowBuildVersionArn", "/properties/Type", "/properties/Status", "/properties/TotalStepCount", "/properties/TotalStepsSucceeded", "/properties/TotalStepsFailed", "/properties/TotalStepsSkipped", "/properties/StartTime", "/properties/EndTime" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/WorkflowExecutionId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "imagebuilder:GetWorkflowExecution" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ImageBuildVersionArn" : {
+            "type" : "string",
+            "pattern" : "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):image/[a-z0-9-_]+/[0-9]+\\.[0-9]+\\.[0-9]+/[0-9]+$"
+          }
+        },
+        "required" : [ "ImageBuildVersionArn" ]
+      },
+      "permissions" : [ "imagebuilder:ListWorkflowExecutions" ]
+    }
+  }
+}

@@ -30,6 +30,7 @@ class ComputeNodeGroupArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  ami_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_lifecycle_actions: pulumi.Input[Optional['ComputeNodeGroupNodeLifecycleActionsArgs']] = None,
                  purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
                  slurm_configuration: pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']] = None,
                  spot_options: pulumi.Input[Optional['SpotOptionsPropertiesArgs']] = None,
@@ -60,6 +61,8 @@ class ComputeNodeGroupArgs:
             pulumi.set(__self__, "ami_id", ami_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if node_lifecycle_actions is not None:
+            pulumi.set(__self__, "node_lifecycle_actions", node_lifecycle_actions)
         if purchase_option is not None:
             pulumi.set(__self__, "purchase_option", purchase_option)
         if slurm_configuration is not None:
@@ -166,6 +169,15 @@ class ComputeNodeGroupArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="nodeLifecycleActions")
+    def node_lifecycle_actions(self) -> pulumi.Input[Optional['ComputeNodeGroupNodeLifecycleActionsArgs']]:
+        return pulumi.get(self, "node_lifecycle_actions")
+
+    @node_lifecycle_actions.setter
+    def node_lifecycle_actions(self, value: pulumi.Input[Optional['ComputeNodeGroupNodeLifecycleActionsArgs']]):
+        pulumi.set(self, "node_lifecycle_actions", value)
+
+    @_builtins.property
     @pulumi.getter(name="purchaseOption")
     def purchase_option(self) -> pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']]:
         """
@@ -226,6 +238,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
                  iam_instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_lifecycle_actions: pulumi.Input[Optional[Union['ComputeNodeGroupNodeLifecycleActionsArgs', 'ComputeNodeGroupNodeLifecycleActionsArgsDict']]] = None,
                  purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
                  scaling_configuration: pulumi.Input[Optional[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict']]] = None,
                  slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
@@ -281,6 +294,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
                  iam_instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_lifecycle_actions: pulumi.Input[Optional[Union['ComputeNodeGroupNodeLifecycleActionsArgs', 'ComputeNodeGroupNodeLifecycleActionsArgsDict']]] = None,
                  purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
                  scaling_configuration: pulumi.Input[Optional[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict']]] = None,
                  slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
@@ -310,6 +324,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_configs'")
             __props__.__dict__["instance_configs"] = instance_configs
             __props__.__dict__["name"] = name
+            __props__.__dict__["node_lifecycle_actions"] = node_lifecycle_actions
             __props__.__dict__["purchase_option"] = purchase_option
             if scaling_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_configuration'")
@@ -357,6 +372,7 @@ class ComputeNodeGroup(pulumi.CustomResource):
         __props__.__dict__["iam_instance_profile_arn"] = None
         __props__.__dict__["instance_configs"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["node_lifecycle_actions"] = None
         __props__.__dict__["purchase_option"] = None
         __props__.__dict__["scaling_configuration"] = None
         __props__.__dict__["slurm_configuration"] = None
@@ -437,6 +453,11 @@ class ComputeNodeGroup(pulumi.CustomResource):
         The name that identifies the compute node group.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeLifecycleActions")
+    def node_lifecycle_actions(self) -> pulumi.Output[Optional['outputs.ComputeNodeGroupNodeLifecycleActions']]:
+        return pulumi.get(self, "node_lifecycle_actions")
 
     @_builtins.property
     @pulumi.getter(name="purchaseOption")

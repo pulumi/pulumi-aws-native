@@ -39,7 +39,8 @@ type LookupComputeNodeGroupResult struct {
 	// The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
 	IamInstanceProfileArn *string `pulumi:"iamInstanceProfileArn"`
 	// The generated unique ID of the compute node group.
-	Id *string `pulumi:"id"`
+	Id                   *string                               `pulumi:"id"`
+	NodeLifecycleActions *ComputeNodeGroupNodeLifecycleActions `pulumi:"nodeLifecycleActions"`
 	// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 	PurchaseOption *ComputeNodeGroupPurchaseOption `pulumi:"purchaseOption"`
 	// Specifies the boundaries of the compute node group auto scaling.
@@ -116,6 +117,12 @@ func (o LookupComputeNodeGroupResultOutput) IamInstanceProfileArn() pulumi.Strin
 // The generated unique ID of the compute node group.
 func (o LookupComputeNodeGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComputeNodeGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupComputeNodeGroupResultOutput) NodeLifecycleActions() ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return o.ApplyT(func(v LookupComputeNodeGroupResult) *ComputeNodeGroupNodeLifecycleActions {
+		return v.NodeLifecycleActions
+	}).(ComputeNodeGroupNodeLifecycleActionsPtrOutput)
 }
 
 // Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.

@@ -13,6 +13,902 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AnalysisSubtotalOptions struct {
+	// The custom label string for the subtotal cells.
+	CustomLabel *string `pulumi:"customLabel"`
+	// The field level (all, custom, last) for the subtotal cells.
+	FieldLevel *AnalysisPivotTableSubtotalLevel `pulumi:"fieldLevel"`
+	// The optional configuration of subtotal cells.
+	FieldLevelOptions []AnalysisPivotTableFieldSubtotalOptions `pulumi:"fieldLevelOptions"`
+	// The cell styling options for the subtotals of header cells.
+	MetricHeaderCellStyle *AnalysisTableCellStyle `pulumi:"metricHeaderCellStyle"`
+	// The style targets options for subtotals.
+	StyleTargets []AnalysisTableStyleTarget `pulumi:"styleTargets"`
+	// The cell styling options for the subtotal cells.
+	TotalCellStyle *AnalysisTableCellStyle `pulumi:"totalCellStyle"`
+	// The visibility configuration for the subtotal cells.
+	TotalsVisibility *AnalysisVisibility `pulumi:"totalsVisibility"`
+	// The cell styling options for the subtotals of value cells.
+	ValueCellStyle *AnalysisTableCellStyle `pulumi:"valueCellStyle"`
+}
+
+// AnalysisSubtotalOptionsInput is an input type that accepts AnalysisSubtotalOptionsArgs and AnalysisSubtotalOptionsOutput values.
+// You can construct a concrete instance of `AnalysisSubtotalOptionsInput` via:
+//
+//	AnalysisSubtotalOptionsArgs{...}
+type AnalysisSubtotalOptionsInput interface {
+	pulumi.Input
+
+	ToAnalysisSubtotalOptionsOutput() AnalysisSubtotalOptionsOutput
+	ToAnalysisSubtotalOptionsOutputWithContext(context.Context) AnalysisSubtotalOptionsOutput
+}
+
+type AnalysisSubtotalOptionsArgs struct {
+	// The custom label string for the subtotal cells.
+	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
+	// The field level (all, custom, last) for the subtotal cells.
+	FieldLevel AnalysisPivotTableSubtotalLevelPtrInput `pulumi:"fieldLevel"`
+	// The optional configuration of subtotal cells.
+	FieldLevelOptions AnalysisPivotTableFieldSubtotalOptionsArrayInput `pulumi:"fieldLevelOptions"`
+	// The cell styling options for the subtotals of header cells.
+	MetricHeaderCellStyle AnalysisTableCellStylePtrInput `pulumi:"metricHeaderCellStyle"`
+	// The style targets options for subtotals.
+	StyleTargets AnalysisTableStyleTargetArrayInput `pulumi:"styleTargets"`
+	// The cell styling options for the subtotal cells.
+	TotalCellStyle AnalysisTableCellStylePtrInput `pulumi:"totalCellStyle"`
+	// The visibility configuration for the subtotal cells.
+	TotalsVisibility AnalysisVisibilityPtrInput `pulumi:"totalsVisibility"`
+	// The cell styling options for the subtotals of value cells.
+	ValueCellStyle AnalysisTableCellStylePtrInput `pulumi:"valueCellStyle"`
+}
+
+func (AnalysisSubtotalOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSubtotalOptions)(nil)).Elem()
+}
+
+func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsOutput() AnalysisSubtotalOptionsOutput {
+	return i.ToAnalysisSubtotalOptionsOutputWithContext(context.Background())
+}
+
+func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSubtotalOptionsOutput)
+}
+
+func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
+	return i.ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSubtotalOptionsOutput).ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx)
+}
+
+// AnalysisSubtotalOptionsPtrInput is an input type that accepts AnalysisSubtotalOptionsArgs, AnalysisSubtotalOptionsPtr and AnalysisSubtotalOptionsPtrOutput values.
+// You can construct a concrete instance of `AnalysisSubtotalOptionsPtrInput` via:
+//
+//	        AnalysisSubtotalOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisSubtotalOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput
+	ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Context) AnalysisSubtotalOptionsPtrOutput
+}
+
+type analysisSubtotalOptionsPtrType AnalysisSubtotalOptionsArgs
+
+func AnalysisSubtotalOptionsPtr(v *AnalysisSubtotalOptionsArgs) AnalysisSubtotalOptionsPtrInput {
+	return (*analysisSubtotalOptionsPtrType)(v)
+}
+
+func (*analysisSubtotalOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSubtotalOptions)(nil)).Elem()
+}
+
+func (i *analysisSubtotalOptionsPtrType) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
+	return i.ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisSubtotalOptionsPtrType) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSubtotalOptionsPtrOutput)
+}
+
+type AnalysisSubtotalOptionsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSubtotalOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSubtotalOptions)(nil)).Elem()
+}
+
+func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsOutput() AnalysisSubtotalOptionsOutput {
+	return o
+}
+
+func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsOutput {
+	return o
+}
+
+func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
+	return o.ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSubtotalOptions) *AnalysisSubtotalOptions {
+		return &v
+	}).(AnalysisSubtotalOptionsPtrOutput)
+}
+
+// The custom label string for the subtotal cells.
+func (o AnalysisSubtotalOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
+}
+
+// The field level (all, custom, last) for the subtotal cells.
+func (o AnalysisSubtotalOptionsOutput) FieldLevel() AnalysisPivotTableSubtotalLevelPtrOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisPivotTableSubtotalLevel { return v.FieldLevel }).(AnalysisPivotTableSubtotalLevelPtrOutput)
+}
+
+// The optional configuration of subtotal cells.
+func (o AnalysisSubtotalOptionsOutput) FieldLevelOptions() AnalysisPivotTableFieldSubtotalOptionsArrayOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) []AnalysisPivotTableFieldSubtotalOptions { return v.FieldLevelOptions }).(AnalysisPivotTableFieldSubtotalOptionsArrayOutput)
+}
+
+// The cell styling options for the subtotals of header cells.
+func (o AnalysisSubtotalOptionsOutput) MetricHeaderCellStyle() AnalysisTableCellStylePtrOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisTableCellStyle { return v.MetricHeaderCellStyle }).(AnalysisTableCellStylePtrOutput)
+}
+
+// The style targets options for subtotals.
+func (o AnalysisSubtotalOptionsOutput) StyleTargets() AnalysisTableStyleTargetArrayOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) []AnalysisTableStyleTarget { return v.StyleTargets }).(AnalysisTableStyleTargetArrayOutput)
+}
+
+// The cell styling options for the subtotal cells.
+func (o AnalysisSubtotalOptionsOutput) TotalCellStyle() AnalysisTableCellStylePtrOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisTableCellStyle { return v.TotalCellStyle }).(AnalysisTableCellStylePtrOutput)
+}
+
+// The visibility configuration for the subtotal cells.
+func (o AnalysisSubtotalOptionsOutput) TotalsVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisVisibility { return v.TotalsVisibility }).(AnalysisVisibilityPtrOutput)
+}
+
+// The cell styling options for the subtotals of value cells.
+func (o AnalysisSubtotalOptionsOutput) ValueCellStyle() AnalysisTableCellStylePtrOutput {
+	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisTableCellStyle { return v.ValueCellStyle }).(AnalysisTableCellStylePtrOutput)
+}
+
+type AnalysisSubtotalOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSubtotalOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSubtotalOptions)(nil)).Elem()
+}
+
+func (o AnalysisSubtotalOptionsPtrOutput) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisSubtotalOptionsPtrOutput) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisSubtotalOptionsPtrOutput) Elem() AnalysisSubtotalOptionsOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) AnalysisSubtotalOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSubtotalOptions
+		return ret
+	}).(AnalysisSubtotalOptionsOutput)
+}
+
+// The custom label string for the subtotal cells.
+func (o AnalysisSubtotalOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field level (all, custom, last) for the subtotal cells.
+func (o AnalysisSubtotalOptionsPtrOutput) FieldLevel() AnalysisPivotTableSubtotalLevelPtrOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisPivotTableSubtotalLevel {
+		if v == nil {
+			return nil
+		}
+		return v.FieldLevel
+	}).(AnalysisPivotTableSubtotalLevelPtrOutput)
+}
+
+// The optional configuration of subtotal cells.
+func (o AnalysisSubtotalOptionsPtrOutput) FieldLevelOptions() AnalysisPivotTableFieldSubtotalOptionsArrayOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) []AnalysisPivotTableFieldSubtotalOptions {
+		if v == nil {
+			return nil
+		}
+		return v.FieldLevelOptions
+	}).(AnalysisPivotTableFieldSubtotalOptionsArrayOutput)
+}
+
+// The cell styling options for the subtotals of header cells.
+func (o AnalysisSubtotalOptionsPtrOutput) MetricHeaderCellStyle() AnalysisTableCellStylePtrOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisTableCellStyle {
+		if v == nil {
+			return nil
+		}
+		return v.MetricHeaderCellStyle
+	}).(AnalysisTableCellStylePtrOutput)
+}
+
+// The style targets options for subtotals.
+func (o AnalysisSubtotalOptionsPtrOutput) StyleTargets() AnalysisTableStyleTargetArrayOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) []AnalysisTableStyleTarget {
+		if v == nil {
+			return nil
+		}
+		return v.StyleTargets
+	}).(AnalysisTableStyleTargetArrayOutput)
+}
+
+// The cell styling options for the subtotal cells.
+func (o AnalysisSubtotalOptionsPtrOutput) TotalCellStyle() AnalysisTableCellStylePtrOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisTableCellStyle {
+		if v == nil {
+			return nil
+		}
+		return v.TotalCellStyle
+	}).(AnalysisTableCellStylePtrOutput)
+}
+
+// The visibility configuration for the subtotal cells.
+func (o AnalysisSubtotalOptionsPtrOutput) TotalsVisibility() AnalysisVisibilityPtrOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.TotalsVisibility
+	}).(AnalysisVisibilityPtrOutput)
+}
+
+// The cell styling options for the subtotals of value cells.
+func (o AnalysisSubtotalOptionsPtrOutput) ValueCellStyle() AnalysisTableCellStylePtrOutput {
+	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisTableCellStyle {
+		if v == nil {
+			return nil
+		}
+		return v.ValueCellStyle
+	}).(AnalysisTableCellStylePtrOutput)
+}
+
+type AnalysisTableAggregatedFieldWells struct {
+	// The group by field well for a pivot table. Values are grouped by group by fields.
+	GroupBy []AnalysisDimensionField `pulumi:"groupBy"`
+	// The values field well for a pivot table. Values are aggregated based on group by fields.
+	Values []AnalysisMeasureField `pulumi:"values"`
+}
+
+// AnalysisTableAggregatedFieldWellsInput is an input type that accepts AnalysisTableAggregatedFieldWellsArgs and AnalysisTableAggregatedFieldWellsOutput values.
+// You can construct a concrete instance of `AnalysisTableAggregatedFieldWellsInput` via:
+//
+//	AnalysisTableAggregatedFieldWellsArgs{...}
+type AnalysisTableAggregatedFieldWellsInput interface {
+	pulumi.Input
+
+	ToAnalysisTableAggregatedFieldWellsOutput() AnalysisTableAggregatedFieldWellsOutput
+	ToAnalysisTableAggregatedFieldWellsOutputWithContext(context.Context) AnalysisTableAggregatedFieldWellsOutput
+}
+
+type AnalysisTableAggregatedFieldWellsArgs struct {
+	// The group by field well for a pivot table. Values are grouped by group by fields.
+	GroupBy AnalysisDimensionFieldArrayInput `pulumi:"groupBy"`
+	// The values field well for a pivot table. Values are aggregated based on group by fields.
+	Values AnalysisMeasureFieldArrayInput `pulumi:"values"`
+}
+
+func (AnalysisTableAggregatedFieldWellsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsOutput() AnalysisTableAggregatedFieldWellsOutput {
+	return i.ToAnalysisTableAggregatedFieldWellsOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableAggregatedFieldWellsOutput)
+}
+
+func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
+	return i.ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableAggregatedFieldWellsOutput).ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx)
+}
+
+// AnalysisTableAggregatedFieldWellsPtrInput is an input type that accepts AnalysisTableAggregatedFieldWellsArgs, AnalysisTableAggregatedFieldWellsPtr and AnalysisTableAggregatedFieldWellsPtrOutput values.
+// You can construct a concrete instance of `AnalysisTableAggregatedFieldWellsPtrInput` via:
+//
+//	        AnalysisTableAggregatedFieldWellsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTableAggregatedFieldWellsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput
+	ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Context) AnalysisTableAggregatedFieldWellsPtrOutput
+}
+
+type analysisTableAggregatedFieldWellsPtrType AnalysisTableAggregatedFieldWellsArgs
+
+func AnalysisTableAggregatedFieldWellsPtr(v *AnalysisTableAggregatedFieldWellsArgs) AnalysisTableAggregatedFieldWellsPtrInput {
+	return (*analysisTableAggregatedFieldWellsPtrType)(v)
+}
+
+func (*analysisTableAggregatedFieldWellsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableAggregatedFieldWells)(nil)).Elem()
+}
+
+func (i *analysisTableAggregatedFieldWellsPtrType) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
+	return i.ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTableAggregatedFieldWellsPtrType) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableAggregatedFieldWellsPtrOutput)
+}
+
+type AnalysisTableAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableAggregatedFieldWellsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsOutput() AnalysisTableAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsOutput {
+	return o
+}
+
+func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
+	return o.ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableAggregatedFieldWells) *AnalysisTableAggregatedFieldWells {
+		return &v
+	}).(AnalysisTableAggregatedFieldWellsPtrOutput)
+}
+
+// The group by field well for a pivot table. Values are grouped by group by fields.
+func (o AnalysisTableAggregatedFieldWellsOutput) GroupBy() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisTableAggregatedFieldWells) []AnalysisDimensionField { return v.GroupBy }).(AnalysisDimensionFieldArrayOutput)
+}
+
+// The values field well for a pivot table. Values are aggregated based on group by fields.
+func (o AnalysisTableAggregatedFieldWellsOutput) Values() AnalysisMeasureFieldArrayOutput {
+	return o.ApplyT(func(v AnalysisTableAggregatedFieldWells) []AnalysisMeasureField { return v.Values }).(AnalysisMeasureFieldArrayOutput)
+}
+
+type AnalysisTableAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableAggregatedFieldWells)(nil)).Elem()
+}
+
+func (o AnalysisTableAggregatedFieldWellsPtrOutput) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o AnalysisTableAggregatedFieldWellsPtrOutput) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
+	return o
+}
+
+func (o AnalysisTableAggregatedFieldWellsPtrOutput) Elem() AnalysisTableAggregatedFieldWellsOutput {
+	return o.ApplyT(func(v *AnalysisTableAggregatedFieldWells) AnalysisTableAggregatedFieldWells {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTableAggregatedFieldWells
+		return ret
+	}).(AnalysisTableAggregatedFieldWellsOutput)
+}
+
+// The group by field well for a pivot table. Values are grouped by group by fields.
+func (o AnalysisTableAggregatedFieldWellsPtrOutput) GroupBy() AnalysisDimensionFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisTableAggregatedFieldWells) []AnalysisDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBy
+	}).(AnalysisDimensionFieldArrayOutput)
+}
+
+// The values field well for a pivot table. Values are aggregated based on group by fields.
+func (o AnalysisTableAggregatedFieldWellsPtrOutput) Values() AnalysisMeasureFieldArrayOutput {
+	return o.ApplyT(func(v *AnalysisTableAggregatedFieldWells) []AnalysisMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(AnalysisMeasureFieldArrayOutput)
+}
+
+type AnalysisTableBorderOptions struct {
+	// The color of a table border.
+	Color *string `pulumi:"color"`
+	// The style (none, solid) of a table border.
+	Style *AnalysisTableBorderStyle `pulumi:"style"`
+	// The thickness of a table border.
+	Thickness *float64 `pulumi:"thickness"`
+}
+
+// AnalysisTableBorderOptionsInput is an input type that accepts AnalysisTableBorderOptionsArgs and AnalysisTableBorderOptionsOutput values.
+// You can construct a concrete instance of `AnalysisTableBorderOptionsInput` via:
+//
+//	AnalysisTableBorderOptionsArgs{...}
+type AnalysisTableBorderOptionsInput interface {
+	pulumi.Input
+
+	ToAnalysisTableBorderOptionsOutput() AnalysisTableBorderOptionsOutput
+	ToAnalysisTableBorderOptionsOutputWithContext(context.Context) AnalysisTableBorderOptionsOutput
+}
+
+type AnalysisTableBorderOptionsArgs struct {
+	// The color of a table border.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// The style (none, solid) of a table border.
+	Style AnalysisTableBorderStylePtrInput `pulumi:"style"`
+	// The thickness of a table border.
+	Thickness pulumi.Float64PtrInput `pulumi:"thickness"`
+}
+
+func (AnalysisTableBorderOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableBorderOptions)(nil)).Elem()
+}
+
+func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsOutput() AnalysisTableBorderOptionsOutput {
+	return i.ToAnalysisTableBorderOptionsOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableBorderOptionsOutput)
+}
+
+func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
+	return i.ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableBorderOptionsOutput).ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx)
+}
+
+// AnalysisTableBorderOptionsPtrInput is an input type that accepts AnalysisTableBorderOptionsArgs, AnalysisTableBorderOptionsPtr and AnalysisTableBorderOptionsPtrOutput values.
+// You can construct a concrete instance of `AnalysisTableBorderOptionsPtrInput` via:
+//
+//	        AnalysisTableBorderOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTableBorderOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput
+	ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Context) AnalysisTableBorderOptionsPtrOutput
+}
+
+type analysisTableBorderOptionsPtrType AnalysisTableBorderOptionsArgs
+
+func AnalysisTableBorderOptionsPtr(v *AnalysisTableBorderOptionsArgs) AnalysisTableBorderOptionsPtrInput {
+	return (*analysisTableBorderOptionsPtrType)(v)
+}
+
+func (*analysisTableBorderOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableBorderOptions)(nil)).Elem()
+}
+
+func (i *analysisTableBorderOptionsPtrType) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
+	return i.ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTableBorderOptionsPtrType) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableBorderOptionsPtrOutput)
+}
+
+type AnalysisTableBorderOptionsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableBorderOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableBorderOptions)(nil)).Elem()
+}
+
+func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsOutput() AnalysisTableBorderOptionsOutput {
+	return o
+}
+
+func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsOutput {
+	return o
+}
+
+func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
+	return o.ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableBorderOptions) *AnalysisTableBorderOptions {
+		return &v
+	}).(AnalysisTableBorderOptionsPtrOutput)
+}
+
+// The color of a table border.
+func (o AnalysisTableBorderOptionsOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisTableBorderOptions) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// The style (none, solid) of a table border.
+func (o AnalysisTableBorderOptionsOutput) Style() AnalysisTableBorderStylePtrOutput {
+	return o.ApplyT(func(v AnalysisTableBorderOptions) *AnalysisTableBorderStyle { return v.Style }).(AnalysisTableBorderStylePtrOutput)
+}
+
+// The thickness of a table border.
+func (o AnalysisTableBorderOptionsOutput) Thickness() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnalysisTableBorderOptions) *float64 { return v.Thickness }).(pulumi.Float64PtrOutput)
+}
+
+type AnalysisTableBorderOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableBorderOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableBorderOptions)(nil)).Elem()
+}
+
+func (o AnalysisTableBorderOptionsPtrOutput) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisTableBorderOptionsPtrOutput) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisTableBorderOptionsPtrOutput) Elem() AnalysisTableBorderOptionsOutput {
+	return o.ApplyT(func(v *AnalysisTableBorderOptions) AnalysisTableBorderOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTableBorderOptions
+		return ret
+	}).(AnalysisTableBorderOptionsOutput)
+}
+
+// The color of a table border.
+func (o AnalysisTableBorderOptionsPtrOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableBorderOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Color
+	}).(pulumi.StringPtrOutput)
+}
+
+// The style (none, solid) of a table border.
+func (o AnalysisTableBorderOptionsPtrOutput) Style() AnalysisTableBorderStylePtrOutput {
+	return o.ApplyT(func(v *AnalysisTableBorderOptions) *AnalysisTableBorderStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Style
+	}).(AnalysisTableBorderStylePtrOutput)
+}
+
+// The thickness of a table border.
+func (o AnalysisTableBorderOptionsPtrOutput) Thickness() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnalysisTableBorderOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Thickness
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AnalysisTableCellConditionalFormatting struct {
+	// The field ID of the cell for conditional formatting.
+	FieldId string `pulumi:"fieldId"`
+	// The text format of the cell for conditional formatting.
+	TextFormat *AnalysisTextConditionalFormat `pulumi:"textFormat"`
+}
+
+// AnalysisTableCellConditionalFormattingInput is an input type that accepts AnalysisTableCellConditionalFormattingArgs and AnalysisTableCellConditionalFormattingOutput values.
+// You can construct a concrete instance of `AnalysisTableCellConditionalFormattingInput` via:
+//
+//	AnalysisTableCellConditionalFormattingArgs{...}
+type AnalysisTableCellConditionalFormattingInput interface {
+	pulumi.Input
+
+	ToAnalysisTableCellConditionalFormattingOutput() AnalysisTableCellConditionalFormattingOutput
+	ToAnalysisTableCellConditionalFormattingOutputWithContext(context.Context) AnalysisTableCellConditionalFormattingOutput
+}
+
+type AnalysisTableCellConditionalFormattingArgs struct {
+	// The field ID of the cell for conditional formatting.
+	FieldId pulumi.StringInput `pulumi:"fieldId"`
+	// The text format of the cell for conditional formatting.
+	TextFormat AnalysisTextConditionalFormatPtrInput `pulumi:"textFormat"`
+}
+
+func (AnalysisTableCellConditionalFormattingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableCellConditionalFormatting)(nil)).Elem()
+}
+
+func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingOutput() AnalysisTableCellConditionalFormattingOutput {
+	return i.ToAnalysisTableCellConditionalFormattingOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellConditionalFormattingOutput)
+}
+
+func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
+	return i.ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellConditionalFormattingOutput).ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx)
+}
+
+// AnalysisTableCellConditionalFormattingPtrInput is an input type that accepts AnalysisTableCellConditionalFormattingArgs, AnalysisTableCellConditionalFormattingPtr and AnalysisTableCellConditionalFormattingPtrOutput values.
+// You can construct a concrete instance of `AnalysisTableCellConditionalFormattingPtrInput` via:
+//
+//	        AnalysisTableCellConditionalFormattingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTableCellConditionalFormattingPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput
+	ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Context) AnalysisTableCellConditionalFormattingPtrOutput
+}
+
+type analysisTableCellConditionalFormattingPtrType AnalysisTableCellConditionalFormattingArgs
+
+func AnalysisTableCellConditionalFormattingPtr(v *AnalysisTableCellConditionalFormattingArgs) AnalysisTableCellConditionalFormattingPtrInput {
+	return (*analysisTableCellConditionalFormattingPtrType)(v)
+}
+
+func (*analysisTableCellConditionalFormattingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableCellConditionalFormatting)(nil)).Elem()
+}
+
+func (i *analysisTableCellConditionalFormattingPtrType) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
+	return i.ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTableCellConditionalFormattingPtrType) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellConditionalFormattingPtrOutput)
+}
+
+type AnalysisTableCellConditionalFormattingOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableCellConditionalFormattingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableCellConditionalFormatting)(nil)).Elem()
+}
+
+func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingOutput() AnalysisTableCellConditionalFormattingOutput {
+	return o
+}
+
+func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingOutput {
+	return o
+}
+
+func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
+	return o.ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableCellConditionalFormatting) *AnalysisTableCellConditionalFormatting {
+		return &v
+	}).(AnalysisTableCellConditionalFormattingPtrOutput)
+}
+
+// The field ID of the cell for conditional formatting.
+func (o AnalysisTableCellConditionalFormattingOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTableCellConditionalFormatting) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+// The text format of the cell for conditional formatting.
+func (o AnalysisTableCellConditionalFormattingOutput) TextFormat() AnalysisTextConditionalFormatPtrOutput {
+	return o.ApplyT(func(v AnalysisTableCellConditionalFormatting) *AnalysisTextConditionalFormat { return v.TextFormat }).(AnalysisTextConditionalFormatPtrOutput)
+}
+
+type AnalysisTableCellConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableCellConditionalFormattingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableCellConditionalFormatting)(nil)).Elem()
+}
+
+func (o AnalysisTableCellConditionalFormattingPtrOutput) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o AnalysisTableCellConditionalFormattingPtrOutput) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
+	return o
+}
+
+func (o AnalysisTableCellConditionalFormattingPtrOutput) Elem() AnalysisTableCellConditionalFormattingOutput {
+	return o.ApplyT(func(v *AnalysisTableCellConditionalFormatting) AnalysisTableCellConditionalFormatting {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTableCellConditionalFormatting
+		return ret
+	}).(AnalysisTableCellConditionalFormattingOutput)
+}
+
+// The field ID of the cell for conditional formatting.
+func (o AnalysisTableCellConditionalFormattingPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableCellConditionalFormatting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The text format of the cell for conditional formatting.
+func (o AnalysisTableCellConditionalFormattingPtrOutput) TextFormat() AnalysisTextConditionalFormatPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableCellConditionalFormatting) *AnalysisTextConditionalFormat {
+		if v == nil {
+			return nil
+		}
+		return v.TextFormat
+	}).(AnalysisTextConditionalFormatPtrOutput)
+}
+
+type AnalysisTableCellImageSizingConfiguration struct {
+	// The cell scaling configuration of the sizing options for the table image configuration.
+	TableCellImageScalingConfiguration *AnalysisTableCellImageScalingConfiguration `pulumi:"tableCellImageScalingConfiguration"`
+}
+
+// AnalysisTableCellImageSizingConfigurationInput is an input type that accepts AnalysisTableCellImageSizingConfigurationArgs and AnalysisTableCellImageSizingConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisTableCellImageSizingConfigurationInput` via:
+//
+//	AnalysisTableCellImageSizingConfigurationArgs{...}
+type AnalysisTableCellImageSizingConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisTableCellImageSizingConfigurationOutput() AnalysisTableCellImageSizingConfigurationOutput
+	ToAnalysisTableCellImageSizingConfigurationOutputWithContext(context.Context) AnalysisTableCellImageSizingConfigurationOutput
+}
+
+type AnalysisTableCellImageSizingConfigurationArgs struct {
+	// The cell scaling configuration of the sizing options for the table image configuration.
+	TableCellImageScalingConfiguration AnalysisTableCellImageScalingConfigurationPtrInput `pulumi:"tableCellImageScalingConfiguration"`
+}
+
+func (AnalysisTableCellImageSizingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationOutput() AnalysisTableCellImageSizingConfigurationOutput {
+	return i.ToAnalysisTableCellImageSizingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellImageSizingConfigurationOutput)
+}
+
+func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return i.ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellImageSizingConfigurationOutput).ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisTableCellImageSizingConfigurationPtrInput is an input type that accepts AnalysisTableCellImageSizingConfigurationArgs, AnalysisTableCellImageSizingConfigurationPtr and AnalysisTableCellImageSizingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisTableCellImageSizingConfigurationPtrInput` via:
+//
+//	        AnalysisTableCellImageSizingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTableCellImageSizingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput
+	ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput
+}
+
+type analysisTableCellImageSizingConfigurationPtrType AnalysisTableCellImageSizingConfigurationArgs
+
+func AnalysisTableCellImageSizingConfigurationPtr(v *AnalysisTableCellImageSizingConfigurationArgs) AnalysisTableCellImageSizingConfigurationPtrInput {
+	return (*analysisTableCellImageSizingConfigurationPtrType)(v)
+}
+
+func (*analysisTableCellImageSizingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
+}
+
+func (i *analysisTableCellImageSizingConfigurationPtrType) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return i.ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTableCellImageSizingConfigurationPtrType) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellImageSizingConfigurationPtrOutput)
+}
+
+type AnalysisTableCellImageSizingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableCellImageSizingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationOutput() AnalysisTableCellImageSizingConfigurationOutput {
+	return o
+}
+
+func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationOutput {
+	return o
+}
+
+func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return o.ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableCellImageSizingConfiguration) *AnalysisTableCellImageSizingConfiguration {
+		return &v
+	}).(AnalysisTableCellImageSizingConfigurationPtrOutput)
+}
+
+// The cell scaling configuration of the sizing options for the table image configuration.
+func (o AnalysisTableCellImageSizingConfigurationOutput) TableCellImageScalingConfiguration() AnalysisTableCellImageScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisTableCellImageSizingConfiguration) *AnalysisTableCellImageScalingConfiguration {
+		return v.TableCellImageScalingConfiguration
+	}).(AnalysisTableCellImageScalingConfigurationPtrOutput)
+}
+
+type AnalysisTableCellImageSizingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTableCellImageSizingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisTableCellImageSizingConfigurationPtrOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisTableCellImageSizingConfigurationPtrOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisTableCellImageSizingConfigurationPtrOutput) Elem() AnalysisTableCellImageSizingConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisTableCellImageSizingConfiguration) AnalysisTableCellImageSizingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTableCellImageSizingConfiguration
+		return ret
+	}).(AnalysisTableCellImageSizingConfigurationOutput)
+}
+
+// The cell scaling configuration of the sizing options for the table image configuration.
+func (o AnalysisTableCellImageSizingConfigurationPtrOutput) TableCellImageScalingConfiguration() AnalysisTableCellImageScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisTableCellImageSizingConfiguration) *AnalysisTableCellImageScalingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TableCellImageScalingConfiguration
+	}).(AnalysisTableCellImageScalingConfigurationPtrOutput)
+}
+
 type AnalysisTableCellStyle struct {
 	// The background color for the table cells.
 	BackgroundColor *string `pulumi:"backgroundColor"`
@@ -89986,694 +90882,17 @@ func (o DashboardRadarChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DashboardRangeEndsLabelType struct {
-	// The visibility of the range ends label.
-	Visibility *DashboardVisibility `pulumi:"visibility"`
-}
-
-// DashboardRangeEndsLabelTypeInput is an input type that accepts DashboardRangeEndsLabelTypeArgs and DashboardRangeEndsLabelTypeOutput values.
-// You can construct a concrete instance of `DashboardRangeEndsLabelTypeInput` via:
-//
-//	DashboardRangeEndsLabelTypeArgs{...}
-type DashboardRangeEndsLabelTypeInput interface {
-	pulumi.Input
-
-	ToDashboardRangeEndsLabelTypeOutput() DashboardRangeEndsLabelTypeOutput
-	ToDashboardRangeEndsLabelTypeOutputWithContext(context.Context) DashboardRangeEndsLabelTypeOutput
-}
-
-type DashboardRangeEndsLabelTypeArgs struct {
-	// The visibility of the range ends label.
-	Visibility DashboardVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (DashboardRangeEndsLabelTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRangeEndsLabelType)(nil)).Elem()
-}
-
-func (i DashboardRangeEndsLabelTypeArgs) ToDashboardRangeEndsLabelTypeOutput() DashboardRangeEndsLabelTypeOutput {
-	return i.ToDashboardRangeEndsLabelTypeOutputWithContext(context.Background())
-}
-
-func (i DashboardRangeEndsLabelTypeArgs) ToDashboardRangeEndsLabelTypeOutputWithContext(ctx context.Context) DashboardRangeEndsLabelTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRangeEndsLabelTypeOutput)
-}
-
-func (i DashboardRangeEndsLabelTypeArgs) ToDashboardRangeEndsLabelTypePtrOutput() DashboardRangeEndsLabelTypePtrOutput {
-	return i.ToDashboardRangeEndsLabelTypePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRangeEndsLabelTypeArgs) ToDashboardRangeEndsLabelTypePtrOutputWithContext(ctx context.Context) DashboardRangeEndsLabelTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRangeEndsLabelTypeOutput).ToDashboardRangeEndsLabelTypePtrOutputWithContext(ctx)
-}
-
-// DashboardRangeEndsLabelTypePtrInput is an input type that accepts DashboardRangeEndsLabelTypeArgs, DashboardRangeEndsLabelTypePtr and DashboardRangeEndsLabelTypePtrOutput values.
-// You can construct a concrete instance of `DashboardRangeEndsLabelTypePtrInput` via:
-//
-//	        DashboardRangeEndsLabelTypeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRangeEndsLabelTypePtrInput interface {
-	pulumi.Input
-
-	ToDashboardRangeEndsLabelTypePtrOutput() DashboardRangeEndsLabelTypePtrOutput
-	ToDashboardRangeEndsLabelTypePtrOutputWithContext(context.Context) DashboardRangeEndsLabelTypePtrOutput
-}
-
-type dashboardRangeEndsLabelTypePtrType DashboardRangeEndsLabelTypeArgs
-
-func DashboardRangeEndsLabelTypePtr(v *DashboardRangeEndsLabelTypeArgs) DashboardRangeEndsLabelTypePtrInput {
-	return (*dashboardRangeEndsLabelTypePtrType)(v)
-}
-
-func (*dashboardRangeEndsLabelTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRangeEndsLabelType)(nil)).Elem()
-}
-
-func (i *dashboardRangeEndsLabelTypePtrType) ToDashboardRangeEndsLabelTypePtrOutput() DashboardRangeEndsLabelTypePtrOutput {
-	return i.ToDashboardRangeEndsLabelTypePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRangeEndsLabelTypePtrType) ToDashboardRangeEndsLabelTypePtrOutputWithContext(ctx context.Context) DashboardRangeEndsLabelTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRangeEndsLabelTypePtrOutput)
-}
-
-type DashboardRangeEndsLabelTypeOutput struct{ *pulumi.OutputState }
-
-func (DashboardRangeEndsLabelTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRangeEndsLabelType)(nil)).Elem()
-}
-
-func (o DashboardRangeEndsLabelTypeOutput) ToDashboardRangeEndsLabelTypeOutput() DashboardRangeEndsLabelTypeOutput {
-	return o
-}
-
-func (o DashboardRangeEndsLabelTypeOutput) ToDashboardRangeEndsLabelTypeOutputWithContext(ctx context.Context) DashboardRangeEndsLabelTypeOutput {
-	return o
-}
-
-func (o DashboardRangeEndsLabelTypeOutput) ToDashboardRangeEndsLabelTypePtrOutput() DashboardRangeEndsLabelTypePtrOutput {
-	return o.ToDashboardRangeEndsLabelTypePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRangeEndsLabelTypeOutput) ToDashboardRangeEndsLabelTypePtrOutputWithContext(ctx context.Context) DashboardRangeEndsLabelTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRangeEndsLabelType) *DashboardRangeEndsLabelType {
-		return &v
-	}).(DashboardRangeEndsLabelTypePtrOutput)
-}
-
-// The visibility of the range ends label.
-func (o DashboardRangeEndsLabelTypeOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardRangeEndsLabelType) *DashboardVisibility { return v.Visibility }).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardRangeEndsLabelTypePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRangeEndsLabelTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRangeEndsLabelType)(nil)).Elem()
-}
-
-func (o DashboardRangeEndsLabelTypePtrOutput) ToDashboardRangeEndsLabelTypePtrOutput() DashboardRangeEndsLabelTypePtrOutput {
-	return o
-}
-
-func (o DashboardRangeEndsLabelTypePtrOutput) ToDashboardRangeEndsLabelTypePtrOutputWithContext(ctx context.Context) DashboardRangeEndsLabelTypePtrOutput {
-	return o
-}
-
-func (o DashboardRangeEndsLabelTypePtrOutput) Elem() DashboardRangeEndsLabelTypeOutput {
-	return o.ApplyT(func(v *DashboardRangeEndsLabelType) DashboardRangeEndsLabelType {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRangeEndsLabelType
-		return ret
-	}).(DashboardRangeEndsLabelTypeOutput)
-}
-
-// The visibility of the range ends label.
-func (o DashboardRangeEndsLabelTypePtrOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardRangeEndsLabelType) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardReferenceLine struct {
-	// The data configuration of the reference line.
-	DataConfiguration DashboardReferenceLineDataConfiguration `pulumi:"dataConfiguration"`
-	// The label configuration of the reference line.
-	LabelConfiguration *DashboardReferenceLineLabelConfiguration `pulumi:"labelConfiguration"`
-	// The status of the reference line. Choose one of the following options:
-	//
-	// - `ENABLE`
-	// - `DISABLE`
-	Status *DashboardWidgetStatus `pulumi:"status"`
-	// The style configuration of the reference line.
-	StyleConfiguration *DashboardReferenceLineStyleConfiguration `pulumi:"styleConfiguration"`
-}
-
-// DashboardReferenceLineInput is an input type that accepts DashboardReferenceLineArgs and DashboardReferenceLineOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineInput` via:
-//
-//	DashboardReferenceLineArgs{...}
-type DashboardReferenceLineInput interface {
-	pulumi.Input
-
-	ToDashboardReferenceLineOutput() DashboardReferenceLineOutput
-	ToDashboardReferenceLineOutputWithContext(context.Context) DashboardReferenceLineOutput
-}
-
-type DashboardReferenceLineArgs struct {
-	// The data configuration of the reference line.
-	DataConfiguration DashboardReferenceLineDataConfigurationInput `pulumi:"dataConfiguration"`
-	// The label configuration of the reference line.
-	LabelConfiguration DashboardReferenceLineLabelConfigurationPtrInput `pulumi:"labelConfiguration"`
-	// The status of the reference line. Choose one of the following options:
-	//
-	// - `ENABLE`
-	// - `DISABLE`
-	Status DashboardWidgetStatusPtrInput `pulumi:"status"`
-	// The style configuration of the reference line.
-	StyleConfiguration DashboardReferenceLineStyleConfigurationPtrInput `pulumi:"styleConfiguration"`
-}
-
-func (DashboardReferenceLineArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLine)(nil)).Elem()
-}
-
-func (i DashboardReferenceLineArgs) ToDashboardReferenceLineOutput() DashboardReferenceLineOutput {
-	return i.ToDashboardReferenceLineOutputWithContext(context.Background())
-}
-
-func (i DashboardReferenceLineArgs) ToDashboardReferenceLineOutputWithContext(ctx context.Context) DashboardReferenceLineOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineOutput)
-}
-
-// DashboardReferenceLineArrayInput is an input type that accepts DashboardReferenceLineArray and DashboardReferenceLineArrayOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineArrayInput` via:
-//
-//	DashboardReferenceLineArray{ DashboardReferenceLineArgs{...} }
-type DashboardReferenceLineArrayInput interface {
-	pulumi.Input
-
-	ToDashboardReferenceLineArrayOutput() DashboardReferenceLineArrayOutput
-	ToDashboardReferenceLineArrayOutputWithContext(context.Context) DashboardReferenceLineArrayOutput
-}
-
-type DashboardReferenceLineArray []DashboardReferenceLineInput
-
-func (DashboardReferenceLineArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardReferenceLine)(nil)).Elem()
-}
-
-func (i DashboardReferenceLineArray) ToDashboardReferenceLineArrayOutput() DashboardReferenceLineArrayOutput {
-	return i.ToDashboardReferenceLineArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardReferenceLineArray) ToDashboardReferenceLineArrayOutputWithContext(ctx context.Context) DashboardReferenceLineArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineArrayOutput)
-}
-
-type DashboardReferenceLineOutput struct{ *pulumi.OutputState }
-
-func (DashboardReferenceLineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLine)(nil)).Elem()
-}
-
-func (o DashboardReferenceLineOutput) ToDashboardReferenceLineOutput() DashboardReferenceLineOutput {
-	return o
-}
-
-func (o DashboardReferenceLineOutput) ToDashboardReferenceLineOutputWithContext(ctx context.Context) DashboardReferenceLineOutput {
-	return o
-}
-
-// The data configuration of the reference line.
-func (o DashboardReferenceLineOutput) DataConfiguration() DashboardReferenceLineDataConfigurationOutput {
-	return o.ApplyT(func(v DashboardReferenceLine) DashboardReferenceLineDataConfiguration { return v.DataConfiguration }).(DashboardReferenceLineDataConfigurationOutput)
-}
-
-// The label configuration of the reference line.
-func (o DashboardReferenceLineOutput) LabelConfiguration() DashboardReferenceLineLabelConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLine) *DashboardReferenceLineLabelConfiguration { return v.LabelConfiguration }).(DashboardReferenceLineLabelConfigurationPtrOutput)
-}
-
-// The status of the reference line. Choose one of the following options:
-//
-// - `ENABLE`
-// - `DISABLE`
-func (o DashboardReferenceLineOutput) Status() DashboardWidgetStatusPtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLine) *DashboardWidgetStatus { return v.Status }).(DashboardWidgetStatusPtrOutput)
-}
-
-// The style configuration of the reference line.
-func (o DashboardReferenceLineOutput) StyleConfiguration() DashboardReferenceLineStyleConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLine) *DashboardReferenceLineStyleConfiguration { return v.StyleConfiguration }).(DashboardReferenceLineStyleConfigurationPtrOutput)
-}
-
-type DashboardReferenceLineArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardReferenceLineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardReferenceLine)(nil)).Elem()
-}
-
-func (o DashboardReferenceLineArrayOutput) ToDashboardReferenceLineArrayOutput() DashboardReferenceLineArrayOutput {
-	return o
-}
-
-func (o DashboardReferenceLineArrayOutput) ToDashboardReferenceLineArrayOutputWithContext(ctx context.Context) DashboardReferenceLineArrayOutput {
-	return o
-}
-
-func (o DashboardReferenceLineArrayOutput) Index(i pulumi.IntInput) DashboardReferenceLineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardReferenceLine {
-		return vs[0].([]DashboardReferenceLine)[vs[1].(int)]
-	}).(DashboardReferenceLineOutput)
-}
-
-type DashboardReferenceLineCustomLabelConfiguration struct {
-	// The string text of the custom label.
-	CustomLabel string `pulumi:"customLabel"`
-}
-
-// DashboardReferenceLineCustomLabelConfigurationInput is an input type that accepts DashboardReferenceLineCustomLabelConfigurationArgs and DashboardReferenceLineCustomLabelConfigurationOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineCustomLabelConfigurationInput` via:
-//
-//	DashboardReferenceLineCustomLabelConfigurationArgs{...}
-type DashboardReferenceLineCustomLabelConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardReferenceLineCustomLabelConfigurationOutput() DashboardReferenceLineCustomLabelConfigurationOutput
-	ToDashboardReferenceLineCustomLabelConfigurationOutputWithContext(context.Context) DashboardReferenceLineCustomLabelConfigurationOutput
-}
-
-type DashboardReferenceLineCustomLabelConfigurationArgs struct {
-	// The string text of the custom label.
-	CustomLabel pulumi.StringInput `pulumi:"customLabel"`
-}
-
-func (DashboardReferenceLineCustomLabelConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLineCustomLabelConfiguration)(nil)).Elem()
-}
-
-func (i DashboardReferenceLineCustomLabelConfigurationArgs) ToDashboardReferenceLineCustomLabelConfigurationOutput() DashboardReferenceLineCustomLabelConfigurationOutput {
-	return i.ToDashboardReferenceLineCustomLabelConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardReferenceLineCustomLabelConfigurationArgs) ToDashboardReferenceLineCustomLabelConfigurationOutputWithContext(ctx context.Context) DashboardReferenceLineCustomLabelConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineCustomLabelConfigurationOutput)
-}
-
-func (i DashboardReferenceLineCustomLabelConfigurationArgs) ToDashboardReferenceLineCustomLabelConfigurationPtrOutput() DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return i.ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardReferenceLineCustomLabelConfigurationArgs) ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineCustomLabelConfigurationOutput).ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardReferenceLineCustomLabelConfigurationPtrInput is an input type that accepts DashboardReferenceLineCustomLabelConfigurationArgs, DashboardReferenceLineCustomLabelConfigurationPtr and DashboardReferenceLineCustomLabelConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineCustomLabelConfigurationPtrInput` via:
-//
-//	        DashboardReferenceLineCustomLabelConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardReferenceLineCustomLabelConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardReferenceLineCustomLabelConfigurationPtrOutput() DashboardReferenceLineCustomLabelConfigurationPtrOutput
-	ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(context.Context) DashboardReferenceLineCustomLabelConfigurationPtrOutput
-}
-
-type dashboardReferenceLineCustomLabelConfigurationPtrType DashboardReferenceLineCustomLabelConfigurationArgs
-
-func DashboardReferenceLineCustomLabelConfigurationPtr(v *DashboardReferenceLineCustomLabelConfigurationArgs) DashboardReferenceLineCustomLabelConfigurationPtrInput {
-	return (*dashboardReferenceLineCustomLabelConfigurationPtrType)(v)
-}
-
-func (*dashboardReferenceLineCustomLabelConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardReferenceLineCustomLabelConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardReferenceLineCustomLabelConfigurationPtrType) ToDashboardReferenceLineCustomLabelConfigurationPtrOutput() DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return i.ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardReferenceLineCustomLabelConfigurationPtrType) ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineCustomLabelConfigurationPtrOutput)
-}
-
-type DashboardReferenceLineCustomLabelConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardReferenceLineCustomLabelConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLineCustomLabelConfiguration)(nil)).Elem()
-}
-
-func (o DashboardReferenceLineCustomLabelConfigurationOutput) ToDashboardReferenceLineCustomLabelConfigurationOutput() DashboardReferenceLineCustomLabelConfigurationOutput {
-	return o
-}
-
-func (o DashboardReferenceLineCustomLabelConfigurationOutput) ToDashboardReferenceLineCustomLabelConfigurationOutputWithContext(ctx context.Context) DashboardReferenceLineCustomLabelConfigurationOutput {
-	return o
-}
-
-func (o DashboardReferenceLineCustomLabelConfigurationOutput) ToDashboardReferenceLineCustomLabelConfigurationPtrOutput() DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return o.ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardReferenceLineCustomLabelConfigurationOutput) ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardReferenceLineCustomLabelConfiguration) *DashboardReferenceLineCustomLabelConfiguration {
-		return &v
-	}).(DashboardReferenceLineCustomLabelConfigurationPtrOutput)
-}
-
-// The string text of the custom label.
-func (o DashboardReferenceLineCustomLabelConfigurationOutput) CustomLabel() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardReferenceLineCustomLabelConfiguration) string { return v.CustomLabel }).(pulumi.StringOutput)
-}
-
-type DashboardReferenceLineCustomLabelConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardReferenceLineCustomLabelConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardReferenceLineCustomLabelConfiguration)(nil)).Elem()
-}
-
-func (o DashboardReferenceLineCustomLabelConfigurationPtrOutput) ToDashboardReferenceLineCustomLabelConfigurationPtrOutput() DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardReferenceLineCustomLabelConfigurationPtrOutput) ToDashboardReferenceLineCustomLabelConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineCustomLabelConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardReferenceLineCustomLabelConfigurationPtrOutput) Elem() DashboardReferenceLineCustomLabelConfigurationOutput {
-	return o.ApplyT(func(v *DashboardReferenceLineCustomLabelConfiguration) DashboardReferenceLineCustomLabelConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardReferenceLineCustomLabelConfiguration
-		return ret
-	}).(DashboardReferenceLineCustomLabelConfigurationOutput)
-}
-
-// The string text of the custom label.
-func (o DashboardReferenceLineCustomLabelConfigurationPtrOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardReferenceLineCustomLabelConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CustomLabel
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardReferenceLineDataConfiguration struct {
-	// The axis binding type of the reference line. Choose one of the following options:
-	//
-	// - `PrimaryY`
-	// - `SecondaryY`
-	AxisBinding *DashboardAxisBinding `pulumi:"axisBinding"`
-	// The dynamic configuration of the reference line data configuration.
-	DynamicConfiguration *DashboardReferenceLineDynamicDataConfiguration `pulumi:"dynamicConfiguration"`
-	// The series type of the reference line data configuration. Choose one of the following options:
-	//
-	// - `BAR`
-	// - `LINE`
-	SeriesType *DashboardReferenceLineSeriesType `pulumi:"seriesType"`
-	// The static data configuration of the reference line data configuration.
-	StaticConfiguration *DashboardReferenceLineStaticDataConfiguration `pulumi:"staticConfiguration"`
-}
-
-// DashboardReferenceLineDataConfigurationInput is an input type that accepts DashboardReferenceLineDataConfigurationArgs and DashboardReferenceLineDataConfigurationOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineDataConfigurationInput` via:
-//
-//	DashboardReferenceLineDataConfigurationArgs{...}
-type DashboardReferenceLineDataConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardReferenceLineDataConfigurationOutput() DashboardReferenceLineDataConfigurationOutput
-	ToDashboardReferenceLineDataConfigurationOutputWithContext(context.Context) DashboardReferenceLineDataConfigurationOutput
-}
-
-type DashboardReferenceLineDataConfigurationArgs struct {
-	// The axis binding type of the reference line. Choose one of the following options:
-	//
-	// - `PrimaryY`
-	// - `SecondaryY`
-	AxisBinding DashboardAxisBindingPtrInput `pulumi:"axisBinding"`
-	// The dynamic configuration of the reference line data configuration.
-	DynamicConfiguration DashboardReferenceLineDynamicDataConfigurationPtrInput `pulumi:"dynamicConfiguration"`
-	// The series type of the reference line data configuration. Choose one of the following options:
-	//
-	// - `BAR`
-	// - `LINE`
-	SeriesType DashboardReferenceLineSeriesTypePtrInput `pulumi:"seriesType"`
-	// The static data configuration of the reference line data configuration.
-	StaticConfiguration DashboardReferenceLineStaticDataConfigurationPtrInput `pulumi:"staticConfiguration"`
-}
-
-func (DashboardReferenceLineDataConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLineDataConfiguration)(nil)).Elem()
-}
-
-func (i DashboardReferenceLineDataConfigurationArgs) ToDashboardReferenceLineDataConfigurationOutput() DashboardReferenceLineDataConfigurationOutput {
-	return i.ToDashboardReferenceLineDataConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardReferenceLineDataConfigurationArgs) ToDashboardReferenceLineDataConfigurationOutputWithContext(ctx context.Context) DashboardReferenceLineDataConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineDataConfigurationOutput)
-}
-
-type DashboardReferenceLineDataConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardReferenceLineDataConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLineDataConfiguration)(nil)).Elem()
-}
-
-func (o DashboardReferenceLineDataConfigurationOutput) ToDashboardReferenceLineDataConfigurationOutput() DashboardReferenceLineDataConfigurationOutput {
-	return o
-}
-
-func (o DashboardReferenceLineDataConfigurationOutput) ToDashboardReferenceLineDataConfigurationOutputWithContext(ctx context.Context) DashboardReferenceLineDataConfigurationOutput {
-	return o
-}
-
-// The axis binding type of the reference line. Choose one of the following options:
-//
-// - `PrimaryY`
-// - `SecondaryY`
-func (o DashboardReferenceLineDataConfigurationOutput) AxisBinding() DashboardAxisBindingPtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLineDataConfiguration) *DashboardAxisBinding { return v.AxisBinding }).(DashboardAxisBindingPtrOutput)
-}
-
-// The dynamic configuration of the reference line data configuration.
-func (o DashboardReferenceLineDataConfigurationOutput) DynamicConfiguration() DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLineDataConfiguration) *DashboardReferenceLineDynamicDataConfiguration {
-		return v.DynamicConfiguration
-	}).(DashboardReferenceLineDynamicDataConfigurationPtrOutput)
-}
-
-// The series type of the reference line data configuration. Choose one of the following options:
-//
-// - `BAR`
-// - `LINE`
-func (o DashboardReferenceLineDataConfigurationOutput) SeriesType() DashboardReferenceLineSeriesTypePtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLineDataConfiguration) *DashboardReferenceLineSeriesType { return v.SeriesType }).(DashboardReferenceLineSeriesTypePtrOutput)
-}
-
-// The static data configuration of the reference line data configuration.
-func (o DashboardReferenceLineDataConfigurationOutput) StaticConfiguration() DashboardReferenceLineStaticDataConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLineDataConfiguration) *DashboardReferenceLineStaticDataConfiguration {
-		return v.StaticConfiguration
-	}).(DashboardReferenceLineStaticDataConfigurationPtrOutput)
-}
-
-type DashboardReferenceLineDynamicDataConfiguration struct {
-	// The calculation that is used in the dynamic data.
-	Calculation DashboardNumericalAggregationFunction `pulumi:"calculation"`
-	// The column that the dynamic data targets.
-	Column DashboardColumnIdentifier `pulumi:"column"`
-	// The aggregation function that is used in the dynamic data.
-	MeasureAggregationFunction *DashboardAggregationFunction `pulumi:"measureAggregationFunction"`
-}
-
-// DashboardReferenceLineDynamicDataConfigurationInput is an input type that accepts DashboardReferenceLineDynamicDataConfigurationArgs and DashboardReferenceLineDynamicDataConfigurationOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineDynamicDataConfigurationInput` via:
-//
-//	DashboardReferenceLineDynamicDataConfigurationArgs{...}
-type DashboardReferenceLineDynamicDataConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardReferenceLineDynamicDataConfigurationOutput() DashboardReferenceLineDynamicDataConfigurationOutput
-	ToDashboardReferenceLineDynamicDataConfigurationOutputWithContext(context.Context) DashboardReferenceLineDynamicDataConfigurationOutput
-}
-
-type DashboardReferenceLineDynamicDataConfigurationArgs struct {
-	// The calculation that is used in the dynamic data.
-	Calculation DashboardNumericalAggregationFunctionInput `pulumi:"calculation"`
-	// The column that the dynamic data targets.
-	Column DashboardColumnIdentifierInput `pulumi:"column"`
-	// The aggregation function that is used in the dynamic data.
-	MeasureAggregationFunction DashboardAggregationFunctionPtrInput `pulumi:"measureAggregationFunction"`
-}
-
-func (DashboardReferenceLineDynamicDataConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLineDynamicDataConfiguration)(nil)).Elem()
-}
-
-func (i DashboardReferenceLineDynamicDataConfigurationArgs) ToDashboardReferenceLineDynamicDataConfigurationOutput() DashboardReferenceLineDynamicDataConfigurationOutput {
-	return i.ToDashboardReferenceLineDynamicDataConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardReferenceLineDynamicDataConfigurationArgs) ToDashboardReferenceLineDynamicDataConfigurationOutputWithContext(ctx context.Context) DashboardReferenceLineDynamicDataConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineDynamicDataConfigurationOutput)
-}
-
-func (i DashboardReferenceLineDynamicDataConfigurationArgs) ToDashboardReferenceLineDynamicDataConfigurationPtrOutput() DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return i.ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardReferenceLineDynamicDataConfigurationArgs) ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineDynamicDataConfigurationOutput).ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardReferenceLineDynamicDataConfigurationPtrInput is an input type that accepts DashboardReferenceLineDynamicDataConfigurationArgs, DashboardReferenceLineDynamicDataConfigurationPtr and DashboardReferenceLineDynamicDataConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardReferenceLineDynamicDataConfigurationPtrInput` via:
-//
-//	        DashboardReferenceLineDynamicDataConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardReferenceLineDynamicDataConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardReferenceLineDynamicDataConfigurationPtrOutput() DashboardReferenceLineDynamicDataConfigurationPtrOutput
-	ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(context.Context) DashboardReferenceLineDynamicDataConfigurationPtrOutput
-}
-
-type dashboardReferenceLineDynamicDataConfigurationPtrType DashboardReferenceLineDynamicDataConfigurationArgs
-
-func DashboardReferenceLineDynamicDataConfigurationPtr(v *DashboardReferenceLineDynamicDataConfigurationArgs) DashboardReferenceLineDynamicDataConfigurationPtrInput {
-	return (*dashboardReferenceLineDynamicDataConfigurationPtrType)(v)
-}
-
-func (*dashboardReferenceLineDynamicDataConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardReferenceLineDynamicDataConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardReferenceLineDynamicDataConfigurationPtrType) ToDashboardReferenceLineDynamicDataConfigurationPtrOutput() DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return i.ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardReferenceLineDynamicDataConfigurationPtrType) ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardReferenceLineDynamicDataConfigurationPtrOutput)
-}
-
-type DashboardReferenceLineDynamicDataConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardReferenceLineDynamicDataConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardReferenceLineDynamicDataConfiguration)(nil)).Elem()
-}
-
-func (o DashboardReferenceLineDynamicDataConfigurationOutput) ToDashboardReferenceLineDynamicDataConfigurationOutput() DashboardReferenceLineDynamicDataConfigurationOutput {
-	return o
-}
-
-func (o DashboardReferenceLineDynamicDataConfigurationOutput) ToDashboardReferenceLineDynamicDataConfigurationOutputWithContext(ctx context.Context) DashboardReferenceLineDynamicDataConfigurationOutput {
-	return o
-}
-
-func (o DashboardReferenceLineDynamicDataConfigurationOutput) ToDashboardReferenceLineDynamicDataConfigurationPtrOutput() DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return o.ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardReferenceLineDynamicDataConfigurationOutput) ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardReferenceLineDynamicDataConfiguration) *DashboardReferenceLineDynamicDataConfiguration {
-		return &v
-	}).(DashboardReferenceLineDynamicDataConfigurationPtrOutput)
-}
-
-// The calculation that is used in the dynamic data.
-func (o DashboardReferenceLineDynamicDataConfigurationOutput) Calculation() DashboardNumericalAggregationFunctionOutput {
-	return o.ApplyT(func(v DashboardReferenceLineDynamicDataConfiguration) DashboardNumericalAggregationFunction {
-		return v.Calculation
-	}).(DashboardNumericalAggregationFunctionOutput)
-}
-
-// The column that the dynamic data targets.
-func (o DashboardReferenceLineDynamicDataConfigurationOutput) Column() DashboardColumnIdentifierOutput {
-	return o.ApplyT(func(v DashboardReferenceLineDynamicDataConfiguration) DashboardColumnIdentifier { return v.Column }).(DashboardColumnIdentifierOutput)
-}
-
-// The aggregation function that is used in the dynamic data.
-func (o DashboardReferenceLineDynamicDataConfigurationOutput) MeasureAggregationFunction() DashboardAggregationFunctionPtrOutput {
-	return o.ApplyT(func(v DashboardReferenceLineDynamicDataConfiguration) *DashboardAggregationFunction {
-		return v.MeasureAggregationFunction
-	}).(DashboardAggregationFunctionPtrOutput)
-}
-
-type DashboardReferenceLineDynamicDataConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardReferenceLineDynamicDataConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardReferenceLineDynamicDataConfiguration)(nil)).Elem()
-}
-
-func (o DashboardReferenceLineDynamicDataConfigurationPtrOutput) ToDashboardReferenceLineDynamicDataConfigurationPtrOutput() DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardReferenceLineDynamicDataConfigurationPtrOutput) ToDashboardReferenceLineDynamicDataConfigurationPtrOutputWithContext(ctx context.Context) DashboardReferenceLineDynamicDataConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardReferenceLineDynamicDataConfigurationPtrOutput) Elem() DashboardReferenceLineDynamicDataConfigurationOutput {
-	return o.ApplyT(func(v *DashboardReferenceLineDynamicDataConfiguration) DashboardReferenceLineDynamicDataConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardReferenceLineDynamicDataConfiguration
-		return ret
-	}).(DashboardReferenceLineDynamicDataConfigurationOutput)
-}
-
-// The calculation that is used in the dynamic data.
-func (o DashboardReferenceLineDynamicDataConfigurationPtrOutput) Calculation() DashboardNumericalAggregationFunctionPtrOutput {
-	return o.ApplyT(func(v *DashboardReferenceLineDynamicDataConfiguration) *DashboardNumericalAggregationFunction {
-		if v == nil {
-			return nil
-		}
-		return &v.Calculation
-	}).(DashboardNumericalAggregationFunctionPtrOutput)
-}
-
-// The column that the dynamic data targets.
-func (o DashboardReferenceLineDynamicDataConfigurationPtrOutput) Column() DashboardColumnIdentifierPtrOutput {
-	return o.ApplyT(func(v *DashboardReferenceLineDynamicDataConfiguration) *DashboardColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(DashboardColumnIdentifierPtrOutput)
-}
-
-// The aggregation function that is used in the dynamic data.
-func (o DashboardReferenceLineDynamicDataConfigurationPtrOutput) MeasureAggregationFunction() DashboardAggregationFunctionPtrOutput {
-	return o.ApplyT(func(v *DashboardReferenceLineDynamicDataConfiguration) *DashboardAggregationFunction {
-		if v == nil {
-			return nil
-		}
-		return v.MeasureAggregationFunction
-	}).(DashboardAggregationFunctionPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsPtrInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableAggregatedFieldWellsInput)(nil)).Elem(), AnalysisTableAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableAggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisTableAggregatedFieldWellsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderOptionsInput)(nil)).Elem(), AnalysisTableBorderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderOptionsPtrInput)(nil)).Elem(), AnalysisTableBorderOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellConditionalFormattingInput)(nil)).Elem(), AnalysisTableCellConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellConditionalFormattingPtrInput)(nil)).Elem(), AnalysisTableCellConditionalFormattingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageSizingConfigurationInput)(nil)).Elem(), AnalysisTableCellImageSizingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageSizingConfigurationPtrInput)(nil)).Elem(), AnalysisTableCellImageSizingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellStyleInput)(nil)).Elem(), AnalysisTableCellStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellStylePtrInput)(nil)).Elem(), AnalysisTableCellStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableConditionalFormattingInput)(nil)).Elem(), AnalysisTableConditionalFormattingArgs{})
@@ -91655,15 +91874,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSortConfigurationPtrInput)(nil)).Elem(), DashboardRadarChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualPtrInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRangeEndsLabelTypeInput)(nil)).Elem(), DashboardRangeEndsLabelTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRangeEndsLabelTypePtrInput)(nil)).Elem(), DashboardRangeEndsLabelTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineInput)(nil)).Elem(), DashboardReferenceLineArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineArrayInput)(nil)).Elem(), DashboardReferenceLineArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineCustomLabelConfigurationInput)(nil)).Elem(), DashboardReferenceLineCustomLabelConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineCustomLabelConfigurationPtrInput)(nil)).Elem(), DashboardReferenceLineCustomLabelConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineDataConfigurationInput)(nil)).Elem(), DashboardReferenceLineDataConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineDynamicDataConfigurationInput)(nil)).Elem(), DashboardReferenceLineDynamicDataConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineDynamicDataConfigurationPtrInput)(nil)).Elem(), DashboardReferenceLineDynamicDataConfigurationArgs{})
+	pulumi.RegisterOutputType(AnalysisSubtotalOptionsOutput{})
+	pulumi.RegisterOutputType(AnalysisSubtotalOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTableAggregatedFieldWellsOutput{})
+	pulumi.RegisterOutputType(AnalysisTableAggregatedFieldWellsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTableBorderOptionsOutput{})
+	pulumi.RegisterOutputType(AnalysisTableBorderOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTableCellConditionalFormattingOutput{})
+	pulumi.RegisterOutputType(AnalysisTableCellConditionalFormattingPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTableCellImageSizingConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisTableCellImageSizingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableCellStyleOutput{})
 	pulumi.RegisterOutputType(AnalysisTableCellStylePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableConditionalFormattingOutput{})
@@ -92649,13 +92869,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardRadarChartSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartVisualOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartVisualPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRangeEndsLabelTypeOutput{})
-	pulumi.RegisterOutputType(DashboardRangeEndsLabelTypePtrOutput{})
-	pulumi.RegisterOutputType(DashboardReferenceLineOutput{})
-	pulumi.RegisterOutputType(DashboardReferenceLineArrayOutput{})
-	pulumi.RegisterOutputType(DashboardReferenceLineCustomLabelConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardReferenceLineCustomLabelConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardReferenceLineDataConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardReferenceLineDynamicDataConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardReferenceLineDynamicDataConfigurationPtrOutput{})
 }

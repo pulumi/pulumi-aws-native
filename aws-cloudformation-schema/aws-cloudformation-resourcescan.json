@@ -1,0 +1,72 @@
+{
+  "typeName" : "AWS::CloudFormation::ResourceScan",
+  "description" : "Represents a CloudFormation resource scan that discovers existing AWS resources in an account and region.",
+  "properties" : {
+    "ResourceScanId" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the resource scan."
+    },
+    "ScanId" : {
+      "type" : "string",
+      "description" : "The unique identifier portion of the resource scan ARN."
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "Status of the resource scan.",
+      "enum" : [ "IN_PROGRESS", "FAILED", "COMPLETE", "EXPIRED" ]
+    },
+    "StartTime" : {
+      "type" : "string",
+      "description" : "The time that the resource scan was started.",
+      "format" : "date-time"
+    },
+    "PercentageCompleted" : {
+      "type" : "number",
+      "description" : "The percentage of the resource scan that has been completed."
+    },
+    "ScanFilters" : {
+      "type" : "array",
+      "description" : "The scan filters to use.",
+      "items" : {
+        "$ref" : "#/definitions/ScanFilter"
+      },
+      "minItems" : 1,
+      "maxItems" : 1
+    }
+  },
+  "definitions" : {
+    "ScanFilter" : {
+      "type" : "object",
+      "description" : "A filter that is used to specify which resource types to scan.",
+      "properties" : {
+        "Types" : {
+          "type" : "array",
+          "description" : "An array of strings where each string represents an AWS resource type to scan.",
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 100
+          },
+          "maxItems" : 100
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/ScanFilters" ],
+  "readOnlyProperties" : [ "/properties/ResourceScanId", "/properties/ScanId", "/properties/Status", "/properties/StartTime", "/properties/PercentageCompleted" ],
+  "primaryIdentifier" : [ "/properties/ResourceScanId" ],
+  "additionalIdentifiers" : [ [ "/properties/ScanId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "cloudformation:DescribeResourceScan" ]
+    },
+    "list" : {
+      "permissions" : [ "cloudformation:ListResourceScans" ]
+    }
+  }
+}

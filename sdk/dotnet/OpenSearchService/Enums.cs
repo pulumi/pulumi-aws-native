@@ -67,6 +67,37 @@ namespace Pulumi.AwsNative.OpenSearchService
     }
 
     /// <summary>
+    /// The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainEngineMode : IEquatable<DomainEngineMode>
+    {
+        private readonly string _value;
+
+        private DomainEngineMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainEngineMode General { get; } = new DomainEngineMode("GENERAL");
+        public static DomainEngineMode Optimized { get; } = new DomainEngineMode("OPTIMIZED");
+
+        public static bool operator ==(DomainEngineMode left, DomainEngineMode right) => left.Equals(right);
+        public static bool operator !=(DomainEngineMode left, DomainEngineMode right) => !left.Equals(right);
+
+        public static explicit operator string(DomainEngineMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainEngineMode other && Equals(other);
+        public bool Equals(DomainEngineMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines the type of node, such as coordinating nodes.
     /// </summary>
     [EnumType]
@@ -152,6 +183,39 @@ namespace Pulumi.AwsNative.OpenSearchService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainSubjectKeyIdcType other && Equals(other);
         public bool Equals(DomainSubjectKeyIdcType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainUseCase : IEquatable<DomainUseCase>
+    {
+        private readonly string _value;
+
+        private DomainUseCase(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainUseCase Search { get; } = new DomainUseCase("SEARCH");
+        public static DomainUseCase Vector { get; } = new DomainUseCase("VECTOR");
+        public static DomainUseCase Observability { get; } = new DomainUseCase("OBSERVABILITY");
+        public static DomainUseCase Mixed { get; } = new DomainUseCase("MIXED");
+
+        public static bool operator ==(DomainUseCase left, DomainUseCase right) => left.Equals(right);
+        public static bool operator !=(DomainUseCase left, DomainUseCase right) => !left.Equals(right);
+
+        public static explicit operator string(DomainUseCase value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainUseCase other && Equals(other);
+        public bool Equals(DomainUseCase other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

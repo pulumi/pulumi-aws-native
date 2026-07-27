@@ -83,6 +83,7 @@ export class Api extends pulumi.CustomResource {
      * Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
      */
     declare public readonly disableSchemaValidation: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly executeApiArn: pulumi.Output<string>;
     /**
      * Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
      */
@@ -152,6 +153,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["version"] = args?.version;
             resourceInputs["apiEndpoint"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["executeApiArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiEndpoint"] = undefined /*out*/;
             resourceInputs["apiId"] = undefined /*out*/;
@@ -164,6 +166,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disableExecuteApiEndpoint"] = undefined /*out*/;
             resourceInputs["disableSchemaValidation"] = undefined /*out*/;
+            resourceInputs["executeApiArn"] = undefined /*out*/;
             resourceInputs["failOnWarnings"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

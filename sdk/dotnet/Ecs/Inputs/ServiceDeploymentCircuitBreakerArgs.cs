@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to ``true``, a task that reaches a healthy state resets the failure count to ``0``. When set to ``false``, Amazon ECS does not reset the failure count. The default is ``true``.
+        /// </summary>
         [Input("resetOnHealthyTask")]
         public Input<bool>? ResetOnHealthyTask { get; set; }
 
@@ -32,6 +35,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("rollback", required: true)]
         public Input<bool> Rollback { get; set; } = null!;
 
+        /// <summary>
+        /// The threshold configuration that controls when the deployment circuit breaker triggers. The ``type`` and ``value`` together determine how many task failures are tolerated before the circuit breaker activates.
+        /// </summary>
         [Input("thresholdConfiguration")]
         public Input<Inputs.ServiceThresholdConfigurationArgs>? ThresholdConfiguration { get; set; }
 

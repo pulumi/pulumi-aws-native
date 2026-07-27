@@ -384,6 +384,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterAutoPatchConfigPatchingStrategy : IEquatable<ClusterAutoPatchConfigPatchingStrategy>
+    {
+        private readonly string _value;
+
+        private ClusterAutoPatchConfigPatchingStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterAutoPatchConfigPatchingStrategy WhenIdle { get; } = new ClusterAutoPatchConfigPatchingStrategy("WhenIdle");
+        public static ClusterAutoPatchConfigPatchingStrategy WhenAllIdle { get; } = new ClusterAutoPatchConfigPatchingStrategy("WhenAllIdle");
+
+        public static bool operator ==(ClusterAutoPatchConfigPatchingStrategy left, ClusterAutoPatchConfigPatchingStrategy right) => left.Equals(right);
+        public static bool operator !=(ClusterAutoPatchConfigPatchingStrategy left, ClusterAutoPatchConfigPatchingStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterAutoPatchConfigPatchingStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterAutoPatchConfigPatchingStrategy other && Equals(other);
+        public bool Equals(ClusterAutoPatchConfigPatchingStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of auto-scaler to use
     /// </summary>
     [EnumType]

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ClusterInstanceGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoPatchConfig")]
+        public Input<Inputs.ClusterAutoPatchConfigArgs>? AutoPatchConfig { get; set; }
+
         [Input("capacityRequirements")]
         public Input<Inputs.ClusterCapacityRequirementsArgs>? CapacityRequirements { get; set; }
 

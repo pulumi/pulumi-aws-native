@@ -111,6 +111,10 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly encryptionAtRestOptions: pulumi.Output<outputs.opensearchservice.DomainEncryptionAtRestOptions | undefined>;
     /**
+     * The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+     */
+    declare public readonly engineMode: pulumi.Output<enums.opensearchservice.DomainEngineMode | undefined>;
+    /**
      * The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
@@ -151,6 +155,10 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+     */
+    declare public readonly useCase: pulumi.Output<enums.opensearchservice.DomainUseCase | undefined>;
+    /**
      * The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
@@ -180,6 +188,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["ebsOptions"] = args?.ebsOptions;
             resourceInputs["encryptionAtRestOptions"] = args?.encryptionAtRestOptions;
+            resourceInputs["engineMode"] = args?.engineMode;
             resourceInputs["engineVersion"] = args?.engineVersion;
             resourceInputs["identityCenterOptions"] = args?.identityCenterOptions;
             resourceInputs["ipAddressType"] = args?.ipAddressType;
@@ -190,6 +199,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["snapshotOptions"] = args?.snapshotOptions;
             resourceInputs["softwareUpdateOptions"] = args?.softwareUpdateOptions;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["useCase"] = args?.useCase;
             resourceInputs["vpcOptions"] = args?.vpcOptions;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -217,6 +227,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["ebsOptions"] = undefined /*out*/;
             resourceInputs["encryptionAtRestOptions"] = undefined /*out*/;
+            resourceInputs["engineMode"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["identityCenterOptions"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
@@ -228,10 +239,11 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["snapshotOptions"] = undefined /*out*/;
             resourceInputs["softwareUpdateOptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["useCase"] = undefined /*out*/;
             resourceInputs["vpcOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainName"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainName", "engineMode"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
@@ -294,6 +306,10 @@ export interface DomainArgs {
      */
     encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs | undefined>;
     /**
+     * The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+     */
+    engineMode?: pulumi.Input<enums.opensearchservice.DomainEngineMode | undefined>;
+    /**
      * The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
      *
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
@@ -332,6 +348,10 @@ export interface DomainArgs {
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    /**
+     * The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+     */
+    useCase?: pulumi.Input<enums.opensearchservice.DomainUseCase | undefined>;
     /**
      * The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
      *

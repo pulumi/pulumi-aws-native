@@ -33,6 +33,7 @@ import * as budgets from "./budgets";
 import * as cases from "./cases";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
+import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
 import * as cleanrooms from "./cleanrooms";
 import * as cleanroomsml from "./cleanroomsml";
@@ -134,6 +135,7 @@ import * as mwaaserverless from "./mwaaserverless";
 import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
+import * as networkflowmonitor from "./networkflowmonitor";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
@@ -197,6 +199,7 @@ import * as ssmincidents from "./ssmincidents";
 import * as ssmquicksetup from "./ssmquicksetup";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
+import * as storagegateway from "./storagegateway";
 import * as supportapp from "./supportapp";
 import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
@@ -205,6 +208,7 @@ import * as transfer from "./transfer";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
+import * as wellarchitected from "./wellarchitected";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
 import * as workspacesinstances from "./workspacesinstances";
@@ -243,6 +247,7 @@ export {
     cases,
     cassandra,
     ce,
+    certificatemanager,
     chatbot,
     cleanrooms,
     cleanroomsml,
@@ -344,6 +349,7 @@ export {
     neptune,
     neptunegraph,
     networkfirewall,
+    networkflowmonitor,
     oam,
     observabilityadmin,
     odb,
@@ -407,6 +413,7 @@ export {
     ssmquicksetup,
     sso,
     stepfunctions,
+    storagegateway,
     supportapp,
     synthetics,
     systemsmanagersap,
@@ -415,6 +422,7 @@ export {
     verifiedpermissions,
     vpclattice,
     wafv2,
+    wellarchitected,
     wisdom,
     workspaces,
     workspacesinstances,

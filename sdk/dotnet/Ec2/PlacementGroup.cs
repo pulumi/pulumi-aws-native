@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2
     public partial class PlacementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the placement group.
+        /// </summary>
+        [Output("groupId")]
+        public Output<string> GroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The Group Name of Placement Group.
         /// </summary>
         [Output("groupName")]

@@ -338,6 +338,99 @@ func (in *backupPlanScanModePtr) ToBackupPlanScanModePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(BackupPlanScanModePtrOutput)
 }
 
+// The status of the legal hold.
+type LegalHoldStatus string
+
+const (
+	LegalHoldStatusCreating  = LegalHoldStatus("CREATING")
+	LegalHoldStatusActive    = LegalHoldStatus("ACTIVE")
+	LegalHoldStatusCanceling = LegalHoldStatus("CANCELING")
+	LegalHoldStatusCanceled  = LegalHoldStatus("CANCELED")
+)
+
+type LegalHoldStatusOutput struct{ *pulumi.OutputState }
+
+func (LegalHoldStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LegalHoldStatus)(nil)).Elem()
+}
+
+func (o LegalHoldStatusOutput) ToLegalHoldStatusOutput() LegalHoldStatusOutput {
+	return o
+}
+
+func (o LegalHoldStatusOutput) ToLegalHoldStatusOutputWithContext(ctx context.Context) LegalHoldStatusOutput {
+	return o
+}
+
+func (o LegalHoldStatusOutput) ToLegalHoldStatusPtrOutput() LegalHoldStatusPtrOutput {
+	return o.ToLegalHoldStatusPtrOutputWithContext(context.Background())
+}
+
+func (o LegalHoldStatusOutput) ToLegalHoldStatusPtrOutputWithContext(ctx context.Context) LegalHoldStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LegalHoldStatus) *LegalHoldStatus {
+		return &v
+	}).(LegalHoldStatusPtrOutput)
+}
+
+func (o LegalHoldStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LegalHoldStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LegalHoldStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LegalHoldStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LegalHoldStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LegalHoldStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LegalHoldStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (LegalHoldStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LegalHoldStatus)(nil)).Elem()
+}
+
+func (o LegalHoldStatusPtrOutput) ToLegalHoldStatusPtrOutput() LegalHoldStatusPtrOutput {
+	return o
+}
+
+func (o LegalHoldStatusPtrOutput) ToLegalHoldStatusPtrOutputWithContext(ctx context.Context) LegalHoldStatusPtrOutput {
+	return o
+}
+
+func (o LegalHoldStatusPtrOutput) Elem() LegalHoldStatusOutput {
+	return o.ApplyT(func(v *LegalHoldStatus) LegalHoldStatus {
+		if v != nil {
+			return *v
+		}
+		var ret LegalHoldStatus
+		return ret
+	}).(LegalHoldStatusOutput)
+}
+
+func (o LegalHoldStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LegalHoldStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LegalHoldStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm string
 
 const (
@@ -727,6 +820,8 @@ func init() {
 	pulumi.RegisterOutputType(BackupPlanMalwareScannerPtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanScanModeOutput{})
 	pulumi.RegisterOutputType(BackupPlanScanModePtrOutput{})
+	pulumi.RegisterOutputType(LegalHoldStatusOutput{})
+	pulumi.RegisterOutputType(LegalHoldStatusPtrOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointTypeOutput{})

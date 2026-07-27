@@ -482,6 +482,9 @@ class ServiceSchedulingStrategy(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ecs:ServiceThresholdConfigurationType")
 class ServiceThresholdConfigurationType(_builtins.str, Enum):
+    """
+    Determines how Amazon ECS uses ``value`` to calculate the failure threshold. For the percentage types (``BOUNDED_PERCENT`` and ``UNBOUNDED_PERCENT``), Amazon ECS multiplies ``value`` by the latest service desired count. For ``COUNT``, Amazon ECS uses ``value`` directly as the threshold. The default is ``BOUNDED_PERCENT``.
+    """
     COUNT = "COUNT"
     BOUNDED_PERCENT = "BOUNDED_PERCENT"
     UNBOUNDED_PERCENT = "UNBOUNDED_PERCENT"

@@ -13180,10 +13180,12 @@ func (o ServiceDeploymentAlarmsPtrOutput) Rollback() pulumi.BoolPtrOutput {
 //	For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentCircuitBreaker struct {
 	// Determines whether to use the deployment circuit breaker logic for the service.
-	Enable             bool  `pulumi:"enable"`
+	Enable bool `pulumi:"enable"`
+	// Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to ``true``, a task that reaches a healthy state resets the failure count to ``0``. When set to ``false``, Amazon ECS does not reset the failure count. The default is ``true``.
 	ResetOnHealthyTask *bool `pulumi:"resetOnHealthyTask"`
 	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-	Rollback               bool                           `pulumi:"rollback"`
+	Rollback bool `pulumi:"rollback"`
+	// The threshold configuration that controls when the deployment circuit breaker triggers. The ``type`` and ``value`` together determine how many task failures are tolerated before the circuit breaker activates.
 	ThresholdConfiguration *ServiceThresholdConfiguration `pulumi:"thresholdConfiguration"`
 }
 
@@ -13204,10 +13206,12 @@ type ServiceDeploymentCircuitBreakerInput interface {
 //	For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentCircuitBreakerArgs struct {
 	// Determines whether to use the deployment circuit breaker logic for the service.
-	Enable             pulumi.BoolInput    `pulumi:"enable"`
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to ``true``, a task that reaches a healthy state resets the failure count to ``0``. When set to ``false``, Amazon ECS does not reset the failure count. The default is ``true``.
 	ResetOnHealthyTask pulumi.BoolPtrInput `pulumi:"resetOnHealthyTask"`
 	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-	Rollback               pulumi.BoolInput                      `pulumi:"rollback"`
+	Rollback pulumi.BoolInput `pulumi:"rollback"`
+	// The threshold configuration that controls when the deployment circuit breaker triggers. The ``type`` and ``value`` together determine how many task failures are tolerated before the circuit breaker activates.
 	ThresholdConfiguration ServiceThresholdConfigurationPtrInput `pulumi:"thresholdConfiguration"`
 }
 
@@ -13297,6 +13301,7 @@ func (o ServiceDeploymentCircuitBreakerOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
+// Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to “true“, a task that reaches a healthy state resets the failure count to “0“. When set to “false“, Amazon ECS does not reset the failure count. The default is “true“.
 func (o ServiceDeploymentCircuitBreakerOutput) ResetOnHealthyTask() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) *bool { return v.ResetOnHealthyTask }).(pulumi.BoolPtrOutput)
 }
@@ -13306,6 +13311,7 @@ func (o ServiceDeploymentCircuitBreakerOutput) Rollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Rollback }).(pulumi.BoolOutput)
 }
 
+// The threshold configuration that controls when the deployment circuit breaker triggers. The “type“ and “value“ together determine how many task failures are tolerated before the circuit breaker activates.
 func (o ServiceDeploymentCircuitBreakerOutput) ThresholdConfiguration() ServiceThresholdConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) *ServiceThresholdConfiguration {
 		return v.ThresholdConfiguration
@@ -13346,6 +13352,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Enable() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to “true“, a task that reaches a healthy state resets the failure count to “0“. When set to “false“, Amazon ECS does not reset the failure count. The default is “true“.
 func (o ServiceDeploymentCircuitBreakerPtrOutput) ResetOnHealthyTask() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
 		if v == nil {
@@ -13365,6 +13372,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The threshold configuration that controls when the deployment circuit breaker triggers. The “type“ and “value“ together determine how many task failures are tolerated before the circuit breaker activates.
 func (o ServiceDeploymentCircuitBreakerPtrOutput) ThresholdConfiguration() ServiceThresholdConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *ServiceThresholdConfiguration {
 		if v == nil {
@@ -16870,9 +16878,14 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 	}).(ServiceTagOutput)
 }
 
+// Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment. The “type“ and “value“ together determine the number of task failures that are tolerated before the circuit breaker triggers.
+//
+//	By default, the threshold configuration uses a ``type`` of ``BOUNDED_PERCENT`` with a ``value`` of ``50``.
 type ServiceThresholdConfiguration struct {
-	Type  ServiceThresholdConfigurationType `pulumi:"type"`
-	Value int                               `pulumi:"value"`
+	// Determines how Amazon ECS uses ``value`` to calculate the failure threshold. For the percentage types (``BOUNDED_PERCENT`` and ``UNBOUNDED_PERCENT``), Amazon ECS multiplies ``value`` by the latest service desired count. For ``COUNT``, Amazon ECS uses ``value`` directly as the threshold. The default is ``BOUNDED_PERCENT``.
+	Type ServiceThresholdConfigurationType `pulumi:"type"`
+	// Specifies the integer that Amazon ECS uses to calculate the failure threshold. When ``type`` is ``COUNT``, this value is the failure threshold itself. When ``type`` is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is ``50``.
+	Value int `pulumi:"value"`
 }
 
 // ServiceThresholdConfigurationInput is an input type that accepts ServiceThresholdConfigurationArgs and ServiceThresholdConfigurationOutput values.
@@ -16886,9 +16899,14 @@ type ServiceThresholdConfigurationInput interface {
 	ToServiceThresholdConfigurationOutputWithContext(context.Context) ServiceThresholdConfigurationOutput
 }
 
+// Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment. The “type“ and “value“ together determine the number of task failures that are tolerated before the circuit breaker triggers.
+//
+//	By default, the threshold configuration uses a ``type`` of ``BOUNDED_PERCENT`` with a ``value`` of ``50``.
 type ServiceThresholdConfigurationArgs struct {
-	Type  ServiceThresholdConfigurationTypeInput `pulumi:"type"`
-	Value pulumi.IntInput                        `pulumi:"value"`
+	// Determines how Amazon ECS uses ``value`` to calculate the failure threshold. For the percentage types (``BOUNDED_PERCENT`` and ``UNBOUNDED_PERCENT``), Amazon ECS multiplies ``value`` by the latest service desired count. For ``COUNT``, Amazon ECS uses ``value`` directly as the threshold. The default is ``BOUNDED_PERCENT``.
+	Type ServiceThresholdConfigurationTypeInput `pulumi:"type"`
+	// Specifies the integer that Amazon ECS uses to calculate the failure threshold. When ``type`` is ``COUNT``, this value is the failure threshold itself. When ``type`` is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is ``50``.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (ServiceThresholdConfigurationArgs) ElementType() reflect.Type {
@@ -16944,6 +16962,9 @@ func (i *serviceThresholdConfigurationPtrType) ToServiceThresholdConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceThresholdConfigurationPtrOutput)
 }
 
+// Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment. The “type“ and “value“ together determine the number of task failures that are tolerated before the circuit breaker triggers.
+//
+//	By default, the threshold configuration uses a ``type`` of ``BOUNDED_PERCENT`` with a ``value`` of ``50``.
 type ServiceThresholdConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceThresholdConfigurationOutput) ElementType() reflect.Type {
@@ -16968,10 +16989,12 @@ func (o ServiceThresholdConfigurationOutput) ToServiceThresholdConfigurationPtrO
 	}).(ServiceThresholdConfigurationPtrOutput)
 }
 
+// Determines how Amazon ECS uses “value“ to calculate the failure threshold. For the percentage types (“BOUNDED_PERCENT“ and “UNBOUNDED_PERCENT“), Amazon ECS multiplies “value“ by the latest service desired count. For “COUNT“, Amazon ECS uses “value“ directly as the threshold. The default is “BOUNDED_PERCENT“.
 func (o ServiceThresholdConfigurationOutput) Type() ServiceThresholdConfigurationTypeOutput {
 	return o.ApplyT(func(v ServiceThresholdConfiguration) ServiceThresholdConfigurationType { return v.Type }).(ServiceThresholdConfigurationTypeOutput)
 }
 
+// Specifies the integer that Amazon ECS uses to calculate the failure threshold. When “type“ is “COUNT“, this value is the failure threshold itself. When “type“ is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is “50“.
 func (o ServiceThresholdConfigurationOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceThresholdConfiguration) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -17000,6 +17023,7 @@ func (o ServiceThresholdConfigurationPtrOutput) Elem() ServiceThresholdConfigura
 	}).(ServiceThresholdConfigurationOutput)
 }
 
+// Determines how Amazon ECS uses “value“ to calculate the failure threshold. For the percentage types (“BOUNDED_PERCENT“ and “UNBOUNDED_PERCENT“), Amazon ECS multiplies “value“ by the latest service desired count. For “COUNT“, Amazon ECS uses “value“ directly as the threshold. The default is “BOUNDED_PERCENT“.
 func (o ServiceThresholdConfigurationPtrOutput) Type() ServiceThresholdConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *ServiceThresholdConfiguration) *ServiceThresholdConfigurationType {
 		if v == nil {
@@ -17009,6 +17033,7 @@ func (o ServiceThresholdConfigurationPtrOutput) Type() ServiceThresholdConfigura
 	}).(ServiceThresholdConfigurationTypePtrOutput)
 }
 
+// Specifies the integer that Amazon ECS uses to calculate the failure threshold. When “type“ is “COUNT“, this value is the failure threshold itself. When “type“ is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is “50“.
 func (o ServiceThresholdConfigurationPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceThresholdConfiguration) *int {
 		if v == nil {

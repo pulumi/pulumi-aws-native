@@ -23,10 +23,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlacementGroupResult:
-    def __init__(__self__, group_name=None):
+    def __init__(__self__, group_id=None, group_name=None):
+        if group_id and not isinstance(group_id, str):
+            raise TypeError("Expected argument 'group_id' to be a str")
+        pulumi.set(__self__, "group_id", group_id)
         if group_name and not isinstance(group_name, str):
             raise TypeError("Expected argument 'group_name' to be a str")
         pulumi.set(__self__, "group_name", group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the placement group.
+        """
+        return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="groupName")
@@ -43,6 +54,7 @@ class AwaitableGetPlacementGroupResult(GetPlacementGroupResult):
         if False:
             yield self
         return GetPlacementGroupResult(
+            group_id=self.group_id,
             group_name=self.group_name)
 
 
@@ -59,6 +71,7 @@ def get_placement_group(group_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult).value
 
     return AwaitableGetPlacementGroupResult(
+        group_id=pulumi.get(__ret__, 'group_id'),
         group_name=pulumi.get(__ret__, 'group_name'))
 def get_placement_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlacementGroupResult]:
@@ -72,4 +85,5 @@ def get_placement_group_output(group_name: pulumi.Input[Optional[_builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult)
     return __ret__.apply(lambda __response__: GetPlacementGroupResult(
+        group_id=pulumi.get(__response__, 'group_id'),
         group_name=pulumi.get(__response__, 'group_name')))

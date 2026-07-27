@@ -67,6 +67,7 @@ export class DbParameterGroup extends pulumi.CustomResource {
      *   +   ``aurora-mysql``
      *   +   ``aurora-postgresql``
      *   +   ``db2-ae``
+     *   +   ``db2-ce``
      *   +   ``db2-se``
      *   +   ``mysql``
      *   +   ``oracle-ee``
@@ -159,6 +160,7 @@ export interface DbParameterGroupArgs {
      *   +   ``aurora-mysql``
      *   +   ``aurora-postgresql``
      *   +   ``db2-ae``
+     *   +   ``db2-ce``
      *   +   ``db2-se``
      *   +   ``mysql``
      *   +   ``oracle-ee``

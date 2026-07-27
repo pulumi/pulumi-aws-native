@@ -1,0 +1,37 @@
+{
+  "typeName" : "AWS::MemoryDB::MultiRegionParameterGroup",
+  "description" : "Represents a multi-region parameter group that can be applied to clusters across multiple regions in Amazon MemoryDB.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the multi-region parameter group."
+    },
+    "MultiRegionParameterGroupName" : {
+      "type" : "string",
+      "description" : "The name of the multi-region parameter group."
+    },
+    "Family" : {
+      "type" : "string",
+      "description" : "The name of the parameter group family that this multi-region parameter group is compatible with."
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "A description of the multi-region parameter group."
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/MultiRegionParameterGroupName", "/properties/Family", "/properties/Description" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/MultiRegionParameterGroupName" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "memorydb:DescribeMultiRegionParameterGroups" ]
+    },
+    "list" : {
+      "permissions" : [ "memorydb:DescribeMultiRegionParameterGroups" ]
+    }
+  }
+}

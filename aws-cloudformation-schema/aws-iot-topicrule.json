@@ -857,7 +857,7 @@
   "createOnlyProperties" : [ "/properties/RuleName" ],
   "primaryIdentifier" : [ "/properties/RuleName" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "deprecatedProperties" : [ "/properties/TopicRulePayload/ErrorAction/IotAnalytics", "/properties/TopicRulePayload/Actions/*/IotAnalytics" ],
+  "deprecatedProperties" : [ "/properties/TopicRulePayload/ErrorAction/IotAnalytics", "/properties/TopicRulePayload/Actions/*/IotAnalytics", "/properties/TopicRulePayload/ErrorAction/IotEvents", "/properties/TopicRulePayload/Actions/*/IotEvents" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:PassRole", "iot:CreateTopicRule", "iot:GetTopicRule", "iot:TagResource", "iot:ListTagsForResource" ]

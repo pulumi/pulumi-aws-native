@@ -9,9 +9,11 @@ from enum import Enum
 __all__ = [
     'ApplicationAppConfigType',
     'DomainDeploymentStrategyOptionsDeploymentStrategy',
+    'DomainEngineMode',
     'DomainNodeOptionNodeType',
     'DomainRolesKeyIdcType',
     'DomainSubjectKeyIdcType',
+    'DomainUseCase',
 ]
 
 
@@ -28,6 +30,15 @@ class ApplicationAppConfigType(_builtins.str, Enum):
 class DomainDeploymentStrategyOptionsDeploymentStrategy(_builtins.str, Enum):
     DEFAULT = "Default"
     CAPACITY_OPTIMIZED = "CapacityOptimized"
+
+
+@pulumi.type_token("aws-native:opensearchservice:DomainEngineMode")
+class DomainEngineMode(_builtins.str, Enum):
+    """
+    The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+    """
+    GENERAL = "GENERAL"
+    OPTIMIZED = "OPTIMIZED"
 
 
 @pulumi.type_token("aws-native:opensearchservice:DomainNodeOptionNodeType")
@@ -55,3 +66,14 @@ class DomainSubjectKeyIdcType(_builtins.str, Enum):
     USER_NAME = "UserName"
     USER_ID = "UserId"
     EMAIL = "Email"
+
+
+@pulumi.type_token("aws-native:opensearchservice:DomainUseCase")
+class DomainUseCase(_builtins.str, Enum):
+    """
+    The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+    """
+    SEARCH = "SEARCH"
+    VECTOR = "VECTOR"
+    OBSERVABILITY = "OBSERVABILITY"
+    MIXED = "MIXED"

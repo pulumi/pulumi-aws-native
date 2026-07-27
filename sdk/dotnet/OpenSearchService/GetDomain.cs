@@ -177,6 +177,10 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+        /// </summary>
+        public readonly Pulumi.AwsNative.OpenSearchService.DomainUseCase? UseCase;
+        /// <summary>
         /// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
         /// 
         /// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
@@ -241,6 +245,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            Pulumi.AwsNative.OpenSearchService.DomainUseCase? useCase,
+
             Outputs.DomainVpcOptions? vpcOptions)
         {
             AccessPolicies = accessPolicies;
@@ -271,6 +277,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             SnapshotOptions = snapshotOptions;
             SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;
+            UseCase = useCase;
             VpcOptions = vpcOptions;
         }
     }

@@ -70,6 +70,28 @@ export const ActionConnectorType = {
 
 export type ActionConnectorType = (typeof ActionConnectorType)[keyof typeof ActionConnectorType];
 
+export const AgentLifecycle = {
+    Preview: "PREVIEW",
+    Published: "PUBLISHED",
+} as const;
+
+/**
+ * The lifecycle stage of the agent. PREVIEW or PUBLISHED.
+ */
+export type AgentLifecycle = (typeof AgentLifecycle)[keyof typeof AgentLifecycle];
+
+export const AgentStatus = {
+    Active: "ACTIVE",
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The current status of the agent. One of ACTIVE, CREATING, UPDATING, or FAILED.
+ */
+export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
+
 export const AnalysisAnchorOption = {
     Now: "NOW",
 } as const;
@@ -2527,6 +2549,44 @@ export const FolderType = {
 } as const;
 
 export type FolderType = (typeof FolderType)[keyof typeof FolderType];
+
+export const KnowledgeBaseAudioExtractionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type KnowledgeBaseAudioExtractionStatus = (typeof KnowledgeBaseAudioExtractionStatus)[keyof typeof KnowledgeBaseAudioExtractionStatus];
+
+export const KnowledgeBaseDataSetStatus = {
+    Creating: "CREATING",
+    Updating: "UPDATING",
+    Active: "ACTIVE",
+    Failed: "FAILED",
+    Deleting: "DELETING",
+} as const;
+
+export type KnowledgeBaseDataSetStatus = (typeof KnowledgeBaseDataSetStatus)[keyof typeof KnowledgeBaseDataSetStatus];
+
+export const KnowledgeBaseImageExtractionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type KnowledgeBaseImageExtractionStatus = (typeof KnowledgeBaseImageExtractionStatus)[keyof typeof KnowledgeBaseImageExtractionStatus];
+
+export const KnowledgeBaseVideoExtractionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type KnowledgeBaseVideoExtractionStatus = (typeof KnowledgeBaseVideoExtractionStatus)[keyof typeof KnowledgeBaseVideoExtractionStatus];
+
+export const KnowledgeBaseVideoExtractionType = {
+    AudioTranscriptionOnly: "AUDIO_TRANSCRIPTION_ONLY",
+    VisualContentAndAudioTranscription: "VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION",
+} as const;
+
+export type KnowledgeBaseVideoExtractionType = (typeof KnowledgeBaseVideoExtractionType)[keyof typeof KnowledgeBaseVideoExtractionType];
 
 export const OAuthClientApplicationDataSourceType = {
     AdobeAnalytics: "ADOBE_ANALYTICS",

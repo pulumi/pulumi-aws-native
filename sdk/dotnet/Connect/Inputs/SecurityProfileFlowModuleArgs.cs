@@ -18,14 +18,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
         /// <summary>
         /// The identifier of the application that you want to give access to.
         /// </summary>
-        [Input("flowModuleId", required: true)]
-        public Input<string> FlowModuleId { get; set; } = null!;
+        [Input("flowModuleId")]
+        public Input<string>? FlowModuleId { get; set; }
 
         /// <summary>
         /// The type of the first-party application
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public SecurityProfileFlowModuleArgs()
         {

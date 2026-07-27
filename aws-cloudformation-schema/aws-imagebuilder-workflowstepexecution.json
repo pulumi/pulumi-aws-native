@@ -1,0 +1,91 @@
+{
+  "typeName" : "AWS::ImageBuilder::WorkflowStepExecution",
+  "description" : "Represents a runtime instance of a workflow step in an EC2 Image Builder workflow execution. Workflow step executions are created automatically when an image build runs a workflow.",
+  "properties" : {
+    "StepExecutionId" : {
+      "type" : "string",
+      "description" : "The unique identifier for the workflow step execution.",
+      "pattern" : "^step-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "WorkflowExecutionId" : {
+      "type" : "string",
+      "description" : "The unique identifier that Image Builder assigned to keep track of runtime details when it ran the workflow.",
+      "pattern" : "^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "WorkflowBuildVersionArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the build version for the Image Builder workflow resource that defines this workflow step.",
+      "maxLength" : 1024
+    },
+    "ImageBuildVersionArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the image resource build version that the specified runtime instance of the workflow step creates."
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the specified runtime instance of the workflow step.",
+      "pattern" : "^[A-Za-z][A-Za-z0-9-_]{1,99}$"
+    },
+    "Action" : {
+      "type" : "string",
+      "description" : "The name of the action that the specified step performs.",
+      "pattern" : "^[A-Za-z][A-Za-z0-9-_]{1,99}$"
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The current status for the specified runtime version of the workflow step.",
+      "enum" : [ "PENDING", "SKIPPED", "RUNNING", "COMPLETED", "FAILED", "CANCELLED" ]
+    },
+    "Inputs" : {
+      "type" : "string",
+      "description" : "Input parameters that Image Builder provided for the specified runtime instance of the workflow step."
+    },
+    "Outputs" : {
+      "type" : "string",
+      "description" : "The file names that the specified runtime version of the workflow step created as output."
+    },
+    "StartTime" : {
+      "type" : "string",
+      "description" : "The timestamp when the specified runtime version of the workflow step started."
+    },
+    "EndTime" : {
+      "type" : "string",
+      "description" : "The timestamp when the specified runtime instance of the workflow step finished."
+    },
+    "OnFailure" : {
+      "type" : "string",
+      "description" : "The action to perform if the workflow step fails.",
+      "minLength" : 1,
+      "maxLength" : 1024
+    },
+    "TimeoutSeconds" : {
+      "type" : "integer",
+      "description" : "The maximum duration in seconds for this step to complete its action.",
+      "minimum" : 0,
+      "maximum" : 43200
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/StepExecutionId", "/properties/WorkflowExecutionId", "/properties/WorkflowBuildVersionArn", "/properties/ImageBuildVersionArn", "/properties/Name", "/properties/Action", "/properties/Status", "/properties/Inputs", "/properties/Outputs", "/properties/StartTime", "/properties/EndTime", "/properties/OnFailure", "/properties/TimeoutSeconds" ],
+  "primaryIdentifier" : [ "/properties/StepExecutionId" ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "imagebuilder:GetWorkflowStepExecution" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "WorkflowExecutionId" : {
+            "type" : "string",
+            "pattern" : "^wf-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required" : [ "WorkflowExecutionId" ]
+      },
+      "permissions" : [ "imagebuilder:ListWorkflowStepExecutions" ]
+    }
+  }
+}

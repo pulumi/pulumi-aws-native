@@ -175,6 +175,7 @@ class DbSubnetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["db_subnet_group_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dbSubnetGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbSubnetGroup, __self__).__init__(
@@ -199,11 +200,17 @@ class DbSubnetGroup(pulumi.CustomResource):
 
         __props__ = DbSubnetGroupArgs.__new__(DbSubnetGroupArgs)
 
+        __props__.__dict__["db_subnet_group_arn"] = None
         __props__.__dict__["db_subnet_group_description"] = None
         __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         return DbSubnetGroup(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="dbSubnetGroupArn")
+    def db_subnet_group_arn(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "db_subnet_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupDescription")

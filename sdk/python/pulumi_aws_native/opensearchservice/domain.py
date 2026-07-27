@@ -36,6 +36,7 @@ class DomainArgs:
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ebs_options: pulumi.Input[Optional['DomainEbsOptionsArgs']] = None,
                  encryption_at_rest_options: pulumi.Input[Optional['DomainEncryptionAtRestOptionsArgs']] = None,
+                 engine_mode: pulumi.Input[Optional['DomainEngineMode']] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_options: pulumi.Input[Optional['DomainIdentityCenterOptionsArgs']] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -46,6 +47,7 @@ class DomainArgs:
                  snapshot_options: pulumi.Input[Optional['DomainSnapshotOptionsArgs']] = None,
                  software_update_options: pulumi.Input[Optional['DomainSoftwareUpdateOptionsArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 use_case: pulumi.Input[Optional['DomainUseCase']] = None,
                  vpc_options: pulumi.Input[Optional['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
@@ -70,6 +72,7 @@ class DomainArgs:
         :param pulumi.Input['DomainEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
                
                If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+        :param pulumi.Input['DomainEngineMode'] engine_mode: The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
         :param pulumi.Input[_builtins.str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
@@ -81,6 +84,7 @@ class DomainArgs:
         :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
         :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Service software update options for the domain.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
+        :param pulumi.Input['DomainUseCase'] use_case: The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
         :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
@@ -109,6 +113,8 @@ class DomainArgs:
             pulumi.set(__self__, "ebs_options", ebs_options)
         if encryption_at_rest_options is not None:
             pulumi.set(__self__, "encryption_at_rest_options", encryption_at_rest_options)
+        if engine_mode is not None:
+            pulumi.set(__self__, "engine_mode", engine_mode)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if identity_center_options is not None:
@@ -129,6 +135,8 @@ class DomainArgs:
             pulumi.set(__self__, "software_update_options", software_update_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if use_case is not None:
+            pulumi.set(__self__, "use_case", use_case)
         if vpc_options is not None:
             pulumi.set(__self__, "vpc_options", vpc_options)
 
@@ -281,6 +289,18 @@ class DomainArgs:
         pulumi.set(self, "encryption_at_rest_options", value)
 
     @_builtins.property
+    @pulumi.getter(name="engineMode")
+    def engine_mode(self) -> pulumi.Input[Optional['DomainEngineMode']]:
+        """
+        The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+        """
+        return pulumi.get(self, "engine_mode")
+
+    @engine_mode.setter
+    def engine_mode(self, value: pulumi.Input[Optional['DomainEngineMode']]):
+        pulumi.set(self, "engine_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -400,6 +420,18 @@ class DomainArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="useCase")
+    def use_case(self) -> pulumi.Input[Optional['DomainUseCase']]:
+        """
+        The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+        """
+        return pulumi.get(self, "use_case")
+
+    @use_case.setter
+    def use_case(self, value: pulumi.Input[Optional['DomainUseCase']]):
+        pulumi.set(self, "use_case", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> pulumi.Input[Optional['DomainVpcOptionsArgs']]:
         """
@@ -432,6 +464,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
                  encryption_at_rest_options: pulumi.Input[Optional[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']]] = None,
+                 engine_mode: pulumi.Input[Optional['DomainEngineMode']] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_options: pulumi.Input[Optional[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -442,6 +475,7 @@ class Domain(pulumi.CustomResource):
                  snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: pulumi.Input[Optional[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_case: pulumi.Input[Optional['DomainUseCase']] = None,
                  vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
                  __props__=None):
         """
@@ -469,6 +503,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
                
                If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
+        :param pulumi.Input['DomainEngineMode'] engine_mode: The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
         :param pulumi.Input[_builtins.str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
@@ -480,6 +515,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
         :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Service software update options for the domain.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
+        :param pulumi.Input['DomainUseCase'] use_case: The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
         :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
@@ -520,6 +556,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
                  encryption_at_rest_options: pulumi.Input[Optional[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']]] = None,
+                 engine_mode: pulumi.Input[Optional['DomainEngineMode']] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_options: pulumi.Input[Optional[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -530,6 +567,7 @@ class Domain(pulumi.CustomResource):
                  snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: pulumi.Input[Optional[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 use_case: pulumi.Input[Optional['DomainUseCase']] = None,
                  vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -552,6 +590,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["ebs_options"] = ebs_options
             __props__.__dict__["encryption_at_rest_options"] = encryption_at_rest_options
+            __props__.__dict__["engine_mode"] = engine_mode
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["identity_center_options"] = identity_center_options
             __props__.__dict__["ip_address_type"] = ip_address_type
@@ -562,6 +601,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["snapshot_options"] = snapshot_options
             __props__.__dict__["software_update_options"] = software_update_options
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["use_case"] = use_case
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -570,7 +610,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_endpoint_v2"] = None
             __props__.__dict__["domain_endpoints"] = None
             __props__.__dict__["service_software_options"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainName", "engineMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:opensearchservice:Domain',
@@ -612,6 +652,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["ebs_options"] = None
         __props__.__dict__["encryption_at_rest_options"] = None
+        __props__.__dict__["engine_mode"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["identity_center_options"] = None
         __props__.__dict__["ip_address_type"] = None
@@ -623,6 +664,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["snapshot_options"] = None
         __props__.__dict__["software_update_options"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["use_case"] = None
         __props__.__dict__["vpc_options"] = None
         return Domain(resource_name, opts=opts, __props__=__props__)
 
@@ -772,6 +814,14 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "encryption_at_rest_options")
 
     @_builtins.property
+    @pulumi.getter(name="engineMode")
+    def engine_mode(self) -> pulumi.Output[Optional['DomainEngineMode']]:
+        """
+        The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+        """
+        return pulumi.get(self, "engine_mode")
+
+    @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -854,6 +904,14 @@ class Domain(pulumi.CustomResource):
         An arbitrary set of tags (key-value pairs) for this Domain.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="useCase")
+    def use_case(self) -> pulumi.Output[Optional['DomainUseCase']]:
+        """
+        The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+        """
+        return pulumi.get(self, "use_case")
 
     @_builtins.property
     @pulumi.getter(name="vpcOptions")

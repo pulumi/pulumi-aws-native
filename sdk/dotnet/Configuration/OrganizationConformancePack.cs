@@ -82,10 +82,22 @@ namespace Pulumi.AwsNative.Configuration
         public Output<ImmutableArray<string>> ExcludedAccounts { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the organization conformance pack.
+        /// </summary>
+        [Output("organizationConformancePackArn")]
+        public Output<string> OrganizationConformancePackArn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the organization conformance pack.
         /// </summary>
         [Output("organizationConformancePackName")]
         public Output<string> OrganizationConformancePackName { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags for the organization conformance pack.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A string containing full conformance pack template body.
@@ -189,6 +201,18 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         [Input("organizationConformancePackName")]
         public Input<string>? OrganizationConformancePackName { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the organization conformance pack.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// A string containing full conformance pack template body.

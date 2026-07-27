@@ -1511,6 +1511,755 @@ type ActionConnectorTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+type AgentCustomPromptInput struct {
+	ExistingPrompt *AgentCustomPromptProfile         `pulumi:"existingPrompt"`
+	NewPrompt      *AgentCustomPromptInputParameters `pulumi:"newPrompt"`
+}
+
+// AgentCustomPromptInputInput is an input type that accepts AgentCustomPromptInputArgs and AgentCustomPromptInputOutput values.
+// You can construct a concrete instance of `AgentCustomPromptInputInput` via:
+//
+//	AgentCustomPromptInputArgs{...}
+type AgentCustomPromptInputInput interface {
+	pulumi.Input
+
+	ToAgentCustomPromptInputOutput() AgentCustomPromptInputOutput
+	ToAgentCustomPromptInputOutputWithContext(context.Context) AgentCustomPromptInputOutput
+}
+
+// Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+type AgentCustomPromptInputArgs struct {
+	ExistingPrompt AgentCustomPromptProfilePtrInput         `pulumi:"existingPrompt"`
+	NewPrompt      AgentCustomPromptInputParametersPtrInput `pulumi:"newPrompt"`
+}
+
+func (AgentCustomPromptInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomPromptInput)(nil)).Elem()
+}
+
+func (i AgentCustomPromptInputArgs) ToAgentCustomPromptInputOutput() AgentCustomPromptInputOutput {
+	return i.ToAgentCustomPromptInputOutputWithContext(context.Background())
+}
+
+func (i AgentCustomPromptInputArgs) ToAgentCustomPromptInputOutputWithContext(ctx context.Context) AgentCustomPromptInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptInputOutput)
+}
+
+func (i AgentCustomPromptInputArgs) ToAgentCustomPromptInputPtrOutput() AgentCustomPromptInputPtrOutput {
+	return i.ToAgentCustomPromptInputPtrOutputWithContext(context.Background())
+}
+
+func (i AgentCustomPromptInputArgs) ToAgentCustomPromptInputPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptInputOutput).ToAgentCustomPromptInputPtrOutputWithContext(ctx)
+}
+
+// AgentCustomPromptInputPtrInput is an input type that accepts AgentCustomPromptInputArgs, AgentCustomPromptInputPtr and AgentCustomPromptInputPtrOutput values.
+// You can construct a concrete instance of `AgentCustomPromptInputPtrInput` via:
+//
+//	        AgentCustomPromptInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentCustomPromptInputPtrInput interface {
+	pulumi.Input
+
+	ToAgentCustomPromptInputPtrOutput() AgentCustomPromptInputPtrOutput
+	ToAgentCustomPromptInputPtrOutputWithContext(context.Context) AgentCustomPromptInputPtrOutput
+}
+
+type agentCustomPromptInputPtrType AgentCustomPromptInputArgs
+
+func AgentCustomPromptInputPtr(v *AgentCustomPromptInputArgs) AgentCustomPromptInputPtrInput {
+	return (*agentCustomPromptInputPtrType)(v)
+}
+
+func (*agentCustomPromptInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomPromptInput)(nil)).Elem()
+}
+
+func (i *agentCustomPromptInputPtrType) ToAgentCustomPromptInputPtrOutput() AgentCustomPromptInputPtrOutput {
+	return i.ToAgentCustomPromptInputPtrOutputWithContext(context.Background())
+}
+
+func (i *agentCustomPromptInputPtrType) ToAgentCustomPromptInputPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptInputPtrOutput)
+}
+
+// Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+type AgentCustomPromptInputOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomPromptInput)(nil)).Elem()
+}
+
+func (o AgentCustomPromptInputOutput) ToAgentCustomPromptInputOutput() AgentCustomPromptInputOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputOutput) ToAgentCustomPromptInputOutputWithContext(ctx context.Context) AgentCustomPromptInputOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputOutput) ToAgentCustomPromptInputPtrOutput() AgentCustomPromptInputPtrOutput {
+	return o.ToAgentCustomPromptInputPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCustomPromptInputOutput) ToAgentCustomPromptInputPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentCustomPromptInput) *AgentCustomPromptInput {
+		return &v
+	}).(AgentCustomPromptInputPtrOutput)
+}
+
+func (o AgentCustomPromptInputOutput) ExistingPrompt() AgentCustomPromptProfilePtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInput) *AgentCustomPromptProfile { return v.ExistingPrompt }).(AgentCustomPromptProfilePtrOutput)
+}
+
+func (o AgentCustomPromptInputOutput) NewPrompt() AgentCustomPromptInputParametersPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInput) *AgentCustomPromptInputParameters { return v.NewPrompt }).(AgentCustomPromptInputParametersPtrOutput)
+}
+
+type AgentCustomPromptInputPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomPromptInput)(nil)).Elem()
+}
+
+func (o AgentCustomPromptInputPtrOutput) ToAgentCustomPromptInputPtrOutput() AgentCustomPromptInputPtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputPtrOutput) ToAgentCustomPromptInputPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputPtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputPtrOutput) Elem() AgentCustomPromptInputOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInput) AgentCustomPromptInput {
+		if v != nil {
+			return *v
+		}
+		var ret AgentCustomPromptInput
+		return ret
+	}).(AgentCustomPromptInputOutput)
+}
+
+func (o AgentCustomPromptInputPtrOutput) ExistingPrompt() AgentCustomPromptProfilePtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInput) *AgentCustomPromptProfile {
+		if v == nil {
+			return nil
+		}
+		return v.ExistingPrompt
+	}).(AgentCustomPromptProfilePtrOutput)
+}
+
+func (o AgentCustomPromptInputPtrOutput) NewPrompt() AgentCustomPromptInputParametersPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInput) *AgentCustomPromptInputParameters {
+		if v == nil {
+			return nil
+		}
+		return v.NewPrompt
+	}).(AgentCustomPromptInputParametersPtrOutput)
+}
+
+// Parameters for creating a new custom prompt configuration.
+type AgentCustomPromptInputParameters struct {
+	// Custom instructions for the agent behavior.
+	CustomInstructions *string `pulumi:"customInstructions"`
+	// The identity or persona of the agent.
+	Identity *string `pulumi:"identity"`
+	// The output style for the agent responses.
+	OutputStyle *string `pulumi:"outputStyle"`
+	// The desired response length for the agent.
+	ResponseLength *string `pulumi:"responseLength"`
+	// The tone used in agent responses.
+	Tone *string `pulumi:"tone"`
+}
+
+// AgentCustomPromptInputParametersInput is an input type that accepts AgentCustomPromptInputParametersArgs and AgentCustomPromptInputParametersOutput values.
+// You can construct a concrete instance of `AgentCustomPromptInputParametersInput` via:
+//
+//	AgentCustomPromptInputParametersArgs{...}
+type AgentCustomPromptInputParametersInput interface {
+	pulumi.Input
+
+	ToAgentCustomPromptInputParametersOutput() AgentCustomPromptInputParametersOutput
+	ToAgentCustomPromptInputParametersOutputWithContext(context.Context) AgentCustomPromptInputParametersOutput
+}
+
+// Parameters for creating a new custom prompt configuration.
+type AgentCustomPromptInputParametersArgs struct {
+	// Custom instructions for the agent behavior.
+	CustomInstructions pulumi.StringPtrInput `pulumi:"customInstructions"`
+	// The identity or persona of the agent.
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
+	// The output style for the agent responses.
+	OutputStyle pulumi.StringPtrInput `pulumi:"outputStyle"`
+	// The desired response length for the agent.
+	ResponseLength pulumi.StringPtrInput `pulumi:"responseLength"`
+	// The tone used in agent responses.
+	Tone pulumi.StringPtrInput `pulumi:"tone"`
+}
+
+func (AgentCustomPromptInputParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomPromptInputParameters)(nil)).Elem()
+}
+
+func (i AgentCustomPromptInputParametersArgs) ToAgentCustomPromptInputParametersOutput() AgentCustomPromptInputParametersOutput {
+	return i.ToAgentCustomPromptInputParametersOutputWithContext(context.Background())
+}
+
+func (i AgentCustomPromptInputParametersArgs) ToAgentCustomPromptInputParametersOutputWithContext(ctx context.Context) AgentCustomPromptInputParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptInputParametersOutput)
+}
+
+func (i AgentCustomPromptInputParametersArgs) ToAgentCustomPromptInputParametersPtrOutput() AgentCustomPromptInputParametersPtrOutput {
+	return i.ToAgentCustomPromptInputParametersPtrOutputWithContext(context.Background())
+}
+
+func (i AgentCustomPromptInputParametersArgs) ToAgentCustomPromptInputParametersPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptInputParametersOutput).ToAgentCustomPromptInputParametersPtrOutputWithContext(ctx)
+}
+
+// AgentCustomPromptInputParametersPtrInput is an input type that accepts AgentCustomPromptInputParametersArgs, AgentCustomPromptInputParametersPtr and AgentCustomPromptInputParametersPtrOutput values.
+// You can construct a concrete instance of `AgentCustomPromptInputParametersPtrInput` via:
+//
+//	        AgentCustomPromptInputParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentCustomPromptInputParametersPtrInput interface {
+	pulumi.Input
+
+	ToAgentCustomPromptInputParametersPtrOutput() AgentCustomPromptInputParametersPtrOutput
+	ToAgentCustomPromptInputParametersPtrOutputWithContext(context.Context) AgentCustomPromptInputParametersPtrOutput
+}
+
+type agentCustomPromptInputParametersPtrType AgentCustomPromptInputParametersArgs
+
+func AgentCustomPromptInputParametersPtr(v *AgentCustomPromptInputParametersArgs) AgentCustomPromptInputParametersPtrInput {
+	return (*agentCustomPromptInputParametersPtrType)(v)
+}
+
+func (*agentCustomPromptInputParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomPromptInputParameters)(nil)).Elem()
+}
+
+func (i *agentCustomPromptInputParametersPtrType) ToAgentCustomPromptInputParametersPtrOutput() AgentCustomPromptInputParametersPtrOutput {
+	return i.ToAgentCustomPromptInputParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *agentCustomPromptInputParametersPtrType) ToAgentCustomPromptInputParametersPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptInputParametersPtrOutput)
+}
+
+// Parameters for creating a new custom prompt configuration.
+type AgentCustomPromptInputParametersOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptInputParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomPromptInputParameters)(nil)).Elem()
+}
+
+func (o AgentCustomPromptInputParametersOutput) ToAgentCustomPromptInputParametersOutput() AgentCustomPromptInputParametersOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputParametersOutput) ToAgentCustomPromptInputParametersOutputWithContext(ctx context.Context) AgentCustomPromptInputParametersOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputParametersOutput) ToAgentCustomPromptInputParametersPtrOutput() AgentCustomPromptInputParametersPtrOutput {
+	return o.ToAgentCustomPromptInputParametersPtrOutputWithContext(context.Background())
+}
+
+func (o AgentCustomPromptInputParametersOutput) ToAgentCustomPromptInputParametersPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentCustomPromptInputParameters) *AgentCustomPromptInputParameters {
+		return &v
+	}).(AgentCustomPromptInputParametersPtrOutput)
+}
+
+// Custom instructions for the agent behavior.
+func (o AgentCustomPromptInputParametersOutput) CustomInstructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInputParameters) *string { return v.CustomInstructions }).(pulumi.StringPtrOutput)
+}
+
+// The identity or persona of the agent.
+func (o AgentCustomPromptInputParametersOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInputParameters) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The output style for the agent responses.
+func (o AgentCustomPromptInputParametersOutput) OutputStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInputParameters) *string { return v.OutputStyle }).(pulumi.StringPtrOutput)
+}
+
+// The desired response length for the agent.
+func (o AgentCustomPromptInputParametersOutput) ResponseLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInputParameters) *string { return v.ResponseLength }).(pulumi.StringPtrOutput)
+}
+
+// The tone used in agent responses.
+func (o AgentCustomPromptInputParametersOutput) Tone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInputParameters) *string { return v.Tone }).(pulumi.StringPtrOutput)
+}
+
+type AgentCustomPromptInputParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptInputParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomPromptInputParameters)(nil)).Elem()
+}
+
+func (o AgentCustomPromptInputParametersPtrOutput) ToAgentCustomPromptInputParametersPtrOutput() AgentCustomPromptInputParametersPtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputParametersPtrOutput) ToAgentCustomPromptInputParametersPtrOutputWithContext(ctx context.Context) AgentCustomPromptInputParametersPtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptInputParametersPtrOutput) Elem() AgentCustomPromptInputParametersOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInputParameters) AgentCustomPromptInputParameters {
+		if v != nil {
+			return *v
+		}
+		var ret AgentCustomPromptInputParameters
+		return ret
+	}).(AgentCustomPromptInputParametersOutput)
+}
+
+// Custom instructions for the agent behavior.
+func (o AgentCustomPromptInputParametersPtrOutput) CustomInstructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInputParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomInstructions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity or persona of the agent.
+func (o AgentCustomPromptInputParametersPtrOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInputParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The output style for the agent responses.
+func (o AgentCustomPromptInputParametersPtrOutput) OutputStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInputParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputStyle
+	}).(pulumi.StringPtrOutput)
+}
+
+// The desired response length for the agent.
+func (o AgentCustomPromptInputParametersPtrOutput) ResponseLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInputParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseLength
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tone used in agent responses.
+func (o AgentCustomPromptInputParametersPtrOutput) Tone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInputParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read-only view of the resolved custom prompt interface for the agent.
+type AgentCustomPromptInterface struct {
+	// Custom instructions for the agent behavior.
+	CustomInstructions *string `pulumi:"customInstructions"`
+	// The identity or persona of the agent.
+	Identity *string `pulumi:"identity"`
+	// The identifier of the model profile.
+	ModelProfileId *string `pulumi:"modelProfileId"`
+	// The output style for the agent responses.
+	OutputStyle *string `pulumi:"outputStyle"`
+	// A summary of the resolved prompt.
+	PromptSummary *string `pulumi:"promptSummary"`
+	// The QBS AWS account identifier.
+	QbsAwsAccountId *string `pulumi:"qbsAwsAccountId"`
+	// The desired response length for the agent.
+	ResponseLength *string `pulumi:"responseLength"`
+	// The subscription identifier.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The tone used in agent responses.
+	Tone *string `pulumi:"tone"`
+}
+
+// Read-only view of the resolved custom prompt interface for the agent.
+type AgentCustomPromptInterfaceOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomPromptInterface)(nil)).Elem()
+}
+
+func (o AgentCustomPromptInterfaceOutput) ToAgentCustomPromptInterfaceOutput() AgentCustomPromptInterfaceOutput {
+	return o
+}
+
+func (o AgentCustomPromptInterfaceOutput) ToAgentCustomPromptInterfaceOutputWithContext(ctx context.Context) AgentCustomPromptInterfaceOutput {
+	return o
+}
+
+// Custom instructions for the agent behavior.
+func (o AgentCustomPromptInterfaceOutput) CustomInstructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.CustomInstructions }).(pulumi.StringPtrOutput)
+}
+
+// The identity or persona of the agent.
+func (o AgentCustomPromptInterfaceOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the model profile.
+func (o AgentCustomPromptInterfaceOutput) ModelProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.ModelProfileId }).(pulumi.StringPtrOutput)
+}
+
+// The output style for the agent responses.
+func (o AgentCustomPromptInterfaceOutput) OutputStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.OutputStyle }).(pulumi.StringPtrOutput)
+}
+
+// A summary of the resolved prompt.
+func (o AgentCustomPromptInterfaceOutput) PromptSummary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.PromptSummary }).(pulumi.StringPtrOutput)
+}
+
+// The QBS AWS account identifier.
+func (o AgentCustomPromptInterfaceOutput) QbsAwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.QbsAwsAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The desired response length for the agent.
+func (o AgentCustomPromptInterfaceOutput) ResponseLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.ResponseLength }).(pulumi.StringPtrOutput)
+}
+
+// The subscription identifier.
+func (o AgentCustomPromptInterfaceOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The tone used in agent responses.
+func (o AgentCustomPromptInterfaceOutput) Tone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentCustomPromptInterface) *string { return v.Tone }).(pulumi.StringPtrOutput)
+}
+
+type AgentCustomPromptInterfacePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptInterfacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomPromptInterface)(nil)).Elem()
+}
+
+func (o AgentCustomPromptInterfacePtrOutput) ToAgentCustomPromptInterfacePtrOutput() AgentCustomPromptInterfacePtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptInterfacePtrOutput) ToAgentCustomPromptInterfacePtrOutputWithContext(ctx context.Context) AgentCustomPromptInterfacePtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptInterfacePtrOutput) Elem() AgentCustomPromptInterfaceOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) AgentCustomPromptInterface {
+		if v != nil {
+			return *v
+		}
+		var ret AgentCustomPromptInterface
+		return ret
+	}).(AgentCustomPromptInterfaceOutput)
+}
+
+// Custom instructions for the agent behavior.
+func (o AgentCustomPromptInterfacePtrOutput) CustomInstructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomInstructions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity or persona of the agent.
+func (o AgentCustomPromptInterfacePtrOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the model profile.
+func (o AgentCustomPromptInterfacePtrOutput) ModelProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The output style for the agent responses.
+func (o AgentCustomPromptInterfacePtrOutput) OutputStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputStyle
+	}).(pulumi.StringPtrOutput)
+}
+
+// A summary of the resolved prompt.
+func (o AgentCustomPromptInterfacePtrOutput) PromptSummary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PromptSummary
+	}).(pulumi.StringPtrOutput)
+}
+
+// The QBS AWS account identifier.
+func (o AgentCustomPromptInterfacePtrOutput) QbsAwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QbsAwsAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The desired response length for the agent.
+func (o AgentCustomPromptInterfacePtrOutput) ResponseLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseLength
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription identifier.
+func (o AgentCustomPromptInterfacePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tone used in agent responses.
+func (o AgentCustomPromptInterfacePtrOutput) Tone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reference to an existing custom prompt profile.
+type AgentCustomPromptProfile struct {
+	// The identifier of the model profile.
+	ModelProfileId string `pulumi:"modelProfileId"`
+	// The QBS AWS account identifier.
+	QbsAwsAccountId string `pulumi:"qbsAwsAccountId"`
+	// The subscription identifier.
+	SubscriptionId string `pulumi:"subscriptionId"`
+}
+
+// AgentCustomPromptProfileInput is an input type that accepts AgentCustomPromptProfileArgs and AgentCustomPromptProfileOutput values.
+// You can construct a concrete instance of `AgentCustomPromptProfileInput` via:
+//
+//	AgentCustomPromptProfileArgs{...}
+type AgentCustomPromptProfileInput interface {
+	pulumi.Input
+
+	ToAgentCustomPromptProfileOutput() AgentCustomPromptProfileOutput
+	ToAgentCustomPromptProfileOutputWithContext(context.Context) AgentCustomPromptProfileOutput
+}
+
+// Reference to an existing custom prompt profile.
+type AgentCustomPromptProfileArgs struct {
+	// The identifier of the model profile.
+	ModelProfileId pulumi.StringInput `pulumi:"modelProfileId"`
+	// The QBS AWS account identifier.
+	QbsAwsAccountId pulumi.StringInput `pulumi:"qbsAwsAccountId"`
+	// The subscription identifier.
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+}
+
+func (AgentCustomPromptProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomPromptProfile)(nil)).Elem()
+}
+
+func (i AgentCustomPromptProfileArgs) ToAgentCustomPromptProfileOutput() AgentCustomPromptProfileOutput {
+	return i.ToAgentCustomPromptProfileOutputWithContext(context.Background())
+}
+
+func (i AgentCustomPromptProfileArgs) ToAgentCustomPromptProfileOutputWithContext(ctx context.Context) AgentCustomPromptProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptProfileOutput)
+}
+
+func (i AgentCustomPromptProfileArgs) ToAgentCustomPromptProfilePtrOutput() AgentCustomPromptProfilePtrOutput {
+	return i.ToAgentCustomPromptProfilePtrOutputWithContext(context.Background())
+}
+
+func (i AgentCustomPromptProfileArgs) ToAgentCustomPromptProfilePtrOutputWithContext(ctx context.Context) AgentCustomPromptProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptProfileOutput).ToAgentCustomPromptProfilePtrOutputWithContext(ctx)
+}
+
+// AgentCustomPromptProfilePtrInput is an input type that accepts AgentCustomPromptProfileArgs, AgentCustomPromptProfilePtr and AgentCustomPromptProfilePtrOutput values.
+// You can construct a concrete instance of `AgentCustomPromptProfilePtrInput` via:
+//
+//	        AgentCustomPromptProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentCustomPromptProfilePtrInput interface {
+	pulumi.Input
+
+	ToAgentCustomPromptProfilePtrOutput() AgentCustomPromptProfilePtrOutput
+	ToAgentCustomPromptProfilePtrOutputWithContext(context.Context) AgentCustomPromptProfilePtrOutput
+}
+
+type agentCustomPromptProfilePtrType AgentCustomPromptProfileArgs
+
+func AgentCustomPromptProfilePtr(v *AgentCustomPromptProfileArgs) AgentCustomPromptProfilePtrInput {
+	return (*agentCustomPromptProfilePtrType)(v)
+}
+
+func (*agentCustomPromptProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomPromptProfile)(nil)).Elem()
+}
+
+func (i *agentCustomPromptProfilePtrType) ToAgentCustomPromptProfilePtrOutput() AgentCustomPromptProfilePtrOutput {
+	return i.ToAgentCustomPromptProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *agentCustomPromptProfilePtrType) ToAgentCustomPromptProfilePtrOutputWithContext(ctx context.Context) AgentCustomPromptProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentCustomPromptProfilePtrOutput)
+}
+
+// Reference to an existing custom prompt profile.
+type AgentCustomPromptProfileOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentCustomPromptProfile)(nil)).Elem()
+}
+
+func (o AgentCustomPromptProfileOutput) ToAgentCustomPromptProfileOutput() AgentCustomPromptProfileOutput {
+	return o
+}
+
+func (o AgentCustomPromptProfileOutput) ToAgentCustomPromptProfileOutputWithContext(ctx context.Context) AgentCustomPromptProfileOutput {
+	return o
+}
+
+func (o AgentCustomPromptProfileOutput) ToAgentCustomPromptProfilePtrOutput() AgentCustomPromptProfilePtrOutput {
+	return o.ToAgentCustomPromptProfilePtrOutputWithContext(context.Background())
+}
+
+func (o AgentCustomPromptProfileOutput) ToAgentCustomPromptProfilePtrOutputWithContext(ctx context.Context) AgentCustomPromptProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentCustomPromptProfile) *AgentCustomPromptProfile {
+		return &v
+	}).(AgentCustomPromptProfilePtrOutput)
+}
+
+// The identifier of the model profile.
+func (o AgentCustomPromptProfileOutput) ModelProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentCustomPromptProfile) string { return v.ModelProfileId }).(pulumi.StringOutput)
+}
+
+// The QBS AWS account identifier.
+func (o AgentCustomPromptProfileOutput) QbsAwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentCustomPromptProfile) string { return v.QbsAwsAccountId }).(pulumi.StringOutput)
+}
+
+// The subscription identifier.
+func (o AgentCustomPromptProfileOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentCustomPromptProfile) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+type AgentCustomPromptProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentCustomPromptProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentCustomPromptProfile)(nil)).Elem()
+}
+
+func (o AgentCustomPromptProfilePtrOutput) ToAgentCustomPromptProfilePtrOutput() AgentCustomPromptProfilePtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptProfilePtrOutput) ToAgentCustomPromptProfilePtrOutputWithContext(ctx context.Context) AgentCustomPromptProfilePtrOutput {
+	return o
+}
+
+func (o AgentCustomPromptProfilePtrOutput) Elem() AgentCustomPromptProfileOutput {
+	return o.ApplyT(func(v *AgentCustomPromptProfile) AgentCustomPromptProfile {
+		if v != nil {
+			return *v
+		}
+		var ret AgentCustomPromptProfile
+		return ret
+	}).(AgentCustomPromptProfileOutput)
+}
+
+// The identifier of the model profile.
+func (o AgentCustomPromptProfilePtrOutput) ModelProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The QBS AWS account identifier.
+func (o AgentCustomPromptProfilePtrOutput) QbsAwsAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QbsAwsAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription identifier.
+func (o AgentCustomPromptProfilePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentCustomPromptProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with the agent resource.
+type AgentTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type AnalysisAggregationFunction struct {
 	// Aggregation for attributes.
 	AttributeAggregationFunction *AnalysisAttributeAggregationFunction `pulumi:"attributeAggregationFunction"`
@@ -83133,902 +83882,6 @@ func (o AnalysisStringValueWhenUnsetConfigurationPtrOutput) ValueWhenUnsetOption
 	}).(AnalysisValueWhenUnsetOptionPtrOutput)
 }
 
-type AnalysisSubtotalOptions struct {
-	// The custom label string for the subtotal cells.
-	CustomLabel *string `pulumi:"customLabel"`
-	// The field level (all, custom, last) for the subtotal cells.
-	FieldLevel *AnalysisPivotTableSubtotalLevel `pulumi:"fieldLevel"`
-	// The optional configuration of subtotal cells.
-	FieldLevelOptions []AnalysisPivotTableFieldSubtotalOptions `pulumi:"fieldLevelOptions"`
-	// The cell styling options for the subtotals of header cells.
-	MetricHeaderCellStyle *AnalysisTableCellStyle `pulumi:"metricHeaderCellStyle"`
-	// The style targets options for subtotals.
-	StyleTargets []AnalysisTableStyleTarget `pulumi:"styleTargets"`
-	// The cell styling options for the subtotal cells.
-	TotalCellStyle *AnalysisTableCellStyle `pulumi:"totalCellStyle"`
-	// The visibility configuration for the subtotal cells.
-	TotalsVisibility *AnalysisVisibility `pulumi:"totalsVisibility"`
-	// The cell styling options for the subtotals of value cells.
-	ValueCellStyle *AnalysisTableCellStyle `pulumi:"valueCellStyle"`
-}
-
-// AnalysisSubtotalOptionsInput is an input type that accepts AnalysisSubtotalOptionsArgs and AnalysisSubtotalOptionsOutput values.
-// You can construct a concrete instance of `AnalysisSubtotalOptionsInput` via:
-//
-//	AnalysisSubtotalOptionsArgs{...}
-type AnalysisSubtotalOptionsInput interface {
-	pulumi.Input
-
-	ToAnalysisSubtotalOptionsOutput() AnalysisSubtotalOptionsOutput
-	ToAnalysisSubtotalOptionsOutputWithContext(context.Context) AnalysisSubtotalOptionsOutput
-}
-
-type AnalysisSubtotalOptionsArgs struct {
-	// The custom label string for the subtotal cells.
-	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
-	// The field level (all, custom, last) for the subtotal cells.
-	FieldLevel AnalysisPivotTableSubtotalLevelPtrInput `pulumi:"fieldLevel"`
-	// The optional configuration of subtotal cells.
-	FieldLevelOptions AnalysisPivotTableFieldSubtotalOptionsArrayInput `pulumi:"fieldLevelOptions"`
-	// The cell styling options for the subtotals of header cells.
-	MetricHeaderCellStyle AnalysisTableCellStylePtrInput `pulumi:"metricHeaderCellStyle"`
-	// The style targets options for subtotals.
-	StyleTargets AnalysisTableStyleTargetArrayInput `pulumi:"styleTargets"`
-	// The cell styling options for the subtotal cells.
-	TotalCellStyle AnalysisTableCellStylePtrInput `pulumi:"totalCellStyle"`
-	// The visibility configuration for the subtotal cells.
-	TotalsVisibility AnalysisVisibilityPtrInput `pulumi:"totalsVisibility"`
-	// The cell styling options for the subtotals of value cells.
-	ValueCellStyle AnalysisTableCellStylePtrInput `pulumi:"valueCellStyle"`
-}
-
-func (AnalysisSubtotalOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisSubtotalOptions)(nil)).Elem()
-}
-
-func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsOutput() AnalysisSubtotalOptionsOutput {
-	return i.ToAnalysisSubtotalOptionsOutputWithContext(context.Background())
-}
-
-func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSubtotalOptionsOutput)
-}
-
-func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
-	return i.ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisSubtotalOptionsArgs) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSubtotalOptionsOutput).ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx)
-}
-
-// AnalysisSubtotalOptionsPtrInput is an input type that accepts AnalysisSubtotalOptionsArgs, AnalysisSubtotalOptionsPtr and AnalysisSubtotalOptionsPtrOutput values.
-// You can construct a concrete instance of `AnalysisSubtotalOptionsPtrInput` via:
-//
-//	        AnalysisSubtotalOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisSubtotalOptionsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput
-	ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Context) AnalysisSubtotalOptionsPtrOutput
-}
-
-type analysisSubtotalOptionsPtrType AnalysisSubtotalOptionsArgs
-
-func AnalysisSubtotalOptionsPtr(v *AnalysisSubtotalOptionsArgs) AnalysisSubtotalOptionsPtrInput {
-	return (*analysisSubtotalOptionsPtrType)(v)
-}
-
-func (*analysisSubtotalOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisSubtotalOptions)(nil)).Elem()
-}
-
-func (i *analysisSubtotalOptionsPtrType) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
-	return i.ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisSubtotalOptionsPtrType) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSubtotalOptionsPtrOutput)
-}
-
-type AnalysisSubtotalOptionsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisSubtotalOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisSubtotalOptions)(nil)).Elem()
-}
-
-func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsOutput() AnalysisSubtotalOptionsOutput {
-	return o
-}
-
-func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsOutput {
-	return o
-}
-
-func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
-	return o.ToAnalysisSubtotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisSubtotalOptionsOutput) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSubtotalOptions) *AnalysisSubtotalOptions {
-		return &v
-	}).(AnalysisSubtotalOptionsPtrOutput)
-}
-
-// The custom label string for the subtotal cells.
-func (o AnalysisSubtotalOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
-}
-
-// The field level (all, custom, last) for the subtotal cells.
-func (o AnalysisSubtotalOptionsOutput) FieldLevel() AnalysisPivotTableSubtotalLevelPtrOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisPivotTableSubtotalLevel { return v.FieldLevel }).(AnalysisPivotTableSubtotalLevelPtrOutput)
-}
-
-// The optional configuration of subtotal cells.
-func (o AnalysisSubtotalOptionsOutput) FieldLevelOptions() AnalysisPivotTableFieldSubtotalOptionsArrayOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) []AnalysisPivotTableFieldSubtotalOptions { return v.FieldLevelOptions }).(AnalysisPivotTableFieldSubtotalOptionsArrayOutput)
-}
-
-// The cell styling options for the subtotals of header cells.
-func (o AnalysisSubtotalOptionsOutput) MetricHeaderCellStyle() AnalysisTableCellStylePtrOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisTableCellStyle { return v.MetricHeaderCellStyle }).(AnalysisTableCellStylePtrOutput)
-}
-
-// The style targets options for subtotals.
-func (o AnalysisSubtotalOptionsOutput) StyleTargets() AnalysisTableStyleTargetArrayOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) []AnalysisTableStyleTarget { return v.StyleTargets }).(AnalysisTableStyleTargetArrayOutput)
-}
-
-// The cell styling options for the subtotal cells.
-func (o AnalysisSubtotalOptionsOutput) TotalCellStyle() AnalysisTableCellStylePtrOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisTableCellStyle { return v.TotalCellStyle }).(AnalysisTableCellStylePtrOutput)
-}
-
-// The visibility configuration for the subtotal cells.
-func (o AnalysisSubtotalOptionsOutput) TotalsVisibility() AnalysisVisibilityPtrOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisVisibility { return v.TotalsVisibility }).(AnalysisVisibilityPtrOutput)
-}
-
-// The cell styling options for the subtotals of value cells.
-func (o AnalysisSubtotalOptionsOutput) ValueCellStyle() AnalysisTableCellStylePtrOutput {
-	return o.ApplyT(func(v AnalysisSubtotalOptions) *AnalysisTableCellStyle { return v.ValueCellStyle }).(AnalysisTableCellStylePtrOutput)
-}
-
-type AnalysisSubtotalOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisSubtotalOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisSubtotalOptions)(nil)).Elem()
-}
-
-func (o AnalysisSubtotalOptionsPtrOutput) ToAnalysisSubtotalOptionsPtrOutput() AnalysisSubtotalOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisSubtotalOptionsPtrOutput) ToAnalysisSubtotalOptionsPtrOutputWithContext(ctx context.Context) AnalysisSubtotalOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisSubtotalOptionsPtrOutput) Elem() AnalysisSubtotalOptionsOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) AnalysisSubtotalOptions {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisSubtotalOptions
-		return ret
-	}).(AnalysisSubtotalOptionsOutput)
-}
-
-// The custom label string for the subtotal cells.
-func (o AnalysisSubtotalOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomLabel
-	}).(pulumi.StringPtrOutput)
-}
-
-// The field level (all, custom, last) for the subtotal cells.
-func (o AnalysisSubtotalOptionsPtrOutput) FieldLevel() AnalysisPivotTableSubtotalLevelPtrOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisPivotTableSubtotalLevel {
-		if v == nil {
-			return nil
-		}
-		return v.FieldLevel
-	}).(AnalysisPivotTableSubtotalLevelPtrOutput)
-}
-
-// The optional configuration of subtotal cells.
-func (o AnalysisSubtotalOptionsPtrOutput) FieldLevelOptions() AnalysisPivotTableFieldSubtotalOptionsArrayOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) []AnalysisPivotTableFieldSubtotalOptions {
-		if v == nil {
-			return nil
-		}
-		return v.FieldLevelOptions
-	}).(AnalysisPivotTableFieldSubtotalOptionsArrayOutput)
-}
-
-// The cell styling options for the subtotals of header cells.
-func (o AnalysisSubtotalOptionsPtrOutput) MetricHeaderCellStyle() AnalysisTableCellStylePtrOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisTableCellStyle {
-		if v == nil {
-			return nil
-		}
-		return v.MetricHeaderCellStyle
-	}).(AnalysisTableCellStylePtrOutput)
-}
-
-// The style targets options for subtotals.
-func (o AnalysisSubtotalOptionsPtrOutput) StyleTargets() AnalysisTableStyleTargetArrayOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) []AnalysisTableStyleTarget {
-		if v == nil {
-			return nil
-		}
-		return v.StyleTargets
-	}).(AnalysisTableStyleTargetArrayOutput)
-}
-
-// The cell styling options for the subtotal cells.
-func (o AnalysisSubtotalOptionsPtrOutput) TotalCellStyle() AnalysisTableCellStylePtrOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisTableCellStyle {
-		if v == nil {
-			return nil
-		}
-		return v.TotalCellStyle
-	}).(AnalysisTableCellStylePtrOutput)
-}
-
-// The visibility configuration for the subtotal cells.
-func (o AnalysisSubtotalOptionsPtrOutput) TotalsVisibility() AnalysisVisibilityPtrOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.TotalsVisibility
-	}).(AnalysisVisibilityPtrOutput)
-}
-
-// The cell styling options for the subtotals of value cells.
-func (o AnalysisSubtotalOptionsPtrOutput) ValueCellStyle() AnalysisTableCellStylePtrOutput {
-	return o.ApplyT(func(v *AnalysisSubtotalOptions) *AnalysisTableCellStyle {
-		if v == nil {
-			return nil
-		}
-		return v.ValueCellStyle
-	}).(AnalysisTableCellStylePtrOutput)
-}
-
-type AnalysisTableAggregatedFieldWells struct {
-	// The group by field well for a pivot table. Values are grouped by group by fields.
-	GroupBy []AnalysisDimensionField `pulumi:"groupBy"`
-	// The values field well for a pivot table. Values are aggregated based on group by fields.
-	Values []AnalysisMeasureField `pulumi:"values"`
-}
-
-// AnalysisTableAggregatedFieldWellsInput is an input type that accepts AnalysisTableAggregatedFieldWellsArgs and AnalysisTableAggregatedFieldWellsOutput values.
-// You can construct a concrete instance of `AnalysisTableAggregatedFieldWellsInput` via:
-//
-//	AnalysisTableAggregatedFieldWellsArgs{...}
-type AnalysisTableAggregatedFieldWellsInput interface {
-	pulumi.Input
-
-	ToAnalysisTableAggregatedFieldWellsOutput() AnalysisTableAggregatedFieldWellsOutput
-	ToAnalysisTableAggregatedFieldWellsOutputWithContext(context.Context) AnalysisTableAggregatedFieldWellsOutput
-}
-
-type AnalysisTableAggregatedFieldWellsArgs struct {
-	// The group by field well for a pivot table. Values are grouped by group by fields.
-	GroupBy AnalysisDimensionFieldArrayInput `pulumi:"groupBy"`
-	// The values field well for a pivot table. Values are aggregated based on group by fields.
-	Values AnalysisMeasureFieldArrayInput `pulumi:"values"`
-}
-
-func (AnalysisTableAggregatedFieldWellsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableAggregatedFieldWells)(nil)).Elem()
-}
-
-func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsOutput() AnalysisTableAggregatedFieldWellsOutput {
-	return i.ToAnalysisTableAggregatedFieldWellsOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableAggregatedFieldWellsOutput)
-}
-
-func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
-	return i.ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableAggregatedFieldWellsArgs) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableAggregatedFieldWellsOutput).ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx)
-}
-
-// AnalysisTableAggregatedFieldWellsPtrInput is an input type that accepts AnalysisTableAggregatedFieldWellsArgs, AnalysisTableAggregatedFieldWellsPtr and AnalysisTableAggregatedFieldWellsPtrOutput values.
-// You can construct a concrete instance of `AnalysisTableAggregatedFieldWellsPtrInput` via:
-//
-//	        AnalysisTableAggregatedFieldWellsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTableAggregatedFieldWellsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput
-	ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Context) AnalysisTableAggregatedFieldWellsPtrOutput
-}
-
-type analysisTableAggregatedFieldWellsPtrType AnalysisTableAggregatedFieldWellsArgs
-
-func AnalysisTableAggregatedFieldWellsPtr(v *AnalysisTableAggregatedFieldWellsArgs) AnalysisTableAggregatedFieldWellsPtrInput {
-	return (*analysisTableAggregatedFieldWellsPtrType)(v)
-}
-
-func (*analysisTableAggregatedFieldWellsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableAggregatedFieldWells)(nil)).Elem()
-}
-
-func (i *analysisTableAggregatedFieldWellsPtrType) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
-	return i.ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTableAggregatedFieldWellsPtrType) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableAggregatedFieldWellsPtrOutput)
-}
-
-type AnalysisTableAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableAggregatedFieldWellsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableAggregatedFieldWells)(nil)).Elem()
-}
-
-func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsOutput() AnalysisTableAggregatedFieldWellsOutput {
-	return o
-}
-
-func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsOutput {
-	return o
-}
-
-func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
-	return o.ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTableAggregatedFieldWellsOutput) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableAggregatedFieldWells) *AnalysisTableAggregatedFieldWells {
-		return &v
-	}).(AnalysisTableAggregatedFieldWellsPtrOutput)
-}
-
-// The group by field well for a pivot table. Values are grouped by group by fields.
-func (o AnalysisTableAggregatedFieldWellsOutput) GroupBy() AnalysisDimensionFieldArrayOutput {
-	return o.ApplyT(func(v AnalysisTableAggregatedFieldWells) []AnalysisDimensionField { return v.GroupBy }).(AnalysisDimensionFieldArrayOutput)
-}
-
-// The values field well for a pivot table. Values are aggregated based on group by fields.
-func (o AnalysisTableAggregatedFieldWellsOutput) Values() AnalysisMeasureFieldArrayOutput {
-	return o.ApplyT(func(v AnalysisTableAggregatedFieldWells) []AnalysisMeasureField { return v.Values }).(AnalysisMeasureFieldArrayOutput)
-}
-
-type AnalysisTableAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableAggregatedFieldWells)(nil)).Elem()
-}
-
-func (o AnalysisTableAggregatedFieldWellsPtrOutput) ToAnalysisTableAggregatedFieldWellsPtrOutput() AnalysisTableAggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o AnalysisTableAggregatedFieldWellsPtrOutput) ToAnalysisTableAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) AnalysisTableAggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o AnalysisTableAggregatedFieldWellsPtrOutput) Elem() AnalysisTableAggregatedFieldWellsOutput {
-	return o.ApplyT(func(v *AnalysisTableAggregatedFieldWells) AnalysisTableAggregatedFieldWells {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTableAggregatedFieldWells
-		return ret
-	}).(AnalysisTableAggregatedFieldWellsOutput)
-}
-
-// The group by field well for a pivot table. Values are grouped by group by fields.
-func (o AnalysisTableAggregatedFieldWellsPtrOutput) GroupBy() AnalysisDimensionFieldArrayOutput {
-	return o.ApplyT(func(v *AnalysisTableAggregatedFieldWells) []AnalysisDimensionField {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBy
-	}).(AnalysisDimensionFieldArrayOutput)
-}
-
-// The values field well for a pivot table. Values are aggregated based on group by fields.
-func (o AnalysisTableAggregatedFieldWellsPtrOutput) Values() AnalysisMeasureFieldArrayOutput {
-	return o.ApplyT(func(v *AnalysisTableAggregatedFieldWells) []AnalysisMeasureField {
-		if v == nil {
-			return nil
-		}
-		return v.Values
-	}).(AnalysisMeasureFieldArrayOutput)
-}
-
-type AnalysisTableBorderOptions struct {
-	// The color of a table border.
-	Color *string `pulumi:"color"`
-	// The style (none, solid) of a table border.
-	Style *AnalysisTableBorderStyle `pulumi:"style"`
-	// The thickness of a table border.
-	Thickness *float64 `pulumi:"thickness"`
-}
-
-// AnalysisTableBorderOptionsInput is an input type that accepts AnalysisTableBorderOptionsArgs and AnalysisTableBorderOptionsOutput values.
-// You can construct a concrete instance of `AnalysisTableBorderOptionsInput` via:
-//
-//	AnalysisTableBorderOptionsArgs{...}
-type AnalysisTableBorderOptionsInput interface {
-	pulumi.Input
-
-	ToAnalysisTableBorderOptionsOutput() AnalysisTableBorderOptionsOutput
-	ToAnalysisTableBorderOptionsOutputWithContext(context.Context) AnalysisTableBorderOptionsOutput
-}
-
-type AnalysisTableBorderOptionsArgs struct {
-	// The color of a table border.
-	Color pulumi.StringPtrInput `pulumi:"color"`
-	// The style (none, solid) of a table border.
-	Style AnalysisTableBorderStylePtrInput `pulumi:"style"`
-	// The thickness of a table border.
-	Thickness pulumi.Float64PtrInput `pulumi:"thickness"`
-}
-
-func (AnalysisTableBorderOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableBorderOptions)(nil)).Elem()
-}
-
-func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsOutput() AnalysisTableBorderOptionsOutput {
-	return i.ToAnalysisTableBorderOptionsOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableBorderOptionsOutput)
-}
-
-func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
-	return i.ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableBorderOptionsArgs) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableBorderOptionsOutput).ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx)
-}
-
-// AnalysisTableBorderOptionsPtrInput is an input type that accepts AnalysisTableBorderOptionsArgs, AnalysisTableBorderOptionsPtr and AnalysisTableBorderOptionsPtrOutput values.
-// You can construct a concrete instance of `AnalysisTableBorderOptionsPtrInput` via:
-//
-//	        AnalysisTableBorderOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTableBorderOptionsPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput
-	ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Context) AnalysisTableBorderOptionsPtrOutput
-}
-
-type analysisTableBorderOptionsPtrType AnalysisTableBorderOptionsArgs
-
-func AnalysisTableBorderOptionsPtr(v *AnalysisTableBorderOptionsArgs) AnalysisTableBorderOptionsPtrInput {
-	return (*analysisTableBorderOptionsPtrType)(v)
-}
-
-func (*analysisTableBorderOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableBorderOptions)(nil)).Elem()
-}
-
-func (i *analysisTableBorderOptionsPtrType) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
-	return i.ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTableBorderOptionsPtrType) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableBorderOptionsPtrOutput)
-}
-
-type AnalysisTableBorderOptionsOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableBorderOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableBorderOptions)(nil)).Elem()
-}
-
-func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsOutput() AnalysisTableBorderOptionsOutput {
-	return o
-}
-
-func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsOutput {
-	return o
-}
-
-func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
-	return o.ToAnalysisTableBorderOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTableBorderOptionsOutput) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableBorderOptions) *AnalysisTableBorderOptions {
-		return &v
-	}).(AnalysisTableBorderOptionsPtrOutput)
-}
-
-// The color of a table border.
-func (o AnalysisTableBorderOptionsOutput) Color() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalysisTableBorderOptions) *string { return v.Color }).(pulumi.StringPtrOutput)
-}
-
-// The style (none, solid) of a table border.
-func (o AnalysisTableBorderOptionsOutput) Style() AnalysisTableBorderStylePtrOutput {
-	return o.ApplyT(func(v AnalysisTableBorderOptions) *AnalysisTableBorderStyle { return v.Style }).(AnalysisTableBorderStylePtrOutput)
-}
-
-// The thickness of a table border.
-func (o AnalysisTableBorderOptionsOutput) Thickness() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v AnalysisTableBorderOptions) *float64 { return v.Thickness }).(pulumi.Float64PtrOutput)
-}
-
-type AnalysisTableBorderOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableBorderOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableBorderOptions)(nil)).Elem()
-}
-
-func (o AnalysisTableBorderOptionsPtrOutput) ToAnalysisTableBorderOptionsPtrOutput() AnalysisTableBorderOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTableBorderOptionsPtrOutput) ToAnalysisTableBorderOptionsPtrOutputWithContext(ctx context.Context) AnalysisTableBorderOptionsPtrOutput {
-	return o
-}
-
-func (o AnalysisTableBorderOptionsPtrOutput) Elem() AnalysisTableBorderOptionsOutput {
-	return o.ApplyT(func(v *AnalysisTableBorderOptions) AnalysisTableBorderOptions {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTableBorderOptions
-		return ret
-	}).(AnalysisTableBorderOptionsOutput)
-}
-
-// The color of a table border.
-func (o AnalysisTableBorderOptionsPtrOutput) Color() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableBorderOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Color
-	}).(pulumi.StringPtrOutput)
-}
-
-// The style (none, solid) of a table border.
-func (o AnalysisTableBorderOptionsPtrOutput) Style() AnalysisTableBorderStylePtrOutput {
-	return o.ApplyT(func(v *AnalysisTableBorderOptions) *AnalysisTableBorderStyle {
-		if v == nil {
-			return nil
-		}
-		return v.Style
-	}).(AnalysisTableBorderStylePtrOutput)
-}
-
-// The thickness of a table border.
-func (o AnalysisTableBorderOptionsPtrOutput) Thickness() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AnalysisTableBorderOptions) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Thickness
-	}).(pulumi.Float64PtrOutput)
-}
-
-type AnalysisTableCellConditionalFormatting struct {
-	// The field ID of the cell for conditional formatting.
-	FieldId string `pulumi:"fieldId"`
-	// The text format of the cell for conditional formatting.
-	TextFormat *AnalysisTextConditionalFormat `pulumi:"textFormat"`
-}
-
-// AnalysisTableCellConditionalFormattingInput is an input type that accepts AnalysisTableCellConditionalFormattingArgs and AnalysisTableCellConditionalFormattingOutput values.
-// You can construct a concrete instance of `AnalysisTableCellConditionalFormattingInput` via:
-//
-//	AnalysisTableCellConditionalFormattingArgs{...}
-type AnalysisTableCellConditionalFormattingInput interface {
-	pulumi.Input
-
-	ToAnalysisTableCellConditionalFormattingOutput() AnalysisTableCellConditionalFormattingOutput
-	ToAnalysisTableCellConditionalFormattingOutputWithContext(context.Context) AnalysisTableCellConditionalFormattingOutput
-}
-
-type AnalysisTableCellConditionalFormattingArgs struct {
-	// The field ID of the cell for conditional formatting.
-	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// The text format of the cell for conditional formatting.
-	TextFormat AnalysisTextConditionalFormatPtrInput `pulumi:"textFormat"`
-}
-
-func (AnalysisTableCellConditionalFormattingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableCellConditionalFormatting)(nil)).Elem()
-}
-
-func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingOutput() AnalysisTableCellConditionalFormattingOutput {
-	return i.ToAnalysisTableCellConditionalFormattingOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellConditionalFormattingOutput)
-}
-
-func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
-	return i.ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableCellConditionalFormattingArgs) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellConditionalFormattingOutput).ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx)
-}
-
-// AnalysisTableCellConditionalFormattingPtrInput is an input type that accepts AnalysisTableCellConditionalFormattingArgs, AnalysisTableCellConditionalFormattingPtr and AnalysisTableCellConditionalFormattingPtrOutput values.
-// You can construct a concrete instance of `AnalysisTableCellConditionalFormattingPtrInput` via:
-//
-//	        AnalysisTableCellConditionalFormattingArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTableCellConditionalFormattingPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput
-	ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Context) AnalysisTableCellConditionalFormattingPtrOutput
-}
-
-type analysisTableCellConditionalFormattingPtrType AnalysisTableCellConditionalFormattingArgs
-
-func AnalysisTableCellConditionalFormattingPtr(v *AnalysisTableCellConditionalFormattingArgs) AnalysisTableCellConditionalFormattingPtrInput {
-	return (*analysisTableCellConditionalFormattingPtrType)(v)
-}
-
-func (*analysisTableCellConditionalFormattingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableCellConditionalFormatting)(nil)).Elem()
-}
-
-func (i *analysisTableCellConditionalFormattingPtrType) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
-	return i.ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTableCellConditionalFormattingPtrType) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellConditionalFormattingPtrOutput)
-}
-
-type AnalysisTableCellConditionalFormattingOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableCellConditionalFormattingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableCellConditionalFormatting)(nil)).Elem()
-}
-
-func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingOutput() AnalysisTableCellConditionalFormattingOutput {
-	return o
-}
-
-func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingOutput {
-	return o
-}
-
-func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
-	return o.ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTableCellConditionalFormattingOutput) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableCellConditionalFormatting) *AnalysisTableCellConditionalFormatting {
-		return &v
-	}).(AnalysisTableCellConditionalFormattingPtrOutput)
-}
-
-// The field ID of the cell for conditional formatting.
-func (o AnalysisTableCellConditionalFormattingOutput) FieldId() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisTableCellConditionalFormatting) string { return v.FieldId }).(pulumi.StringOutput)
-}
-
-// The text format of the cell for conditional formatting.
-func (o AnalysisTableCellConditionalFormattingOutput) TextFormat() AnalysisTextConditionalFormatPtrOutput {
-	return o.ApplyT(func(v AnalysisTableCellConditionalFormatting) *AnalysisTextConditionalFormat { return v.TextFormat }).(AnalysisTextConditionalFormatPtrOutput)
-}
-
-type AnalysisTableCellConditionalFormattingPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableCellConditionalFormattingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableCellConditionalFormatting)(nil)).Elem()
-}
-
-func (o AnalysisTableCellConditionalFormattingPtrOutput) ToAnalysisTableCellConditionalFormattingPtrOutput() AnalysisTableCellConditionalFormattingPtrOutput {
-	return o
-}
-
-func (o AnalysisTableCellConditionalFormattingPtrOutput) ToAnalysisTableCellConditionalFormattingPtrOutputWithContext(ctx context.Context) AnalysisTableCellConditionalFormattingPtrOutput {
-	return o
-}
-
-func (o AnalysisTableCellConditionalFormattingPtrOutput) Elem() AnalysisTableCellConditionalFormattingOutput {
-	return o.ApplyT(func(v *AnalysisTableCellConditionalFormatting) AnalysisTableCellConditionalFormatting {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTableCellConditionalFormatting
-		return ret
-	}).(AnalysisTableCellConditionalFormattingOutput)
-}
-
-// The field ID of the cell for conditional formatting.
-func (o AnalysisTableCellConditionalFormattingPtrOutput) FieldId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableCellConditionalFormatting) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FieldId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The text format of the cell for conditional formatting.
-func (o AnalysisTableCellConditionalFormattingPtrOutput) TextFormat() AnalysisTextConditionalFormatPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableCellConditionalFormatting) *AnalysisTextConditionalFormat {
-		if v == nil {
-			return nil
-		}
-		return v.TextFormat
-	}).(AnalysisTextConditionalFormatPtrOutput)
-}
-
-type AnalysisTableCellImageSizingConfiguration struct {
-	// The cell scaling configuration of the sizing options for the table image configuration.
-	TableCellImageScalingConfiguration *AnalysisTableCellImageScalingConfiguration `pulumi:"tableCellImageScalingConfiguration"`
-}
-
-// AnalysisTableCellImageSizingConfigurationInput is an input type that accepts AnalysisTableCellImageSizingConfigurationArgs and AnalysisTableCellImageSizingConfigurationOutput values.
-// You can construct a concrete instance of `AnalysisTableCellImageSizingConfigurationInput` via:
-//
-//	AnalysisTableCellImageSizingConfigurationArgs{...}
-type AnalysisTableCellImageSizingConfigurationInput interface {
-	pulumi.Input
-
-	ToAnalysisTableCellImageSizingConfigurationOutput() AnalysisTableCellImageSizingConfigurationOutput
-	ToAnalysisTableCellImageSizingConfigurationOutputWithContext(context.Context) AnalysisTableCellImageSizingConfigurationOutput
-}
-
-type AnalysisTableCellImageSizingConfigurationArgs struct {
-	// The cell scaling configuration of the sizing options for the table image configuration.
-	TableCellImageScalingConfiguration AnalysisTableCellImageScalingConfigurationPtrInput `pulumi:"tableCellImageScalingConfiguration"`
-}
-
-func (AnalysisTableCellImageSizingConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
-}
-
-func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationOutput() AnalysisTableCellImageSizingConfigurationOutput {
-	return i.ToAnalysisTableCellImageSizingConfigurationOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellImageSizingConfigurationOutput)
-}
-
-func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return i.ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisTableCellImageSizingConfigurationArgs) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellImageSizingConfigurationOutput).ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx)
-}
-
-// AnalysisTableCellImageSizingConfigurationPtrInput is an input type that accepts AnalysisTableCellImageSizingConfigurationArgs, AnalysisTableCellImageSizingConfigurationPtr and AnalysisTableCellImageSizingConfigurationPtrOutput values.
-// You can construct a concrete instance of `AnalysisTableCellImageSizingConfigurationPtrInput` via:
-//
-//	        AnalysisTableCellImageSizingConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnalysisTableCellImageSizingConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput
-	ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput
-}
-
-type analysisTableCellImageSizingConfigurationPtrType AnalysisTableCellImageSizingConfigurationArgs
-
-func AnalysisTableCellImageSizingConfigurationPtr(v *AnalysisTableCellImageSizingConfigurationArgs) AnalysisTableCellImageSizingConfigurationPtrInput {
-	return (*analysisTableCellImageSizingConfigurationPtrType)(v)
-}
-
-func (*analysisTableCellImageSizingConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
-}
-
-func (i *analysisTableCellImageSizingConfigurationPtrType) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return i.ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisTableCellImageSizingConfigurationPtrType) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTableCellImageSizingConfigurationPtrOutput)
-}
-
-type AnalysisTableCellImageSizingConfigurationOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableCellImageSizingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
-}
-
-func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationOutput() AnalysisTableCellImageSizingConfigurationOutput {
-	return o
-}
-
-func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationOutput {
-	return o
-}
-
-func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return o.ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisTableCellImageSizingConfigurationOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTableCellImageSizingConfiguration) *AnalysisTableCellImageSizingConfiguration {
-		return &v
-	}).(AnalysisTableCellImageSizingConfigurationPtrOutput)
-}
-
-// The cell scaling configuration of the sizing options for the table image configuration.
-func (o AnalysisTableCellImageSizingConfigurationOutput) TableCellImageScalingConfiguration() AnalysisTableCellImageScalingConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisTableCellImageSizingConfiguration) *AnalysisTableCellImageScalingConfiguration {
-		return v.TableCellImageScalingConfiguration
-	}).(AnalysisTableCellImageScalingConfigurationPtrOutput)
-}
-
-type AnalysisTableCellImageSizingConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisTableCellImageSizingConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisTableCellImageSizingConfiguration)(nil)).Elem()
-}
-
-func (o AnalysisTableCellImageSizingConfigurationPtrOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutput() AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return o
-}
-
-func (o AnalysisTableCellImageSizingConfigurationPtrOutput) ToAnalysisTableCellImageSizingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageSizingConfigurationPtrOutput {
-	return o
-}
-
-func (o AnalysisTableCellImageSizingConfigurationPtrOutput) Elem() AnalysisTableCellImageSizingConfigurationOutput {
-	return o.ApplyT(func(v *AnalysisTableCellImageSizingConfiguration) AnalysisTableCellImageSizingConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisTableCellImageSizingConfiguration
-		return ret
-	}).(AnalysisTableCellImageSizingConfigurationOutput)
-}
-
-// The cell scaling configuration of the sizing options for the table image configuration.
-func (o AnalysisTableCellImageSizingConfigurationPtrOutput) TableCellImageScalingConfiguration() AnalysisTableCellImageScalingConfigurationPtrOutput {
-	return o.ApplyT(func(v *AnalysisTableCellImageSizingConfiguration) *AnalysisTableCellImageScalingConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.TableCellImageScalingConfiguration
-	}).(AnalysisTableCellImageScalingConfigurationPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorApiKeyConnectionMetadataInput)(nil)).Elem(), ActionConnectorApiKeyConnectionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthConfigInput)(nil)).Elem(), ActionConnectorAuthConfigArgs{})
@@ -84053,6 +83906,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorNoneConnectionMetadataInput)(nil)).Elem(), ActionConnectorNoneConnectionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorResourcePermissionInput)(nil)).Elem(), ActionConnectorResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorResourcePermissionArrayInput)(nil)).Elem(), ActionConnectorResourcePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomPromptInputInput)(nil)).Elem(), AgentCustomPromptInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomPromptInputPtrInput)(nil)).Elem(), AgentCustomPromptInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomPromptInputParametersInput)(nil)).Elem(), AgentCustomPromptInputParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomPromptInputParametersPtrInput)(nil)).Elem(), AgentCustomPromptInputParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomPromptProfileInput)(nil)).Elem(), AgentCustomPromptProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentCustomPromptProfilePtrInput)(nil)).Elem(), AgentCustomPromptProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionPtrInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationSortConfigurationInput)(nil)).Elem(), AnalysisAggregationSortConfigurationArgs{})
@@ -84996,16 +84855,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringParameterDeclarationPtrInput)(nil)).Elem(), AnalysisStringParameterDeclarationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringValueWhenUnsetConfigurationInput)(nil)).Elem(), AnalysisStringValueWhenUnsetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringValueWhenUnsetConfigurationPtrInput)(nil)).Elem(), AnalysisStringValueWhenUnsetConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsPtrInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableAggregatedFieldWellsInput)(nil)).Elem(), AnalysisTableAggregatedFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableAggregatedFieldWellsPtrInput)(nil)).Elem(), AnalysisTableAggregatedFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderOptionsInput)(nil)).Elem(), AnalysisTableBorderOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderOptionsPtrInput)(nil)).Elem(), AnalysisTableBorderOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellConditionalFormattingInput)(nil)).Elem(), AnalysisTableCellConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellConditionalFormattingPtrInput)(nil)).Elem(), AnalysisTableCellConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageSizingConfigurationInput)(nil)).Elem(), AnalysisTableCellImageSizingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageSizingConfigurationPtrInput)(nil)).Elem(), AnalysisTableCellImageSizingConfigurationArgs{})
 	pulumi.RegisterOutputType(ActionConnectorApiKeyConnectionMetadataOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthConfigOutput{})
 	pulumi.RegisterOutputType(ActionConnectorAuthenticationMetadata0PropertiesOutput{})
@@ -85029,6 +84878,14 @@ func init() {
 	pulumi.RegisterOutputType(ActionConnectorNoneConnectionMetadataOutput{})
 	pulumi.RegisterOutputType(ActionConnectorResourcePermissionOutput{})
 	pulumi.RegisterOutputType(ActionConnectorResourcePermissionArrayOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptInputOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptInputPtrOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptInputParametersOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptInputParametersPtrOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptInterfaceOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptInterfacePtrOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptProfileOutput{})
+	pulumi.RegisterOutputType(AgentCustomPromptProfilePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationSortConfigurationOutput{})
@@ -85972,14 +85829,4 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisStringParameterDeclarationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisStringValueWhenUnsetConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisStringValueWhenUnsetConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisSubtotalOptionsOutput{})
-	pulumi.RegisterOutputType(AnalysisSubtotalOptionsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTableAggregatedFieldWellsOutput{})
-	pulumi.RegisterOutputType(AnalysisTableAggregatedFieldWellsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTableBorderOptionsOutput{})
-	pulumi.RegisterOutputType(AnalysisTableBorderOptionsPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTableCellConditionalFormattingOutput{})
-	pulumi.RegisterOutputType(AnalysisTableCellConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisTableCellImageSizingConfigurationOutput{})
-	pulumi.RegisterOutputType(AnalysisTableCellImageSizingConfigurationPtrOutput{})
 }

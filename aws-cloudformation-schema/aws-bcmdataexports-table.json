@@ -1,0 +1,78 @@
+{
+  "typeName" : "AWS::BCMDataExports::Table",
+  "description" : "Returns the metadata for the specified table and table properties, including the list of columns in the table schema, their data types, and column descriptions.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the table."
+    },
+    "TableName" : {
+      "type" : "string",
+      "description" : "The name of the table.",
+      "minLength" : 0,
+      "maxLength" : 1024,
+      "pattern" : "^[\\S\\s]*$"
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "The table description.",
+      "minLength" : 0,
+      "maxLength" : 1024,
+      "pattern" : "^[\\S\\s]*$"
+    },
+    "Schema" : {
+      "type" : "array",
+      "description" : "The schema of the table.",
+      "items" : {
+        "$ref" : "#/definitions/Column"
+      }
+    }
+  },
+  "definitions" : {
+    "Column" : {
+      "type" : "object",
+      "description" : "Includes basic information for a data column such as its description, name, and type.",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "description" : "The column name.",
+          "minLength" : 0,
+          "maxLength" : 1024,
+          "pattern" : "^[\\S\\s]*$"
+        },
+        "Type" : {
+          "type" : "string",
+          "description" : "The kind of data a column stores.",
+          "minLength" : 0,
+          "maxLength" : 1024,
+          "pattern" : "^[\\S\\s]*$"
+        },
+        "Description" : {
+          "type" : "string",
+          "description" : "The description for a column.",
+          "minLength" : 0,
+          "maxLength" : 1024,
+          "pattern" : "^[\\S\\s]*$"
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "required" : [ "TableName" ],
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/TableName" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Description", "/properties/Schema" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/TableName" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "bcm-data-exports:GetTable" ]
+    },
+    "list" : {
+      "permissions" : [ "bcm-data-exports:ListTables" ]
+    }
+  }
+}

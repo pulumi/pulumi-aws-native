@@ -1,0 +1,107 @@
+{
+  "typeName" : "AWS::ThinClient::SoftwareSet",
+  "description" : "Describes a software set for Amazon WorkSpaces Thin Client.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the software set.",
+      "minLength" : 20,
+      "maxLength" : 2048,
+      "pattern" : "^arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[0-9]{0,12}:[a-zA-Z0-9\\-\\/\\._]+$"
+    },
+    "Id" : {
+      "type" : "string",
+      "description" : "The ID of the software set.",
+      "pattern" : "^[0-9]{1,9}$"
+    },
+    "Version" : {
+      "type" : "string",
+      "description" : "The version of the software set."
+    },
+    "ReleasedAt" : {
+      "type" : "string",
+      "description" : "The timestamp of when the software set was released.",
+      "format" : "date-time"
+    },
+    "ValidationStatus" : {
+      "type" : "string",
+      "description" : "An option to define if the software set has been validated.",
+      "enum" : [ "VALIDATED", "NOT_VALIDATED" ]
+    },
+    "Software" : {
+      "type" : "array",
+      "description" : "A list of the software components in the software set.",
+      "items" : {
+        "$ref" : "#/definitions/Software"
+      },
+      "insertionOrder" : false
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "An array of key-value pairs to apply to this resource.",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    }
+  },
+  "definitions" : {
+    "Software" : {
+      "type" : "object",
+      "description" : "Describes software.",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "description" : "The name of the software component."
+        },
+        "Version" : {
+          "type" : "string",
+          "description" : "The version of the software component."
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Tag" : {
+      "type" : "object",
+      "description" : "A key-value pair to associate with a resource.",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key name of the tag.",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag.",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/Version", "/properties/ReleasedAt", "/properties/ValidationStatus", "/properties/Software" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/Id" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "thinclient:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "thinclient:GetSoftwareSet", "thinclient:ListTagsForResource" ]
+    },
+    "list" : {
+      "permissions" : [ "thinclient:ListSoftwareSets" ]
+    }
+  }
+}

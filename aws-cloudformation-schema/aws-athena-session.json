@@ -1,0 +1,111 @@
+{
+  "typeName" : "AWS::Athena::Session",
+  "description" : "An Athena session is a Spark-based interactive environment for running calculations within a workgroup.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The ARN of the session."
+    },
+    "SessionId" : {
+      "type" : "string",
+      "description" : "The session ID.",
+      "minLength" : 1,
+      "maxLength" : 256
+    },
+    "WorkGroup" : {
+      "type" : "string",
+      "description" : "The workgroup to which the session belongs.",
+      "pattern" : "^[a-zA-Z0-9._-]{1,128}$"
+    },
+    "EngineConfiguration" : {
+      "description" : "Contains engine data processing unit (DPU) configuration settings.",
+      "$ref" : "#/definitions/EngineConfiguration"
+    },
+    "ExecutionRole" : {
+      "type" : "string",
+      "description" : "The ARN of the execution role used to access user resources for Spark sessions and Identity Center enabled workgroups.",
+      "minLength" : 20,
+      "maxLength" : 2048
+    },
+    "EngineVersion" : {
+      "type" : "string",
+      "description" : "The engine version used by the session.",
+      "minLength" : 1,
+      "maxLength" : 128
+    }
+  },
+  "definitions" : {
+    "EngineConfiguration" : {
+      "type" : "object",
+      "description" : "Contains engine data processing unit (DPU) configuration settings.",
+      "properties" : {
+        "CoordinatorDpuSize" : {
+          "type" : "integer",
+          "description" : "The number of DPUs to use for the coordinator.",
+          "minimum" : 1,
+          "maximum" : 1
+        },
+        "MaxConcurrentDpus" : {
+          "type" : "integer",
+          "description" : "The maximum number of DPUs that can run concurrently.",
+          "minimum" : 2,
+          "maximum" : 5000
+        },
+        "DefaultExecutorDpuSize" : {
+          "type" : "integer",
+          "description" : "The default number of DPUs to use for executors.",
+          "minimum" : 1,
+          "maximum" : 1
+        },
+        "AdditionalConfigs" : {
+          "type" : "object",
+          "description" : "Contains additional notebook engine parameter mappings.",
+          "patternProperties" : {
+            "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*$" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        },
+        "SparkProperties" : {
+          "type" : "object",
+          "description" : "Specifies custom jar files and Spark properties.",
+          "patternProperties" : {
+            "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*$" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "required" : [ "MaxConcurrentDpus" ],
+      "additionalProperties" : false
+    }
+  },
+  "required" : [ "WorkGroup", "EngineConfiguration" ],
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/EngineConfiguration", "/properties/ExecutionRole", "/properties/WorkGroup" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/SessionId", "/properties/EngineVersion", "/properties/EngineConfiguration/AdditionalConfigs", "/properties/EngineConfiguration/SparkProperties" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/WorkGroup", "/properties/SessionId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "athena:GetSession" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "WorkGroup" : {
+            "type" : "string",
+            "pattern" : "^[a-zA-Z0-9._-]{1,128}$"
+          }
+        },
+        "required" : [ "WorkGroup" ]
+      },
+      "permissions" : [ "athena:ListSessions" ]
+    }
+  }
+}

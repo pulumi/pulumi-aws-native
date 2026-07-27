@@ -1,0 +1,66 @@
+{
+  "typeName" : "AWS::ControlCatalog::Objective",
+  "description" : "Returns information about an objective in the AWS Control Catalog.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) that identifies the objective.",
+      "minLength" : 36,
+      "maxLength" : 2048,
+      "pattern" : "^arn:(aws(?:[-a-z]*)?):controlcatalog:::objective/[0-9a-z]+$"
+    },
+    "ObjectiveId" : {
+      "type" : "string",
+      "description" : "The unique identifier of the objective.",
+      "pattern" : "^[0-9a-z]+$"
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the objective."
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "The description of the objective."
+    },
+    "Domain" : {
+      "type" : "object",
+      "description" : "The domain that the objective belongs to.",
+      "properties" : {
+        "Arn" : {
+          "type" : "string",
+          "description" : "The Amazon Resource Name (ARN) of the related domain."
+        },
+        "Name" : {
+          "type" : "string",
+          "description" : "The name of the related domain."
+        }
+      },
+      "additionalProperties" : false
+    },
+    "CreateTime" : {
+      "type" : "string",
+      "description" : "The time when the objective was created.",
+      "format" : "date-time"
+    },
+    "LastUpdateTime" : {
+      "type" : "string",
+      "description" : "The time when the objective was most recently updated.",
+      "format" : "date-time"
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/ObjectiveId", "/properties/Name", "/properties/Description", "/properties/Domain", "/properties/CreateTime", "/properties/LastUpdateTime" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/ObjectiveId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "controlcatalog:ListObjectives" ]
+    },
+    "list" : {
+      "permissions" : [ "controlcatalog:ListObjectives" ]
+    }
+  }
+}

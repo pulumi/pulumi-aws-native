@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// <summary>
         /// The identifier of the application that you want to give access to.
         /// </summary>
-        public readonly string FlowModuleId;
+        public readonly string? FlowModuleId;
         /// <summary>
         /// The type of the first-party application
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private SecurityProfileFlowModule(
-            string flowModuleId,
+            string? flowModuleId,
 
-            string type)
+            string? type)
         {
             FlowModuleId = flowModuleId;
             Type = type;

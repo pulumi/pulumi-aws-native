@@ -1,0 +1,68 @@
+{
+  "typeName" : "AWS::CodeBuild::Sandbox",
+  "description" : "Represents a CodeBuild sandbox, an ephemeral compute environment started from a CodeBuild project.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The ARN of the sandbox."
+    },
+    "Id" : {
+      "type" : "string",
+      "description" : "The ID of the sandbox.",
+      "minLength" : 1
+    },
+    "ProjectName" : {
+      "type" : "string",
+      "description" : "The CodeBuild project name.",
+      "minLength" : 1
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The status of the sandbox."
+    },
+    "RequestTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "When the sandbox process was initially requested, expressed in ISO 8601 format."
+    },
+    "StartTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "When the sandbox process started, expressed in ISO 8601 format."
+    },
+    "EncryptionKey" : {
+      "type" : "string",
+      "description" : "The KMS key used for encrypting the sandbox output artifacts.",
+      "minLength" : 1
+    },
+    "ServiceRole" : {
+      "type" : "string",
+      "description" : "The name of a service role used for this sandbox.",
+      "minLength" : 1
+    },
+    "TimeoutInMinutes" : {
+      "type" : "integer",
+      "description" : "How long, in minutes, for CodeBuild to wait before timing out this sandbox."
+    },
+    "QueuedTimeoutInMinutes" : {
+      "type" : "integer",
+      "description" : "The number of minutes a sandbox is allowed to be queued before it times out."
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/ProjectName" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/Status", "/properties/RequestTime", "/properties/StartTime", "/properties/EncryptionKey", "/properties/ServiceRole", "/properties/TimeoutInMinutes", "/properties/QueuedTimeoutInMinutes" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/Id" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "codebuild:BatchGetSandboxes" ]
+    },
+    "list" : {
+      "permissions" : [ "codebuild:ListSandboxes" ]
+    }
+  }
+}

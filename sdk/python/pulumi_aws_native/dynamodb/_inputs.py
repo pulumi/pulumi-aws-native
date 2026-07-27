@@ -1319,7 +1319,7 @@ class GlobalTableReplicaSseSpecificationArgs:
 
 
 class GlobalTableReplicaStreamSpecificationArgsDict(TypedDict):
-    resource_policy: pulumi.Input['GlobalTableResourcePolicyArgsDict']
+    resource_policy: NotRequired[pulumi.Input[Optional['GlobalTableResourcePolicyArgsDict']]]
     """
     A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 
@@ -1331,7 +1331,7 @@ class GlobalTableReplicaStreamSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalTableReplicaStreamSpecificationArgs:
     def __init__(__self__, *,
-                 resource_policy: pulumi.Input['GlobalTableResourcePolicyArgs']):
+                 resource_policy: pulumi.Input[Optional['GlobalTableResourcePolicyArgs']] = None):
         """
         :param pulumi.Input['GlobalTableResourcePolicyArgs'] resource_policy: A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
                
@@ -1339,11 +1339,12 @@ class GlobalTableReplicaStreamSpecificationArgs:
                
                You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
         """
-        pulumi.set(__self__, "resource_policy", resource_policy)
+        if resource_policy is not None:
+            pulumi.set(__self__, "resource_policy", resource_policy)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> pulumi.Input['GlobalTableResourcePolicyArgs']:
+    def resource_policy(self) -> pulumi.Input[Optional['GlobalTableResourcePolicyArgs']]:
         """
         A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 
@@ -1354,7 +1355,7 @@ class GlobalTableReplicaStreamSpecificationArgs:
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
-    def resource_policy(self, value: pulumi.Input['GlobalTableResourcePolicyArgs']):
+    def resource_policy(self, value: pulumi.Input[Optional['GlobalTableResourcePolicyArgs']]):
         pulumi.set(self, "resource_policy", value)
 
 

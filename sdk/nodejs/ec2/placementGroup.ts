@@ -38,6 +38,10 @@ export class PlacementGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the placement group.
+     */
+    declare public /*out*/ readonly groupId: pulumi.Output<string>;
+    /**
      * The Group Name of Placement Group.
      */
     declare public /*out*/ readonly groupName: pulumi.Output<string>;
@@ -73,8 +77,10 @@ export class PlacementGroup extends pulumi.CustomResource {
             resourceInputs["spreadLevel"] = args?.spreadLevel;
             resourceInputs["strategy"] = args?.strategy;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["groupId"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
         } else {
+            resourceInputs["groupId"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["partitionCount"] = undefined /*out*/;
             resourceInputs["spreadLevel"] = undefined /*out*/;

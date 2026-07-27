@@ -27,7 +27,7 @@
       "properties" : {
         "ApplicationPermissions" : {
           "type" : "array",
-          "maxItems" : 10,
+          "maxItems" : 50,
           "uniqueItems" : true,
           "insertionOrder" : false,
           "description" : "The permissions that the agent is granted on the application",
@@ -47,7 +47,6 @@
           "enum" : [ "MCP", "THIRD_PARTY_APPLICATION" ]
         }
       },
-      "required" : [ "ApplicationPermissions", "Namespace" ],
       "additionalProperties" : false
     },
     "FlowModule" : {
@@ -67,7 +66,6 @@
           "maxLength" : 128
         }
       },
-      "required" : [ "Type", "FlowModuleId" ],
       "additionalProperties" : false
     },
     "Tag" : {
@@ -116,7 +114,6 @@
           "uniqueItems" : true
         }
       },
-      "required" : [ "PrimaryAttributeValues" ],
       "additionalProperties" : false
     },
     "PrimaryAttributeValue" : {
@@ -149,14 +146,13 @@
           "uniqueItems" : true
         }
       },
-      "required" : [ "AccessType", "AttributeName", "Values" ],
       "additionalProperties" : false
     }
   },
   "properties" : {
     "AllowedAccessControlTags" : {
       "type" : "array",
-      "maxItems" : 2,
+      "maxItems" : 4,
       "uniqueItems" : true,
       "insertionOrder" : false,
       "description" : "The list of tags that a security profile uses to restrict access to resources in Amazon Connect.",
@@ -278,7 +274,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
+    "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "connect:TagResource", "connect:UntagResource" ]
   },

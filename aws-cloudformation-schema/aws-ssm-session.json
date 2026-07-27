@@ -1,0 +1,66 @@
+{
+  "typeName" : "AWS::SSM::Session",
+  "description" : "Returns information about a Session Manager session.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the session."
+    },
+    "SessionId" : {
+      "type" : "string",
+      "description" : "The ID of the session.",
+      "minLength" : 1,
+      "maxLength" : 96
+    },
+    "Target" : {
+      "type" : "string",
+      "description" : "The managed node to connect to for the session.",
+      "minLength" : 1,
+      "maxLength" : 400
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The status of the session.",
+      "enum" : [ "Connected", "Connecting", "Disconnected", "Terminated", "Terminating", "Failed" ]
+    },
+    "StartDate" : {
+      "type" : "string",
+      "description" : "The date and time, in ISO-8601 Extended format, when the session began.",
+      "format" : "date-time"
+    },
+    "Reason" : {
+      "type" : "string",
+      "description" : "The reason for connecting to the instance.",
+      "minLength" : 1,
+      "maxLength" : 256,
+      "pattern" : "^.{1,256}$"
+    },
+    "Owner" : {
+      "type" : "string",
+      "description" : "The ID of the Amazon Web Services user that started the session.",
+      "minLength" : 1,
+      "maxLength" : 256
+    },
+    "AccessType" : {
+      "type" : "string",
+      "description" : "The access type for the session.",
+      "enum" : [ "Standard", "JustInTime" ]
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/Reason", "/properties/Target" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/SessionId", "/properties/Status", "/properties/StartDate", "/properties/Owner", "/properties/AccessType" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/SessionId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "ssm:DescribeSessions" ]
+    },
+    "list" : {
+      "permissions" : [ "ssm:DescribeSessions" ]
+    }
+  }
+}

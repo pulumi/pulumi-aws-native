@@ -40,6 +40,11 @@ export const getMaintenanceWindowTask: typeof import("./getMaintenanceWindowTask
 export const getMaintenanceWindowTaskOutput: typeof import("./getMaintenanceWindowTask").getMaintenanceWindowTaskOutput = null as any;
 utilities.lazyLoad(exports, ["getMaintenanceWindowTask","getMaintenanceWindowTaskOutput"], () => require("./getMaintenanceWindowTask"));
 
+export { GetOpsItemArgs, GetOpsItemResult, GetOpsItemOutputArgs } from "./getOpsItem";
+export const getOpsItem: typeof import("./getOpsItem").getOpsItem = null as any;
+export const getOpsItemOutput: typeof import("./getOpsItem").getOpsItemOutput = null as any;
+utilities.lazyLoad(exports, ["getOpsItem","getOpsItemOutput"], () => require("./getOpsItem"));
+
 export { GetParameterArgs, GetParameterResult, GetParameterOutputArgs } from "./getParameter";
 export const getParameter: typeof import("./getParameter").getParameter = null as any;
 export const getParameterOutput: typeof import("./getParameter").getParameterOutput = null as any;
@@ -74,6 +79,11 @@ export { MaintenanceWindowTaskArgs } from "./maintenanceWindowTask";
 export type MaintenanceWindowTask = import("./maintenanceWindowTask").MaintenanceWindowTask;
 export const MaintenanceWindowTask: typeof import("./maintenanceWindowTask").MaintenanceWindowTask = null as any;
 utilities.lazyLoad(exports, ["MaintenanceWindowTask"], () => require("./maintenanceWindowTask"));
+
+export { OpsItemArgs } from "./opsItem";
+export type OpsItem = import("./opsItem").OpsItem;
+export const OpsItem: typeof import("./opsItem").OpsItem = null as any;
+utilities.lazyLoad(exports, ["OpsItem"], () => require("./opsItem"));
 
 export { ParameterArgs } from "./parameter";
 export type Parameter = import("./parameter").Parameter;
@@ -113,6 +123,8 @@ const _module = {
                 return new MaintenanceWindowTarget(name, <any>undefined, { urn })
             case "aws-native:ssm:MaintenanceWindowTask":
                 return new MaintenanceWindowTask(name, <any>undefined, { urn })
+            case "aws-native:ssm:OpsItem":
+                return new OpsItem(name, <any>undefined, { urn })
             case "aws-native:ssm:Parameter":
                 return new Parameter(name, <any>undefined, { urn })
             case "aws-native:ssm:PatchBaseline":

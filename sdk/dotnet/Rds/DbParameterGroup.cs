@@ -49,6 +49,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +   ``aurora-mysql`` 
         ///   +   ``aurora-postgresql`` 
         ///   +   ``db2-ae`` 
+        ///   +   ``db2-ce`` 
         ///   +   ``db2-se`` 
         ///   +   ``mysql`` 
         ///   +   ``oracle-ee`` 
@@ -161,6 +162,7 @@ namespace Pulumi.AwsNative.Rds
         ///   +   ``aurora-mysql`` 
         ///   +   ``aurora-postgresql`` 
         ///   +   ``db2-ae`` 
+        ///   +   ``db2-ce`` 
         ///   +   ``db2-se`` 
         ///   +   ``mysql`` 
         ///   +   ``oracle-ee`` 

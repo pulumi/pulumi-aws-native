@@ -1,0 +1,92 @@
+{
+  "typeName" : "AWS::RedshiftServerless::RecoveryPoint",
+  "description" : "Represents an automatically created recovery point for an Amazon Redshift Serverless namespace. Recovery points are created every 30 minutes and kept for 24 hours.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the recovery point."
+    },
+    "RecoveryPointId" : {
+      "type" : "string",
+      "description" : "The unique identifier of the recovery point."
+    },
+    "RecoveryPointCreateTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "The time the recovery point was created, in ISO 8601 format."
+    },
+    "TotalSizeInMegaBytes" : {
+      "type" : "number",
+      "description" : "The total size of the data in the recovery point in megabytes."
+    },
+    "NamespaceName" : {
+      "type" : "string",
+      "description" : "The name of the namespace the recovery point is associated with.",
+      "minLength" : 3,
+      "maxLength" : 64,
+      "pattern" : "^[a-z0-9-]+$"
+    },
+    "NamespaceArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the namespace the recovery point is associated with."
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "The list of tags associated with the recovery point.",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "insertionOrder" : false
+    }
+  },
+  "definitions" : {
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/NamespaceName" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/RecoveryPointId", "/properties/RecoveryPointCreateTime", "/properties/TotalSizeInMegaBytes", "/properties/NamespaceArn", "/properties/Tags" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/RecoveryPointId" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "redshift-serverless:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "redshift-serverless:GetRecoveryPoint", "redshift-serverless:ListTagsForResource" ]
+    },
+    "list" : {
+      "permissions" : [ "redshift-serverless:ListRecoveryPoints" ],
+      "handlerSchema" : {
+        "properties" : {
+          "NamespaceName" : {
+            "type" : "string",
+            "minLength" : 3,
+            "maxLength" : 64,
+            "pattern" : "^[a-z0-9-]+$"
+          }
+        }
+      }
+    }
+  }
+}

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+        /// </summary>
+        [Output("autoUpdate")]
+        public Output<bool?> AutoUpdate { get; private set; } = null!;
+
+        /// <summary>
         /// The execution role ARN assumed by Hooks to invoke Lambda.
         /// </summary>
         [Output("executionRole")]
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         [Output("lambdaFunction")]
         public Output<string> LambdaFunction { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains logging configuration information for the hook.
+        /// </summary>
+        [Output("loggingConfig")]
+        public Output<Outputs.LambdaHookLoggingConfig?> LoggingConfig { get; private set; } = null!;
 
         /// <summary>
         /// Filters to allow hooks to target specific stack attributes
@@ -95,6 +107,8 @@ namespace Pulumi.AwsNative.CloudFormation
                 ReplaceOnChanges =
                 {
                     "alias",
+                    "autoUpdate",
+                    "loggingConfig",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,6 +139,12 @@ namespace Pulumi.AwsNative.CloudFormation
         public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
+        /// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+        /// </summary>
+        [Input("autoUpdate")]
+        public Input<bool>? AutoUpdate { get; set; }
+
+        /// <summary>
         /// The execution role ARN assumed by Hooks to invoke Lambda.
         /// </summary>
         [Input("executionRole", required: true)]
@@ -147,6 +167,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         [Input("lambdaFunction", required: true)]
         public Input<string> LambdaFunction { get; set; } = null!;
+
+        /// <summary>
+        /// Contains logging configuration information for the hook.
+        /// </summary>
+        [Input("loggingConfig")]
+        public Input<Inputs.LambdaHookLoggingConfigArgs>? LoggingConfig { get; set; }
 
         /// <summary>
         /// Filters to allow hooks to target specific stack attributes

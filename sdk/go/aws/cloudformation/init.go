@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:cloudformation:CustomResourceEmulator":
 		r = &CustomResourceEmulator{}
+	case "aws-native:cloudformation:GeneratedTemplate":
+		r = &GeneratedTemplate{}
 	case "aws-native:cloudformation:GuardHook":
 		r = &GuardHook{}
 	case "aws-native:cloudformation:HookDefaultVersion":

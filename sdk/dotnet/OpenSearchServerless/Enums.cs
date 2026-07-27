@@ -261,6 +261,37 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexPropertyMappingDataType : IEquatable<IndexPropertyMappingDataType>
+    {
+        private readonly string _value;
+
+        private IndexPropertyMappingDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexPropertyMappingDataType Float { get; } = new IndexPropertyMappingDataType("float");
+        public static IndexPropertyMappingDataType Byte { get; } = new IndexPropertyMappingDataType("byte");
+
+        public static bool operator ==(IndexPropertyMappingDataType left, IndexPropertyMappingDataType right) => left.Equals(right);
+        public static bool operator !=(IndexPropertyMappingDataType left, IndexPropertyMappingDataType right) => !left.Equals(right);
+
+        public static explicit operator string(IndexPropertyMappingDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexPropertyMappingDataType other && Equals(other);
+        public bool Equals(IndexPropertyMappingDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The k-NN search engine to use
     /// </summary>
     [EnumType]

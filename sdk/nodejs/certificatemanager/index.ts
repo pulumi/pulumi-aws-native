@@ -25,6 +25,11 @@ export type AcmeExternalAccountBinding = import("./acmeExternalAccountBinding").
 export const AcmeExternalAccountBinding: typeof import("./acmeExternalAccountBinding").AcmeExternalAccountBinding = null as any;
 utilities.lazyLoad(exports, ["AcmeExternalAccountBinding"], () => require("./acmeExternalAccountBinding"));
 
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -45,6 +50,14 @@ export const getAcmeExternalAccountBinding: typeof import("./getAcmeExternalAcco
 export const getAcmeExternalAccountBindingOutput: typeof import("./getAcmeExternalAccountBinding").getAcmeExternalAccountBindingOutput = null as any;
 utilities.lazyLoad(exports, ["getAcmeExternalAccountBinding","getAcmeExternalAccountBindingOutput"], () => require("./getAcmeExternalAccountBinding"));
 
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+
+// Export enums:
+export * from "../types/enums/certificatemanager";
 
 const _module = {
     version: utilities.getVersion(),
@@ -58,6 +71,8 @@ const _module = {
                 return new AcmeEndpoint(name, <any>undefined, { urn })
             case "aws-native:certificatemanager:AcmeExternalAccountBinding":
                 return new AcmeExternalAccountBinding(name, <any>undefined, { urn })
+            case "aws-native:certificatemanager:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

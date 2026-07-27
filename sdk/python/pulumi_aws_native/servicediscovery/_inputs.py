@@ -26,40 +26,20 @@ __all__ = [
 ]
 
 class ServiceDnsConfigArgsDict(TypedDict):
+    """
+    DNS configuration settings for the service.
+    """
     dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgsDict']]]
     """
-    An array that contains one `DnsRecord` object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
-
-    > The record type of a service can't be updated directly and can only be changed by deleting the service and recreating it with a new `DnsConfig` .
+    A list of DNS records associated with the service.
     """
     namespace_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    *Use NamespaceId in [Service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html) instead.*
-
-    The ID of the namespace to use for DNS configuration.
+    The ID of the namespace for the DNS configuration.
     """
     routing_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
-
-    > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
-
-    You can specify the following values:
-
-    - **MULTIVALUE** - If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances.
-
-    For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
-
-    If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
-
-    For more information about the multivalue routing policy, see [Multivalue Answer Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue) in the *Route 53 Developer Guide* .
-    - **WEIGHTED** - Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
-
-    For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
-
-    If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
-
-    For more information about the weighted routing policy, see [Weighted Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted) in the *Route 53 Developer Guide* .
+    The routing policy to use for DNS queries.
     """
 
 @pulumi.input_type
@@ -69,32 +49,11 @@ class ServiceDnsConfigArgs:
                  namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]] dns_records: An array that contains one `DnsRecord` object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
-               
-               > The record type of a service can't be updated directly and can only be changed by deleting the service and recreating it with a new `DnsConfig` .
-        :param pulumi.Input[_builtins.str] namespace_id: *Use NamespaceId in [Service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html) instead.*
-               
-               The ID of the namespace to use for DNS configuration.
-        :param pulumi.Input[_builtins.str] routing_policy: The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
-               
-               > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
-               
-               You can specify the following values:
-               
-               - **MULTIVALUE** - If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances.
-               
-               For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
-               
-               If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
-               
-               For more information about the multivalue routing policy, see [Multivalue Answer Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue) in the *Route 53 Developer Guide* .
-               - **WEIGHTED** - Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
-               
-               For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
-               
-               If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
-               
-               For more information about the weighted routing policy, see [Weighted Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted) in the *Route 53 Developer Guide* .
+        DNS configuration settings for the service.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]] dns_records: A list of DNS records associated with the service.
+        :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace for the DNS configuration.
+        :param pulumi.Input[_builtins.str] routing_policy: The routing policy to use for DNS queries.
         """
         pulumi.set(__self__, "dns_records", dns_records)
         if namespace_id is not None:
@@ -106,9 +65,7 @@ class ServiceDnsConfigArgs:
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]]:
         """
-        An array that contains one `DnsRecord` object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
-
-        > The record type of a service can't be updated directly and can only be changed by deleting the service and recreating it with a new `DnsConfig` .
+        A list of DNS records associated with the service.
         """
         return pulumi.get(self, "dns_records")
 
@@ -120,9 +77,7 @@ class ServiceDnsConfigArgs:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        *Use NamespaceId in [Service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html) instead.*
-
-        The ID of the namespace to use for DNS configuration.
+        The ID of the namespace for the DNS configuration.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -134,26 +89,7 @@ class ServiceDnsConfigArgs:
     @pulumi.getter(name="routingPolicy")
     def routing_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
-
-        > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
-
-        You can specify the following values:
-
-        - **MULTIVALUE** - If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances.
-
-        For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
-
-        If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
-
-        For more information about the multivalue routing policy, see [Multivalue Answer Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue) in the *Route 53 Developer Guide* .
-        - **WEIGHTED** - Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
-
-        For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
-
-        If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
-
-        For more information about the weighted routing policy, see [Weighted Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted) in the *Route 53 Developer Guide* .
+        The routing policy to use for DNS queries.
         """
         return pulumi.get(self, "routing_policy")
 
@@ -163,54 +99,16 @@ class ServiceDnsConfigArgs:
 
 
 class ServiceDnsRecordArgsDict(TypedDict):
+    """
+    A DNS record associated with the service.
+    """
     ttl: pulumi.Input[_builtins.float]
     """
-    The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
-
-    > Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+    The time-to-live (TTL) for the DNS record.
     """
     type: pulumi.Input[_builtins.str]
     """
-    The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. You can specify values for `Type` in the following combinations:
-
-    - `A`
-    - `AAAA`
-    - `A` and `AAAA`
-    - `SRV`
-    - `CNAME`
-
-    If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify `A` or `AAAA` for `Type` .
-
-    You specify other settings, such as the IP address for `A` and `AAAA` records, when you register an instance. For more information, see [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-
-    The following values are supported:
-
-    - **A** - Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44.
-    - **AAAA** - Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
-    - **CNAME** - Route 53 returns the domain name of the resource, such as www.example.com. Note the following:
-
-    - You specify the domain name that you want to route traffic to when you register an instance. For more information, see [Attributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes) in the topic [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-    - You must specify `WEIGHTED` for the value of `RoutingPolicy` .
-    - You can't specify both `CNAME` for `Type` and settings for `HealthCheckConfig` . If you do, the request will fail with an `InvalidInput` error.
-    - **SRV** - Route 53 returns the value for an `SRV` record. The value for an `SRV` record uses the following values:
-
-    `priority weight port service-hostname`
-
-    Note the following about the values:
-
-    - The values of `priority` and `weight` are both set to `1` and can't be changed.
-    - The value of `port` comes from the value that you specify for the `AWS_INSTANCE_PORT` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request.
-    - The value of `service-hostname` is a concatenation of the following values:
-
-    - The value that you specify for `InstanceId` when you register an instance.
-    - The name of the service.
-    - The name of the namespace.
-
-    For example, if the value of `InstanceId` is `test` , the name of the service is `backend` , and the name of the namespace is `example.com` , the value of `service-hostname` is:
-
-    `test.backend.example.com`
-
-    If you specify settings for an `SRV` record and if you specify values for `AWS_INSTANCE_IPV4` , `AWS_INSTANCE_IPV6` , or both in the `RegisterInstance` request, AWS Cloud Map automatically creates `A` and/or `AAAA` records that have the same name as the value of `service-hostname` in the `SRV` record. You can ignore these records.
+    The DNS record type (e.g., A, AAAA, SRV).
     """
 
 @pulumi.input_type
@@ -219,49 +117,10 @@ class ServiceDnsRecordArgs:
                  ttl: pulumi.Input[_builtins.float],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.float] ttl: The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
-               
-               > Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
-        :param pulumi.Input[_builtins.str] type: The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. You can specify values for `Type` in the following combinations:
-               
-               - `A`
-               - `AAAA`
-               - `A` and `AAAA`
-               - `SRV`
-               - `CNAME`
-               
-               If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify `A` or `AAAA` for `Type` .
-               
-               You specify other settings, such as the IP address for `A` and `AAAA` records, when you register an instance. For more information, see [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-               
-               The following values are supported:
-               
-               - **A** - Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44.
-               - **AAAA** - Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
-               - **CNAME** - Route 53 returns the domain name of the resource, such as www.example.com. Note the following:
-               
-               - You specify the domain name that you want to route traffic to when you register an instance. For more information, see [Attributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes) in the topic [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-               - You must specify `WEIGHTED` for the value of `RoutingPolicy` .
-               - You can't specify both `CNAME` for `Type` and settings for `HealthCheckConfig` . If you do, the request will fail with an `InvalidInput` error.
-               - **SRV** - Route 53 returns the value for an `SRV` record. The value for an `SRV` record uses the following values:
-               
-               `priority weight port service-hostname`
-               
-               Note the following about the values:
-               
-               - The values of `priority` and `weight` are both set to `1` and can't be changed.
-               - The value of `port` comes from the value that you specify for the `AWS_INSTANCE_PORT` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request.
-               - The value of `service-hostname` is a concatenation of the following values:
-               
-               - The value that you specify for `InstanceId` when you register an instance.
-               - The name of the service.
-               - The name of the namespace.
-               
-               For example, if the value of `InstanceId` is `test` , the name of the service is `backend` , and the name of the namespace is `example.com` , the value of `service-hostname` is:
-               
-               `test.backend.example.com`
-               
-               If you specify settings for an `SRV` record and if you specify values for `AWS_INSTANCE_IPV4` , `AWS_INSTANCE_IPV6` , or both in the `RegisterInstance` request, AWS Cloud Map automatically creates `A` and/or `AAAA` records that have the same name as the value of `service-hostname` in the `SRV` record. You can ignore these records.
+        A DNS record associated with the service.
+
+        :param pulumi.Input[_builtins.float] ttl: The time-to-live (TTL) for the DNS record.
+        :param pulumi.Input[_builtins.str] type: The DNS record type (e.g., A, AAAA, SRV).
         """
         pulumi.set(__self__, "ttl", ttl)
         pulumi.set(__self__, "type", type)
@@ -270,9 +129,7 @@ class ServiceDnsRecordArgs:
     @pulumi.getter
     def ttl(self) -> pulumi.Input[_builtins.float]:
         """
-        The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
-
-        > Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+        The time-to-live (TTL) for the DNS record.
         """
         return pulumi.get(self, "ttl")
 
@@ -284,46 +141,7 @@ class ServiceDnsRecordArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. You can specify values for `Type` in the following combinations:
-
-        - `A`
-        - `AAAA`
-        - `A` and `AAAA`
-        - `SRV`
-        - `CNAME`
-
-        If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify `A` or `AAAA` for `Type` .
-
-        You specify other settings, such as the IP address for `A` and `AAAA` records, when you register an instance. For more information, see [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-
-        The following values are supported:
-
-        - **A** - Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44.
-        - **AAAA** - Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
-        - **CNAME** - Route 53 returns the domain name of the resource, such as www.example.com. Note the following:
-
-        - You specify the domain name that you want to route traffic to when you register an instance. For more information, see [Attributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes) in the topic [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-        - You must specify `WEIGHTED` for the value of `RoutingPolicy` .
-        - You can't specify both `CNAME` for `Type` and settings for `HealthCheckConfig` . If you do, the request will fail with an `InvalidInput` error.
-        - **SRV** - Route 53 returns the value for an `SRV` record. The value for an `SRV` record uses the following values:
-
-        `priority weight port service-hostname`
-
-        Note the following about the values:
-
-        - The values of `priority` and `weight` are both set to `1` and can't be changed.
-        - The value of `port` comes from the value that you specify for the `AWS_INSTANCE_PORT` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request.
-        - The value of `service-hostname` is a concatenation of the following values:
-
-        - The value that you specify for `InstanceId` when you register an instance.
-        - The name of the service.
-        - The name of the namespace.
-
-        For example, if the value of `InstanceId` is `test` , the name of the service is `backend` , and the name of the namespace is `example.com` , the value of `service-hostname` is:
-
-        `test.backend.example.com`
-
-        If you specify settings for an `SRV` record and if you specify values for `AWS_INSTANCE_IPV4` , `AWS_INSTANCE_IPV6` , or both in the `RegisterInstance` request, AWS Cloud Map automatically creates `A` and/or `AAAA` records that have the same name as the value of `service-hostname` in the `SRV` record. You can ignore these records.
+        The DNS record type (e.g., A, AAAA, SRV).
         """
         return pulumi.get(self, "type")
 
@@ -333,33 +151,20 @@ class ServiceDnsRecordArgs:
 
 
 class ServiceHealthCheckConfigArgsDict(TypedDict):
+    """
+    Configuration for health checks for the service.
+    """
     type: pulumi.Input[_builtins.str]
     """
-    The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
-
-    > You can't change the value of `Type` after you create a health check.
-
-    You can create the following types of health checks:
-
-    - *HTTP* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.
-    - *HTTPS* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400.
-
-    > If you specify HTTPS for the value of `Type` , the endpoint must support TLS v1.0 or later.
-    - *TCP* : Route 53 tries to establish a TCP connection.
-
-    If you specify `TCP` for `Type` , don't specify a value for `ResourcePath` .
-
-    For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+    The type of health check (e.g., HTTP, HTTPS, TCP).
     """
     failure_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around. For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+    The number of consecutive health check failures that must occur before declaring the service unhealthy.
     """
     resource_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The path that you want Route 53 to request when performing health checks. The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
-
-    If you specify `TCP` for `Type` , you must *not* specify a value for `ResourcePath` .
+    The path to ping on the service for health checks.
     """
 
 @pulumi.input_type
@@ -369,25 +174,11 @@ class ServiceHealthCheckConfigArgs:
                  failure_threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  resource_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
-               
-               > You can't change the value of `Type` after you create a health check.
-               
-               You can create the following types of health checks:
-               
-               - *HTTP* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.
-               - *HTTPS* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400.
-               
-               > If you specify HTTPS for the value of `Type` , the endpoint must support TLS v1.0 or later.
-               - *TCP* : Route 53 tries to establish a TCP connection.
-               
-               If you specify `TCP` for `Type` , don't specify a value for `ResourcePath` .
-               
-               For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
-        :param pulumi.Input[_builtins.float] failure_threshold: The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around. For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
-        :param pulumi.Input[_builtins.str] resource_path: The path that you want Route 53 to request when performing health checks. The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
-               
-               If you specify `TCP` for `Type` , you must *not* specify a value for `ResourcePath` .
+        Configuration for health checks for the service.
+
+        :param pulumi.Input[_builtins.str] type: The type of health check (e.g., HTTP, HTTPS, TCP).
+        :param pulumi.Input[_builtins.float] failure_threshold: The number of consecutive health check failures that must occur before declaring the service unhealthy.
+        :param pulumi.Input[_builtins.str] resource_path: The path to ping on the service for health checks.
         """
         pulumi.set(__self__, "type", type)
         if failure_threshold is not None:
@@ -399,21 +190,7 @@ class ServiceHealthCheckConfigArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
-
-        > You can't change the value of `Type` after you create a health check.
-
-        You can create the following types of health checks:
-
-        - *HTTP* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.
-        - *HTTPS* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400.
-
-        > If you specify HTTPS for the value of `Type` , the endpoint must support TLS v1.0 or later.
-        - *TCP* : Route 53 tries to establish a TCP connection.
-
-        If you specify `TCP` for `Type` , don't specify a value for `ResourcePath` .
-
-        For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+        The type of health check (e.g., HTTP, HTTPS, TCP).
         """
         return pulumi.get(self, "type")
 
@@ -425,7 +202,7 @@ class ServiceHealthCheckConfigArgs:
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around. For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+        The number of consecutive health check failures that must occur before declaring the service unhealthy.
         """
         return pulumi.get(self, "failure_threshold")
 
@@ -437,9 +214,7 @@ class ServiceHealthCheckConfigArgs:
     @pulumi.getter(name="resourcePath")
     def resource_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The path that you want Route 53 to request when performing health checks. The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
-
-        If you specify `TCP` for `Type` , you must *not* specify a value for `ResourcePath` .
+        The path to ping on the service for health checks.
         """
         return pulumi.get(self, "resource_path")
 
@@ -449,13 +224,12 @@ class ServiceHealthCheckConfigArgs:
 
 
 class ServiceHealthCheckCustomConfigArgsDict(TypedDict):
+    """
+    Configurations for custom health checks for the service.
+    """
     failure_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance.
-
-    The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
-
-    Sending a second or subsequent `UpdateInstanceCustomHealthStatus` request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits `30` seconds after the first request to make the change.
+    The number of consecutive health check failures required before the service is considered unhealthy.
     """
 
 @pulumi.input_type
@@ -463,11 +237,9 @@ class ServiceHealthCheckCustomConfigArgs:
     def __init__(__self__, *,
                  failure_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.float] failure_threshold: > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance.
-               
-               The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
-               
-               Sending a second or subsequent `UpdateInstanceCustomHealthStatus` request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits `30` seconds after the first request to make the change.
+        Configurations for custom health checks for the service.
+
+        :param pulumi.Input[_builtins.float] failure_threshold: The number of consecutive health check failures required before the service is considered unhealthy.
         """
         if failure_threshold is not None:
             pulumi.set(__self__, "failure_threshold", failure_threshold)
@@ -476,11 +248,7 @@ class ServiceHealthCheckCustomConfigArgs:
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance.
-
-        The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
-
-        Sending a second or subsequent `UpdateInstanceCustomHealthStatus` request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits `30` seconds after the first request to make the change.
+        The number of consecutive health check failures required before the service is considered unhealthy.
         """
         return pulumi.get(self, "failure_threshold")
 

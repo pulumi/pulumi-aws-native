@@ -55,3 +55,21 @@ export const ProtectConfigurationCountryRuleProtectStatus = {
  * The types of protection that can be used.
  */
 export type ProtectConfigurationCountryRuleProtectStatus = (typeof ProtectConfigurationCountryRuleProtectStatus)[keyof typeof ProtectConfigurationCountryRuleProtectStatus];
+
+export const RegistrationStatus = {
+    Created: "CREATED",
+    Submitted: "SUBMITTED",
+    AwsReviewing: "AWS_REVIEWING",
+    Reviewing: "REVIEWING",
+    RequiresAuthentication: "REQUIRES_AUTHENTICATION",
+    Provisioning: "PROVISIONING",
+    Complete: "COMPLETE",
+    RequiresUpdates: "REQUIRES_UPDATES",
+    Closed: "CLOSED",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * The status of the registration.
+ */
+export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];

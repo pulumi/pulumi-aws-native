@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -36,6 +37,10 @@ type LookupOrganizationConformancePackResult struct {
 	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
 	// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`
+	// Amazon Resource Name (ARN) of the organization conformance pack.
+	OrganizationConformancePackArn *string `pulumi:"organizationConformancePackArn"`
+	// The tags for the organization conformance pack.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupOrganizationConformancePackOutput(ctx *pulumi.Context, args LookupOrganizationConformancePackOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationConformancePackResultOutput {
@@ -90,6 +95,16 @@ func (o LookupOrganizationConformancePackResultOutput) DeliveryS3KeyPrefix() pul
 // A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
 func (o LookupOrganizationConformancePackResultOutput) ExcludedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOrganizationConformancePackResult) []string { return v.ExcludedAccounts }).(pulumi.StringArrayOutput)
+}
+
+// Amazon Resource Name (ARN) of the organization conformance pack.
+func (o LookupOrganizationConformancePackResultOutput) OrganizationConformancePackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationConformancePackResult) *string { return v.OrganizationConformancePackArn }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the organization conformance pack.
+func (o LookupOrganizationConformancePackResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationConformancePackResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

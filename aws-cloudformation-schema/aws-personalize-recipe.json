@@ -1,0 +1,71 @@
+{
+  "typeName" : "AWS::Personalize::Recipe",
+  "description" : "Resource Type definition for AWS::Personalize::Recipe",
+  "properties" : {
+    "RecipeArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the recipe.",
+      "maxLength" : 256,
+      "pattern" : "^arn:([a-z\\d-]+):personalize:.*:.*:.+$"
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the recipe.",
+      "minLength" : 1,
+      "maxLength" : 63,
+      "pattern" : "^[a-zA-Z0-9][a-zA-Z0-9\\-_]*$"
+    },
+    "AlgorithmArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train the model.",
+      "maxLength" : 256,
+      "pattern" : "^arn:([a-z\\d-]+):personalize:.*:.*:.+$"
+    },
+    "FeatureTransformationArn" : {
+      "type" : "string",
+      "description" : "The ARN of the FeatureTransformation object.",
+      "maxLength" : 256,
+      "pattern" : "^arn:([a-z\\d-]+):personalize:.*:.*:.+$"
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The status of the recipe.",
+      "maxLength" : 256
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "The description of the recipe."
+    },
+    "RecipeType" : {
+      "type" : "string",
+      "description" : "One of the following values: PERSONALIZED_RANKING, RELATED_ITEMS, USER_PERSONALIZATION.",
+      "maxLength" : 256
+    },
+    "CreationDateTime" : {
+      "type" : "string",
+      "description" : "The date and time (in Unix format) that the recipe was created.",
+      "format" : "date-time"
+    },
+    "LastUpdatedDateTime" : {
+      "type" : "string",
+      "description" : "The date and time (in Unix format) that the recipe was last updated.",
+      "format" : "date-time"
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/Name" ],
+  "readOnlyProperties" : [ "/properties/RecipeArn", "/properties/AlgorithmArn", "/properties/FeatureTransformationArn", "/properties/Status", "/properties/Description", "/properties/RecipeType", "/properties/CreationDateTime", "/properties/LastUpdatedDateTime" ],
+  "primaryIdentifier" : [ "/properties/RecipeArn" ],
+  "additionalIdentifiers" : [ [ "/properties/Name" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "personalize:DescribeRecipe" ]
+    },
+    "list" : {
+      "permissions" : [ "personalize:ListRecipes" ]
+    }
+  }
+}

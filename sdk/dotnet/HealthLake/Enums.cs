@@ -8,6 +8,67 @@ using Pulumi;
 namespace Pulumi.AwsNative.HealthLake
 {
     /// <summary>
+    /// The source format that this profile converts from.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataTransformationProfileSourceFormat : IEquatable<DataTransformationProfileSourceFormat>
+    {
+        private readonly string _value;
+
+        private DataTransformationProfileSourceFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataTransformationProfileSourceFormat Ccda { get; } = new DataTransformationProfileSourceFormat("CCDA");
+        public static DataTransformationProfileSourceFormat Csv { get; } = new DataTransformationProfileSourceFormat("CSV");
+
+        public static bool operator ==(DataTransformationProfileSourceFormat left, DataTransformationProfileSourceFormat right) => left.Equals(right);
+        public static bool operator !=(DataTransformationProfileSourceFormat left, DataTransformationProfileSourceFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DataTransformationProfileSourceFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataTransformationProfileSourceFormat other && Equals(other);
+        public bool Equals(DataTransformationProfileSourceFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The target format that this profile converts to. Always FHIR_R4.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataTransformationProfileTargetFormat : IEquatable<DataTransformationProfileTargetFormat>
+    {
+        private readonly string _value;
+
+        private DataTransformationProfileTargetFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataTransformationProfileTargetFormat FhirR4 { get; } = new DataTransformationProfileTargetFormat("FHIR_R4");
+
+        public static bool operator ==(DataTransformationProfileTargetFormat left, DataTransformationProfileTargetFormat right) => left.Equals(right);
+        public static bool operator !=(DataTransformationProfileTargetFormat left, DataTransformationProfileTargetFormat right) => !left.Equals(right);
+
+        public static explicit operator string(DataTransformationProfileTargetFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataTransformationProfileTargetFormat other && Equals(other);
+        public bool Equals(DataTransformationProfileTargetFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
     /// </summary>
     [EnumType]

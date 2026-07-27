@@ -1,0 +1,130 @@
+{
+  "typeName" : "AWS::Omics::Reference",
+  "description" : "Represents a genomic reference stored in an AWS HealthOmics reference store.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The reference's ARN.",
+      "minLength" : 1,
+      "maxLength" : 127,
+      "pattern" : "^arn:.+$"
+    },
+    "Id" : {
+      "type" : "string",
+      "description" : "The reference's ID.",
+      "minLength" : 10,
+      "maxLength" : 36,
+      "pattern" : "^[0-9]+$"
+    },
+    "ReferenceStoreId" : {
+      "type" : "string",
+      "description" : "The reference's reference store ID.",
+      "minLength" : 10,
+      "maxLength" : 36,
+      "pattern" : "^[0-9]+$"
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The reference's name.",
+      "minLength" : 3,
+      "maxLength" : 255,
+      "pattern" : "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "The reference's description.",
+      "minLength" : 1,
+      "maxLength" : 255,
+      "pattern" : "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$"
+    },
+    "Md5" : {
+      "type" : "string",
+      "description" : "The reference's MD5 checksum.",
+      "minLength" : 1,
+      "maxLength" : 255,
+      "pattern" : "^[\\p{L}||\\p{N}]+$"
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The reference's status.",
+      "enum" : [ "ACTIVE", "DELETING", "DELETED" ]
+    },
+    "CreationTime" : {
+      "type" : "string",
+      "description" : "When the reference was created.",
+      "format" : "date-time"
+    },
+    "UpdateTime" : {
+      "type" : "string",
+      "description" : "When the reference was updated.",
+      "format" : "date-time"
+    },
+    "CreationType" : {
+      "type" : "string",
+      "description" : "The reference's creation type.",
+      "enum" : [ "IMPORT" ]
+    },
+    "CreationJobId" : {
+      "type" : "string",
+      "description" : "The reference's creation job ID.",
+      "minLength" : 1,
+      "maxLength" : 127,
+      "pattern" : "^[a-zA-Z0-9]+$"
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "Tags for the reference.",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 128
+          },
+          "Value" : {
+            "type" : "string",
+            "minLength" : 0,
+            "maxLength" : 256
+          }
+        },
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      }
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/Description", "/properties/Name", "/properties/ReferenceStoreId", "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/Md5", "/properties/Status", "/properties/CreationTime", "/properties/UpdateTime", "/properties/CreationType", "/properties/CreationJobId" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/ReferenceStoreId", "/properties/Id" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "omics:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "omics:GetReferenceMetadata", "omics:ListTagsForResource" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ReferenceStoreId" : {
+            "type" : "string",
+            "minLength" : 10,
+            "maxLength" : 36,
+            "pattern" : "^[0-9]+$"
+          }
+        },
+        "required" : [ "ReferenceStoreId" ]
+      },
+      "permissions" : [ "omics:ListReferences" ]
+    }
+  }
+}

@@ -16,6 +16,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DataTransformationProfileExistingVersionedProfileSourceArgs',
+    'DataTransformationProfileExistingVersionedProfileSourceArgsDict',
+    'DataTransformationProfileProfileMappingSourceArgs',
+    'DataTransformationProfileProfileMappingSourceArgsDict',
+    'DataTransformationProfileSourceArgs',
+    'DataTransformationProfileSourceArgsDict',
+    'DataTransformationProfileStarterProfileSourceArgs',
+    'DataTransformationProfileStarterProfileSourceArgsDict',
     'FhirDatastoreIdentityProviderConfigurationArgs',
     'FhirDatastoreIdentityProviderConfigurationArgsDict',
     'FhirDatastoreKmsEncryptionConfigArgs',
@@ -25,6 +33,176 @@ __all__ = [
     'FhirDatastoreSseConfigurationArgs',
     'FhirDatastoreSseConfigurationArgsDict',
 ]
+
+class DataTransformationProfileExistingVersionedProfileSourceArgsDict(TypedDict):
+    """
+    Create the profile by cloning a specific version of an existing profile.
+    """
+    profile_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of the source profile to clone.
+    """
+    version: pulumi.Input[_builtins.int]
+    """
+    The version number of the source profile to clone.
+    """
+
+@pulumi.input_type
+class DataTransformationProfileExistingVersionedProfileSourceArgs:
+    def __init__(__self__, *,
+                 profile_id: pulumi.Input[_builtins.str],
+                 version: pulumi.Input[_builtins.int]):
+        """
+        Create the profile by cloning a specific version of an existing profile.
+
+        :param pulumi.Input[_builtins.str] profile_id: The unique identifier of the source profile to clone.
+        :param pulumi.Input[_builtins.int] version: The version number of the source profile to clone.
+        """
+        pulumi.set(__self__, "profile_id", profile_id)
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="profileId")
+    def profile_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the source profile to clone.
+        """
+        return pulumi.get(self, "profile_id")
+
+    @profile_id.setter
+    def profile_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "profile_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[_builtins.int]:
+        """
+        The version number of the source profile to clone.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "version", value)
+
+
+class DataTransformationProfileProfileMappingSourceArgsDict(TypedDict):
+    """
+    Create the profile from raw Velocity template mapping content.
+    """
+    profile_mapping: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Map of template file paths to their Velocity template content.
+    """
+
+@pulumi.input_type
+class DataTransformationProfileProfileMappingSourceArgs:
+    def __init__(__self__, *,
+                 profile_mapping: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        """
+        Create the profile from raw Velocity template mapping content.
+
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] profile_mapping: Map of template file paths to their Velocity template content.
+        """
+        pulumi.set(__self__, "profile_mapping", profile_mapping)
+
+    @_builtins.property
+    @pulumi.getter(name="profileMapping")
+    def profile_mapping(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
+        """
+        Map of template file paths to their Velocity template content.
+        """
+        return pulumi.get(self, "profile_mapping")
+
+    @profile_mapping.setter
+    def profile_mapping(self, value: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "profile_mapping", value)
+
+
+class DataTransformationProfileSourceArgsDict(TypedDict):
+    """
+    The source from which to create the profile's initial template content. Exactly one of the members must be specified. Use StarterProfile (C-CDA only), ProfileMapping (C-CDA or CSV), or ExistingVersionedProfileId to clone an existing profile. Each produces a published profile.
+    """
+    existing_versioned_profile_id: NotRequired[pulumi.Input[Optional['DataTransformationProfileExistingVersionedProfileSourceArgsDict']]]
+    profile_mapping: NotRequired[pulumi.Input[Optional['DataTransformationProfileProfileMappingSourceArgsDict']]]
+    starter_profile: NotRequired[pulumi.Input[Optional['DataTransformationProfileStarterProfileSourceArgsDict']]]
+
+@pulumi.input_type
+class DataTransformationProfileSourceArgs:
+    def __init__(__self__, *,
+                 existing_versioned_profile_id: pulumi.Input[Optional['DataTransformationProfileExistingVersionedProfileSourceArgs']] = None,
+                 profile_mapping: pulumi.Input[Optional['DataTransformationProfileProfileMappingSourceArgs']] = None,
+                 starter_profile: pulumi.Input[Optional['DataTransformationProfileStarterProfileSourceArgs']] = None):
+        """
+        The source from which to create the profile's initial template content. Exactly one of the members must be specified. Use StarterProfile (C-CDA only), ProfileMapping (C-CDA or CSV), or ExistingVersionedProfileId to clone an existing profile. Each produces a published profile.
+        """
+        if existing_versioned_profile_id is not None:
+            pulumi.set(__self__, "existing_versioned_profile_id", existing_versioned_profile_id)
+        if profile_mapping is not None:
+            pulumi.set(__self__, "profile_mapping", profile_mapping)
+        if starter_profile is not None:
+            pulumi.set(__self__, "starter_profile", starter_profile)
+
+    @_builtins.property
+    @pulumi.getter(name="existingVersionedProfileId")
+    def existing_versioned_profile_id(self) -> pulumi.Input[Optional['DataTransformationProfileExistingVersionedProfileSourceArgs']]:
+        return pulumi.get(self, "existing_versioned_profile_id")
+
+    @existing_versioned_profile_id.setter
+    def existing_versioned_profile_id(self, value: pulumi.Input[Optional['DataTransformationProfileExistingVersionedProfileSourceArgs']]):
+        pulumi.set(self, "existing_versioned_profile_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileMapping")
+    def profile_mapping(self) -> pulumi.Input[Optional['DataTransformationProfileProfileMappingSourceArgs']]:
+        return pulumi.get(self, "profile_mapping")
+
+    @profile_mapping.setter
+    def profile_mapping(self, value: pulumi.Input[Optional['DataTransformationProfileProfileMappingSourceArgs']]):
+        pulumi.set(self, "profile_mapping", value)
+
+    @_builtins.property
+    @pulumi.getter(name="starterProfile")
+    def starter_profile(self) -> pulumi.Input[Optional['DataTransformationProfileStarterProfileSourceArgs']]:
+        return pulumi.get(self, "starter_profile")
+
+    @starter_profile.setter
+    def starter_profile(self, value: pulumi.Input[Optional['DataTransformationProfileStarterProfileSourceArgs']]):
+        pulumi.set(self, "starter_profile", value)
+
+
+class DataTransformationProfileStarterProfileSourceArgsDict(TypedDict):
+    """
+    Create the profile from a predefined starter profile of transformation templates.
+    """
+    starter_profile_name: pulumi.Input[_builtins.str]
+    """
+    The name of the starter profile to seed the profile from.
+    """
+
+@pulumi.input_type
+class DataTransformationProfileStarterProfileSourceArgs:
+    def __init__(__self__, *,
+                 starter_profile_name: pulumi.Input[_builtins.str]):
+        """
+        Create the profile from a predefined starter profile of transformation templates.
+
+        :param pulumi.Input[_builtins.str] starter_profile_name: The name of the starter profile to seed the profile from.
+        """
+        pulumi.set(__self__, "starter_profile_name", starter_profile_name)
+
+    @_builtins.property
+    @pulumi.getter(name="starterProfileName")
+    def starter_profile_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the starter profile to seed the profile from.
+        """
+        return pulumi.get(self, "starter_profile_name")
+
+    @starter_profile_name.setter
+    def starter_profile_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "starter_profile_name", value)
+
 
 class FhirDatastoreIdentityProviderConfigurationArgsDict(TypedDict):
     """

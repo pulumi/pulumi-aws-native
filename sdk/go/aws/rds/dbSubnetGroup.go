@@ -19,6 +19,7 @@ import (
 type DbSubnetGroup struct {
 	pulumi.CustomResourceState
 
+	DbSubnetGroupArn pulumi.StringOutput `pulumi:"dbSubnetGroupArn"`
 	// The description for the DB subnet group.
 	DbSubnetGroupDescription pulumi.StringOutput `pulumi:"dbSubnetGroupDescription"`
 	// The name for the DB subnet group. This value is stored as a lowercase string.
@@ -154,6 +155,10 @@ func (o DbSubnetGroupOutput) ToDbSubnetGroupOutput() DbSubnetGroupOutput {
 
 func (o DbSubnetGroupOutput) ToDbSubnetGroupOutputWithContext(ctx context.Context) DbSubnetGroupOutput {
 	return o
+}
+
+func (o DbSubnetGroupOutput) DbSubnetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbSubnetGroup) pulumi.StringOutput { return v.DbSubnetGroupArn }).(pulumi.StringOutput)
 }
 
 // The description for the DB subnet group.

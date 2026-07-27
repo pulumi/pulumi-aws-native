@@ -8,6 +8,105 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
+    /// The status of the template generation.
+    /// </summary>
+    [EnumType]
+    public readonly struct GeneratedTemplateStatus : IEquatable<GeneratedTemplateStatus>
+    {
+        private readonly string _value;
+
+        private GeneratedTemplateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GeneratedTemplateStatus CreatePending { get; } = new GeneratedTemplateStatus("CREATE_PENDING");
+        public static GeneratedTemplateStatus UpdatePending { get; } = new GeneratedTemplateStatus("UPDATE_PENDING");
+        public static GeneratedTemplateStatus DeletePending { get; } = new GeneratedTemplateStatus("DELETE_PENDING");
+        public static GeneratedTemplateStatus CreateInProgress { get; } = new GeneratedTemplateStatus("CREATE_IN_PROGRESS");
+        public static GeneratedTemplateStatus UpdateInProgress { get; } = new GeneratedTemplateStatus("UPDATE_IN_PROGRESS");
+        public static GeneratedTemplateStatus DeleteInProgress { get; } = new GeneratedTemplateStatus("DELETE_IN_PROGRESS");
+        public static GeneratedTemplateStatus Failed { get; } = new GeneratedTemplateStatus("FAILED");
+        public static GeneratedTemplateStatus Complete { get; } = new GeneratedTemplateStatus("COMPLETE");
+
+        public static bool operator ==(GeneratedTemplateStatus left, GeneratedTemplateStatus right) => left.Equals(right);
+        public static bool operator !=(GeneratedTemplateStatus left, GeneratedTemplateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GeneratedTemplateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GeneratedTemplateStatus other && Equals(other);
+        public bool Equals(GeneratedTemplateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The DeletionPolicy assigned to resources in the generated template.
+    /// </summary>
+    [EnumType]
+    public readonly struct GeneratedTemplateTemplateConfigurationDeletionPolicy : IEquatable<GeneratedTemplateTemplateConfigurationDeletionPolicy>
+    {
+        private readonly string _value;
+
+        private GeneratedTemplateTemplateConfigurationDeletionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GeneratedTemplateTemplateConfigurationDeletionPolicy Delete { get; } = new GeneratedTemplateTemplateConfigurationDeletionPolicy("DELETE");
+        public static GeneratedTemplateTemplateConfigurationDeletionPolicy Retain { get; } = new GeneratedTemplateTemplateConfigurationDeletionPolicy("RETAIN");
+
+        public static bool operator ==(GeneratedTemplateTemplateConfigurationDeletionPolicy left, GeneratedTemplateTemplateConfigurationDeletionPolicy right) => left.Equals(right);
+        public static bool operator !=(GeneratedTemplateTemplateConfigurationDeletionPolicy left, GeneratedTemplateTemplateConfigurationDeletionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(GeneratedTemplateTemplateConfigurationDeletionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GeneratedTemplateTemplateConfigurationDeletionPolicy other && Equals(other);
+        public bool Equals(GeneratedTemplateTemplateConfigurationDeletionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The UpdateReplacePolicy assigned to resources in the generated template.
+    /// </summary>
+    [EnumType]
+    public readonly struct GeneratedTemplateTemplateConfigurationUpdateReplacePolicy : IEquatable<GeneratedTemplateTemplateConfigurationUpdateReplacePolicy>
+    {
+        private readonly string _value;
+
+        private GeneratedTemplateTemplateConfigurationUpdateReplacePolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GeneratedTemplateTemplateConfigurationUpdateReplacePolicy Delete { get; } = new GeneratedTemplateTemplateConfigurationUpdateReplacePolicy("DELETE");
+        public static GeneratedTemplateTemplateConfigurationUpdateReplacePolicy Retain { get; } = new GeneratedTemplateTemplateConfigurationUpdateReplacePolicy("RETAIN");
+
+        public static bool operator ==(GeneratedTemplateTemplateConfigurationUpdateReplacePolicy left, GeneratedTemplateTemplateConfigurationUpdateReplacePolicy right) => left.Equals(right);
+        public static bool operator !=(GeneratedTemplateTemplateConfigurationUpdateReplacePolicy left, GeneratedTemplateTemplateConfigurationUpdateReplacePolicy right) => !left.Equals(right);
+
+        public static explicit operator string(GeneratedTemplateTemplateConfigurationUpdateReplacePolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GeneratedTemplateTemplateConfigurationUpdateReplacePolicy other && Equals(other);
+        public bool Equals(GeneratedTemplateTemplateConfigurationUpdateReplacePolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Target actions are the type of operation hooks will be executed at.
     /// </summary>
     [EnumType]

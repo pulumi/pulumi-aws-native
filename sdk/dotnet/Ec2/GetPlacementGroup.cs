@@ -64,13 +64,21 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetPlacementGroupResult
     {
         /// <summary>
+        /// The ID of the placement group.
+        /// </summary>
+        public readonly string? GroupId;
+        /// <summary>
         /// The Group Name of Placement Group.
         /// </summary>
         public readonly string? GroupName;
 
         [OutputConstructor]
-        private GetPlacementGroupResult(string? groupName)
+        private GetPlacementGroupResult(
+            string? groupId,
+
+            string? groupName)
         {
+            GroupId = groupId;
             GroupName = groupName;
         }
     }

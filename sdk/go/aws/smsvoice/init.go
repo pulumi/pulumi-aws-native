@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pool{}
 	case "aws-native:smsvoice:ProtectConfiguration":
 		r = &ProtectConfiguration{}
+	case "aws-native:smsvoice:Registration":
+		r = &Registration{}
 	case "aws-native:smsvoice:ResourcePolicy":
 		r = &ResourcePolicy{}
 	case "aws-native:smsvoice:SenderId":

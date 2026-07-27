@@ -1,0 +1,126 @@
+{
+  "typeName" : "AWS::ElastiCache::ReservedCacheNode",
+  "description" : "Represents an Amazon ElastiCache Reserved Cache Node. Reserved Cache Nodes provide a discounted hourly rate compared to on-demand cache node pricing.",
+  "properties" : {
+    "ReservationARN" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the reserved cache node."
+    },
+    "ReservedCacheNodeId" : {
+      "type" : "string",
+      "description" : "The unique identifier for the reservation."
+    },
+    "ReservedCacheNodesOfferingId" : {
+      "type" : "string",
+      "description" : "The offering identifier."
+    },
+    "CacheNodeType" : {
+      "type" : "string",
+      "description" : "The cache node type for the reserved cache nodes."
+    },
+    "StartTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "The time the reservation started."
+    },
+    "Duration" : {
+      "type" : "integer",
+      "description" : "The duration of the reservation in seconds."
+    },
+    "FixedPrice" : {
+      "type" : "number",
+      "description" : "The fixed price charged for this reserved cache node."
+    },
+    "UsagePrice" : {
+      "type" : "number",
+      "description" : "The hourly price charged for this reserved cache node."
+    },
+    "CacheNodeCount" : {
+      "type" : "integer",
+      "description" : "The number of cache nodes that have been reserved."
+    },
+    "ProductDescription" : {
+      "type" : "string",
+      "description" : "The description of the reserved cache node."
+    },
+    "OfferingType" : {
+      "type" : "string",
+      "description" : "The offering type of this reserved cache node."
+    },
+    "State" : {
+      "type" : "string",
+      "description" : "The state of the reserved cache node."
+    },
+    "RecurringCharges" : {
+      "type" : "array",
+      "description" : "The recurring price charged to run this reserved cache node.",
+      "items" : {
+        "$ref" : "#/definitions/RecurringCharge"
+      },
+      "insertionOrder" : false
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "A list of tags.",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "insertionOrder" : false
+    }
+  },
+  "definitions" : {
+    "RecurringCharge" : {
+      "type" : "object",
+      "properties" : {
+        "RecurringChargeAmount" : {
+          "type" : "number",
+          "description" : "The monetary amount of the recurring charge."
+        },
+        "RecurringChargeFrequency" : {
+          "type" : "string",
+          "description" : "The frequency of the recurring charge."
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key of the tag.",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value of the tag.",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/ReservationARN", "/properties/ReservedCacheNodeId", "/properties/ReservedCacheNodesOfferingId", "/properties/CacheNodeType", "/properties/StartTime", "/properties/Duration", "/properties/FixedPrice", "/properties/UsagePrice", "/properties/CacheNodeCount", "/properties/ProductDescription", "/properties/OfferingType", "/properties/State", "/properties/RecurringCharges", "/properties/Tags" ],
+  "primaryIdentifier" : [ "/properties/ReservationARN" ],
+  "additionalIdentifiers" : [ [ "/properties/ReservedCacheNodeId" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "elasticache:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "elasticache:DescribeReservedCacheNodes", "elasticache:ListTagsForResource" ]
+    },
+    "list" : {
+      "permissions" : [ "elasticache:DescribeReservedCacheNodes" ]
+    }
+  }
+}

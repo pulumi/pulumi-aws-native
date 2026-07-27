@@ -18,33 +18,25 @@ type Service struct {
 
 	// The Amazon Resource Name (ARN) of the service.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the service.
+	// The unique identifier for the service.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// The description of the service.
+	// A description for the service.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-	//
-	// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
+	// DNS-related configurations for the service.
 	DnsConfig ServiceDnsConfigPtrOutput `pulumi:"dnsConfig"`
-	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
-	//
-	// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
+	// Settings for health checks. Used when routing is DNS-based.
 	HealthCheckConfig ServiceHealthCheckConfigPtrOutput `pulumi:"healthCheckConfig"`
-	// A complex type that contains information about an optional custom health check.
-	//
-	// > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
+	// Settings for custom health checks.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrOutput `pulumi:"healthCheckCustomConfig"`
 	// The name of the service.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
+	// The ID of the namespace in which the service is created.
 	NamespaceId pulumi.StringPtrOutput `pulumi:"namespaceId"`
-	// A complex type that contains information about attributes associated with a specific service.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
-	ServiceAttributes pulumi.AnyOutput `pulumi:"serviceAttributes"`
-	// The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+	ServiceAttributes pulumi.StringMapOutput `pulumi:"serviceAttributes"`
+	// An array of key-value pairs to associate with the service.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
+	// The type of service. Supported values are HTTP or DNS.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -95,61 +87,45 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// The description of the service.
+	// A description for the service.
 	Description *string `pulumi:"description"`
-	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-	//
-	// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
+	// DNS-related configurations for the service.
 	DnsConfig *ServiceDnsConfig `pulumi:"dnsConfig"`
-	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
-	//
-	// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
+	// Settings for health checks. Used when routing is DNS-based.
 	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
-	// A complex type that contains information about an optional custom health check.
-	//
-	// > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
+	// Settings for custom health checks.
 	HealthCheckCustomConfig *ServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfig"`
 	// The name of the service.
 	Name *string `pulumi:"name"`
-	// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
+	// The ID of the namespace in which the service is created.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// A complex type that contains information about attributes associated with a specific service.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
-	ServiceAttributes interface{} `pulumi:"serviceAttributes"`
-	// The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+	ServiceAttributes map[string]string `pulumi:"serviceAttributes"`
+	// An array of key-value pairs to associate with the service.
 	Tags []aws.Tag `pulumi:"tags"`
-	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
+	// The type of service. Supported values are HTTP or DNS.
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// The description of the service.
+	// A description for the service.
 	Description pulumi.StringPtrInput
-	// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-	//
-	// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
+	// DNS-related configurations for the service.
 	DnsConfig ServiceDnsConfigPtrInput
-	// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
-	//
-	// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
+	// Settings for health checks. Used when routing is DNS-based.
 	HealthCheckConfig ServiceHealthCheckConfigPtrInput
-	// A complex type that contains information about an optional custom health check.
-	//
-	// > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
+	// Settings for custom health checks.
 	HealthCheckCustomConfig ServiceHealthCheckCustomConfigPtrInput
 	// The name of the service.
 	Name pulumi.StringPtrInput
-	// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
+	// The ID of the namespace in which the service is created.
 	NamespaceId pulumi.StringPtrInput
-	// A complex type that contains information about attributes associated with a specific service.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
-	ServiceAttributes pulumi.Input
-	// The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+	// A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+	ServiceAttributes pulumi.StringMapInput
+	// An array of key-value pairs to associate with the service.
 	Tags aws.TagArrayInput
-	// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
+	// The type of service. Supported values are HTTP or DNS.
 	Type pulumi.StringPtrInput
 }
 
@@ -195,33 +171,27 @@ func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the service.
+// The unique identifier for the service.
 func (o ServiceOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The description of the service.
+// A description for the service.
 func (o ServiceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-//
-// > The record types of a service can only be changed by deleting the service and recreating it with a new `Dnsconfig` .
+// DNS-related configurations for the service.
 func (o ServiceOutput) DnsConfig() ServiceDnsConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsConfigPtrOutput { return v.DnsConfig }).(ServiceDnsConfigPtrOutput)
 }
 
-// *Public DNS and HTTP namespaces only.* A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in `DnsConfig` .
-//
-// For information about the charges for health checks, see [Amazon Route 53 Pricing](https://docs.aws.amazon.com/route53/pricing/) .
+// Settings for health checks. Used when routing is DNS-based.
 func (o ServiceOutput) HealthCheckConfig() ServiceHealthCheckConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceHealthCheckConfigPtrOutput { return v.HealthCheckConfig }).(ServiceHealthCheckConfigPtrOutput)
 }
 
-// A complex type that contains information about an optional custom health check.
-//
-// > If you specify a health check configuration, you can specify either `HealthCheckCustomConfig` or `HealthCheckConfig` but not both.
+// Settings for custom health checks.
 func (o ServiceOutput) HealthCheckCustomConfig() ServiceHealthCheckCustomConfigPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceHealthCheckCustomConfigPtrOutput { return v.HealthCheckCustomConfig }).(ServiceHealthCheckCustomConfigPtrOutput)
 }
@@ -231,24 +201,22 @@ func (o ServiceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the namespace that you want to use to create the service. For namespaces shared with your AWS account, specify the namespace ARN. For more information about shared namespaces, see [Cross-account AWS Cloud Map namespace sharing](https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html) in the *AWS Cloud Map Developer Guide* .
+// The ID of the namespace in which the service is created.
 func (o ServiceOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
-// A complex type that contains information about attributes associated with a specific service.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Service` for more information about the expected schema for this property.
-func (o ServiceOutput) ServiceAttributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Service) pulumi.AnyOutput { return v.ServiceAttributes }).(pulumi.AnyOutput)
+// A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
+func (o ServiceOutput) ServiceAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.ServiceAttributes }).(pulumi.StringMapOutput)
 }
 
-// The tags for the service. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+// An array of key-value pairs to associate with the service.
 func (o ServiceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP` .
+// The type of service. Supported values are HTTP or DNS.
 func (o ServiceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

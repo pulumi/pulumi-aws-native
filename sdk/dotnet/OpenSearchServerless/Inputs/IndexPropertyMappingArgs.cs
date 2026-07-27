@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
         public Input<Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingCompressionLevel>? CompressionLevel { get; set; }
 
         /// <summary>
+        /// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+        /// </summary>
+        [Input("dataType")]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingDataType>? DataType { get; set; }
+
+        /// <summary>
         /// Dimension size for vector fields, defines the number of dimensions in the vector
         /// </summary>
         [Input("dimension")]

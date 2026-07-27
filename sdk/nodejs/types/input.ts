@@ -9958,6 +9958,38 @@ export namespace backup {
     }
 
     /**
+     * The criteria to assign a set of resources, such as resource types or backup vaults.
+     */
+    export interface RecoveryPointSelectionPropertiesArgs {
+        /**
+         * A date range for filtering recovery points.
+         */
+        dateRange?: pulumi.Input<inputs.backup.RecoveryPointSelectionPropertiesDateRangePropertiesArgs | undefined>;
+        /**
+         * The resources included in the resource selection.
+         */
+        resourceIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The names of the vaults in which the selected recovery points are contained.
+         */
+        vaultNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * A date range for filtering recovery points.
+     */
+    export interface RecoveryPointSelectionPropertiesDateRangePropertiesArgs {
+        /**
+         * The beginning date, inclusive. ISO 8601 date-time.
+         */
+        fromDate: pulumi.Input<string>;
+        /**
+         * The end date, inclusive. ISO 8601 date-time.
+         */
+        toDate: pulumi.Input<string>;
+    }
+
+    /**
      * A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
      */
     export interface ReportDeliveryChannelPropertiesArgs {
@@ -18459,6 +18491,35 @@ export namespace certificatemanager {
         value: pulumi.Input<number>;
     }
 
+    export interface CertificateDomainValidationOptionArgs {
+        /**
+         * A fully qualified domain name (FQDN) in the certificate request.
+         */
+        domainName?: pulumi.Input<string | undefined>;
+        /**
+         * The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record. Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
+         *
+         * Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
+         *
+         * This option is required for publicly trusted certificates.
+         *
+         * > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
+         *
+         * When you change your `DomainValidationOptions` , a new resource is created.
+         */
+        hostedZoneId?: pulumi.Input<string | undefined>;
+        /**
+         * The domain name to which you want ACM to send validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
+         *
+         * - admin@example.com
+         * - administrator@example.com
+         * - hostmaster@example.com
+         * - postmaster@example.com
+         * - webmaster@example.com
+         */
+        validationDomain?: pulumi.Input<string | undefined>;
+    }
+
 }
 
 export namespace chatbot {
@@ -19295,6 +19356,20 @@ export namespace cleanroomsml {
 
 export namespace cloudformation {
     /**
+     * The configuration details of the generated template.
+     */
+    export interface GeneratedTemplateTemplateConfigurationArgs {
+        /**
+         * The DeletionPolicy assigned to resources in the generated template.
+         */
+        deletionPolicy?: pulumi.Input<enums.cloudformation.GeneratedTemplateTemplateConfigurationDeletionPolicy | undefined>;
+        /**
+         * The UpdateReplacePolicy assigned to resources in the generated template.
+         */
+        updateReplacePolicy?: pulumi.Input<enums.cloudformation.GeneratedTemplateTemplateConfigurationUpdateReplacePolicy | undefined>;
+    }
+
+    /**
      * S3 Source Location for the Guard files.
      */
     export interface GuardHookS3LocationArgs {
@@ -19326,6 +19401,20 @@ export namespace cloudformation {
         action: pulumi.Input<enums.cloudformation.LambdaHookAction>;
         invocationPoint: pulumi.Input<enums.cloudformation.LambdaHookInvocationPoint>;
         targetName: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains logging configuration information for an extension.
+     */
+    export interface LambdaHookLoggingConfigArgs {
+        /**
+         * The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+         */
+        logGroupName: pulumi.Input<string>;
+        /**
+         * The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+         */
+        logRoleArn: pulumi.Input<string>;
     }
 
     /**
@@ -26098,11 +26187,11 @@ export namespace connect {
         /**
          * The permissions that the agent is granted on the application
          */
-        applicationPermissions: pulumi.Input<pulumi.Input<string>[]>;
+        applicationPermissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Namespace of the application that you want to give access to.
          */
-        namespace: pulumi.Input<string>;
+        namespace?: pulumi.Input<string | undefined>;
         /**
          * The type of the application.
          */
@@ -26126,11 +26215,11 @@ export namespace connect {
         /**
          * The identifier of the application that you want to give access to.
          */
-        flowModuleId: pulumi.Input<string>;
+        flowModuleId?: pulumi.Input<string | undefined>;
         /**
          * The type of the first-party application
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -26140,7 +26229,7 @@ export namespace connect {
         /**
          * An array of PrimaryAttributeValue objects.
          */
-        primaryAttributeValues: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfilePrimaryAttributeValueArgs>[]>;
+        primaryAttributeValues?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfilePrimaryAttributeValueArgs>[] | undefined>;
     }
 
     /**
@@ -26150,15 +26239,15 @@ export namespace connect {
         /**
          * Specifies the type of access granted. Currently, only "ALLOW" is supported
          */
-        accessType: pulumi.Input<enums.connect.SecurityProfilePrimaryAttributeValueAccessType>;
+        accessType?: pulumi.Input<enums.connect.SecurityProfilePrimaryAttributeValueAccessType | undefined>;
         /**
          * The name of the primary attribute.
          */
-        attributeName: pulumi.Input<string>;
+        attributeName?: pulumi.Input<string | undefined>;
         /**
          * An array of allowed primary values for the specified primary attribute.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     /**
@@ -31053,7 +31142,7 @@ export namespace devopsagent {
     }
 
     /**
-     * Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+     * Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
      */
     export interface ServiceDetailsArgs {
     }
@@ -31848,7 +31937,7 @@ export namespace dynamodb {
          *
          * You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
          */
-        resourcePolicy: pulumi.Input<inputs.dynamodb.GlobalTableResourcePolicyArgs>;
+        resourcePolicy?: pulumi.Input<inputs.dynamodb.GlobalTableResourcePolicyArgs | undefined>;
     }
 
     export interface GlobalTableResourcePolicyArgs {
@@ -38715,11 +38804,17 @@ export namespace ecs {
          * Determines whether to use the deployment circuit breaker logic for the service.
          */
         enable: pulumi.Input<boolean>;
+        /**
+         * Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to ``true``, a task that reaches a healthy state resets the failure count to ``0``. When set to ``false``, Amazon ECS does not reset the failure count. The default is ``true``.
+         */
         resetOnHealthyTask?: pulumi.Input<boolean | undefined>;
         /**
          * Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
          */
         rollback: pulumi.Input<boolean>;
+        /**
+         * The threshold configuration that controls when the deployment circuit breaker triggers. The ``type`` and ``value`` together determine how many task failures are tolerated before the circuit breaker activates.
+         */
         thresholdConfiguration?: pulumi.Input<inputs.ecs.ServiceThresholdConfigurationArgs | undefined>;
     }
 
@@ -39248,8 +39343,18 @@ export namespace ecs {
         value?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment. The ``type`` and ``value`` together determine the number of task failures that are tolerated before the circuit breaker triggers.
+     *  By default, the threshold configuration uses a ``type`` of ``BOUNDED_PERCENT`` with a ``value`` of ``50``.
+     */
     export interface ServiceThresholdConfigurationArgs {
+        /**
+         * Determines how Amazon ECS uses ``value`` to calculate the failure threshold. For the percentage types (``BOUNDED_PERCENT`` and ``UNBOUNDED_PERCENT``), Amazon ECS multiplies ``value`` by the latest service desired count. For ``COUNT``, Amazon ECS uses ``value`` directly as the threshold. The default is ``BOUNDED_PERCENT``.
+         */
         type: pulumi.Input<enums.ecs.ServiceThresholdConfigurationType>;
+        /**
+         * Specifies the integer that Amazon ECS uses to calculate the failure threshold. When ``type`` is ``COUNT``, this value is the failure threshold itself. When ``type`` is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is ``50``.
+         */
         value: pulumi.Input<number>;
     }
 
@@ -47508,6 +47613,19 @@ export namespace glue {
         sessionConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<inputs.glue.UsageProfileConfigurationObjectArgs>} | undefined>;
     }
 
+    /**
+     * The URIs for function resources.
+     */
+    export interface UserDefinedFunctionResourceUriArgs {
+        /**
+         * The type of the resource.
+         */
+        resourceType?: pulumi.Input<enums.glue.UserDefinedFunctionResourceUriResourceType | undefined>;
+        /**
+         * The URI for accessing the resource.
+         */
+        uri?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace grafana {
@@ -48762,6 +48880,49 @@ export namespace guardduty {
 }
 
 export namespace healthlake {
+    /**
+     * Create the profile by cloning a specific version of an existing profile.
+     */
+    export interface DataTransformationProfileExistingVersionedProfileSourceArgs {
+        /**
+         * The unique identifier of the source profile to clone.
+         */
+        profileId: pulumi.Input<string>;
+        /**
+         * The version number of the source profile to clone.
+         */
+        version: pulumi.Input<number>;
+    }
+
+    /**
+     * Create the profile from raw Velocity template mapping content.
+     */
+    export interface DataTransformationProfileProfileMappingSourceArgs {
+        /**
+         * Map of template file paths to their Velocity template content.
+         */
+        profileMapping: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
+     * The source from which to create the profile's initial template content. Exactly one of the members must be specified. Use StarterProfile (C-CDA only), ProfileMapping (C-CDA or CSV), or ExistingVersionedProfileId to clone an existing profile. Each produces a published profile.
+     */
+    export interface DataTransformationProfileSourceArgs {
+        existingVersionedProfileId?: pulumi.Input<inputs.healthlake.DataTransformationProfileExistingVersionedProfileSourceArgs | undefined>;
+        profileMapping?: pulumi.Input<inputs.healthlake.DataTransformationProfileProfileMappingSourceArgs | undefined>;
+        starterProfile?: pulumi.Input<inputs.healthlake.DataTransformationProfileStarterProfileSourceArgs | undefined>;
+    }
+
+    /**
+     * Create the profile from a predefined starter profile of transformation templates.
+     */
+    export interface DataTransformationProfileStarterProfileSourceArgs {
+        /**
+         * The name of the starter profile to seed the profile from.
+         */
+        starterProfileName: pulumi.Input<string>;
+    }
+
     /**
      * The identity provider configuration for the datastore
      */
@@ -67618,6 +67779,37 @@ export namespace networkfirewall {
 
 }
 
+export namespace networkflowmonitor {
+    /**
+     * A local resource is the host where the agent is installed.
+     */
+    export interface MonitorLocalResourceArgs {
+        /**
+         * The identifier of the local resource.
+         */
+        identifier: pulumi.Input<string>;
+        /**
+         * The type of the local resource.
+         */
+        type: pulumi.Input<enums.networkflowmonitor.MonitorLocalResourceType>;
+    }
+
+    /**
+     * A remote resource is the other endpoint in a network flow.
+     */
+    export interface MonitorRemoteResourceArgs {
+        /**
+         * The identifier of the remote resource.
+         */
+        identifier: pulumi.Input<string>;
+        /**
+         * The type of the remote resource.
+         */
+        type: pulumi.Input<enums.networkflowmonitor.MonitorRemoteResourceType>;
+    }
+
+}
+
 export namespace networkmanager {
     /**
      * Connect attachment options for protocol
@@ -69317,6 +69509,10 @@ export namespace opensearchserverless {
          */
         compressionLevel?: pulumi.Input<enums.opensearchserverless.IndexPropertyMappingCompressionLevel | undefined>;
         /**
+         * The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+         */
+        dataType?: pulumi.Input<enums.opensearchserverless.IndexPropertyMappingDataType | undefined>;
+        /**
          * Dimension size for vector fields, defines the number of dimensions in the vector
          */
         dimension?: pulumi.Input<number | undefined>;
@@ -70533,6 +70729,72 @@ export namespace pcs {
          * The EC2 instance type that AWS PCS can provision in the compute node group.
          */
         instanceType?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Custom scripts that run at defined points in a compute node's lifecycle.
+     */
+    export interface ComputeNodeGroupNodeLifecycleActionsArgs {
+        /**
+         * Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+         */
+        scriptCachingPolicy?: pulumi.Input<enums.pcs.ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy | undefined>;
+        stages: pulumi.Input<inputs.pcs.ComputeNodeGroupNodeLifecycleStagesArgs>;
+    }
+
+    /**
+     * A single lifecycle script with its source, arguments, and error behavior.
+     */
+    export interface ComputeNodeGroupNodeLifecycleScriptArgs {
+        /**
+         * An ordered list of arguments passed to the script.
+         */
+        arguments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+         */
+        executionPolicy?: pulumi.Input<enums.pcs.ComputeNodeGroupNodeLifecycleScriptExecutionPolicy | undefined>;
+        /**
+         * A human-readable name that identifies the script.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The behavior when the script exits with an error. Defaults to TERMINATE.
+         */
+        onError?: pulumi.Input<enums.pcs.ComputeNodeGroupNodeLifecycleScriptOnError | undefined>;
+        scriptSource: pulumi.Input<inputs.pcs.ComputeNodeGroupScriptSourceArgs>;
+    }
+
+    /**
+     * The ordered scripts to run at each compute node lifecycle stage.
+     */
+    export interface ComputeNodeGroupNodeLifecycleStagesArgs {
+        /**
+         * Scripts to run after the node is bootstrapped, once the PCS configuration phase completes and before slurmd starts.
+         */
+        nodeBootstrapped?: pulumi.Input<pulumi.Input<inputs.pcs.ComputeNodeGroupNodeLifecycleScriptArgs>[] | undefined>;
+        /**
+         * Scripts to execute when the node becomes ready (every boot).
+         */
+        nodeReady?: pulumi.Input<pulumi.Input<inputs.pcs.ComputeNodeGroupNodeLifecycleScriptArgs>[] | undefined>;
+    }
+
+    /**
+     * The external location of a lifecycle script.
+     */
+    export interface ComputeNodeGroupScriptSourceArgs {
+        /**
+         * A 64-character hexadecimal SHA-256 digest used to verify script integrity.
+         */
+        checksum?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 object version ID of the script, when stored in a versioned bucket.
+         */
+        s3VersionId?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 URI or HTTPS URL where the script is stored.
+         */
+        scriptLocation: pulumi.Input<string>;
     }
 
     /**
@@ -72681,6 +72943,58 @@ export namespace quicksight {
          *          </ul>
          */
         principal: pulumi.Input<string>;
+    }
+
+    /**
+     * Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+     */
+    export interface AgentCustomPromptInputArgs {
+        existingPrompt?: pulumi.Input<inputs.quicksight.AgentCustomPromptProfileArgs | undefined>;
+        newPrompt?: pulumi.Input<inputs.quicksight.AgentCustomPromptInputParametersArgs | undefined>;
+    }
+
+    /**
+     * Parameters for creating a new custom prompt configuration.
+     */
+    export interface AgentCustomPromptInputParametersArgs {
+        /**
+         * Custom instructions for the agent behavior.
+         */
+        customInstructions?: pulumi.Input<string | undefined>;
+        /**
+         * The identity or persona of the agent.
+         */
+        identity?: pulumi.Input<string | undefined>;
+        /**
+         * The output style for the agent responses.
+         */
+        outputStyle?: pulumi.Input<string | undefined>;
+        /**
+         * The desired response length for the agent.
+         */
+        responseLength?: pulumi.Input<string | undefined>;
+        /**
+         * The tone used in agent responses.
+         */
+        tone?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Reference to an existing custom prompt profile.
+     */
+    export interface AgentCustomPromptProfileArgs {
+        /**
+         * The identifier of the model profile.
+         */
+        modelProfileId: pulumi.Input<string>;
+        /**
+         * The QBS AWS account identifier.
+         */
+        qbsAwsAccountId: pulumi.Input<string>;
+        /**
+         * The subscription identifier.
+         */
+        subscriptionId: pulumi.Input<string>;
     }
 
     export interface AnalysisAggregationFunctionArgs {
@@ -94147,6 +94461,66 @@ export namespace quicksight {
         principal: pulumi.Input<string>;
     }
 
+    export interface KnowledgeBaseAccessControlConfigurationArgs {
+        isAclEnabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface KnowledgeBaseAudioExtractionConfigurationArgs {
+        audioExtractionStatus: pulumi.Input<enums.quicksight.KnowledgeBaseAudioExtractionStatus>;
+    }
+
+    export interface KnowledgeBaseConfigurationArgs {
+        templateConfiguration?: pulumi.Input<inputs.quicksight.KnowledgeBaseKbTemplateConfigurationArgs | undefined>;
+    }
+
+    export interface KnowledgeBaseImageExtractionConfigurationArgs {
+        imageExtractionStatus: pulumi.Input<enums.quicksight.KnowledgeBaseImageExtractionStatus>;
+    }
+
+    export interface KnowledgeBaseKbTemplateConfigurationArgs {
+        template?: any | undefined;
+    }
+
+    export interface KnowledgeBaseMediaExtractionConfigurationArgs {
+        audioExtractionConfiguration?: pulumi.Input<inputs.quicksight.KnowledgeBaseAudioExtractionConfigurationArgs | undefined>;
+        imageExtractionConfiguration?: pulumi.Input<inputs.quicksight.KnowledgeBaseImageExtractionConfigurationArgs | undefined>;
+        videoExtractionConfiguration?: pulumi.Input<inputs.quicksight.KnowledgeBaseVideoExtractionConfigurationArgs | undefined>;
+    }
+
+    /**
+     * <p>Permission for the resource.</p>
+     */
+    export interface KnowledgeBaseResourcePermissionArgs {
+        /**
+         * <p>The IAM action to grant or revoke permissions on.</p>
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+         *             following:</p>
+         *          <ul>
+         *             <li>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *             </li>
+         *             <li>
+         *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+         *                     ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+         *                     (This is less common.) </p>
+         *             </li>
+         *          </ul>
+         */
+        principal: pulumi.Input<string>;
+        resource?: pulumi.Input<string | undefined>;
+    }
+
+    export interface KnowledgeBaseVideoExtractionConfigurationArgs {
+        videoExtractionStatus: pulumi.Input<enums.quicksight.KnowledgeBaseVideoExtractionStatus>;
+        videoExtractionType?: pulumi.Input<enums.quicksight.KnowledgeBaseVideoExtractionType | undefined>;
+    }
+
     export interface OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs {
         vpcConnectionArn: pulumi.Input<string>;
     }
@@ -108858,6 +109232,18 @@ export namespace sagemaker {
     }
 
     /**
+     * The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+     */
+    export interface ClusterAutoPatchConfigArgs {
+        deploymentConfig?: pulumi.Input<inputs.sagemaker.ClusterDeploymentConfigArgs | undefined>;
+        patchSchedule?: pulumi.Input<inputs.sagemaker.ClusterPatchScheduleArgs | undefined>;
+        /**
+         * The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+         */
+        patchingStrategy: pulumi.Input<enums.sagemaker.ClusterAutoPatchConfigPatchingStrategy>;
+    }
+
+    /**
      * Configuration for cluster auto-scaling
      */
     export interface ClusterAutoScalingConfigArgs {
@@ -108930,6 +109316,7 @@ export namespace sagemaker {
      * Details of an instance group in a SageMaker HyperPod cluster.
      */
     export interface ClusterInstanceGroupArgs {
+        autoPatchConfig?: pulumi.Input<inputs.sagemaker.ClusterAutoPatchConfigArgs | undefined>;
         capacityRequirements?: pulumi.Input<inputs.sagemaker.ClusterCapacityRequirementsArgs | undefined>;
         /**
          * The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
@@ -109046,6 +109433,16 @@ export namespace sagemaker {
      * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
      */
     export interface ClusterOrchestratorArgs {
+    }
+
+    /**
+     * The schedule configuration for automatic patching.
+     */
+    export interface ClusterPatchScheduleArgs {
+        /**
+         * The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+         */
+        nextPatchDate?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -116971,134 +117368,62 @@ export namespace servicecatalog {
 }
 
 export namespace servicediscovery {
+    /**
+     * DNS configuration settings for the service.
+     */
     export interface ServiceDnsConfigArgs {
         /**
-         * An array that contains one `DnsRecord` object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
-         *
-         * > The record type of a service can't be updated directly and can only be changed by deleting the service and recreating it with a new `DnsConfig` .
+         * A list of DNS records associated with the service.
          */
         dnsRecords: pulumi.Input<pulumi.Input<inputs.servicediscovery.ServiceDnsRecordArgs>[]>;
         /**
-         * *Use NamespaceId in [Service](https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html) instead.*
-         *
-         * The ID of the namespace to use for DNS configuration.
+         * The ID of the namespace for the DNS configuration.
          */
         namespaceId?: pulumi.Input<string | undefined>;
         /**
-         * The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
-         *
-         * > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
-         *
-         * You can specify the following values:
-         *
-         * - **MULTIVALUE** - If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances.
-         *
-         * For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances.
-         *
-         * If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances.
-         *
-         * For more information about the multivalue routing policy, see [Multivalue Answer Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue) in the *Route 53 Developer Guide* .
-         * - **WEIGHTED** - Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances.
-         *
-         * For example, suppose that the service includes configurations for one `A` record and a health check. You use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy.
-         *
-         * If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance.
-         *
-         * For more information about the weighted routing policy, see [Weighted Routing](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted) in the *Route 53 Developer Guide* .
+         * The routing policy to use for DNS queries.
          */
         routingPolicy?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * A DNS record associated with the service.
+     */
     export interface ServiceDnsRecordArgs {
         /**
-         * The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
-         *
-         * > Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.
+         * The time-to-live (TTL) for the DNS record.
          */
         ttl: pulumi.Input<number>;
         /**
-         * The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. You can specify values for `Type` in the following combinations:
-         *
-         * - `A`
-         * - `AAAA`
-         * - `A` and `AAAA`
-         * - `SRV`
-         * - `CNAME`
-         *
-         * If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify `A` or `AAAA` for `Type` .
-         *
-         * You specify other settings, such as the IP address for `A` and `AAAA` records, when you register an instance. For more information, see [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-         *
-         * The following values are supported:
-         *
-         * - **A** - Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44.
-         * - **AAAA** - Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345.
-         * - **CNAME** - Route 53 returns the domain name of the resource, such as www.example.com. Note the following:
-         *
-         * - You specify the domain name that you want to route traffic to when you register an instance. For more information, see [Attributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes) in the topic [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) .
-         * - You must specify `WEIGHTED` for the value of `RoutingPolicy` .
-         * - You can't specify both `CNAME` for `Type` and settings for `HealthCheckConfig` . If you do, the request will fail with an `InvalidInput` error.
-         * - **SRV** - Route 53 returns the value for an `SRV` record. The value for an `SRV` record uses the following values:
-         *
-         * `priority weight port service-hostname`
-         *
-         * Note the following about the values:
-         *
-         * - The values of `priority` and `weight` are both set to `1` and can't be changed.
-         * - The value of `port` comes from the value that you specify for the `AWS_INSTANCE_PORT` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request.
-         * - The value of `service-hostname` is a concatenation of the following values:
-         *
-         * - The value that you specify for `InstanceId` when you register an instance.
-         * - The name of the service.
-         * - The name of the namespace.
-         *
-         * For example, if the value of `InstanceId` is `test` , the name of the service is `backend` , and the name of the namespace is `example.com` , the value of `service-hostname` is:
-         *
-         * `test.backend.example.com`
-         *
-         * If you specify settings for an `SRV` record and if you specify values for `AWS_INSTANCE_IPV4` , `AWS_INSTANCE_IPV6` , or both in the `RegisterInstance` request, AWS Cloud Map automatically creates `A` and/or `AAAA` records that have the same name as the value of `service-hostname` in the `SRV` record. You can ignore these records.
+         * The DNS record type (e.g., A, AAAA, SRV).
          */
         type: pulumi.Input<string>;
     }
 
+    /**
+     * Configuration for health checks for the service.
+     */
     export interface ServiceHealthCheckConfigArgs {
         /**
-         * The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or the other way around. For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+         * The number of consecutive health check failures that must occur before declaring the service unhealthy.
          */
         failureThreshold?: pulumi.Input<number | undefined>;
         /**
-         * The path that you want Route 53 to request when performing health checks. The path can be any value that your endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is `/docs/route53-health-check.html` . Route 53 automatically adds the DNS name for the service. If you don't specify a value for `ResourcePath` , the default value is `/` .
-         *
-         * If you specify `TCP` for `Type` , you must *not* specify a value for `ResourcePath` .
+         * The path to ping on the service for health checks.
          */
         resourcePath?: pulumi.Input<string | undefined>;
         /**
-         * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
-         *
-         * > You can't change the value of `Type` after you create a health check.
-         *
-         * You can create the following types of health checks:
-         *
-         * - *HTTP* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.
-         * - *HTTPS* : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400.
-         *
-         * > If you specify HTTPS for the value of `Type` , the endpoint must support TLS v1.0 or later.
-         * - *TCP* : Route 53 tries to establish a TCP connection.
-         *
-         * If you specify `TCP` for `Type` , don't specify a value for `ResourcePath` .
-         *
-         * For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide* .
+         * The type of health check (e.g., HTTP, HTTPS, TCP).
          */
         type: pulumi.Input<string>;
     }
 
+    /**
+     * Configurations for custom health checks for the service.
+     */
     export interface ServiceHealthCheckCustomConfigArgs {
         /**
-         * > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance.
-         *
-         * The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
-         *
-         * Sending a second or subsequent `UpdateInstanceCustomHealthStatus` request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits `30` seconds after the first request to make the change.
+         * The number of consecutive health check failures required before the service is considered unhealthy.
          */
         failureThreshold?: pulumi.Input<number | undefined>;
     }
@@ -119575,6 +119900,9 @@ export namespace stepfunctions {
     }
 }
 
+export namespace storagegateway {
+}
+
 export namespace synthetics {
     export interface CanaryArtifactConfigArgs {
         /**
@@ -120066,6 +120394,9 @@ export namespace timestream {
         type: pulumi.Input<enums.timestream.TablePartitionKeyType>;
     }
 
+}
+
+export namespace transcribe {
 }
 
 export namespace transfer {
@@ -124491,6 +124822,23 @@ export namespace wafv2 {
     }
 }
 
+export namespace wellarchitected {
+    /**
+     * An update to a profile question.
+     */
+    export interface ProfileQuestionUpdateArgs {
+        /**
+         * The ID of the question.
+         */
+        questionId?: pulumi.Input<string | undefined>;
+        /**
+         * The selected choices.
+         */
+        selectedChoiceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+}
+
 export namespace wisdom {
     export interface AiAgentAiAgentConfiguration0PropertiesArgs {
         manualSearchAiAgentConfiguration: pulumi.Input<inputs.wisdom.AiAgentManualSearchAiAgentConfigurationArgs>;
@@ -125590,6 +125938,20 @@ export namespace wisdom {
 }
 
 export namespace workspaces {
+    /**
+     * Describes a rule for an IP access control group.
+     */
+    export interface WorkspaceIpGroupIpRuleItemArgs {
+        /**
+         * The IP address range, in CIDR notation.
+         */
+        ipRule: pulumi.Input<string>;
+        /**
+         * The description of the rule.
+         */
+        ruleDesc?: pulumi.Input<string | undefined>;
+    }
+
     export interface WorkspacePropertiesArgs {
         /**
          * The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .

@@ -32,6 +32,7 @@ export interface GetDbSubnetGroupArgs {
 }
 
 export interface GetDbSubnetGroupResult {
+    readonly dbSubnetGroupArn?: string;
     /**
      * The description for the DB subnet group.
      */

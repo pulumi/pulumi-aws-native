@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BlueprintStatus',
     'CatalogAllowFullTableExternalDataAccess',
     'CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess',
     'CatalogOverwriteChildResourcePermissionsWithDefault',
@@ -14,7 +15,21 @@ __all__ = [
     'JobWorkerType',
     'SchemaCompatibility',
     'SchemaDataFormat',
+    'UserDefinedFunctionFunctionType',
+    'UserDefinedFunctionOwnerType',
+    'UserDefinedFunctionResourceUriResourceType',
 ]
+
+
+@pulumi.type_token("aws-native:glue:BlueprintStatus")
+class BlueprintStatus(_builtins.str, Enum):
+    """
+    The status of the blueprint registration.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:glue:CatalogAllowFullTableExternalDataAccess")
@@ -100,3 +115,33 @@ class SchemaDataFormat(_builtins.str, Enum):
     AVRO = "AVRO"
     JSON = "JSON"
     PROTOBUF = "PROTOBUF"
+
+
+@pulumi.type_token("aws-native:glue:UserDefinedFunctionFunctionType")
+class UserDefinedFunctionFunctionType(_builtins.str, Enum):
+    """
+    The type of the function.
+    """
+    REGULAR_FUNCTION = "REGULAR_FUNCTION"
+    AGGREGATE_FUNCTION = "AGGREGATE_FUNCTION"
+    STORED_PROCEDURE = "STORED_PROCEDURE"
+
+
+@pulumi.type_token("aws-native:glue:UserDefinedFunctionOwnerType")
+class UserDefinedFunctionOwnerType(_builtins.str, Enum):
+    """
+    The owner type.
+    """
+    USER = "USER"
+    ROLE = "ROLE"
+    GROUP = "GROUP"
+
+
+@pulumi.type_token("aws-native:glue:UserDefinedFunctionResourceUriResourceType")
+class UserDefinedFunctionResourceUriResourceType(_builtins.str, Enum):
+    """
+    The type of the resource.
+    """
+    JAR = "JAR"
+    FILE = "FILE"
+    ARCHIVE = "ARCHIVE"

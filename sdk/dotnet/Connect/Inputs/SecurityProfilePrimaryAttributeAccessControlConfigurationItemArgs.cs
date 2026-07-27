@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs : global::Pulumi.ResourceArgs
     {
-        [Input("primaryAttributeValues", required: true)]
+        [Input("primaryAttributeValues")]
         private InputList<Inputs.SecurityProfilePrimaryAttributeValueArgs>? _primaryAttributeValues;
 
         /// <summary>

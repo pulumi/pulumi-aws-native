@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'WorkspaceIpGroupIpRuleItemArgs',
+    'WorkspaceIpGroupIpRuleItemArgsDict',
     'WorkspacePropertiesArgs',
     'WorkspacePropertiesArgsDict',
     'WorkspacesPoolApplicationSettingsArgs',
@@ -25,6 +27,59 @@ __all__ = [
     'WorkspacesPoolTimeoutSettingsArgs',
     'WorkspacesPoolTimeoutSettingsArgsDict',
 ]
+
+class WorkspaceIpGroupIpRuleItemArgsDict(TypedDict):
+    """
+    Describes a rule for an IP access control group.
+    """
+    ip_rule: pulumi.Input[_builtins.str]
+    """
+    The IP address range, in CIDR notation.
+    """
+    rule_desc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the rule.
+    """
+
+@pulumi.input_type
+class WorkspaceIpGroupIpRuleItemArgs:
+    def __init__(__self__, *,
+                 ip_rule: pulumi.Input[_builtins.str],
+                 rule_desc: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes a rule for an IP access control group.
+
+        :param pulumi.Input[_builtins.str] ip_rule: The IP address range, in CIDR notation.
+        :param pulumi.Input[_builtins.str] rule_desc: The description of the rule.
+        """
+        pulumi.set(__self__, "ip_rule", ip_rule)
+        if rule_desc is not None:
+            pulumi.set(__self__, "rule_desc", rule_desc)
+
+    @_builtins.property
+    @pulumi.getter(name="ipRule")
+    def ip_rule(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IP address range, in CIDR notation.
+        """
+        return pulumi.get(self, "ip_rule")
+
+    @ip_rule.setter
+    def ip_rule(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ip_rule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleDesc")
+    def rule_desc(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the rule.
+        """
+        return pulumi.get(self, "rule_desc")
+
+    @rule_desc.setter
+    def rule_desc(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_desc", value)
+
 
 class WorkspacePropertiesArgsDict(TypedDict):
     compute_type_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]

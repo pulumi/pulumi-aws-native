@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, aiml_options=None, arn=None, automated_snapshot_pause_options=None, cluster_config=None, cognito_options=None, deployment_strategy_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, aiml_options=None, arn=None, automated_snapshot_pause_options=None, cluster_config=None, cognito_options=None, deployment_strategy_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, use_case=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -111,6 +111,9 @@ class GetDomainResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if use_case and not isinstance(use_case, str):
+            raise TypeError("Expected argument 'use_case' to be a str")
+        pulumi.set(__self__, "use_case", use_case)
         if vpc_options and not isinstance(vpc_options, dict):
             raise TypeError("Expected argument 'vpc_options' to be a dict")
         pulumi.set(__self__, "vpc_options", vpc_options)
@@ -333,6 +336,14 @@ class GetDomainResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="useCase")
+    def use_case(self) -> Optional['DomainUseCase']:
+        """
+        The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+        """
+        return pulumi.get(self, "use_case")
+
+    @_builtins.property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional['outputs.DomainVpcOptions']:
         """
@@ -377,6 +388,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             snapshot_options=self.snapshot_options,
             software_update_options=self.software_update_options,
             tags=self.tags,
+            use_case=self.use_case,
             vpc_options=self.vpc_options)
 
 
@@ -425,6 +437,7 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
         software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),
+        use_case=pulumi.get(__ret__, 'use_case'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
 def get_domain_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
@@ -470,4 +483,5 @@ def get_domain_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
         snapshot_options=pulumi.get(__response__, 'snapshot_options'),
         software_update_options=pulumi.get(__response__, 'software_update_options'),
         tags=pulumi.get(__response__, 'tags'),
+        use_case=pulumi.get(__response__, 'use_case'),
         vpc_options=pulumi.get(__response__, 'vpc_options')))

@@ -1,0 +1,92 @@
+{
+  "typeName" : "AWS::Artifact::Report",
+  "description" : "Resource schema for AWS Artifact Report",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the report."
+    },
+    "ReportId" : {
+      "type" : "string",
+      "description" : "Unique resource ID for the report resource.",
+      "pattern" : "^report-[a-zA-Z0-9]{16}$"
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "Name for the report resource."
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "Description for the report resource."
+    },
+    "PeriodStart" : {
+      "type" : "string",
+      "description" : "Timestamp indicating the report resource effective start.",
+      "format" : "date-time"
+    },
+    "PeriodEnd" : {
+      "type" : "string",
+      "description" : "Timestamp indicating the report resource effective end.",
+      "format" : "date-time"
+    },
+    "CreatedAt" : {
+      "type" : "string",
+      "description" : "Timestamp indicating when the report resource was created.",
+      "format" : "date-time"
+    },
+    "State" : {
+      "type" : "string",
+      "description" : "Current state of the report resource.",
+      "enum" : [ "PUBLISHED", "UNPUBLISHED" ]
+    },
+    "Series" : {
+      "type" : "string",
+      "description" : "Series for the report resource."
+    },
+    "Category" : {
+      "type" : "string",
+      "description" : "Category for the report resource."
+    },
+    "CompanyName" : {
+      "type" : "string",
+      "description" : "Associated company name for the report resource."
+    },
+    "ProductName" : {
+      "type" : "string",
+      "description" : "Associated product name for the report resource."
+    },
+    "TermArn" : {
+      "type" : "string",
+      "description" : "Unique resource ARN for term resource."
+    },
+    "Version" : {
+      "type" : "string",
+      "description" : "Version for the report resource.",
+      "pattern" : "^[0-9]+$"
+    },
+    "AcceptanceType" : {
+      "type" : "string",
+      "description" : "Acceptance type for report.",
+      "enum" : [ "PASSTHROUGH", "EXPLICIT" ]
+    },
+    "SequenceNumber" : {
+      "type" : "integer",
+      "description" : "Sequence number to enforce optimistic locking.",
+      "minimum" : 1
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/ReportId", "/properties/Name", "/properties/Description", "/properties/PeriodStart", "/properties/PeriodEnd", "/properties/CreatedAt", "/properties/State", "/properties/Series", "/properties/Category", "/properties/CompanyName", "/properties/ProductName", "/properties/TermArn", "/properties/Version", "/properties/AcceptanceType", "/properties/SequenceNumber" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "artifact:GetReportMetadata" ]
+    },
+    "list" : {
+      "permissions" : [ "artifact:ListReports" ]
+    }
+  }
+}

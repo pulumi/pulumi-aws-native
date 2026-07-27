@@ -7,7 +7,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .data_transformation_profile import *
 from .fhir_datastore import *
+from .get_data_transformation_profile import *
 from .get_fhir_datastore import *
 from ._inputs import *
 from . import outputs

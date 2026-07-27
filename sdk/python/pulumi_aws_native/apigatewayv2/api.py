@@ -444,6 +444,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["api_endpoint"] = None
             __props__.__dict__["api_id"] = None
+            __props__.__dict__["execute_api_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["protocolType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Api, __self__).__init__(
@@ -479,6 +480,7 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["disable_execute_api_endpoint"] = None
         __props__.__dict__["disable_schema_validation"] = None
+        __props__.__dict__["execute_api_arn"] = None
         __props__.__dict__["fail_on_warnings"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["name"] = None
@@ -579,6 +581,11 @@ class Api(pulumi.CustomResource):
         Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "disable_schema_validation")
+
+    @_builtins.property
+    @pulumi.getter(name="executeApiArn")
+    def execute_api_arn(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "execute_api_arn")
 
     @_builtins.property
     @pulumi.getter(name="failOnWarnings")

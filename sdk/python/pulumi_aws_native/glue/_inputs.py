@@ -104,6 +104,8 @@ __all__ = [
     'UsageProfileConfigurationObjectArgsDict',
     'UsageProfileProfileConfigurationArgs',
     'UsageProfileProfileConfigurationArgsDict',
+    'UserDefinedFunctionResourceUriArgs',
+    'UserDefinedFunctionResourceUriArgsDict',
 ]
 
 class CatalogDataLakeAccessPropertiesArgsDict(TypedDict):
@@ -3198,5 +3200,59 @@ class UsageProfileProfileConfigurationArgs:
     @session_configuration.setter
     def session_configuration(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['UsageProfileConfigurationObjectArgs']]]]):
         pulumi.set(self, "session_configuration", value)
+
+
+class UserDefinedFunctionResourceUriArgsDict(TypedDict):
+    """
+    The URIs for function resources.
+    """
+    resource_type: NotRequired[pulumi.Input[Optional['UserDefinedFunctionResourceUriResourceType']]]
+    """
+    The type of the resource.
+    """
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URI for accessing the resource.
+    """
+
+@pulumi.input_type
+class UserDefinedFunctionResourceUriArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[Optional['UserDefinedFunctionResourceUriResourceType']] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The URIs for function resources.
+
+        :param pulumi.Input['UserDefinedFunctionResourceUriResourceType'] resource_type: The type of the resource.
+        :param pulumi.Input[_builtins.str] uri: The URI for accessing the resource.
+        """
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[Optional['UserDefinedFunctionResourceUriResourceType']]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[Optional['UserDefinedFunctionResourceUriResourceType']]):
+        pulumi.set(self, "resource_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URI for accessing the resource.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "uri", value)
 
 

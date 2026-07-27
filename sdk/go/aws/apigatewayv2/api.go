@@ -39,6 +39,7 @@ type Api struct {
 	DisableExecuteApiEndpoint pulumi.BoolPtrOutput `pulumi:"disableExecuteApiEndpoint"`
 	// Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
 	DisableSchemaValidation pulumi.BoolPtrOutput `pulumi:"disableSchemaValidation"`
+	ExecuteApiArn           pulumi.StringOutput  `pulumi:"executeApiArn"`
 	// Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
 	FailOnWarnings pulumi.BoolPtrOutput `pulumi:"failOnWarnings"`
 	// The IP address types that can invoke the API. Use ``ipv4`` to allow only IPv4 addresses to invoke your API, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your API.
@@ -280,6 +281,10 @@ func (o ApiOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 // Avoid validating models when creating a deployment. Supported only for WebSocket APIs.
 func (o ApiOutput) DisableSchemaValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.DisableSchemaValidation }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApiOutput) ExecuteApiArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ExecuteApiArn }).(pulumi.StringOutput)
 }
 
 // Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.

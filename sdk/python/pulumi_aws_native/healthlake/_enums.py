@@ -7,12 +7,31 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'DataTransformationProfileSourceFormat',
+    'DataTransformationProfileTargetFormat',
     'FhirDatastoreDatastoreStatus',
     'FhirDatastoreDatastoreTypeVersion',
     'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy',
     'FhirDatastoreKmsEncryptionConfigCmkType',
     'FhirDatastorePreloadDataConfigPreloadDataType',
 ]
+
+
+@pulumi.type_token("aws-native:healthlake:DataTransformationProfileSourceFormat")
+class DataTransformationProfileSourceFormat(_builtins.str, Enum):
+    """
+    The source format that this profile converts from.
+    """
+    CCDA = "CCDA"
+    CSV = "CSV"
+
+
+@pulumi.type_token("aws-native:healthlake:DataTransformationProfileTargetFormat")
+class DataTransformationProfileTargetFormat(_builtins.str, Enum):
+    """
+    The target format that this profile converts to. Always FHIR_R4.
+    """
+    FHIR_R4 = "FHIR_R4"
 
 
 @pulumi.type_token("aws-native:healthlake:FhirDatastoreDatastoreStatus")

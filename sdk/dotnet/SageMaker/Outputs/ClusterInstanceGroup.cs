@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ClusterInstanceGroup
     {
+        public readonly Outputs.ClusterAutoPatchConfig? AutoPatchConfig;
         public readonly Outputs.ClusterCapacityRequirements? CapacityRequirements;
         /// <summary>
         /// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
@@ -53,6 +54,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ClusterInstanceGroup(
+            Outputs.ClusterAutoPatchConfig? autoPatchConfig,
+
             Outputs.ClusterCapacityRequirements? capacityRequirements,
 
             int? currentCount,
@@ -91,6 +94,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? trainingPlanArn)
         {
+            AutoPatchConfig = autoPatchConfig;
             CapacityRequirements = capacityRequirements;
             CurrentCount = currentCount;
             ExecutionRole = executionRole;

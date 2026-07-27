@@ -23,6 +23,10 @@ export interface GetPlacementGroupArgs {
 
 export interface GetPlacementGroupResult {
     /**
+     * The ID of the placement group.
+     */
+    readonly groupId?: string;
+    /**
      * The Group Name of Placement Group.
      */
     readonly groupName?: string;

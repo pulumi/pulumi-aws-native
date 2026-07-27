@@ -78,6 +78,7 @@ namespace Pulumi.AwsNative.Rds
     [OutputType]
     public sealed class GetDbSubnetGroupResult
     {
+        public readonly string? DbSubnetGroupArn;
         /// <summary>
         /// The description for the DB subnet group.
         /// </summary>
@@ -93,12 +94,15 @@ namespace Pulumi.AwsNative.Rds
 
         [OutputConstructor]
         private GetDbSubnetGroupResult(
+            string? dbSubnetGroupArn,
+
             string? dbSubnetGroupDescription,
 
             ImmutableArray<string> subnetIds,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            DbSubnetGroupArn = dbSubnetGroupArn;
             DbSubnetGroupDescription = dbSubnetGroupDescription;
             SubnetIds = subnetIds;
             Tags = tags;

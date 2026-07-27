@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:DbSubnetGroup")]
     public partial class DbSubnetGroup : global::Pulumi.CustomResource
     {
+        [Output("dbSubnetGroupArn")]
+        public Output<string> DbSubnetGroupArn { get; private set; } = null!;
+
         /// <summary>
         /// The description for the DB subnet group.
         /// </summary>

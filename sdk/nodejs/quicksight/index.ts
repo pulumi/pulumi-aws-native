@@ -10,6 +10,11 @@ export type ActionConnector = import("./actionConnector").ActionConnector;
 export const ActionConnector: typeof import("./actionConnector").ActionConnector = null as any;
 utilities.lazyLoad(exports, ["ActionConnector"], () => require("./actionConnector"));
 
+export { AgentArgs } from "./agent";
+export type Agent = import("./agent").Agent;
+export const Agent: typeof import("./agent").Agent = null as any;
+utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
+
 export { AnalysisArgs } from "./analysis";
 export type Analysis = import("./analysis").Analysis;
 export const Analysis: typeof import("./analysis").Analysis = null as any;
@@ -50,6 +55,11 @@ export const getActionConnector: typeof import("./getActionConnector").getAction
 export const getActionConnectorOutput: typeof import("./getActionConnector").getActionConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getActionConnector","getActionConnectorOutput"], () => require("./getActionConnector"));
 
+export { GetAgentArgs, GetAgentResult, GetAgentOutputArgs } from "./getAgent";
+export const getAgent: typeof import("./getAgent").getAgent = null as any;
+export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
+
 export { GetAnalysisArgs, GetAnalysisResult, GetAnalysisOutputArgs } from "./getAnalysis";
 export const getAnalysis: typeof import("./getAnalysis").getAnalysis = null as any;
 export const getAnalysisOutput: typeof import("./getAnalysis").getAnalysisOutput = null as any;
@@ -85,6 +95,11 @@ export const getFolder: typeof import("./getFolder").getFolder = null as any;
 export const getFolderOutput: typeof import("./getFolder").getFolderOutput = null as any;
 utilities.lazyLoad(exports, ["getFolder","getFolderOutput"], () => require("./getFolder"));
 
+export { GetKnowledgeBaseArgs, GetKnowledgeBaseResult, GetKnowledgeBaseOutputArgs } from "./getKnowledgeBase";
+export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeBase = null as any;
+export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
+utilities.lazyLoad(exports, ["getKnowledgeBase","getKnowledgeBaseOutput"], () => require("./getKnowledgeBase"));
+
 export { GetOAuthClientApplicationArgs, GetOAuthClientApplicationResult, GetOAuthClientApplicationOutputArgs } from "./getOAuthClientApplication";
 export const getOAuthClientApplication: typeof import("./getOAuthClientApplication").getOAuthClientApplication = null as any;
 export const getOAuthClientApplicationOutput: typeof import("./getOAuthClientApplication").getOAuthClientApplicationOutput = null as any;
@@ -109,6 +124,11 @@ export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArg
 export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
 export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcConnection","getVpcConnectionOutput"], () => require("./getVpcConnection"));
+
+export { KnowledgeBaseArgs } from "./knowledgeBase";
+export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
+export const KnowledgeBase: typeof import("./knowledgeBase").KnowledgeBase = null as any;
+utilities.lazyLoad(exports, ["KnowledgeBase"], () => require("./knowledgeBase"));
 
 export { OAuthClientApplicationArgs } from "./oauthClientApplication";
 export type OAuthClientApplication = import("./oauthClientApplication").OAuthClientApplication;
@@ -150,6 +170,8 @@ const _module = {
         switch (type) {
             case "aws-native:quicksight:ActionConnector":
                 return new ActionConnector(name, <any>undefined, { urn })
+            case "aws-native:quicksight:Agent":
+                return new Agent(name, <any>undefined, { urn })
             case "aws-native:quicksight:Analysis":
                 return new Analysis(name, <any>undefined, { urn })
             case "aws-native:quicksight:CustomPermissions":
@@ -164,6 +186,8 @@ const _module = {
                 return new Flow(name, <any>undefined, { urn })
             case "aws-native:quicksight:Folder":
                 return new Folder(name, <any>undefined, { urn })
+            case "aws-native:quicksight:KnowledgeBase":
+                return new KnowledgeBase(name, <any>undefined, { urn })
             case "aws-native:quicksight:OAuthClientApplication":
                 return new OAuthClientApplication(name, <any>undefined, { urn })
             case "aws-native:quicksight:RefreshSchedule":

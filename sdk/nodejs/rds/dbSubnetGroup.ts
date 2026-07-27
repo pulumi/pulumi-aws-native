@@ -38,6 +38,7 @@ export class DbSubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbSubnetGroup.__pulumiType;
     }
 
+    declare public /*out*/ readonly dbSubnetGroupArn: pulumi.Output<string>;
     /**
      * The description for the DB subnet group.
      */
@@ -82,7 +83,9 @@ export class DbSubnetGroup extends pulumi.CustomResource {
             resourceInputs["dbSubnetGroupName"] = args?.dbSubnetGroupName;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["dbSubnetGroupArn"] = undefined /*out*/;
         } else {
+            resourceInputs["dbSubnetGroupArn"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupDescription"] = undefined /*out*/;
             resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;

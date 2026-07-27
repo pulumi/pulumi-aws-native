@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConnectionAlias{}
 	case "aws-native:workspaces:Workspace":
 		r = &Workspace{}
+	case "aws-native:workspaces:WorkspaceIpGroup":
+		r = &WorkspaceIpGroup{}
 	case "aws-native:workspaces:WorkspacesPool":
 		r = &WorkspacesPool{}
 	default:

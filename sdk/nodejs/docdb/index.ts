@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { EventSubscriptionArgs } from "./eventSubscription";
+export type EventSubscription = import("./eventSubscription").EventSubscription;
+export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+
+export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
+export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
+export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
+
 export { GetGlobalClusterArgs, GetGlobalClusterResult, GetGlobalClusterOutputArgs } from "./getGlobalCluster";
 export const getGlobalCluster: typeof import("./getGlobalCluster").getGlobalCluster = null as any;
 export const getGlobalClusterOutput: typeof import("./getGlobalCluster").getGlobalClusterOutput = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:docdb:EventSubscription":
+                return new EventSubscription(name, <any>undefined, { urn })
             case "aws-native:docdb:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
             default:

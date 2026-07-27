@@ -13,12 +13,14 @@ from .get_opt_out_list import *
 from .get_phone_number import *
 from .get_pool import *
 from .get_protect_configuration import *
+from .get_registration import *
 from .get_resource_policy import *
 from .get_sender_id import *
 from .opt_out_list import *
 from .phone_number import *
 from .pool import *
 from .protect_configuration import *
+from .registration import *
 from .resource_policy import *
 from .sender_id import *
 from ._inputs import *

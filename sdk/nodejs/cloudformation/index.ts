@@ -10,6 +10,16 @@ export type CustomResourceEmulator = import("./customResourceEmulator").CustomRe
 export const CustomResourceEmulator: typeof import("./customResourceEmulator").CustomResourceEmulator = null as any;
 utilities.lazyLoad(exports, ["CustomResourceEmulator"], () => require("./customResourceEmulator"));
 
+export { GeneratedTemplateArgs } from "./generatedTemplate";
+export type GeneratedTemplate = import("./generatedTemplate").GeneratedTemplate;
+export const GeneratedTemplate: typeof import("./generatedTemplate").GeneratedTemplate = null as any;
+utilities.lazyLoad(exports, ["GeneratedTemplate"], () => require("./generatedTemplate"));
+
+export { GetGeneratedTemplateArgs, GetGeneratedTemplateResult, GetGeneratedTemplateOutputArgs } from "./getGeneratedTemplate";
+export const getGeneratedTemplate: typeof import("./getGeneratedTemplate").getGeneratedTemplate = null as any;
+export const getGeneratedTemplateOutput: typeof import("./getGeneratedTemplate").getGeneratedTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getGeneratedTemplate","getGeneratedTemplateOutput"], () => require("./getGeneratedTemplate"));
+
 export { GetGuardHookArgs, GetGuardHookResult, GetGuardHookOutputArgs } from "./getGuardHook";
 export const getGuardHook: typeof import("./getGuardHook").getGuardHook = null as any;
 export const getGuardHookOutput: typeof import("./getGuardHook").getGuardHookOutput = null as any;
@@ -155,6 +165,8 @@ const _module = {
         switch (type) {
             case "aws-native:cloudformation:CustomResourceEmulator":
                 return new CustomResourceEmulator(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:GeneratedTemplate":
+                return new GeneratedTemplate(name, <any>undefined, { urn })
             case "aws-native:cloudformation:GuardHook":
                 return new GuardHook(name, <any>undefined, { urn })
             case "aws-native:cloudformation:HookDefaultVersion":

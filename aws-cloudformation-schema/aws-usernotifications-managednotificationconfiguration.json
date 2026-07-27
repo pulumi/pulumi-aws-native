@@ -1,0 +1,49 @@
+{
+  "typeName" : "AWS::UserNotifications::ManagedNotificationConfiguration",
+  "description" : "Resource type definition for AWS User Notifications ManagedNotificationConfiguration. This is a read-only resource representing AWS-managed notification configurations.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The ARN of the ManagedNotificationConfiguration.",
+      "pattern" : "^arn:[-.a-z0-9]{1,63}:notifications::[0-9]{12}:managed-notification-configuration/category/[a-zA-Z0-9\\-]{3,64}/sub-category/[a-zA-Z0-9\\-]{3,64}$"
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the ManagedNotificationConfiguration.",
+      "minLength" : 1,
+      "maxLength" : 64,
+      "pattern" : "^[A-Za-z0-9\\-]+$"
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "The description of the ManagedNotificationConfiguration.",
+      "minLength" : 0,
+      "maxLength" : 256,
+      "pattern" : "^[^\\u0001-\\u001F\\u007F-\\u009F]*$"
+    },
+    "Category" : {
+      "type" : "string",
+      "description" : "The category of the ManagedNotificationConfiguration."
+    },
+    "SubCategory" : {
+      "type" : "string",
+      "description" : "The subCategory of the ManagedNotificationConfiguration."
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/Category", "/properties/SubCategory" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/Description" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/Category", "/properties/SubCategory" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "notifications:GetManagedNotificationConfiguration" ]
+    },
+    "list" : {
+      "permissions" : [ "notifications:ListManagedNotificationConfigurations" ]
+    }
+  }
+}

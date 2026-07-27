@@ -33,7 +33,8 @@ type ComputeNodeGroup struct {
 	// A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
 	InstanceConfigs ComputeNodeGroupInstanceConfigArrayOutput `pulumi:"instanceConfigs"`
 	// The name that identifies the compute node group.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name                 pulumi.StringPtrOutput                        `pulumi:"name"`
+	NodeLifecycleActions ComputeNodeGroupNodeLifecycleActionsPtrOutput `pulumi:"nodeLifecycleActions"`
 	// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 	PurchaseOption ComputeNodeGroupPurchaseOptionPtrOutput `pulumi:"purchaseOption"`
 	// Specifies the boundaries of the compute node group auto scaling.
@@ -125,7 +126,8 @@ type computeNodeGroupArgs struct {
 	// A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
 	InstanceConfigs []ComputeNodeGroupInstanceConfig `pulumi:"instanceConfigs"`
 	// The name that identifies the compute node group.
-	Name *string `pulumi:"name"`
+	Name                 *string                               `pulumi:"name"`
+	NodeLifecycleActions *ComputeNodeGroupNodeLifecycleActions `pulumi:"nodeLifecycleActions"`
 	// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 	PurchaseOption *ComputeNodeGroupPurchaseOption `pulumi:"purchaseOption"`
 	// Specifies the boundaries of the compute node group auto scaling.
@@ -153,7 +155,8 @@ type ComputeNodeGroupArgs struct {
 	// A list of EC2 instance configurations that AWS PCS can provision in the compute node group.
 	InstanceConfigs ComputeNodeGroupInstanceConfigArrayInput
 	// The name that identifies the compute node group.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	NodeLifecycleActions ComputeNodeGroupNodeLifecycleActionsPtrInput
 	// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
 	PurchaseOption ComputeNodeGroupPurchaseOptionPtrInput
 	// Specifies the boundaries of the compute node group auto scaling.
@@ -248,6 +251,10 @@ func (o ComputeNodeGroupOutput) InstanceConfigs() ComputeNodeGroupInstanceConfig
 // The name that identifies the compute node group.
 func (o ComputeNodeGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeNodeGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeNodeGroupOutput) NodeLifecycleActions() ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return o.ApplyT(func(v *ComputeNodeGroup) ComputeNodeGroupNodeLifecycleActionsPtrOutput { return v.NodeLifecycleActions }).(ComputeNodeGroupNodeLifecycleActionsPtrOutput)
 }
 
 // Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.

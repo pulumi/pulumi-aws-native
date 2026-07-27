@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'BackupPlanMalwareScanner',
     'BackupPlanScanMode',
+    'LegalHoldStatus',
     'RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm',
     'RestoreTestingPlanRestoreTestingRecoveryPointType',
 ]
@@ -23,6 +24,17 @@ class BackupPlanMalwareScanner(_builtins.str, Enum):
 class BackupPlanScanMode(_builtins.str, Enum):
     FULL_SCAN = "FULL_SCAN"
     INCREMENTAL_SCAN = "INCREMENTAL_SCAN"
+
+
+@pulumi.type_token("aws-native:backup:LegalHoldStatus")
+class LegalHoldStatus(_builtins.str, Enum):
+    """
+    The status of the legal hold.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    CANCELING = "CANCELING"
+    CANCELED = "CANCELED"
 
 
 @pulumi.type_token("aws-native:backup:RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm")

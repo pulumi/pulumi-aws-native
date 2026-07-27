@@ -945,7 +945,8 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock:CreateDataSource", "bedrock:GetDataSource", "bedrock:GetKnowledgeBase", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:CreateDataSource", "bedrock:GetDataSource", "bedrock:GetKnowledgeBase", "kms:GenerateDataKey", "kms:Decrypt" ],
+      "timeoutInMinutes" : 60
     },
     "read" : {
       "permissions" : [ "bedrock:GetDataSource" ]
@@ -954,7 +955,8 @@
       "permissions" : [ "bedrock:GetDataSource", "bedrock:UpdateDataSource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "bedrock:GetDataSource", "bedrock:DeleteDataSource" ]
+      "permissions" : [ "bedrock:GetDataSource", "bedrock:DeleteDataSource" ],
+      "timeoutInMinutes" : 60
     },
     "list" : {
       "permissions" : [ "bedrock:ListDataSources" ],

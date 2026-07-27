@@ -61,6 +61,7 @@ __all__ = [
     'TriggerPredicate',
     'UsageProfileConfigurationObject',
     'UsageProfileProfileConfiguration',
+    'UserDefinedFunctionResourceUri',
 ]
 
 @pulumi.output_type
@@ -2842,5 +2843,58 @@ class UsageProfileProfileConfiguration(dict):
     @pulumi.getter(name="sessionConfiguration")
     def session_configuration(self) -> Optional[Mapping[str, 'outputs.UsageProfileConfigurationObject']]:
         return pulumi.get(self, "session_configuration")
+
+
+@pulumi.output_type
+class UserDefinedFunctionResourceUri(dict):
+    """
+    The URIs for function resources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserDefinedFunctionResourceUri. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserDefinedFunctionResourceUri.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserDefinedFunctionResourceUri.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: Optional['UserDefinedFunctionResourceUriResourceType'] = None,
+                 uri: Optional[_builtins.str] = None):
+        """
+        The URIs for function resources.
+
+        :param 'UserDefinedFunctionResourceUriResourceType' resource_type: The type of the resource.
+        :param _builtins.str uri: The URI for accessing the resource.
+        """
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional['UserDefinedFunctionResourceUriResourceType']:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> Optional[_builtins.str]:
+        """
+        The URI for accessing the resource.
+        """
+        return pulumi.get(self, "uri")
 
 

@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['OrganizationConformancePackArgs', 'OrganizationConformancePack']
@@ -26,6 +28,7 @@ class OrganizationConformancePackArgs:
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  organization_conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -36,6 +39,7 @@ class OrganizationConformancePackArgs:
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the delivery S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
         :param pulumi.Input[_builtins.str] organization_conformance_pack_name: The name of the organization conformance pack.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the organization conformance pack.
         :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body.
         :param pulumi.Input[_builtins.str] template_s3_uri: Location of file containing the template body.
         """
@@ -49,6 +53,8 @@ class OrganizationConformancePackArgs:
             pulumi.set(__self__, "excluded_accounts", excluded_accounts)
         if organization_conformance_pack_name is not None:
             pulumi.set(__self__, "organization_conformance_pack_name", organization_conformance_pack_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if template_body is not None:
             pulumi.set(__self__, "template_body", template_body)
         if template_s3_uri is not None:
@@ -115,6 +121,18 @@ class OrganizationConformancePackArgs:
         pulumi.set(self, "organization_conformance_pack_name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the organization conformance pack.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -150,6 +168,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  organization_conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -190,6 +209,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the delivery S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
         :param pulumi.Input[_builtins.str] organization_conformance_pack_name: The name of the organization conformance pack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the organization conformance pack.
         :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body.
         :param pulumi.Input[_builtins.str] template_s3_uri: Location of file containing the template body.
         """
@@ -249,6 +269,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  organization_conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -265,8 +286,10 @@ class OrganizationConformancePack(pulumi.CustomResource):
             __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
             __props__.__dict__["excluded_accounts"] = excluded_accounts
             __props__.__dict__["organization_conformance_pack_name"] = organization_conformance_pack_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
+            __props__.__dict__["organization_conformance_pack_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["organizationConformancePackName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OrganizationConformancePack, __self__).__init__(
@@ -295,7 +318,9 @@ class OrganizationConformancePack(pulumi.CustomResource):
         __props__.__dict__["delivery_s3_bucket"] = None
         __props__.__dict__["delivery_s3_key_prefix"] = None
         __props__.__dict__["excluded_accounts"] = None
+        __props__.__dict__["organization_conformance_pack_arn"] = None
         __props__.__dict__["organization_conformance_pack_name"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["template_body"] = None
         __props__.__dict__["template_s3_uri"] = None
         return OrganizationConformancePack(resource_name, opts=opts, __props__=__props__)
@@ -333,12 +358,28 @@ class OrganizationConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "excluded_accounts")
 
     @_builtins.property
+    @pulumi.getter(name="organizationConformancePackArn")
+    def organization_conformance_pack_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        Amazon Resource Name (ARN) of the organization conformance pack.
+        """
+        return pulumi.get(self, "organization_conformance_pack_arn")
+
+    @_builtins.property
     @pulumi.getter(name="organizationConformancePackName")
     def organization_conformance_pack_name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the organization conformance pack.
         """
         return pulumi.get(self, "organization_conformance_pack_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the organization conformance pack.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="templateBody")

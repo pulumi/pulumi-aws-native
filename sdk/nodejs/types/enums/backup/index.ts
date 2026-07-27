@@ -15,6 +15,18 @@ export const BackupPlanScanMode = {
 
 export type BackupPlanScanMode = (typeof BackupPlanScanMode)[keyof typeof BackupPlanScanMode];
 
+export const LegalHoldStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Canceling: "CANCELING",
+    Canceled: "CANCELED",
+} as const;
+
+/**
+ * The status of the legal hold.
+ */
+export type LegalHoldStatus = (typeof LegalHoldStatus)[keyof typeof LegalHoldStatus];
+
 export const RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm = {
     LatestWithinWindow: "LATEST_WITHIN_WINDOW",
     RandomWithinWindow: "RANDOM_WITHIN_WINDOW",

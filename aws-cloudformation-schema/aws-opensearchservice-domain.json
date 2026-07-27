@@ -653,6 +653,16 @@
     },
     "AutomatedSnapshotPauseOptions" : {
       "$ref" : "#/definitions/AutomatedSnapshotPauseOptions"
+    },
+    "EngineMode" : {
+      "type" : "string",
+      "description" : "The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.",
+      "enum" : [ "GENERAL", "OPTIMIZED" ]
+    },
+    "UseCase" : {
+      "type" : "string",
+      "description" : "The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.",
+      "enum" : [ "SEARCH", "VECTOR", "OBSERVABILITY", "MIXED" ]
     }
   },
   "propertyTransform" : {
@@ -667,7 +677,7 @@
     "permissions" : [ "es:AddTags", "es:RemoveTags", "es:ListTags" ]
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/DomainName" ],
+  "createOnlyProperties" : [ "/properties/DomainName", "/properties/EngineMode" ],
   "conditionalCreateOnlyProperties" : [ "/properties/EncryptionAtRestOptions/properties", "/properties/AdvancedSecurityOptions/properties/Enabled" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/DomainEndpointV2", "/properties/DomainEndpoints", "/properties/ServiceSoftwareOptions", "/properties/AdvancedSecurityOptions/AnonymousAuthDisableDate", "/properties/IdentityCenterOptions/IdentityCenterApplicationARN", "/properties/IdentityCenterOptions/IdentityStoreId" ],
   "writeOnlyProperties" : [ "/properties/AdvancedSecurityOptions/MasterUserOptions", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterUserName", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterBackendRole", "/properties/AdvancedSecurityOptions/JWTOptions/PublicKey" ],

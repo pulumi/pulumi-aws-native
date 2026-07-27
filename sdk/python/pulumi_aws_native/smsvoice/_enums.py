@@ -12,6 +12,7 @@ __all__ = [
     'PhoneNumberOptionalKeywordAction',
     'PoolOptionalKeywordAction',
     'ProtectConfigurationCountryRuleProtectStatus',
+    'RegistrationStatus',
 ]
 
 
@@ -62,3 +63,20 @@ class ProtectConfigurationCountryRuleProtectStatus(_builtins.str, Enum):
     BLOCK = "BLOCK"
     MONITOR = "MONITOR"
     FILTER = "FILTER"
+
+
+@pulumi.type_token("aws-native:smsvoice:RegistrationStatus")
+class RegistrationStatus(_builtins.str, Enum):
+    """
+    The status of the registration.
+    """
+    CREATED = "CREATED"
+    SUBMITTED = "SUBMITTED"
+    AWS_REVIEWING = "AWS_REVIEWING"
+    REVIEWING = "REVIEWING"
+    REQUIRES_AUTHENTICATION = "REQUIRES_AUTHENTICATION"
+    PROVISIONING = "PROVISIONING"
+    COMPLETE = "COMPLETE"
+    REQUIRES_UPDATES = "REQUIRES_UPDATES"
+    CLOSED = "CLOSED"
+    DELETED = "DELETED"

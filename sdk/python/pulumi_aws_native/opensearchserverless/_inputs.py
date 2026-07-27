@@ -228,6 +228,10 @@ class IndexPropertyMappingArgsDict(TypedDict):
     """
     The compression level for knn_vector fields
     """
+    data_type: NotRequired[pulumi.Input[Optional['IndexPropertyMappingDataType']]]
+    """
+    The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+    """
     dimension: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Dimension size for vector fields, defines the number of dimensions in the vector
@@ -259,6 +263,7 @@ class IndexPropertyMappingArgs:
                  type: pulumi.Input['IndexPropertyMappingType'],
                  analyzer: pulumi.Input[Optional[_builtins.str]] = None,
                  compression_level: pulumi.Input[Optional['IndexPropertyMappingCompressionLevel']] = None,
+                 data_type: pulumi.Input[Optional['IndexPropertyMappingDataType']] = None,
                  dimension: pulumi.Input[Optional[_builtins.int]] = None,
                  index: pulumi.Input[Optional[_builtins.bool]] = None,
                  method: pulumi.Input[Optional['IndexPropertyMappingMethodPropertiesArgs']] = None,
@@ -269,6 +274,7 @@ class IndexPropertyMappingArgs:
         :param pulumi.Input['IndexPropertyMappingType'] type: The field data type. Must be a valid OpenSearch field type.
         :param pulumi.Input[_builtins.str] analyzer: The analyzer to use for this field (for text and keyword fields)
         :param pulumi.Input['IndexPropertyMappingCompressionLevel'] compression_level: The compression level for knn_vector fields
+        :param pulumi.Input['IndexPropertyMappingDataType'] data_type: The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
         :param pulumi.Input[_builtins.int] dimension: Dimension size for vector fields, defines the number of dimensions in the vector
         :param pulumi.Input[_builtins.bool] index: Whether a field should be indexed
         :param pulumi.Input['IndexPropertyMappingMethodPropertiesArgs'] method: Configuration for k-NN search method
@@ -281,6 +287,8 @@ class IndexPropertyMappingArgs:
             pulumi.set(__self__, "analyzer", analyzer)
         if compression_level is not None:
             pulumi.set(__self__, "compression_level", compression_level)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
         if index is not None:
@@ -329,6 +337,18 @@ class IndexPropertyMappingArgs:
     @compression_level.setter
     def compression_level(self, value: pulumi.Input[Optional['IndexPropertyMappingCompressionLevel']]):
         pulumi.set(self, "compression_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input[Optional['IndexPropertyMappingDataType']]:
+        """
+        The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: pulumi.Input[Optional['IndexPropertyMappingDataType']]):
+        pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter

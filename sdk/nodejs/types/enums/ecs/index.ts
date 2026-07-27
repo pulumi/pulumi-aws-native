@@ -470,6 +470,9 @@ export const ServiceThresholdConfigurationType = {
     UnboundedPercent: "UNBOUNDED_PERCENT",
 } as const;
 
+/**
+ * Determines how Amazon ECS uses ``value`` to calculate the failure threshold. For the percentage types (``BOUNDED_PERCENT`` and ``UNBOUNDED_PERCENT``), Amazon ECS multiplies ``value`` by the latest service desired count. For ``COUNT``, Amazon ECS uses ``value`` directly as the threshold. The default is ``BOUNDED_PERCENT``.
+ */
 export type ServiceThresholdConfigurationType = (typeof ServiceThresholdConfigurationType)[keyof typeof ServiceThresholdConfigurationType];
 
 export const TaskDefinitionAuthorizationConfigIam = {

@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DataTransformationProfileArgs } from "./dataTransformationProfile";
+export type DataTransformationProfile = import("./dataTransformationProfile").DataTransformationProfile;
+export const DataTransformationProfile: typeof import("./dataTransformationProfile").DataTransformationProfile = null as any;
+utilities.lazyLoad(exports, ["DataTransformationProfile"], () => require("./dataTransformationProfile"));
+
 export { FhirDatastoreArgs } from "./fhirDatastore";
 export type FhirDatastore = import("./fhirDatastore").FhirDatastore;
 export const FhirDatastore: typeof import("./fhirDatastore").FhirDatastore = null as any;
 utilities.lazyLoad(exports, ["FhirDatastore"], () => require("./fhirDatastore"));
+
+export { GetDataTransformationProfileArgs, GetDataTransformationProfileResult, GetDataTransformationProfileOutputArgs } from "./getDataTransformationProfile";
+export const getDataTransformationProfile: typeof import("./getDataTransformationProfile").getDataTransformationProfile = null as any;
+export const getDataTransformationProfileOutput: typeof import("./getDataTransformationProfile").getDataTransformationProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getDataTransformationProfile","getDataTransformationProfileOutput"], () => require("./getDataTransformationProfile"));
 
 export { GetFhirDatastoreArgs, GetFhirDatastoreResult, GetFhirDatastoreOutputArgs } from "./getFhirDatastore";
 export const getFhirDatastore: typeof import("./getFhirDatastore").getFhirDatastore = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:healthlake:DataTransformationProfile":
+                return new DataTransformationProfile(name, <any>undefined, { urn })
             case "aws-native:healthlake:FhirDatastore":
                 return new FhirDatastore(name, <any>undefined, { urn })
             default:

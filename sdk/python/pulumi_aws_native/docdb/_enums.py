@@ -7,8 +7,21 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'EventSubscriptionSourceType',
     'GlobalClusterEngine',
 ]
+
+
+@pulumi.type_token("aws-native:docdb:EventSubscriptionSourceType")
+class EventSubscriptionSourceType(_builtins.str, Enum):
+    """
+    The type of source that is generating the events.
+    """
+    DB_INSTANCE = "db-instance"
+    DB_CLUSTER = "db-cluster"
+    DB_PARAMETER_GROUP = "db-parameter-group"
+    DB_SECURITY_GROUP = "db-security-group"
+    DB_CLUSTER_SNAPSHOT = "db-cluster-snapshot"
 
 
 @pulumi.type_token("aws-native:docdb:GlobalClusterEngine")

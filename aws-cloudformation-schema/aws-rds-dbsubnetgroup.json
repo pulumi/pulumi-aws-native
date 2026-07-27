@@ -29,6 +29,10 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "DBSubnetGroupArn" : {
+      "type" : "string",
+      "description" : ""
     }
   },
   "definitions" : {
@@ -59,6 +63,7 @@
     "/properties/DBSubnetGroupName" : "$lowercase(DBSubnetGroupName)"
   },
   "createOnlyProperties" : [ "/properties/DBSubnetGroupName" ],
+  "readOnlyProperties" : [ "/properties/DBSubnetGroupArn" ],
   "primaryIdentifier" : [ "/properties/DBSubnetGroupName" ],
   "handlers" : {
     "create" : {

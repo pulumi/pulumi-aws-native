@@ -18,16 +18,16 @@ namespace Pulumi.AwsNative.Connect.Inputs
         /// <summary>
         /// Specifies the type of access granted. Currently, only "ALLOW" is supported
         /// </summary>
-        [Input("accessType", required: true)]
-        public Input<Pulumi.AwsNative.Connect.SecurityProfilePrimaryAttributeValueAccessType> AccessType { get; set; } = null!;
+        [Input("accessType")]
+        public Input<Pulumi.AwsNative.Connect.SecurityProfilePrimaryAttributeValueAccessType>? AccessType { get; set; }
 
         /// <summary>
         /// The name of the primary attribute.
         /// </summary>
-        [Input("attributeName", required: true)]
-        public Input<string> AttributeName { get; set; } = null!;
+        [Input("attributeName")]
+        public Input<string>? AttributeName { get; set; }
 
-        [Input("values", required: true)]
+        [Input("values")]
         private InputList<string>? _values;
 
         /// <summary>

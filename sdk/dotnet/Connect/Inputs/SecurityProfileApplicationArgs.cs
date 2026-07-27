@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class SecurityProfileApplicationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("applicationPermissions", required: true)]
+        [Input("applicationPermissions")]
         private InputList<string>? _applicationPermissions;
 
         /// <summary>
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
         /// <summary>
         /// Namespace of the application that you want to give access to.
         /// </summary>
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
 
         /// <summary>
         /// The type of the application.

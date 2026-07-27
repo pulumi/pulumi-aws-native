@@ -10,6 +10,99 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The status of the blueprint registration.
+type BlueprintStatus string
+
+const (
+	BlueprintStatusCreating = BlueprintStatus("CREATING")
+	BlueprintStatusActive   = BlueprintStatus("ACTIVE")
+	BlueprintStatusUpdating = BlueprintStatus("UPDATING")
+	BlueprintStatusFailed   = BlueprintStatus("FAILED")
+)
+
+type BlueprintStatusOutput struct{ *pulumi.OutputState }
+
+func (BlueprintStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlueprintStatus)(nil)).Elem()
+}
+
+func (o BlueprintStatusOutput) ToBlueprintStatusOutput() BlueprintStatusOutput {
+	return o
+}
+
+func (o BlueprintStatusOutput) ToBlueprintStatusOutputWithContext(ctx context.Context) BlueprintStatusOutput {
+	return o
+}
+
+func (o BlueprintStatusOutput) ToBlueprintStatusPtrOutput() BlueprintStatusPtrOutput {
+	return o.ToBlueprintStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintStatusOutput) ToBlueprintStatusPtrOutputWithContext(ctx context.Context) BlueprintStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlueprintStatus) *BlueprintStatus {
+		return &v
+	}).(BlueprintStatusPtrOutput)
+}
+
+func (o BlueprintStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BlueprintStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlueprintStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BlueprintStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlueprintStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BlueprintStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BlueprintStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlueprintStatus)(nil)).Elem()
+}
+
+func (o BlueprintStatusPtrOutput) ToBlueprintStatusPtrOutput() BlueprintStatusPtrOutput {
+	return o
+}
+
+func (o BlueprintStatusPtrOutput) ToBlueprintStatusPtrOutputWithContext(ctx context.Context) BlueprintStatusPtrOutput {
+	return o
+}
+
+func (o BlueprintStatusPtrOutput) Elem() BlueprintStatusOutput {
+	return o.ApplyT(func(v *BlueprintStatus) BlueprintStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BlueprintStatus
+		return ret
+	}).(BlueprintStatusOutput)
+}
+
+func (o BlueprintStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlueprintStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BlueprintStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
 type CatalogAllowFullTableExternalDataAccess string
 
@@ -1266,6 +1359,510 @@ func (in *schemaDataFormatPtr) ToSchemaDataFormatPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaDataFormatPtrOutput)
 }
 
+// The type of the function.
+type UserDefinedFunctionFunctionType string
+
+const (
+	UserDefinedFunctionFunctionTypeRegularFunction   = UserDefinedFunctionFunctionType("REGULAR_FUNCTION")
+	UserDefinedFunctionFunctionTypeAggregateFunction = UserDefinedFunctionFunctionType("AGGREGATE_FUNCTION")
+	UserDefinedFunctionFunctionTypeStoredProcedure   = UserDefinedFunctionFunctionType("STORED_PROCEDURE")
+)
+
+func (UserDefinedFunctionFunctionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionFunctionType)(nil)).Elem()
+}
+
+func (e UserDefinedFunctionFunctionType) ToUserDefinedFunctionFunctionTypeOutput() UserDefinedFunctionFunctionTypeOutput {
+	return pulumi.ToOutput(e).(UserDefinedFunctionFunctionTypeOutput)
+}
+
+func (e UserDefinedFunctionFunctionType) ToUserDefinedFunctionFunctionTypeOutputWithContext(ctx context.Context) UserDefinedFunctionFunctionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserDefinedFunctionFunctionTypeOutput)
+}
+
+func (e UserDefinedFunctionFunctionType) ToUserDefinedFunctionFunctionTypePtrOutput() UserDefinedFunctionFunctionTypePtrOutput {
+	return e.ToUserDefinedFunctionFunctionTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionFunctionType) ToUserDefinedFunctionFunctionTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionFunctionTypePtrOutput {
+	return UserDefinedFunctionFunctionType(e).ToUserDefinedFunctionFunctionTypeOutputWithContext(ctx).ToUserDefinedFunctionFunctionTypePtrOutputWithContext(ctx)
+}
+
+func (e UserDefinedFunctionFunctionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionFunctionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionFunctionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionFunctionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserDefinedFunctionFunctionTypeOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionFunctionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionFunctionType)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToUserDefinedFunctionFunctionTypeOutput() UserDefinedFunctionFunctionTypeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToUserDefinedFunctionFunctionTypeOutputWithContext(ctx context.Context) UserDefinedFunctionFunctionTypeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToUserDefinedFunctionFunctionTypePtrOutput() UserDefinedFunctionFunctionTypePtrOutput {
+	return o.ToUserDefinedFunctionFunctionTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToUserDefinedFunctionFunctionTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionFunctionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedFunctionFunctionType) *UserDefinedFunctionFunctionType {
+		return &v
+	}).(UserDefinedFunctionFunctionTypePtrOutput)
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionFunctionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionFunctionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionFunctionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserDefinedFunctionFunctionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionFunctionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserDefinedFunctionFunctionType)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionFunctionTypePtrOutput) ToUserDefinedFunctionFunctionTypePtrOutput() UserDefinedFunctionFunctionTypePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionFunctionTypePtrOutput) ToUserDefinedFunctionFunctionTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionFunctionTypePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionFunctionTypePtrOutput) Elem() UserDefinedFunctionFunctionTypeOutput {
+	return o.ApplyT(func(v *UserDefinedFunctionFunctionType) UserDefinedFunctionFunctionType {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedFunctionFunctionType
+		return ret
+	}).(UserDefinedFunctionFunctionTypeOutput)
+}
+
+func (o UserDefinedFunctionFunctionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionFunctionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserDefinedFunctionFunctionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserDefinedFunctionFunctionTypeInput is an input type that accepts values of the UserDefinedFunctionFunctionType enum
+// A concrete instance of `UserDefinedFunctionFunctionTypeInput` can be one of the following:
+//
+//	UserDefinedFunctionFunctionTypeRegularFunction
+//	UserDefinedFunctionFunctionTypeAggregateFunction
+//	UserDefinedFunctionFunctionTypeStoredProcedure
+type UserDefinedFunctionFunctionTypeInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionFunctionTypeOutput() UserDefinedFunctionFunctionTypeOutput
+	ToUserDefinedFunctionFunctionTypeOutputWithContext(context.Context) UserDefinedFunctionFunctionTypeOutput
+}
+
+var userDefinedFunctionFunctionTypePtrType = reflect.TypeOf((**UserDefinedFunctionFunctionType)(nil)).Elem()
+
+type UserDefinedFunctionFunctionTypePtrInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionFunctionTypePtrOutput() UserDefinedFunctionFunctionTypePtrOutput
+	ToUserDefinedFunctionFunctionTypePtrOutputWithContext(context.Context) UserDefinedFunctionFunctionTypePtrOutput
+}
+
+type userDefinedFunctionFunctionTypePtr string
+
+func UserDefinedFunctionFunctionTypePtr(v string) UserDefinedFunctionFunctionTypePtrInput {
+	return (*userDefinedFunctionFunctionTypePtr)(&v)
+}
+
+func (*userDefinedFunctionFunctionTypePtr) ElementType() reflect.Type {
+	return userDefinedFunctionFunctionTypePtrType
+}
+
+func (in *userDefinedFunctionFunctionTypePtr) ToUserDefinedFunctionFunctionTypePtrOutput() UserDefinedFunctionFunctionTypePtrOutput {
+	return pulumi.ToOutput(in).(UserDefinedFunctionFunctionTypePtrOutput)
+}
+
+func (in *userDefinedFunctionFunctionTypePtr) ToUserDefinedFunctionFunctionTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionFunctionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserDefinedFunctionFunctionTypePtrOutput)
+}
+
+// The owner type.
+type UserDefinedFunctionOwnerType string
+
+const (
+	UserDefinedFunctionOwnerTypeUser  = UserDefinedFunctionOwnerType("USER")
+	UserDefinedFunctionOwnerTypeRole  = UserDefinedFunctionOwnerType("ROLE")
+	UserDefinedFunctionOwnerTypeGroup = UserDefinedFunctionOwnerType("GROUP")
+)
+
+func (UserDefinedFunctionOwnerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionOwnerType)(nil)).Elem()
+}
+
+func (e UserDefinedFunctionOwnerType) ToUserDefinedFunctionOwnerTypeOutput() UserDefinedFunctionOwnerTypeOutput {
+	return pulumi.ToOutput(e).(UserDefinedFunctionOwnerTypeOutput)
+}
+
+func (e UserDefinedFunctionOwnerType) ToUserDefinedFunctionOwnerTypeOutputWithContext(ctx context.Context) UserDefinedFunctionOwnerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserDefinedFunctionOwnerTypeOutput)
+}
+
+func (e UserDefinedFunctionOwnerType) ToUserDefinedFunctionOwnerTypePtrOutput() UserDefinedFunctionOwnerTypePtrOutput {
+	return e.ToUserDefinedFunctionOwnerTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionOwnerType) ToUserDefinedFunctionOwnerTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionOwnerTypePtrOutput {
+	return UserDefinedFunctionOwnerType(e).ToUserDefinedFunctionOwnerTypeOutputWithContext(ctx).ToUserDefinedFunctionOwnerTypePtrOutputWithContext(ctx)
+}
+
+func (e UserDefinedFunctionOwnerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionOwnerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionOwnerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionOwnerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserDefinedFunctionOwnerTypeOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionOwnerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionOwnerType)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToUserDefinedFunctionOwnerTypeOutput() UserDefinedFunctionOwnerTypeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToUserDefinedFunctionOwnerTypeOutputWithContext(ctx context.Context) UserDefinedFunctionOwnerTypeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToUserDefinedFunctionOwnerTypePtrOutput() UserDefinedFunctionOwnerTypePtrOutput {
+	return o.ToUserDefinedFunctionOwnerTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToUserDefinedFunctionOwnerTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionOwnerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedFunctionOwnerType) *UserDefinedFunctionOwnerType {
+		return &v
+	}).(UserDefinedFunctionOwnerTypePtrOutput)
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionOwnerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionOwnerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionOwnerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserDefinedFunctionOwnerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionOwnerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserDefinedFunctionOwnerType)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionOwnerTypePtrOutput) ToUserDefinedFunctionOwnerTypePtrOutput() UserDefinedFunctionOwnerTypePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionOwnerTypePtrOutput) ToUserDefinedFunctionOwnerTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionOwnerTypePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionOwnerTypePtrOutput) Elem() UserDefinedFunctionOwnerTypeOutput {
+	return o.ApplyT(func(v *UserDefinedFunctionOwnerType) UserDefinedFunctionOwnerType {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedFunctionOwnerType
+		return ret
+	}).(UserDefinedFunctionOwnerTypeOutput)
+}
+
+func (o UserDefinedFunctionOwnerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionOwnerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserDefinedFunctionOwnerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserDefinedFunctionOwnerTypeInput is an input type that accepts values of the UserDefinedFunctionOwnerType enum
+// A concrete instance of `UserDefinedFunctionOwnerTypeInput` can be one of the following:
+//
+//	UserDefinedFunctionOwnerTypeUser
+//	UserDefinedFunctionOwnerTypeRole
+//	UserDefinedFunctionOwnerTypeGroup
+type UserDefinedFunctionOwnerTypeInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionOwnerTypeOutput() UserDefinedFunctionOwnerTypeOutput
+	ToUserDefinedFunctionOwnerTypeOutputWithContext(context.Context) UserDefinedFunctionOwnerTypeOutput
+}
+
+var userDefinedFunctionOwnerTypePtrType = reflect.TypeOf((**UserDefinedFunctionOwnerType)(nil)).Elem()
+
+type UserDefinedFunctionOwnerTypePtrInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionOwnerTypePtrOutput() UserDefinedFunctionOwnerTypePtrOutput
+	ToUserDefinedFunctionOwnerTypePtrOutputWithContext(context.Context) UserDefinedFunctionOwnerTypePtrOutput
+}
+
+type userDefinedFunctionOwnerTypePtr string
+
+func UserDefinedFunctionOwnerTypePtr(v string) UserDefinedFunctionOwnerTypePtrInput {
+	return (*userDefinedFunctionOwnerTypePtr)(&v)
+}
+
+func (*userDefinedFunctionOwnerTypePtr) ElementType() reflect.Type {
+	return userDefinedFunctionOwnerTypePtrType
+}
+
+func (in *userDefinedFunctionOwnerTypePtr) ToUserDefinedFunctionOwnerTypePtrOutput() UserDefinedFunctionOwnerTypePtrOutput {
+	return pulumi.ToOutput(in).(UserDefinedFunctionOwnerTypePtrOutput)
+}
+
+func (in *userDefinedFunctionOwnerTypePtr) ToUserDefinedFunctionOwnerTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionOwnerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserDefinedFunctionOwnerTypePtrOutput)
+}
+
+// The type of the resource.
+type UserDefinedFunctionResourceUriResourceType string
+
+const (
+	UserDefinedFunctionResourceUriResourceTypeJar     = UserDefinedFunctionResourceUriResourceType("JAR")
+	UserDefinedFunctionResourceUriResourceTypeFile    = UserDefinedFunctionResourceUriResourceType("FILE")
+	UserDefinedFunctionResourceUriResourceTypeArchive = UserDefinedFunctionResourceUriResourceType("ARCHIVE")
+)
+
+func (UserDefinedFunctionResourceUriResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionResourceUriResourceType)(nil)).Elem()
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToUserDefinedFunctionResourceUriResourceTypeOutput() UserDefinedFunctionResourceUriResourceTypeOutput {
+	return pulumi.ToOutput(e).(UserDefinedFunctionResourceUriResourceTypeOutput)
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToUserDefinedFunctionResourceUriResourceTypeOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserDefinedFunctionResourceUriResourceTypeOutput)
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToUserDefinedFunctionResourceUriResourceTypePtrOutput() UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return e.ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return UserDefinedFunctionResourceUriResourceType(e).ToUserDefinedFunctionResourceUriResourceTypeOutputWithContext(ctx).ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserDefinedFunctionResourceUriResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserDefinedFunctionResourceUriResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionResourceUriResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionResourceUriResourceType)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToUserDefinedFunctionResourceUriResourceTypeOutput() UserDefinedFunctionResourceUriResourceTypeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToUserDefinedFunctionResourceUriResourceTypeOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriResourceTypeOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToUserDefinedFunctionResourceUriResourceTypePtrOutput() UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return o.ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedFunctionResourceUriResourceType) *UserDefinedFunctionResourceUriResourceType {
+		return &v
+	}).(UserDefinedFunctionResourceUriResourceTypePtrOutput)
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionResourceUriResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserDefinedFunctionResourceUriResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserDefinedFunctionResourceUriResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionResourceUriResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserDefinedFunctionResourceUriResourceType)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypePtrOutput) ToUserDefinedFunctionResourceUriResourceTypePtrOutput() UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypePtrOutput) ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypePtrOutput) Elem() UserDefinedFunctionResourceUriResourceTypeOutput {
+	return o.ApplyT(func(v *UserDefinedFunctionResourceUriResourceType) UserDefinedFunctionResourceUriResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedFunctionResourceUriResourceType
+		return ret
+	}).(UserDefinedFunctionResourceUriResourceTypeOutput)
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserDefinedFunctionResourceUriResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserDefinedFunctionResourceUriResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserDefinedFunctionResourceUriResourceTypeInput is an input type that accepts values of the UserDefinedFunctionResourceUriResourceType enum
+// A concrete instance of `UserDefinedFunctionResourceUriResourceTypeInput` can be one of the following:
+//
+//	UserDefinedFunctionResourceUriResourceTypeJar
+//	UserDefinedFunctionResourceUriResourceTypeFile
+//	UserDefinedFunctionResourceUriResourceTypeArchive
+type UserDefinedFunctionResourceUriResourceTypeInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionResourceUriResourceTypeOutput() UserDefinedFunctionResourceUriResourceTypeOutput
+	ToUserDefinedFunctionResourceUriResourceTypeOutputWithContext(context.Context) UserDefinedFunctionResourceUriResourceTypeOutput
+}
+
+var userDefinedFunctionResourceUriResourceTypePtrType = reflect.TypeOf((**UserDefinedFunctionResourceUriResourceType)(nil)).Elem()
+
+type UserDefinedFunctionResourceUriResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionResourceUriResourceTypePtrOutput() UserDefinedFunctionResourceUriResourceTypePtrOutput
+	ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(context.Context) UserDefinedFunctionResourceUriResourceTypePtrOutput
+}
+
+type userDefinedFunctionResourceUriResourceTypePtr string
+
+func UserDefinedFunctionResourceUriResourceTypePtr(v string) UserDefinedFunctionResourceUriResourceTypePtrInput {
+	return (*userDefinedFunctionResourceUriResourceTypePtr)(&v)
+}
+
+func (*userDefinedFunctionResourceUriResourceTypePtr) ElementType() reflect.Type {
+	return userDefinedFunctionResourceUriResourceTypePtrType
+}
+
+func (in *userDefinedFunctionResourceUriResourceTypePtr) ToUserDefinedFunctionResourceUriResourceTypePtrOutput() UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(UserDefinedFunctionResourceUriResourceTypePtrOutput)
+}
+
+func (in *userDefinedFunctionResourceUriResourceTypePtr) ToUserDefinedFunctionResourceUriResourceTypePtrOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserDefinedFunctionResourceUriResourceTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAllowFullTableExternalDataAccessInput)(nil)).Elem(), CatalogAllowFullTableExternalDataAccess("True"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogAllowFullTableExternalDataAccessPtrInput)(nil)).Elem(), CatalogAllowFullTableExternalDataAccess("True"))
@@ -1282,6 +1879,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityPtrInput)(nil)).Elem(), SchemaCompatibility("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatPtrInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionFunctionTypeInput)(nil)).Elem(), UserDefinedFunctionFunctionType("REGULAR_FUNCTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionFunctionTypePtrInput)(nil)).Elem(), UserDefinedFunctionFunctionType("REGULAR_FUNCTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionOwnerTypeInput)(nil)).Elem(), UserDefinedFunctionOwnerType("USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionOwnerTypePtrInput)(nil)).Elem(), UserDefinedFunctionOwnerType("USER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriResourceTypeInput)(nil)).Elem(), UserDefinedFunctionResourceUriResourceType("JAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriResourceTypePtrInput)(nil)).Elem(), UserDefinedFunctionResourceUriResourceType("JAR"))
+	pulumi.RegisterOutputType(BlueprintStatusOutput{})
+	pulumi.RegisterOutputType(BlueprintStatusPtrOutput{})
 	pulumi.RegisterOutputType(CatalogAllowFullTableExternalDataAccessOutput{})
 	pulumi.RegisterOutputType(CatalogAllowFullTableExternalDataAccessPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccessOutput{})
@@ -1297,4 +1902,10 @@ func init() {
 	pulumi.RegisterOutputType(SchemaCompatibilityPtrOutput{})
 	pulumi.RegisterOutputType(SchemaDataFormatOutput{})
 	pulumi.RegisterOutputType(SchemaDataFormatPtrOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionFunctionTypeOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionFunctionTypePtrOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionOwnerTypeOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionOwnerTypePtrOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriResourceTypeOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriResourceTypePtrOutput{})
 }

@@ -180,6 +180,70 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The lifecycle stage of the agent. PREVIEW or PUBLISHED.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentLifecycle : IEquatable<AgentLifecycle>
+    {
+        private readonly string _value;
+
+        private AgentLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentLifecycle Preview { get; } = new AgentLifecycle("PREVIEW");
+        public static AgentLifecycle Published { get; } = new AgentLifecycle("PUBLISHED");
+
+        public static bool operator ==(AgentLifecycle left, AgentLifecycle right) => left.Equals(right);
+        public static bool operator !=(AgentLifecycle left, AgentLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(AgentLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentLifecycle other && Equals(other);
+        public bool Equals(AgentLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the agent. One of ACTIVE, CREATING, UPDATING, or FAILED.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentStatus : IEquatable<AgentStatus>
+    {
+        private readonly string _value;
+
+        private AgentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentStatus Active { get; } = new AgentStatus("ACTIVE");
+        public static AgentStatus Creating { get; } = new AgentStatus("CREATING");
+        public static AgentStatus Updating { get; } = new AgentStatus("UPDATING");
+        public static AgentStatus Failed { get; } = new AgentStatus("FAILED");
+
+        public static bool operator ==(AgentStatus left, AgentStatus right) => left.Equals(right);
+        public static bool operator !=(AgentStatus left, AgentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AgentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentStatus other && Equals(other);
+        public bool Equals(AgentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct AnalysisAnchorOption : IEquatable<AnalysisAnchorOption>
     {
@@ -8763,6 +8827,149 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FolderType other && Equals(other);
         public bool Equals(FolderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseAudioExtractionStatus : IEquatable<KnowledgeBaseAudioExtractionStatus>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseAudioExtractionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseAudioExtractionStatus Enabled { get; } = new KnowledgeBaseAudioExtractionStatus("ENABLED");
+        public static KnowledgeBaseAudioExtractionStatus Disabled { get; } = new KnowledgeBaseAudioExtractionStatus("DISABLED");
+
+        public static bool operator ==(KnowledgeBaseAudioExtractionStatus left, KnowledgeBaseAudioExtractionStatus right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseAudioExtractionStatus left, KnowledgeBaseAudioExtractionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseAudioExtractionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseAudioExtractionStatus other && Equals(other);
+        public bool Equals(KnowledgeBaseAudioExtractionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseDataSetStatus : IEquatable<KnowledgeBaseDataSetStatus>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseDataSetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseDataSetStatus Creating { get; } = new KnowledgeBaseDataSetStatus("CREATING");
+        public static KnowledgeBaseDataSetStatus Updating { get; } = new KnowledgeBaseDataSetStatus("UPDATING");
+        public static KnowledgeBaseDataSetStatus Active { get; } = new KnowledgeBaseDataSetStatus("ACTIVE");
+        public static KnowledgeBaseDataSetStatus Failed { get; } = new KnowledgeBaseDataSetStatus("FAILED");
+        public static KnowledgeBaseDataSetStatus Deleting { get; } = new KnowledgeBaseDataSetStatus("DELETING");
+
+        public static bool operator ==(KnowledgeBaseDataSetStatus left, KnowledgeBaseDataSetStatus right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseDataSetStatus left, KnowledgeBaseDataSetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseDataSetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseDataSetStatus other && Equals(other);
+        public bool Equals(KnowledgeBaseDataSetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseImageExtractionStatus : IEquatable<KnowledgeBaseImageExtractionStatus>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseImageExtractionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseImageExtractionStatus Enabled { get; } = new KnowledgeBaseImageExtractionStatus("ENABLED");
+        public static KnowledgeBaseImageExtractionStatus Disabled { get; } = new KnowledgeBaseImageExtractionStatus("DISABLED");
+
+        public static bool operator ==(KnowledgeBaseImageExtractionStatus left, KnowledgeBaseImageExtractionStatus right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseImageExtractionStatus left, KnowledgeBaseImageExtractionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseImageExtractionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseImageExtractionStatus other && Equals(other);
+        public bool Equals(KnowledgeBaseImageExtractionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseVideoExtractionStatus : IEquatable<KnowledgeBaseVideoExtractionStatus>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseVideoExtractionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseVideoExtractionStatus Enabled { get; } = new KnowledgeBaseVideoExtractionStatus("ENABLED");
+        public static KnowledgeBaseVideoExtractionStatus Disabled { get; } = new KnowledgeBaseVideoExtractionStatus("DISABLED");
+
+        public static bool operator ==(KnowledgeBaseVideoExtractionStatus left, KnowledgeBaseVideoExtractionStatus right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseVideoExtractionStatus left, KnowledgeBaseVideoExtractionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseVideoExtractionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseVideoExtractionStatus other && Equals(other);
+        public bool Equals(KnowledgeBaseVideoExtractionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseVideoExtractionType : IEquatable<KnowledgeBaseVideoExtractionType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseVideoExtractionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseVideoExtractionType AudioTranscriptionOnly { get; } = new KnowledgeBaseVideoExtractionType("AUDIO_TRANSCRIPTION_ONLY");
+        public static KnowledgeBaseVideoExtractionType VisualContentAndAudioTranscription { get; } = new KnowledgeBaseVideoExtractionType("VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION");
+
+        public static bool operator ==(KnowledgeBaseVideoExtractionType left, KnowledgeBaseVideoExtractionType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseVideoExtractionType left, KnowledgeBaseVideoExtractionType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseVideoExtractionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseVideoExtractionType other && Equals(other);
+        public bool Equals(KnowledgeBaseVideoExtractionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -10,6 +10,262 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The source format that this profile converts from.
+type DataTransformationProfileSourceFormat string
+
+const (
+	DataTransformationProfileSourceFormatCcda = DataTransformationProfileSourceFormat("CCDA")
+	DataTransformationProfileSourceFormatCsv  = DataTransformationProfileSourceFormat("CSV")
+)
+
+func (DataTransformationProfileSourceFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileSourceFormat)(nil)).Elem()
+}
+
+func (e DataTransformationProfileSourceFormat) ToDataTransformationProfileSourceFormatOutput() DataTransformationProfileSourceFormatOutput {
+	return pulumi.ToOutput(e).(DataTransformationProfileSourceFormatOutput)
+}
+
+func (e DataTransformationProfileSourceFormat) ToDataTransformationProfileSourceFormatOutputWithContext(ctx context.Context) DataTransformationProfileSourceFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataTransformationProfileSourceFormatOutput)
+}
+
+func (e DataTransformationProfileSourceFormat) ToDataTransformationProfileSourceFormatPtrOutput() DataTransformationProfileSourceFormatPtrOutput {
+	return e.ToDataTransformationProfileSourceFormatPtrOutputWithContext(context.Background())
+}
+
+func (e DataTransformationProfileSourceFormat) ToDataTransformationProfileSourceFormatPtrOutputWithContext(ctx context.Context) DataTransformationProfileSourceFormatPtrOutput {
+	return DataTransformationProfileSourceFormat(e).ToDataTransformationProfileSourceFormatOutputWithContext(ctx).ToDataTransformationProfileSourceFormatPtrOutputWithContext(ctx)
+}
+
+func (e DataTransformationProfileSourceFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTransformationProfileSourceFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTransformationProfileSourceFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataTransformationProfileSourceFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataTransformationProfileSourceFormatOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileSourceFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileSourceFormat)(nil)).Elem()
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToDataTransformationProfileSourceFormatOutput() DataTransformationProfileSourceFormatOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToDataTransformationProfileSourceFormatOutputWithContext(ctx context.Context) DataTransformationProfileSourceFormatOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToDataTransformationProfileSourceFormatPtrOutput() DataTransformationProfileSourceFormatPtrOutput {
+	return o.ToDataTransformationProfileSourceFormatPtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToDataTransformationProfileSourceFormatPtrOutputWithContext(ctx context.Context) DataTransformationProfileSourceFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTransformationProfileSourceFormat) *DataTransformationProfileSourceFormat {
+		return &v
+	}).(DataTransformationProfileSourceFormatPtrOutput)
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTransformationProfileSourceFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileSourceFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTransformationProfileSourceFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataTransformationProfileSourceFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileSourceFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileSourceFormat)(nil)).Elem()
+}
+
+func (o DataTransformationProfileSourceFormatPtrOutput) ToDataTransformationProfileSourceFormatPtrOutput() DataTransformationProfileSourceFormatPtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourceFormatPtrOutput) ToDataTransformationProfileSourceFormatPtrOutputWithContext(ctx context.Context) DataTransformationProfileSourceFormatPtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourceFormatPtrOutput) Elem() DataTransformationProfileSourceFormatOutput {
+	return o.ApplyT(func(v *DataTransformationProfileSourceFormat) DataTransformationProfileSourceFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DataTransformationProfileSourceFormat
+		return ret
+	}).(DataTransformationProfileSourceFormatOutput)
+}
+
+func (o DataTransformationProfileSourceFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileSourceFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataTransformationProfileSourceFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataTransformationProfileSourceFormatInput is an input type that accepts values of the DataTransformationProfileSourceFormat enum
+// A concrete instance of `DataTransformationProfileSourceFormatInput` can be one of the following:
+//
+//	DataTransformationProfileSourceFormatCcda
+//	DataTransformationProfileSourceFormatCsv
+type DataTransformationProfileSourceFormatInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileSourceFormatOutput() DataTransformationProfileSourceFormatOutput
+	ToDataTransformationProfileSourceFormatOutputWithContext(context.Context) DataTransformationProfileSourceFormatOutput
+}
+
+var dataTransformationProfileSourceFormatPtrType = reflect.TypeOf((**DataTransformationProfileSourceFormat)(nil)).Elem()
+
+type DataTransformationProfileSourceFormatPtrInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileSourceFormatPtrOutput() DataTransformationProfileSourceFormatPtrOutput
+	ToDataTransformationProfileSourceFormatPtrOutputWithContext(context.Context) DataTransformationProfileSourceFormatPtrOutput
+}
+
+type dataTransformationProfileSourceFormatPtr string
+
+func DataTransformationProfileSourceFormatPtr(v string) DataTransformationProfileSourceFormatPtrInput {
+	return (*dataTransformationProfileSourceFormatPtr)(&v)
+}
+
+func (*dataTransformationProfileSourceFormatPtr) ElementType() reflect.Type {
+	return dataTransformationProfileSourceFormatPtrType
+}
+
+func (in *dataTransformationProfileSourceFormatPtr) ToDataTransformationProfileSourceFormatPtrOutput() DataTransformationProfileSourceFormatPtrOutput {
+	return pulumi.ToOutput(in).(DataTransformationProfileSourceFormatPtrOutput)
+}
+
+func (in *dataTransformationProfileSourceFormatPtr) ToDataTransformationProfileSourceFormatPtrOutputWithContext(ctx context.Context) DataTransformationProfileSourceFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataTransformationProfileSourceFormatPtrOutput)
+}
+
+// The target format that this profile converts to. Always FHIR_R4.
+type DataTransformationProfileTargetFormat string
+
+const (
+	DataTransformationProfileTargetFormatFhirR4 = DataTransformationProfileTargetFormat("FHIR_R4")
+)
+
+type DataTransformationProfileTargetFormatOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileTargetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileTargetFormat)(nil)).Elem()
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToDataTransformationProfileTargetFormatOutput() DataTransformationProfileTargetFormatOutput {
+	return o
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToDataTransformationProfileTargetFormatOutputWithContext(ctx context.Context) DataTransformationProfileTargetFormatOutput {
+	return o
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToDataTransformationProfileTargetFormatPtrOutput() DataTransformationProfileTargetFormatPtrOutput {
+	return o.ToDataTransformationProfileTargetFormatPtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToDataTransformationProfileTargetFormatPtrOutputWithContext(ctx context.Context) DataTransformationProfileTargetFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTransformationProfileTargetFormat) *DataTransformationProfileTargetFormat {
+		return &v
+	}).(DataTransformationProfileTargetFormatPtrOutput)
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTransformationProfileTargetFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileTargetFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTransformationProfileTargetFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataTransformationProfileTargetFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileTargetFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileTargetFormat)(nil)).Elem()
+}
+
+func (o DataTransformationProfileTargetFormatPtrOutput) ToDataTransformationProfileTargetFormatPtrOutput() DataTransformationProfileTargetFormatPtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileTargetFormatPtrOutput) ToDataTransformationProfileTargetFormatPtrOutputWithContext(ctx context.Context) DataTransformationProfileTargetFormatPtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileTargetFormatPtrOutput) Elem() DataTransformationProfileTargetFormatOutput {
+	return o.ApplyT(func(v *DataTransformationProfileTargetFormat) DataTransformationProfileTargetFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DataTransformationProfileTargetFormat
+		return ret
+	}).(DataTransformationProfileTargetFormatOutput)
+}
+
+func (o DataTransformationProfileTargetFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileTargetFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataTransformationProfileTargetFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
 type FhirDatastoreDatastoreStatus string
 
@@ -766,6 +1022,8 @@ func (in *fhirDatastorePreloadDataConfigPreloadDataTypePtr) ToFhirDatastorePrelo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileSourceFormatInput)(nil)).Elem(), DataTransformationProfileSourceFormat("CCDA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileSourceFormatPtrInput)(nil)).Elem(), DataTransformationProfileSourceFormat("CCDA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreDatastoreTypeVersionInput)(nil)).Elem(), FhirDatastoreDatastoreTypeVersion("R4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreDatastoreTypeVersionPtrInput)(nil)).Elem(), FhirDatastoreDatastoreTypeVersion("R4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1"))
@@ -774,6 +1032,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreKmsEncryptionConfigCmkTypePtrInput)(nil)).Elem(), FhirDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigPreloadDataTypeInput)(nil)).Elem(), FhirDatastorePreloadDataConfigPreloadDataType("SYNTHEA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigPreloadDataTypePtrInput)(nil)).Elem(), FhirDatastorePreloadDataConfigPreloadDataType("SYNTHEA"))
+	pulumi.RegisterOutputType(DataTransformationProfileSourceFormatOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileSourceFormatPtrOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileTargetFormatOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileTargetFormatPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreDatastoreStatusOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreDatastoreStatusPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreDatastoreTypeVersionOutput{})

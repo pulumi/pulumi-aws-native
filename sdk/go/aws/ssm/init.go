@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MaintenanceWindowTarget{}
 	case "aws-native:ssm:MaintenanceWindowTask":
 		r = &MaintenanceWindowTask{}
+	case "aws-native:ssm:OpsItem":
+		r = &OpsItem{}
 	case "aws-native:ssm:Parameter":
 		r = &Parameter{}
 	case "aws-native:ssm:PatchBaseline":

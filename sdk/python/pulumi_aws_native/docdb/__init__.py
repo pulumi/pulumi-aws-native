@@ -7,5 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .event_subscription import *
+from .get_event_subscription import *
 from .get_global_cluster import *
 from .global_cluster import *

@@ -16,12 +16,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'GeneratedTemplateTemplateConfigurationArgs',
+    'GeneratedTemplateTemplateConfigurationArgsDict',
     'GuardHookS3LocationArgs',
     'GuardHookS3LocationArgsDict',
     'HookVersionLoggingConfigArgs',
     'HookVersionLoggingConfigArgsDict',
     'LambdaHookHookTargetArgs',
     'LambdaHookHookTargetArgsDict',
+    'LambdaHookLoggingConfigArgs',
+    'LambdaHookLoggingConfigArgsDict',
     'ManagedExecutionPropertiesArgs',
     'ManagedExecutionPropertiesArgsDict',
     'OptionsPropertiesArgs',
@@ -51,6 +55,60 @@ __all__ = [
     'TypeActivationLoggingConfigArgs',
     'TypeActivationLoggingConfigArgsDict',
 ]
+
+class GeneratedTemplateTemplateConfigurationArgsDict(TypedDict):
+    """
+    The configuration details of the generated template.
+    """
+    deletion_policy: NotRequired[pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationDeletionPolicy']]]
+    """
+    The DeletionPolicy assigned to resources in the generated template.
+    """
+    update_replace_policy: NotRequired[pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationUpdateReplacePolicy']]]
+    """
+    The UpdateReplacePolicy assigned to resources in the generated template.
+    """
+
+@pulumi.input_type
+class GeneratedTemplateTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 deletion_policy: pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationDeletionPolicy']] = None,
+                 update_replace_policy: pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationUpdateReplacePolicy']] = None):
+        """
+        The configuration details of the generated template.
+
+        :param pulumi.Input['GeneratedTemplateTemplateConfigurationDeletionPolicy'] deletion_policy: The DeletionPolicy assigned to resources in the generated template.
+        :param pulumi.Input['GeneratedTemplateTemplateConfigurationUpdateReplacePolicy'] update_replace_policy: The UpdateReplacePolicy assigned to resources in the generated template.
+        """
+        if deletion_policy is not None:
+            pulumi.set(__self__, "deletion_policy", deletion_policy)
+        if update_replace_policy is not None:
+            pulumi.set(__self__, "update_replace_policy", update_replace_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionPolicy")
+    def deletion_policy(self) -> pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationDeletionPolicy']]:
+        """
+        The DeletionPolicy assigned to resources in the generated template.
+        """
+        return pulumi.get(self, "deletion_policy")
+
+    @deletion_policy.setter
+    def deletion_policy(self, value: pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationDeletionPolicy']]):
+        pulumi.set(self, "deletion_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateReplacePolicy")
+    def update_replace_policy(self) -> pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationUpdateReplacePolicy']]:
+        """
+        The UpdateReplacePolicy assigned to resources in the generated template.
+        """
+        return pulumi.get(self, "update_replace_policy")
+
+    @update_replace_policy.setter
+    def update_replace_policy(self, value: pulumi.Input[Optional['GeneratedTemplateTemplateConfigurationUpdateReplacePolicy']]):
+        pulumi.set(self, "update_replace_policy", value)
+
 
 class GuardHookS3LocationArgsDict(TypedDict):
     """
@@ -201,6 +259,58 @@ class LambdaHookHookTargetArgs:
     @target_name.setter
     def target_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_name", value)
+
+
+class LambdaHookLoggingConfigArgsDict(TypedDict):
+    """
+    Contains logging configuration information for an extension.
+    """
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+    """
+    log_role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+    """
+
+@pulumi.input_type
+class LambdaHookLoggingConfigArgs:
+    def __init__(__self__, *,
+                 log_group_name: pulumi.Input[_builtins.str],
+                 log_role_arn: pulumi.Input[_builtins.str]):
+        """
+        Contains logging configuration information for an extension.
+
+        :param pulumi.Input[_builtins.str] log_group_name: The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+        :param pulumi.Input[_builtins.str] log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "log_role_arn", log_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logRoleArn")
+    def log_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+        """
+        return pulumi.get(self, "log_role_arn")
+
+    @log_role_arn.setter
+    def log_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_role_arn", value)
 
 
 class ManagedExecutionPropertiesArgsDict(TypedDict):

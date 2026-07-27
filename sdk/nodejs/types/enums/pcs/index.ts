@@ -78,6 +78,37 @@ export const ClusterStatus = {
  */
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
+export const ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy = {
+    CacheOnce: "CACHE_ONCE",
+    RefreshOnReboot: "REFRESH_ON_REBOOT",
+} as const;
+
+/**
+ * Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+ */
+export type ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy = (typeof ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy)[keyof typeof ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy];
+
+export const ComputeNodeGroupNodeLifecycleScriptExecutionPolicy = {
+    FirstBootOnly: "FIRST_BOOT_ONLY",
+    EveryBoot: "EVERY_BOOT",
+} as const;
+
+/**
+ * Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+ */
+export type ComputeNodeGroupNodeLifecycleScriptExecutionPolicy = (typeof ComputeNodeGroupNodeLifecycleScriptExecutionPolicy)[keyof typeof ComputeNodeGroupNodeLifecycleScriptExecutionPolicy];
+
+export const ComputeNodeGroupNodeLifecycleScriptOnError = {
+    Terminate: "TERMINATE",
+    StopSequence: "STOP_SEQUENCE",
+    Continue: "CONTINUE",
+} as const;
+
+/**
+ * The behavior when the script exits with an error. Defaults to TERMINATE.
+ */
+export type ComputeNodeGroupNodeLifecycleScriptOnError = (typeof ComputeNodeGroupNodeLifecycleScriptOnError)[keyof typeof ComputeNodeGroupNodeLifecycleScriptOnError];
+
 export const ComputeNodeGroupPurchaseOption = {
     Ondemand: "ONDEMAND",
     Spot: "SPOT",

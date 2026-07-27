@@ -14,6 +14,9 @@ __all__ = [
     'ClusterSize',
     'ClusterSlurmRestMode',
     'ClusterStatus',
+    'ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy',
+    'ComputeNodeGroupNodeLifecycleScriptExecutionPolicy',
+    'ComputeNodeGroupNodeLifecycleScriptOnError',
     'ComputeNodeGroupPurchaseOption',
     'ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy',
     'ComputeNodeGroupStatus',
@@ -88,6 +91,34 @@ class ClusterStatus(_builtins.str, Enum):
     CREATE_FAILED = "CREATE_FAILED"
     DELETE_FAILED = "DELETE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+
+
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy")
+class ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy(_builtins.str, Enum):
+    """
+    Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+    """
+    CACHE_ONCE = "CACHE_ONCE"
+    REFRESH_ON_REBOOT = "REFRESH_ON_REBOOT"
+
+
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroupNodeLifecycleScriptExecutionPolicy")
+class ComputeNodeGroupNodeLifecycleScriptExecutionPolicy(_builtins.str, Enum):
+    """
+    Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+    """
+    FIRST_BOOT_ONLY = "FIRST_BOOT_ONLY"
+    EVERY_BOOT = "EVERY_BOOT"
+
+
+@pulumi.type_token("aws-native:pcs:ComputeNodeGroupNodeLifecycleScriptOnError")
+class ComputeNodeGroupNodeLifecycleScriptOnError(_builtins.str, Enum):
+    """
+    The behavior when the script exits with an error. Defaults to TERMINATE.
+    """
+    TERMINATE = "TERMINATE"
+    STOP_SEQUENCE = "STOP_SEQUENCE"
+    CONTINUE_ = "CONTINUE"
 
 
 @pulumi.type_token("aws-native:pcs:ComputeNodeGroupPurchaseOption")

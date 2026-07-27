@@ -1600,6 +1600,172 @@ func (in *appTypePtr) ToAppTypePtrOutputWithContext(ctx context.Context) AppType
 	return pulumi.ToOutputWithContext(ctx, in).(AppTypePtrOutput)
 }
 
+// The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+type ClusterAutoPatchConfigPatchingStrategy string
+
+const (
+	ClusterAutoPatchConfigPatchingStrategyWhenIdle    = ClusterAutoPatchConfigPatchingStrategy("WhenIdle")
+	ClusterAutoPatchConfigPatchingStrategyWhenAllIdle = ClusterAutoPatchConfigPatchingStrategy("WhenAllIdle")
+)
+
+func (ClusterAutoPatchConfigPatchingStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoPatchConfigPatchingStrategy)(nil)).Elem()
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToClusterAutoPatchConfigPatchingStrategyOutput() ClusterAutoPatchConfigPatchingStrategyOutput {
+	return pulumi.ToOutput(e).(ClusterAutoPatchConfigPatchingStrategyOutput)
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToClusterAutoPatchConfigPatchingStrategyOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPatchingStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterAutoPatchConfigPatchingStrategyOutput)
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToClusterAutoPatchConfigPatchingStrategyPtrOutput() ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return e.ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return ClusterAutoPatchConfigPatchingStrategy(e).ToClusterAutoPatchConfigPatchingStrategyOutputWithContext(ctx).ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterAutoPatchConfigPatchingStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterAutoPatchConfigPatchingStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoPatchConfigPatchingStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoPatchConfigPatchingStrategy)(nil)).Elem()
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToClusterAutoPatchConfigPatchingStrategyOutput() ClusterAutoPatchConfigPatchingStrategyOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToClusterAutoPatchConfigPatchingStrategyOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPatchingStrategyOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToClusterAutoPatchConfigPatchingStrategyPtrOutput() ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return o.ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAutoPatchConfigPatchingStrategy) *ClusterAutoPatchConfigPatchingStrategy {
+		return &v
+	}).(ClusterAutoPatchConfigPatchingStrategyPtrOutput)
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterAutoPatchConfigPatchingStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterAutoPatchConfigPatchingStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterAutoPatchConfigPatchingStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoPatchConfigPatchingStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoPatchConfigPatchingStrategy)(nil)).Elem()
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyPtrOutput) ToClusterAutoPatchConfigPatchingStrategyPtrOutput() ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyPtrOutput) ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyPtrOutput) Elem() ClusterAutoPatchConfigPatchingStrategyOutput {
+	return o.ApplyT(func(v *ClusterAutoPatchConfigPatchingStrategy) ClusterAutoPatchConfigPatchingStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAutoPatchConfigPatchingStrategy
+		return ret
+	}).(ClusterAutoPatchConfigPatchingStrategyOutput)
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoPatchConfigPatchingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterAutoPatchConfigPatchingStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterAutoPatchConfigPatchingStrategyInput is an input type that accepts values of the ClusterAutoPatchConfigPatchingStrategy enum
+// A concrete instance of `ClusterAutoPatchConfigPatchingStrategyInput` can be one of the following:
+//
+//	ClusterAutoPatchConfigPatchingStrategyWhenIdle
+//	ClusterAutoPatchConfigPatchingStrategyWhenAllIdle
+type ClusterAutoPatchConfigPatchingStrategyInput interface {
+	pulumi.Input
+
+	ToClusterAutoPatchConfigPatchingStrategyOutput() ClusterAutoPatchConfigPatchingStrategyOutput
+	ToClusterAutoPatchConfigPatchingStrategyOutputWithContext(context.Context) ClusterAutoPatchConfigPatchingStrategyOutput
+}
+
+var clusterAutoPatchConfigPatchingStrategyPtrType = reflect.TypeOf((**ClusterAutoPatchConfigPatchingStrategy)(nil)).Elem()
+
+type ClusterAutoPatchConfigPatchingStrategyPtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoPatchConfigPatchingStrategyPtrOutput() ClusterAutoPatchConfigPatchingStrategyPtrOutput
+	ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(context.Context) ClusterAutoPatchConfigPatchingStrategyPtrOutput
+}
+
+type clusterAutoPatchConfigPatchingStrategyPtr string
+
+func ClusterAutoPatchConfigPatchingStrategyPtr(v string) ClusterAutoPatchConfigPatchingStrategyPtrInput {
+	return (*clusterAutoPatchConfigPatchingStrategyPtr)(&v)
+}
+
+func (*clusterAutoPatchConfigPatchingStrategyPtr) ElementType() reflect.Type {
+	return clusterAutoPatchConfigPatchingStrategyPtrType
+}
+
+func (in *clusterAutoPatchConfigPatchingStrategyPtr) ToClusterAutoPatchConfigPatchingStrategyPtrOutput() ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ClusterAutoPatchConfigPatchingStrategyPtrOutput)
+}
+
+func (in *clusterAutoPatchConfigPatchingStrategyPtr) ToClusterAutoPatchConfigPatchingStrategyPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterAutoPatchConfigPatchingStrategyPtrOutput)
+}
+
 // The type of auto-scaler to use
 type ClusterAutoScalingConfigAutoScalerType string
 
@@ -25975,6 +26141,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypePtrInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypeInput)(nil)).Elem(), AppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypePtrInput)(nil)).Elem(), AppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoPatchConfigPatchingStrategyInput)(nil)).Elem(), ClusterAutoPatchConfigPatchingStrategy("WhenIdle"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoPatchConfigPatchingStrategyPtrInput)(nil)).Elem(), ClusterAutoPatchConfigPatchingStrategy("WhenIdle"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigAutoScalerTypeInput)(nil)).Elem(), ClusterAutoScalingConfigAutoScalerType("Karpenter"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigAutoScalerTypePtrInput)(nil)).Elem(), ClusterAutoScalingConfigAutoScalerType("Karpenter"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigModeInput)(nil)).Elem(), ClusterAutoScalingConfigMode("Enable"))
@@ -26258,6 +26426,8 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(AppTypeOutput{})
 	pulumi.RegisterOutputType(AppTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterAutoPatchConfigPatchingStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterAutoPatchConfigPatchingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigAutoScalerTypeOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigAutoScalerTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigModeOutput{})

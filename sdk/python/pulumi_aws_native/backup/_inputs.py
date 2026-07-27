@@ -54,6 +54,10 @@ __all__ = [
     'FrameworkTagArgsDict',
     'LogicallyAirGappedBackupVaultNotificationObjectTypeArgs',
     'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict',
+    'RecoveryPointSelectionPropertiesArgs',
+    'RecoveryPointSelectionPropertiesArgsDict',
+    'RecoveryPointSelectionPropertiesDateRangePropertiesArgs',
+    'RecoveryPointSelectionPropertiesDateRangePropertiesArgsDict',
     'ReportDeliveryChannelPropertiesArgs',
     'ReportDeliveryChannelPropertiesArgsDict',
     'ReportSettingPropertiesArgs',
@@ -1550,6 +1554,132 @@ class LogicallyAirGappedBackupVaultNotificationObjectTypeArgs:
     @sns_topic_arn.setter
     def sns_topic_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sns_topic_arn", value)
+
+
+class RecoveryPointSelectionPropertiesArgsDict(TypedDict):
+    """
+    The criteria to assign a set of resources, such as resource types or backup vaults.
+    """
+    date_range: NotRequired[pulumi.Input[Optional['RecoveryPointSelectionPropertiesDateRangePropertiesArgsDict']]]
+    """
+    A date range for filtering recovery points.
+    """
+    resource_identifiers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The resources included in the resource selection.
+    """
+    vault_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The names of the vaults in which the selected recovery points are contained.
+    """
+
+@pulumi.input_type
+class RecoveryPointSelectionPropertiesArgs:
+    def __init__(__self__, *,
+                 date_range: pulumi.Input[Optional['RecoveryPointSelectionPropertiesDateRangePropertiesArgs']] = None,
+                 resource_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vault_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The criteria to assign a set of resources, such as resource types or backup vaults.
+
+        :param pulumi.Input['RecoveryPointSelectionPropertiesDateRangePropertiesArgs'] date_range: A date range for filtering recovery points.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_identifiers: The resources included in the resource selection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vault_names: The names of the vaults in which the selected recovery points are contained.
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if resource_identifiers is not None:
+            pulumi.set(__self__, "resource_identifiers", resource_identifiers)
+        if vault_names is not None:
+            pulumi.set(__self__, "vault_names", vault_names)
+
+    @_builtins.property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> pulumi.Input[Optional['RecoveryPointSelectionPropertiesDateRangePropertiesArgs']]:
+        """
+        A date range for filtering recovery points.
+        """
+        return pulumi.get(self, "date_range")
+
+    @date_range.setter
+    def date_range(self, value: pulumi.Input[Optional['RecoveryPointSelectionPropertiesDateRangePropertiesArgs']]):
+        pulumi.set(self, "date_range", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceIdentifiers")
+    def resource_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The resources included in the resource selection.
+        """
+        return pulumi.get(self, "resource_identifiers")
+
+    @resource_identifiers.setter
+    def resource_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_identifiers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vaultNames")
+    def vault_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The names of the vaults in which the selected recovery points are contained.
+        """
+        return pulumi.get(self, "vault_names")
+
+    @vault_names.setter
+    def vault_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "vault_names", value)
+
+
+class RecoveryPointSelectionPropertiesDateRangePropertiesArgsDict(TypedDict):
+    """
+    A date range for filtering recovery points.
+    """
+    from_date: pulumi.Input[_builtins.str]
+    """
+    The beginning date, inclusive. ISO 8601 date-time.
+    """
+    to_date: pulumi.Input[_builtins.str]
+    """
+    The end date, inclusive. ISO 8601 date-time.
+    """
+
+@pulumi.input_type
+class RecoveryPointSelectionPropertiesDateRangePropertiesArgs:
+    def __init__(__self__, *,
+                 from_date: pulumi.Input[_builtins.str],
+                 to_date: pulumi.Input[_builtins.str]):
+        """
+        A date range for filtering recovery points.
+
+        :param pulumi.Input[_builtins.str] from_date: The beginning date, inclusive. ISO 8601 date-time.
+        :param pulumi.Input[_builtins.str] to_date: The end date, inclusive. ISO 8601 date-time.
+        """
+        pulumi.set(__self__, "from_date", from_date)
+        pulumi.set(__self__, "to_date", to_date)
+
+    @_builtins.property
+    @pulumi.getter(name="fromDate")
+    def from_date(self) -> pulumi.Input[_builtins.str]:
+        """
+        The beginning date, inclusive. ISO 8601 date-time.
+        """
+        return pulumi.get(self, "from_date")
+
+    @from_date.setter
+    def from_date(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "from_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="toDate")
+    def to_date(self) -> pulumi.Input[_builtins.str]:
+        """
+        The end date, inclusive. ISO 8601 date-time.
+        """
+        return pulumi.get(self, "to_date")
+
+    @to_date.setter
+    def to_date(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "to_date", value)
 
 
 class ReportDeliveryChannelPropertiesArgsDict(TypedDict):

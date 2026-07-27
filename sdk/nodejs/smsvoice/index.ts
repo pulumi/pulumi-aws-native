@@ -35,6 +35,11 @@ export const getProtectConfiguration: typeof import("./getProtectConfiguration")
 export const getProtectConfigurationOutput: typeof import("./getProtectConfiguration").getProtectConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getProtectConfiguration","getProtectConfigurationOutput"], () => require("./getProtectConfiguration"));
 
+export { GetRegistrationArgs, GetRegistrationResult, GetRegistrationOutputArgs } from "./getRegistration";
+export const getRegistration: typeof import("./getRegistration").getRegistration = null as any;
+export const getRegistrationOutput: typeof import("./getRegistration").getRegistrationOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistration","getRegistrationOutput"], () => require("./getRegistration"));
+
 export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
@@ -65,6 +70,11 @@ export type ProtectConfiguration = import("./protectConfiguration").ProtectConfi
 export const ProtectConfiguration: typeof import("./protectConfiguration").ProtectConfiguration = null as any;
 utilities.lazyLoad(exports, ["ProtectConfiguration"], () => require("./protectConfiguration"));
 
+export { RegistrationArgs } from "./registration";
+export type Registration = import("./registration").Registration;
+export const Registration: typeof import("./registration").Registration = null as any;
+utilities.lazyLoad(exports, ["Registration"], () => require("./registration"));
+
 export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
@@ -93,6 +103,8 @@ const _module = {
                 return new Pool(name, <any>undefined, { urn })
             case "aws-native:smsvoice:ProtectConfiguration":
                 return new ProtectConfiguration(name, <any>undefined, { urn })
+            case "aws-native:smsvoice:Registration":
+                return new Registration(name, <any>undefined, { urn })
             case "aws-native:smsvoice:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:smsvoice:SenderId":
