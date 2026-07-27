@@ -1,0 +1,150 @@
+{
+  "typeName" : "AWS::ImageBuilder::AllWorkflowBuildVersions",
+  "description" : "Returns the list of workflow build versions for a specified workflow version ARN.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the workflow build version.",
+      "pattern" : "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\\.[0-9]+\\.[0-9]+/[0-9]+$"
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the workflow.",
+      "pattern" : "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$"
+    },
+    "Version" : {
+      "type" : "string",
+      "description" : "The semantic version of the workflow (major.minor.patch).",
+      "pattern" : "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "BuildNumber" : {
+      "type" : "string",
+      "description" : "The build number of the workflow build version.",
+      "pattern" : "^[0-9]+$"
+    },
+    "WorkflowType" : {
+      "type" : "string",
+      "description" : "The image creation stage that this workflow applies to.",
+      "enum" : [ "build", "test", "distribution" ]
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "Describes the workflow.",
+      "minLength" : 1,
+      "maxLength" : 1024
+    },
+    "ChangeDescription" : {
+      "type" : "string",
+      "description" : "Describes what change has been made in this version of the workflow.",
+      "minLength" : 1,
+      "maxLength" : 1024
+    },
+    "Owner" : {
+      "type" : "string",
+      "description" : "The owner of the workflow resource.",
+      "minLength" : 1,
+      "maxLength" : 1024
+    },
+    "Data" : {
+      "type" : "string",
+      "description" : "Contains the YAML document content for the workflow."
+    },
+    "DateCreated" : {
+      "type" : "string",
+      "description" : "The timestamp when Image Builder created the workflow resource."
+    },
+    "Parameters" : {
+      "type" : "array",
+      "description" : "An array of input parameters that the workflow uses to control actions or configure settings.",
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "Name" : {
+            "type" : "string",
+            "description" : "The name of this input parameter.",
+            "minLength" : 1,
+            "maxLength" : 128
+          },
+          "Type" : {
+            "type" : "string",
+            "description" : "The type of input this parameter provides.",
+            "minLength" : 1,
+            "maxLength" : 20
+          },
+          "DefaultValue" : {
+            "type" : "array",
+            "description" : "The default value of this parameter if no input is provided.",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "Description" : {
+            "type" : "string",
+            "description" : "Describes this parameter.",
+            "minLength" : 0,
+            "maxLength" : 1024
+          }
+        },
+        "required" : [ "Name", "Type" ],
+        "additionalProperties" : false
+      }
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "The tags associated with the workflow build version.",
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 128
+          },
+          "Value" : {
+            "type" : "string",
+            "minLength" : 0,
+            "maxLength" : 256
+          }
+        },
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      }
+    },
+    "WorkflowVersionArn" : {
+      "type" : "string",
+      "description" : "The workflow version ARN whose build versions you want to list.",
+      "pattern" : "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\\.[0-9]+\\.[0-9]+$"
+    }
+  },
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/Version", "/properties/BuildNumber", "/properties/WorkflowType", "/properties/Description", "/properties/ChangeDescription", "/properties/Owner", "/properties/Data", "/properties/DateCreated", "/properties/Parameters", "/properties/Tags", "/properties/WorkflowVersionArn" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/Name", "/properties/WorkflowType", "/properties/Version", "/properties/BuildNumber" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "imagebuilder:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "imagebuilder:GetWorkflow", "imagebuilder:ListTagsForResource" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "WorkflowVersionArn" : {
+            "type" : "string",
+            "pattern" : "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):workflow/(build|test|distribution)/[a-z0-9-_]+/[0-9]+\\.[0-9]+\\.[0-9]+$"
+          }
+        },
+        "required" : [ "WorkflowVersionArn" ]
+      },
+      "permissions" : [ "imagebuilder:ListWorkflowBuildVersions" ]
+    }
+  },
+  "additionalProperties" : false
+}

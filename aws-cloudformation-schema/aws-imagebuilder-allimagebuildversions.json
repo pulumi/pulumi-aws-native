@@ -1,0 +1,141 @@
+{
+  "typeName" : "AWS::ImageBuilder::AllImageBuildVersions",
+  "description" : "Resource Type definition for AWS::ImageBuilder::AllImageBuildVersions. Returns the list of image build versions for a specified image version ARN.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the image build version.",
+      "pattern" : "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):image/[a-z0-9-_]+/[0-9]+\\.[0-9]+\\.[0-9]+/[0-9]+$"
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the image.",
+      "pattern" : "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$"
+    },
+    "Version" : {
+      "type" : "string",
+      "description" : "The semantic version of the image (major.minor.patch).",
+      "pattern" : "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "BuildNumber" : {
+      "type" : "string",
+      "description" : "The build number of the image build version.",
+      "pattern" : "^[0-9]+$"
+    },
+    "Type" : {
+      "type" : "string",
+      "description" : "Specifies whether this image produces an AMI or a container image.",
+      "enum" : [ "AMI", "DOCKER" ]
+    },
+    "Platform" : {
+      "type" : "string",
+      "description" : "The operating system platform of the image.",
+      "enum" : [ "Windows", "Linux", "macOS" ]
+    },
+    "OsVersion" : {
+      "type" : "string",
+      "description" : "The operating system version of the instances that launch from this image.",
+      "minLength" : 1
+    },
+    "State" : {
+      "type" : "object",
+      "description" : "Image status and the reason for that status.",
+      "properties" : {
+        "Status" : {
+          "type" : "string",
+          "description" : "The status of the image.",
+          "enum" : [ "PENDING", "CREATING", "BUILDING", "TESTING", "DISTRIBUTING", "INTEGRATING", "AVAILABLE", "CANCELLED", "FAILED", "DEPRECATED", "DELETED", "DISABLED" ]
+        }
+      },
+      "additionalProperties" : false
+    },
+    "DateCreated" : {
+      "type" : "string",
+      "description" : "The date on which Image Builder created this image."
+    },
+    "BuildType" : {
+      "type" : "string",
+      "description" : "Indicates the type of build that created this image.",
+      "enum" : [ "USER_INITIATED", "SCHEDULED", "IMPORT", "IMPORT_ISO" ]
+    },
+    "EnhancedImageMetadataEnabled" : {
+      "type" : "boolean",
+      "description" : "Indicates whether enhanced image metadata collection is enabled."
+    },
+    "ImageTestsConfiguration" : {
+      "type" : "object",
+      "description" : "The image tests configuration.",
+      "properties" : {
+        "ImageTestsEnabled" : {
+          "type" : "boolean",
+          "description" : "Determines if tests should run after building the image."
+        },
+        "TimeoutMinutes" : {
+          "type" : "integer",
+          "description" : "The maximum time in minutes that tests are permitted to run.",
+          "minimum" : 60,
+          "maximum" : 1440
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ExecutionRole" : {
+      "type" : "string",
+      "description" : "The execution role for the image.",
+      "minLength" : 1,
+      "maxLength" : 2048,
+      "pattern" : "^(?:arn:aws(?:-[a-z]+)*:iam::[0-9]{12}:role/)?[a-zA-Z_0-9+=,.@\\-_/]+$"
+    },
+    "ImageVersionArn" : {
+      "type" : "string",
+      "description" : "The image version ARN whose build versions you want to list.",
+      "pattern" : "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):image/[a-z0-9-_]+/[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "The tags associated with the image.",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string"
+          },
+          "Value" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      }
+    }
+  },
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/Version", "/properties/BuildNumber", "/properties/Type", "/properties/Platform", "/properties/OsVersion", "/properties/State", "/properties/DateCreated", "/properties/BuildType", "/properties/EnhancedImageMetadataEnabled", "/properties/ImageTestsConfiguration", "/properties/ExecutionRole", "/properties/ImageVersionArn", "/properties/Tags" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/Name", "/properties/Version", "/properties/BuildNumber" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "imagebuilder:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "imagebuilder:GetImage", "imagebuilder:ListTagsForResource" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ImageVersionArn" : {
+            "type" : "string",
+            "pattern" : "^arn:aws[^:]*:imagebuilder:[^:]+:(?:[0-9]{12}|aws(?:-[a-z-]+)?):image/[a-z0-9-_]+/[0-9]+\\.[0-9]+\\.[0-9]+$"
+          }
+        },
+        "required" : [ "ImageVersionArn" ]
+      },
+      "permissions" : [ "imagebuilder:ListImageBuildVersions" ]
+    }
+  },
+  "additionalProperties" : false
+}

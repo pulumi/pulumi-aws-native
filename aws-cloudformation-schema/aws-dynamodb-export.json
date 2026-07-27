@@ -1,0 +1,113 @@
+{
+  "typeName" : "AWS::DynamoDB::Export",
+  "description" : "Represents a completed or in-progress DynamoDB table export to S3.",
+  "properties" : {
+    "ExportArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the export.",
+      "minLength" : 37,
+      "maxLength" : 1024
+    },
+    "TableName" : {
+      "type" : "string",
+      "description" : "The name of the table that was exported."
+    },
+    "ExportId" : {
+      "type" : "string",
+      "description" : "The unique identifier of the export."
+    },
+    "ExportStatus" : {
+      "type" : "string",
+      "description" : "Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.",
+      "enum" : [ "IN_PROGRESS", "COMPLETED", "FAILED" ]
+    },
+    "TableArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the table that was exported.",
+      "minLength" : 1,
+      "maxLength" : 1024
+    },
+    "TableId" : {
+      "type" : "string",
+      "description" : "Unique ID of the table that was exported.",
+      "pattern" : "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "ExportTime" : {
+      "type" : "string",
+      "description" : "Point in time from which table data was exported, in ISO 8601 format.",
+      "format" : "date-time"
+    },
+    "S3Bucket" : {
+      "type" : "string",
+      "description" : "The name of the Amazon S3 bucket containing the export.",
+      "maxLength" : 255,
+      "pattern" : "^[a-z0-9A-Z]+[\\.\\-\\w]*[a-z0-9A-Z]+$"
+    },
+    "S3BucketOwner" : {
+      "type" : "string",
+      "description" : "The ID of the Amazon Web Services account that owns the bucket containing the export.",
+      "pattern" : "^[0-9]{12}$"
+    },
+    "S3Prefix" : {
+      "type" : "string",
+      "description" : "The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.",
+      "maxLength" : 1024
+    },
+    "S3SseAlgorithm" : {
+      "type" : "string",
+      "description" : "Type of encryption used on the bucket where export data is stored.",
+      "enum" : [ "AES256", "KMS" ]
+    },
+    "ExportFormat" : {
+      "type" : "string",
+      "description" : "The format of the exported data.",
+      "enum" : [ "DYNAMODB_JSON", "ION" ]
+    },
+    "ExportType" : {
+      "type" : "string",
+      "description" : "The type of export that was performed.",
+      "enum" : [ "FULL_EXPORT", "INCREMENTAL_EXPORT" ]
+    },
+    "StartTime" : {
+      "type" : "string",
+      "description" : "The time at which the export task began, in ISO 8601 format.",
+      "format" : "date-time"
+    },
+    "EndTime" : {
+      "type" : "string",
+      "description" : "The time at which the export task completed, in ISO 8601 format.",
+      "format" : "date-time"
+    },
+    "ExportManifest" : {
+      "type" : "string",
+      "description" : "The name of the manifest file for the export task."
+    },
+    "BilledSizeBytes" : {
+      "type" : "integer",
+      "description" : "The billable size of the table export.",
+      "minimum" : 0
+    },
+    "ItemCount" : {
+      "type" : "integer",
+      "description" : "The number of items exported.",
+      "minimum" : 0
+    }
+  },
+  "required" : [ "TableArn", "S3Bucket" ],
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/ExportFormat", "/properties/ExportType", "/properties/S3Bucket", "/properties/S3BucketOwner", "/properties/S3Prefix", "/properties/S3SseAlgorithm", "/properties/TableArn" ],
+  "readOnlyProperties" : [ "/properties/ExportArn", "/properties/TableName", "/properties/ExportId", "/properties/ExportStatus", "/properties/TableId", "/properties/ExportTime", "/properties/StartTime", "/properties/EndTime", "/properties/ExportManifest", "/properties/BilledSizeBytes", "/properties/ItemCount" ],
+  "primaryIdentifier" : [ "/properties/ExportArn" ],
+  "additionalIdentifiers" : [ [ "/properties/TableName", "/properties/ExportId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "dynamodb:DescribeExport" ]
+    },
+    "list" : {
+      "permissions" : [ "dynamodb:ListExports" ]
+    }
+  }
+}

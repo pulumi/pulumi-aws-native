@@ -45,6 +45,11 @@ export const getFramework: typeof import("./getFramework").getFramework = null a
 export const getFrameworkOutput: typeof import("./getFramework").getFrameworkOutput = null as any;
 utilities.lazyLoad(exports, ["getFramework","getFrameworkOutput"], () => require("./getFramework"));
 
+export { GetLegalHoldArgs, GetLegalHoldResult, GetLegalHoldOutputArgs } from "./getLegalHold";
+export const getLegalHold: typeof import("./getLegalHold").getLegalHold = null as any;
+export const getLegalHoldOutput: typeof import("./getLegalHold").getLegalHoldOutput = null as any;
+utilities.lazyLoad(exports, ["getLegalHold","getLegalHoldOutput"], () => require("./getLegalHold"));
+
 export { GetLogicallyAirGappedBackupVaultArgs, GetLogicallyAirGappedBackupVaultResult, GetLogicallyAirGappedBackupVaultOutputArgs } from "./getLogicallyAirGappedBackupVault";
 export const getLogicallyAirGappedBackupVault: typeof import("./getLogicallyAirGappedBackupVault").getLogicallyAirGappedBackupVault = null as any;
 export const getLogicallyAirGappedBackupVaultOutput: typeof import("./getLogicallyAirGappedBackupVault").getLogicallyAirGappedBackupVaultOutput = null as any;
@@ -69,6 +74,11 @@ export { GetTieringConfigurationArgs, GetTieringConfigurationResult, GetTieringC
 export const getTieringConfiguration: typeof import("./getTieringConfiguration").getTieringConfiguration = null as any;
 export const getTieringConfigurationOutput: typeof import("./getTieringConfiguration").getTieringConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getTieringConfiguration","getTieringConfigurationOutput"], () => require("./getTieringConfiguration"));
+
+export { LegalHoldArgs } from "./legalHold";
+export type LegalHold = import("./legalHold").LegalHold;
+export const LegalHold: typeof import("./legalHold").LegalHold = null as any;
+utilities.lazyLoad(exports, ["LegalHold"], () => require("./legalHold"));
 
 export { LogicallyAirGappedBackupVaultArgs } from "./logicallyAirGappedBackupVault";
 export type LogicallyAirGappedBackupVault = import("./logicallyAirGappedBackupVault").LogicallyAirGappedBackupVault;
@@ -111,6 +121,8 @@ const _module = {
                 return new BackupVault(name, <any>undefined, { urn })
             case "aws-native:backup:Framework":
                 return new Framework(name, <any>undefined, { urn })
+            case "aws-native:backup:LegalHold":
+                return new LegalHold(name, <any>undefined, { urn })
             case "aws-native:backup:LogicallyAirGappedBackupVault":
                 return new LogicallyAirGappedBackupVault(name, <any>undefined, { urn })
             case "aws-native:backup:ReportPlan":

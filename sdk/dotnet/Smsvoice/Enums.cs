@@ -165,4 +165,43 @@ namespace Pulumi.AwsNative.Smsvoice
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The status of the registration.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistrationStatus : IEquatable<RegistrationStatus>
+    {
+        private readonly string _value;
+
+        private RegistrationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistrationStatus Created { get; } = new RegistrationStatus("CREATED");
+        public static RegistrationStatus Submitted { get; } = new RegistrationStatus("SUBMITTED");
+        public static RegistrationStatus AwsReviewing { get; } = new RegistrationStatus("AWS_REVIEWING");
+        public static RegistrationStatus Reviewing { get; } = new RegistrationStatus("REVIEWING");
+        public static RegistrationStatus RequiresAuthentication { get; } = new RegistrationStatus("REQUIRES_AUTHENTICATION");
+        public static RegistrationStatus Provisioning { get; } = new RegistrationStatus("PROVISIONING");
+        public static RegistrationStatus Complete { get; } = new RegistrationStatus("COMPLETE");
+        public static RegistrationStatus RequiresUpdates { get; } = new RegistrationStatus("REQUIRES_UPDATES");
+        public static RegistrationStatus Closed { get; } = new RegistrationStatus("CLOSED");
+        public static RegistrationStatus Deleted { get; } = new RegistrationStatus("DELETED");
+
+        public static bool operator ==(RegistrationStatus left, RegistrationStatus right) => left.Equals(right);
+        public static bool operator !=(RegistrationStatus left, RegistrationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RegistrationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistrationStatus other && Equals(other);
+        public bool Equals(RegistrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

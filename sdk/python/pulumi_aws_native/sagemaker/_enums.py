@@ -14,6 +14,7 @@ __all__ = [
     'AlgorithmHyperParameterTuningJobObjectiveType',
     'AppResourceSpecInstanceType',
     'AppType',
+    'ClusterAutoPatchConfigPatchingStrategy',
     'ClusterAutoScalingConfigAutoScalerType',
     'ClusterAutoScalingConfigMode',
     'ClusterDeepHealthCheckType',
@@ -378,6 +379,15 @@ class AppType(_builtins.str, Enum):
     R_STUDIO_SERVER_PRO = "RStudioServerPro"
     R_SESSION_GATEWAY = "RSessionGateway"
     CANVAS = "Canvas"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterAutoPatchConfigPatchingStrategy")
+class ClusterAutoPatchConfigPatchingStrategy(_builtins.str, Enum):
+    """
+    The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+    """
+    WHEN_IDLE = "WhenIdle"
+    WHEN_ALL_IDLE = "WhenAllIdle"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterAutoScalingConfigAutoScalerType")

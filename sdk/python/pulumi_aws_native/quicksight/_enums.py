@@ -12,6 +12,8 @@ __all__ = [
     'ActionConnectorConnectionAuthType',
     'ActionConnectorResourceStatus',
     'ActionConnectorType',
+    'AgentLifecycle',
+    'AgentStatus',
     'AnalysisAnchorOption',
     'AnalysisArcThickness',
     'AnalysisArcThicknessOptions',
@@ -304,6 +306,11 @@ __all__ = [
     'FlowPublishState',
     'FolderSharingModel',
     'FolderType',
+    'KnowledgeBaseAudioExtractionStatus',
+    'KnowledgeBaseDataSetStatus',
+    'KnowledgeBaseImageExtractionStatus',
+    'KnowledgeBaseVideoExtractionStatus',
+    'KnowledgeBaseVideoExtractionType',
     'OAuthClientApplicationDataSourceType',
     'OAuthClientApplicationOAuthClientAuthenticationType',
     'RefreshScheduleMapRefreshType',
@@ -524,6 +531,26 @@ class ActionConnectorType(_builtins.str, Enum):
     SLACK = "SLACK"
     ASANA = "ASANA"
     BAMBOO_HR = "BAMBOO_HR"
+
+
+@pulumi.type_token("aws-native:quicksight:AgentLifecycle")
+class AgentLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle stage of the agent. PREVIEW or PUBLISHED.
+    """
+    PREVIEW = "PREVIEW"
+    PUBLISHED = "PUBLISHED"
+
+
+@pulumi.type_token("aws-native:quicksight:AgentStatus")
+class AgentStatus(_builtins.str, Enum):
+    """
+    The current status of the agent. One of ACTIVE, CREATING, UPDATING, or FAILED.
+    """
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:quicksight:AnalysisAnchorOption")
@@ -2690,6 +2717,39 @@ class FolderSharingModel(_builtins.str, Enum):
 class FolderType(_builtins.str, Enum):
     SHARED = "SHARED"
     RESTRICTED = "RESTRICTED"
+
+
+@pulumi.type_token("aws-native:quicksight:KnowledgeBaseAudioExtractionStatus")
+class KnowledgeBaseAudioExtractionStatus(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:quicksight:KnowledgeBaseDataSetStatus")
+class KnowledgeBaseDataSetStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    UPDATING = "UPDATING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+    DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:quicksight:KnowledgeBaseImageExtractionStatus")
+class KnowledgeBaseImageExtractionStatus(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:quicksight:KnowledgeBaseVideoExtractionStatus")
+class KnowledgeBaseVideoExtractionStatus(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:quicksight:KnowledgeBaseVideoExtractionType")
+class KnowledgeBaseVideoExtractionType(_builtins.str, Enum):
+    AUDIO_TRANSCRIPTION_ONLY = "AUDIO_TRANSCRIPTION_ONLY"
+    VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION = "VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION"
 
 
 @pulumi.type_token("aws-native:quicksight:OAuthClientApplicationDataSourceType")

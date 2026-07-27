@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("disableSchemaValidation")]
         public Output<bool?> DisableSchemaValidation { get; private set; } = null!;
 
+        [Output("executeApiArn")]
+        public Output<string> ExecuteApiArn { get; private set; } = null!;
+
         /// <summary>
         /// Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
         /// </summary>

@@ -2729,6 +2729,240 @@ func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) SnsTopicAr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The criteria to assign a set of resources, such as resource types or backup vaults.
+type RecoveryPointSelectionProperties struct {
+	// A date range for filtering recovery points.
+	DateRange *RecoveryPointSelectionPropertiesDateRangeProperties `pulumi:"dateRange"`
+	// The resources included in the resource selection.
+	ResourceIdentifiers []string `pulumi:"resourceIdentifiers"`
+	// The names of the vaults in which the selected recovery points are contained.
+	VaultNames []string `pulumi:"vaultNames"`
+}
+
+// RecoveryPointSelectionPropertiesInput is an input type that accepts RecoveryPointSelectionPropertiesArgs and RecoveryPointSelectionPropertiesOutput values.
+// You can construct a concrete instance of `RecoveryPointSelectionPropertiesInput` via:
+//
+//	RecoveryPointSelectionPropertiesArgs{...}
+type RecoveryPointSelectionPropertiesInput interface {
+	pulumi.Input
+
+	ToRecoveryPointSelectionPropertiesOutput() RecoveryPointSelectionPropertiesOutput
+	ToRecoveryPointSelectionPropertiesOutputWithContext(context.Context) RecoveryPointSelectionPropertiesOutput
+}
+
+// The criteria to assign a set of resources, such as resource types or backup vaults.
+type RecoveryPointSelectionPropertiesArgs struct {
+	// A date range for filtering recovery points.
+	DateRange RecoveryPointSelectionPropertiesDateRangePropertiesPtrInput `pulumi:"dateRange"`
+	// The resources included in the resource selection.
+	ResourceIdentifiers pulumi.StringArrayInput `pulumi:"resourceIdentifiers"`
+	// The names of the vaults in which the selected recovery points are contained.
+	VaultNames pulumi.StringArrayInput `pulumi:"vaultNames"`
+}
+
+func (RecoveryPointSelectionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecoveryPointSelectionProperties)(nil)).Elem()
+}
+
+func (i RecoveryPointSelectionPropertiesArgs) ToRecoveryPointSelectionPropertiesOutput() RecoveryPointSelectionPropertiesOutput {
+	return i.ToRecoveryPointSelectionPropertiesOutputWithContext(context.Background())
+}
+
+func (i RecoveryPointSelectionPropertiesArgs) ToRecoveryPointSelectionPropertiesOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPointSelectionPropertiesOutput)
+}
+
+// The criteria to assign a set of resources, such as resource types or backup vaults.
+type RecoveryPointSelectionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RecoveryPointSelectionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecoveryPointSelectionProperties)(nil)).Elem()
+}
+
+func (o RecoveryPointSelectionPropertiesOutput) ToRecoveryPointSelectionPropertiesOutput() RecoveryPointSelectionPropertiesOutput {
+	return o
+}
+
+func (o RecoveryPointSelectionPropertiesOutput) ToRecoveryPointSelectionPropertiesOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesOutput {
+	return o
+}
+
+// A date range for filtering recovery points.
+func (o RecoveryPointSelectionPropertiesOutput) DateRange() RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return o.ApplyT(func(v RecoveryPointSelectionProperties) *RecoveryPointSelectionPropertiesDateRangeProperties {
+		return v.DateRange
+	}).(RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput)
+}
+
+// The resources included in the resource selection.
+func (o RecoveryPointSelectionPropertiesOutput) ResourceIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecoveryPointSelectionProperties) []string { return v.ResourceIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+// The names of the vaults in which the selected recovery points are contained.
+func (o RecoveryPointSelectionPropertiesOutput) VaultNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecoveryPointSelectionProperties) []string { return v.VaultNames }).(pulumi.StringArrayOutput)
+}
+
+// A date range for filtering recovery points.
+type RecoveryPointSelectionPropertiesDateRangeProperties struct {
+	// The beginning date, inclusive. ISO 8601 date-time.
+	FromDate string `pulumi:"fromDate"`
+	// The end date, inclusive. ISO 8601 date-time.
+	ToDate string `pulumi:"toDate"`
+}
+
+// RecoveryPointSelectionPropertiesDateRangePropertiesInput is an input type that accepts RecoveryPointSelectionPropertiesDateRangePropertiesArgs and RecoveryPointSelectionPropertiesDateRangePropertiesOutput values.
+// You can construct a concrete instance of `RecoveryPointSelectionPropertiesDateRangePropertiesInput` via:
+//
+//	RecoveryPointSelectionPropertiesDateRangePropertiesArgs{...}
+type RecoveryPointSelectionPropertiesDateRangePropertiesInput interface {
+	pulumi.Input
+
+	ToRecoveryPointSelectionPropertiesDateRangePropertiesOutput() RecoveryPointSelectionPropertiesDateRangePropertiesOutput
+	ToRecoveryPointSelectionPropertiesDateRangePropertiesOutputWithContext(context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesOutput
+}
+
+// A date range for filtering recovery points.
+type RecoveryPointSelectionPropertiesDateRangePropertiesArgs struct {
+	// The beginning date, inclusive. ISO 8601 date-time.
+	FromDate pulumi.StringInput `pulumi:"fromDate"`
+	// The end date, inclusive. ISO 8601 date-time.
+	ToDate pulumi.StringInput `pulumi:"toDate"`
+}
+
+func (RecoveryPointSelectionPropertiesDateRangePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecoveryPointSelectionPropertiesDateRangeProperties)(nil)).Elem()
+}
+
+func (i RecoveryPointSelectionPropertiesDateRangePropertiesArgs) ToRecoveryPointSelectionPropertiesDateRangePropertiesOutput() RecoveryPointSelectionPropertiesDateRangePropertiesOutput {
+	return i.ToRecoveryPointSelectionPropertiesDateRangePropertiesOutputWithContext(context.Background())
+}
+
+func (i RecoveryPointSelectionPropertiesDateRangePropertiesArgs) ToRecoveryPointSelectionPropertiesDateRangePropertiesOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPointSelectionPropertiesDateRangePropertiesOutput)
+}
+
+func (i RecoveryPointSelectionPropertiesDateRangePropertiesArgs) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput() RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return i.ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RecoveryPointSelectionPropertiesDateRangePropertiesArgs) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPointSelectionPropertiesDateRangePropertiesOutput).ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(ctx)
+}
+
+// RecoveryPointSelectionPropertiesDateRangePropertiesPtrInput is an input type that accepts RecoveryPointSelectionPropertiesDateRangePropertiesArgs, RecoveryPointSelectionPropertiesDateRangePropertiesPtr and RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput values.
+// You can construct a concrete instance of `RecoveryPointSelectionPropertiesDateRangePropertiesPtrInput` via:
+//
+//	        RecoveryPointSelectionPropertiesDateRangePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecoveryPointSelectionPropertiesDateRangePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput() RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput
+	ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput
+}
+
+type recoveryPointSelectionPropertiesDateRangePropertiesPtrType RecoveryPointSelectionPropertiesDateRangePropertiesArgs
+
+func RecoveryPointSelectionPropertiesDateRangePropertiesPtr(v *RecoveryPointSelectionPropertiesDateRangePropertiesArgs) RecoveryPointSelectionPropertiesDateRangePropertiesPtrInput {
+	return (*recoveryPointSelectionPropertiesDateRangePropertiesPtrType)(v)
+}
+
+func (*recoveryPointSelectionPropertiesDateRangePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecoveryPointSelectionPropertiesDateRangeProperties)(nil)).Elem()
+}
+
+func (i *recoveryPointSelectionPropertiesDateRangePropertiesPtrType) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput() RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return i.ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *recoveryPointSelectionPropertiesDateRangePropertiesPtrType) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput)
+}
+
+// A date range for filtering recovery points.
+type RecoveryPointSelectionPropertiesDateRangePropertiesOutput struct{ *pulumi.OutputState }
+
+func (RecoveryPointSelectionPropertiesDateRangePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecoveryPointSelectionPropertiesDateRangeProperties)(nil)).Elem()
+}
+
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesOutput) ToRecoveryPointSelectionPropertiesDateRangePropertiesOutput() RecoveryPointSelectionPropertiesDateRangePropertiesOutput {
+	return o
+}
+
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesOutput) ToRecoveryPointSelectionPropertiesDateRangePropertiesOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesOutput {
+	return o
+}
+
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesOutput) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput() RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return o.ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesOutput) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecoveryPointSelectionPropertiesDateRangeProperties) *RecoveryPointSelectionPropertiesDateRangeProperties {
+		return &v
+	}).(RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput)
+}
+
+// The beginning date, inclusive. ISO 8601 date-time.
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesOutput) FromDate() pulumi.StringOutput {
+	return o.ApplyT(func(v RecoveryPointSelectionPropertiesDateRangeProperties) string { return v.FromDate }).(pulumi.StringOutput)
+}
+
+// The end date, inclusive. ISO 8601 date-time.
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesOutput) ToDate() pulumi.StringOutput {
+	return o.ApplyT(func(v RecoveryPointSelectionPropertiesDateRangeProperties) string { return v.ToDate }).(pulumi.StringOutput)
+}
+
+type RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecoveryPointSelectionPropertiesDateRangeProperties)(nil)).Elem()
+}
+
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput() RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return o
+}
+
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput) ToRecoveryPointSelectionPropertiesDateRangePropertiesPtrOutputWithContext(ctx context.Context) RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput {
+	return o
+}
+
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput) Elem() RecoveryPointSelectionPropertiesDateRangePropertiesOutput {
+	return o.ApplyT(func(v *RecoveryPointSelectionPropertiesDateRangeProperties) RecoveryPointSelectionPropertiesDateRangeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RecoveryPointSelectionPropertiesDateRangeProperties
+		return ret
+	}).(RecoveryPointSelectionPropertiesDateRangePropertiesOutput)
+}
+
+// The beginning date, inclusive. ISO 8601 date-time.
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput) FromDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecoveryPointSelectionPropertiesDateRangeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FromDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end date, inclusive. ISO 8601 date-time.
+func (o RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput) ToDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecoveryPointSelectionPropertiesDateRangeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ToDate
+	}).(pulumi.StringPtrOutput)
+}
+
 // A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
 type ReportDeliveryChannelProperties struct {
 	// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
@@ -3476,6 +3710,13 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringNotEq
 	}).(RestoreTestingSelectionKeyValueArrayOutput)
 }
 
+type TagsItemProperties struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type TieringConfigurationResourceSelection struct {
 	ResourceType              string   `pulumi:"resourceType"`
 	Resources                 []string `pulumi:"resources"`
@@ -3619,6 +3860,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkTagArrayInput)(nil)).Elem(), FrameworkTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogicallyAirGappedBackupVaultNotificationObjectTypeInput)(nil)).Elem(), LogicallyAirGappedBackupVaultNotificationObjectTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput)(nil)).Elem(), LogicallyAirGappedBackupVaultNotificationObjectTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryPointSelectionPropertiesInput)(nil)).Elem(), RecoveryPointSelectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryPointSelectionPropertiesDateRangePropertiesInput)(nil)).Elem(), RecoveryPointSelectionPropertiesDateRangePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryPointSelectionPropertiesDateRangePropertiesPtrInput)(nil)).Elem(), RecoveryPointSelectionPropertiesDateRangePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDeliveryChannelPropertiesInput)(nil)).Elem(), ReportDeliveryChannelPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportSettingPropertiesInput)(nil)).Elem(), ReportSettingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs{})
@@ -3665,6 +3909,9 @@ func init() {
 	pulumi.RegisterOutputType(FrameworkTagArrayOutput{})
 	pulumi.RegisterOutputType(LogicallyAirGappedBackupVaultNotificationObjectTypeOutput{})
 	pulumi.RegisterOutputType(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput{})
+	pulumi.RegisterOutputType(RecoveryPointSelectionPropertiesOutput{})
+	pulumi.RegisterOutputType(RecoveryPointSelectionPropertiesDateRangePropertiesOutput{})
+	pulumi.RegisterOutputType(RecoveryPointSelectionPropertiesDateRangePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesOutput{})

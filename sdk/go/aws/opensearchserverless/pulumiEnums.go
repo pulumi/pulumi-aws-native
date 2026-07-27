@@ -1348,6 +1348,172 @@ func (in *indexPropertyMappingCompressionLevelPtr) ToIndexPropertyMappingCompres
 	return pulumi.ToOutputWithContext(ctx, in).(IndexPropertyMappingCompressionLevelPtrOutput)
 }
 
+// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+type IndexPropertyMappingDataType string
+
+const (
+	IndexPropertyMappingDataTypeFloat = IndexPropertyMappingDataType("float")
+	IndexPropertyMappingDataTypeByte  = IndexPropertyMappingDataType("byte")
+)
+
+func (IndexPropertyMappingDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMappingDataType)(nil)).Elem()
+}
+
+func (e IndexPropertyMappingDataType) ToIndexPropertyMappingDataTypeOutput() IndexPropertyMappingDataTypeOutput {
+	return pulumi.ToOutput(e).(IndexPropertyMappingDataTypeOutput)
+}
+
+func (e IndexPropertyMappingDataType) ToIndexPropertyMappingDataTypeOutputWithContext(ctx context.Context) IndexPropertyMappingDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IndexPropertyMappingDataTypeOutput)
+}
+
+func (e IndexPropertyMappingDataType) ToIndexPropertyMappingDataTypePtrOutput() IndexPropertyMappingDataTypePtrOutput {
+	return e.ToIndexPropertyMappingDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e IndexPropertyMappingDataType) ToIndexPropertyMappingDataTypePtrOutputWithContext(ctx context.Context) IndexPropertyMappingDataTypePtrOutput {
+	return IndexPropertyMappingDataType(e).ToIndexPropertyMappingDataTypeOutputWithContext(ctx).ToIndexPropertyMappingDataTypePtrOutputWithContext(ctx)
+}
+
+func (e IndexPropertyMappingDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IndexPropertyMappingDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IndexPropertyMappingDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IndexPropertyMappingDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IndexPropertyMappingDataTypeOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexPropertyMappingDataType)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToIndexPropertyMappingDataTypeOutput() IndexPropertyMappingDataTypeOutput {
+	return o
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToIndexPropertyMappingDataTypeOutputWithContext(ctx context.Context) IndexPropertyMappingDataTypeOutput {
+	return o
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToIndexPropertyMappingDataTypePtrOutput() IndexPropertyMappingDataTypePtrOutput {
+	return o.ToIndexPropertyMappingDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToIndexPropertyMappingDataTypePtrOutputWithContext(ctx context.Context) IndexPropertyMappingDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexPropertyMappingDataType) *IndexPropertyMappingDataType {
+		return &v
+	}).(IndexPropertyMappingDataTypePtrOutput)
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IndexPropertyMappingDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IndexPropertyMappingDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IndexPropertyMappingDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IndexPropertyMappingDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IndexPropertyMappingDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexPropertyMappingDataType)(nil)).Elem()
+}
+
+func (o IndexPropertyMappingDataTypePtrOutput) ToIndexPropertyMappingDataTypePtrOutput() IndexPropertyMappingDataTypePtrOutput {
+	return o
+}
+
+func (o IndexPropertyMappingDataTypePtrOutput) ToIndexPropertyMappingDataTypePtrOutputWithContext(ctx context.Context) IndexPropertyMappingDataTypePtrOutput {
+	return o
+}
+
+func (o IndexPropertyMappingDataTypePtrOutput) Elem() IndexPropertyMappingDataTypeOutput {
+	return o.ApplyT(func(v *IndexPropertyMappingDataType) IndexPropertyMappingDataType {
+		if v != nil {
+			return *v
+		}
+		var ret IndexPropertyMappingDataType
+		return ret
+	}).(IndexPropertyMappingDataTypeOutput)
+}
+
+func (o IndexPropertyMappingDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IndexPropertyMappingDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IndexPropertyMappingDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IndexPropertyMappingDataTypeInput is an input type that accepts values of the IndexPropertyMappingDataType enum
+// A concrete instance of `IndexPropertyMappingDataTypeInput` can be one of the following:
+//
+//	IndexPropertyMappingDataTypeFloat
+//	IndexPropertyMappingDataTypeByte
+type IndexPropertyMappingDataTypeInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingDataTypeOutput() IndexPropertyMappingDataTypeOutput
+	ToIndexPropertyMappingDataTypeOutputWithContext(context.Context) IndexPropertyMappingDataTypeOutput
+}
+
+var indexPropertyMappingDataTypePtrType = reflect.TypeOf((**IndexPropertyMappingDataType)(nil)).Elem()
+
+type IndexPropertyMappingDataTypePtrInput interface {
+	pulumi.Input
+
+	ToIndexPropertyMappingDataTypePtrOutput() IndexPropertyMappingDataTypePtrOutput
+	ToIndexPropertyMappingDataTypePtrOutputWithContext(context.Context) IndexPropertyMappingDataTypePtrOutput
+}
+
+type indexPropertyMappingDataTypePtr string
+
+func IndexPropertyMappingDataTypePtr(v string) IndexPropertyMappingDataTypePtrInput {
+	return (*indexPropertyMappingDataTypePtr)(&v)
+}
+
+func (*indexPropertyMappingDataTypePtr) ElementType() reflect.Type {
+	return indexPropertyMappingDataTypePtrType
+}
+
+func (in *indexPropertyMappingDataTypePtr) ToIndexPropertyMappingDataTypePtrOutput() IndexPropertyMappingDataTypePtrOutput {
+	return pulumi.ToOutput(in).(IndexPropertyMappingDataTypePtrOutput)
+}
+
+func (in *indexPropertyMappingDataTypePtr) ToIndexPropertyMappingDataTypePtrOutputWithContext(ctx context.Context) IndexPropertyMappingDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IndexPropertyMappingDataTypePtrOutput)
+}
+
 // The k-NN search engine to use
 type IndexPropertyMappingMethodPropertiesEngine string
 
@@ -2715,6 +2881,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTypePtrInput)(nil)).Elem(), CollectionType("SEARCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingCompressionLevelInput)(nil)).Elem(), IndexPropertyMappingCompressionLevel("16x"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingCompressionLevelPtrInput)(nil)).Elem(), IndexPropertyMappingCompressionLevel("16x"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingDataTypeInput)(nil)).Elem(), IndexPropertyMappingDataType("float"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingDataTypePtrInput)(nil)).Elem(), IndexPropertyMappingDataType("float"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesEngineInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesEngine("nmslib"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesEnginePtrInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesEngine("nmslib"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesNameInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesName("hnsw"))
@@ -2747,6 +2915,8 @@ func init() {
 	pulumi.RegisterOutputType(CollectionTypePtrOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingCompressionLevelOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingCompressionLevelPtrOutput{})
+	pulumi.RegisterOutputType(IndexPropertyMappingDataTypeOutput{})
+	pulumi.RegisterOutputType(IndexPropertyMappingDataTypePtrOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesEngineOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesEnginePtrOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesNameOutput{})

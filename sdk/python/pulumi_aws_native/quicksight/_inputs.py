@@ -52,6 +52,12 @@ __all__ = [
     'ActionConnectorNoneConnectionMetadataArgsDict',
     'ActionConnectorResourcePermissionArgs',
     'ActionConnectorResourcePermissionArgsDict',
+    'AgentCustomPromptInputArgs',
+    'AgentCustomPromptInputArgsDict',
+    'AgentCustomPromptInputParametersArgs',
+    'AgentCustomPromptInputParametersArgsDict',
+    'AgentCustomPromptProfileArgs',
+    'AgentCustomPromptProfileArgsDict',
     'AnalysisAggregationFunctionArgs',
     'AnalysisAggregationFunctionArgsDict',
     'AnalysisAggregationSortConfigurationArgs',
@@ -2598,6 +2604,22 @@ __all__ = [
     'FlowPermissionArgsDict',
     'FolderResourcePermissionArgs',
     'FolderResourcePermissionArgsDict',
+    'KnowledgeBaseAccessControlConfigurationArgs',
+    'KnowledgeBaseAccessControlConfigurationArgsDict',
+    'KnowledgeBaseAudioExtractionConfigurationArgs',
+    'KnowledgeBaseAudioExtractionConfigurationArgsDict',
+    'KnowledgeBaseConfigurationArgs',
+    'KnowledgeBaseConfigurationArgsDict',
+    'KnowledgeBaseImageExtractionConfigurationArgs',
+    'KnowledgeBaseImageExtractionConfigurationArgsDict',
+    'KnowledgeBaseKbTemplateConfigurationArgs',
+    'KnowledgeBaseKbTemplateConfigurationArgsDict',
+    'KnowledgeBaseMediaExtractionConfigurationArgs',
+    'KnowledgeBaseMediaExtractionConfigurationArgsDict',
+    'KnowledgeBaseResourcePermissionArgs',
+    'KnowledgeBaseResourcePermissionArgsDict',
+    'KnowledgeBaseVideoExtractionConfigurationArgs',
+    'KnowledgeBaseVideoExtractionConfigurationArgsDict',
     'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs',
     'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict',
     'RefreshScheduleMapArgs',
@@ -4320,6 +4342,230 @@ class ActionConnectorResourcePermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "principal", value)
+
+
+class AgentCustomPromptInputArgsDict(TypedDict):
+    """
+    Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+    """
+    existing_prompt: NotRequired[pulumi.Input[Optional['AgentCustomPromptProfileArgsDict']]]
+    new_prompt: NotRequired[pulumi.Input[Optional['AgentCustomPromptInputParametersArgsDict']]]
+
+@pulumi.input_type
+class AgentCustomPromptInputArgs:
+    def __init__(__self__, *,
+                 existing_prompt: pulumi.Input[Optional['AgentCustomPromptProfileArgs']] = None,
+                 new_prompt: pulumi.Input[Optional['AgentCustomPromptInputParametersArgs']] = None):
+        """
+        Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+        """
+        if existing_prompt is not None:
+            pulumi.set(__self__, "existing_prompt", existing_prompt)
+        if new_prompt is not None:
+            pulumi.set(__self__, "new_prompt", new_prompt)
+
+    @_builtins.property
+    @pulumi.getter(name="existingPrompt")
+    def existing_prompt(self) -> pulumi.Input[Optional['AgentCustomPromptProfileArgs']]:
+        return pulumi.get(self, "existing_prompt")
+
+    @existing_prompt.setter
+    def existing_prompt(self, value: pulumi.Input[Optional['AgentCustomPromptProfileArgs']]):
+        pulumi.set(self, "existing_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="newPrompt")
+    def new_prompt(self) -> pulumi.Input[Optional['AgentCustomPromptInputParametersArgs']]:
+        return pulumi.get(self, "new_prompt")
+
+    @new_prompt.setter
+    def new_prompt(self, value: pulumi.Input[Optional['AgentCustomPromptInputParametersArgs']]):
+        pulumi.set(self, "new_prompt", value)
+
+
+class AgentCustomPromptInputParametersArgsDict(TypedDict):
+    """
+    Parameters for creating a new custom prompt configuration.
+    """
+    custom_instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Custom instructions for the agent behavior.
+    """
+    identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identity or persona of the agent.
+    """
+    output_style: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The output style for the agent responses.
+    """
+    response_length: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The desired response length for the agent.
+    """
+    tone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The tone used in agent responses.
+    """
+
+@pulumi.input_type
+class AgentCustomPromptInputParametersArgs:
+    def __init__(__self__, *,
+                 custom_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_length: pulumi.Input[Optional[_builtins.str]] = None,
+                 tone: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Parameters for creating a new custom prompt configuration.
+
+        :param pulumi.Input[_builtins.str] custom_instructions: Custom instructions for the agent behavior.
+        :param pulumi.Input[_builtins.str] identity: The identity or persona of the agent.
+        :param pulumi.Input[_builtins.str] output_style: The output style for the agent responses.
+        :param pulumi.Input[_builtins.str] response_length: The desired response length for the agent.
+        :param pulumi.Input[_builtins.str] tone: The tone used in agent responses.
+        """
+        if custom_instructions is not None:
+            pulumi.set(__self__, "custom_instructions", custom_instructions)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if output_style is not None:
+            pulumi.set(__self__, "output_style", output_style)
+        if response_length is not None:
+            pulumi.set(__self__, "response_length", response_length)
+        if tone is not None:
+            pulumi.set(__self__, "tone", tone)
+
+    @_builtins.property
+    @pulumi.getter(name="customInstructions")
+    def custom_instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Custom instructions for the agent behavior.
+        """
+        return pulumi.get(self, "custom_instructions")
+
+    @custom_instructions.setter
+    def custom_instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_instructions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identity or persona of the agent.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputStyle")
+    def output_style(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The output style for the agent responses.
+        """
+        return pulumi.get(self, "output_style")
+
+    @output_style.setter
+    def output_style(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "output_style", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseLength")
+    def response_length(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The desired response length for the agent.
+        """
+        return pulumi.get(self, "response_length")
+
+    @response_length.setter
+    def response_length(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "response_length", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The tone used in agent responses.
+        """
+        return pulumi.get(self, "tone")
+
+    @tone.setter
+    def tone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tone", value)
+
+
+class AgentCustomPromptProfileArgsDict(TypedDict):
+    """
+    Reference to an existing custom prompt profile.
+    """
+    model_profile_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the model profile.
+    """
+    qbs_aws_account_id: pulumi.Input[_builtins.str]
+    """
+    The QBS AWS account identifier.
+    """
+    subscription_id: pulumi.Input[_builtins.str]
+    """
+    The subscription identifier.
+    """
+
+@pulumi.input_type
+class AgentCustomPromptProfileArgs:
+    def __init__(__self__, *,
+                 model_profile_id: pulumi.Input[_builtins.str],
+                 qbs_aws_account_id: pulumi.Input[_builtins.str],
+                 subscription_id: pulumi.Input[_builtins.str]):
+        """
+        Reference to an existing custom prompt profile.
+
+        :param pulumi.Input[_builtins.str] model_profile_id: The identifier of the model profile.
+        :param pulumi.Input[_builtins.str] qbs_aws_account_id: The QBS AWS account identifier.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription identifier.
+        """
+        pulumi.set(__self__, "model_profile_id", model_profile_id)
+        pulumi.set(__self__, "qbs_aws_account_id", qbs_aws_account_id)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @_builtins.property
+    @pulumi.getter(name="modelProfileId")
+    def model_profile_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the model profile.
+        """
+        return pulumi.get(self, "model_profile_id")
+
+    @model_profile_id.setter
+    def model_profile_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_profile_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="qbsAwsAccountId")
+    def qbs_aws_account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The QBS AWS account identifier.
+        """
+        return pulumi.get(self, "qbs_aws_account_id")
+
+    @qbs_aws_account_id.setter
+    def qbs_aws_account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "qbs_aws_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The subscription identifier.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subscription_id", value)
 
 
 class AnalysisAggregationFunctionArgsDict(TypedDict):
@@ -102626,6 +102872,289 @@ class FolderResourcePermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "principal", value)
+
+
+class KnowledgeBaseAccessControlConfigurationArgsDict(TypedDict):
+    is_acl_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+
+@pulumi.input_type
+class KnowledgeBaseAccessControlConfigurationArgs:
+    def __init__(__self__, *,
+                 is_acl_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        if is_acl_enabled is not None:
+            pulumi.set(__self__, "is_acl_enabled", is_acl_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="isAclEnabled")
+    def is_acl_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_acl_enabled")
+
+    @is_acl_enabled.setter
+    def is_acl_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_acl_enabled", value)
+
+
+class KnowledgeBaseAudioExtractionConfigurationArgsDict(TypedDict):
+    audio_extraction_status: pulumi.Input['KnowledgeBaseAudioExtractionStatus']
+
+@pulumi.input_type
+class KnowledgeBaseAudioExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 audio_extraction_status: pulumi.Input['KnowledgeBaseAudioExtractionStatus']):
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> pulumi.Input['KnowledgeBaseAudioExtractionStatus']:
+        return pulumi.get(self, "audio_extraction_status")
+
+    @audio_extraction_status.setter
+    def audio_extraction_status(self, value: pulumi.Input['KnowledgeBaseAudioExtractionStatus']):
+        pulumi.set(self, "audio_extraction_status", value)
+
+
+class KnowledgeBaseConfigurationArgsDict(TypedDict):
+    template_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseKbTemplateConfigurationArgsDict']]]
+
+@pulumi.input_type
+class KnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 template_configuration: pulumi.Input[Optional['KnowledgeBaseKbTemplateConfigurationArgs']] = None):
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseKbTemplateConfigurationArgs']]:
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseKbTemplateConfigurationArgs']]):
+        pulumi.set(self, "template_configuration", value)
+
+
+class KnowledgeBaseImageExtractionConfigurationArgsDict(TypedDict):
+    image_extraction_status: pulumi.Input['KnowledgeBaseImageExtractionStatus']
+
+@pulumi.input_type
+class KnowledgeBaseImageExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 image_extraction_status: pulumi.Input['KnowledgeBaseImageExtractionStatus']):
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> pulumi.Input['KnowledgeBaseImageExtractionStatus']:
+        return pulumi.get(self, "image_extraction_status")
+
+    @image_extraction_status.setter
+    def image_extraction_status(self, value: pulumi.Input['KnowledgeBaseImageExtractionStatus']):
+        pulumi.set(self, "image_extraction_status", value)
+
+
+class KnowledgeBaseKbTemplateConfigurationArgsDict(TypedDict):
+    template: NotRequired[Any]
+
+@pulumi.input_type
+class KnowledgeBaseKbTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 template: Optional[Any] = None):
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @_builtins.property
+    @pulumi.getter
+    def template(self) -> Optional[Any]:
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[Any]):
+        pulumi.set(self, "template", value)
+
+
+class KnowledgeBaseMediaExtractionConfigurationArgsDict(TypedDict):
+    audio_extraction_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseAudioExtractionConfigurationArgsDict']]]
+    image_extraction_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseImageExtractionConfigurationArgsDict']]]
+    video_extraction_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseVideoExtractionConfigurationArgsDict']]]
+
+@pulumi.input_type
+class KnowledgeBaseMediaExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 audio_extraction_configuration: pulumi.Input[Optional['KnowledgeBaseAudioExtractionConfigurationArgs']] = None,
+                 image_extraction_configuration: pulumi.Input[Optional['KnowledgeBaseImageExtractionConfigurationArgs']] = None,
+                 video_extraction_configuration: pulumi.Input[Optional['KnowledgeBaseVideoExtractionConfigurationArgs']] = None):
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseAudioExtractionConfigurationArgs']]:
+        return pulumi.get(self, "audio_extraction_configuration")
+
+    @audio_extraction_configuration.setter
+    def audio_extraction_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseAudioExtractionConfigurationArgs']]):
+        pulumi.set(self, "audio_extraction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseImageExtractionConfigurationArgs']]:
+        return pulumi.get(self, "image_extraction_configuration")
+
+    @image_extraction_configuration.setter
+    def image_extraction_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseImageExtractionConfigurationArgs']]):
+        pulumi.set(self, "image_extraction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseVideoExtractionConfigurationArgs']]:
+        return pulumi.get(self, "video_extraction_configuration")
+
+    @video_extraction_configuration.setter
+    def video_extraction_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseVideoExtractionConfigurationArgs']]):
+        pulumi.set(self, "video_extraction_configuration", value)
+
+
+class KnowledgeBaseResourcePermissionArgsDict(TypedDict):
+    """
+    <p>Permission for the resource.</p>
+    """
+    actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    <p>The IAM action to grant or revoke permissions on.</p>
+    """
+    principal: pulumi.Input[_builtins.str]
+    """
+    <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                following:</p>
+             <ul>
+                <li>
+                   <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
+                </li>
+                <li>
+                   <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                </li>
+                <li>
+                   <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                        ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                        (This is less common.) </p>
+                </li>
+             </ul>
+    """
+    resource: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class KnowledgeBaseResourcePermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 principal: pulumi.Input[_builtins.str],
+                 resource: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        <p>Permission for the resource.</p>
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[_builtins.str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        <p>The IAM action to grant or revoke permissions on.</p>
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[_builtins.str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                 <ul>
+                    <li>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "principal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource", value)
+
+
+class KnowledgeBaseVideoExtractionConfigurationArgsDict(TypedDict):
+    video_extraction_status: pulumi.Input['KnowledgeBaseVideoExtractionStatus']
+    video_extraction_type: NotRequired[pulumi.Input[Optional['KnowledgeBaseVideoExtractionType']]]
+
+@pulumi.input_type
+class KnowledgeBaseVideoExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 video_extraction_status: pulumi.Input['KnowledgeBaseVideoExtractionStatus'],
+                 video_extraction_type: pulumi.Input[Optional['KnowledgeBaseVideoExtractionType']] = None):
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+        if video_extraction_type is not None:
+            pulumi.set(__self__, "video_extraction_type", video_extraction_type)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> pulumi.Input['KnowledgeBaseVideoExtractionStatus']:
+        return pulumi.get(self, "video_extraction_status")
+
+    @video_extraction_status.setter
+    def video_extraction_status(self, value: pulumi.Input['KnowledgeBaseVideoExtractionStatus']):
+        pulumi.set(self, "video_extraction_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionType")
+    def video_extraction_type(self) -> pulumi.Input[Optional['KnowledgeBaseVideoExtractionType']]:
+        return pulumi.get(self, "video_extraction_type")
+
+    @video_extraction_type.setter
+    def video_extraction_type(self, value: pulumi.Input[Optional['KnowledgeBaseVideoExtractionType']]):
+        pulumi.set(self, "video_extraction_type", value)
 
 
 class OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict(TypedDict):

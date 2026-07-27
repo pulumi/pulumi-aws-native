@@ -124,6 +124,7 @@ AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
 AWS::Backup::Framework
+AWS::Backup::LegalHold
 AWS::Backup::LogicallyAirGappedBackupVault
 AWS::Backup::ReportPlan
 AWS::Backup::RestoreTestingPlan
@@ -199,6 +200,7 @@ AWS::CertificateManager::Account
 AWS::CertificateManager::AcmeDomainValidation
 AWS::CertificateManager::AcmeEndpoint
 AWS::CertificateManager::AcmeExternalAccountBinding
+AWS::CertificateManager::Certificate
 AWS::Chatbot::CustomAction
 AWS::Chatbot::MicrosoftTeamsChannelConfiguration
 AWS::Chatbot::SlackChannelConfiguration
@@ -214,6 +216,7 @@ AWS::CleanRooms::PrivacyBudgetTemplate
 AWS::CleanRoomsML::ConfiguredModelAlgorithm
 AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation
 AWS::CleanRoomsML::TrainingDataset
+AWS::CloudFormation::GeneratedTemplate
 AWS::CloudFormation::GuardHook
 AWS::CloudFormation::HookDefaultVersion
 AWS::CloudFormation::HookTypeConfig
@@ -436,6 +439,7 @@ AWS::DirectConnect::PrivateVirtualInterface
 AWS::DirectConnect::PublicVirtualInterface
 AWS::DirectConnect::TransitVirtualInterface
 AWS::DirectoryService::SimpleAD
+AWS::DocDB::EventSubscription
 AWS::DocDB::GlobalCluster
 AWS::DocDBElastic::Cluster
 AWS::DynamoDB::GlobalTable
@@ -665,6 +669,7 @@ AWS::GlobalAccelerator::Accelerator
 AWS::GlobalAccelerator::CrossAccountAttachment
 AWS::GlobalAccelerator::EndpointGroup
 AWS::GlobalAccelerator::Listener
+AWS::Glue::Blueprint
 AWS::Glue::Catalog
 AWS::Glue::Crawler
 AWS::Glue::DataCatalogEncryptionSettings
@@ -679,6 +684,7 @@ AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
 AWS::Glue::Trigger
 AWS::Glue::UsageProfile
+AWS::Glue::UserDefinedFunction
 AWS::Grafana::Workspace
 AWS::GreengrassV2::ComponentVersion
 AWS::GreengrassV2::Deployment
@@ -697,6 +703,7 @@ AWS::GuardDuty::ThreatEntitySet
 AWS::GuardDuty::ThreatIntelSet
 AWS::GuardDuty::TrustedEntitySet
 AWS::HealthImaging::Datastore
+AWS::HealthLake::DataTransformationProfile
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::Group
 AWS::IAM::GroupPolicy
@@ -961,6 +968,7 @@ AWS::NetworkFirewall::LoggingConfiguration
 AWS::NetworkFirewall::RuleGroup
 AWS::NetworkFirewall::TLSInspectionConfiguration
 AWS::NetworkFirewall::VpcEndpointAssociation
+AWS::NetworkFlowMonitor::Monitor
 AWS::NetworkManager::ConnectAttachment
 AWS::NetworkManager::ConnectPeer
 AWS::NetworkManager::CoreNetwork
@@ -1055,6 +1063,7 @@ AWS::QBusiness::Retriever
 AWS::QBusiness::WebExperience
 AWS::QLDB::Stream
 AWS::QuickSight::ActionConnector
+AWS::QuickSight::Agent
 AWS::QuickSight::Analysis
 AWS::QuickSight::CustomPermissions
 AWS::QuickSight::Dashboard
@@ -1062,6 +1071,7 @@ AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
 AWS::QuickSight::Flow
 AWS::QuickSight::Folder
+AWS::QuickSight::KnowledgeBase
 AWS::QuickSight::OAuthClientApplication
 AWS::QuickSight::RefreshSchedule
 AWS::QuickSight::Template
@@ -1219,6 +1229,7 @@ AWS::SMSVOICE::OptOutList
 AWS::SMSVOICE::PhoneNumber
 AWS::SMSVOICE::Pool
 AWS::SMSVOICE::ProtectConfiguration
+AWS::SMSVOICE::Registration
 AWS::SMSVOICE::ResourcePolicy
 AWS::SMSVOICE::SenderId
 AWS::SNS::Subscription
@@ -1232,6 +1243,7 @@ AWS::SSM::Document
 AWS::SSM::MaintenanceWindow
 AWS::SSM::MaintenanceWindowTarget
 AWS::SSM::MaintenanceWindowTask
+AWS::SSM::OpsItem
 AWS::SSM::Parameter
 AWS::SSM::PatchBaseline
 AWS::SSM::ResourceDataSync
@@ -1350,6 +1362,7 @@ AWS::StepFunctions::Activity
 AWS::StepFunctions::StateMachine
 AWS::StepFunctions::StateMachineAlias
 AWS::StepFunctions::StateMachineVersion
+AWS::StorageGateway::TapePool
 AWS::SupportApp::AccountAlias
 AWS::SupportApp::SlackChannelConfiguration
 AWS::SupportApp::SlackWorkspaceConfiguration
@@ -1361,6 +1374,7 @@ AWS::Timestream::InfluxDBCluster
 AWS::Timestream::InfluxDBInstance
 AWS::Timestream::ScheduledQuery
 AWS::Timestream::Table
+AWS::Transcribe::VocabularyFilter
 AWS::Transfer::Agreement
 AWS::Transfer::Certificate
 AWS::Transfer::Connector
@@ -1395,6 +1409,9 @@ AWS::WAFv2::RegexPatternSet
 AWS::WAFv2::RuleGroup
 AWS::WAFv2::WebACL
 AWS::WAFv2::WebACLAssociation
+AWS::WellArchitected::Lens
+AWS::WellArchitected::Profile
+AWS::WellArchitected::ReviewTemplate
 AWS::Wisdom::AIAgent
 AWS::Wisdom::AIAgentVersion
 AWS::Wisdom::AIGuardrail
@@ -1409,6 +1426,7 @@ AWS::Wisdom::MessageTemplateVersion
 AWS::Wisdom::QuickResponse
 AWS::WorkSpaces::ConnectionAlias
 AWS::WorkSpaces::Workspace
+AWS::WorkSpaces::WorkspaceIpGroup
 AWS::WorkSpaces::WorkspacesPool
 AWS::WorkSpacesThinClient::Environment
 AWS::WorkSpacesWeb::BrowserSettings

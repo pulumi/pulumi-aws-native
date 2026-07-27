@@ -7,10 +7,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .blueprint import *
 from .catalog import *
 from .crawler import *
 from .data_catalog_encryption_settings import *
 from .database import *
+from .get_blueprint import *
 from .get_catalog import *
 from .get_crawler import *
 from .get_data_catalog_encryption_settings import *
@@ -24,6 +26,7 @@ from .get_schema import *
 from .get_schema_version import *
 from .get_trigger import *
 from .get_usage_profile import *
+from .get_user_defined_function import *
 from .identity_center_configuration import *
 from .integration import *
 from .integration_resource_property import *
@@ -34,5 +37,6 @@ from .schema_version import *
 from .schema_version_metadata import *
 from .trigger import *
 from .usage_profile import *
+from .user_defined_function import *
 from ._inputs import *
 from . import outputs

@@ -341,6 +341,172 @@ func (in *domainDeploymentStrategyOptionsDeploymentStrategyPtr) ToDomainDeployme
 	return pulumi.ToOutputWithContext(ctx, in).(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput)
 }
 
+// The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+type DomainEngineMode string
+
+const (
+	DomainEngineModeGeneral   = DomainEngineMode("GENERAL")
+	DomainEngineModeOptimized = DomainEngineMode("OPTIMIZED")
+)
+
+func (DomainEngineMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEngineMode)(nil)).Elem()
+}
+
+func (e DomainEngineMode) ToDomainEngineModeOutput() DomainEngineModeOutput {
+	return pulumi.ToOutput(e).(DomainEngineModeOutput)
+}
+
+func (e DomainEngineMode) ToDomainEngineModeOutputWithContext(ctx context.Context) DomainEngineModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainEngineModeOutput)
+}
+
+func (e DomainEngineMode) ToDomainEngineModePtrOutput() DomainEngineModePtrOutput {
+	return e.ToDomainEngineModePtrOutputWithContext(context.Background())
+}
+
+func (e DomainEngineMode) ToDomainEngineModePtrOutputWithContext(ctx context.Context) DomainEngineModePtrOutput {
+	return DomainEngineMode(e).ToDomainEngineModeOutputWithContext(ctx).ToDomainEngineModePtrOutputWithContext(ctx)
+}
+
+func (e DomainEngineMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainEngineMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainEngineMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainEngineMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainEngineModeOutput struct{ *pulumi.OutputState }
+
+func (DomainEngineModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainEngineMode)(nil)).Elem()
+}
+
+func (o DomainEngineModeOutput) ToDomainEngineModeOutput() DomainEngineModeOutput {
+	return o
+}
+
+func (o DomainEngineModeOutput) ToDomainEngineModeOutputWithContext(ctx context.Context) DomainEngineModeOutput {
+	return o
+}
+
+func (o DomainEngineModeOutput) ToDomainEngineModePtrOutput() DomainEngineModePtrOutput {
+	return o.ToDomainEngineModePtrOutputWithContext(context.Background())
+}
+
+func (o DomainEngineModeOutput) ToDomainEngineModePtrOutputWithContext(ctx context.Context) DomainEngineModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEngineMode) *DomainEngineMode {
+		return &v
+	}).(DomainEngineModePtrOutput)
+}
+
+func (o DomainEngineModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainEngineModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainEngineMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainEngineModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainEngineModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainEngineMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainEngineModePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainEngineModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainEngineMode)(nil)).Elem()
+}
+
+func (o DomainEngineModePtrOutput) ToDomainEngineModePtrOutput() DomainEngineModePtrOutput {
+	return o
+}
+
+func (o DomainEngineModePtrOutput) ToDomainEngineModePtrOutputWithContext(ctx context.Context) DomainEngineModePtrOutput {
+	return o
+}
+
+func (o DomainEngineModePtrOutput) Elem() DomainEngineModeOutput {
+	return o.ApplyT(func(v *DomainEngineMode) DomainEngineMode {
+		if v != nil {
+			return *v
+		}
+		var ret DomainEngineMode
+		return ret
+	}).(DomainEngineModeOutput)
+}
+
+func (o DomainEngineModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainEngineModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainEngineMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainEngineModeInput is an input type that accepts values of the DomainEngineMode enum
+// A concrete instance of `DomainEngineModeInput` can be one of the following:
+//
+//	DomainEngineModeGeneral
+//	DomainEngineModeOptimized
+type DomainEngineModeInput interface {
+	pulumi.Input
+
+	ToDomainEngineModeOutput() DomainEngineModeOutput
+	ToDomainEngineModeOutputWithContext(context.Context) DomainEngineModeOutput
+}
+
+var domainEngineModePtrType = reflect.TypeOf((**DomainEngineMode)(nil)).Elem()
+
+type DomainEngineModePtrInput interface {
+	pulumi.Input
+
+	ToDomainEngineModePtrOutput() DomainEngineModePtrOutput
+	ToDomainEngineModePtrOutputWithContext(context.Context) DomainEngineModePtrOutput
+}
+
+type domainEngineModePtr string
+
+func DomainEngineModePtr(v string) DomainEngineModePtrInput {
+	return (*domainEngineModePtr)(&v)
+}
+
+func (*domainEngineModePtr) ElementType() reflect.Type {
+	return domainEngineModePtrType
+}
+
+func (in *domainEngineModePtr) ToDomainEngineModePtrOutput() DomainEngineModePtrOutput {
+	return pulumi.ToOutput(in).(DomainEngineModePtrOutput)
+}
+
+func (in *domainEngineModePtr) ToDomainEngineModePtrOutputWithContext(ctx context.Context) DomainEngineModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainEngineModePtrOutput)
+}
+
 // Defines the type of node, such as coordinating nodes.
 type DomainNodeOptionNodeType string
 
@@ -839,25 +1005,203 @@ func (in *domainSubjectKeyIdcTypePtr) ToDomainSubjectKeyIdcTypePtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(DomainSubjectKeyIdcTypePtrOutput)
 }
 
+// The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+type DomainUseCase string
+
+const (
+	DomainUseCaseSearch        = DomainUseCase("SEARCH")
+	DomainUseCaseVector        = DomainUseCase("VECTOR")
+	DomainUseCaseObservability = DomainUseCase("OBSERVABILITY")
+	DomainUseCaseMixed         = DomainUseCase("MIXED")
+)
+
+func (DomainUseCase) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUseCase)(nil)).Elem()
+}
+
+func (e DomainUseCase) ToDomainUseCaseOutput() DomainUseCaseOutput {
+	return pulumi.ToOutput(e).(DomainUseCaseOutput)
+}
+
+func (e DomainUseCase) ToDomainUseCaseOutputWithContext(ctx context.Context) DomainUseCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainUseCaseOutput)
+}
+
+func (e DomainUseCase) ToDomainUseCasePtrOutput() DomainUseCasePtrOutput {
+	return e.ToDomainUseCasePtrOutputWithContext(context.Background())
+}
+
+func (e DomainUseCase) ToDomainUseCasePtrOutputWithContext(ctx context.Context) DomainUseCasePtrOutput {
+	return DomainUseCase(e).ToDomainUseCaseOutputWithContext(ctx).ToDomainUseCasePtrOutputWithContext(ctx)
+}
+
+func (e DomainUseCase) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUseCase) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUseCase) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainUseCase) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainUseCaseOutput struct{ *pulumi.OutputState }
+
+func (DomainUseCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUseCase)(nil)).Elem()
+}
+
+func (o DomainUseCaseOutput) ToDomainUseCaseOutput() DomainUseCaseOutput {
+	return o
+}
+
+func (o DomainUseCaseOutput) ToDomainUseCaseOutputWithContext(ctx context.Context) DomainUseCaseOutput {
+	return o
+}
+
+func (o DomainUseCaseOutput) ToDomainUseCasePtrOutput() DomainUseCasePtrOutput {
+	return o.ToDomainUseCasePtrOutputWithContext(context.Background())
+}
+
+func (o DomainUseCaseOutput) ToDomainUseCasePtrOutputWithContext(ctx context.Context) DomainUseCasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainUseCase) *DomainUseCase {
+		return &v
+	}).(DomainUseCasePtrOutput)
+}
+
+func (o DomainUseCaseOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainUseCaseOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUseCase) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainUseCaseOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUseCaseOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUseCase) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainUseCasePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainUseCasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUseCase)(nil)).Elem()
+}
+
+func (o DomainUseCasePtrOutput) ToDomainUseCasePtrOutput() DomainUseCasePtrOutput {
+	return o
+}
+
+func (o DomainUseCasePtrOutput) ToDomainUseCasePtrOutputWithContext(ctx context.Context) DomainUseCasePtrOutput {
+	return o
+}
+
+func (o DomainUseCasePtrOutput) Elem() DomainUseCaseOutput {
+	return o.ApplyT(func(v *DomainUseCase) DomainUseCase {
+		if v != nil {
+			return *v
+		}
+		var ret DomainUseCase
+		return ret
+	}).(DomainUseCaseOutput)
+}
+
+func (o DomainUseCasePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUseCasePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainUseCase) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainUseCaseInput is an input type that accepts values of the DomainUseCase enum
+// A concrete instance of `DomainUseCaseInput` can be one of the following:
+//
+//	DomainUseCaseSearch
+//	DomainUseCaseVector
+//	DomainUseCaseObservability
+//	DomainUseCaseMixed
+type DomainUseCaseInput interface {
+	pulumi.Input
+
+	ToDomainUseCaseOutput() DomainUseCaseOutput
+	ToDomainUseCaseOutputWithContext(context.Context) DomainUseCaseOutput
+}
+
+var domainUseCasePtrType = reflect.TypeOf((**DomainUseCase)(nil)).Elem()
+
+type DomainUseCasePtrInput interface {
+	pulumi.Input
+
+	ToDomainUseCasePtrOutput() DomainUseCasePtrOutput
+	ToDomainUseCasePtrOutputWithContext(context.Context) DomainUseCasePtrOutput
+}
+
+type domainUseCasePtr string
+
+func DomainUseCasePtr(v string) DomainUseCasePtrInput {
+	return (*domainUseCasePtr)(&v)
+}
+
+func (*domainUseCasePtr) ElementType() reflect.Type {
+	return domainUseCasePtrType
+}
+
+func (in *domainUseCasePtr) ToDomainUseCasePtrOutput() DomainUseCasePtrOutput {
+	return pulumi.ToOutput(in).(DomainUseCasePtrOutput)
+}
+
+func (in *domainUseCasePtr) ToDomainUseCasePtrOutputWithContext(ctx context.Context) DomainUseCasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainUseCasePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypeInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypePtrInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategyInput)(nil)).Elem(), DomainDeploymentStrategyOptionsDeploymentStrategy("Default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDeploymentStrategyOptionsDeploymentStrategyPtrInput)(nil)).Elem(), DomainDeploymentStrategyOptionsDeploymentStrategy("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainEngineModeInput)(nil)).Elem(), DomainEngineMode("GENERAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainEngineModePtrInput)(nil)).Elem(), DomainEngineMode("GENERAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionNodeTypeInput)(nil)).Elem(), DomainNodeOptionNodeType("coordinator"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionNodeTypePtrInput)(nil)).Elem(), DomainNodeOptionNodeType("coordinator"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRolesKeyIdcTypeInput)(nil)).Elem(), DomainRolesKeyIdcType("GroupName"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRolesKeyIdcTypePtrInput)(nil)).Elem(), DomainRolesKeyIdcType("GroupName"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubjectKeyIdcTypeInput)(nil)).Elem(), DomainSubjectKeyIdcType("UserName"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubjectKeyIdcTypePtrInput)(nil)).Elem(), DomainSubjectKeyIdcType("UserName"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUseCaseInput)(nil)).Elem(), DomainUseCase("SEARCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUseCasePtrInput)(nil)).Elem(), DomainUseCase("SEARCH"))
 	pulumi.RegisterOutputType(ApplicationAppConfigTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationAppConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainDeploymentStrategyOptionsDeploymentStrategyOutput{})
 	pulumi.RegisterOutputType(DomainDeploymentStrategyOptionsDeploymentStrategyPtrOutput{})
+	pulumi.RegisterOutputType(DomainEngineModeOutput{})
+	pulumi.RegisterOutputType(DomainEngineModePtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeOptionNodeTypeOutput{})
 	pulumi.RegisterOutputType(DomainNodeOptionNodeTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainRolesKeyIdcTypeOutput{})
 	pulumi.RegisterOutputType(DomainRolesKeyIdcTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainSubjectKeyIdcTypeOutput{})
 	pulumi.RegisterOutputType(DomainSubjectKeyIdcTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainUseCaseOutput{})
+	pulumi.RegisterOutputType(DomainUseCasePtrOutput{})
 }

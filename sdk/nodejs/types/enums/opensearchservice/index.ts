@@ -19,6 +19,16 @@ export const DomainDeploymentStrategyOptionsDeploymentStrategy = {
 
 export type DomainDeploymentStrategyOptionsDeploymentStrategy = (typeof DomainDeploymentStrategyOptionsDeploymentStrategy)[keyof typeof DomainDeploymentStrategyOptionsDeploymentStrategy];
 
+export const DomainEngineMode = {
+    General: "GENERAL",
+    Optimized: "OPTIMIZED",
+} as const;
+
+/**
+ * The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+ */
+export type DomainEngineMode = (typeof DomainEngineMode)[keyof typeof DomainEngineMode];
+
 export const DomainNodeOptionNodeType = {
     Coordinator: "coordinator",
 } as const;
@@ -48,3 +58,15 @@ export const DomainSubjectKeyIdcType = {
  * Subject Key Idc type values.
  */
 export type DomainSubjectKeyIdcType = (typeof DomainSubjectKeyIdcType)[keyof typeof DomainSubjectKeyIdcType];
+
+export const DomainUseCase = {
+    Search: "SEARCH",
+    Vector: "VECTOR",
+    Observability: "OBSERVABILITY",
+    Mixed: "MIXED",
+} as const;
+
+/**
+ * The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+ */
+export type DomainUseCase = (typeof DomainUseCase)[keyof typeof DomainUseCase];

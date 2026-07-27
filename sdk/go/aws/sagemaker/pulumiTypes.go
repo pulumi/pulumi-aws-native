@@ -3235,6 +3235,176 @@ func (o ClusterAlarmDetailsArrayOutput) Index(i pulumi.IntInput) ClusterAlarmDet
 	}).(ClusterAlarmDetailsOutput)
 }
 
+// The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+type ClusterAutoPatchConfig struct {
+	DeploymentConfig *ClusterDeploymentConfig `pulumi:"deploymentConfig"`
+	PatchSchedule    *ClusterPatchSchedule    `pulumi:"patchSchedule"`
+	// The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+	PatchingStrategy ClusterAutoPatchConfigPatchingStrategy `pulumi:"patchingStrategy"`
+}
+
+// ClusterAutoPatchConfigInput is an input type that accepts ClusterAutoPatchConfigArgs and ClusterAutoPatchConfigOutput values.
+// You can construct a concrete instance of `ClusterAutoPatchConfigInput` via:
+//
+//	ClusterAutoPatchConfigArgs{...}
+type ClusterAutoPatchConfigInput interface {
+	pulumi.Input
+
+	ToClusterAutoPatchConfigOutput() ClusterAutoPatchConfigOutput
+	ToClusterAutoPatchConfigOutputWithContext(context.Context) ClusterAutoPatchConfigOutput
+}
+
+// The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+type ClusterAutoPatchConfigArgs struct {
+	DeploymentConfig ClusterDeploymentConfigPtrInput `pulumi:"deploymentConfig"`
+	PatchSchedule    ClusterPatchSchedulePtrInput    `pulumi:"patchSchedule"`
+	// The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+	PatchingStrategy ClusterAutoPatchConfigPatchingStrategyInput `pulumi:"patchingStrategy"`
+}
+
+func (ClusterAutoPatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoPatchConfig)(nil)).Elem()
+}
+
+func (i ClusterAutoPatchConfigArgs) ToClusterAutoPatchConfigOutput() ClusterAutoPatchConfigOutput {
+	return i.ToClusterAutoPatchConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoPatchConfigArgs) ToClusterAutoPatchConfigOutputWithContext(ctx context.Context) ClusterAutoPatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoPatchConfigOutput)
+}
+
+func (i ClusterAutoPatchConfigArgs) ToClusterAutoPatchConfigPtrOutput() ClusterAutoPatchConfigPtrOutput {
+	return i.ToClusterAutoPatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoPatchConfigArgs) ToClusterAutoPatchConfigPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoPatchConfigOutput).ToClusterAutoPatchConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterAutoPatchConfigPtrInput is an input type that accepts ClusterAutoPatchConfigArgs, ClusterAutoPatchConfigPtr and ClusterAutoPatchConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterAutoPatchConfigPtrInput` via:
+//
+//	        ClusterAutoPatchConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAutoPatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoPatchConfigPtrOutput() ClusterAutoPatchConfigPtrOutput
+	ToClusterAutoPatchConfigPtrOutputWithContext(context.Context) ClusterAutoPatchConfigPtrOutput
+}
+
+type clusterAutoPatchConfigPtrType ClusterAutoPatchConfigArgs
+
+func ClusterAutoPatchConfigPtr(v *ClusterAutoPatchConfigArgs) ClusterAutoPatchConfigPtrInput {
+	return (*clusterAutoPatchConfigPtrType)(v)
+}
+
+func (*clusterAutoPatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoPatchConfig)(nil)).Elem()
+}
+
+func (i *clusterAutoPatchConfigPtrType) ToClusterAutoPatchConfigPtrOutput() ClusterAutoPatchConfigPtrOutput {
+	return i.ToClusterAutoPatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAutoPatchConfigPtrType) ToClusterAutoPatchConfigPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoPatchConfigPtrOutput)
+}
+
+// The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+type ClusterAutoPatchConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoPatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoPatchConfig)(nil)).Elem()
+}
+
+func (o ClusterAutoPatchConfigOutput) ToClusterAutoPatchConfigOutput() ClusterAutoPatchConfigOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigOutput) ToClusterAutoPatchConfigOutputWithContext(ctx context.Context) ClusterAutoPatchConfigOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigOutput) ToClusterAutoPatchConfigPtrOutput() ClusterAutoPatchConfigPtrOutput {
+	return o.ToClusterAutoPatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoPatchConfigOutput) ToClusterAutoPatchConfigPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAutoPatchConfig) *ClusterAutoPatchConfig {
+		return &v
+	}).(ClusterAutoPatchConfigPtrOutput)
+}
+
+func (o ClusterAutoPatchConfigOutput) DeploymentConfig() ClusterDeploymentConfigPtrOutput {
+	return o.ApplyT(func(v ClusterAutoPatchConfig) *ClusterDeploymentConfig { return v.DeploymentConfig }).(ClusterDeploymentConfigPtrOutput)
+}
+
+func (o ClusterAutoPatchConfigOutput) PatchSchedule() ClusterPatchSchedulePtrOutput {
+	return o.ApplyT(func(v ClusterAutoPatchConfig) *ClusterPatchSchedule { return v.PatchSchedule }).(ClusterPatchSchedulePtrOutput)
+}
+
+// The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+func (o ClusterAutoPatchConfigOutput) PatchingStrategy() ClusterAutoPatchConfigPatchingStrategyOutput {
+	return o.ApplyT(func(v ClusterAutoPatchConfig) ClusterAutoPatchConfigPatchingStrategy { return v.PatchingStrategy }).(ClusterAutoPatchConfigPatchingStrategyOutput)
+}
+
+type ClusterAutoPatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoPatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoPatchConfig)(nil)).Elem()
+}
+
+func (o ClusterAutoPatchConfigPtrOutput) ToClusterAutoPatchConfigPtrOutput() ClusterAutoPatchConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigPtrOutput) ToClusterAutoPatchConfigPtrOutputWithContext(ctx context.Context) ClusterAutoPatchConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAutoPatchConfigPtrOutput) Elem() ClusterAutoPatchConfigOutput {
+	return o.ApplyT(func(v *ClusterAutoPatchConfig) ClusterAutoPatchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAutoPatchConfig
+		return ret
+	}).(ClusterAutoPatchConfigOutput)
+}
+
+func (o ClusterAutoPatchConfigPtrOutput) DeploymentConfig() ClusterDeploymentConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoPatchConfig) *ClusterDeploymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentConfig
+	}).(ClusterDeploymentConfigPtrOutput)
+}
+
+func (o ClusterAutoPatchConfigPtrOutput) PatchSchedule() ClusterPatchSchedulePtrOutput {
+	return o.ApplyT(func(v *ClusterAutoPatchConfig) *ClusterPatchSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.PatchSchedule
+	}).(ClusterPatchSchedulePtrOutput)
+}
+
+// The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+func (o ClusterAutoPatchConfigPtrOutput) PatchingStrategy() ClusterAutoPatchConfigPatchingStrategyPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoPatchConfig) *ClusterAutoPatchConfigPatchingStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.PatchingStrategy
+	}).(ClusterAutoPatchConfigPatchingStrategyPtrOutput)
+}
+
 // Configuration for cluster auto-scaling
 type ClusterAutoScalingConfig struct {
 	// The type of auto-scaler to use
@@ -4171,6 +4341,7 @@ func (o ClusterFSxLustreConfigPtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroup struct {
+	AutoPatchConfig      *ClusterAutoPatchConfig      `pulumi:"autoPatchConfig"`
 	CapacityRequirements *ClusterCapacityRequirements `pulumi:"capacityRequirements"`
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
 	CurrentCount  *int    `pulumi:"currentCount"`
@@ -4210,6 +4381,7 @@ type ClusterInstanceGroupInput interface {
 
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroupArgs struct {
+	AutoPatchConfig      ClusterAutoPatchConfigPtrInput      `pulumi:"autoPatchConfig"`
 	CapacityRequirements ClusterCapacityRequirementsPtrInput `pulumi:"capacityRequirements"`
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
 	CurrentCount  pulumi.IntPtrInput    `pulumi:"currentCount"`
@@ -4286,6 +4458,10 @@ func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutput() ClusterInstan
 
 func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutputWithContext(ctx context.Context) ClusterInstanceGroupOutput {
 	return o
+}
+
+func (o ClusterInstanceGroupOutput) AutoPatchConfig() ClusterAutoPatchConfigPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterAutoPatchConfig { return v.AutoPatchConfig }).(ClusterAutoPatchConfigPtrOutput)
 }
 
 func (o ClusterInstanceGroupOutput) CapacityRequirements() ClusterCapacityRequirementsPtrOutput {
@@ -5447,6 +5623,146 @@ func (o ClusterOrchestratorPtrOutput) Elem() ClusterOrchestratorOutput {
 		var ret ClusterOrchestrator
 		return ret
 	}).(ClusterOrchestratorOutput)
+}
+
+// The schedule configuration for automatic patching.
+type ClusterPatchSchedule struct {
+	// The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+	NextPatchDate *string `pulumi:"nextPatchDate"`
+}
+
+// ClusterPatchScheduleInput is an input type that accepts ClusterPatchScheduleArgs and ClusterPatchScheduleOutput values.
+// You can construct a concrete instance of `ClusterPatchScheduleInput` via:
+//
+//	ClusterPatchScheduleArgs{...}
+type ClusterPatchScheduleInput interface {
+	pulumi.Input
+
+	ToClusterPatchScheduleOutput() ClusterPatchScheduleOutput
+	ToClusterPatchScheduleOutputWithContext(context.Context) ClusterPatchScheduleOutput
+}
+
+// The schedule configuration for automatic patching.
+type ClusterPatchScheduleArgs struct {
+	// The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+	NextPatchDate pulumi.StringPtrInput `pulumi:"nextPatchDate"`
+}
+
+func (ClusterPatchScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPatchSchedule)(nil)).Elem()
+}
+
+func (i ClusterPatchScheduleArgs) ToClusterPatchScheduleOutput() ClusterPatchScheduleOutput {
+	return i.ToClusterPatchScheduleOutputWithContext(context.Background())
+}
+
+func (i ClusterPatchScheduleArgs) ToClusterPatchScheduleOutputWithContext(ctx context.Context) ClusterPatchScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPatchScheduleOutput)
+}
+
+func (i ClusterPatchScheduleArgs) ToClusterPatchSchedulePtrOutput() ClusterPatchSchedulePtrOutput {
+	return i.ToClusterPatchSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterPatchScheduleArgs) ToClusterPatchSchedulePtrOutputWithContext(ctx context.Context) ClusterPatchSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPatchScheduleOutput).ToClusterPatchSchedulePtrOutputWithContext(ctx)
+}
+
+// ClusterPatchSchedulePtrInput is an input type that accepts ClusterPatchScheduleArgs, ClusterPatchSchedulePtr and ClusterPatchSchedulePtrOutput values.
+// You can construct a concrete instance of `ClusterPatchSchedulePtrInput` via:
+//
+//	        ClusterPatchScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterPatchSchedulePtrInput interface {
+	pulumi.Input
+
+	ToClusterPatchSchedulePtrOutput() ClusterPatchSchedulePtrOutput
+	ToClusterPatchSchedulePtrOutputWithContext(context.Context) ClusterPatchSchedulePtrOutput
+}
+
+type clusterPatchSchedulePtrType ClusterPatchScheduleArgs
+
+func ClusterPatchSchedulePtr(v *ClusterPatchScheduleArgs) ClusterPatchSchedulePtrInput {
+	return (*clusterPatchSchedulePtrType)(v)
+}
+
+func (*clusterPatchSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPatchSchedule)(nil)).Elem()
+}
+
+func (i *clusterPatchSchedulePtrType) ToClusterPatchSchedulePtrOutput() ClusterPatchSchedulePtrOutput {
+	return i.ToClusterPatchSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterPatchSchedulePtrType) ToClusterPatchSchedulePtrOutputWithContext(ctx context.Context) ClusterPatchSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPatchSchedulePtrOutput)
+}
+
+// The schedule configuration for automatic patching.
+type ClusterPatchScheduleOutput struct{ *pulumi.OutputState }
+
+func (ClusterPatchScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPatchSchedule)(nil)).Elem()
+}
+
+func (o ClusterPatchScheduleOutput) ToClusterPatchScheduleOutput() ClusterPatchScheduleOutput {
+	return o
+}
+
+func (o ClusterPatchScheduleOutput) ToClusterPatchScheduleOutputWithContext(ctx context.Context) ClusterPatchScheduleOutput {
+	return o
+}
+
+func (o ClusterPatchScheduleOutput) ToClusterPatchSchedulePtrOutput() ClusterPatchSchedulePtrOutput {
+	return o.ToClusterPatchSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPatchScheduleOutput) ToClusterPatchSchedulePtrOutputWithContext(ctx context.Context) ClusterPatchSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPatchSchedule) *ClusterPatchSchedule {
+		return &v
+	}).(ClusterPatchSchedulePtrOutput)
+}
+
+// The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+func (o ClusterPatchScheduleOutput) NextPatchDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPatchSchedule) *string { return v.NextPatchDate }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPatchSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPatchSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPatchSchedule)(nil)).Elem()
+}
+
+func (o ClusterPatchSchedulePtrOutput) ToClusterPatchSchedulePtrOutput() ClusterPatchSchedulePtrOutput {
+	return o
+}
+
+func (o ClusterPatchSchedulePtrOutput) ToClusterPatchSchedulePtrOutputWithContext(ctx context.Context) ClusterPatchSchedulePtrOutput {
+	return o
+}
+
+func (o ClusterPatchSchedulePtrOutput) Elem() ClusterPatchScheduleOutput {
+	return o.ApplyT(func(v *ClusterPatchSchedule) ClusterPatchSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPatchSchedule
+		return ret
+	}).(ClusterPatchScheduleOutput)
+}
+
+// The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+func (o ClusterPatchSchedulePtrOutput) NextPatchDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPatchSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NextPatchDate
+	}).(pulumi.StringPtrOutput)
 }
 
 // Details of a restricted instance group in a SageMaker HyperPod cluster.
@@ -54241,6 +54557,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsInput)(nil)).Elem(), ClusterAlarmDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsArrayInput)(nil)).Elem(), ClusterAlarmDetailsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoPatchConfigInput)(nil)).Elem(), ClusterAutoPatchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoPatchConfigPtrInput)(nil)).Elem(), ClusterAutoPatchConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigInput)(nil)).Elem(), ClusterAutoScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigPtrInput)(nil)).Elem(), ClusterAutoScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityRequirementsInput)(nil)).Elem(), ClusterCapacityRequirementsArgs{})
@@ -54271,6 +54589,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsPtrInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorInput)(nil)).Elem(), ClusterOrchestratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorPtrInput)(nil)).Elem(), ClusterOrchestratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPatchScheduleInput)(nil)).Elem(), ClusterPatchScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPatchSchedulePtrInput)(nil)).Elem(), ClusterPatchScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupArrayInput)(nil)).Elem(), ClusterRestrictedInstanceGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestrictedInstanceGroupsConfigInput)(nil)).Elem(), ClusterRestrictedInstanceGroupsConfigArgs{})
@@ -54891,6 +55211,8 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAlarmDetailsOutput{})
 	pulumi.RegisterOutputType(ClusterAlarmDetailsArrayOutput{})
+	pulumi.RegisterOutputType(ClusterAutoPatchConfigOutput{})
+	pulumi.RegisterOutputType(ClusterAutoPatchConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityRequirementsOutput{})
@@ -54921,6 +55243,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOnDemandOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPatchScheduleOutput{})
+	pulumi.RegisterOutputType(ClusterPatchSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupArrayOutput{})
 	pulumi.RegisterOutputType(ClusterRestrictedInstanceGroupsConfigOutput{})

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AccountExpiryEventsConfigurationArgs',
@@ -31,6 +32,8 @@ __all__ = [
     'AcmeEndpointTagArgsDict',
     'AcmeExternalAccountBindingExpirationArgs',
     'AcmeExternalAccountBindingExpirationArgsDict',
+    'CertificateDomainValidationOptionArgs',
+    'CertificateDomainValidationOptionArgsDict',
 ]
 
 class AccountExpiryEventsConfigurationArgsDict(TypedDict):
@@ -369,5 +372,116 @@ class AcmeExternalAccountBindingExpirationArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "value", value)
+
+
+class CertificateDomainValidationOptionArgsDict(TypedDict):
+    domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fully qualified domain name (FQDN) in the certificate request.
+    """
+    hosted_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record. Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
+
+    Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
+
+    This option is required for publicly trusted certificates.
+
+    > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
+
+    When you change your `DomainValidationOptions` , a new resource is created.
+    """
+    validation_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The domain name to which you want ACM to send validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
+
+    - admin@example.com
+    - administrator@example.com
+    - hostmaster@example.com
+    - postmaster@example.com
+    - webmaster@example.com
+    """
+
+@pulumi.input_type
+class CertificateDomainValidationOptionArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_domain: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] domain_name: A fully qualified domain name (FQDN) in the certificate request.
+        :param pulumi.Input[_builtins.str] hosted_zone_id: The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record. Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
+               
+               Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
+               
+               This option is required for publicly trusted certificates.
+               
+               > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
+               
+               When you change your `DomainValidationOptions` , a new resource is created.
+        :param pulumi.Input[_builtins.str] validation_domain: The domain name to which you want ACM to send validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
+               
+               - admin@example.com
+               - administrator@example.com
+               - hostmaster@example.com
+               - postmaster@example.com
+               - webmaster@example.com
+        """
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if validation_domain is not None:
+            pulumi.set(__self__, "validation_domain", validation_domain)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fully qualified domain name (FQDN) in the certificate request.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record. Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
+
+        Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
+
+        This option is required for publicly trusted certificates.
+
+        > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
+
+        When you change your `DomainValidationOptions` , a new resource is created.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationDomain")
+    def validation_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The domain name to which you want ACM to send validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
+
+        - admin@example.com
+        - administrator@example.com
+        - hostmaster@example.com
+        - postmaster@example.com
+        - webmaster@example.com
+        """
+        return pulumi.get(self, "validation_domain")
+
+    @validation_domain.setter
+    def validation_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "validation_domain", value)
 
 

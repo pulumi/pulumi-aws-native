@@ -73,6 +73,7 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
      * The name that identifies the compute node group.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly nodeLifecycleActions: pulumi.Output<outputs.pcs.ComputeNodeGroupNodeLifecycleActions | undefined>;
     /**
      * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
      */
@@ -137,6 +138,7 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
             resourceInputs["iamInstanceProfileArn"] = args?.iamInstanceProfileArn;
             resourceInputs["instanceConfigs"] = args?.instanceConfigs;
             resourceInputs["name"] = args?.name;
+            resourceInputs["nodeLifecycleActions"] = args?.nodeLifecycleActions;
             resourceInputs["purchaseOption"] = args?.purchaseOption;
             resourceInputs["scalingConfiguration"] = args?.scalingConfiguration;
             resourceInputs["slurmConfiguration"] = args?.slurmConfiguration;
@@ -157,6 +159,7 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
             resourceInputs["iamInstanceProfileArn"] = undefined /*out*/;
             resourceInputs["instanceConfigs"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeLifecycleActions"] = undefined /*out*/;
             resourceInputs["purchaseOption"] = undefined /*out*/;
             resourceInputs["scalingConfiguration"] = undefined /*out*/;
             resourceInputs["slurmConfiguration"] = undefined /*out*/;
@@ -200,6 +203,7 @@ export interface ComputeNodeGroupArgs {
      * The name that identifies the compute node group.
      */
     name?: pulumi.Input<string | undefined>;
+    nodeLifecycleActions?: pulumi.Input<inputs.pcs.ComputeNodeGroupNodeLifecycleActionsArgs | undefined>;
     /**
      * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
      */

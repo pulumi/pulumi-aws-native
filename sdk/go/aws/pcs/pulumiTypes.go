@@ -353,6 +353,534 @@ func (o ComputeNodeGroupInstanceConfigArrayOutput) Index(i pulumi.IntInput) Comp
 	}).(ComputeNodeGroupInstanceConfigOutput)
 }
 
+// Custom scripts that run at defined points in a compute node's lifecycle.
+type ComputeNodeGroupNodeLifecycleActions struct {
+	// Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+	ScriptCachingPolicy *ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy `pulumi:"scriptCachingPolicy"`
+	Stages              ComputeNodeGroupNodeLifecycleStages                      `pulumi:"stages"`
+}
+
+// ComputeNodeGroupNodeLifecycleActionsInput is an input type that accepts ComputeNodeGroupNodeLifecycleActionsArgs and ComputeNodeGroupNodeLifecycleActionsOutput values.
+// You can construct a concrete instance of `ComputeNodeGroupNodeLifecycleActionsInput` via:
+//
+//	ComputeNodeGroupNodeLifecycleActionsArgs{...}
+type ComputeNodeGroupNodeLifecycleActionsInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupNodeLifecycleActionsOutput() ComputeNodeGroupNodeLifecycleActionsOutput
+	ToComputeNodeGroupNodeLifecycleActionsOutputWithContext(context.Context) ComputeNodeGroupNodeLifecycleActionsOutput
+}
+
+// Custom scripts that run at defined points in a compute node's lifecycle.
+type ComputeNodeGroupNodeLifecycleActionsArgs struct {
+	// Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+	ScriptCachingPolicy ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyPtrInput `pulumi:"scriptCachingPolicy"`
+	Stages              ComputeNodeGroupNodeLifecycleStagesInput                        `pulumi:"stages"`
+}
+
+func (ComputeNodeGroupNodeLifecycleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupNodeLifecycleActions)(nil)).Elem()
+}
+
+func (i ComputeNodeGroupNodeLifecycleActionsArgs) ToComputeNodeGroupNodeLifecycleActionsOutput() ComputeNodeGroupNodeLifecycleActionsOutput {
+	return i.ToComputeNodeGroupNodeLifecycleActionsOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeGroupNodeLifecycleActionsArgs) ToComputeNodeGroupNodeLifecycleActionsOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleActionsOutput)
+}
+
+func (i ComputeNodeGroupNodeLifecycleActionsArgs) ToComputeNodeGroupNodeLifecycleActionsPtrOutput() ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return i.ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeGroupNodeLifecycleActionsArgs) ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleActionsOutput).ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(ctx)
+}
+
+// ComputeNodeGroupNodeLifecycleActionsPtrInput is an input type that accepts ComputeNodeGroupNodeLifecycleActionsArgs, ComputeNodeGroupNodeLifecycleActionsPtr and ComputeNodeGroupNodeLifecycleActionsPtrOutput values.
+// You can construct a concrete instance of `ComputeNodeGroupNodeLifecycleActionsPtrInput` via:
+//
+//	        ComputeNodeGroupNodeLifecycleActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeNodeGroupNodeLifecycleActionsPtrInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupNodeLifecycleActionsPtrOutput() ComputeNodeGroupNodeLifecycleActionsPtrOutput
+	ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(context.Context) ComputeNodeGroupNodeLifecycleActionsPtrOutput
+}
+
+type computeNodeGroupNodeLifecycleActionsPtrType ComputeNodeGroupNodeLifecycleActionsArgs
+
+func ComputeNodeGroupNodeLifecycleActionsPtr(v *ComputeNodeGroupNodeLifecycleActionsArgs) ComputeNodeGroupNodeLifecycleActionsPtrInput {
+	return (*computeNodeGroupNodeLifecycleActionsPtrType)(v)
+}
+
+func (*computeNodeGroupNodeLifecycleActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeGroupNodeLifecycleActions)(nil)).Elem()
+}
+
+func (i *computeNodeGroupNodeLifecycleActionsPtrType) ToComputeNodeGroupNodeLifecycleActionsPtrOutput() ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return i.ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *computeNodeGroupNodeLifecycleActionsPtrType) ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleActionsPtrOutput)
+}
+
+// Custom scripts that run at defined points in a compute node's lifecycle.
+type ComputeNodeGroupNodeLifecycleActionsOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupNodeLifecycleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupNodeLifecycleActions)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsOutput) ToComputeNodeGroupNodeLifecycleActionsOutput() ComputeNodeGroupNodeLifecycleActionsOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsOutput) ToComputeNodeGroupNodeLifecycleActionsOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleActionsOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsOutput) ToComputeNodeGroupNodeLifecycleActionsPtrOutput() ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return o.ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsOutput) ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeNodeGroupNodeLifecycleActions) *ComputeNodeGroupNodeLifecycleActions {
+		return &v
+	}).(ComputeNodeGroupNodeLifecycleActionsPtrOutput)
+}
+
+// Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+func (o ComputeNodeGroupNodeLifecycleActionsOutput) ScriptCachingPolicy() ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyPtrOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleActions) *ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy {
+		return v.ScriptCachingPolicy
+	}).(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyPtrOutput)
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsOutput) Stages() ComputeNodeGroupNodeLifecycleStagesOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleActions) ComputeNodeGroupNodeLifecycleStages { return v.Stages }).(ComputeNodeGroupNodeLifecycleStagesOutput)
+}
+
+type ComputeNodeGroupNodeLifecycleActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupNodeLifecycleActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeGroupNodeLifecycleActions)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsPtrOutput) ToComputeNodeGroupNodeLifecycleActionsPtrOutput() ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsPtrOutput) ToComputeNodeGroupNodeLifecycleActionsPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleActionsPtrOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsPtrOutput) Elem() ComputeNodeGroupNodeLifecycleActionsOutput {
+	return o.ApplyT(func(v *ComputeNodeGroupNodeLifecycleActions) ComputeNodeGroupNodeLifecycleActions {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeNodeGroupNodeLifecycleActions
+		return ret
+	}).(ComputeNodeGroupNodeLifecycleActionsOutput)
+}
+
+// Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+func (o ComputeNodeGroupNodeLifecycleActionsPtrOutput) ScriptCachingPolicy() ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyPtrOutput {
+	return o.ApplyT(func(v *ComputeNodeGroupNodeLifecycleActions) *ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptCachingPolicy
+	}).(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicyPtrOutput)
+}
+
+func (o ComputeNodeGroupNodeLifecycleActionsPtrOutput) Stages() ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return o.ApplyT(func(v *ComputeNodeGroupNodeLifecycleActions) *ComputeNodeGroupNodeLifecycleStages {
+		if v == nil {
+			return nil
+		}
+		return &v.Stages
+	}).(ComputeNodeGroupNodeLifecycleStagesPtrOutput)
+}
+
+// A single lifecycle script with its source, arguments, and error behavior.
+type ComputeNodeGroupNodeLifecycleScript struct {
+	// An ordered list of arguments passed to the script.
+	Arguments []string `pulumi:"arguments"`
+	// Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+	ExecutionPolicy *ComputeNodeGroupNodeLifecycleScriptExecutionPolicy `pulumi:"executionPolicy"`
+	// A human-readable name that identifies the script.
+	Name string `pulumi:"name"`
+	// The behavior when the script exits with an error. Defaults to TERMINATE.
+	OnError      *ComputeNodeGroupNodeLifecycleScriptOnError `pulumi:"onError"`
+	ScriptSource ComputeNodeGroupScriptSource                `pulumi:"scriptSource"`
+}
+
+// ComputeNodeGroupNodeLifecycleScriptInput is an input type that accepts ComputeNodeGroupNodeLifecycleScriptArgs and ComputeNodeGroupNodeLifecycleScriptOutput values.
+// You can construct a concrete instance of `ComputeNodeGroupNodeLifecycleScriptInput` via:
+//
+//	ComputeNodeGroupNodeLifecycleScriptArgs{...}
+type ComputeNodeGroupNodeLifecycleScriptInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupNodeLifecycleScriptOutput() ComputeNodeGroupNodeLifecycleScriptOutput
+	ToComputeNodeGroupNodeLifecycleScriptOutputWithContext(context.Context) ComputeNodeGroupNodeLifecycleScriptOutput
+}
+
+// A single lifecycle script with its source, arguments, and error behavior.
+type ComputeNodeGroupNodeLifecycleScriptArgs struct {
+	// An ordered list of arguments passed to the script.
+	Arguments pulumi.StringArrayInput `pulumi:"arguments"`
+	// Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+	ExecutionPolicy ComputeNodeGroupNodeLifecycleScriptExecutionPolicyPtrInput `pulumi:"executionPolicy"`
+	// A human-readable name that identifies the script.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The behavior when the script exits with an error. Defaults to TERMINATE.
+	OnError      ComputeNodeGroupNodeLifecycleScriptOnErrorPtrInput `pulumi:"onError"`
+	ScriptSource ComputeNodeGroupScriptSourceInput                  `pulumi:"scriptSource"`
+}
+
+func (ComputeNodeGroupNodeLifecycleScriptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupNodeLifecycleScript)(nil)).Elem()
+}
+
+func (i ComputeNodeGroupNodeLifecycleScriptArgs) ToComputeNodeGroupNodeLifecycleScriptOutput() ComputeNodeGroupNodeLifecycleScriptOutput {
+	return i.ToComputeNodeGroupNodeLifecycleScriptOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeGroupNodeLifecycleScriptArgs) ToComputeNodeGroupNodeLifecycleScriptOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleScriptOutput)
+}
+
+// ComputeNodeGroupNodeLifecycleScriptArrayInput is an input type that accepts ComputeNodeGroupNodeLifecycleScriptArray and ComputeNodeGroupNodeLifecycleScriptArrayOutput values.
+// You can construct a concrete instance of `ComputeNodeGroupNodeLifecycleScriptArrayInput` via:
+//
+//	ComputeNodeGroupNodeLifecycleScriptArray{ ComputeNodeGroupNodeLifecycleScriptArgs{...} }
+type ComputeNodeGroupNodeLifecycleScriptArrayInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupNodeLifecycleScriptArrayOutput() ComputeNodeGroupNodeLifecycleScriptArrayOutput
+	ToComputeNodeGroupNodeLifecycleScriptArrayOutputWithContext(context.Context) ComputeNodeGroupNodeLifecycleScriptArrayOutput
+}
+
+type ComputeNodeGroupNodeLifecycleScriptArray []ComputeNodeGroupNodeLifecycleScriptInput
+
+func (ComputeNodeGroupNodeLifecycleScriptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeNodeGroupNodeLifecycleScript)(nil)).Elem()
+}
+
+func (i ComputeNodeGroupNodeLifecycleScriptArray) ToComputeNodeGroupNodeLifecycleScriptArrayOutput() ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return i.ToComputeNodeGroupNodeLifecycleScriptArrayOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeGroupNodeLifecycleScriptArray) ToComputeNodeGroupNodeLifecycleScriptArrayOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleScriptArrayOutput)
+}
+
+// A single lifecycle script with its source, arguments, and error behavior.
+type ComputeNodeGroupNodeLifecycleScriptOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupNodeLifecycleScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupNodeLifecycleScript)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupNodeLifecycleScriptOutput) ToComputeNodeGroupNodeLifecycleScriptOutput() ComputeNodeGroupNodeLifecycleScriptOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleScriptOutput) ToComputeNodeGroupNodeLifecycleScriptOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleScriptOutput {
+	return o
+}
+
+// An ordered list of arguments passed to the script.
+func (o ComputeNodeGroupNodeLifecycleScriptOutput) Arguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleScript) []string { return v.Arguments }).(pulumi.StringArrayOutput)
+}
+
+// Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+func (o ComputeNodeGroupNodeLifecycleScriptOutput) ExecutionPolicy() ComputeNodeGroupNodeLifecycleScriptExecutionPolicyPtrOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleScript) *ComputeNodeGroupNodeLifecycleScriptExecutionPolicy {
+		return v.ExecutionPolicy
+	}).(ComputeNodeGroupNodeLifecycleScriptExecutionPolicyPtrOutput)
+}
+
+// A human-readable name that identifies the script.
+func (o ComputeNodeGroupNodeLifecycleScriptOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleScript) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The behavior when the script exits with an error. Defaults to TERMINATE.
+func (o ComputeNodeGroupNodeLifecycleScriptOutput) OnError() ComputeNodeGroupNodeLifecycleScriptOnErrorPtrOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleScript) *ComputeNodeGroupNodeLifecycleScriptOnError {
+		return v.OnError
+	}).(ComputeNodeGroupNodeLifecycleScriptOnErrorPtrOutput)
+}
+
+func (o ComputeNodeGroupNodeLifecycleScriptOutput) ScriptSource() ComputeNodeGroupScriptSourceOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleScript) ComputeNodeGroupScriptSource { return v.ScriptSource }).(ComputeNodeGroupScriptSourceOutput)
+}
+
+type ComputeNodeGroupNodeLifecycleScriptArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupNodeLifecycleScriptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeNodeGroupNodeLifecycleScript)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupNodeLifecycleScriptArrayOutput) ToComputeNodeGroupNodeLifecycleScriptArrayOutput() ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleScriptArrayOutput) ToComputeNodeGroupNodeLifecycleScriptArrayOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleScriptArrayOutput) Index(i pulumi.IntInput) ComputeNodeGroupNodeLifecycleScriptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeNodeGroupNodeLifecycleScript {
+		return vs[0].([]ComputeNodeGroupNodeLifecycleScript)[vs[1].(int)]
+	}).(ComputeNodeGroupNodeLifecycleScriptOutput)
+}
+
+// The ordered scripts to run at each compute node lifecycle stage.
+type ComputeNodeGroupNodeLifecycleStages struct {
+	// Scripts to run after the node is bootstrapped, once the PCS configuration phase completes and before slurmd starts.
+	NodeBootstrapped []ComputeNodeGroupNodeLifecycleScript `pulumi:"nodeBootstrapped"`
+	// Scripts to execute when the node becomes ready (every boot).
+	NodeReady []ComputeNodeGroupNodeLifecycleScript `pulumi:"nodeReady"`
+}
+
+// ComputeNodeGroupNodeLifecycleStagesInput is an input type that accepts ComputeNodeGroupNodeLifecycleStagesArgs and ComputeNodeGroupNodeLifecycleStagesOutput values.
+// You can construct a concrete instance of `ComputeNodeGroupNodeLifecycleStagesInput` via:
+//
+//	ComputeNodeGroupNodeLifecycleStagesArgs{...}
+type ComputeNodeGroupNodeLifecycleStagesInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupNodeLifecycleStagesOutput() ComputeNodeGroupNodeLifecycleStagesOutput
+	ToComputeNodeGroupNodeLifecycleStagesOutputWithContext(context.Context) ComputeNodeGroupNodeLifecycleStagesOutput
+}
+
+// The ordered scripts to run at each compute node lifecycle stage.
+type ComputeNodeGroupNodeLifecycleStagesArgs struct {
+	// Scripts to run after the node is bootstrapped, once the PCS configuration phase completes and before slurmd starts.
+	NodeBootstrapped ComputeNodeGroupNodeLifecycleScriptArrayInput `pulumi:"nodeBootstrapped"`
+	// Scripts to execute when the node becomes ready (every boot).
+	NodeReady ComputeNodeGroupNodeLifecycleScriptArrayInput `pulumi:"nodeReady"`
+}
+
+func (ComputeNodeGroupNodeLifecycleStagesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupNodeLifecycleStages)(nil)).Elem()
+}
+
+func (i ComputeNodeGroupNodeLifecycleStagesArgs) ToComputeNodeGroupNodeLifecycleStagesOutput() ComputeNodeGroupNodeLifecycleStagesOutput {
+	return i.ToComputeNodeGroupNodeLifecycleStagesOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeGroupNodeLifecycleStagesArgs) ToComputeNodeGroupNodeLifecycleStagesOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleStagesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleStagesOutput)
+}
+
+func (i ComputeNodeGroupNodeLifecycleStagesArgs) ToComputeNodeGroupNodeLifecycleStagesPtrOutput() ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return i.ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeGroupNodeLifecycleStagesArgs) ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleStagesOutput).ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(ctx)
+}
+
+// ComputeNodeGroupNodeLifecycleStagesPtrInput is an input type that accepts ComputeNodeGroupNodeLifecycleStagesArgs, ComputeNodeGroupNodeLifecycleStagesPtr and ComputeNodeGroupNodeLifecycleStagesPtrOutput values.
+// You can construct a concrete instance of `ComputeNodeGroupNodeLifecycleStagesPtrInput` via:
+//
+//	        ComputeNodeGroupNodeLifecycleStagesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeNodeGroupNodeLifecycleStagesPtrInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupNodeLifecycleStagesPtrOutput() ComputeNodeGroupNodeLifecycleStagesPtrOutput
+	ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(context.Context) ComputeNodeGroupNodeLifecycleStagesPtrOutput
+}
+
+type computeNodeGroupNodeLifecycleStagesPtrType ComputeNodeGroupNodeLifecycleStagesArgs
+
+func ComputeNodeGroupNodeLifecycleStagesPtr(v *ComputeNodeGroupNodeLifecycleStagesArgs) ComputeNodeGroupNodeLifecycleStagesPtrInput {
+	return (*computeNodeGroupNodeLifecycleStagesPtrType)(v)
+}
+
+func (*computeNodeGroupNodeLifecycleStagesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeGroupNodeLifecycleStages)(nil)).Elem()
+}
+
+func (i *computeNodeGroupNodeLifecycleStagesPtrType) ToComputeNodeGroupNodeLifecycleStagesPtrOutput() ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return i.ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(context.Background())
+}
+
+func (i *computeNodeGroupNodeLifecycleStagesPtrType) ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupNodeLifecycleStagesPtrOutput)
+}
+
+// The ordered scripts to run at each compute node lifecycle stage.
+type ComputeNodeGroupNodeLifecycleStagesOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupNodeLifecycleStagesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupNodeLifecycleStages)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupNodeLifecycleStagesOutput) ToComputeNodeGroupNodeLifecycleStagesOutput() ComputeNodeGroupNodeLifecycleStagesOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleStagesOutput) ToComputeNodeGroupNodeLifecycleStagesOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleStagesOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleStagesOutput) ToComputeNodeGroupNodeLifecycleStagesPtrOutput() ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return o.ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeNodeGroupNodeLifecycleStagesOutput) ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeNodeGroupNodeLifecycleStages) *ComputeNodeGroupNodeLifecycleStages {
+		return &v
+	}).(ComputeNodeGroupNodeLifecycleStagesPtrOutput)
+}
+
+// Scripts to run after the node is bootstrapped, once the PCS configuration phase completes and before slurmd starts.
+func (o ComputeNodeGroupNodeLifecycleStagesOutput) NodeBootstrapped() ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleStages) []ComputeNodeGroupNodeLifecycleScript {
+		return v.NodeBootstrapped
+	}).(ComputeNodeGroupNodeLifecycleScriptArrayOutput)
+}
+
+// Scripts to execute when the node becomes ready (every boot).
+func (o ComputeNodeGroupNodeLifecycleStagesOutput) NodeReady() ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return o.ApplyT(func(v ComputeNodeGroupNodeLifecycleStages) []ComputeNodeGroupNodeLifecycleScript { return v.NodeReady }).(ComputeNodeGroupNodeLifecycleScriptArrayOutput)
+}
+
+type ComputeNodeGroupNodeLifecycleStagesPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupNodeLifecycleStagesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeNodeGroupNodeLifecycleStages)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupNodeLifecycleStagesPtrOutput) ToComputeNodeGroupNodeLifecycleStagesPtrOutput() ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleStagesPtrOutput) ToComputeNodeGroupNodeLifecycleStagesPtrOutputWithContext(ctx context.Context) ComputeNodeGroupNodeLifecycleStagesPtrOutput {
+	return o
+}
+
+func (o ComputeNodeGroupNodeLifecycleStagesPtrOutput) Elem() ComputeNodeGroupNodeLifecycleStagesOutput {
+	return o.ApplyT(func(v *ComputeNodeGroupNodeLifecycleStages) ComputeNodeGroupNodeLifecycleStages {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeNodeGroupNodeLifecycleStages
+		return ret
+	}).(ComputeNodeGroupNodeLifecycleStagesOutput)
+}
+
+// Scripts to run after the node is bootstrapped, once the PCS configuration phase completes and before slurmd starts.
+func (o ComputeNodeGroupNodeLifecycleStagesPtrOutput) NodeBootstrapped() ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return o.ApplyT(func(v *ComputeNodeGroupNodeLifecycleStages) []ComputeNodeGroupNodeLifecycleScript {
+		if v == nil {
+			return nil
+		}
+		return v.NodeBootstrapped
+	}).(ComputeNodeGroupNodeLifecycleScriptArrayOutput)
+}
+
+// Scripts to execute when the node becomes ready (every boot).
+func (o ComputeNodeGroupNodeLifecycleStagesPtrOutput) NodeReady() ComputeNodeGroupNodeLifecycleScriptArrayOutput {
+	return o.ApplyT(func(v *ComputeNodeGroupNodeLifecycleStages) []ComputeNodeGroupNodeLifecycleScript {
+		if v == nil {
+			return nil
+		}
+		return v.NodeReady
+	}).(ComputeNodeGroupNodeLifecycleScriptArrayOutput)
+}
+
+// The external location of a lifecycle script.
+type ComputeNodeGroupScriptSource struct {
+	// A 64-character hexadecimal SHA-256 digest used to verify script integrity.
+	Checksum *string `pulumi:"checksum"`
+	// The S3 object version ID of the script, when stored in a versioned bucket.
+	S3VersionId *string `pulumi:"s3VersionId"`
+	// The S3 URI or HTTPS URL where the script is stored.
+	ScriptLocation string `pulumi:"scriptLocation"`
+}
+
+// ComputeNodeGroupScriptSourceInput is an input type that accepts ComputeNodeGroupScriptSourceArgs and ComputeNodeGroupScriptSourceOutput values.
+// You can construct a concrete instance of `ComputeNodeGroupScriptSourceInput` via:
+//
+//	ComputeNodeGroupScriptSourceArgs{...}
+type ComputeNodeGroupScriptSourceInput interface {
+	pulumi.Input
+
+	ToComputeNodeGroupScriptSourceOutput() ComputeNodeGroupScriptSourceOutput
+	ToComputeNodeGroupScriptSourceOutputWithContext(context.Context) ComputeNodeGroupScriptSourceOutput
+}
+
+// The external location of a lifecycle script.
+type ComputeNodeGroupScriptSourceArgs struct {
+	// A 64-character hexadecimal SHA-256 digest used to verify script integrity.
+	Checksum pulumi.StringPtrInput `pulumi:"checksum"`
+	// The S3 object version ID of the script, when stored in a versioned bucket.
+	S3VersionId pulumi.StringPtrInput `pulumi:"s3VersionId"`
+	// The S3 URI or HTTPS URL where the script is stored.
+	ScriptLocation pulumi.StringInput `pulumi:"scriptLocation"`
+}
+
+func (ComputeNodeGroupScriptSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupScriptSource)(nil)).Elem()
+}
+
+func (i ComputeNodeGroupScriptSourceArgs) ToComputeNodeGroupScriptSourceOutput() ComputeNodeGroupScriptSourceOutput {
+	return i.ToComputeNodeGroupScriptSourceOutputWithContext(context.Background())
+}
+
+func (i ComputeNodeGroupScriptSourceArgs) ToComputeNodeGroupScriptSourceOutputWithContext(ctx context.Context) ComputeNodeGroupScriptSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeNodeGroupScriptSourceOutput)
+}
+
+// The external location of a lifecycle script.
+type ComputeNodeGroupScriptSourceOutput struct{ *pulumi.OutputState }
+
+func (ComputeNodeGroupScriptSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeNodeGroupScriptSource)(nil)).Elem()
+}
+
+func (o ComputeNodeGroupScriptSourceOutput) ToComputeNodeGroupScriptSourceOutput() ComputeNodeGroupScriptSourceOutput {
+	return o
+}
+
+func (o ComputeNodeGroupScriptSourceOutput) ToComputeNodeGroupScriptSourceOutputWithContext(ctx context.Context) ComputeNodeGroupScriptSourceOutput {
+	return o
+}
+
+// A 64-character hexadecimal SHA-256 digest used to verify script integrity.
+func (o ComputeNodeGroupScriptSourceOutput) Checksum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeNodeGroupScriptSource) *string { return v.Checksum }).(pulumi.StringPtrOutput)
+}
+
+// The S3 object version ID of the script, when stored in a versioned bucket.
+func (o ComputeNodeGroupScriptSourceOutput) S3VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeNodeGroupScriptSource) *string { return v.S3VersionId }).(pulumi.StringPtrOutput)
+}
+
+// The S3 URI or HTTPS URL where the script is stored.
+func (o ComputeNodeGroupScriptSourceOutput) ScriptLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputeNodeGroupScriptSource) string { return v.ScriptLocation }).(pulumi.StringOutput)
+}
+
 // Additional settings that directly map to Slurm settings.
 type ComputeNodeGroupSlurmCustomSetting struct {
 	// AWS PCS supports configuration of the following Slurm parameters for compute node groups: Weight and RealMemory.
@@ -1305,6 +1833,13 @@ func (o SpotOptionsPropertiesPtrOutput) AllocationStrategy() ComputeNodeGroupSpo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupInstanceConfigInput)(nil)).Elem(), ComputeNodeGroupInstanceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupInstanceConfigArrayInput)(nil)).Elem(), ComputeNodeGroupInstanceConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleActionsInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleActionsPtrInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleScriptInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleScriptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleScriptArrayInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleScriptArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleStagesInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleStagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleStagesPtrInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleStagesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupScriptSourceInput)(nil)).Elem(), ComputeNodeGroupScriptSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLaunchTemplatePropertiesInput)(nil)).Elem(), CustomLaunchTemplatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkingPropertiesInput)(nil)).Elem(), NetworkingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueComputeNodeGroupConfigurationInput)(nil)).Elem(), QueueComputeNodeGroupConfigurationArgs{})
@@ -1325,6 +1860,13 @@ func init() {
 	pulumi.RegisterOutputType(ComputeNodeGroupErrorInfoArrayOutput{})
 	pulumi.RegisterOutputType(ComputeNodeGroupInstanceConfigOutput{})
 	pulumi.RegisterOutputType(ComputeNodeGroupInstanceConfigArrayOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleActionsOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleActionsPtrOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleScriptOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleScriptArrayOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleStagesOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupNodeLifecycleStagesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeNodeGroupScriptSourceOutput{})
 	pulumi.RegisterOutputType(CustomLaunchTemplatePropertiesOutput{})
 	pulumi.RegisterOutputType(CustomLaunchTemplatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkingPropertiesOutput{})

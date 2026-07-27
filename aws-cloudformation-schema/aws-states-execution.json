@@ -1,0 +1,82 @@
+{
+  "typeName" : "AWS::States::Execution",
+  "description" : "Represents an AWS Step Functions state machine execution.",
+  "properties" : {
+    "ExecutionArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) that identifies the execution.",
+      "minLength" : 1,
+      "maxLength" : 256
+    },
+    "StateMachineArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the state machine that was executed.",
+      "minLength" : 1,
+      "maxLength" : 256
+    },
+    "StateMachineName" : {
+      "type" : "string",
+      "description" : "The name of the state machine, extracted from the execution ARN.",
+      "minLength" : 1,
+      "maxLength" : 80
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the execution.",
+      "minLength" : 1,
+      "maxLength" : 80
+    },
+    "Input" : {
+      "type" : "string",
+      "description" : "The string that contains the JSON input data for the execution.",
+      "maxLength" : 262144
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The current status of the execution.",
+      "enum" : [ "RUNNING", "SUCCEEDED", "FAILED", "TIMED_OUT", "ABORTED", "PENDING_REDRIVE" ]
+    },
+    "StartDate" : {
+      "type" : "string",
+      "description" : "The date the execution started.",
+      "format" : "date-time"
+    },
+    "RedriveCount" : {
+      "type" : "integer",
+      "description" : "The number of times the execution has been redriven."
+    },
+    "RedriveStatus" : {
+      "type" : "string",
+      "description" : "Indicates whether or not an execution can be redriven.",
+      "enum" : [ "REDRIVABLE", "NOT_REDRIVABLE", "REDRIVABLE_BY_MAP_RUN" ]
+    }
+  },
+  "additionalProperties" : false,
+  "required" : [ "StateMachineArn" ],
+  "createOnlyProperties" : [ "/properties/Input", "/properties/Name", "/properties/StateMachineArn" ],
+  "readOnlyProperties" : [ "/properties/ExecutionArn", "/properties/StateMachineName", "/properties/Status", "/properties/StartDate", "/properties/RedriveCount", "/properties/RedriveStatus" ],
+  "primaryIdentifier" : [ "/properties/ExecutionArn" ],
+  "additionalIdentifiers" : [ [ "/properties/StateMachineName", "/properties/Name" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "states:DescribeExecution" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "StateMachineArn" : {
+            "type" : "string",
+            "description" : "The ARN of the state machine whose executions to list.",
+            "minLength" : 1,
+            "maxLength" : 256
+          }
+        },
+        "required" : [ "StateMachineArn" ]
+      },
+      "permissions" : [ "states:ListExecutions" ]
+    }
+  }
+}

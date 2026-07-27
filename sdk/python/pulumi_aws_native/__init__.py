@@ -357,6 +357,8 @@ if typing.TYPE_CHECKING:
     neptunegraph = __neptunegraph
     import pulumi_aws_native.networkfirewall as __networkfirewall
     networkfirewall = __networkfirewall
+    import pulumi_aws_native.networkflowmonitor as __networkflowmonitor
+    networkflowmonitor = __networkflowmonitor
     import pulumi_aws_native.networkmanager as __networkmanager
     networkmanager = __networkmanager
     import pulumi_aws_native.nimblestudio as __nimblestudio
@@ -507,6 +509,8 @@ if typing.TYPE_CHECKING:
     sso = __sso
     import pulumi_aws_native.stepfunctions as __stepfunctions
     stepfunctions = __stepfunctions
+    import pulumi_aws_native.storagegateway as __storagegateway
+    storagegateway = __storagegateway
     import pulumi_aws_native.supportapp as __supportapp
     supportapp = __supportapp
     import pulumi_aws_native.synthetics as __synthetics
@@ -515,6 +519,8 @@ if typing.TYPE_CHECKING:
     systemsmanagersap = __systemsmanagersap
     import pulumi_aws_native.timestream as __timestream
     timestream = __timestream
+    import pulumi_aws_native.transcribe as __transcribe
+    transcribe = __transcribe
     import pulumi_aws_native.transfer as __transfer
     transfer = __transfer
     import pulumi_aws_native.verifiedpermissions as __verifiedpermissions
@@ -525,6 +531,8 @@ if typing.TYPE_CHECKING:
     vpclattice = __vpclattice
     import pulumi_aws_native.wafv2 as __wafv2
     wafv2 = __wafv2
+    import pulumi_aws_native.wellarchitected as __wellarchitected
+    wellarchitected = __wellarchitected
     import pulumi_aws_native.wisdom as __wisdom
     wisdom = __wisdom
     import pulumi_aws_native.workspaces as __workspaces
@@ -705,6 +713,7 @@ else:
     neptune = _utilities.lazy_import('pulumi_aws_native.neptune')
     neptunegraph = _utilities.lazy_import('pulumi_aws_native.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
+    networkflowmonitor = _utilities.lazy_import('pulumi_aws_native.networkflowmonitor')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
@@ -780,15 +789,18 @@ else:
     ssmquicksetup = _utilities.lazy_import('pulumi_aws_native.ssmquicksetup')
     sso = _utilities.lazy_import('pulumi_aws_native.sso')
     stepfunctions = _utilities.lazy_import('pulumi_aws_native.stepfunctions')
+    storagegateway = _utilities.lazy_import('pulumi_aws_native.storagegateway')
     supportapp = _utilities.lazy_import('pulumi_aws_native.supportapp')
     synthetics = _utilities.lazy_import('pulumi_aws_native.synthetics')
     systemsmanagersap = _utilities.lazy_import('pulumi_aws_native.systemsmanagersap')
     timestream = _utilities.lazy_import('pulumi_aws_native.timestream')
+    transcribe = _utilities.lazy_import('pulumi_aws_native.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws_native.transfer')
     verifiedpermissions = _utilities.lazy_import('pulumi_aws_native.verifiedpermissions')
     voiceid = _utilities.lazy_import('pulumi_aws_native.voiceid')
     vpclattice = _utilities.lazy_import('pulumi_aws_native.vpclattice')
     wafv2 = _utilities.lazy_import('pulumi_aws_native.wafv2')
+    wellarchitected = _utilities.lazy_import('pulumi_aws_native.wellarchitected')
     wisdom = _utilities.lazy_import('pulumi_aws_native.wisdom')
     workspaces = _utilities.lazy_import('pulumi_aws_native.workspaces')
     workspacesinstances = _utilities.lazy_import('pulumi_aws_native.workspacesinstances')
@@ -1103,6 +1115,7 @@ _utilities.register(
    "aws-native:backup:BackupSelection": "BackupSelection",
    "aws-native:backup:BackupVault": "BackupVault",
    "aws-native:backup:Framework": "Framework",
+   "aws-native:backup:LegalHold": "LegalHold",
    "aws-native:backup:LogicallyAirGappedBackupVault": "LogicallyAirGappedBackupVault",
    "aws-native:backup:ReportPlan": "ReportPlan",
    "aws-native:backup:RestoreTestingPlan": "RestoreTestingPlan",
@@ -1284,7 +1297,8 @@ _utilities.register(
    "aws-native:certificatemanager:Account": "Account",
    "aws-native:certificatemanager:AcmeDomainValidation": "AcmeDomainValidation",
    "aws-native:certificatemanager:AcmeEndpoint": "AcmeEndpoint",
-   "aws-native:certificatemanager:AcmeExternalAccountBinding": "AcmeExternalAccountBinding"
+   "aws-native:certificatemanager:AcmeExternalAccountBinding": "AcmeExternalAccountBinding",
+   "aws-native:certificatemanager:Certificate": "Certificate"
   }
  },
  {
@@ -1329,6 +1343,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.cloudformation",
   "classes": {
    "aws-native:cloudformation:CustomResourceEmulator": "CustomResourceEmulator",
+   "aws-native:cloudformation:GeneratedTemplate": "GeneratedTemplate",
    "aws-native:cloudformation:GuardHook": "GuardHook",
    "aws-native:cloudformation:HookDefaultVersion": "HookDefaultVersion",
    "aws-native:cloudformation:HookTypeConfig": "HookTypeConfig",
@@ -1795,6 +1810,7 @@ _utilities.register(
   "mod": "docdb",
   "fqn": "pulumi_aws_native.docdb",
   "classes": {
+   "aws-native:docdb:EventSubscription": "EventSubscription",
    "aws-native:docdb:GlobalCluster": "GlobalCluster"
   }
  },
@@ -2240,6 +2256,7 @@ _utilities.register(
   "mod": "glue",
   "fqn": "pulumi_aws_native.glue",
   "classes": {
+   "aws-native:glue:Blueprint": "Blueprint",
    "aws-native:glue:Catalog": "Catalog",
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:DataCatalogEncryptionSettings": "DataCatalogEncryptionSettings",
@@ -2253,7 +2270,8 @@ _utilities.register(
    "aws-native:glue:SchemaVersion": "SchemaVersion",
    "aws-native:glue:SchemaVersionMetadata": "SchemaVersionMetadata",
    "aws-native:glue:Trigger": "Trigger",
-   "aws-native:glue:UsageProfile": "UsageProfile"
+   "aws-native:glue:UsageProfile": "UsageProfile",
+   "aws-native:glue:UserDefinedFunction": "UserDefinedFunction"
   }
  },
  {
@@ -2314,6 +2332,7 @@ _utilities.register(
   "mod": "healthlake",
   "fqn": "pulumi_aws_native.healthlake",
   "classes": {
+   "aws-native:healthlake:DataTransformationProfile": "DataTransformationProfile",
    "aws-native:healthlake:FhirDatastore": "FhirDatastore"
   }
  },
@@ -2931,6 +2950,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "networkflowmonitor",
+  "fqn": "pulumi_aws_native.networkflowmonitor",
+  "classes": {
+   "aws-native:networkflowmonitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "networkmanager",
   "fqn": "pulumi_aws_native.networkmanager",
   "classes": {
@@ -3189,6 +3216,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.quicksight",
   "classes": {
    "aws-native:quicksight:ActionConnector": "ActionConnector",
+   "aws-native:quicksight:Agent": "Agent",
    "aws-native:quicksight:Analysis": "Analysis",
    "aws-native:quicksight:CustomPermissions": "CustomPermissions",
    "aws-native:quicksight:Dashboard": "Dashboard",
@@ -3196,6 +3224,7 @@ _utilities.register(
    "aws-native:quicksight:DataSource": "DataSource",
    "aws-native:quicksight:Flow": "Flow",
    "aws-native:quicksight:Folder": "Folder",
+   "aws-native:quicksight:KnowledgeBase": "KnowledgeBase",
    "aws-native:quicksight:OAuthClientApplication": "OAuthClientApplication",
    "aws-native:quicksight:RefreshSchedule": "RefreshSchedule",
    "aws-native:quicksight:Template": "Template",
@@ -3742,6 +3771,7 @@ _utilities.register(
    "aws-native:smsvoice:PhoneNumber": "PhoneNumber",
    "aws-native:smsvoice:Pool": "Pool",
    "aws-native:smsvoice:ProtectConfiguration": "ProtectConfiguration",
+   "aws-native:smsvoice:Registration": "Registration",
    "aws-native:smsvoice:ResourcePolicy": "ResourcePolicy",
    "aws-native:smsvoice:SenderId": "SenderId"
   }
@@ -3776,6 +3806,7 @@ _utilities.register(
    "aws-native:ssm:MaintenanceWindow": "MaintenanceWindow",
    "aws-native:ssm:MaintenanceWindowTarget": "MaintenanceWindowTarget",
    "aws-native:ssm:MaintenanceWindowTask": "MaintenanceWindowTask",
+   "aws-native:ssm:OpsItem": "OpsItem",
    "aws-native:ssm:Parameter": "Parameter",
    "aws-native:ssm:PatchBaseline": "PatchBaseline",
    "aws-native:ssm:ResourceDataSync": "ResourceDataSync",
@@ -3845,6 +3876,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "storagegateway",
+  "fqn": "pulumi_aws_native.storagegateway",
+  "classes": {
+   "aws-native:storagegateway:TapePool": "TapePool"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "supportapp",
   "fqn": "pulumi_aws_native.supportapp",
   "classes": {
@@ -3880,6 +3919,14 @@ _utilities.register(
    "aws-native:timestream:InfluxDbInstance": "InfluxDbInstance",
    "aws-native:timestream:ScheduledQuery": "ScheduledQuery",
    "aws-native:timestream:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "transcribe",
+  "fqn": "pulumi_aws_native.transcribe",
+  "classes": {
+   "aws-native:transcribe:VocabularyFilter": "VocabularyFilter"
   }
  },
  {
@@ -3953,6 +4000,16 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "wellarchitected",
+  "fqn": "pulumi_aws_native.wellarchitected",
+  "classes": {
+   "aws-native:wellarchitected:Lens": "Lens",
+   "aws-native:wellarchitected:Profile": "Profile",
+   "aws-native:wellarchitected:ReviewTemplate": "ReviewTemplate"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "wisdom",
   "fqn": "pulumi_aws_native.wisdom",
   "classes": {
@@ -3977,6 +4034,7 @@ _utilities.register(
   "classes": {
    "aws-native:workspaces:ConnectionAlias": "ConnectionAlias",
    "aws-native:workspaces:Workspace": "Workspace",
+   "aws-native:workspaces:WorkspaceIpGroup": "WorkspaceIpGroup",
    "aws-native:workspaces:WorkspacesPool": "WorkspacesPool"
   }
  },

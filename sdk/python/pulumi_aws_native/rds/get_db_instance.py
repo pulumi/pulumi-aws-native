@@ -739,7 +739,7 @@ class GetDbInstanceResult:
           +  Aurora PostgreSQL - ``postgresql-license``
           +  RDS for Db2 - ``bring-your-own-license``. For more information about RDS for Db2 licensing, see [](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html) in the *Amazon RDS User Guide.*
           +  RDS for MariaDB - ``general-public-license``
-          +  RDS for Microsoft SQL Server - ``license-included``
+          +  RDS for Microsoft SQL Server - ``license-included`` or ``bring-your-own-media``
           +  RDS for MySQL - ``general-public-license``
           +  RDS for Oracle - ``bring-your-own-license`` or ``license-included``
           +  RDS for PostgreSQL - ``postgresql-license``

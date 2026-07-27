@@ -43,6 +43,7 @@ type DbParameterGroup struct {
 	//   +   ``aurora-mysql``
 	//   +   ``aurora-postgresql``
 	//   +   ``db2-ae``
+	//   +   ``db2-ce``
 	//   +   ``db2-se``
 	//   +   ``mysql``
 	//   +   ``oracle-ee``
@@ -138,6 +139,7 @@ type dbParameterGroupArgs struct {
 	//   +   ``aurora-mysql``
 	//   +   ``aurora-postgresql``
 	//   +   ``db2-ae``
+	//   +   ``db2-ce``
 	//   +   ``db2-se``
 	//   +   ``mysql``
 	//   +   ``oracle-ee``
@@ -183,6 +185,7 @@ type DbParameterGroupArgs struct {
 	//   +   ``aurora-mysql``
 	//   +   ``aurora-postgresql``
 	//   +   ``db2-ae``
+	//   +   ``db2-ce``
 	//   +   ``db2-se``
 	//   +   ``mysql``
 	//   +   ``oracle-ee``
@@ -271,6 +274,7 @@ func (o DbParameterGroupOutput) Description() pulumi.StringOutput {
 //	 +   ``aurora-mysql``
 //	 +   ``aurora-postgresql``
 //	 +   ``db2-ae``
+//	 +   ``db2-ce``
 //	 +   ``db2-se``
 //	 +   ``mysql``
 //	 +   ``oracle-ee``

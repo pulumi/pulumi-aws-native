@@ -13306,7 +13306,7 @@ type SecurityProfileApplication struct {
 	// The permissions that the agent is granted on the application
 	ApplicationPermissions []string `pulumi:"applicationPermissions"`
 	// Namespace of the application that you want to give access to.
-	Namespace string `pulumi:"namespace"`
+	Namespace *string `pulumi:"namespace"`
 	// The type of the application.
 	Type *SecurityProfileApplicationType `pulumi:"type"`
 }
@@ -13327,7 +13327,7 @@ type SecurityProfileApplicationArgs struct {
 	// The permissions that the agent is granted on the application
 	ApplicationPermissions pulumi.StringArrayInput `pulumi:"applicationPermissions"`
 	// Namespace of the application that you want to give access to.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// The type of the application.
 	Type SecurityProfileApplicationTypePtrInput `pulumi:"type"`
 }
@@ -13390,8 +13390,8 @@ func (o SecurityProfileApplicationOutput) ApplicationPermissions() pulumi.String
 }
 
 // Namespace of the application that you want to give access to.
-func (o SecurityProfileApplicationOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityProfileApplication) string { return v.Namespace }).(pulumi.StringOutput)
+func (o SecurityProfileApplicationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfileApplication) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 // The type of the application.
@@ -13564,9 +13564,9 @@ func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) PrimaryAttr
 // A first-party application's metadata.
 type SecurityProfileFlowModule struct {
 	// The identifier of the application that you want to give access to.
-	FlowModuleId string `pulumi:"flowModuleId"`
+	FlowModuleId *string `pulumi:"flowModuleId"`
 	// The type of the first-party application
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // SecurityProfileFlowModuleInput is an input type that accepts SecurityProfileFlowModuleArgs and SecurityProfileFlowModuleOutput values.
@@ -13583,9 +13583,9 @@ type SecurityProfileFlowModuleInput interface {
 // A first-party application's metadata.
 type SecurityProfileFlowModuleArgs struct {
 	// The identifier of the application that you want to give access to.
-	FlowModuleId pulumi.StringInput `pulumi:"flowModuleId"`
+	FlowModuleId pulumi.StringPtrInput `pulumi:"flowModuleId"`
 	// The type of the first-party application
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (SecurityProfileFlowModuleArgs) ElementType() reflect.Type {
@@ -13641,13 +13641,13 @@ func (o SecurityProfileFlowModuleOutput) ToSecurityProfileFlowModuleOutputWithCo
 }
 
 // The identifier of the application that you want to give access to.
-func (o SecurityProfileFlowModuleOutput) FlowModuleId() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityProfileFlowModule) string { return v.FlowModuleId }).(pulumi.StringOutput)
+func (o SecurityProfileFlowModuleOutput) FlowModuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfileFlowModule) *string { return v.FlowModuleId }).(pulumi.StringPtrOutput)
 }
 
 // The type of the first-party application
-func (o SecurityProfileFlowModuleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityProfileFlowModule) string { return v.Type }).(pulumi.StringOutput)
+func (o SecurityProfileFlowModuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfileFlowModule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type SecurityProfileFlowModuleArrayOutput struct{ *pulumi.OutputState }
@@ -13815,9 +13815,9 @@ func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput) 
 // An object defining the access control for a specific attribute and its values.
 type SecurityProfilePrimaryAttributeValue struct {
 	// Specifies the type of access granted. Currently, only "ALLOW" is supported
-	AccessType SecurityProfilePrimaryAttributeValueAccessType `pulumi:"accessType"`
+	AccessType *SecurityProfilePrimaryAttributeValueAccessType `pulumi:"accessType"`
 	// The name of the primary attribute.
-	AttributeName string `pulumi:"attributeName"`
+	AttributeName *string `pulumi:"attributeName"`
 	// An array of allowed primary values for the specified primary attribute.
 	Values []string `pulumi:"values"`
 }
@@ -13836,9 +13836,9 @@ type SecurityProfilePrimaryAttributeValueInput interface {
 // An object defining the access control for a specific attribute and its values.
 type SecurityProfilePrimaryAttributeValueArgs struct {
 	// Specifies the type of access granted. Currently, only "ALLOW" is supported
-	AccessType SecurityProfilePrimaryAttributeValueAccessTypeInput `pulumi:"accessType"`
+	AccessType SecurityProfilePrimaryAttributeValueAccessTypePtrInput `pulumi:"accessType"`
 	// The name of the primary attribute.
-	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
 	// An array of allowed primary values for the specified primary attribute.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
@@ -13896,15 +13896,15 @@ func (o SecurityProfilePrimaryAttributeValueOutput) ToSecurityProfilePrimaryAttr
 }
 
 // Specifies the type of access granted. Currently, only "ALLOW" is supported
-func (o SecurityProfilePrimaryAttributeValueOutput) AccessType() SecurityProfilePrimaryAttributeValueAccessTypeOutput {
-	return o.ApplyT(func(v SecurityProfilePrimaryAttributeValue) SecurityProfilePrimaryAttributeValueAccessType {
+func (o SecurityProfilePrimaryAttributeValueOutput) AccessType() SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return o.ApplyT(func(v SecurityProfilePrimaryAttributeValue) *SecurityProfilePrimaryAttributeValueAccessType {
 		return v.AccessType
-	}).(SecurityProfilePrimaryAttributeValueAccessTypeOutput)
+	}).(SecurityProfilePrimaryAttributeValueAccessTypePtrOutput)
 }
 
 // The name of the primary attribute.
-func (o SecurityProfilePrimaryAttributeValueOutput) AttributeName() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityProfilePrimaryAttributeValue) string { return v.AttributeName }).(pulumi.StringOutput)
+func (o SecurityProfilePrimaryAttributeValueOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfilePrimaryAttributeValue) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
 // An array of allowed primary values for the specified primary attribute.

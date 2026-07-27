@@ -820,6 +820,265 @@ func (in *actionConnectorTypePtr) ToActionConnectorTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(ActionConnectorTypePtrOutput)
 }
 
+// The lifecycle stage of the agent. PREVIEW or PUBLISHED.
+type AgentLifecycle string
+
+const (
+	AgentLifecyclePreview   = AgentLifecycle("PREVIEW")
+	AgentLifecyclePublished = AgentLifecycle("PUBLISHED")
+)
+
+func (AgentLifecycle) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentLifecycle)(nil)).Elem()
+}
+
+func (e AgentLifecycle) ToAgentLifecycleOutput() AgentLifecycleOutput {
+	return pulumi.ToOutput(e).(AgentLifecycleOutput)
+}
+
+func (e AgentLifecycle) ToAgentLifecycleOutputWithContext(ctx context.Context) AgentLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentLifecycleOutput)
+}
+
+func (e AgentLifecycle) ToAgentLifecyclePtrOutput() AgentLifecyclePtrOutput {
+	return e.ToAgentLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (e AgentLifecycle) ToAgentLifecyclePtrOutputWithContext(ctx context.Context) AgentLifecyclePtrOutput {
+	return AgentLifecycle(e).ToAgentLifecycleOutputWithContext(ctx).ToAgentLifecyclePtrOutputWithContext(ctx)
+}
+
+func (e AgentLifecycle) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentLifecycle) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentLifecycle) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentLifecycle) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentLifecycleOutput struct{ *pulumi.OutputState }
+
+func (AgentLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentLifecycle)(nil)).Elem()
+}
+
+func (o AgentLifecycleOutput) ToAgentLifecycleOutput() AgentLifecycleOutput {
+	return o
+}
+
+func (o AgentLifecycleOutput) ToAgentLifecycleOutputWithContext(ctx context.Context) AgentLifecycleOutput {
+	return o
+}
+
+func (o AgentLifecycleOutput) ToAgentLifecyclePtrOutput() AgentLifecyclePtrOutput {
+	return o.ToAgentLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o AgentLifecycleOutput) ToAgentLifecyclePtrOutputWithContext(ctx context.Context) AgentLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentLifecycle) *AgentLifecycle {
+		return &v
+	}).(AgentLifecyclePtrOutput)
+}
+
+func (o AgentLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentLifecycle)(nil)).Elem()
+}
+
+func (o AgentLifecyclePtrOutput) ToAgentLifecyclePtrOutput() AgentLifecyclePtrOutput {
+	return o
+}
+
+func (o AgentLifecyclePtrOutput) ToAgentLifecyclePtrOutputWithContext(ctx context.Context) AgentLifecyclePtrOutput {
+	return o
+}
+
+func (o AgentLifecyclePtrOutput) Elem() AgentLifecycleOutput {
+	return o.ApplyT(func(v *AgentLifecycle) AgentLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret AgentLifecycle
+		return ret
+	}).(AgentLifecycleOutput)
+}
+
+func (o AgentLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentLifecycleInput is an input type that accepts values of the AgentLifecycle enum
+// A concrete instance of `AgentLifecycleInput` can be one of the following:
+//
+//	AgentLifecyclePreview
+//	AgentLifecyclePublished
+type AgentLifecycleInput interface {
+	pulumi.Input
+
+	ToAgentLifecycleOutput() AgentLifecycleOutput
+	ToAgentLifecycleOutputWithContext(context.Context) AgentLifecycleOutput
+}
+
+var agentLifecyclePtrType = reflect.TypeOf((**AgentLifecycle)(nil)).Elem()
+
+type AgentLifecyclePtrInput interface {
+	pulumi.Input
+
+	ToAgentLifecyclePtrOutput() AgentLifecyclePtrOutput
+	ToAgentLifecyclePtrOutputWithContext(context.Context) AgentLifecyclePtrOutput
+}
+
+type agentLifecyclePtr string
+
+func AgentLifecyclePtr(v string) AgentLifecyclePtrInput {
+	return (*agentLifecyclePtr)(&v)
+}
+
+func (*agentLifecyclePtr) ElementType() reflect.Type {
+	return agentLifecyclePtrType
+}
+
+func (in *agentLifecyclePtr) ToAgentLifecyclePtrOutput() AgentLifecyclePtrOutput {
+	return pulumi.ToOutput(in).(AgentLifecyclePtrOutput)
+}
+
+func (in *agentLifecyclePtr) ToAgentLifecyclePtrOutputWithContext(ctx context.Context) AgentLifecyclePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentLifecyclePtrOutput)
+}
+
+// The current status of the agent. One of ACTIVE, CREATING, UPDATING, or FAILED.
+type AgentStatus string
+
+const (
+	AgentStatusActive   = AgentStatus("ACTIVE")
+	AgentStatusCreating = AgentStatus("CREATING")
+	AgentStatusUpdating = AgentStatus("UPDATING")
+	AgentStatusFailed   = AgentStatus("FAILED")
+)
+
+type AgentStatusOutput struct{ *pulumi.OutputState }
+
+func (AgentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentStatus)(nil)).Elem()
+}
+
+func (o AgentStatusOutput) ToAgentStatusOutput() AgentStatusOutput {
+	return o
+}
+
+func (o AgentStatusOutput) ToAgentStatusOutputWithContext(ctx context.Context) AgentStatusOutput {
+	return o
+}
+
+func (o AgentStatusOutput) ToAgentStatusPtrOutput() AgentStatusPtrOutput {
+	return o.ToAgentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusOutput) ToAgentStatusPtrOutputWithContext(ctx context.Context) AgentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentStatus) *AgentStatus {
+		return &v
+	}).(AgentStatusPtrOutput)
+}
+
+func (o AgentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentStatus)(nil)).Elem()
+}
+
+func (o AgentStatusPtrOutput) ToAgentStatusPtrOutput() AgentStatusPtrOutput {
+	return o
+}
+
+func (o AgentStatusPtrOutput) ToAgentStatusPtrOutputWithContext(ctx context.Context) AgentStatusPtrOutput {
+	return o
+}
+
+func (o AgentStatusPtrOutput) Elem() AgentStatusOutput {
+	return o.ApplyT(func(v *AgentStatus) AgentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AgentStatus
+		return ret
+	}).(AgentStatusOutput)
+}
+
+func (o AgentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type AnalysisAnchorOption string
 
 const (
@@ -49542,6 +49801,759 @@ func (in *folderTypePtr) ToFolderTypePtrOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, in).(FolderTypePtrOutput)
 }
 
+type KnowledgeBaseAudioExtractionStatus string
+
+const (
+	KnowledgeBaseAudioExtractionStatusEnabled  = KnowledgeBaseAudioExtractionStatus("ENABLED")
+	KnowledgeBaseAudioExtractionStatusDisabled = KnowledgeBaseAudioExtractionStatus("DISABLED")
+)
+
+func (KnowledgeBaseAudioExtractionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseAudioExtractionStatus)(nil)).Elem()
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToKnowledgeBaseAudioExtractionStatusOutput() KnowledgeBaseAudioExtractionStatusOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseAudioExtractionStatusOutput)
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToKnowledgeBaseAudioExtractionStatusOutputWithContext(ctx context.Context) KnowledgeBaseAudioExtractionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseAudioExtractionStatusOutput)
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToKnowledgeBaseAudioExtractionStatusPtrOutput() KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return e.ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return KnowledgeBaseAudioExtractionStatus(e).ToKnowledgeBaseAudioExtractionStatusOutputWithContext(ctx).ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseAudioExtractionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseAudioExtractionStatusOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseAudioExtractionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseAudioExtractionStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToKnowledgeBaseAudioExtractionStatusOutput() KnowledgeBaseAudioExtractionStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToKnowledgeBaseAudioExtractionStatusOutputWithContext(ctx context.Context) KnowledgeBaseAudioExtractionStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToKnowledgeBaseAudioExtractionStatusPtrOutput() KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return o.ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseAudioExtractionStatus) *KnowledgeBaseAudioExtractionStatus {
+		return &v
+	}).(KnowledgeBaseAudioExtractionStatusPtrOutput)
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseAudioExtractionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseAudioExtractionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseAudioExtractionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseAudioExtractionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseAudioExtractionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseAudioExtractionStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseAudioExtractionStatusPtrOutput) ToKnowledgeBaseAudioExtractionStatusPtrOutput() KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioExtractionStatusPtrOutput) ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioExtractionStatusPtrOutput) Elem() KnowledgeBaseAudioExtractionStatusOutput {
+	return o.ApplyT(func(v *KnowledgeBaseAudioExtractionStatus) KnowledgeBaseAudioExtractionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseAudioExtractionStatus
+		return ret
+	}).(KnowledgeBaseAudioExtractionStatusOutput)
+}
+
+func (o KnowledgeBaseAudioExtractionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseAudioExtractionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseAudioExtractionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseAudioExtractionStatusInput is an input type that accepts values of the KnowledgeBaseAudioExtractionStatus enum
+// A concrete instance of `KnowledgeBaseAudioExtractionStatusInput` can be one of the following:
+//
+//	KnowledgeBaseAudioExtractionStatusEnabled
+//	KnowledgeBaseAudioExtractionStatusDisabled
+type KnowledgeBaseAudioExtractionStatusInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseAudioExtractionStatusOutput() KnowledgeBaseAudioExtractionStatusOutput
+	ToKnowledgeBaseAudioExtractionStatusOutputWithContext(context.Context) KnowledgeBaseAudioExtractionStatusOutput
+}
+
+var knowledgeBaseAudioExtractionStatusPtrType = reflect.TypeOf((**KnowledgeBaseAudioExtractionStatus)(nil)).Elem()
+
+type KnowledgeBaseAudioExtractionStatusPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseAudioExtractionStatusPtrOutput() KnowledgeBaseAudioExtractionStatusPtrOutput
+	ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(context.Context) KnowledgeBaseAudioExtractionStatusPtrOutput
+}
+
+type knowledgeBaseAudioExtractionStatusPtr string
+
+func KnowledgeBaseAudioExtractionStatusPtr(v string) KnowledgeBaseAudioExtractionStatusPtrInput {
+	return (*knowledgeBaseAudioExtractionStatusPtr)(&v)
+}
+
+func (*knowledgeBaseAudioExtractionStatusPtr) ElementType() reflect.Type {
+	return knowledgeBaseAudioExtractionStatusPtrType
+}
+
+func (in *knowledgeBaseAudioExtractionStatusPtr) ToKnowledgeBaseAudioExtractionStatusPtrOutput() KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseAudioExtractionStatusPtrOutput)
+}
+
+func (in *knowledgeBaseAudioExtractionStatusPtr) ToKnowledgeBaseAudioExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseAudioExtractionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseAudioExtractionStatusPtrOutput)
+}
+
+type KnowledgeBaseDataSetStatus string
+
+const (
+	KnowledgeBaseDataSetStatusCreating = KnowledgeBaseDataSetStatus("CREATING")
+	KnowledgeBaseDataSetStatusUpdating = KnowledgeBaseDataSetStatus("UPDATING")
+	KnowledgeBaseDataSetStatusActive   = KnowledgeBaseDataSetStatus("ACTIVE")
+	KnowledgeBaseDataSetStatusFailed   = KnowledgeBaseDataSetStatus("FAILED")
+	KnowledgeBaseDataSetStatusDeleting = KnowledgeBaseDataSetStatus("DELETING")
+)
+
+type KnowledgeBaseDataSetStatusOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseDataSetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseDataSetStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToKnowledgeBaseDataSetStatusOutput() KnowledgeBaseDataSetStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToKnowledgeBaseDataSetStatusOutputWithContext(ctx context.Context) KnowledgeBaseDataSetStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToKnowledgeBaseDataSetStatusPtrOutput() KnowledgeBaseDataSetStatusPtrOutput {
+	return o.ToKnowledgeBaseDataSetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToKnowledgeBaseDataSetStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseDataSetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseDataSetStatus) *KnowledgeBaseDataSetStatus {
+		return &v
+	}).(KnowledgeBaseDataSetStatusPtrOutput)
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseDataSetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseDataSetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseDataSetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseDataSetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseDataSetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseDataSetStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseDataSetStatusPtrOutput) ToKnowledgeBaseDataSetStatusPtrOutput() KnowledgeBaseDataSetStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseDataSetStatusPtrOutput) ToKnowledgeBaseDataSetStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseDataSetStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseDataSetStatusPtrOutput) Elem() KnowledgeBaseDataSetStatusOutput {
+	return o.ApplyT(func(v *KnowledgeBaseDataSetStatus) KnowledgeBaseDataSetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseDataSetStatus
+		return ret
+	}).(KnowledgeBaseDataSetStatusOutput)
+}
+
+func (o KnowledgeBaseDataSetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseDataSetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseDataSetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseImageExtractionStatus string
+
+const (
+	KnowledgeBaseImageExtractionStatusEnabled  = KnowledgeBaseImageExtractionStatus("ENABLED")
+	KnowledgeBaseImageExtractionStatusDisabled = KnowledgeBaseImageExtractionStatus("DISABLED")
+)
+
+func (KnowledgeBaseImageExtractionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseImageExtractionStatus)(nil)).Elem()
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToKnowledgeBaseImageExtractionStatusOutput() KnowledgeBaseImageExtractionStatusOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseImageExtractionStatusOutput)
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToKnowledgeBaseImageExtractionStatusOutputWithContext(ctx context.Context) KnowledgeBaseImageExtractionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseImageExtractionStatusOutput)
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToKnowledgeBaseImageExtractionStatusPtrOutput() KnowledgeBaseImageExtractionStatusPtrOutput {
+	return e.ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseImageExtractionStatusPtrOutput {
+	return KnowledgeBaseImageExtractionStatus(e).ToKnowledgeBaseImageExtractionStatusOutputWithContext(ctx).ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseImageExtractionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseImageExtractionStatusOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseImageExtractionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseImageExtractionStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToKnowledgeBaseImageExtractionStatusOutput() KnowledgeBaseImageExtractionStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToKnowledgeBaseImageExtractionStatusOutputWithContext(ctx context.Context) KnowledgeBaseImageExtractionStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToKnowledgeBaseImageExtractionStatusPtrOutput() KnowledgeBaseImageExtractionStatusPtrOutput {
+	return o.ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseImageExtractionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseImageExtractionStatus) *KnowledgeBaseImageExtractionStatus {
+		return &v
+	}).(KnowledgeBaseImageExtractionStatusPtrOutput)
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseImageExtractionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseImageExtractionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseImageExtractionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseImageExtractionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseImageExtractionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseImageExtractionStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseImageExtractionStatusPtrOutput) ToKnowledgeBaseImageExtractionStatusPtrOutput() KnowledgeBaseImageExtractionStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseImageExtractionStatusPtrOutput) ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseImageExtractionStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseImageExtractionStatusPtrOutput) Elem() KnowledgeBaseImageExtractionStatusOutput {
+	return o.ApplyT(func(v *KnowledgeBaseImageExtractionStatus) KnowledgeBaseImageExtractionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseImageExtractionStatus
+		return ret
+	}).(KnowledgeBaseImageExtractionStatusOutput)
+}
+
+func (o KnowledgeBaseImageExtractionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseImageExtractionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseImageExtractionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseImageExtractionStatusInput is an input type that accepts values of the KnowledgeBaseImageExtractionStatus enum
+// A concrete instance of `KnowledgeBaseImageExtractionStatusInput` can be one of the following:
+//
+//	KnowledgeBaseImageExtractionStatusEnabled
+//	KnowledgeBaseImageExtractionStatusDisabled
+type KnowledgeBaseImageExtractionStatusInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseImageExtractionStatusOutput() KnowledgeBaseImageExtractionStatusOutput
+	ToKnowledgeBaseImageExtractionStatusOutputWithContext(context.Context) KnowledgeBaseImageExtractionStatusOutput
+}
+
+var knowledgeBaseImageExtractionStatusPtrType = reflect.TypeOf((**KnowledgeBaseImageExtractionStatus)(nil)).Elem()
+
+type KnowledgeBaseImageExtractionStatusPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseImageExtractionStatusPtrOutput() KnowledgeBaseImageExtractionStatusPtrOutput
+	ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(context.Context) KnowledgeBaseImageExtractionStatusPtrOutput
+}
+
+type knowledgeBaseImageExtractionStatusPtr string
+
+func KnowledgeBaseImageExtractionStatusPtr(v string) KnowledgeBaseImageExtractionStatusPtrInput {
+	return (*knowledgeBaseImageExtractionStatusPtr)(&v)
+}
+
+func (*knowledgeBaseImageExtractionStatusPtr) ElementType() reflect.Type {
+	return knowledgeBaseImageExtractionStatusPtrType
+}
+
+func (in *knowledgeBaseImageExtractionStatusPtr) ToKnowledgeBaseImageExtractionStatusPtrOutput() KnowledgeBaseImageExtractionStatusPtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseImageExtractionStatusPtrOutput)
+}
+
+func (in *knowledgeBaseImageExtractionStatusPtr) ToKnowledgeBaseImageExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseImageExtractionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseImageExtractionStatusPtrOutput)
+}
+
+type KnowledgeBaseVideoExtractionStatus string
+
+const (
+	KnowledgeBaseVideoExtractionStatusEnabled  = KnowledgeBaseVideoExtractionStatus("ENABLED")
+	KnowledgeBaseVideoExtractionStatusDisabled = KnowledgeBaseVideoExtractionStatus("DISABLED")
+)
+
+func (KnowledgeBaseVideoExtractionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoExtractionStatus)(nil)).Elem()
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToKnowledgeBaseVideoExtractionStatusOutput() KnowledgeBaseVideoExtractionStatusOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseVideoExtractionStatusOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToKnowledgeBaseVideoExtractionStatusOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseVideoExtractionStatusOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToKnowledgeBaseVideoExtractionStatusPtrOutput() KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return e.ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return KnowledgeBaseVideoExtractionStatus(e).ToKnowledgeBaseVideoExtractionStatusOutputWithContext(ctx).ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseVideoExtractionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseVideoExtractionStatusOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVideoExtractionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoExtractionStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToKnowledgeBaseVideoExtractionStatusOutput() KnowledgeBaseVideoExtractionStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToKnowledgeBaseVideoExtractionStatusOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionStatusOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToKnowledgeBaseVideoExtractionStatusPtrOutput() KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return o.ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseVideoExtractionStatus) *KnowledgeBaseVideoExtractionStatus {
+		return &v
+	}).(KnowledgeBaseVideoExtractionStatusPtrOutput)
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseVideoExtractionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseVideoExtractionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseVideoExtractionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVideoExtractionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVideoExtractionStatus)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVideoExtractionStatusPtrOutput) ToKnowledgeBaseVideoExtractionStatusPtrOutput() KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionStatusPtrOutput) ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionStatusPtrOutput) Elem() KnowledgeBaseVideoExtractionStatusOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVideoExtractionStatus) KnowledgeBaseVideoExtractionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseVideoExtractionStatus
+		return ret
+	}).(KnowledgeBaseVideoExtractionStatusOutput)
+}
+
+func (o KnowledgeBaseVideoExtractionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseVideoExtractionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseVideoExtractionStatusInput is an input type that accepts values of the KnowledgeBaseVideoExtractionStatus enum
+// A concrete instance of `KnowledgeBaseVideoExtractionStatusInput` can be one of the following:
+//
+//	KnowledgeBaseVideoExtractionStatusEnabled
+//	KnowledgeBaseVideoExtractionStatusDisabled
+type KnowledgeBaseVideoExtractionStatusInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVideoExtractionStatusOutput() KnowledgeBaseVideoExtractionStatusOutput
+	ToKnowledgeBaseVideoExtractionStatusOutputWithContext(context.Context) KnowledgeBaseVideoExtractionStatusOutput
+}
+
+var knowledgeBaseVideoExtractionStatusPtrType = reflect.TypeOf((**KnowledgeBaseVideoExtractionStatus)(nil)).Elem()
+
+type KnowledgeBaseVideoExtractionStatusPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVideoExtractionStatusPtrOutput() KnowledgeBaseVideoExtractionStatusPtrOutput
+	ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(context.Context) KnowledgeBaseVideoExtractionStatusPtrOutput
+}
+
+type knowledgeBaseVideoExtractionStatusPtr string
+
+func KnowledgeBaseVideoExtractionStatusPtr(v string) KnowledgeBaseVideoExtractionStatusPtrInput {
+	return (*knowledgeBaseVideoExtractionStatusPtr)(&v)
+}
+
+func (*knowledgeBaseVideoExtractionStatusPtr) ElementType() reflect.Type {
+	return knowledgeBaseVideoExtractionStatusPtrType
+}
+
+func (in *knowledgeBaseVideoExtractionStatusPtr) ToKnowledgeBaseVideoExtractionStatusPtrOutput() KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseVideoExtractionStatusPtrOutput)
+}
+
+func (in *knowledgeBaseVideoExtractionStatusPtr) ToKnowledgeBaseVideoExtractionStatusPtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseVideoExtractionStatusPtrOutput)
+}
+
+type KnowledgeBaseVideoExtractionType string
+
+const (
+	KnowledgeBaseVideoExtractionTypeAudioTranscriptionOnly             = KnowledgeBaseVideoExtractionType("AUDIO_TRANSCRIPTION_ONLY")
+	KnowledgeBaseVideoExtractionTypeVisualContentAndAudioTranscription = KnowledgeBaseVideoExtractionType("VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION")
+)
+
+func (KnowledgeBaseVideoExtractionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoExtractionType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToKnowledgeBaseVideoExtractionTypeOutput() KnowledgeBaseVideoExtractionTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseVideoExtractionTypeOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToKnowledgeBaseVideoExtractionTypeOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseVideoExtractionTypeOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToKnowledgeBaseVideoExtractionTypePtrOutput() KnowledgeBaseVideoExtractionTypePtrOutput {
+	return e.ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionTypePtrOutput {
+	return KnowledgeBaseVideoExtractionType(e).ToKnowledgeBaseVideoExtractionTypeOutputWithContext(ctx).ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseVideoExtractionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseVideoExtractionTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVideoExtractionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoExtractionType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToKnowledgeBaseVideoExtractionTypeOutput() KnowledgeBaseVideoExtractionTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToKnowledgeBaseVideoExtractionTypeOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToKnowledgeBaseVideoExtractionTypePtrOutput() KnowledgeBaseVideoExtractionTypePtrOutput {
+	return o.ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseVideoExtractionType) *KnowledgeBaseVideoExtractionType {
+		return &v
+	}).(KnowledgeBaseVideoExtractionTypePtrOutput)
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseVideoExtractionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseVideoExtractionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseVideoExtractionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVideoExtractionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVideoExtractionType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVideoExtractionTypePtrOutput) ToKnowledgeBaseVideoExtractionTypePtrOutput() KnowledgeBaseVideoExtractionTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionTypePtrOutput) ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoExtractionTypePtrOutput) Elem() KnowledgeBaseVideoExtractionTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVideoExtractionType) KnowledgeBaseVideoExtractionType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseVideoExtractionType
+		return ret
+	}).(KnowledgeBaseVideoExtractionTypeOutput)
+}
+
+func (o KnowledgeBaseVideoExtractionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVideoExtractionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseVideoExtractionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseVideoExtractionTypeInput is an input type that accepts values of the KnowledgeBaseVideoExtractionType enum
+// A concrete instance of `KnowledgeBaseVideoExtractionTypeInput` can be one of the following:
+//
+//	KnowledgeBaseVideoExtractionTypeAudioTranscriptionOnly
+//	KnowledgeBaseVideoExtractionTypeVisualContentAndAudioTranscription
+type KnowledgeBaseVideoExtractionTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVideoExtractionTypeOutput() KnowledgeBaseVideoExtractionTypeOutput
+	ToKnowledgeBaseVideoExtractionTypeOutputWithContext(context.Context) KnowledgeBaseVideoExtractionTypeOutput
+}
+
+var knowledgeBaseVideoExtractionTypePtrType = reflect.TypeOf((**KnowledgeBaseVideoExtractionType)(nil)).Elem()
+
+type KnowledgeBaseVideoExtractionTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVideoExtractionTypePtrOutput() KnowledgeBaseVideoExtractionTypePtrOutput
+	ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(context.Context) KnowledgeBaseVideoExtractionTypePtrOutput
+}
+
+type knowledgeBaseVideoExtractionTypePtr string
+
+func KnowledgeBaseVideoExtractionTypePtr(v string) KnowledgeBaseVideoExtractionTypePtrInput {
+	return (*knowledgeBaseVideoExtractionTypePtr)(&v)
+}
+
+func (*knowledgeBaseVideoExtractionTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseVideoExtractionTypePtrType
+}
+
+func (in *knowledgeBaseVideoExtractionTypePtr) ToKnowledgeBaseVideoExtractionTypePtrOutput() KnowledgeBaseVideoExtractionTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseVideoExtractionTypePtrOutput)
+}
+
+func (in *knowledgeBaseVideoExtractionTypePtr) ToKnowledgeBaseVideoExtractionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseVideoExtractionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseVideoExtractionTypePtrOutput)
+}
+
 type OAuthClientApplicationDataSourceType string
 
 const (
@@ -75330,6 +76342,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorConnectionAuthTypePtrInput)(nil)).Elem(), ActionConnectorConnectionAuthType("BASIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorTypeInput)(nil)).Elem(), ActionConnectorType("GENERIC_HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorTypePtrInput)(nil)).Elem(), ActionConnectorType("GENERIC_HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentLifecycleInput)(nil)).Elem(), AgentLifecycle("PREVIEW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentLifecyclePtrInput)(nil)).Elem(), AgentLifecycle("PREVIEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAnchorOptionInput)(nil)).Elem(), AnalysisAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAnchorOptionPtrInput)(nil)).Elem(), AnalysisAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisArcThicknessInput)(nil)).Elem(), AnalysisArcThickness("SMALL"))
@@ -75907,6 +76921,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderSharingModelPtrInput)(nil)).Elem(), FolderSharingModel("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderTypeInput)(nil)).Elem(), FolderType("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderTypePtrInput)(nil)).Elem(), FolderType("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAudioExtractionStatusInput)(nil)).Elem(), KnowledgeBaseAudioExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAudioExtractionStatusPtrInput)(nil)).Elem(), KnowledgeBaseAudioExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseImageExtractionStatusInput)(nil)).Elem(), KnowledgeBaseImageExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseImageExtractionStatusPtrInput)(nil)).Elem(), KnowledgeBaseImageExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionStatusInput)(nil)).Elem(), KnowledgeBaseVideoExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionStatusPtrInput)(nil)).Elem(), KnowledgeBaseVideoExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionTypeInput)(nil)).Elem(), KnowledgeBaseVideoExtractionType("AUDIO_TRANSCRIPTION_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionTypePtrInput)(nil)).Elem(), KnowledgeBaseVideoExtractionType("AUDIO_TRANSCRIPTION_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationDataSourceTypeInput)(nil)).Elem(), OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationDataSourceTypePtrInput)(nil)).Elem(), OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationOAuthClientAuthenticationTypeInput)(nil)).Elem(), OAuthClientApplicationOAuthClientAuthenticationType("TOKEN"))
@@ -76216,6 +77238,10 @@ func init() {
 	pulumi.RegisterOutputType(ActionConnectorResourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectorTypeOutput{})
 	pulumi.RegisterOutputType(ActionConnectorTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentLifecycleOutput{})
+	pulumi.RegisterOutputType(AgentLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(AgentStatusOutput{})
+	pulumi.RegisterOutputType(AgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAnchorOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisAnchorOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisArcThicknessOutput{})
@@ -76801,6 +77827,16 @@ func init() {
 	pulumi.RegisterOutputType(FolderSharingModelPtrOutput{})
 	pulumi.RegisterOutputType(FolderTypeOutput{})
 	pulumi.RegisterOutputType(FolderTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseAudioExtractionStatusOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseAudioExtractionStatusPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseDataSetStatusOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseDataSetStatusPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseImageExtractionStatusOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseImageExtractionStatusPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionStatusOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionStatusPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionTypePtrOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationDataSourceTypeOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationDataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationOAuthClientAuthenticationTypeOutput{})

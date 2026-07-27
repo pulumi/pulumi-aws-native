@@ -28,6 +28,8 @@ type LookupPlacementGroupArgs struct {
 }
 
 type LookupPlacementGroupResult struct {
+	// The ID of the placement group.
+	GroupId *string `pulumi:"groupId"`
 	// The Group Name of Placement Group.
 	GroupName *string `pulumi:"groupName"`
 }
@@ -62,6 +64,11 @@ func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutput() L
 
 func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWithContext(ctx context.Context) LookupPlacementGroupResultOutput {
 	return o
+}
+
+// The ID of the placement group.
+func (o LookupPlacementGroupResultOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
 // The Group Name of Placement Group.

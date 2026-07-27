@@ -232,6 +232,7 @@ import * as mwaaserverless from "./mwaaserverless";
 import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
+import * as networkflowmonitor from "./networkflowmonitor";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
@@ -307,16 +308,19 @@ import * as ssmincidents from "./ssmincidents";
 import * as ssmquicksetup from "./ssmquicksetup";
 import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
+import * as storagegateway from "./storagegateway";
 import * as supportapp from "./supportapp";
 import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
+import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as voiceid from "./voiceid";
 import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
+import * as wellarchitected from "./wellarchitected";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
 import * as workspacesinstances from "./workspacesinstances";
@@ -492,6 +496,7 @@ export {
     neptune,
     neptunegraph,
     networkfirewall,
+    networkflowmonitor,
     networkmanager,
     nimblestudio,
     oam,
@@ -567,16 +572,19 @@ export {
     ssmquicksetup,
     sso,
     stepfunctions,
+    storagegateway,
     supportapp,
     synthetics,
     systemsmanagersap,
     timestream,
+    transcribe,
     transfer,
     types,
     verifiedpermissions,
     voiceid,
     vpclattice,
     wafv2,
+    wellarchitected,
     wisdom,
     workspaces,
     workspacesinstances,

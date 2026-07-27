@@ -1373,6 +1373,13 @@ type ProtectConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type RegistrationTag struct {
+	// The key identifier, or name, of the tag.
+	Key string `pulumi:"key"`
+	// The string value associated with the key of the tag.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type SenderIdTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.

@@ -153,6 +153,7 @@ class PlacementGroup(pulumi.CustomResource):
             __props__.__dict__["spread_level"] = spread_level
             __props__.__dict__["strategy"] = strategy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["group_id"] = None
             __props__.__dict__["group_name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["partitionCount", "spreadLevel", "strategy", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -178,12 +179,21 @@ class PlacementGroup(pulumi.CustomResource):
 
         __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
 
+        __props__.__dict__["group_id"] = None
         __props__.__dict__["group_name"] = None
         __props__.__dict__["partition_count"] = None
         __props__.__dict__["spread_level"] = None
         __props__.__dict__["strategy"] = None
         __props__.__dict__["tags"] = None
         return PlacementGroup(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the placement group.
+        """
+        return pulumi.get(self, "group_id")
 
     @_builtins.property
     @pulumi.getter(name="groupName")

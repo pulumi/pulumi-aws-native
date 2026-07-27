@@ -82,9 +82,17 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
      */
     declare public readonly excludedAccounts: pulumi.Output<string[] | undefined>;
     /**
+     * Amazon Resource Name (ARN) of the organization conformance pack.
+     */
+    declare public /*out*/ readonly organizationConformancePackArn: pulumi.Output<string>;
+    /**
      * The name of the organization conformance pack.
      */
     declare public readonly organizationConformancePackName: pulumi.Output<string>;
+    /**
+     * The tags for the organization conformance pack.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A string containing full conformance pack template body.
      */
@@ -110,14 +118,18 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
             resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
             resourceInputs["excludedAccounts"] = args?.excludedAccounts;
             resourceInputs["organizationConformancePackName"] = args?.organizationConformancePackName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["templateBody"] = args?.templateBody;
             resourceInputs["templateS3Uri"] = args?.templateS3Uri;
+            resourceInputs["organizationConformancePackArn"] = undefined /*out*/;
         } else {
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["deliveryS3Bucket"] = undefined /*out*/;
             resourceInputs["deliveryS3KeyPrefix"] = undefined /*out*/;
             resourceInputs["excludedAccounts"] = undefined /*out*/;
+            resourceInputs["organizationConformancePackArn"] = undefined /*out*/;
             resourceInputs["organizationConformancePackName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateBody"] = undefined /*out*/;
             resourceInputs["templateS3Uri"] = undefined /*out*/;
         }
@@ -152,6 +164,10 @@ export interface OrganizationConformancePackArgs {
      * The name of the organization conformance pack.
      */
     organizationConformancePackName?: pulumi.Input<string | undefined>;
+    /**
+     * The tags for the organization conformance pack.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A string containing full conformance pack template body.
      */

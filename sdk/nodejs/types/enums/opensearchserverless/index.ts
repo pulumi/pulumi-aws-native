@@ -87,6 +87,16 @@ export const IndexPropertyMappingCompressionLevel = {
  */
 export type IndexPropertyMappingCompressionLevel = (typeof IndexPropertyMappingCompressionLevel)[keyof typeof IndexPropertyMappingCompressionLevel];
 
+export const IndexPropertyMappingDataType = {
+    Float: "float",
+    Byte: "byte",
+} as const;
+
+/**
+ * The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+ */
+export type IndexPropertyMappingDataType = (typeof IndexPropertyMappingDataType)[keyof typeof IndexPropertyMappingDataType];
+
 export const IndexPropertyMappingMethodPropertiesEngine = {
     Nmslib: "nmslib",
     Faiss: "faiss",

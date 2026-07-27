@@ -15,11 +15,13 @@ from .get_backup_plan import *
 from .get_backup_selection import *
 from .get_backup_vault import *
 from .get_framework import *
+from .get_legal_hold import *
 from .get_logically_air_gapped_backup_vault import *
 from .get_report_plan import *
 from .get_restore_testing_plan import *
 from .get_restore_testing_selection import *
 from .get_tiering_configuration import *
+from .legal_hold import *
 from .logically_air_gapped_backup_vault import *
 from .report_plan import *
 from .restore_testing_plan import *

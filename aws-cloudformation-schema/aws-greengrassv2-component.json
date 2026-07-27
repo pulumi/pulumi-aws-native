@@ -1,0 +1,59 @@
+{
+  "typeName" : "AWS::GreengrassV2::Component",
+  "description" : "Represents an AWS IoT Greengrass V2 component, which is a software module deployed to Greengrass core devices.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The ARN of the component.",
+      "pattern" : "^arn:[^:]*:greengrass:[^:]*:(aws|[0-9]+):components:[^:]+$"
+    },
+    "ComponentName" : {
+      "type" : "string",
+      "description" : "The name of the component.",
+      "minLength" : 1,
+      "maxLength" : 128
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "Tags associated with the component.",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 128
+          },
+          "Value" : {
+            "type" : "string",
+            "maxLength" : 256
+          }
+        },
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      },
+      "maxItems" : 200
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/ComponentName", "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/ComponentName" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "greengrass:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "greengrass:ListComponentVersions", "greengrass:ListTagsForResource" ]
+    },
+    "list" : {
+      "permissions" : [ "greengrass:ListComponents" ]
+    }
+  }
+}

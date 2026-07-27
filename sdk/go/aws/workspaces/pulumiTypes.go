@@ -87,6 +87,123 @@ type ConnectionAliasTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes a rule for an IP access control group.
+type WorkspaceIpGroupIpRuleItem struct {
+	// The IP address range, in CIDR notation.
+	IpRule string `pulumi:"ipRule"`
+	// The description of the rule.
+	RuleDesc *string `pulumi:"ruleDesc"`
+}
+
+// WorkspaceIpGroupIpRuleItemInput is an input type that accepts WorkspaceIpGroupIpRuleItemArgs and WorkspaceIpGroupIpRuleItemOutput values.
+// You can construct a concrete instance of `WorkspaceIpGroupIpRuleItemInput` via:
+//
+//	WorkspaceIpGroupIpRuleItemArgs{...}
+type WorkspaceIpGroupIpRuleItemInput interface {
+	pulumi.Input
+
+	ToWorkspaceIpGroupIpRuleItemOutput() WorkspaceIpGroupIpRuleItemOutput
+	ToWorkspaceIpGroupIpRuleItemOutputWithContext(context.Context) WorkspaceIpGroupIpRuleItemOutput
+}
+
+// Describes a rule for an IP access control group.
+type WorkspaceIpGroupIpRuleItemArgs struct {
+	// The IP address range, in CIDR notation.
+	IpRule pulumi.StringInput `pulumi:"ipRule"`
+	// The description of the rule.
+	RuleDesc pulumi.StringPtrInput `pulumi:"ruleDesc"`
+}
+
+func (WorkspaceIpGroupIpRuleItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceIpGroupIpRuleItem)(nil)).Elem()
+}
+
+func (i WorkspaceIpGroupIpRuleItemArgs) ToWorkspaceIpGroupIpRuleItemOutput() WorkspaceIpGroupIpRuleItemOutput {
+	return i.ToWorkspaceIpGroupIpRuleItemOutputWithContext(context.Background())
+}
+
+func (i WorkspaceIpGroupIpRuleItemArgs) ToWorkspaceIpGroupIpRuleItemOutputWithContext(ctx context.Context) WorkspaceIpGroupIpRuleItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIpGroupIpRuleItemOutput)
+}
+
+// WorkspaceIpGroupIpRuleItemArrayInput is an input type that accepts WorkspaceIpGroupIpRuleItemArray and WorkspaceIpGroupIpRuleItemArrayOutput values.
+// You can construct a concrete instance of `WorkspaceIpGroupIpRuleItemArrayInput` via:
+//
+//	WorkspaceIpGroupIpRuleItemArray{ WorkspaceIpGroupIpRuleItemArgs{...} }
+type WorkspaceIpGroupIpRuleItemArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceIpGroupIpRuleItemArrayOutput() WorkspaceIpGroupIpRuleItemArrayOutput
+	ToWorkspaceIpGroupIpRuleItemArrayOutputWithContext(context.Context) WorkspaceIpGroupIpRuleItemArrayOutput
+}
+
+type WorkspaceIpGroupIpRuleItemArray []WorkspaceIpGroupIpRuleItemInput
+
+func (WorkspaceIpGroupIpRuleItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceIpGroupIpRuleItem)(nil)).Elem()
+}
+
+func (i WorkspaceIpGroupIpRuleItemArray) ToWorkspaceIpGroupIpRuleItemArrayOutput() WorkspaceIpGroupIpRuleItemArrayOutput {
+	return i.ToWorkspaceIpGroupIpRuleItemArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceIpGroupIpRuleItemArray) ToWorkspaceIpGroupIpRuleItemArrayOutputWithContext(ctx context.Context) WorkspaceIpGroupIpRuleItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIpGroupIpRuleItemArrayOutput)
+}
+
+// Describes a rule for an IP access control group.
+type WorkspaceIpGroupIpRuleItemOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceIpGroupIpRuleItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceIpGroupIpRuleItem)(nil)).Elem()
+}
+
+func (o WorkspaceIpGroupIpRuleItemOutput) ToWorkspaceIpGroupIpRuleItemOutput() WorkspaceIpGroupIpRuleItemOutput {
+	return o
+}
+
+func (o WorkspaceIpGroupIpRuleItemOutput) ToWorkspaceIpGroupIpRuleItemOutputWithContext(ctx context.Context) WorkspaceIpGroupIpRuleItemOutput {
+	return o
+}
+
+// The IP address range, in CIDR notation.
+func (o WorkspaceIpGroupIpRuleItemOutput) IpRule() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceIpGroupIpRuleItem) string { return v.IpRule }).(pulumi.StringOutput)
+}
+
+// The description of the rule.
+func (o WorkspaceIpGroupIpRuleItemOutput) RuleDesc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceIpGroupIpRuleItem) *string { return v.RuleDesc }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceIpGroupIpRuleItemArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceIpGroupIpRuleItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceIpGroupIpRuleItem)(nil)).Elem()
+}
+
+func (o WorkspaceIpGroupIpRuleItemArrayOutput) ToWorkspaceIpGroupIpRuleItemArrayOutput() WorkspaceIpGroupIpRuleItemArrayOutput {
+	return o
+}
+
+func (o WorkspaceIpGroupIpRuleItemArrayOutput) ToWorkspaceIpGroupIpRuleItemArrayOutputWithContext(ctx context.Context) WorkspaceIpGroupIpRuleItemArrayOutput {
+	return o
+}
+
+func (o WorkspaceIpGroupIpRuleItemArrayOutput) Index(i pulumi.IntInput) WorkspaceIpGroupIpRuleItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceIpGroupIpRuleItem {
+		return vs[0].([]WorkspaceIpGroupIpRuleItem)[vs[1].(int)]
+	}).(WorkspaceIpGroupIpRuleItemOutput)
+}
+
+// Describes a tag.
+type WorkspaceIpGroupTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type WorkspaceProperties struct {
 	// The compute type. For more information, see [Amazon WorkSpaces Bundles](https://docs.aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles) .
 	ComputeTypeName *string `pulumi:"computeTypeName"`
@@ -730,6 +847,8 @@ func (o WorkspacesPoolTimeoutSettingsPtrOutput) MaxUserDurationInSeconds() pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIpGroupIpRuleItemInput)(nil)).Elem(), WorkspaceIpGroupIpRuleItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIpGroupIpRuleItemArrayInput)(nil)).Elem(), WorkspaceIpGroupIpRuleItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesInput)(nil)).Elem(), WorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePropertiesPtrInput)(nil)).Elem(), WorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolApplicationSettingsInput)(nil)).Elem(), WorkspacesPoolApplicationSettingsArgs{})
@@ -739,6 +858,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacesPoolTimeoutSettingsPtrInput)(nil)).Elem(), WorkspacesPoolTimeoutSettingsArgs{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasAssociationArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceIpGroupIpRuleItemOutput{})
+	pulumi.RegisterOutputType(WorkspaceIpGroupIpRuleItemArrayOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacesPoolApplicationSettingsOutput{})

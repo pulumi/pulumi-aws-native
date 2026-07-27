@@ -2,6 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DataTransformationProfileSourceFormat = {
+    Ccda: "CCDA",
+    Csv: "CSV",
+} as const;
+
+/**
+ * The source format that this profile converts from.
+ */
+export type DataTransformationProfileSourceFormat = (typeof DataTransformationProfileSourceFormat)[keyof typeof DataTransformationProfileSourceFormat];
+
+export const DataTransformationProfileTargetFormat = {
+    FhirR4: "FHIR_R4",
+} as const;
+
+/**
+ * The target format that this profile converts to. Always FHIR_R4.
+ */
+export type DataTransformationProfileTargetFormat = (typeof DataTransformationProfileTargetFormat)[keyof typeof DataTransformationProfileTargetFormat];
+
 export const FhirDatastoreDatastoreStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",

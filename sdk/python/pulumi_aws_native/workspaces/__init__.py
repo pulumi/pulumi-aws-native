@@ -10,8 +10,10 @@ from ._enums import *
 from .connection_alias import *
 from .get_connection_alias import *
 from .get_workspace import *
+from .get_workspace_ip_group import *
 from .get_workspaces_pool import *
 from .workspace import *
+from .workspace_ip_group import *
 from .workspaces_pool import *
 from ._inputs import *
 from . import outputs

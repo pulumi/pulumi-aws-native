@@ -20,6 +20,11 @@ export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null a
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
+export { GetWorkspaceIpGroupArgs, GetWorkspaceIpGroupResult, GetWorkspaceIpGroupOutputArgs } from "./getWorkspaceIpGroup";
+export const getWorkspaceIpGroup: typeof import("./getWorkspaceIpGroup").getWorkspaceIpGroup = null as any;
+export const getWorkspaceIpGroupOutput: typeof import("./getWorkspaceIpGroup").getWorkspaceIpGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceIpGroup","getWorkspaceIpGroupOutput"], () => require("./getWorkspaceIpGroup"));
+
 export { GetWorkspacesPoolArgs, GetWorkspacesPoolResult, GetWorkspacesPoolOutputArgs } from "./getWorkspacesPool";
 export const getWorkspacesPool: typeof import("./getWorkspacesPool").getWorkspacesPool = null as any;
 export const getWorkspacesPoolOutput: typeof import("./getWorkspacesPool").getWorkspacesPoolOutput = null as any;
@@ -29,6 +34,11 @@ export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
+export { WorkspaceIpGroupArgs } from "./workspaceIpGroup";
+export type WorkspaceIpGroup = import("./workspaceIpGroup").WorkspaceIpGroup;
+export const WorkspaceIpGroup: typeof import("./workspaceIpGroup").WorkspaceIpGroup = null as any;
+utilities.lazyLoad(exports, ["WorkspaceIpGroup"], () => require("./workspaceIpGroup"));
 
 export { WorkspacesPoolArgs } from "./workspacesPool";
 export type WorkspacesPool = import("./workspacesPool").WorkspacesPool;
@@ -47,6 +57,8 @@ const _module = {
                 return new ConnectionAlias(name, <any>undefined, { urn })
             case "aws-native:workspaces:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "aws-native:workspaces:WorkspaceIpGroup":
+                return new WorkspaceIpGroup(name, <any>undefined, { urn })
             case "aws-native:workspaces:WorkspacesPool":
                 return new WorkspacesPool(name, <any>undefined, { urn })
             default:

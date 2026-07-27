@@ -42,6 +42,10 @@ export class LambdaHook extends pulumi.CustomResource {
      */
     declare public readonly alias: pulumi.Output<string>;
     /**
+     * Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+     */
+    declare public readonly autoUpdate: pulumi.Output<boolean | undefined>;
+    /**
      * The execution role ARN assumed by Hooks to invoke Lambda.
      */
     declare public readonly executionRole: pulumi.Output<string>;
@@ -61,6 +65,10 @@ export class LambdaHook extends pulumi.CustomResource {
      * Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
      */
     declare public readonly lambdaFunction: pulumi.Output<string>;
+    /**
+     * Contains logging configuration information for the hook.
+     */
+    declare public readonly loggingConfig: pulumi.Output<outputs.cloudformation.LambdaHookLoggingConfig | undefined>;
     /**
      * Filters to allow hooks to target specific stack attributes
      */
@@ -104,27 +112,31 @@ export class LambdaHook extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetOperations'");
             }
             resourceInputs["alias"] = args?.alias;
+            resourceInputs["autoUpdate"] = args?.autoUpdate;
             resourceInputs["executionRole"] = args?.executionRole;
             resourceInputs["failureMode"] = args?.failureMode;
             resourceInputs["hookStatus"] = args?.hookStatus;
             resourceInputs["lambdaFunction"] = args?.lambdaFunction;
+            resourceInputs["loggingConfig"] = args?.loggingConfig;
             resourceInputs["stackFilters"] = args?.stackFilters;
             resourceInputs["targetFilters"] = args?.targetFilters;
             resourceInputs["targetOperations"] = args?.targetOperations;
             resourceInputs["hookArn"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["autoUpdate"] = undefined /*out*/;
             resourceInputs["executionRole"] = undefined /*out*/;
             resourceInputs["failureMode"] = undefined /*out*/;
             resourceInputs["hookArn"] = undefined /*out*/;
             resourceInputs["hookStatus"] = undefined /*out*/;
             resourceInputs["lambdaFunction"] = undefined /*out*/;
+            resourceInputs["loggingConfig"] = undefined /*out*/;
             resourceInputs["stackFilters"] = undefined /*out*/;
             resourceInputs["targetFilters"] = undefined /*out*/;
             resourceInputs["targetOperations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["alias"] };
+        const replaceOnChanges = { replaceOnChanges: ["alias", "autoUpdate", "loggingConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LambdaHook.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,6 +150,10 @@ export interface LambdaHookArgs {
      * The typename alias for the hook.
      */
     alias: pulumi.Input<string>;
+    /**
+     * Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+     */
+    autoUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * The execution role ARN assumed by Hooks to invoke Lambda.
      */
@@ -154,6 +170,10 @@ export interface LambdaHookArgs {
      * Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
      */
     lambdaFunction: pulumi.Input<string>;
+    /**
+     * Contains logging configuration information for the hook.
+     */
+    loggingConfig?: pulumi.Input<inputs.cloudformation.LambdaHookLoggingConfigArgs | undefined>;
     /**
      * Filters to allow hooks to target specific stack attributes
      */

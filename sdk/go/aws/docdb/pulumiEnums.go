@@ -10,6 +10,178 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of source that is generating the events.
+type EventSubscriptionSourceType string
+
+const (
+	EventSubscriptionSourceTypeDbInstance        = EventSubscriptionSourceType("db-instance")
+	EventSubscriptionSourceTypeDbCluster         = EventSubscriptionSourceType("db-cluster")
+	EventSubscriptionSourceTypeDbParameterGroup  = EventSubscriptionSourceType("db-parameter-group")
+	EventSubscriptionSourceTypeDbSecurityGroup   = EventSubscriptionSourceType("db-security-group")
+	EventSubscriptionSourceTypeDbClusterSnapshot = EventSubscriptionSourceType("db-cluster-snapshot")
+)
+
+func (EventSubscriptionSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionSourceType)(nil)).Elem()
+}
+
+func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypeOutput() EventSubscriptionSourceTypeOutput {
+	return pulumi.ToOutput(e).(EventSubscriptionSourceTypeOutput)
+}
+
+func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypeOutputWithContext(ctx context.Context) EventSubscriptionSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSubscriptionSourceTypeOutput)
+}
+
+func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
+	return e.ToEventSubscriptionSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e EventSubscriptionSourceType) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
+	return EventSubscriptionSourceType(e).ToEventSubscriptionSourceTypeOutputWithContext(ctx).ToEventSubscriptionSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e EventSubscriptionSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSubscriptionSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSubscriptionSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSubscriptionSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSubscriptionSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionSourceType)(nil)).Elem()
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypeOutput() EventSubscriptionSourceTypeOutput {
+	return o
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypeOutputWithContext(ctx context.Context) EventSubscriptionSourceTypeOutput {
+	return o
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
+	return o.ToEventSubscriptionSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionSourceType) *EventSubscriptionSourceType {
+		return &v
+	}).(EventSubscriptionSourceTypePtrOutput)
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSubscriptionSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSubscriptionSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSubscriptionSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionSourceType)(nil)).Elem()
+}
+
+func (o EventSubscriptionSourceTypePtrOutput) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionSourceTypePtrOutput) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
+	return o
+}
+
+func (o EventSubscriptionSourceTypePtrOutput) Elem() EventSubscriptionSourceTypeOutput {
+	return o.ApplyT(func(v *EventSubscriptionSourceType) EventSubscriptionSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionSourceType
+		return ret
+	}).(EventSubscriptionSourceTypeOutput)
+}
+
+func (o EventSubscriptionSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSubscriptionSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSubscriptionSourceTypeInput is an input type that accepts values of the EventSubscriptionSourceType enum
+// A concrete instance of `EventSubscriptionSourceTypeInput` can be one of the following:
+//
+//	EventSubscriptionSourceTypeDbInstance
+//	EventSubscriptionSourceTypeDbCluster
+//	EventSubscriptionSourceTypeDbParameterGroup
+//	EventSubscriptionSourceTypeDbSecurityGroup
+//	EventSubscriptionSourceTypeDbClusterSnapshot
+type EventSubscriptionSourceTypeInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionSourceTypeOutput() EventSubscriptionSourceTypeOutput
+	ToEventSubscriptionSourceTypeOutputWithContext(context.Context) EventSubscriptionSourceTypeOutput
+}
+
+var eventSubscriptionSourceTypePtrType = reflect.TypeOf((**EventSubscriptionSourceType)(nil)).Elem()
+
+type EventSubscriptionSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput
+	ToEventSubscriptionSourceTypePtrOutputWithContext(context.Context) EventSubscriptionSourceTypePtrOutput
+}
+
+type eventSubscriptionSourceTypePtr string
+
+func EventSubscriptionSourceTypePtr(v string) EventSubscriptionSourceTypePtrInput {
+	return (*eventSubscriptionSourceTypePtr)(&v)
+}
+
+func (*eventSubscriptionSourceTypePtr) ElementType() reflect.Type {
+	return eventSubscriptionSourceTypePtrType
+}
+
+func (in *eventSubscriptionSourceTypePtr) ToEventSubscriptionSourceTypePtrOutput() EventSubscriptionSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(EventSubscriptionSourceTypePtrOutput)
+}
+
+func (in *eventSubscriptionSourceTypePtr) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionSourceTypePtrOutput)
+}
+
 // The database engine to use for this global cluster.
 type GlobalClusterEngine string
 
@@ -175,8 +347,12 @@ func (in *globalClusterEnginePtr) ToGlobalClusterEnginePtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypeInput)(nil)).Elem(), EventSubscriptionSourceType("db-instance"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypePtrInput)(nil)).Elem(), EventSubscriptionSourceType("db-instance"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEngineInput)(nil)).Elem(), GlobalClusterEngine("docdb"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterEnginePtrInput)(nil)).Elem(), GlobalClusterEngine("docdb"))
+	pulumi.RegisterOutputType(EventSubscriptionSourceTypeOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterEngineOutput{})
 	pulumi.RegisterOutputType(GlobalClusterEnginePtrOutput{})
 }

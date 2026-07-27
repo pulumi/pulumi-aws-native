@@ -155,6 +155,11 @@
           "description" : "The compression level for knn_vector fields",
           "enum" : [ "16x", "32x", "8x", "4x", "2x", "1x" ]
         },
+        "DataType" : {
+          "type" : "string",
+          "description" : "The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.",
+          "enum" : [ "float", "byte" ]
+        },
         "Value" : {
           "type" : "string",
           "description" : "Default value for the field when not specified in a document"

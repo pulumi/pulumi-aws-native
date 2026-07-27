@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Pcs
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("nodeLifecycleActions")]
+        public Output<Outputs.ComputeNodeGroupNodeLifecycleActions?> NodeLifecycleActions { get; private set; } = null!;
+
         /// <summary>
         /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         /// </summary>
@@ -203,6 +206,9 @@ namespace Pulumi.AwsNative.Pcs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nodeLifecycleActions")]
+        public Input<Inputs.ComputeNodeGroupNodeLifecycleActionsArgs>? NodeLifecycleActions { get; set; }
 
         /// <summary>
         /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.

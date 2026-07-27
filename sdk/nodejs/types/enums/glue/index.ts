@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BlueprintStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The status of the blueprint registration.
+ */
+export type BlueprintStatus = (typeof BlueprintStatus)[keyof typeof BlueprintStatus];
+
 export const CatalogAllowFullTableExternalDataAccess = {
     True: "True",
     False: "False",
@@ -93,3 +105,36 @@ export const SchemaDataFormat = {
  * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
  */
 export type SchemaDataFormat = (typeof SchemaDataFormat)[keyof typeof SchemaDataFormat];
+
+export const UserDefinedFunctionFunctionType = {
+    RegularFunction: "REGULAR_FUNCTION",
+    AggregateFunction: "AGGREGATE_FUNCTION",
+    StoredProcedure: "STORED_PROCEDURE",
+} as const;
+
+/**
+ * The type of the function.
+ */
+export type UserDefinedFunctionFunctionType = (typeof UserDefinedFunctionFunctionType)[keyof typeof UserDefinedFunctionFunctionType];
+
+export const UserDefinedFunctionOwnerType = {
+    User: "USER",
+    Role: "ROLE",
+    Group: "GROUP",
+} as const;
+
+/**
+ * The owner type.
+ */
+export type UserDefinedFunctionOwnerType = (typeof UserDefinedFunctionOwnerType)[keyof typeof UserDefinedFunctionOwnerType];
+
+export const UserDefinedFunctionResourceUriResourceType = {
+    Jar: "JAR",
+    File: "FILE",
+    Archive: "ARCHIVE",
+} as const;
+
+/**
+ * The type of the resource.
+ */
+export type UserDefinedFunctionResourceUriResourceType = (typeof UserDefinedFunctionResourceUriResourceType)[keyof typeof UserDefinedFunctionResourceUriResourceType];

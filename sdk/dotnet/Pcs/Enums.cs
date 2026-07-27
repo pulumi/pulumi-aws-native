@@ -231,6 +231,100 @@ namespace Pulumi.AwsNative.Pcs
     }
 
     /// <summary>
+    /// Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy : IEquatable<ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy>
+    {
+        private readonly string _value;
+
+        private ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy CacheOnce { get; } = new ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy("CACHE_ONCE");
+        public static ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy RefreshOnReboot { get; } = new ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy("REFRESH_ON_REBOOT");
+
+        public static bool operator ==(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy left, ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy right) => left.Equals(right);
+        public static bool operator !=(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy left, ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy other && Equals(other);
+        public bool Equals(ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeNodeGroupNodeLifecycleScriptExecutionPolicy : IEquatable<ComputeNodeGroupNodeLifecycleScriptExecutionPolicy>
+    {
+        private readonly string _value;
+
+        private ComputeNodeGroupNodeLifecycleScriptExecutionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeNodeGroupNodeLifecycleScriptExecutionPolicy FirstBootOnly { get; } = new ComputeNodeGroupNodeLifecycleScriptExecutionPolicy("FIRST_BOOT_ONLY");
+        public static ComputeNodeGroupNodeLifecycleScriptExecutionPolicy EveryBoot { get; } = new ComputeNodeGroupNodeLifecycleScriptExecutionPolicy("EVERY_BOOT");
+
+        public static bool operator ==(ComputeNodeGroupNodeLifecycleScriptExecutionPolicy left, ComputeNodeGroupNodeLifecycleScriptExecutionPolicy right) => left.Equals(right);
+        public static bool operator !=(ComputeNodeGroupNodeLifecycleScriptExecutionPolicy left, ComputeNodeGroupNodeLifecycleScriptExecutionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeNodeGroupNodeLifecycleScriptExecutionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeNodeGroupNodeLifecycleScriptExecutionPolicy other && Equals(other);
+        public bool Equals(ComputeNodeGroupNodeLifecycleScriptExecutionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The behavior when the script exits with an error. Defaults to TERMINATE.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeNodeGroupNodeLifecycleScriptOnError : IEquatable<ComputeNodeGroupNodeLifecycleScriptOnError>
+    {
+        private readonly string _value;
+
+        private ComputeNodeGroupNodeLifecycleScriptOnError(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeNodeGroupNodeLifecycleScriptOnError Terminate { get; } = new ComputeNodeGroupNodeLifecycleScriptOnError("TERMINATE");
+        public static ComputeNodeGroupNodeLifecycleScriptOnError StopSequence { get; } = new ComputeNodeGroupNodeLifecycleScriptOnError("STOP_SEQUENCE");
+        public static ComputeNodeGroupNodeLifecycleScriptOnError Continue { get; } = new ComputeNodeGroupNodeLifecycleScriptOnError("CONTINUE");
+
+        public static bool operator ==(ComputeNodeGroupNodeLifecycleScriptOnError left, ComputeNodeGroupNodeLifecycleScriptOnError right) => left.Equals(right);
+        public static bool operator !=(ComputeNodeGroupNodeLifecycleScriptOnError left, ComputeNodeGroupNodeLifecycleScriptOnError right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeNodeGroupNodeLifecycleScriptOnError value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeNodeGroupNodeLifecycleScriptOnError other && Equals(other);
+        public bool Equals(ComputeNodeGroupNodeLifecycleScriptOnError other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
     /// </summary>
     [EnumType]

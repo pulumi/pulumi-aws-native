@@ -13,6 +13,625 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Create the profile by cloning a specific version of an existing profile.
+type DataTransformationProfileExistingVersionedProfileSource struct {
+	// The unique identifier of the source profile to clone.
+	ProfileId string `pulumi:"profileId"`
+	// The version number of the source profile to clone.
+	Version int `pulumi:"version"`
+}
+
+// DataTransformationProfileExistingVersionedProfileSourceInput is an input type that accepts DataTransformationProfileExistingVersionedProfileSourceArgs and DataTransformationProfileExistingVersionedProfileSourceOutput values.
+// You can construct a concrete instance of `DataTransformationProfileExistingVersionedProfileSourceInput` via:
+//
+//	DataTransformationProfileExistingVersionedProfileSourceArgs{...}
+type DataTransformationProfileExistingVersionedProfileSourceInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileExistingVersionedProfileSourceOutput() DataTransformationProfileExistingVersionedProfileSourceOutput
+	ToDataTransformationProfileExistingVersionedProfileSourceOutputWithContext(context.Context) DataTransformationProfileExistingVersionedProfileSourceOutput
+}
+
+// Create the profile by cloning a specific version of an existing profile.
+type DataTransformationProfileExistingVersionedProfileSourceArgs struct {
+	// The unique identifier of the source profile to clone.
+	ProfileId pulumi.StringInput `pulumi:"profileId"`
+	// The version number of the source profile to clone.
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (DataTransformationProfileExistingVersionedProfileSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileExistingVersionedProfileSource)(nil)).Elem()
+}
+
+func (i DataTransformationProfileExistingVersionedProfileSourceArgs) ToDataTransformationProfileExistingVersionedProfileSourceOutput() DataTransformationProfileExistingVersionedProfileSourceOutput {
+	return i.ToDataTransformationProfileExistingVersionedProfileSourceOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileExistingVersionedProfileSourceArgs) ToDataTransformationProfileExistingVersionedProfileSourceOutputWithContext(ctx context.Context) DataTransformationProfileExistingVersionedProfileSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileExistingVersionedProfileSourceOutput)
+}
+
+func (i DataTransformationProfileExistingVersionedProfileSourceArgs) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutput() DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return i.ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileExistingVersionedProfileSourceArgs) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileExistingVersionedProfileSourceOutput).ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(ctx)
+}
+
+// DataTransformationProfileExistingVersionedProfileSourcePtrInput is an input type that accepts DataTransformationProfileExistingVersionedProfileSourceArgs, DataTransformationProfileExistingVersionedProfileSourcePtr and DataTransformationProfileExistingVersionedProfileSourcePtrOutput values.
+// You can construct a concrete instance of `DataTransformationProfileExistingVersionedProfileSourcePtrInput` via:
+//
+//	        DataTransformationProfileExistingVersionedProfileSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataTransformationProfileExistingVersionedProfileSourcePtrInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileExistingVersionedProfileSourcePtrOutput() DataTransformationProfileExistingVersionedProfileSourcePtrOutput
+	ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(context.Context) DataTransformationProfileExistingVersionedProfileSourcePtrOutput
+}
+
+type dataTransformationProfileExistingVersionedProfileSourcePtrType DataTransformationProfileExistingVersionedProfileSourceArgs
+
+func DataTransformationProfileExistingVersionedProfileSourcePtr(v *DataTransformationProfileExistingVersionedProfileSourceArgs) DataTransformationProfileExistingVersionedProfileSourcePtrInput {
+	return (*dataTransformationProfileExistingVersionedProfileSourcePtrType)(v)
+}
+
+func (*dataTransformationProfileExistingVersionedProfileSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileExistingVersionedProfileSource)(nil)).Elem()
+}
+
+func (i *dataTransformationProfileExistingVersionedProfileSourcePtrType) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutput() DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return i.ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *dataTransformationProfileExistingVersionedProfileSourcePtrType) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileExistingVersionedProfileSourcePtrOutput)
+}
+
+// Create the profile by cloning a specific version of an existing profile.
+type DataTransformationProfileExistingVersionedProfileSourceOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileExistingVersionedProfileSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileExistingVersionedProfileSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileExistingVersionedProfileSourceOutput) ToDataTransformationProfileExistingVersionedProfileSourceOutput() DataTransformationProfileExistingVersionedProfileSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileExistingVersionedProfileSourceOutput) ToDataTransformationProfileExistingVersionedProfileSourceOutputWithContext(ctx context.Context) DataTransformationProfileExistingVersionedProfileSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileExistingVersionedProfileSourceOutput) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutput() DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return o.ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileExistingVersionedProfileSourceOutput) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTransformationProfileExistingVersionedProfileSource) *DataTransformationProfileExistingVersionedProfileSource {
+		return &v
+	}).(DataTransformationProfileExistingVersionedProfileSourcePtrOutput)
+}
+
+// The unique identifier of the source profile to clone.
+func (o DataTransformationProfileExistingVersionedProfileSourceOutput) ProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransformationProfileExistingVersionedProfileSource) string { return v.ProfileId }).(pulumi.StringOutput)
+}
+
+// The version number of the source profile to clone.
+func (o DataTransformationProfileExistingVersionedProfileSourceOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v DataTransformationProfileExistingVersionedProfileSource) int { return v.Version }).(pulumi.IntOutput)
+}
+
+type DataTransformationProfileExistingVersionedProfileSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileExistingVersionedProfileSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileExistingVersionedProfileSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileExistingVersionedProfileSourcePtrOutput) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutput() DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileExistingVersionedProfileSourcePtrOutput) ToDataTransformationProfileExistingVersionedProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileExistingVersionedProfileSourcePtrOutput) Elem() DataTransformationProfileExistingVersionedProfileSourceOutput {
+	return o.ApplyT(func(v *DataTransformationProfileExistingVersionedProfileSource) DataTransformationProfileExistingVersionedProfileSource {
+		if v != nil {
+			return *v
+		}
+		var ret DataTransformationProfileExistingVersionedProfileSource
+		return ret
+	}).(DataTransformationProfileExistingVersionedProfileSourceOutput)
+}
+
+// The unique identifier of the source profile to clone.
+func (o DataTransformationProfileExistingVersionedProfileSourcePtrOutput) ProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataTransformationProfileExistingVersionedProfileSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version number of the source profile to clone.
+func (o DataTransformationProfileExistingVersionedProfileSourcePtrOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataTransformationProfileExistingVersionedProfileSource) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.IntPtrOutput)
+}
+
+// Create the profile from raw Velocity template mapping content.
+type DataTransformationProfileProfileMappingSource struct {
+	// Map of template file paths to their Velocity template content.
+	ProfileMapping map[string]string `pulumi:"profileMapping"`
+}
+
+// DataTransformationProfileProfileMappingSourceInput is an input type that accepts DataTransformationProfileProfileMappingSourceArgs and DataTransformationProfileProfileMappingSourceOutput values.
+// You can construct a concrete instance of `DataTransformationProfileProfileMappingSourceInput` via:
+//
+//	DataTransformationProfileProfileMappingSourceArgs{...}
+type DataTransformationProfileProfileMappingSourceInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileProfileMappingSourceOutput() DataTransformationProfileProfileMappingSourceOutput
+	ToDataTransformationProfileProfileMappingSourceOutputWithContext(context.Context) DataTransformationProfileProfileMappingSourceOutput
+}
+
+// Create the profile from raw Velocity template mapping content.
+type DataTransformationProfileProfileMappingSourceArgs struct {
+	// Map of template file paths to their Velocity template content.
+	ProfileMapping pulumi.StringMapInput `pulumi:"profileMapping"`
+}
+
+func (DataTransformationProfileProfileMappingSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileProfileMappingSource)(nil)).Elem()
+}
+
+func (i DataTransformationProfileProfileMappingSourceArgs) ToDataTransformationProfileProfileMappingSourceOutput() DataTransformationProfileProfileMappingSourceOutput {
+	return i.ToDataTransformationProfileProfileMappingSourceOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileProfileMappingSourceArgs) ToDataTransformationProfileProfileMappingSourceOutputWithContext(ctx context.Context) DataTransformationProfileProfileMappingSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileProfileMappingSourceOutput)
+}
+
+func (i DataTransformationProfileProfileMappingSourceArgs) ToDataTransformationProfileProfileMappingSourcePtrOutput() DataTransformationProfileProfileMappingSourcePtrOutput {
+	return i.ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileProfileMappingSourceArgs) ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileProfileMappingSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileProfileMappingSourceOutput).ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(ctx)
+}
+
+// DataTransformationProfileProfileMappingSourcePtrInput is an input type that accepts DataTransformationProfileProfileMappingSourceArgs, DataTransformationProfileProfileMappingSourcePtr and DataTransformationProfileProfileMappingSourcePtrOutput values.
+// You can construct a concrete instance of `DataTransformationProfileProfileMappingSourcePtrInput` via:
+//
+//	        DataTransformationProfileProfileMappingSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataTransformationProfileProfileMappingSourcePtrInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileProfileMappingSourcePtrOutput() DataTransformationProfileProfileMappingSourcePtrOutput
+	ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(context.Context) DataTransformationProfileProfileMappingSourcePtrOutput
+}
+
+type dataTransformationProfileProfileMappingSourcePtrType DataTransformationProfileProfileMappingSourceArgs
+
+func DataTransformationProfileProfileMappingSourcePtr(v *DataTransformationProfileProfileMappingSourceArgs) DataTransformationProfileProfileMappingSourcePtrInput {
+	return (*dataTransformationProfileProfileMappingSourcePtrType)(v)
+}
+
+func (*dataTransformationProfileProfileMappingSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileProfileMappingSource)(nil)).Elem()
+}
+
+func (i *dataTransformationProfileProfileMappingSourcePtrType) ToDataTransformationProfileProfileMappingSourcePtrOutput() DataTransformationProfileProfileMappingSourcePtrOutput {
+	return i.ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *dataTransformationProfileProfileMappingSourcePtrType) ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileProfileMappingSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileProfileMappingSourcePtrOutput)
+}
+
+// Create the profile from raw Velocity template mapping content.
+type DataTransformationProfileProfileMappingSourceOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileProfileMappingSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileProfileMappingSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileProfileMappingSourceOutput) ToDataTransformationProfileProfileMappingSourceOutput() DataTransformationProfileProfileMappingSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileProfileMappingSourceOutput) ToDataTransformationProfileProfileMappingSourceOutputWithContext(ctx context.Context) DataTransformationProfileProfileMappingSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileProfileMappingSourceOutput) ToDataTransformationProfileProfileMappingSourcePtrOutput() DataTransformationProfileProfileMappingSourcePtrOutput {
+	return o.ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileProfileMappingSourceOutput) ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileProfileMappingSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTransformationProfileProfileMappingSource) *DataTransformationProfileProfileMappingSource {
+		return &v
+	}).(DataTransformationProfileProfileMappingSourcePtrOutput)
+}
+
+// Map of template file paths to their Velocity template content.
+func (o DataTransformationProfileProfileMappingSourceOutput) ProfileMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataTransformationProfileProfileMappingSource) map[string]string { return v.ProfileMapping }).(pulumi.StringMapOutput)
+}
+
+type DataTransformationProfileProfileMappingSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileProfileMappingSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileProfileMappingSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileProfileMappingSourcePtrOutput) ToDataTransformationProfileProfileMappingSourcePtrOutput() DataTransformationProfileProfileMappingSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileProfileMappingSourcePtrOutput) ToDataTransformationProfileProfileMappingSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileProfileMappingSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileProfileMappingSourcePtrOutput) Elem() DataTransformationProfileProfileMappingSourceOutput {
+	return o.ApplyT(func(v *DataTransformationProfileProfileMappingSource) DataTransformationProfileProfileMappingSource {
+		if v != nil {
+			return *v
+		}
+		var ret DataTransformationProfileProfileMappingSource
+		return ret
+	}).(DataTransformationProfileProfileMappingSourceOutput)
+}
+
+// Map of template file paths to their Velocity template content.
+func (o DataTransformationProfileProfileMappingSourcePtrOutput) ProfileMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataTransformationProfileProfileMappingSource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ProfileMapping
+	}).(pulumi.StringMapOutput)
+}
+
+// The source from which to create the profile's initial template content. Exactly one of the members must be specified. Use StarterProfile (C-CDA only), ProfileMapping (C-CDA or CSV), or ExistingVersionedProfileId to clone an existing profile. Each produces a published profile.
+type DataTransformationProfileSource struct {
+	ExistingVersionedProfileId *DataTransformationProfileExistingVersionedProfileSource `pulumi:"existingVersionedProfileId"`
+	ProfileMapping             *DataTransformationProfileProfileMappingSource           `pulumi:"profileMapping"`
+	StarterProfile             *DataTransformationProfileStarterProfileSource           `pulumi:"starterProfile"`
+}
+
+// DataTransformationProfileSourceInput is an input type that accepts DataTransformationProfileSourceArgs and DataTransformationProfileSourceOutput values.
+// You can construct a concrete instance of `DataTransformationProfileSourceInput` via:
+//
+//	DataTransformationProfileSourceArgs{...}
+type DataTransformationProfileSourceInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileSourceOutput() DataTransformationProfileSourceOutput
+	ToDataTransformationProfileSourceOutputWithContext(context.Context) DataTransformationProfileSourceOutput
+}
+
+// The source from which to create the profile's initial template content. Exactly one of the members must be specified. Use StarterProfile (C-CDA only), ProfileMapping (C-CDA or CSV), or ExistingVersionedProfileId to clone an existing profile. Each produces a published profile.
+type DataTransformationProfileSourceArgs struct {
+	ExistingVersionedProfileId DataTransformationProfileExistingVersionedProfileSourcePtrInput `pulumi:"existingVersionedProfileId"`
+	ProfileMapping             DataTransformationProfileProfileMappingSourcePtrInput           `pulumi:"profileMapping"`
+	StarterProfile             DataTransformationProfileStarterProfileSourcePtrInput           `pulumi:"starterProfile"`
+}
+
+func (DataTransformationProfileSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileSource)(nil)).Elem()
+}
+
+func (i DataTransformationProfileSourceArgs) ToDataTransformationProfileSourceOutput() DataTransformationProfileSourceOutput {
+	return i.ToDataTransformationProfileSourceOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileSourceArgs) ToDataTransformationProfileSourceOutputWithContext(ctx context.Context) DataTransformationProfileSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileSourceOutput)
+}
+
+func (i DataTransformationProfileSourceArgs) ToDataTransformationProfileSourcePtrOutput() DataTransformationProfileSourcePtrOutput {
+	return i.ToDataTransformationProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileSourceArgs) ToDataTransformationProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileSourceOutput).ToDataTransformationProfileSourcePtrOutputWithContext(ctx)
+}
+
+// DataTransformationProfileSourcePtrInput is an input type that accepts DataTransformationProfileSourceArgs, DataTransformationProfileSourcePtr and DataTransformationProfileSourcePtrOutput values.
+// You can construct a concrete instance of `DataTransformationProfileSourcePtrInput` via:
+//
+//	        DataTransformationProfileSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataTransformationProfileSourcePtrInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileSourcePtrOutput() DataTransformationProfileSourcePtrOutput
+	ToDataTransformationProfileSourcePtrOutputWithContext(context.Context) DataTransformationProfileSourcePtrOutput
+}
+
+type dataTransformationProfileSourcePtrType DataTransformationProfileSourceArgs
+
+func DataTransformationProfileSourcePtr(v *DataTransformationProfileSourceArgs) DataTransformationProfileSourcePtrInput {
+	return (*dataTransformationProfileSourcePtrType)(v)
+}
+
+func (*dataTransformationProfileSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileSource)(nil)).Elem()
+}
+
+func (i *dataTransformationProfileSourcePtrType) ToDataTransformationProfileSourcePtrOutput() DataTransformationProfileSourcePtrOutput {
+	return i.ToDataTransformationProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *dataTransformationProfileSourcePtrType) ToDataTransformationProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileSourcePtrOutput)
+}
+
+// The source from which to create the profile's initial template content. Exactly one of the members must be specified. Use StarterProfile (C-CDA only), ProfileMapping (C-CDA or CSV), or ExistingVersionedProfileId to clone an existing profile. Each produces a published profile.
+type DataTransformationProfileSourceOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileSourceOutput) ToDataTransformationProfileSourceOutput() DataTransformationProfileSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourceOutput) ToDataTransformationProfileSourceOutputWithContext(ctx context.Context) DataTransformationProfileSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourceOutput) ToDataTransformationProfileSourcePtrOutput() DataTransformationProfileSourcePtrOutput {
+	return o.ToDataTransformationProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileSourceOutput) ToDataTransformationProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTransformationProfileSource) *DataTransformationProfileSource {
+		return &v
+	}).(DataTransformationProfileSourcePtrOutput)
+}
+
+func (o DataTransformationProfileSourceOutput) ExistingVersionedProfileId() DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return o.ApplyT(func(v DataTransformationProfileSource) *DataTransformationProfileExistingVersionedProfileSource {
+		return v.ExistingVersionedProfileId
+	}).(DataTransformationProfileExistingVersionedProfileSourcePtrOutput)
+}
+
+func (o DataTransformationProfileSourceOutput) ProfileMapping() DataTransformationProfileProfileMappingSourcePtrOutput {
+	return o.ApplyT(func(v DataTransformationProfileSource) *DataTransformationProfileProfileMappingSource {
+		return v.ProfileMapping
+	}).(DataTransformationProfileProfileMappingSourcePtrOutput)
+}
+
+func (o DataTransformationProfileSourceOutput) StarterProfile() DataTransformationProfileStarterProfileSourcePtrOutput {
+	return o.ApplyT(func(v DataTransformationProfileSource) *DataTransformationProfileStarterProfileSource {
+		return v.StarterProfile
+	}).(DataTransformationProfileStarterProfileSourcePtrOutput)
+}
+
+type DataTransformationProfileSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileSourcePtrOutput) ToDataTransformationProfileSourcePtrOutput() DataTransformationProfileSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourcePtrOutput) ToDataTransformationProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileSourcePtrOutput) Elem() DataTransformationProfileSourceOutput {
+	return o.ApplyT(func(v *DataTransformationProfileSource) DataTransformationProfileSource {
+		if v != nil {
+			return *v
+		}
+		var ret DataTransformationProfileSource
+		return ret
+	}).(DataTransformationProfileSourceOutput)
+}
+
+func (o DataTransformationProfileSourcePtrOutput) ExistingVersionedProfileId() DataTransformationProfileExistingVersionedProfileSourcePtrOutput {
+	return o.ApplyT(func(v *DataTransformationProfileSource) *DataTransformationProfileExistingVersionedProfileSource {
+		if v == nil {
+			return nil
+		}
+		return v.ExistingVersionedProfileId
+	}).(DataTransformationProfileExistingVersionedProfileSourcePtrOutput)
+}
+
+func (o DataTransformationProfileSourcePtrOutput) ProfileMapping() DataTransformationProfileProfileMappingSourcePtrOutput {
+	return o.ApplyT(func(v *DataTransformationProfileSource) *DataTransformationProfileProfileMappingSource {
+		if v == nil {
+			return nil
+		}
+		return v.ProfileMapping
+	}).(DataTransformationProfileProfileMappingSourcePtrOutput)
+}
+
+func (o DataTransformationProfileSourcePtrOutput) StarterProfile() DataTransformationProfileStarterProfileSourcePtrOutput {
+	return o.ApplyT(func(v *DataTransformationProfileSource) *DataTransformationProfileStarterProfileSource {
+		if v == nil {
+			return nil
+		}
+		return v.StarterProfile
+	}).(DataTransformationProfileStarterProfileSourcePtrOutput)
+}
+
+// Create the profile from a predefined starter profile of transformation templates.
+type DataTransformationProfileStarterProfileSource struct {
+	// The name of the starter profile to seed the profile from.
+	StarterProfileName string `pulumi:"starterProfileName"`
+}
+
+// DataTransformationProfileStarterProfileSourceInput is an input type that accepts DataTransformationProfileStarterProfileSourceArgs and DataTransformationProfileStarterProfileSourceOutput values.
+// You can construct a concrete instance of `DataTransformationProfileStarterProfileSourceInput` via:
+//
+//	DataTransformationProfileStarterProfileSourceArgs{...}
+type DataTransformationProfileStarterProfileSourceInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileStarterProfileSourceOutput() DataTransformationProfileStarterProfileSourceOutput
+	ToDataTransformationProfileStarterProfileSourceOutputWithContext(context.Context) DataTransformationProfileStarterProfileSourceOutput
+}
+
+// Create the profile from a predefined starter profile of transformation templates.
+type DataTransformationProfileStarterProfileSourceArgs struct {
+	// The name of the starter profile to seed the profile from.
+	StarterProfileName pulumi.StringInput `pulumi:"starterProfileName"`
+}
+
+func (DataTransformationProfileStarterProfileSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileStarterProfileSource)(nil)).Elem()
+}
+
+func (i DataTransformationProfileStarterProfileSourceArgs) ToDataTransformationProfileStarterProfileSourceOutput() DataTransformationProfileStarterProfileSourceOutput {
+	return i.ToDataTransformationProfileStarterProfileSourceOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileStarterProfileSourceArgs) ToDataTransformationProfileStarterProfileSourceOutputWithContext(ctx context.Context) DataTransformationProfileStarterProfileSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileStarterProfileSourceOutput)
+}
+
+func (i DataTransformationProfileStarterProfileSourceArgs) ToDataTransformationProfileStarterProfileSourcePtrOutput() DataTransformationProfileStarterProfileSourcePtrOutput {
+	return i.ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i DataTransformationProfileStarterProfileSourceArgs) ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileStarterProfileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileStarterProfileSourceOutput).ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(ctx)
+}
+
+// DataTransformationProfileStarterProfileSourcePtrInput is an input type that accepts DataTransformationProfileStarterProfileSourceArgs, DataTransformationProfileStarterProfileSourcePtr and DataTransformationProfileStarterProfileSourcePtrOutput values.
+// You can construct a concrete instance of `DataTransformationProfileStarterProfileSourcePtrInput` via:
+//
+//	        DataTransformationProfileStarterProfileSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataTransformationProfileStarterProfileSourcePtrInput interface {
+	pulumi.Input
+
+	ToDataTransformationProfileStarterProfileSourcePtrOutput() DataTransformationProfileStarterProfileSourcePtrOutput
+	ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(context.Context) DataTransformationProfileStarterProfileSourcePtrOutput
+}
+
+type dataTransformationProfileStarterProfileSourcePtrType DataTransformationProfileStarterProfileSourceArgs
+
+func DataTransformationProfileStarterProfileSourcePtr(v *DataTransformationProfileStarterProfileSourceArgs) DataTransformationProfileStarterProfileSourcePtrInput {
+	return (*dataTransformationProfileStarterProfileSourcePtrType)(v)
+}
+
+func (*dataTransformationProfileStarterProfileSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileStarterProfileSource)(nil)).Elem()
+}
+
+func (i *dataTransformationProfileStarterProfileSourcePtrType) ToDataTransformationProfileStarterProfileSourcePtrOutput() DataTransformationProfileStarterProfileSourcePtrOutput {
+	return i.ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *dataTransformationProfileStarterProfileSourcePtrType) ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileStarterProfileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTransformationProfileStarterProfileSourcePtrOutput)
+}
+
+// Create the profile from a predefined starter profile of transformation templates.
+type DataTransformationProfileStarterProfileSourceOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileStarterProfileSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTransformationProfileStarterProfileSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileStarterProfileSourceOutput) ToDataTransformationProfileStarterProfileSourceOutput() DataTransformationProfileStarterProfileSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileStarterProfileSourceOutput) ToDataTransformationProfileStarterProfileSourceOutputWithContext(ctx context.Context) DataTransformationProfileStarterProfileSourceOutput {
+	return o
+}
+
+func (o DataTransformationProfileStarterProfileSourceOutput) ToDataTransformationProfileStarterProfileSourcePtrOutput() DataTransformationProfileStarterProfileSourcePtrOutput {
+	return o.ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(context.Background())
+}
+
+func (o DataTransformationProfileStarterProfileSourceOutput) ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileStarterProfileSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTransformationProfileStarterProfileSource) *DataTransformationProfileStarterProfileSource {
+		return &v
+	}).(DataTransformationProfileStarterProfileSourcePtrOutput)
+}
+
+// The name of the starter profile to seed the profile from.
+func (o DataTransformationProfileStarterProfileSourceOutput) StarterProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataTransformationProfileStarterProfileSource) string { return v.StarterProfileName }).(pulumi.StringOutput)
+}
+
+type DataTransformationProfileStarterProfileSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DataTransformationProfileStarterProfileSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTransformationProfileStarterProfileSource)(nil)).Elem()
+}
+
+func (o DataTransformationProfileStarterProfileSourcePtrOutput) ToDataTransformationProfileStarterProfileSourcePtrOutput() DataTransformationProfileStarterProfileSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileStarterProfileSourcePtrOutput) ToDataTransformationProfileStarterProfileSourcePtrOutputWithContext(ctx context.Context) DataTransformationProfileStarterProfileSourcePtrOutput {
+	return o
+}
+
+func (o DataTransformationProfileStarterProfileSourcePtrOutput) Elem() DataTransformationProfileStarterProfileSourceOutput {
+	return o.ApplyT(func(v *DataTransformationProfileStarterProfileSource) DataTransformationProfileStarterProfileSource {
+		if v != nil {
+			return *v
+		}
+		var ret DataTransformationProfileStarterProfileSource
+		return ret
+	}).(DataTransformationProfileStarterProfileSourceOutput)
+}
+
+// The name of the starter profile to seed the profile from.
+func (o DataTransformationProfileStarterProfileSourcePtrOutput) StarterProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataTransformationProfileStarterProfileSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StarterProfileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with the profile.
+type DataTransformationProfileTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 // The time that a Data Store was created.
 type FhirDatastoreCreatedAt struct {
 	// Nanoseconds.
@@ -739,6 +1358,14 @@ type FhirDatastoreTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileExistingVersionedProfileSourceInput)(nil)).Elem(), DataTransformationProfileExistingVersionedProfileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileExistingVersionedProfileSourcePtrInput)(nil)).Elem(), DataTransformationProfileExistingVersionedProfileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileProfileMappingSourceInput)(nil)).Elem(), DataTransformationProfileProfileMappingSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileProfileMappingSourcePtrInput)(nil)).Elem(), DataTransformationProfileProfileMappingSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileSourceInput)(nil)).Elem(), DataTransformationProfileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileSourcePtrInput)(nil)).Elem(), DataTransformationProfileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileStarterProfileSourceInput)(nil)).Elem(), DataTransformationProfileStarterProfileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTransformationProfileStarterProfileSourcePtrInput)(nil)).Elem(), DataTransformationProfileStarterProfileSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreIdentityProviderConfigurationPtrInput)(nil)).Elem(), FhirDatastoreIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreKmsEncryptionConfigInput)(nil)).Elem(), FhirDatastoreKmsEncryptionConfigArgs{})
@@ -747,6 +1374,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastorePreloadDataConfigPtrInput)(nil)).Elem(), FhirDatastorePreloadDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreSseConfigurationInput)(nil)).Elem(), FhirDatastoreSseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirDatastoreSseConfigurationPtrInput)(nil)).Elem(), FhirDatastoreSseConfigurationArgs{})
+	pulumi.RegisterOutputType(DataTransformationProfileExistingVersionedProfileSourceOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileExistingVersionedProfileSourcePtrOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileProfileMappingSourceOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileProfileMappingSourcePtrOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileSourceOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileSourcePtrOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileStarterProfileSourceOutput{})
+	pulumi.RegisterOutputType(DataTransformationProfileStarterProfileSourcePtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreCreatedAtOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreCreatedAtPtrOutput{})
 	pulumi.RegisterOutputType(FhirDatastoreIdentityProviderConfigurationOutput{})

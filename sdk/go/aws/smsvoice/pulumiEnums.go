@@ -898,6 +898,105 @@ func (in *protectConfigurationCountryRuleProtectStatusPtr) ToProtectConfiguratio
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectConfigurationCountryRuleProtectStatusPtrOutput)
 }
 
+// The status of the registration.
+type RegistrationStatus string
+
+const (
+	RegistrationStatusCreated                = RegistrationStatus("CREATED")
+	RegistrationStatusSubmitted              = RegistrationStatus("SUBMITTED")
+	RegistrationStatusAwsReviewing           = RegistrationStatus("AWS_REVIEWING")
+	RegistrationStatusReviewing              = RegistrationStatus("REVIEWING")
+	RegistrationStatusRequiresAuthentication = RegistrationStatus("REQUIRES_AUTHENTICATION")
+	RegistrationStatusProvisioning           = RegistrationStatus("PROVISIONING")
+	RegistrationStatusComplete               = RegistrationStatus("COMPLETE")
+	RegistrationStatusRequiresUpdates        = RegistrationStatus("REQUIRES_UPDATES")
+	RegistrationStatusClosed                 = RegistrationStatus("CLOSED")
+	RegistrationStatusDeleted                = RegistrationStatus("DELETED")
+)
+
+type RegistrationStatusOutput struct{ *pulumi.OutputState }
+
+func (RegistrationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationStatus)(nil)).Elem()
+}
+
+func (o RegistrationStatusOutput) ToRegistrationStatusOutput() RegistrationStatusOutput {
+	return o
+}
+
+func (o RegistrationStatusOutput) ToRegistrationStatusOutputWithContext(ctx context.Context) RegistrationStatusOutput {
+	return o
+}
+
+func (o RegistrationStatusOutput) ToRegistrationStatusPtrOutput() RegistrationStatusPtrOutput {
+	return o.ToRegistrationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationStatusOutput) ToRegistrationStatusPtrOutputWithContext(ctx context.Context) RegistrationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationStatus) *RegistrationStatus {
+		return &v
+	}).(RegistrationStatusPtrOutput)
+}
+
+func (o RegistrationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistrationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistrationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistrationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistrationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistrationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistrationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistrationStatus)(nil)).Elem()
+}
+
+func (o RegistrationStatusPtrOutput) ToRegistrationStatusPtrOutput() RegistrationStatusPtrOutput {
+	return o
+}
+
+func (o RegistrationStatusPtrOutput) ToRegistrationStatusPtrOutputWithContext(ctx context.Context) RegistrationStatusPtrOutput {
+	return o
+}
+
+func (o RegistrationStatusPtrOutput) Elem() RegistrationStatusOutput {
+	return o.ApplyT(func(v *RegistrationStatus) RegistrationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationStatus
+		return ret
+	}).(RegistrationStatusOutput)
+}
+
+func (o RegistrationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistrationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberNumberCapabilitiesItemInput)(nil)).Elem(), PhoneNumberNumberCapabilitiesItem("SMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberNumberCapabilitiesItemPtrInput)(nil)).Elem(), PhoneNumberNumberCapabilitiesItem("SMS"))
@@ -921,4 +1020,6 @@ func init() {
 	pulumi.RegisterOutputType(PoolOptionalKeywordActionPtrOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleProtectStatusOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleProtectStatusPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationStatusOutput{})
+	pulumi.RegisterOutputType(RegistrationStatusPtrOutput{})
 }

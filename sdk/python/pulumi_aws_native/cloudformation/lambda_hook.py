@@ -28,6 +28,8 @@ class LambdaHookArgs:
                  hook_status: pulumi.Input['LambdaHookHookStatus'],
                  lambda_function: pulumi.Input[_builtins.str],
                  target_operations: pulumi.Input[Sequence[pulumi.Input['LambdaHookTargetOperation']]],
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logging_config: pulumi.Input[Optional['LambdaHookLoggingConfigArgs']] = None,
                  stack_filters: pulumi.Input[Optional['StackFiltersPropertiesArgs']] = None,
                  target_filters: pulumi.Input[Optional[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]] = None):
         """
@@ -39,6 +41,8 @@ class LambdaHookArgs:
         :param pulumi.Input['LambdaHookHookStatus'] hook_status: Attribute to specify which stacks this hook applies to or should get invoked for
         :param pulumi.Input[_builtins.str] lambda_function: Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
         :param pulumi.Input[Sequence[pulumi.Input['LambdaHookTargetOperation']]] target_operations: Which operations should this Hook run against? Resource changes, stacks or change sets.
+        :param pulumi.Input[_builtins.bool] auto_update: Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+        :param pulumi.Input['LambdaHookLoggingConfigArgs'] logging_config: Contains logging configuration information for the hook.
         :param pulumi.Input['StackFiltersPropertiesArgs'] stack_filters: Filters to allow hooks to target specific stack attributes
         :param pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']] target_filters: Attribute to specify which targets should invoke the hook
         """
@@ -48,6 +52,10 @@ class LambdaHookArgs:
         pulumi.set(__self__, "hook_status", hook_status)
         pulumi.set(__self__, "lambda_function", lambda_function)
         pulumi.set(__self__, "target_operations", target_operations)
+        if auto_update is not None:
+            pulumi.set(__self__, "auto_update", auto_update)
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
         if stack_filters is not None:
             pulumi.set(__self__, "stack_filters", stack_filters)
         if target_filters is not None:
@@ -126,6 +134,30 @@ class LambdaHookArgs:
         pulumi.set(self, "target_operations", value)
 
     @_builtins.property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+        """
+        return pulumi.get(self, "auto_update")
+
+    @auto_update.setter
+    def auto_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_update", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> pulumi.Input[Optional['LambdaHookLoggingConfigArgs']]:
+        """
+        Contains logging configuration information for the hook.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: pulumi.Input[Optional['LambdaHookLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="stackFilters")
     def stack_filters(self) -> pulumi.Input[Optional['StackFiltersPropertiesArgs']]:
         """
@@ -157,10 +189,12 @@ class LambdaHook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  failure_mode: pulumi.Input[Optional['LambdaHookFailureMode']] = None,
                  hook_status: pulumi.Input[Optional['LambdaHookHookStatus']] = None,
                  lambda_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict']]] = None,
                  stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
                  target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
                  target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
@@ -171,10 +205,12 @@ class LambdaHook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The typename alias for the hook.
+        :param pulumi.Input[_builtins.bool] auto_update: Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
         :param pulumi.Input[_builtins.str] execution_role: The execution role ARN assumed by Hooks to invoke Lambda.
         :param pulumi.Input['LambdaHookFailureMode'] failure_mode: Attribute to specify CloudFormation behavior on hook failure.
         :param pulumi.Input['LambdaHookHookStatus'] hook_status: Attribute to specify which stacks this hook applies to or should get invoked for
         :param pulumi.Input[_builtins.str] lambda_function: Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
+        :param pulumi.Input[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict']] logging_config: Contains logging configuration information for the hook.
         :param pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']] stack_filters: Filters to allow hooks to target specific stack attributes
         :param pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]] target_filters: Attribute to specify which targets should invoke the hook
         :param pulumi.Input[Sequence[pulumi.Input['LambdaHookTargetOperation']]] target_operations: Which operations should this Hook run against? Resource changes, stacks or change sets.
@@ -204,10 +240,12 @@ class LambdaHook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  failure_mode: pulumi.Input[Optional['LambdaHookFailureMode']] = None,
                  hook_status: pulumi.Input[Optional['LambdaHookHookStatus']] = None,
                  lambda_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict']]] = None,
                  stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
                  target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
                  target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
@@ -223,6 +261,7 @@ class LambdaHook(pulumi.CustomResource):
             if alias is None and not opts.urn:
                 raise TypeError("Missing required property 'alias'")
             __props__.__dict__["alias"] = alias
+            __props__.__dict__["auto_update"] = auto_update
             if execution_role is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role'")
             __props__.__dict__["execution_role"] = execution_role
@@ -235,13 +274,14 @@ class LambdaHook(pulumi.CustomResource):
             if lambda_function is None and not opts.urn:
                 raise TypeError("Missing required property 'lambda_function'")
             __props__.__dict__["lambda_function"] = lambda_function
+            __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["stack_filters"] = stack_filters
             __props__.__dict__["target_filters"] = target_filters
             if target_operations is None and not opts.urn:
                 raise TypeError("Missing required property 'target_operations'")
             __props__.__dict__["target_operations"] = target_operations
             __props__.__dict__["hook_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alias"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alias", "autoUpdate", "loggingConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LambdaHook, __self__).__init__(
             'aws-native:cloudformation:LambdaHook',
@@ -266,11 +306,13 @@ class LambdaHook(pulumi.CustomResource):
         __props__ = LambdaHookArgs.__new__(LambdaHookArgs)
 
         __props__.__dict__["alias"] = None
+        __props__.__dict__["auto_update"] = None
         __props__.__dict__["execution_role"] = None
         __props__.__dict__["failure_mode"] = None
         __props__.__dict__["hook_arn"] = None
         __props__.__dict__["hook_status"] = None
         __props__.__dict__["lambda_function"] = None
+        __props__.__dict__["logging_config"] = None
         __props__.__dict__["stack_filters"] = None
         __props__.__dict__["target_filters"] = None
         __props__.__dict__["target_operations"] = None
@@ -283,6 +325,14 @@ class LambdaHook(pulumi.CustomResource):
         The typename alias for the hook.
         """
         return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+        """
+        return pulumi.get(self, "auto_update")
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
@@ -323,6 +373,14 @@ class LambdaHook(pulumi.CustomResource):
         Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
         """
         return pulumi.get(self, "lambda_function")
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> pulumi.Output[Optional['outputs.LambdaHookLoggingConfig']]:
+        """
+        Contains logging configuration information for the hook.
+        """
+        return pulumi.get(self, "logging_config")
 
     @_builtins.property
     @pulumi.getter(name="stackFilters")

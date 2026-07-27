@@ -8,6 +8,40 @@ using Pulumi;
 namespace Pulumi.AwsNative.DocDb
 {
     /// <summary>
+    /// The type of source that is generating the events.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSubscriptionSourceType : IEquatable<EventSubscriptionSourceType>
+    {
+        private readonly string _value;
+
+        private EventSubscriptionSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSubscriptionSourceType DbInstance { get; } = new EventSubscriptionSourceType("db-instance");
+        public static EventSubscriptionSourceType DbCluster { get; } = new EventSubscriptionSourceType("db-cluster");
+        public static EventSubscriptionSourceType DbParameterGroup { get; } = new EventSubscriptionSourceType("db-parameter-group");
+        public static EventSubscriptionSourceType DbSecurityGroup { get; } = new EventSubscriptionSourceType("db-security-group");
+        public static EventSubscriptionSourceType DbClusterSnapshot { get; } = new EventSubscriptionSourceType("db-cluster-snapshot");
+
+        public static bool operator ==(EventSubscriptionSourceType left, EventSubscriptionSourceType right) => left.Equals(right);
+        public static bool operator !=(EventSubscriptionSourceType left, EventSubscriptionSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(EventSubscriptionSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSubscriptionSourceType other && Equals(other);
+        public bool Equals(EventSubscriptionSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The database engine to use for this global cluster.
     /// </summary>
     [EnumType]

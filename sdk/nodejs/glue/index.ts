@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BlueprintArgs } from "./blueprint";
+export type Blueprint = import("./blueprint").Blueprint;
+export const Blueprint: typeof import("./blueprint").Blueprint = null as any;
+utilities.lazyLoad(exports, ["Blueprint"], () => require("./blueprint"));
+
 export { CatalogArgs } from "./catalog";
 export type Catalog = import("./catalog").Catalog;
 export const Catalog: typeof import("./catalog").Catalog = null as any;
@@ -24,6 +29,11 @@ export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { GetBlueprintArgs, GetBlueprintResult, GetBlueprintOutputArgs } from "./getBlueprint";
+export const getBlueprint: typeof import("./getBlueprint").getBlueprint = null as any;
+export const getBlueprintOutput: typeof import("./getBlueprint").getBlueprintOutput = null as any;
+utilities.lazyLoad(exports, ["getBlueprint","getBlueprintOutput"], () => require("./getBlueprint"));
 
 export { GetCatalogArgs, GetCatalogResult, GetCatalogOutputArgs } from "./getCatalog";
 export const getCatalog: typeof import("./getCatalog").getCatalog = null as any;
@@ -90,6 +100,11 @@ export const getUsageProfile: typeof import("./getUsageProfile").getUsageProfile
 export const getUsageProfileOutput: typeof import("./getUsageProfile").getUsageProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getUsageProfile","getUsageProfileOutput"], () => require("./getUsageProfile"));
 
+export { GetUserDefinedFunctionArgs, GetUserDefinedFunctionResult, GetUserDefinedFunctionOutputArgs } from "./getUserDefinedFunction";
+export const getUserDefinedFunction: typeof import("./getUserDefinedFunction").getUserDefinedFunction = null as any;
+export const getUserDefinedFunctionOutput: typeof import("./getUserDefinedFunction").getUserDefinedFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getUserDefinedFunction","getUserDefinedFunctionOutput"], () => require("./getUserDefinedFunction"));
+
 export { IdentityCenterConfigurationArgs } from "./identityCenterConfiguration";
 export type IdentityCenterConfiguration = import("./identityCenterConfiguration").IdentityCenterConfiguration;
 export const IdentityCenterConfiguration: typeof import("./identityCenterConfiguration").IdentityCenterConfiguration = null as any;
@@ -140,6 +155,11 @@ export type UsageProfile = import("./usageProfile").UsageProfile;
 export const UsageProfile: typeof import("./usageProfile").UsageProfile = null as any;
 utilities.lazyLoad(exports, ["UsageProfile"], () => require("./usageProfile"));
 
+export { UserDefinedFunctionArgs } from "./userDefinedFunction";
+export type UserDefinedFunction = import("./userDefinedFunction").UserDefinedFunction;
+export const UserDefinedFunction: typeof import("./userDefinedFunction").UserDefinedFunction = null as any;
+utilities.lazyLoad(exports, ["UserDefinedFunction"], () => require("./userDefinedFunction"));
+
 
 // Export enums:
 export * from "../types/enums/glue";
@@ -148,6 +168,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:glue:Blueprint":
+                return new Blueprint(name, <any>undefined, { urn })
             case "aws-native:glue:Catalog":
                 return new Catalog(name, <any>undefined, { urn })
             case "aws-native:glue:Crawler":
@@ -176,6 +198,8 @@ const _module = {
                 return new Trigger(name, <any>undefined, { urn })
             case "aws-native:glue:UsageProfile":
                 return new UsageProfile(name, <any>undefined, { urn })
+            case "aws-native:glue:UserDefinedFunction":
+                return new UserDefinedFunction(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

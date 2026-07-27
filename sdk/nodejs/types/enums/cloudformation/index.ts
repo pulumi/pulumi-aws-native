@@ -2,6 +2,42 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const GeneratedTemplateStatus = {
+    CreatePending: "CREATE_PENDING",
+    UpdatePending: "UPDATE_PENDING",
+    DeletePending: "DELETE_PENDING",
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    Failed: "FAILED",
+    Complete: "COMPLETE",
+} as const;
+
+/**
+ * The status of the template generation.
+ */
+export type GeneratedTemplateStatus = (typeof GeneratedTemplateStatus)[keyof typeof GeneratedTemplateStatus];
+
+export const GeneratedTemplateTemplateConfigurationDeletionPolicy = {
+    Delete: "DELETE",
+    Retain: "RETAIN",
+} as const;
+
+/**
+ * The DeletionPolicy assigned to resources in the generated template.
+ */
+export type GeneratedTemplateTemplateConfigurationDeletionPolicy = (typeof GeneratedTemplateTemplateConfigurationDeletionPolicy)[keyof typeof GeneratedTemplateTemplateConfigurationDeletionPolicy];
+
+export const GeneratedTemplateTemplateConfigurationUpdateReplacePolicy = {
+    Delete: "DELETE",
+    Retain: "RETAIN",
+} as const;
+
+/**
+ * The UpdateReplacePolicy assigned to resources in the generated template.
+ */
+export type GeneratedTemplateTemplateConfigurationUpdateReplacePolicy = (typeof GeneratedTemplateTemplateConfigurationUpdateReplacePolicy)[keyof typeof GeneratedTemplateTemplateConfigurationUpdateReplacePolicy];
+
 export const GuardHookAction = {
     Create: "CREATE",
     Update: "UPDATE",

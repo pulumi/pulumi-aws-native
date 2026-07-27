@@ -13,6 +13,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type BlueprintTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // Data lake access properties for the catalog.
 type CatalogDataLakeAccessProperties struct {
 	// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
@@ -6583,6 +6591,117 @@ type UsageProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The URIs for function resources.
+type UserDefinedFunctionResourceUri struct {
+	// The type of the resource.
+	ResourceType *UserDefinedFunctionResourceUriResourceType `pulumi:"resourceType"`
+	// The URI for accessing the resource.
+	Uri *string `pulumi:"uri"`
+}
+
+// UserDefinedFunctionResourceUriInput is an input type that accepts UserDefinedFunctionResourceUriArgs and UserDefinedFunctionResourceUriOutput values.
+// You can construct a concrete instance of `UserDefinedFunctionResourceUriInput` via:
+//
+//	UserDefinedFunctionResourceUriArgs{...}
+type UserDefinedFunctionResourceUriInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionResourceUriOutput() UserDefinedFunctionResourceUriOutput
+	ToUserDefinedFunctionResourceUriOutputWithContext(context.Context) UserDefinedFunctionResourceUriOutput
+}
+
+// The URIs for function resources.
+type UserDefinedFunctionResourceUriArgs struct {
+	// The type of the resource.
+	ResourceType UserDefinedFunctionResourceUriResourceTypePtrInput `pulumi:"resourceType"`
+	// The URI for accessing the resource.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (UserDefinedFunctionResourceUriArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (i UserDefinedFunctionResourceUriArgs) ToUserDefinedFunctionResourceUriOutput() UserDefinedFunctionResourceUriOutput {
+	return i.ToUserDefinedFunctionResourceUriOutputWithContext(context.Background())
+}
+
+func (i UserDefinedFunctionResourceUriArgs) ToUserDefinedFunctionResourceUriOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionResourceUriOutput)
+}
+
+// UserDefinedFunctionResourceUriArrayInput is an input type that accepts UserDefinedFunctionResourceUriArray and UserDefinedFunctionResourceUriArrayOutput values.
+// You can construct a concrete instance of `UserDefinedFunctionResourceUriArrayInput` via:
+//
+//	UserDefinedFunctionResourceUriArray{ UserDefinedFunctionResourceUriArgs{...} }
+type UserDefinedFunctionResourceUriArrayInput interface {
+	pulumi.Input
+
+	ToUserDefinedFunctionResourceUriArrayOutput() UserDefinedFunctionResourceUriArrayOutput
+	ToUserDefinedFunctionResourceUriArrayOutputWithContext(context.Context) UserDefinedFunctionResourceUriArrayOutput
+}
+
+type UserDefinedFunctionResourceUriArray []UserDefinedFunctionResourceUriInput
+
+func (UserDefinedFunctionResourceUriArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (i UserDefinedFunctionResourceUriArray) ToUserDefinedFunctionResourceUriArrayOutput() UserDefinedFunctionResourceUriArrayOutput {
+	return i.ToUserDefinedFunctionResourceUriArrayOutputWithContext(context.Background())
+}
+
+func (i UserDefinedFunctionResourceUriArray) ToUserDefinedFunctionResourceUriArrayOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionResourceUriArrayOutput)
+}
+
+// The URIs for function resources.
+type UserDefinedFunctionResourceUriOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionResourceUriOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionResourceUriOutput) ToUserDefinedFunctionResourceUriOutput() UserDefinedFunctionResourceUriOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriOutput) ToUserDefinedFunctionResourceUriOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriOutput {
+	return o
+}
+
+// The type of the resource.
+func (o UserDefinedFunctionResourceUriOutput) ResourceType() UserDefinedFunctionResourceUriResourceTypePtrOutput {
+	return o.ApplyT(func(v UserDefinedFunctionResourceUri) *UserDefinedFunctionResourceUriResourceType {
+		return v.ResourceType
+	}).(UserDefinedFunctionResourceUriResourceTypePtrOutput)
+}
+
+// The URI for accessing the resource.
+func (o UserDefinedFunctionResourceUriOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserDefinedFunctionResourceUri) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type UserDefinedFunctionResourceUriArrayOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedFunctionResourceUriArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserDefinedFunctionResourceUri)(nil)).Elem()
+}
+
+func (o UserDefinedFunctionResourceUriArrayOutput) ToUserDefinedFunctionResourceUriArrayOutput() UserDefinedFunctionResourceUriArrayOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriArrayOutput) ToUserDefinedFunctionResourceUriArrayOutputWithContext(ctx context.Context) UserDefinedFunctionResourceUriArrayOutput {
+	return o
+}
+
+func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) UserDefinedFunctionResourceUriOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserDefinedFunctionResourceUri {
+		return vs[0].([]UserDefinedFunctionResourceUri)[vs[1].(int)]
+	}).(UserDefinedFunctionResourceUriOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDataLakeAccessPropertiesPtrInput)(nil)).Elem(), CatalogDataLakeAccessPropertiesArgs{})
@@ -6667,6 +6786,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileConfigurationObjectMapInput)(nil)).Elem(), UsageProfileConfigurationObjectMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileProfileConfigurationInput)(nil)).Elem(), UsageProfileProfileConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsageProfileProfileConfigurationPtrInput)(nil)).Elem(), UsageProfileProfileConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriInput)(nil)).Elem(), UserDefinedFunctionResourceUriArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriArrayInput)(nil)).Elem(), UserDefinedFunctionResourceUriArray{})
 	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakeAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDataLakePrincipalOutput{})
@@ -6754,4 +6875,6 @@ func init() {
 	pulumi.RegisterOutputType(UsageProfileConfigurationObjectMapOutput{})
 	pulumi.RegisterOutputType(UsageProfileProfileConfigurationOutput{})
 	pulumi.RegisterOutputType(UsageProfileProfileConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriOutput{})
+	pulumi.RegisterOutputType(UserDefinedFunctionResourceUriArrayOutput{})
 }

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetComputeNodeGroupResult:
-    def __init__(__self__, ami_id=None, arn=None, custom_launch_template=None, error_info=None, iam_instance_profile_arn=None, id=None, purchase_option=None, scaling_configuration=None, slurm_configuration=None, spot_options=None, status=None, subnet_ids=None, tags=None):
+    def __init__(__self__, ami_id=None, arn=None, custom_launch_template=None, error_info=None, iam_instance_profile_arn=None, id=None, node_lifecycle_actions=None, purchase_option=None, scaling_configuration=None, slurm_configuration=None, spot_options=None, status=None, subnet_ids=None, tags=None):
         if ami_id and not isinstance(ami_id, str):
             raise TypeError("Expected argument 'ami_id' to be a str")
         pulumi.set(__self__, "ami_id", ami_id)
@@ -44,6 +44,9 @@ class GetComputeNodeGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if node_lifecycle_actions and not isinstance(node_lifecycle_actions, dict):
+            raise TypeError("Expected argument 'node_lifecycle_actions' to be a dict")
+        pulumi.set(__self__, "node_lifecycle_actions", node_lifecycle_actions)
         if purchase_option and not isinstance(purchase_option, str):
             raise TypeError("Expected argument 'purchase_option' to be a str")
         pulumi.set(__self__, "purchase_option", purchase_option)
@@ -115,6 +118,11 @@ class GetComputeNodeGroupResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="nodeLifecycleActions")
+    def node_lifecycle_actions(self) -> Optional['outputs.ComputeNodeGroupNodeLifecycleActions']:
+        return pulumi.get(self, "node_lifecycle_actions")
+
+    @_builtins.property
     @pulumi.getter(name="purchaseOption")
     def purchase_option(self) -> Optional['ComputeNodeGroupPurchaseOption']:
         """
@@ -183,6 +191,7 @@ class AwaitableGetComputeNodeGroupResult(GetComputeNodeGroupResult):
             error_info=self.error_info,
             iam_instance_profile_arn=self.iam_instance_profile_arn,
             id=self.id,
+            node_lifecycle_actions=self.node_lifecycle_actions,
             purchase_option=self.purchase_option,
             scaling_configuration=self.scaling_configuration,
             slurm_configuration=self.slurm_configuration,
@@ -211,6 +220,7 @@ def get_compute_node_group(arn: Optional[_builtins.str] = None,
         error_info=pulumi.get(__ret__, 'error_info'),
         iam_instance_profile_arn=pulumi.get(__ret__, 'iam_instance_profile_arn'),
         id=pulumi.get(__ret__, 'id'),
+        node_lifecycle_actions=pulumi.get(__ret__, 'node_lifecycle_actions'),
         purchase_option=pulumi.get(__ret__, 'purchase_option'),
         scaling_configuration=pulumi.get(__ret__, 'scaling_configuration'),
         slurm_configuration=pulumi.get(__ret__, 'slurm_configuration'),
@@ -236,6 +246,7 @@ def get_compute_node_group_output(arn: pulumi.Input[Optional[_builtins.str]] = N
         error_info=pulumi.get(__response__, 'error_info'),
         iam_instance_profile_arn=pulumi.get(__response__, 'iam_instance_profile_arn'),
         id=pulumi.get(__response__, 'id'),
+        node_lifecycle_actions=pulumi.get(__response__, 'node_lifecycle_actions'),
         purchase_option=pulumi.get(__response__, 'purchase_option'),
         scaling_configuration=pulumi.get(__response__, 'scaling_configuration'),
         slurm_configuration=pulumi.get(__response__, 'slurm_configuration'),

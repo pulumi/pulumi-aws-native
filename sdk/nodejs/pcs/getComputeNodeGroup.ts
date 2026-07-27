@@ -49,6 +49,7 @@ export interface GetComputeNodeGroupResult {
      * The generated unique ID of the compute node group.
      */
     readonly id?: string;
+    readonly nodeLifecycleActions?: outputs.pcs.ComputeNodeGroupNodeLifecycleActions;
     /**
      * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
      */

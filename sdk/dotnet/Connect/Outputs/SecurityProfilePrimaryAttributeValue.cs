@@ -19,11 +19,11 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// <summary>
         /// Specifies the type of access granted. Currently, only "ALLOW" is supported
         /// </summary>
-        public readonly Pulumi.AwsNative.Connect.SecurityProfilePrimaryAttributeValueAccessType AccessType;
+        public readonly Pulumi.AwsNative.Connect.SecurityProfilePrimaryAttributeValueAccessType? AccessType;
         /// <summary>
         /// The name of the primary attribute.
         /// </summary>
-        public readonly string AttributeName;
+        public readonly string? AttributeName;
         /// <summary>
         /// An array of allowed primary values for the specified primary attribute.
         /// </summary>
@@ -31,9 +31,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
         [OutputConstructor]
         private SecurityProfilePrimaryAttributeValue(
-            Pulumi.AwsNative.Connect.SecurityProfilePrimaryAttributeValueAccessType accessType,
+            Pulumi.AwsNative.Connect.SecurityProfilePrimaryAttributeValueAccessType? accessType,
 
-            string attributeName,
+            string? attributeName,
 
             ImmutableArray<string> values)
         {

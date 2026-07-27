@@ -21,6 +21,10 @@ __all__ = [
     'ClusterErrorInfo',
     'ComputeNodeGroupErrorInfo',
     'ComputeNodeGroupInstanceConfig',
+    'ComputeNodeGroupNodeLifecycleActions',
+    'ComputeNodeGroupNodeLifecycleScript',
+    'ComputeNodeGroupNodeLifecycleStages',
+    'ComputeNodeGroupScriptSource',
     'CustomLaunchTemplateProperties',
     'NetworkingProperties',
     'QueueComputeNodeGroupConfiguration',
@@ -233,6 +237,262 @@ class ComputeNodeGroupInstanceConfig(dict):
         The EC2 instance type that AWS PCS can provision in the compute node group.
         """
         return pulumi.get(self, "instance_type")
+
+
+@pulumi.output_type
+class ComputeNodeGroupNodeLifecycleActions(dict):
+    """
+    Custom scripts that run at defined points in a compute node's lifecycle.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptCachingPolicy":
+            suggest = "script_caching_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeNodeGroupNodeLifecycleActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeNodeGroupNodeLifecycleActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeNodeGroupNodeLifecycleActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stages: 'outputs.ComputeNodeGroupNodeLifecycleStages',
+                 script_caching_policy: Optional['ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy'] = None):
+        """
+        Custom scripts that run at defined points in a compute node's lifecycle.
+
+        :param 'ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy' script_caching_policy: Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+        """
+        pulumi.set(__self__, "stages", stages)
+        if script_caching_policy is not None:
+            pulumi.set(__self__, "script_caching_policy", script_caching_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def stages(self) -> 'outputs.ComputeNodeGroupNodeLifecycleStages':
+        return pulumi.get(self, "stages")
+
+    @_builtins.property
+    @pulumi.getter(name="scriptCachingPolicy")
+    def script_caching_policy(self) -> Optional['ComputeNodeGroupNodeLifecycleActionsScriptCachingPolicy']:
+        """
+        Controls whether lifecycle scripts are downloaded once at first boot (CACHE_ONCE) or re-downloaded on every reboot (REFRESH_ON_REBOOT). Defaults to CACHE_ONCE.
+        """
+        return pulumi.get(self, "script_caching_policy")
+
+
+@pulumi.output_type
+class ComputeNodeGroupNodeLifecycleScript(dict):
+    """
+    A single lifecycle script with its source, arguments, and error behavior.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptSource":
+            suggest = "script_source"
+        elif key == "executionPolicy":
+            suggest = "execution_policy"
+        elif key == "onError":
+            suggest = "on_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeNodeGroupNodeLifecycleScript. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeNodeGroupNodeLifecycleScript.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeNodeGroupNodeLifecycleScript.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 script_source: 'outputs.ComputeNodeGroupScriptSource',
+                 arguments: Optional[Sequence[_builtins.str]] = None,
+                 execution_policy: Optional['ComputeNodeGroupNodeLifecycleScriptExecutionPolicy'] = None,
+                 on_error: Optional['ComputeNodeGroupNodeLifecycleScriptOnError'] = None):
+        """
+        A single lifecycle script with its source, arguments, and error behavior.
+
+        :param _builtins.str name: A human-readable name that identifies the script.
+        :param Sequence[_builtins.str] arguments: An ordered list of arguments passed to the script.
+        :param 'ComputeNodeGroupNodeLifecycleScriptExecutionPolicy' execution_policy: Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+        :param 'ComputeNodeGroupNodeLifecycleScriptOnError' on_error: The behavior when the script exits with an error. Defaults to TERMINATE.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "script_source", script_source)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if execution_policy is not None:
+            pulumi.set(__self__, "execution_policy", execution_policy)
+        if on_error is not None:
+            pulumi.set(__self__, "on_error", on_error)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        A human-readable name that identifies the script.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="scriptSource")
+    def script_source(self) -> 'outputs.ComputeNodeGroupScriptSource':
+        return pulumi.get(self, "script_source")
+
+    @_builtins.property
+    @pulumi.getter
+    def arguments(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An ordered list of arguments passed to the script.
+        """
+        return pulumi.get(self, "arguments")
+
+    @_builtins.property
+    @pulumi.getter(name="executionPolicy")
+    def execution_policy(self) -> Optional['ComputeNodeGroupNodeLifecycleScriptExecutionPolicy']:
+        """
+        Whether the script runs only on the node's first boot (FIRST_BOOT_ONLY) or on every boot including reboots (EVERY_BOOT). Defaults to FIRST_BOOT_ONLY.
+        """
+        return pulumi.get(self, "execution_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="onError")
+    def on_error(self) -> Optional['ComputeNodeGroupNodeLifecycleScriptOnError']:
+        """
+        The behavior when the script exits with an error. Defaults to TERMINATE.
+        """
+        return pulumi.get(self, "on_error")
+
+
+@pulumi.output_type
+class ComputeNodeGroupNodeLifecycleStages(dict):
+    """
+    The ordered scripts to run at each compute node lifecycle stage.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeBootstrapped":
+            suggest = "node_bootstrapped"
+        elif key == "nodeReady":
+            suggest = "node_ready"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeNodeGroupNodeLifecycleStages. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeNodeGroupNodeLifecycleStages.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeNodeGroupNodeLifecycleStages.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_bootstrapped: Optional[Sequence['outputs.ComputeNodeGroupNodeLifecycleScript']] = None,
+                 node_ready: Optional[Sequence['outputs.ComputeNodeGroupNodeLifecycleScript']] = None):
+        """
+        The ordered scripts to run at each compute node lifecycle stage.
+
+        :param Sequence['ComputeNodeGroupNodeLifecycleScript'] node_bootstrapped: Scripts to run after the node is bootstrapped, once the PCS configuration phase completes and before slurmd starts.
+        :param Sequence['ComputeNodeGroupNodeLifecycleScript'] node_ready: Scripts to execute when the node becomes ready (every boot).
+        """
+        if node_bootstrapped is not None:
+            pulumi.set(__self__, "node_bootstrapped", node_bootstrapped)
+        if node_ready is not None:
+            pulumi.set(__self__, "node_ready", node_ready)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeBootstrapped")
+    def node_bootstrapped(self) -> Optional[Sequence['outputs.ComputeNodeGroupNodeLifecycleScript']]:
+        """
+        Scripts to run after the node is bootstrapped, once the PCS configuration phase completes and before slurmd starts.
+        """
+        return pulumi.get(self, "node_bootstrapped")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeReady")
+    def node_ready(self) -> Optional[Sequence['outputs.ComputeNodeGroupNodeLifecycleScript']]:
+        """
+        Scripts to execute when the node becomes ready (every boot).
+        """
+        return pulumi.get(self, "node_ready")
+
+
+@pulumi.output_type
+class ComputeNodeGroupScriptSource(dict):
+    """
+    The external location of a lifecycle script.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scriptLocation":
+            suggest = "script_location"
+        elif key == "s3VersionId":
+            suggest = "s3_version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeNodeGroupScriptSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeNodeGroupScriptSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeNodeGroupScriptSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 script_location: _builtins.str,
+                 checksum: Optional[_builtins.str] = None,
+                 s3_version_id: Optional[_builtins.str] = None):
+        """
+        The external location of a lifecycle script.
+
+        :param _builtins.str script_location: The S3 URI or HTTPS URL where the script is stored.
+        :param _builtins.str checksum: A 64-character hexadecimal SHA-256 digest used to verify script integrity.
+        :param _builtins.str s3_version_id: The S3 object version ID of the script, when stored in a versioned bucket.
+        """
+        pulumi.set(__self__, "script_location", script_location)
+        if checksum is not None:
+            pulumi.set(__self__, "checksum", checksum)
+        if s3_version_id is not None:
+            pulumi.set(__self__, "s3_version_id", s3_version_id)
+
+    @_builtins.property
+    @pulumi.getter(name="scriptLocation")
+    def script_location(self) -> _builtins.str:
+        """
+        The S3 URI or HTTPS URL where the script is stored.
+        """
+        return pulumi.get(self, "script_location")
+
+    @_builtins.property
+    @pulumi.getter
+    def checksum(self) -> Optional[_builtins.str]:
+        """
+        A 64-character hexadecimal SHA-256 digest used to verify script integrity.
+        """
+        return pulumi.get(self, "checksum")
+
+    @_builtins.property
+    @pulumi.getter(name="s3VersionId")
+    def s3_version_id(self) -> Optional[_builtins.str]:
+        """
+        The S3 object version ID of the script, when stored in a versioned bucket.
+        """
+        return pulumi.get(self, "s3_version_id")
 
 
 @pulumi.output_type

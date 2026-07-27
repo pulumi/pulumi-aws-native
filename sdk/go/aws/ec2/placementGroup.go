@@ -16,6 +16,8 @@ import (
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 
+	// The ID of the placement group.
+	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// The Group Name of Placement Group.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The number of partitions. Valid only when **Strategy** is set to `partition`
@@ -132,6 +134,11 @@ func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {
 
 func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
 	return o
+}
+
+// The ID of the placement group.
+func (o PlacementGroupOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
 // The Group Name of Placement Group.

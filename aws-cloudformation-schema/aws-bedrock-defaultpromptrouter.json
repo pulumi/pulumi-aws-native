@@ -1,0 +1,113 @@
+{
+  "typeName" : "AWS::Bedrock::DefaultPromptRouter",
+  "description" : "Definition of AWS::Bedrock::DefaultPromptRouter Resource Type",
+  "properties" : {
+    "PromptRouterArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the default prompt router.",
+      "minLength" : 1,
+      "maxLength" : 2048,
+      "pattern" : "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:default-prompt-router/[a-zA-Z0-9-:.]+$"
+    },
+    "PromptRouterId" : {
+      "type" : "string",
+      "description" : "The unique identifier of the default prompt router, extracted from the ARN.",
+      "minLength" : 1,
+      "maxLength" : 2048
+    },
+    "PromptRouterName" : {
+      "type" : "string",
+      "description" : "The name of the default prompt router.",
+      "minLength" : 1,
+      "maxLength" : 64,
+      "pattern" : "^([0-9a-zA-Z][ _-]?)+$"
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "The description of the default prompt router.",
+      "minLength" : 1,
+      "maxLength" : 200,
+      "pattern" : "^([0-9a-zA-Z:.][ _-]?)+$"
+    },
+    "RoutingCriteria" : {
+      "$ref" : "#/definitions/RoutingCriteria"
+    },
+    "FallbackModel" : {
+      "$ref" : "#/definitions/PromptRouterTargetModel"
+    },
+    "Models" : {
+      "type" : "array",
+      "description" : "A list of foundation models that the default prompt router can route requests to.",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/PromptRouterTargetModel"
+      }
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The status of the default prompt router.",
+      "enum" : [ "AVAILABLE" ]
+    },
+    "Type" : {
+      "type" : "string",
+      "description" : "The type of the prompt router.",
+      "enum" : [ "custom", "default" ]
+    },
+    "CreatedAt" : {
+      "type" : "string",
+      "description" : "The timestamp when the default prompt router was created.",
+      "format" : "date-time"
+    },
+    "UpdatedAt" : {
+      "type" : "string",
+      "description" : "The timestamp when the default prompt router was last updated.",
+      "format" : "date-time"
+    }
+  },
+  "definitions" : {
+    "RoutingCriteria" : {
+      "type" : "object",
+      "description" : "Routing criteria for a prompt router.",
+      "properties" : {
+        "ResponseQualityDifference" : {
+          "type" : "number",
+          "description" : "The response quality difference threshold for routing.",
+          "minimum" : 0,
+          "maximum" : 100
+        }
+      },
+      "required" : [ "ResponseQualityDifference" ],
+      "additionalProperties" : false
+    },
+    "PromptRouterTargetModel" : {
+      "type" : "object",
+      "description" : "A target model for the prompt router.",
+      "properties" : {
+        "ModelArn" : {
+          "type" : "string",
+          "description" : "The target model's ARN.",
+          "minLength" : 1,
+          "maxLength" : 2048,
+          "pattern" : "(^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}::foundation-model/[a-z0-9-]{1,63}[.]{1}([a-z0-9-]{1,63}[.]){0,2}[a-z0-9-]{1,63}([:][a-z0-9-]{1,63}){0,2})|(^arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{0,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)$"
+        }
+      },
+      "required" : [ "ModelArn" ],
+      "additionalProperties" : false
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/PromptRouterArn", "/properties/PromptRouterId", "/properties/PromptRouterName", "/properties/Description", "/properties/RoutingCriteria", "/properties/FallbackModel", "/properties/Models", "/properties/Status", "/properties/Type", "/properties/CreatedAt", "/properties/UpdatedAt" ],
+  "primaryIdentifier" : [ "/properties/PromptRouterArn" ],
+  "additionalIdentifiers" : [ [ "/properties/PromptRouterId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "bedrock:GetPromptRouter" ]
+    },
+    "list" : {
+      "permissions" : [ "bedrock:ListPromptRouters" ]
+    }
+  }
+}

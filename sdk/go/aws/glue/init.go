@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:glue:Blueprint":
+		r = &Blueprint{}
 	case "aws-native:glue:Catalog":
 		r = &Catalog{}
 	case "aws-native:glue:Crawler":
@@ -49,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Trigger{}
 	case "aws-native:glue:UsageProfile":
 		r = &UsageProfile{}
+	case "aws-native:glue:UserDefinedFunction":
+		r = &UserDefinedFunction{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

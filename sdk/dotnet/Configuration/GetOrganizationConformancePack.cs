@@ -79,6 +79,14 @@ namespace Pulumi.AwsNative.Configuration
         /// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedAccounts;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the organization conformance pack.
+        /// </summary>
+        public readonly string? OrganizationConformancePackArn;
+        /// <summary>
+        /// The tags for the organization conformance pack.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetOrganizationConformancePackResult(
@@ -88,12 +96,18 @@ namespace Pulumi.AwsNative.Configuration
 
             string? deliveryS3KeyPrefix,
 
-            ImmutableArray<string> excludedAccounts)
+            ImmutableArray<string> excludedAccounts,
+
+            string? organizationConformancePackArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ConformancePackInputParameters = conformancePackInputParameters;
             DeliveryS3Bucket = deliveryS3Bucket;
             DeliveryS3KeyPrefix = deliveryS3KeyPrefix;
             ExcludedAccounts = excludedAccounts;
+            OrganizationConformancePackArn = organizationConformancePackArn;
+            Tags = tags;
         }
     }
 }

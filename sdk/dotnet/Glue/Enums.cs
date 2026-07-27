@@ -8,6 +8,39 @@ using Pulumi;
 namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
+    /// The status of the blueprint registration.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlueprintStatus : IEquatable<BlueprintStatus>
+    {
+        private readonly string _value;
+
+        private BlueprintStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlueprintStatus Creating { get; } = new BlueprintStatus("CREATING");
+        public static BlueprintStatus Active { get; } = new BlueprintStatus("ACTIVE");
+        public static BlueprintStatus Updating { get; } = new BlueprintStatus("UPDATING");
+        public static BlueprintStatus Failed { get; } = new BlueprintStatus("FAILED");
+
+        public static bool operator ==(BlueprintStatus left, BlueprintStatus right) => left.Equals(right);
+        public static bool operator !=(BlueprintStatus left, BlueprintStatus right) => !left.Equals(right);
+
+        public static explicit operator string(BlueprintStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlueprintStatus other && Equals(other);
+        public bool Equals(BlueprintStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
     /// </summary>
     [EnumType]
@@ -239,6 +272,102 @@ namespace Pulumi.AwsNative.Glue
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SchemaDataFormat other && Equals(other);
         public bool Equals(SchemaDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the function.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserDefinedFunctionFunctionType : IEquatable<UserDefinedFunctionFunctionType>
+    {
+        private readonly string _value;
+
+        private UserDefinedFunctionFunctionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserDefinedFunctionFunctionType RegularFunction { get; } = new UserDefinedFunctionFunctionType("REGULAR_FUNCTION");
+        public static UserDefinedFunctionFunctionType AggregateFunction { get; } = new UserDefinedFunctionFunctionType("AGGREGATE_FUNCTION");
+        public static UserDefinedFunctionFunctionType StoredProcedure { get; } = new UserDefinedFunctionFunctionType("STORED_PROCEDURE");
+
+        public static bool operator ==(UserDefinedFunctionFunctionType left, UserDefinedFunctionFunctionType right) => left.Equals(right);
+        public static bool operator !=(UserDefinedFunctionFunctionType left, UserDefinedFunctionFunctionType right) => !left.Equals(right);
+
+        public static explicit operator string(UserDefinedFunctionFunctionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserDefinedFunctionFunctionType other && Equals(other);
+        public bool Equals(UserDefinedFunctionFunctionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The owner type.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserDefinedFunctionOwnerType : IEquatable<UserDefinedFunctionOwnerType>
+    {
+        private readonly string _value;
+
+        private UserDefinedFunctionOwnerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserDefinedFunctionOwnerType User { get; } = new UserDefinedFunctionOwnerType("USER");
+        public static UserDefinedFunctionOwnerType Role { get; } = new UserDefinedFunctionOwnerType("ROLE");
+        public static UserDefinedFunctionOwnerType Group { get; } = new UserDefinedFunctionOwnerType("GROUP");
+
+        public static bool operator ==(UserDefinedFunctionOwnerType left, UserDefinedFunctionOwnerType right) => left.Equals(right);
+        public static bool operator !=(UserDefinedFunctionOwnerType left, UserDefinedFunctionOwnerType right) => !left.Equals(right);
+
+        public static explicit operator string(UserDefinedFunctionOwnerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserDefinedFunctionOwnerType other && Equals(other);
+        public bool Equals(UserDefinedFunctionOwnerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserDefinedFunctionResourceUriResourceType : IEquatable<UserDefinedFunctionResourceUriResourceType>
+    {
+        private readonly string _value;
+
+        private UserDefinedFunctionResourceUriResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserDefinedFunctionResourceUriResourceType Jar { get; } = new UserDefinedFunctionResourceUriResourceType("JAR");
+        public static UserDefinedFunctionResourceUriResourceType File { get; } = new UserDefinedFunctionResourceUriResourceType("FILE");
+        public static UserDefinedFunctionResourceUriResourceType Archive { get; } = new UserDefinedFunctionResourceUriResourceType("ARCHIVE");
+
+        public static bool operator ==(UserDefinedFunctionResourceUriResourceType left, UserDefinedFunctionResourceUriResourceType right) => left.Equals(right);
+        public static bool operator !=(UserDefinedFunctionResourceUriResourceType left, UserDefinedFunctionResourceUriResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(UserDefinedFunctionResourceUriResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserDefinedFunctionResourceUriResourceType other && Equals(other);
+        public bool Equals(UserDefinedFunctionResourceUriResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

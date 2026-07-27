@@ -2488,6 +2488,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindo
 	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
 }
 
+type OpsItemTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Defines which patches should be included in a patch baseline.
 type PatchBaselinePatchFilter struct {
 	// The key for the filter.

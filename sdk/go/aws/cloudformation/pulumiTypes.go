@@ -13,6 +13,280 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The configuration details of the generated template.
+type GeneratedTemplateTemplateConfiguration struct {
+	// The DeletionPolicy assigned to resources in the generated template.
+	DeletionPolicy *GeneratedTemplateTemplateConfigurationDeletionPolicy `pulumi:"deletionPolicy"`
+	// The UpdateReplacePolicy assigned to resources in the generated template.
+	UpdateReplacePolicy *GeneratedTemplateTemplateConfigurationUpdateReplacePolicy `pulumi:"updateReplacePolicy"`
+}
+
+// GeneratedTemplateTemplateConfigurationInput is an input type that accepts GeneratedTemplateTemplateConfigurationArgs and GeneratedTemplateTemplateConfigurationOutput values.
+// You can construct a concrete instance of `GeneratedTemplateTemplateConfigurationInput` via:
+//
+//	GeneratedTemplateTemplateConfigurationArgs{...}
+type GeneratedTemplateTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToGeneratedTemplateTemplateConfigurationOutput() GeneratedTemplateTemplateConfigurationOutput
+	ToGeneratedTemplateTemplateConfigurationOutputWithContext(context.Context) GeneratedTemplateTemplateConfigurationOutput
+}
+
+// The configuration details of the generated template.
+type GeneratedTemplateTemplateConfigurationArgs struct {
+	// The DeletionPolicy assigned to resources in the generated template.
+	DeletionPolicy GeneratedTemplateTemplateConfigurationDeletionPolicyPtrInput `pulumi:"deletionPolicy"`
+	// The UpdateReplacePolicy assigned to resources in the generated template.
+	UpdateReplacePolicy GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrInput `pulumi:"updateReplacePolicy"`
+}
+
+func (GeneratedTemplateTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateTemplateConfiguration)(nil)).Elem()
+}
+
+func (i GeneratedTemplateTemplateConfigurationArgs) ToGeneratedTemplateTemplateConfigurationOutput() GeneratedTemplateTemplateConfigurationOutput {
+	return i.ToGeneratedTemplateTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i GeneratedTemplateTemplateConfigurationArgs) ToGeneratedTemplateTemplateConfigurationOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeneratedTemplateTemplateConfigurationOutput)
+}
+
+func (i GeneratedTemplateTemplateConfigurationArgs) ToGeneratedTemplateTemplateConfigurationPtrOutput() GeneratedTemplateTemplateConfigurationPtrOutput {
+	return i.ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GeneratedTemplateTemplateConfigurationArgs) ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeneratedTemplateTemplateConfigurationOutput).ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(ctx)
+}
+
+// GeneratedTemplateTemplateConfigurationPtrInput is an input type that accepts GeneratedTemplateTemplateConfigurationArgs, GeneratedTemplateTemplateConfigurationPtr and GeneratedTemplateTemplateConfigurationPtrOutput values.
+// You can construct a concrete instance of `GeneratedTemplateTemplateConfigurationPtrInput` via:
+//
+//	        GeneratedTemplateTemplateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GeneratedTemplateTemplateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGeneratedTemplateTemplateConfigurationPtrOutput() GeneratedTemplateTemplateConfigurationPtrOutput
+	ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(context.Context) GeneratedTemplateTemplateConfigurationPtrOutput
+}
+
+type generatedTemplateTemplateConfigurationPtrType GeneratedTemplateTemplateConfigurationArgs
+
+func GeneratedTemplateTemplateConfigurationPtr(v *GeneratedTemplateTemplateConfigurationArgs) GeneratedTemplateTemplateConfigurationPtrInput {
+	return (*generatedTemplateTemplateConfigurationPtrType)(v)
+}
+
+func (*generatedTemplateTemplateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GeneratedTemplateTemplateConfiguration)(nil)).Elem()
+}
+
+func (i *generatedTemplateTemplateConfigurationPtrType) ToGeneratedTemplateTemplateConfigurationPtrOutput() GeneratedTemplateTemplateConfigurationPtrOutput {
+	return i.ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *generatedTemplateTemplateConfigurationPtrType) ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeneratedTemplateTemplateConfigurationPtrOutput)
+}
+
+// The configuration details of the generated template.
+type GeneratedTemplateTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateTemplateConfiguration)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateConfigurationOutput) ToGeneratedTemplateTemplateConfigurationOutput() GeneratedTemplateTemplateConfigurationOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationOutput) ToGeneratedTemplateTemplateConfigurationOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationOutput) ToGeneratedTemplateTemplateConfigurationPtrOutput() GeneratedTemplateTemplateConfigurationPtrOutput {
+	return o.ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationOutput) ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneratedTemplateTemplateConfiguration) *GeneratedTemplateTemplateConfiguration {
+		return &v
+	}).(GeneratedTemplateTemplateConfigurationPtrOutput)
+}
+
+// The DeletionPolicy assigned to resources in the generated template.
+func (o GeneratedTemplateTemplateConfigurationOutput) DeletionPolicy() GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return o.ApplyT(func(v GeneratedTemplateTemplateConfiguration) *GeneratedTemplateTemplateConfigurationDeletionPolicy {
+		return v.DeletionPolicy
+	}).(GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput)
+}
+
+// The UpdateReplacePolicy assigned to resources in the generated template.
+func (o GeneratedTemplateTemplateConfigurationOutput) UpdateReplacePolicy() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return o.ApplyT(func(v GeneratedTemplateTemplateConfiguration) *GeneratedTemplateTemplateConfigurationUpdateReplacePolicy {
+		return v.UpdateReplacePolicy
+	}).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput)
+}
+
+type GeneratedTemplateTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GeneratedTemplateTemplateConfiguration)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateConfigurationPtrOutput) ToGeneratedTemplateTemplateConfigurationPtrOutput() GeneratedTemplateTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationPtrOutput) ToGeneratedTemplateTemplateConfigurationPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationPtrOutput) Elem() GeneratedTemplateTemplateConfigurationOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateConfiguration) GeneratedTemplateTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GeneratedTemplateTemplateConfiguration
+		return ret
+	}).(GeneratedTemplateTemplateConfigurationOutput)
+}
+
+// The DeletionPolicy assigned to resources in the generated template.
+func (o GeneratedTemplateTemplateConfigurationPtrOutput) DeletionPolicy() GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateConfiguration) *GeneratedTemplateTemplateConfigurationDeletionPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.DeletionPolicy
+	}).(GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput)
+}
+
+// The UpdateReplacePolicy assigned to resources in the generated template.
+func (o GeneratedTemplateTemplateConfigurationPtrOutput) UpdateReplacePolicy() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateConfiguration) *GeneratedTemplateTemplateConfigurationUpdateReplacePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateReplacePolicy
+	}).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput)
+}
+
+// A summary of the progress of the template generation.
+type GeneratedTemplateTemplateProgress struct {
+	// The number of resources that failed the template generation.
+	ResourcesFailed *int `pulumi:"resourcesFailed"`
+	// The number of resources that are still pending the template generation.
+	ResourcesPending *int `pulumi:"resourcesPending"`
+	// The number of resources that are in-process for the template generation.
+	ResourcesProcessing *int `pulumi:"resourcesProcessing"`
+	// The number of resources that succeeded the template generation.
+	ResourcesSucceeded *int `pulumi:"resourcesSucceeded"`
+}
+
+// A summary of the progress of the template generation.
+type GeneratedTemplateTemplateProgressOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateProgressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateTemplateProgress)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateProgressOutput) ToGeneratedTemplateTemplateProgressOutput() GeneratedTemplateTemplateProgressOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateProgressOutput) ToGeneratedTemplateTemplateProgressOutputWithContext(ctx context.Context) GeneratedTemplateTemplateProgressOutput {
+	return o
+}
+
+// The number of resources that failed the template generation.
+func (o GeneratedTemplateTemplateProgressOutput) ResourcesFailed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GeneratedTemplateTemplateProgress) *int { return v.ResourcesFailed }).(pulumi.IntPtrOutput)
+}
+
+// The number of resources that are still pending the template generation.
+func (o GeneratedTemplateTemplateProgressOutput) ResourcesPending() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GeneratedTemplateTemplateProgress) *int { return v.ResourcesPending }).(pulumi.IntPtrOutput)
+}
+
+// The number of resources that are in-process for the template generation.
+func (o GeneratedTemplateTemplateProgressOutput) ResourcesProcessing() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GeneratedTemplateTemplateProgress) *int { return v.ResourcesProcessing }).(pulumi.IntPtrOutput)
+}
+
+// The number of resources that succeeded the template generation.
+func (o GeneratedTemplateTemplateProgressOutput) ResourcesSucceeded() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GeneratedTemplateTemplateProgress) *int { return v.ResourcesSucceeded }).(pulumi.IntPtrOutput)
+}
+
+type GeneratedTemplateTemplateProgressPtrOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateProgressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GeneratedTemplateTemplateProgress)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateProgressPtrOutput) ToGeneratedTemplateTemplateProgressPtrOutput() GeneratedTemplateTemplateProgressPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateProgressPtrOutput) ToGeneratedTemplateTemplateProgressPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateProgressPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateProgressPtrOutput) Elem() GeneratedTemplateTemplateProgressOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateProgress) GeneratedTemplateTemplateProgress {
+		if v != nil {
+			return *v
+		}
+		var ret GeneratedTemplateTemplateProgress
+		return ret
+	}).(GeneratedTemplateTemplateProgressOutput)
+}
+
+// The number of resources that failed the template generation.
+func (o GeneratedTemplateTemplateProgressPtrOutput) ResourcesFailed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateProgress) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcesFailed
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of resources that are still pending the template generation.
+func (o GeneratedTemplateTemplateProgressPtrOutput) ResourcesPending() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateProgress) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcesPending
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of resources that are in-process for the template generation.
+func (o GeneratedTemplateTemplateProgressPtrOutput) ResourcesProcessing() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateProgress) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcesProcessing
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of resources that succeeded the template generation.
+func (o GeneratedTemplateTemplateProgressPtrOutput) ResourcesSucceeded() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateProgress) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResourcesSucceeded
+	}).(pulumi.IntPtrOutput)
+}
+
 // Hook targets are the destination where hooks will be invoked against.
 type GuardHookHookTarget struct {
 	Action          GuardHookAction          `pulumi:"action"`
@@ -487,6 +761,165 @@ func (o LambdaHookHookTargetArrayOutput) Index(i pulumi.IntInput) LambdaHookHook
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LambdaHookHookTarget {
 		return vs[0].([]LambdaHookHookTarget)[vs[1].(int)]
 	}).(LambdaHookHookTargetOutput)
+}
+
+// Contains logging configuration information for an extension.
+type LambdaHookLoggingConfig struct {
+	// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+	LogGroupName string `pulumi:"logGroupName"`
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+	LogRoleArn string `pulumi:"logRoleArn"`
+}
+
+// LambdaHookLoggingConfigInput is an input type that accepts LambdaHookLoggingConfigArgs and LambdaHookLoggingConfigOutput values.
+// You can construct a concrete instance of `LambdaHookLoggingConfigInput` via:
+//
+//	LambdaHookLoggingConfigArgs{...}
+type LambdaHookLoggingConfigInput interface {
+	pulumi.Input
+
+	ToLambdaHookLoggingConfigOutput() LambdaHookLoggingConfigOutput
+	ToLambdaHookLoggingConfigOutputWithContext(context.Context) LambdaHookLoggingConfigOutput
+}
+
+// Contains logging configuration information for an extension.
+type LambdaHookLoggingConfigArgs struct {
+	// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+	LogRoleArn pulumi.StringInput `pulumi:"logRoleArn"`
+}
+
+func (LambdaHookLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookLoggingConfig)(nil)).Elem()
+}
+
+func (i LambdaHookLoggingConfigArgs) ToLambdaHookLoggingConfigOutput() LambdaHookLoggingConfigOutput {
+	return i.ToLambdaHookLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i LambdaHookLoggingConfigArgs) ToLambdaHookLoggingConfigOutputWithContext(ctx context.Context) LambdaHookLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookLoggingConfigOutput)
+}
+
+func (i LambdaHookLoggingConfigArgs) ToLambdaHookLoggingConfigPtrOutput() LambdaHookLoggingConfigPtrOutput {
+	return i.ToLambdaHookLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LambdaHookLoggingConfigArgs) ToLambdaHookLoggingConfigPtrOutputWithContext(ctx context.Context) LambdaHookLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookLoggingConfigOutput).ToLambdaHookLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// LambdaHookLoggingConfigPtrInput is an input type that accepts LambdaHookLoggingConfigArgs, LambdaHookLoggingConfigPtr and LambdaHookLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `LambdaHookLoggingConfigPtrInput` via:
+//
+//	        LambdaHookLoggingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LambdaHookLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToLambdaHookLoggingConfigPtrOutput() LambdaHookLoggingConfigPtrOutput
+	ToLambdaHookLoggingConfigPtrOutputWithContext(context.Context) LambdaHookLoggingConfigPtrOutput
+}
+
+type lambdaHookLoggingConfigPtrType LambdaHookLoggingConfigArgs
+
+func LambdaHookLoggingConfigPtr(v *LambdaHookLoggingConfigArgs) LambdaHookLoggingConfigPtrInput {
+	return (*lambdaHookLoggingConfigPtrType)(v)
+}
+
+func (*lambdaHookLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookLoggingConfig)(nil)).Elem()
+}
+
+func (i *lambdaHookLoggingConfigPtrType) ToLambdaHookLoggingConfigPtrOutput() LambdaHookLoggingConfigPtrOutput {
+	return i.ToLambdaHookLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *lambdaHookLoggingConfigPtrType) ToLambdaHookLoggingConfigPtrOutputWithContext(ctx context.Context) LambdaHookLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookLoggingConfigPtrOutput)
+}
+
+// Contains logging configuration information for an extension.
+type LambdaHookLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookLoggingConfig)(nil)).Elem()
+}
+
+func (o LambdaHookLoggingConfigOutput) ToLambdaHookLoggingConfigOutput() LambdaHookLoggingConfigOutput {
+	return o
+}
+
+func (o LambdaHookLoggingConfigOutput) ToLambdaHookLoggingConfigOutputWithContext(ctx context.Context) LambdaHookLoggingConfigOutput {
+	return o
+}
+
+func (o LambdaHookLoggingConfigOutput) ToLambdaHookLoggingConfigPtrOutput() LambdaHookLoggingConfigPtrOutput {
+	return o.ToLambdaHookLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookLoggingConfigOutput) ToLambdaHookLoggingConfigPtrOutputWithContext(ctx context.Context) LambdaHookLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaHookLoggingConfig) *LambdaHookLoggingConfig {
+		return &v
+	}).(LambdaHookLoggingConfigPtrOutput)
+}
+
+// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+func (o LambdaHookLoggingConfigOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LambdaHookLoggingConfig) string { return v.LogGroupName }).(pulumi.StringOutput)
+}
+
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+func (o LambdaHookLoggingConfigOutput) LogRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LambdaHookLoggingConfig) string { return v.LogRoleArn }).(pulumi.StringOutput)
+}
+
+type LambdaHookLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookLoggingConfig)(nil)).Elem()
+}
+
+func (o LambdaHookLoggingConfigPtrOutput) ToLambdaHookLoggingConfigPtrOutput() LambdaHookLoggingConfigPtrOutput {
+	return o
+}
+
+func (o LambdaHookLoggingConfigPtrOutput) ToLambdaHookLoggingConfigPtrOutputWithContext(ctx context.Context) LambdaHookLoggingConfigPtrOutput {
+	return o
+}
+
+func (o LambdaHookLoggingConfigPtrOutput) Elem() LambdaHookLoggingConfigOutput {
+	return o.ApplyT(func(v *LambdaHookLoggingConfig) LambdaHookLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LambdaHookLoggingConfig
+		return ret
+	}).(LambdaHookLoggingConfigOutput)
+}
+
+// The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+func (o LambdaHookLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LambdaHookLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+func (o LambdaHookLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LambdaHookLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
@@ -2823,6 +3256,8 @@ func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationPtrInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationInput)(nil)).Elem(), GuardHookS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationPtrInput)(nil)).Elem(), GuardHookS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationArrayInput)(nil)).Elem(), GuardHookS3LocationArray{})
@@ -2830,6 +3265,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HookVersionLoggingConfigPtrInput)(nil)).Elem(), HookVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookHookTargetInput)(nil)).Elem(), LambdaHookHookTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookHookTargetArrayInput)(nil)).Elem(), LambdaHookHookTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookLoggingConfigInput)(nil)).Elem(), LambdaHookLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookLoggingConfigPtrInput)(nil)).Elem(), LambdaHookLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesPtrInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionsPropertiesInput)(nil)).Elem(), OptionsPropertiesArgs{})
@@ -2857,6 +3294,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetFilters1PropertiesPtrInput)(nil)).Elem(), TargetFilters1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigPtrInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateProgressOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateProgressPtrOutput{})
 	pulumi.RegisterOutputType(GuardHookS3LocationOutput{})
 	pulumi.RegisterOutputType(GuardHookS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(GuardHookS3LocationArrayOutput{})
@@ -2864,6 +3305,8 @@ func init() {
 	pulumi.RegisterOutputType(HookVersionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(LambdaHookHookTargetOutput{})
 	pulumi.RegisterOutputType(LambdaHookHookTargetArrayOutput{})
+	pulumi.RegisterOutputType(LambdaHookLoggingConfigOutput{})
+	pulumi.RegisterOutputType(LambdaHookLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ManagedExecutionPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedExecutionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OptionsPropertiesOutput{})

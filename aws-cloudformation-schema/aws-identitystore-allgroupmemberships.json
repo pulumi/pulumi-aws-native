@@ -1,0 +1,97 @@
+{
+  "typeName" : "AWS::IdentityStore::AllGroupMemberships",
+  "description" : "Retrieves membership metadata and attributes for a group membership in an identity store.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the group membership."
+    },
+    "IdentityStoreId" : {
+      "type" : "string",
+      "description" : "The globally unique identifier for the identity store.",
+      "minLength" : 1,
+      "maxLength" : 36,
+      "pattern" : "^d-[0-9a-f]{10}$|^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "MembershipId" : {
+      "type" : "string",
+      "description" : "The identifier for a GroupMembership in an identity store.",
+      "minLength" : 1,
+      "maxLength" : 47,
+      "pattern" : "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$"
+    },
+    "GroupId" : {
+      "type" : "string",
+      "description" : "The identifier for a group in the identity store.",
+      "minLength" : 1,
+      "maxLength" : 47,
+      "pattern" : "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$"
+    },
+    "MemberId" : {
+      "type" : "object",
+      "description" : "An object containing the identifier of a group member.",
+      "properties" : {
+        "UserId" : {
+          "type" : "string",
+          "description" : "The identifier for a user in the identity store.",
+          "minLength" : 1,
+          "maxLength" : 47,
+          "pattern" : "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$"
+        }
+      },
+      "required" : [ "UserId" ],
+      "additionalProperties" : false
+    },
+    "CreatedAt" : {
+      "type" : "string",
+      "description" : "The date and time the group membership was created.",
+      "format" : "date-time"
+    },
+    "UpdatedAt" : {
+      "type" : "string",
+      "description" : "The date and time the group membership was last updated.",
+      "format" : "date-time"
+    },
+    "CreatedBy" : {
+      "type" : "string",
+      "description" : "The identifier of the user or system that created the group membership."
+    },
+    "UpdatedBy" : {
+      "type" : "string",
+      "description" : "The identifier of the user or system that last updated the group membership."
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/GroupId", "/properties/IdentityStoreId", "/properties/MemberId" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/MembershipId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/CreatedBy", "/properties/UpdatedBy" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/IdentityStoreId", "/properties/MembershipId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "identitystore:DescribeGroupMembership" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "IdentityStoreId" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 36,
+            "pattern" : "^d-[0-9a-f]{10}$|^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "GroupId" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 47,
+            "pattern" : "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$"
+          }
+        },
+        "required" : [ "IdentityStoreId", "GroupId" ]
+      },
+      "permissions" : [ "identitystore:ListGroupMemberships" ]
+    }
+  }
+}

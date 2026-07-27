@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -79,8 +80,12 @@ type OrganizationConformancePack struct {
 	DeliveryS3KeyPrefix pulumi.StringPtrOutput `pulumi:"deliveryS3KeyPrefix"`
 	// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
 	ExcludedAccounts pulumi.StringArrayOutput `pulumi:"excludedAccounts"`
+	// Amazon Resource Name (ARN) of the organization conformance pack.
+	OrganizationConformancePackArn pulumi.StringOutput `pulumi:"organizationConformancePackArn"`
 	// The name of the organization conformance pack.
 	OrganizationConformancePackName pulumi.StringOutput `pulumi:"organizationConformancePackName"`
+	// The tags for the organization conformance pack.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A string containing full conformance pack template body.
 	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// Location of file containing the template body.
@@ -141,6 +146,8 @@ type organizationConformancePackArgs struct {
 	ExcludedAccounts []string `pulumi:"excludedAccounts"`
 	// The name of the organization conformance pack.
 	OrganizationConformancePackName *string `pulumi:"organizationConformancePackName"`
+	// The tags for the organization conformance pack.
+	Tags []aws.Tag `pulumi:"tags"`
 	// A string containing full conformance pack template body.
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file containing the template body.
@@ -159,6 +166,8 @@ type OrganizationConformancePackArgs struct {
 	ExcludedAccounts pulumi.StringArrayInput
 	// The name of the organization conformance pack.
 	OrganizationConformancePackName pulumi.StringPtrInput
+	// The tags for the organization conformance pack.
+	Tags aws.TagArrayInput
 	// A string containing full conformance pack template body.
 	TemplateBody pulumi.StringPtrInput
 	// Location of file containing the template body.
@@ -224,9 +233,19 @@ func (o OrganizationConformancePackOutput) ExcludedAccounts() pulumi.StringArray
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringArrayOutput { return v.ExcludedAccounts }).(pulumi.StringArrayOutput)
 }
 
+// Amazon Resource Name (ARN) of the organization conformance pack.
+func (o OrganizationConformancePackOutput) OrganizationConformancePackArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.OrganizationConformancePackArn }).(pulumi.StringOutput)
+}
+
 // The name of the organization conformance pack.
 func (o OrganizationConformancePackOutput) OrganizationConformancePackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.OrganizationConformancePackName }).(pulumi.StringOutput)
+}
+
+// The tags for the organization conformance pack.
+func (o OrganizationConformancePackOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A string containing full conformance pack template body.

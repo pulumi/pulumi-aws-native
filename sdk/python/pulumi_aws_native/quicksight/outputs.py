@@ -35,6 +35,10 @@ __all__ = [
     'ActionConnectorIamConnectionMetadata',
     'ActionConnectorNoneConnectionMetadata',
     'ActionConnectorResourcePermission',
+    'AgentCustomPromptInput',
+    'AgentCustomPromptInputParameters',
+    'AgentCustomPromptInterface',
+    'AgentCustomPromptProfile',
     'AnalysisAggregationFunction',
     'AnalysisAggregationSortConfiguration',
     'AnalysisAllSheetsFilterScopeConfiguration',
@@ -1314,6 +1318,14 @@ __all__ = [
     'FlowPermission',
     'FlowStepAliasMapping',
     'FolderResourcePermission',
+    'KnowledgeBaseAccessControlConfiguration',
+    'KnowledgeBaseAudioExtractionConfiguration',
+    'KnowledgeBaseConfiguration',
+    'KnowledgeBaseImageExtractionConfiguration',
+    'KnowledgeBaseKbTemplateConfiguration',
+    'KnowledgeBaseMediaExtractionConfiguration',
+    'KnowledgeBaseResourcePermission',
+    'KnowledgeBaseVideoExtractionConfiguration',
     'OAuthClientApplicationIdentityProviderVpcConnectionProperties',
     'RefreshScheduleMap',
     'RefreshScheduleMapScheduleFrequencyProperties',
@@ -2570,6 +2582,360 @@ class ActionConnectorResourcePermission(dict):
                  </ul>
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class AgentCustomPromptInput(dict):
+    """
+    Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "existingPrompt":
+            suggest = "existing_prompt"
+        elif key == "newPrompt":
+            suggest = "new_prompt"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentCustomPromptInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentCustomPromptInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentCustomPromptInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 existing_prompt: Optional['outputs.AgentCustomPromptProfile'] = None,
+                 new_prompt: Optional['outputs.AgentCustomPromptInputParameters'] = None):
+        """
+        Custom prompt configuration. Specify either ExistingPrompt or NewPrompt.
+        """
+        if existing_prompt is not None:
+            pulumi.set(__self__, "existing_prompt", existing_prompt)
+        if new_prompt is not None:
+            pulumi.set(__self__, "new_prompt", new_prompt)
+
+    @_builtins.property
+    @pulumi.getter(name="existingPrompt")
+    def existing_prompt(self) -> Optional['outputs.AgentCustomPromptProfile']:
+        return pulumi.get(self, "existing_prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="newPrompt")
+    def new_prompt(self) -> Optional['outputs.AgentCustomPromptInputParameters']:
+        return pulumi.get(self, "new_prompt")
+
+
+@pulumi.output_type
+class AgentCustomPromptInputParameters(dict):
+    """
+    Parameters for creating a new custom prompt configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customInstructions":
+            suggest = "custom_instructions"
+        elif key == "outputStyle":
+            suggest = "output_style"
+        elif key == "responseLength":
+            suggest = "response_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentCustomPromptInputParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentCustomPromptInputParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentCustomPromptInputParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_instructions: Optional[_builtins.str] = None,
+                 identity: Optional[_builtins.str] = None,
+                 output_style: Optional[_builtins.str] = None,
+                 response_length: Optional[_builtins.str] = None,
+                 tone: Optional[_builtins.str] = None):
+        """
+        Parameters for creating a new custom prompt configuration.
+
+        :param _builtins.str custom_instructions: Custom instructions for the agent behavior.
+        :param _builtins.str identity: The identity or persona of the agent.
+        :param _builtins.str output_style: The output style for the agent responses.
+        :param _builtins.str response_length: The desired response length for the agent.
+        :param _builtins.str tone: The tone used in agent responses.
+        """
+        if custom_instructions is not None:
+            pulumi.set(__self__, "custom_instructions", custom_instructions)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if output_style is not None:
+            pulumi.set(__self__, "output_style", output_style)
+        if response_length is not None:
+            pulumi.set(__self__, "response_length", response_length)
+        if tone is not None:
+            pulumi.set(__self__, "tone", tone)
+
+    @_builtins.property
+    @pulumi.getter(name="customInstructions")
+    def custom_instructions(self) -> Optional[_builtins.str]:
+        """
+        Custom instructions for the agent behavior.
+        """
+        return pulumi.get(self, "custom_instructions")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        The identity or persona of the agent.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="outputStyle")
+    def output_style(self) -> Optional[_builtins.str]:
+        """
+        The output style for the agent responses.
+        """
+        return pulumi.get(self, "output_style")
+
+    @_builtins.property
+    @pulumi.getter(name="responseLength")
+    def response_length(self) -> Optional[_builtins.str]:
+        """
+        The desired response length for the agent.
+        """
+        return pulumi.get(self, "response_length")
+
+    @_builtins.property
+    @pulumi.getter
+    def tone(self) -> Optional[_builtins.str]:
+        """
+        The tone used in agent responses.
+        """
+        return pulumi.get(self, "tone")
+
+
+@pulumi.output_type
+class AgentCustomPromptInterface(dict):
+    """
+    Read-only view of the resolved custom prompt interface for the agent.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customInstructions":
+            suggest = "custom_instructions"
+        elif key == "modelProfileId":
+            suggest = "model_profile_id"
+        elif key == "outputStyle":
+            suggest = "output_style"
+        elif key == "promptSummary":
+            suggest = "prompt_summary"
+        elif key == "qbsAwsAccountId":
+            suggest = "qbs_aws_account_id"
+        elif key == "responseLength":
+            suggest = "response_length"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentCustomPromptInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentCustomPromptInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentCustomPromptInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_instructions: Optional[_builtins.str] = None,
+                 identity: Optional[_builtins.str] = None,
+                 model_profile_id: Optional[_builtins.str] = None,
+                 output_style: Optional[_builtins.str] = None,
+                 prompt_summary: Optional[_builtins.str] = None,
+                 qbs_aws_account_id: Optional[_builtins.str] = None,
+                 response_length: Optional[_builtins.str] = None,
+                 subscription_id: Optional[_builtins.str] = None,
+                 tone: Optional[_builtins.str] = None):
+        """
+        Read-only view of the resolved custom prompt interface for the agent.
+
+        :param _builtins.str custom_instructions: Custom instructions for the agent behavior.
+        :param _builtins.str identity: The identity or persona of the agent.
+        :param _builtins.str model_profile_id: The identifier of the model profile.
+        :param _builtins.str output_style: The output style for the agent responses.
+        :param _builtins.str prompt_summary: A summary of the resolved prompt.
+        :param _builtins.str qbs_aws_account_id: The QBS AWS account identifier.
+        :param _builtins.str response_length: The desired response length for the agent.
+        :param _builtins.str subscription_id: The subscription identifier.
+        :param _builtins.str tone: The tone used in agent responses.
+        """
+        if custom_instructions is not None:
+            pulumi.set(__self__, "custom_instructions", custom_instructions)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if model_profile_id is not None:
+            pulumi.set(__self__, "model_profile_id", model_profile_id)
+        if output_style is not None:
+            pulumi.set(__self__, "output_style", output_style)
+        if prompt_summary is not None:
+            pulumi.set(__self__, "prompt_summary", prompt_summary)
+        if qbs_aws_account_id is not None:
+            pulumi.set(__self__, "qbs_aws_account_id", qbs_aws_account_id)
+        if response_length is not None:
+            pulumi.set(__self__, "response_length", response_length)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if tone is not None:
+            pulumi.set(__self__, "tone", tone)
+
+    @_builtins.property
+    @pulumi.getter(name="customInstructions")
+    def custom_instructions(self) -> Optional[_builtins.str]:
+        """
+        Custom instructions for the agent behavior.
+        """
+        return pulumi.get(self, "custom_instructions")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        The identity or persona of the agent.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="modelProfileId")
+    def model_profile_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the model profile.
+        """
+        return pulumi.get(self, "model_profile_id")
+
+    @_builtins.property
+    @pulumi.getter(name="outputStyle")
+    def output_style(self) -> Optional[_builtins.str]:
+        """
+        The output style for the agent responses.
+        """
+        return pulumi.get(self, "output_style")
+
+    @_builtins.property
+    @pulumi.getter(name="promptSummary")
+    def prompt_summary(self) -> Optional[_builtins.str]:
+        """
+        A summary of the resolved prompt.
+        """
+        return pulumi.get(self, "prompt_summary")
+
+    @_builtins.property
+    @pulumi.getter(name="qbsAwsAccountId")
+    def qbs_aws_account_id(self) -> Optional[_builtins.str]:
+        """
+        The QBS AWS account identifier.
+        """
+        return pulumi.get(self, "qbs_aws_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="responseLength")
+    def response_length(self) -> Optional[_builtins.str]:
+        """
+        The desired response length for the agent.
+        """
+        return pulumi.get(self, "response_length")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[_builtins.str]:
+        """
+        The subscription identifier.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tone(self) -> Optional[_builtins.str]:
+        """
+        The tone used in agent responses.
+        """
+        return pulumi.get(self, "tone")
+
+
+@pulumi.output_type
+class AgentCustomPromptProfile(dict):
+    """
+    Reference to an existing custom prompt profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelProfileId":
+            suggest = "model_profile_id"
+        elif key == "qbsAwsAccountId":
+            suggest = "qbs_aws_account_id"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentCustomPromptProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentCustomPromptProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentCustomPromptProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_profile_id: _builtins.str,
+                 qbs_aws_account_id: _builtins.str,
+                 subscription_id: _builtins.str):
+        """
+        Reference to an existing custom prompt profile.
+
+        :param _builtins.str model_profile_id: The identifier of the model profile.
+        :param _builtins.str qbs_aws_account_id: The QBS AWS account identifier.
+        :param _builtins.str subscription_id: The subscription identifier.
+        """
+        pulumi.set(__self__, "model_profile_id", model_profile_id)
+        pulumi.set(__self__, "qbs_aws_account_id", qbs_aws_account_id)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @_builtins.property
+    @pulumi.getter(name="modelProfileId")
+    def model_profile_id(self) -> _builtins.str:
+        """
+        The identifier of the model profile.
+        """
+        return pulumi.get(self, "model_profile_id")
+
+    @_builtins.property
+    @pulumi.getter(name="qbsAwsAccountId")
+    def qbs_aws_account_id(self) -> _builtins.str:
+        """
+        The QBS AWS account identifier.
+        """
+        return pulumi.get(self, "qbs_aws_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> _builtins.str:
+        """
+        The subscription identifier.
+        """
+        return pulumi.get(self, "subscription_id")
 
 
 @pulumi.output_type
@@ -86404,6 +86770,296 @@ class FolderResourcePermission(dict):
                  </ul>
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class KnowledgeBaseAccessControlConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isAclEnabled":
+            suggest = "is_acl_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseAccessControlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseAccessControlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseAccessControlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_acl_enabled: Optional[_builtins.bool] = None):
+        if is_acl_enabled is not None:
+            pulumi.set(__self__, "is_acl_enabled", is_acl_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="isAclEnabled")
+    def is_acl_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_acl_enabled")
+
+
+@pulumi.output_type
+class KnowledgeBaseAudioExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioExtractionStatus":
+            suggest = "audio_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseAudioExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseAudioExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseAudioExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_extraction_status: 'KnowledgeBaseAudioExtractionStatus'):
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> 'KnowledgeBaseAudioExtractionStatus':
+        return pulumi.get(self, "audio_extraction_status")
+
+
+@pulumi.output_type
+class KnowledgeBaseConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateConfiguration":
+            suggest = "template_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 template_configuration: Optional['outputs.KnowledgeBaseKbTemplateConfiguration'] = None):
+        if template_configuration is not None:
+            pulumi.set(__self__, "template_configuration", template_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> Optional['outputs.KnowledgeBaseKbTemplateConfiguration']:
+        return pulumi.get(self, "template_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseImageExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageExtractionStatus":
+            suggest = "image_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseImageExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseImageExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseImageExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_extraction_status: 'KnowledgeBaseImageExtractionStatus'):
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> 'KnowledgeBaseImageExtractionStatus':
+        return pulumi.get(self, "image_extraction_status")
+
+
+@pulumi.output_type
+class KnowledgeBaseKbTemplateConfiguration(dict):
+    def __init__(__self__, *,
+                 template: Optional[Any] = None):
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @_builtins.property
+    @pulumi.getter
+    def template(self) -> Optional[Any]:
+        return pulumi.get(self, "template")
+
+
+@pulumi.output_type
+class KnowledgeBaseMediaExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioExtractionConfiguration":
+            suggest = "audio_extraction_configuration"
+        elif key == "imageExtractionConfiguration":
+            suggest = "image_extraction_configuration"
+        elif key == "videoExtractionConfiguration":
+            suggest = "video_extraction_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseMediaExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseMediaExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseMediaExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_extraction_configuration: Optional['outputs.KnowledgeBaseAudioExtractionConfiguration'] = None,
+                 image_extraction_configuration: Optional['outputs.KnowledgeBaseImageExtractionConfiguration'] = None,
+                 video_extraction_configuration: Optional['outputs.KnowledgeBaseVideoExtractionConfiguration'] = None):
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> Optional['outputs.KnowledgeBaseAudioExtractionConfiguration']:
+        return pulumi.get(self, "audio_extraction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> Optional['outputs.KnowledgeBaseImageExtractionConfiguration']:
+        return pulumi.get(self, "image_extraction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> Optional['outputs.KnowledgeBaseVideoExtractionConfiguration']:
+        return pulumi.get(self, "video_extraction_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseResourcePermission(dict):
+    """
+    <p>Permission for the resource.</p>
+    """
+    def __init__(__self__, *,
+                 actions: Sequence[_builtins.str],
+                 principal: _builtins.str,
+                 resource: Optional[_builtins.str] = None):
+        """
+        <p>Permission for the resource.</p>
+
+        :param Sequence[_builtins.str] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param _builtins.str principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                              <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Sequence[_builtins.str]:
+        """
+        <p>The IAM action to grant or revoke permissions on.</p>
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> _builtins.str:
+        """
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                 <ul>
+                    <li>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                       <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
+        """
+        return pulumi.get(self, "principal")
+
+    @_builtins.property
+    @pulumi.getter
+    def resource(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resource")
+
+
+@pulumi.output_type
+class KnowledgeBaseVideoExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "videoExtractionStatus":
+            suggest = "video_extraction_status"
+        elif key == "videoExtractionType":
+            suggest = "video_extraction_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVideoExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseVideoExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseVideoExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 video_extraction_status: 'KnowledgeBaseVideoExtractionStatus',
+                 video_extraction_type: Optional['KnowledgeBaseVideoExtractionType'] = None):
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+        if video_extraction_type is not None:
+            pulumi.set(__self__, "video_extraction_type", video_extraction_type)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> 'KnowledgeBaseVideoExtractionStatus':
+        return pulumi.get(self, "video_extraction_status")
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionType")
+    def video_extraction_type(self) -> Optional['KnowledgeBaseVideoExtractionType']:
+        return pulumi.get(self, "video_extraction_type")
 
 
 @pulumi.output_type

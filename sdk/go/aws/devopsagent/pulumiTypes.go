@@ -692,7 +692,7 @@ func (o ServiceAdditionalServiceDetailsPtrOutput) Elem() ServiceAdditionalServic
 	}).(ServiceAdditionalServiceDetailsOutput)
 }
 
-// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
 type ServiceDetails struct {
 }
 
@@ -707,7 +707,7 @@ type ServiceDetailsInput interface {
 	ToServiceDetailsOutputWithContext(context.Context) ServiceDetailsOutput
 }
 
-// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
 type ServiceDetailsArgs struct {
 }
 
@@ -764,7 +764,7 @@ func (i *serviceDetailsPtrType) ToServiceDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDetailsPtrOutput)
 }
 
-// Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
 type ServiceDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServiceDetailsOutput) ElementType() reflect.Type {

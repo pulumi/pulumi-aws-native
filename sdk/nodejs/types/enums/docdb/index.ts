@@ -2,6 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const EventSubscriptionSourceType = {
+    DbInstance: "db-instance",
+    DbCluster: "db-cluster",
+    DbParameterGroup: "db-parameter-group",
+    DbSecurityGroup: "db-security-group",
+    DbClusterSnapshot: "db-cluster-snapshot",
+} as const;
+
+/**
+ * The type of source that is generating the events.
+ */
+export type EventSubscriptionSourceType = (typeof EventSubscriptionSourceType)[keyof typeof EventSubscriptionSourceType];
+
 export const GlobalClusterEngine = {
     Docdb: "docdb",
 } as const;

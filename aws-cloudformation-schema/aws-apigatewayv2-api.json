@@ -43,6 +43,11 @@
       "type" : "string",
       "description" : ""
     },
+    "ExecuteApiArn" : {
+      "description" : "",
+      "type" : "string",
+      "pattern" : "arn:aws(-[\\w]+)*:execute-api:[a-z0-9-]+:[0-9]{12}:.+"
+    },
     "Description" : {
       "type" : "string",
       "description" : "The description of the API."
@@ -164,7 +169,7 @@
   },
   "createOnlyProperties" : [ "/properties/ProtocolType" ],
   "primaryIdentifier" : [ "/properties/ApiId" ],
-  "readOnlyProperties" : [ "/properties/ApiId", "/properties/ApiEndpoint" ],
+  "readOnlyProperties" : [ "/properties/ApiId", "/properties/ApiEndpoint", "/properties/ExecuteApiArn" ],
   "writeOnlyProperties" : [ "/properties/Body", "/properties/BasePath", "/properties/BodyS3Location", "/properties/BodyS3Location/Etag", "/properties/BodyS3Location/Bucket", "/properties/BodyS3Location/Version", "/properties/BodyS3Location/Key", "/properties/CredentialsArn", "/properties/FailOnWarnings", "/properties/RouteKey", "/properties/Target", "/properties/DisableSchemaValidation" ],
   "tagging" : {
     "taggable" : true,

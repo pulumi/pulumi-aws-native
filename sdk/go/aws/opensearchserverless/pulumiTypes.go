@@ -594,6 +594,8 @@ type IndexPropertyMapping struct {
 	Analyzer *string `pulumi:"analyzer"`
 	// The compression level for knn_vector fields
 	CompressionLevel *IndexPropertyMappingCompressionLevel `pulumi:"compressionLevel"`
+	// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+	DataType *IndexPropertyMappingDataType `pulumi:"dataType"`
 	// Dimension size for vector fields, defines the number of dimensions in the vector
 	Dimension *int `pulumi:"dimension"`
 	// Whether a field should be indexed
@@ -626,6 +628,8 @@ type IndexPropertyMappingArgs struct {
 	Analyzer pulumi.StringPtrInput `pulumi:"analyzer"`
 	// The compression level for knn_vector fields
 	CompressionLevel IndexPropertyMappingCompressionLevelPtrInput `pulumi:"compressionLevel"`
+	// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+	DataType IndexPropertyMappingDataTypePtrInput `pulumi:"dataType"`
 	// Dimension size for vector fields, defines the number of dimensions in the vector
 	Dimension pulumi.IntPtrInput `pulumi:"dimension"`
 	// Whether a field should be indexed
@@ -701,6 +705,11 @@ func (o IndexPropertyMappingOutput) Analyzer() pulumi.StringPtrOutput {
 // The compression level for knn_vector fields
 func (o IndexPropertyMappingOutput) CompressionLevel() IndexPropertyMappingCompressionLevelPtrOutput {
 	return o.ApplyT(func(v IndexPropertyMapping) *IndexPropertyMappingCompressionLevel { return v.CompressionLevel }).(IndexPropertyMappingCompressionLevelPtrOutput)
+}
+
+// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+func (o IndexPropertyMappingOutput) DataType() IndexPropertyMappingDataTypePtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *IndexPropertyMappingDataType { return v.DataType }).(IndexPropertyMappingDataTypePtrOutput)
 }
 
 // Dimension size for vector fields, defines the number of dimensions in the vector

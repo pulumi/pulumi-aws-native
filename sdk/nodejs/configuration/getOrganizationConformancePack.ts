@@ -41,6 +41,14 @@ export interface GetOrganizationConformancePackResult {
      * A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
      */
     readonly excludedAccounts?: string[];
+    /**
+     * Amazon Resource Name (ARN) of the organization conformance pack.
+     */
+    readonly organizationConformancePackArn?: string;
+    /**
+     * The tags for the organization conformance pack.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::Config::OrganizationConformancePack.

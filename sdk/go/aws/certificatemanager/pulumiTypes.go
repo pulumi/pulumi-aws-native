@@ -914,6 +914,171 @@ func (o AcmeExternalAccountBindingExpirationPtrOutput) Value() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+type CertificateDomainValidationOption struct {
+	// A fully qualified domain name (FQDN) in the certificate request.
+	DomainName *string `pulumi:"domainName"`
+	// The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record. Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
+	//
+	// Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
+	//
+	// This option is required for publicly trusted certificates.
+	//
+	// > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
+	//
+	// When you change your `DomainValidationOptions` , a new resource is created.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// The domain name to which you want ACM to send validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
+	//
+	// - admin@example.com
+	// - administrator@example.com
+	// - hostmaster@example.com
+	// - postmaster@example.com
+	// - webmaster@example.com
+	ValidationDomain *string `pulumi:"validationDomain"`
+}
+
+// CertificateDomainValidationOptionInput is an input type that accepts CertificateDomainValidationOptionArgs and CertificateDomainValidationOptionOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionInput` via:
+//
+//	CertificateDomainValidationOptionArgs{...}
+type CertificateDomainValidationOptionInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput
+	ToCertificateDomainValidationOptionOutputWithContext(context.Context) CertificateDomainValidationOptionOutput
+}
+
+type CertificateDomainValidationOptionArgs struct {
+	// A fully qualified domain name (FQDN) in the certificate request.
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record. Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
+	//
+	// Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
+	//
+	// This option is required for publicly trusted certificates.
+	//
+	// > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
+	//
+	// When you change your `DomainValidationOptions` , a new resource is created.
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	// The domain name to which you want ACM to send validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
+	//
+	// - admin@example.com
+	// - administrator@example.com
+	// - hostmaster@example.com
+	// - postmaster@example.com
+	// - webmaster@example.com
+	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
+}
+
+func (CertificateDomainValidationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput {
+	return i.ToCertificateDomainValidationOptionOutputWithContext(context.Background())
+}
+
+func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
+}
+
+// CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
+//
+//	CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
+type CertificateDomainValidationOptionArrayInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput
+	ToCertificateDomainValidationOptionArrayOutputWithContext(context.Context) CertificateDomainValidationOptionArrayOutput
+}
+
+type CertificateDomainValidationOptionArray []CertificateDomainValidationOptionInput
+
+func (CertificateDomainValidationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput {
+	return i.ToCertificateDomainValidationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
+}
+
+type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
+
+func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
+	return o
+}
+
+// A fully qualified domain name (FQDN) in the certificate request.
+func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// The `HostedZoneId` option, which is available if you are using Route 53 as your domain registrar, causes ACM to add your CNAME to the domain record. Your list of `DomainValidationOptions` must contain one and only one of the domain-validation options, and the `HostedZoneId` can be used only when `DNS` is specified as your validation method.
+//
+// Use the Route 53 `ListHostedZones` API to discover IDs for available hosted zones.
+//
+// This option is required for publicly trusted certificates.
+//
+// > The `ListHostedZones` API returns IDs in the format "/hostedzone/Z111111QQQQQQQ", but CloudFormation requires the IDs to be in the format "Z111111QQQQQQQ".
+//
+// When you change your `DomainValidationOptions` , a new resource is created.
+func (o CertificateDomainValidationOptionOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The domain name to which you want ACM to send validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com` , you can specify `example.com` as this value. In that case, ACM sends domain validation emails to the following five addresses:
+//
+// - admin@example.com
+// - administrator@example.com
+// - hostmaster@example.com
+// - postmaster@example.com
+// - webmaster@example.com
+func (o CertificateDomainValidationOptionOutput) ValidationDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ValidationDomain }).(pulumi.StringPtrOutput)
+}
+
+type CertificateDomainValidationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateDomainValidationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateDomainValidationOption {
+		return vs[0].([]CertificateDomainValidationOption)[vs[1].(int)]
+	}).(CertificateDomainValidationOptionOutput)
+}
+
+// A tag is a key-value pair that is used to manage the resource.
+type CertificateTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
 type TagsItemProperties struct {
 	// The key name of the tag.
 	Key string `pulumi:"key"`
@@ -933,6 +1098,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AcmeEndpointTagArrayInput)(nil)).Elem(), AcmeEndpointTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AcmeExternalAccountBindingExpirationInput)(nil)).Elem(), AcmeExternalAccountBindingExpirationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AcmeExternalAccountBindingExpirationPtrInput)(nil)).Elem(), AcmeExternalAccountBindingExpirationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AcmeDomainValidationDnsPrevalidationOptionsOutput{})
@@ -949,4 +1116,6 @@ func init() {
 	pulumi.RegisterOutputType(AcmeEndpointTagArrayOutput{})
 	pulumi.RegisterOutputType(AcmeExternalAccountBindingExpirationOutput{})
 	pulumi.RegisterOutputType(AcmeExternalAccountBindingExpirationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
+	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 }

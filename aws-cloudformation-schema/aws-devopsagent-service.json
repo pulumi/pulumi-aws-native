@@ -15,7 +15,7 @@
       "enum" : [ "dynatrace", "mcpserver", "mcpserversplunk", "mcpservernewrelic", "gitlab", "servicenow", "pagerduty", "azureidentity", "mcpserversigv4", "mcpservergrafana" ]
     },
     "ServiceDetails" : {
-      "description" : "Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified",
+      "description" : "Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified",
       "type" : "object",
       "oneOf" : [ {
         "properties" : {
@@ -288,6 +288,14 @@
           }
         },
         "required" : [ "ApiKey" ],
+        "additionalProperties" : false
+      }, {
+        "properties" : {
+          "BearerToken" : {
+            "$ref" : "#/definitions/BearerTokenDetails"
+          }
+        },
+        "required" : [ "BearerToken" ],
         "additionalProperties" : false
       } ]
     },
@@ -981,7 +989,7 @@
   "required" : [ "ServiceType" ],
   "readOnlyProperties" : [ "/properties/ServiceId", "/properties/AccessibleResources", "/properties/AdditionalServiceDetails", "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/ServiceDetails" ],
-  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails/Dynatrace", "/properties/ServiceDetails/MCPServer", "/properties/ServiceDetails/MCPServerSplunk", "/properties/ServiceDetails/MCPServerNewRelic", "/properties/ServiceDetails/GitLab", "/properties/ServiceDetails/ServiceNow", "/properties/ServiceDetails/PagerDuty", "/properties/ServiceDetails/AzureIdentity", "/properties/ServiceDetails/MCPServerGrafana", "/properties/KmsKeyArn" ],
+  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails/Dynatrace", "/properties/ServiceDetails/MCPServerSplunk", "/properties/ServiceDetails/ServiceNow", "/properties/ServiceDetails/PagerDuty", "/properties/ServiceDetails/AzureIdentity", "/properties/KmsKeyArn" ],
   "primaryIdentifier" : [ "/properties/ServiceId" ],
   "handlers" : {
     "create" : {
@@ -991,7 +999,7 @@
       "permissions" : [ "aidevops:GetService", "aidevops:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "aidevops:UpdateService", "aidevops:GetService", "aidevops:TagResource", "aidevops:UntagResource", "aidevops:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "aidevops:UpdateService", "aidevops:GetService", "aidevops:TagResource", "aidevops:UntagResource", "aidevops:ListTagsForResource", "iam:PassRole", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ]
     },
     "delete" : {
       "permissions" : [ "aidevops:DeregisterService", "aidevops:GetService" ]

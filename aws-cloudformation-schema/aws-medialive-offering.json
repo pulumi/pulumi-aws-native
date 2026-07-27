@@ -1,0 +1,115 @@
+{
+  "typeName" : "AWS::MediaLive::Offering",
+  "description" : "Definition of AWS::MediaLive::Offering Resource Type",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'"
+    },
+    "OfferingId" : {
+      "type" : "string",
+      "description" : "Unique offering ID, e.g. '87654321'"
+    },
+    "CurrencyCode" : {
+      "type" : "string",
+      "description" : "Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'"
+    },
+    "Duration" : {
+      "type" : "integer",
+      "description" : "Lease duration, e.g. '12'"
+    },
+    "DurationUnits" : {
+      "type" : "string",
+      "description" : "Units for duration, e.g. 'MONTHS'",
+      "enum" : [ "MONTHS" ]
+    },
+    "FixedPrice" : {
+      "type" : "number",
+      "description" : "One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering"
+    },
+    "OfferingDescription" : {
+      "type" : "string",
+      "description" : "Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'"
+    },
+    "OfferingType" : {
+      "type" : "string",
+      "description" : "Offering type, e.g. 'NO_UPFRONT'",
+      "enum" : [ "NO_UPFRONT" ]
+    },
+    "Region" : {
+      "type" : "string",
+      "description" : "AWS region, e.g. 'us-west-2'"
+    },
+    "ResourceSpecification" : {
+      "$ref" : "#/definitions/ReservationResourceSpecification"
+    },
+    "UsagePrice" : {
+      "type" : "number",
+      "description" : "Recurring usage charge for each reserved resource, e.g. '157.0'"
+    }
+  },
+  "definitions" : {
+    "ReservationResourceSpecification" : {
+      "type" : "object",
+      "description" : "Resource configuration (codec, resolution, bitrate, ...)",
+      "properties" : {
+        "ChannelClass" : {
+          "type" : "string",
+          "description" : "Channel class, e.g. 'STANDARD'",
+          "enum" : [ "STANDARD", "SINGLE_PIPELINE" ]
+        },
+        "Codec" : {
+          "type" : "string",
+          "description" : "Codec, e.g. 'AVC'",
+          "enum" : [ "MPEG2", "AVC", "HEVC", "AUDIO", "LINK", "AV1" ]
+        },
+        "MaximumBitrate" : {
+          "type" : "string",
+          "description" : "Maximum bitrate, e.g. 'MAX_20_MBPS'",
+          "enum" : [ "MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS" ]
+        },
+        "MaximumFramerate" : {
+          "type" : "string",
+          "description" : "Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)",
+          "enum" : [ "MAX_30_FPS", "MAX_60_FPS" ]
+        },
+        "Resolution" : {
+          "type" : "string",
+          "description" : "Resolution, e.g. 'HD'",
+          "enum" : [ "SD", "HD", "FHD", "UHD" ]
+        },
+        "ResourceType" : {
+          "type" : "string",
+          "description" : "Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'",
+          "enum" : [ "INPUT", "OUTPUT", "MULTIPLEX", "CHANNEL" ]
+        },
+        "SpecialFeature" : {
+          "type" : "string",
+          "description" : "Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)",
+          "enum" : [ "ADVANCED_AUDIO", "AUDIO_NORMALIZATION", "MGHD", "MGUHD" ]
+        },
+        "VideoQuality" : {
+          "type" : "string",
+          "description" : "Video quality, e.g. 'STANDARD' (Outputs only)",
+          "enum" : [ "STANDARD", "ENHANCED", "PREMIUM" ]
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "additionalProperties" : false,
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/OfferingId", "/properties/CurrencyCode", "/properties/Duration", "/properties/DurationUnits", "/properties/FixedPrice", "/properties/OfferingDescription", "/properties/OfferingType", "/properties/Region", "/properties/ResourceSpecification", "/properties/UsagePrice" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/OfferingId" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "medialive:DescribeOffering" ]
+    },
+    "list" : {
+      "permissions" : [ "medialive:ListOfferings" ]
+    }
+  }
+}

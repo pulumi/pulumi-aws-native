@@ -82,6 +82,14 @@
       "required" : [ "TargetType", "TargetAddress" ]
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "codestar-notifications:TagResource", "codestar-notifications:UntagResource" ]
+  },
   "required" : [ "EventTypeIds", "Resource", "DetailType", "Targets", "Name" ],
   "createOnlyProperties" : [ "/properties/Resource" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

@@ -10,6 +10,435 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The status of the template generation.
+type GeneratedTemplateStatus string
+
+const (
+	GeneratedTemplateStatusCreatePending    = GeneratedTemplateStatus("CREATE_PENDING")
+	GeneratedTemplateStatusUpdatePending    = GeneratedTemplateStatus("UPDATE_PENDING")
+	GeneratedTemplateStatusDeletePending    = GeneratedTemplateStatus("DELETE_PENDING")
+	GeneratedTemplateStatusCreateInProgress = GeneratedTemplateStatus("CREATE_IN_PROGRESS")
+	GeneratedTemplateStatusUpdateInProgress = GeneratedTemplateStatus("UPDATE_IN_PROGRESS")
+	GeneratedTemplateStatusDeleteInProgress = GeneratedTemplateStatus("DELETE_IN_PROGRESS")
+	GeneratedTemplateStatusFailed           = GeneratedTemplateStatus("FAILED")
+	GeneratedTemplateStatusComplete         = GeneratedTemplateStatus("COMPLETE")
+)
+
+type GeneratedTemplateStatusOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateStatus)(nil)).Elem()
+}
+
+func (o GeneratedTemplateStatusOutput) ToGeneratedTemplateStatusOutput() GeneratedTemplateStatusOutput {
+	return o
+}
+
+func (o GeneratedTemplateStatusOutput) ToGeneratedTemplateStatusOutputWithContext(ctx context.Context) GeneratedTemplateStatusOutput {
+	return o
+}
+
+func (o GeneratedTemplateStatusOutput) ToGeneratedTemplateStatusPtrOutput() GeneratedTemplateStatusPtrOutput {
+	return o.ToGeneratedTemplateStatusPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateStatusOutput) ToGeneratedTemplateStatusPtrOutputWithContext(ctx context.Context) GeneratedTemplateStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneratedTemplateStatus) *GeneratedTemplateStatus {
+		return &v
+	}).(GeneratedTemplateStatusPtrOutput)
+}
+
+func (o GeneratedTemplateStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeneratedTemplateStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GeneratedTemplateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeneratedTemplateStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GeneratedTemplateStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GeneratedTemplateStatus)(nil)).Elem()
+}
+
+func (o GeneratedTemplateStatusPtrOutput) ToGeneratedTemplateStatusPtrOutput() GeneratedTemplateStatusPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateStatusPtrOutput) ToGeneratedTemplateStatusPtrOutputWithContext(ctx context.Context) GeneratedTemplateStatusPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateStatusPtrOutput) Elem() GeneratedTemplateStatusOutput {
+	return o.ApplyT(func(v *GeneratedTemplateStatus) GeneratedTemplateStatus {
+		if v != nil {
+			return *v
+		}
+		var ret GeneratedTemplateStatus
+		return ret
+	}).(GeneratedTemplateStatusOutput)
+}
+
+func (o GeneratedTemplateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GeneratedTemplateStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The DeletionPolicy assigned to resources in the generated template.
+type GeneratedTemplateTemplateConfigurationDeletionPolicy string
+
+const (
+	GeneratedTemplateTemplateConfigurationDeletionPolicyDelete = GeneratedTemplateTemplateConfigurationDeletionPolicy("DELETE")
+	GeneratedTemplateTemplateConfigurationDeletionPolicyRetain = GeneratedTemplateTemplateConfigurationDeletionPolicy("RETAIN")
+)
+
+func (GeneratedTemplateTemplateConfigurationDeletionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateTemplateConfigurationDeletionPolicy)(nil)).Elem()
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToGeneratedTemplateTemplateConfigurationDeletionPolicyOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyOutput {
+	return pulumi.ToOutput(e).(GeneratedTemplateTemplateConfigurationDeletionPolicyOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToGeneratedTemplateTemplateConfigurationDeletionPolicyOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GeneratedTemplateTemplateConfigurationDeletionPolicyOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return e.ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return GeneratedTemplateTemplateConfigurationDeletionPolicy(e).ToGeneratedTemplateTemplateConfigurationDeletionPolicyOutputWithContext(ctx).ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(ctx)
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GeneratedTemplateTemplateConfigurationDeletionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GeneratedTemplateTemplateConfigurationDeletionPolicyOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateTemplateConfigurationDeletionPolicy)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToGeneratedTemplateTemplateConfigurationDeletionPolicyOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToGeneratedTemplateTemplateConfigurationDeletionPolicyOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return o.ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneratedTemplateTemplateConfigurationDeletionPolicy) *GeneratedTemplateTemplateConfigurationDeletionPolicy {
+		return &v
+	}).(GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput)
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeneratedTemplateTemplateConfigurationDeletionPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeneratedTemplateTemplateConfigurationDeletionPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GeneratedTemplateTemplateConfigurationDeletionPolicy)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput) Elem() GeneratedTemplateTemplateConfigurationDeletionPolicyOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateConfigurationDeletionPolicy) GeneratedTemplateTemplateConfigurationDeletionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GeneratedTemplateTemplateConfigurationDeletionPolicy
+		return ret
+	}).(GeneratedTemplateTemplateConfigurationDeletionPolicyOutput)
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GeneratedTemplateTemplateConfigurationDeletionPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GeneratedTemplateTemplateConfigurationDeletionPolicyInput is an input type that accepts values of the GeneratedTemplateTemplateConfigurationDeletionPolicy enum
+// A concrete instance of `GeneratedTemplateTemplateConfigurationDeletionPolicyInput` can be one of the following:
+//
+//	GeneratedTemplateTemplateConfigurationDeletionPolicyDelete
+//	GeneratedTemplateTemplateConfigurationDeletionPolicyRetain
+type GeneratedTemplateTemplateConfigurationDeletionPolicyInput interface {
+	pulumi.Input
+
+	ToGeneratedTemplateTemplateConfigurationDeletionPolicyOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyOutput
+	ToGeneratedTemplateTemplateConfigurationDeletionPolicyOutputWithContext(context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyOutput
+}
+
+var generatedTemplateTemplateConfigurationDeletionPolicyPtrType = reflect.TypeOf((**GeneratedTemplateTemplateConfigurationDeletionPolicy)(nil)).Elem()
+
+type GeneratedTemplateTemplateConfigurationDeletionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput
+	ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput
+}
+
+type generatedTemplateTemplateConfigurationDeletionPolicyPtr string
+
+func GeneratedTemplateTemplateConfigurationDeletionPolicyPtr(v string) GeneratedTemplateTemplateConfigurationDeletionPolicyPtrInput {
+	return (*generatedTemplateTemplateConfigurationDeletionPolicyPtr)(&v)
+}
+
+func (*generatedTemplateTemplateConfigurationDeletionPolicyPtr) ElementType() reflect.Type {
+	return generatedTemplateTemplateConfigurationDeletionPolicyPtrType
+}
+
+func (in *generatedTemplateTemplateConfigurationDeletionPolicyPtr) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput() GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput)
+}
+
+func (in *generatedTemplateTemplateConfigurationDeletionPolicyPtr) ToGeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput)
+}
+
+// The UpdateReplacePolicy assigned to resources in the generated template.
+type GeneratedTemplateTemplateConfigurationUpdateReplacePolicy string
+
+const (
+	GeneratedTemplateTemplateConfigurationUpdateReplacePolicyDelete = GeneratedTemplateTemplateConfigurationUpdateReplacePolicy("DELETE")
+	GeneratedTemplateTemplateConfigurationUpdateReplacePolicyRetain = GeneratedTemplateTemplateConfigurationUpdateReplacePolicy("RETAIN")
+)
+
+func (GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateTemplateConfigurationUpdateReplacePolicy)(nil)).Elem()
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput {
+	return pulumi.ToOutput(e).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return e.ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(context.Background())
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return GeneratedTemplateTemplateConfigurationUpdateReplacePolicy(e).ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutputWithContext(ctx).ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(ctx)
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeneratedTemplateTemplateConfigurationUpdateReplacePolicy)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return o.ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) *GeneratedTemplateTemplateConfigurationUpdateReplacePolicy {
+		return &v
+	}).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput)
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GeneratedTemplateTemplateConfigurationUpdateReplacePolicy)(nil)).Elem()
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return o
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput) Elem() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput {
+	return o.ApplyT(func(v *GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) GeneratedTemplateTemplateConfigurationUpdateReplacePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GeneratedTemplateTemplateConfigurationUpdateReplacePolicy
+		return ret
+	}).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput)
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GeneratedTemplateTemplateConfigurationUpdateReplacePolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GeneratedTemplateTemplateConfigurationUpdateReplacePolicyInput is an input type that accepts values of the GeneratedTemplateTemplateConfigurationUpdateReplacePolicy enum
+// A concrete instance of `GeneratedTemplateTemplateConfigurationUpdateReplacePolicyInput` can be one of the following:
+//
+//	GeneratedTemplateTemplateConfigurationUpdateReplacePolicyDelete
+//	GeneratedTemplateTemplateConfigurationUpdateReplacePolicyRetain
+type GeneratedTemplateTemplateConfigurationUpdateReplacePolicyInput interface {
+	pulumi.Input
+
+	ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput
+	ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutputWithContext(context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput
+}
+
+var generatedTemplateTemplateConfigurationUpdateReplacePolicyPtrType = reflect.TypeOf((**GeneratedTemplateTemplateConfigurationUpdateReplacePolicy)(nil)).Elem()
+
+type GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrInput interface {
+	pulumi.Input
+
+	ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput
+	ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput
+}
+
+type generatedTemplateTemplateConfigurationUpdateReplacePolicyPtr string
+
+func GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtr(v string) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrInput {
+	return (*generatedTemplateTemplateConfigurationUpdateReplacePolicyPtr)(&v)
+}
+
+func (*generatedTemplateTemplateConfigurationUpdateReplacePolicyPtr) ElementType() reflect.Type {
+	return generatedTemplateTemplateConfigurationUpdateReplacePolicyPtrType
+}
+
+func (in *generatedTemplateTemplateConfigurationUpdateReplacePolicyPtr) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput() GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return pulumi.ToOutput(in).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput)
+}
+
+func (in *generatedTemplateTemplateConfigurationUpdateReplacePolicyPtr) ToGeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutputWithContext(ctx context.Context) GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput)
+}
+
 // Target actions are the type of operation hooks will be executed at.
 type GuardHookAction string
 
@@ -4316,6 +4745,10 @@ func (in *typeActivationVersionBumpPtr) ToTypeActivationVersionBumpPtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationDeletionPolicyInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationDeletionPolicy("DELETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationDeletionPolicyPtrInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationDeletionPolicy("DELETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationUpdateReplacePolicyInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationUpdateReplacePolicy("DELETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationUpdateReplacePolicy("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookFailureModeInput)(nil)).Elem(), GuardHookFailureMode("FAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookFailureModePtrInput)(nil)).Elem(), GuardHookFailureMode("FAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookHookStatusInput)(nil)).Elem(), GuardHookHookStatus("ENABLED"))
@@ -4362,6 +4795,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationTypePtrInput)(nil)).Elem(), TypeActivationType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpPtrInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
+	pulumi.RegisterOutputType(GeneratedTemplateStatusOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateStatusPtrOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateConfigurationDeletionPolicyOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateConfigurationDeletionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyOutput{})
+	pulumi.RegisterOutputType(GeneratedTemplateTemplateConfigurationUpdateReplacePolicyPtrOutput{})
 	pulumi.RegisterOutputType(GuardHookFailureModeOutput{})
 	pulumi.RegisterOutputType(GuardHookFailureModePtrOutput{})
 	pulumi.RegisterOutputType(GuardHookHookStatusOutput{})

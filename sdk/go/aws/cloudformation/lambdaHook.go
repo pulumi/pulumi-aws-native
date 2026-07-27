@@ -18,6 +18,8 @@ type LambdaHook struct {
 
 	// The typename alias for the hook.
 	Alias pulumi.StringOutput `pulumi:"alias"`
+	// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+	AutoUpdate pulumi.BoolPtrOutput `pulumi:"autoUpdate"`
 	// The execution role ARN assumed by Hooks to invoke Lambda.
 	ExecutionRole pulumi.StringOutput `pulumi:"executionRole"`
 	// Attribute to specify CloudFormation behavior on hook failure.
@@ -28,6 +30,8 @@ type LambdaHook struct {
 	HookStatus LambdaHookHookStatusOutput `pulumi:"hookStatus"`
 	// Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
 	LambdaFunction pulumi.StringOutput `pulumi:"lambdaFunction"`
+	// Contains logging configuration information for the hook.
+	LoggingConfig LambdaHookLoggingConfigPtrOutput `pulumi:"loggingConfig"`
 	// Filters to allow hooks to target specific stack attributes
 	StackFilters StackFiltersPropertiesPtrOutput `pulumi:"stackFilters"`
 	// Attribute to specify which targets should invoke the hook
@@ -63,6 +67,8 @@ func NewLambdaHook(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"alias",
+		"autoUpdate",
+		"loggingConfig",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -100,6 +106,8 @@ func (LambdaHookState) ElementType() reflect.Type {
 type lambdaHookArgs struct {
 	// The typename alias for the hook.
 	Alias string `pulumi:"alias"`
+	// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+	AutoUpdate *bool `pulumi:"autoUpdate"`
 	// The execution role ARN assumed by Hooks to invoke Lambda.
 	ExecutionRole string `pulumi:"executionRole"`
 	// Attribute to specify CloudFormation behavior on hook failure.
@@ -108,6 +116,8 @@ type lambdaHookArgs struct {
 	HookStatus LambdaHookHookStatus `pulumi:"hookStatus"`
 	// Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
 	LambdaFunction string `pulumi:"lambdaFunction"`
+	// Contains logging configuration information for the hook.
+	LoggingConfig *LambdaHookLoggingConfig `pulumi:"loggingConfig"`
 	// Filters to allow hooks to target specific stack attributes
 	StackFilters *StackFiltersProperties `pulumi:"stackFilters"`
 	// Attribute to specify which targets should invoke the hook
@@ -120,6 +130,8 @@ type lambdaHookArgs struct {
 type LambdaHookArgs struct {
 	// The typename alias for the hook.
 	Alias pulumi.StringInput
+	// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+	AutoUpdate pulumi.BoolPtrInput
 	// The execution role ARN assumed by Hooks to invoke Lambda.
 	ExecutionRole pulumi.StringInput
 	// Attribute to specify CloudFormation behavior on hook failure.
@@ -128,6 +140,8 @@ type LambdaHookArgs struct {
 	HookStatus LambdaHookHookStatusInput
 	// Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
 	LambdaFunction pulumi.StringInput
+	// Contains logging configuration information for the hook.
+	LoggingConfig LambdaHookLoggingConfigPtrInput
 	// Filters to allow hooks to target specific stack attributes
 	StackFilters StackFiltersPropertiesPtrInput
 	// Attribute to specify which targets should invoke the hook
@@ -178,6 +192,11 @@ func (o LambdaHookOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaHook) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
+// Whether to automatically update the extension in this account and Region when a new minor version is published by the extension publisher.
+func (o LambdaHookOutput) AutoUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LambdaHook) pulumi.BoolPtrOutput { return v.AutoUpdate }).(pulumi.BoolPtrOutput)
+}
+
 // The execution role ARN assumed by Hooks to invoke Lambda.
 func (o LambdaHookOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaHook) pulumi.StringOutput { return v.ExecutionRole }).(pulumi.StringOutput)
@@ -201,6 +220,11 @@ func (o LambdaHookOutput) HookStatus() LambdaHookHookStatusOutput {
 // Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
 func (o LambdaHookOutput) LambdaFunction() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaHook) pulumi.StringOutput { return v.LambdaFunction }).(pulumi.StringOutput)
+}
+
+// Contains logging configuration information for the hook.
+func (o LambdaHookOutput) LoggingConfig() LambdaHookLoggingConfigPtrOutput {
+	return o.ApplyT(func(v *LambdaHook) LambdaHookLoggingConfigPtrOutput { return v.LoggingConfig }).(LambdaHookLoggingConfigPtrOutput)
 }
 
 // Filters to allow hooks to target specific stack attributes

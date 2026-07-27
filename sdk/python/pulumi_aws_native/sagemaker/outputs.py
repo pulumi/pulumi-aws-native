@@ -40,6 +40,7 @@ __all__ = [
     'AppImageConfigKernelSpec',
     'AppResourceSpec',
     'ClusterAlarmDetails',
+    'ClusterAutoPatchConfig',
     'ClusterAutoScalingConfig',
     'ClusterCapacityRequirements',
     'ClusterCapacitySizeConfig',
@@ -55,6 +56,7 @@ __all__ = [
     'ClusterNetworkInterface',
     'ClusterOnDemandOptions',
     'ClusterOrchestrator',
+    'ClusterPatchSchedule',
     'ClusterRestrictedInstanceGroup',
     'ClusterRestrictedInstanceGroupsConfig',
     'ClusterRollingUpdatePolicy',
@@ -1621,6 +1623,66 @@ class ClusterAlarmDetails(dict):
 
 
 @pulumi.output_type
+class ClusterAutoPatchConfig(dict):
+    """
+    The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patchingStrategy":
+            suggest = "patching_strategy"
+        elif key == "deploymentConfig":
+            suggest = "deployment_config"
+        elif key == "patchSchedule":
+            suggest = "patch_schedule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAutoPatchConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAutoPatchConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAutoPatchConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 patching_strategy: 'ClusterAutoPatchConfigPatchingStrategy',
+                 deployment_config: Optional['outputs.ClusterDeploymentConfig'] = None,
+                 patch_schedule: Optional['outputs.ClusterPatchSchedule'] = None):
+        """
+        The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+
+        :param 'ClusterAutoPatchConfigPatchingStrategy' patching_strategy: The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+        """
+        pulumi.set(__self__, "patching_strategy", patching_strategy)
+        if deployment_config is not None:
+            pulumi.set(__self__, "deployment_config", deployment_config)
+        if patch_schedule is not None:
+            pulumi.set(__self__, "patch_schedule", patch_schedule)
+
+    @_builtins.property
+    @pulumi.getter(name="patchingStrategy")
+    def patching_strategy(self) -> 'ClusterAutoPatchConfigPatchingStrategy':
+        """
+        The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+        """
+        return pulumi.get(self, "patching_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentConfig")
+    def deployment_config(self) -> Optional['outputs.ClusterDeploymentConfig']:
+        return pulumi.get(self, "deployment_config")
+
+    @_builtins.property
+    @pulumi.getter(name="patchSchedule")
+    def patch_schedule(self) -> Optional['outputs.ClusterPatchSchedule']:
+        return pulumi.get(self, "patch_schedule")
+
+
+@pulumi.output_type
 class ClusterAutoScalingConfig(dict):
     """
     Configuration for cluster auto-scaling
@@ -1914,6 +1976,8 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_count"
         elif key == "instanceGroupName":
             suggest = "instance_group_name"
+        elif key == "autoPatchConfig":
+            suggest = "auto_patch_config"
         elif key == "capacityRequirements":
             suggest = "capacity_requirements"
         elif key == "currentCount":
@@ -1962,6 +2026,7 @@ class ClusterInstanceGroup(dict):
                  execution_role: _builtins.str,
                  instance_count: _builtins.int,
                  instance_group_name: _builtins.str,
+                 auto_patch_config: Optional['outputs.ClusterAutoPatchConfig'] = None,
                  capacity_requirements: Optional['outputs.ClusterCapacityRequirements'] = None,
                  current_count: Optional[_builtins.int] = None,
                  image_id: Optional[_builtins.str] = None,
@@ -1990,6 +2055,8 @@ class ClusterInstanceGroup(dict):
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
+        if auto_patch_config is not None:
+            pulumi.set(__self__, "auto_patch_config", auto_patch_config)
         if capacity_requirements is not None:
             pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
@@ -2040,6 +2107,11 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="instanceGroupName")
     def instance_group_name(self) -> _builtins.str:
         return pulumi.get(self, "instance_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="autoPatchConfig")
+    def auto_patch_config(self) -> Optional['outputs.ClusterAutoPatchConfig']:
+        return pulumi.get(self, "auto_patch_config")
 
     @_builtins.property
     @pulumi.getter(name="capacityRequirements")
@@ -2390,6 +2462,47 @@ class ClusterOrchestrator(dict):
         Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
         """
         pass
+
+
+@pulumi.output_type
+class ClusterPatchSchedule(dict):
+    """
+    The schedule configuration for automatic patching.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextPatchDate":
+            suggest = "next_patch_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPatchSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPatchSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPatchSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 next_patch_date: Optional[_builtins.str] = None):
+        """
+        The schedule configuration for automatic patching.
+
+        :param _builtins.str next_patch_date: The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        """
+        if next_patch_date is not None:
+            pulumi.set(__self__, "next_patch_date", next_patch_date)
+
+    @_builtins.property
+    @pulumi.getter(name="nextPatchDate")
+    def next_patch_date(self) -> Optional[_builtins.str]:
+        """
+        The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        """
+        return pulumi.get(self, "next_patch_date")
 
 
 @pulumi.output_type

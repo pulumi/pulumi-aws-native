@@ -125,6 +125,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<Outputs.DomainEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+        /// </summary>
+        [Output("engineMode")]
+        public Output<Pulumi.AwsNative.OpenSearchService.DomainEngineMode?> EngineMode { get; private set; } = null!;
+
+        /// <summary>
         /// The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
         /// 
         /// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
@@ -187,6 +193,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+        /// </summary>
+        [Output("useCase")]
+        public Output<Pulumi.AwsNative.OpenSearchService.DomainUseCase?> UseCase { get; private set; } = null!;
+
+        /// <summary>
         /// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
         /// 
         /// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
@@ -220,6 +232,7 @@ namespace Pulumi.AwsNative.OpenSearchService
                 ReplaceOnChanges =
                 {
                     "domainName",
+                    "engineMode",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -326,6 +339,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Input<Inputs.DomainEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
 
         /// <summary>
+        /// The engine mode of the domain. Determines whether the domain runs the standard (GENERAL) engine or the optimized multi-engine (OPTIMIZED) engine. This value cannot be changed after the domain is created.
+        /// </summary>
+        [Input("engineMode")]
+        public Input<Pulumi.AwsNative.OpenSearchService.DomainEngineMode>? EngineMode { get; set; }
+
+        /// <summary>
         /// The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
         /// 
         /// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
@@ -395,6 +414,12 @@ namespace Pulumi.AwsNative.OpenSearchService
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+        /// </summary>
+        [Input("useCase")]
+        public Input<Pulumi.AwsNative.OpenSearchService.DomainUseCase>? UseCase { get; set; }
 
         /// <summary>
         /// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .

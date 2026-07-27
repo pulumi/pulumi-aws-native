@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetOrganizationConformancePackResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOrganizationConformancePackResult:
-    def __init__(__self__, conformance_pack_input_parameters=None, delivery_s3_bucket=None, delivery_s3_key_prefix=None, excluded_accounts=None):
+    def __init__(__self__, conformance_pack_input_parameters=None, delivery_s3_bucket=None, delivery_s3_key_prefix=None, excluded_accounts=None, organization_conformance_pack_arn=None, tags=None):
         if conformance_pack_input_parameters and not isinstance(conformance_pack_input_parameters, list):
             raise TypeError("Expected argument 'conformance_pack_input_parameters' to be a list")
         pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
@@ -37,6 +38,12 @@ class GetOrganizationConformancePackResult:
         if excluded_accounts and not isinstance(excluded_accounts, list):
             raise TypeError("Expected argument 'excluded_accounts' to be a list")
         pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+        if organization_conformance_pack_arn and not isinstance(organization_conformance_pack_arn, str):
+            raise TypeError("Expected argument 'organization_conformance_pack_arn' to be a str")
+        pulumi.set(__self__, "organization_conformance_pack_arn", organization_conformance_pack_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="conformancePackInputParameters")
@@ -70,6 +77,22 @@ class GetOrganizationConformancePackResult:
         """
         return pulumi.get(self, "excluded_accounts")
 
+    @_builtins.property
+    @pulumi.getter(name="organizationConformancePackArn")
+    def organization_conformance_pack_arn(self) -> Optional[_builtins.str]:
+        """
+        Amazon Resource Name (ARN) of the organization conformance pack.
+        """
+        return pulumi.get(self, "organization_conformance_pack_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the organization conformance pack.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetOrganizationConformancePackResult(GetOrganizationConformancePackResult):
     # pylint: disable=using-constant-test
@@ -80,7 +103,9 @@ class AwaitableGetOrganizationConformancePackResult(GetOrganizationConformancePa
             conformance_pack_input_parameters=self.conformance_pack_input_parameters,
             delivery_s3_bucket=self.delivery_s3_bucket,
             delivery_s3_key_prefix=self.delivery_s3_key_prefix,
-            excluded_accounts=self.excluded_accounts)
+            excluded_accounts=self.excluded_accounts,
+            organization_conformance_pack_arn=self.organization_conformance_pack_arn,
+            tags=self.tags)
 
 
 def get_organization_conformance_pack(organization_conformance_pack_name: Optional[_builtins.str] = None,
@@ -99,7 +124,9 @@ def get_organization_conformance_pack(organization_conformance_pack_name: Option
         conformance_pack_input_parameters=pulumi.get(__ret__, 'conformance_pack_input_parameters'),
         delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'),
-        excluded_accounts=pulumi.get(__ret__, 'excluded_accounts'))
+        excluded_accounts=pulumi.get(__ret__, 'excluded_accounts'),
+        organization_conformance_pack_arn=pulumi.get(__ret__, 'organization_conformance_pack_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_organization_conformance_pack_output(organization_conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationConformancePackResult]:
     """
@@ -115,4 +142,6 @@ def get_organization_conformance_pack_output(organization_conformance_pack_name:
         conformance_pack_input_parameters=pulumi.get(__response__, 'conformance_pack_input_parameters'),
         delivery_s3_bucket=pulumi.get(__response__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__response__, 'delivery_s3_key_prefix'),
-        excluded_accounts=pulumi.get(__response__, 'excluded_accounts')))
+        excluded_accounts=pulumi.get(__response__, 'excluded_accounts'),
+        organization_conformance_pack_arn=pulumi.get(__response__, 'organization_conformance_pack_arn'),
+        tags=pulumi.get(__response__, 'tags')))

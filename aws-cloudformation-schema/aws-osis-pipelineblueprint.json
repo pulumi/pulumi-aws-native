@@ -1,0 +1,50 @@
+{
+  "typeName" : "AWS::OSIS::PipelineBlueprint",
+  "description" : "An OpenSearch Ingestion blueprint, which is a preconfigured template for creating an ingestion pipeline.",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the pipeline blueprint."
+    },
+    "BlueprintName" : {
+      "type" : "string",
+      "description" : "The name of the blueprint."
+    },
+    "PipelineConfigurationBody" : {
+      "type" : "string",
+      "description" : "The YAML configuration of the blueprint."
+    },
+    "DisplayName" : {
+      "type" : "string",
+      "description" : "The display name of the blueprint."
+    },
+    "DisplayDescription" : {
+      "type" : "string",
+      "description" : "A description of the blueprint."
+    },
+    "Service" : {
+      "type" : "string",
+      "description" : "The name of the service that the blueprint is associated with."
+    },
+    "UseCase" : {
+      "type" : "string",
+      "description" : "The use case that the blueprint relates to."
+    }
+  },
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/BlueprintName" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/PipelineConfigurationBody", "/properties/DisplayName", "/properties/DisplayDescription", "/properties/Service", "/properties/UseCase" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/BlueprintName" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "osis:GetPipelineBlueprint" ]
+    },
+    "list" : {
+      "permissions" : [ "osis:ListPipelineBlueprints" ]
+    }
+  }
+}

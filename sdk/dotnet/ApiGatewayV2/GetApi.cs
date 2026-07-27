@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
         /// </summary>
         public readonly bool? DisableExecuteApiEndpoint;
+        public readonly string? ExecuteApiArn;
         /// <summary>
         /// The IP address types that can invoke the API. Use ``ipv4`` to allow only IPv4 addresses to invoke your API, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your API.
         ///  Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.
@@ -123,6 +124,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             bool? disableExecuteApiEndpoint,
 
+            string? executeApiArn,
+
             string? ipAddressType,
 
             string? name,
@@ -139,6 +142,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             CorsConfiguration = corsConfiguration;
             Description = description;
             DisableExecuteApiEndpoint = disableExecuteApiEndpoint;
+            ExecuteApiArn = executeApiArn;
             IpAddressType = ipAddressType;
             Name = name;
             RouteSelectionExpression = routeSelectionExpression;

@@ -231,6 +231,16 @@ export const AppType = {
  */
 export type AppType = (typeof AppType)[keyof typeof AppType];
 
+export const ClusterAutoPatchConfigPatchingStrategy = {
+    WhenIdle: "WhenIdle",
+    WhenAllIdle: "WhenAllIdle",
+} as const;
+
+/**
+ * The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+ */
+export type ClusterAutoPatchConfigPatchingStrategy = (typeof ClusterAutoPatchConfigPatchingStrategy)[keyof typeof ClusterAutoPatchConfigPatchingStrategy];
+
 export const ClusterAutoScalingConfigAutoScalerType = {
     Karpenter: "Karpenter",
 } as const;

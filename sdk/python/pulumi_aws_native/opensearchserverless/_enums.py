@@ -15,6 +15,7 @@ __all__ = [
     'CollectionStandbyReplicas',
     'CollectionType',
     'IndexPropertyMappingCompressionLevel',
+    'IndexPropertyMappingDataType',
     'IndexPropertyMappingMethodPropertiesEngine',
     'IndexPropertyMappingMethodPropertiesName',
     'IndexPropertyMappingMethodPropertiesSpaceType',
@@ -101,6 +102,15 @@ class IndexPropertyMappingCompressionLevel(_builtins.str, Enum):
     INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_4X = "4x"
     INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_2X = "2x"
     INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_1X = "1x"
+
+
+@pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingDataType")
+class IndexPropertyMappingDataType(_builtins.str, Enum):
+    """
+    The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+    """
+    FLOAT = "float"
+    BYTE = "byte"
 
 
 @pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingMethodPropertiesEngine")

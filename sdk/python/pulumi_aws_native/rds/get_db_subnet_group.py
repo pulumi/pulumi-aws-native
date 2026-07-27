@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbSubnetGroupResult:
-    def __init__(__self__, db_subnet_group_description=None, subnet_ids=None, tags=None):
+    def __init__(__self__, db_subnet_group_arn=None, db_subnet_group_description=None, subnet_ids=None, tags=None):
+        if db_subnet_group_arn and not isinstance(db_subnet_group_arn, str):
+            raise TypeError("Expected argument 'db_subnet_group_arn' to be a str")
+        pulumi.set(__self__, "db_subnet_group_arn", db_subnet_group_arn)
         if db_subnet_group_description and not isinstance(db_subnet_group_description, str):
             raise TypeError("Expected argument 'db_subnet_group_description' to be a str")
         pulumi.set(__self__, "db_subnet_group_description", db_subnet_group_description)
@@ -34,6 +37,11 @@ class GetDbSubnetGroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="dbSubnetGroupArn")
+    def db_subnet_group_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "db_subnet_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupDescription")
@@ -66,6 +74,7 @@ class AwaitableGetDbSubnetGroupResult(GetDbSubnetGroupResult):
         if False:
             yield self
         return GetDbSubnetGroupResult(
+            db_subnet_group_arn=self.db_subnet_group_arn,
             db_subnet_group_description=self.db_subnet_group_description,
             subnet_ids=self.subnet_ids,
             tags=self.tags)
@@ -91,6 +100,7 @@ def get_db_subnet_group(db_subnet_group_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbSubnetGroup', __args__, opts=opts, typ=GetDbSubnetGroupResult).value
 
     return AwaitableGetDbSubnetGroupResult(
+        db_subnet_group_arn=pulumi.get(__ret__, 'db_subnet_group_arn'),
         db_subnet_group_description=pulumi.get(__ret__, 'db_subnet_group_description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -113,6 +123,7 @@ def get_db_subnet_group_output(db_subnet_group_name: pulumi.Input[Optional[_buil
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbSubnetGroup', __args__, opts=opts, typ=GetDbSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetDbSubnetGroupResult(
+        db_subnet_group_arn=pulumi.get(__response__, 'db_subnet_group_arn'),
         db_subnet_group_description=pulumi.get(__response__, 'db_subnet_group_description'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags')))

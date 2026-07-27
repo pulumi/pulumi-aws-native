@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.Pcs
         /// The generated unique ID of the compute node group.
         /// </summary>
         public readonly string? Id;
+        public readonly Outputs.ComputeNodeGroupNodeLifecycleActions? NodeLifecycleActions;
         /// <summary>
         /// Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         /// </summary>
@@ -130,6 +131,8 @@ namespace Pulumi.AwsNative.Pcs
 
             string? id,
 
+            Outputs.ComputeNodeGroupNodeLifecycleActions? nodeLifecycleActions,
+
             Pulumi.AwsNative.Pcs.ComputeNodeGroupPurchaseOption? purchaseOption,
 
             Outputs.ScalingConfigurationProperties? scalingConfiguration,
@@ -150,6 +153,7 @@ namespace Pulumi.AwsNative.Pcs
             ErrorInfo = errorInfo;
             IamInstanceProfileArn = iamInstanceProfileArn;
             Id = id;
+            NodeLifecycleActions = nodeLifecycleActions;
             PurchaseOption = purchaseOption;
             ScalingConfiguration = scalingConfiguration;
             SlurmConfiguration = slurmConfiguration;

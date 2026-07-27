@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:quicksight:ActionConnector":
 		r = &ActionConnector{}
+	case "aws-native:quicksight:Agent":
+		r = &Agent{}
 	case "aws-native:quicksight:Analysis":
 		r = &Analysis{}
 	case "aws-native:quicksight:CustomPermissions":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Flow{}
 	case "aws-native:quicksight:Folder":
 		r = &Folder{}
+	case "aws-native:quicksight:KnowledgeBase":
+		r = &KnowledgeBase{}
 	case "aws-native:quicksight:OAuthClientApplication":
 		r = &OAuthClientApplication{}
 	case "aws-native:quicksight:RefreshSchedule":

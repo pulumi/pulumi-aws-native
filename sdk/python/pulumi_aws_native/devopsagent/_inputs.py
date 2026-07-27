@@ -210,7 +210,7 @@ class PrivateConnectionConnectionConfigurationArgs:
 
 class ServiceDetailsArgsDict(TypedDict):
     """
-    Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+    Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
     """
     pass
 
@@ -218,7 +218,7 @@ class ServiceDetailsArgsDict(TypedDict):
 class ServiceDetailsArgs:
     def __init__(__self__):
         """
-        Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
+        Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
         """
         pass
 

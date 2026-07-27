@@ -62,6 +62,39 @@ namespace Pulumi.AwsNative.Backup
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The status of the legal hold.
+    /// </summary>
+    [EnumType]
+    public readonly struct LegalHoldStatus : IEquatable<LegalHoldStatus>
+    {
+        private readonly string _value;
+
+        private LegalHoldStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LegalHoldStatus Creating { get; } = new LegalHoldStatus("CREATING");
+        public static LegalHoldStatus Active { get; } = new LegalHoldStatus("ACTIVE");
+        public static LegalHoldStatus Canceling { get; } = new LegalHoldStatus("CANCELING");
+        public static LegalHoldStatus Canceled { get; } = new LegalHoldStatus("CANCELED");
+
+        public static bool operator ==(LegalHoldStatus left, LegalHoldStatus right) => left.Equals(right);
+        public static bool operator !=(LegalHoldStatus left, LegalHoldStatus right) => !left.Equals(right);
+
+        public static explicit operator string(LegalHoldStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LegalHoldStatus other && Equals(other);
+        public bool Equals(LegalHoldStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm : IEquatable<RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm>
     {

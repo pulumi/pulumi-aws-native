@@ -17,9 +17,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'GeneratedTemplateTemplateConfiguration',
+    'GeneratedTemplateTemplateProgress',
     'GuardHookS3Location',
     'HookVersionLoggingConfig',
     'LambdaHookHookTarget',
+    'LambdaHookLoggingConfig',
     'ManagedExecutionProperties',
     'OptionsProperties',
     'ResourceVersionLoggingConfig',
@@ -36,6 +39,144 @@ __all__ = [
     'TargetFilters1Properties',
     'TypeActivationLoggingConfig',
 ]
+
+@pulumi.output_type
+class GeneratedTemplateTemplateConfiguration(dict):
+    """
+    The configuration details of the generated template.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionPolicy":
+            suggest = "deletion_policy"
+        elif key == "updateReplacePolicy":
+            suggest = "update_replace_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GeneratedTemplateTemplateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GeneratedTemplateTemplateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GeneratedTemplateTemplateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_policy: Optional['GeneratedTemplateTemplateConfigurationDeletionPolicy'] = None,
+                 update_replace_policy: Optional['GeneratedTemplateTemplateConfigurationUpdateReplacePolicy'] = None):
+        """
+        The configuration details of the generated template.
+
+        :param 'GeneratedTemplateTemplateConfigurationDeletionPolicy' deletion_policy: The DeletionPolicy assigned to resources in the generated template.
+        :param 'GeneratedTemplateTemplateConfigurationUpdateReplacePolicy' update_replace_policy: The UpdateReplacePolicy assigned to resources in the generated template.
+        """
+        if deletion_policy is not None:
+            pulumi.set(__self__, "deletion_policy", deletion_policy)
+        if update_replace_policy is not None:
+            pulumi.set(__self__, "update_replace_policy", update_replace_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionPolicy")
+    def deletion_policy(self) -> Optional['GeneratedTemplateTemplateConfigurationDeletionPolicy']:
+        """
+        The DeletionPolicy assigned to resources in the generated template.
+        """
+        return pulumi.get(self, "deletion_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="updateReplacePolicy")
+    def update_replace_policy(self) -> Optional['GeneratedTemplateTemplateConfigurationUpdateReplacePolicy']:
+        """
+        The UpdateReplacePolicy assigned to resources in the generated template.
+        """
+        return pulumi.get(self, "update_replace_policy")
+
+
+@pulumi.output_type
+class GeneratedTemplateTemplateProgress(dict):
+    """
+    A summary of the progress of the template generation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourcesFailed":
+            suggest = "resources_failed"
+        elif key == "resourcesPending":
+            suggest = "resources_pending"
+        elif key == "resourcesProcessing":
+            suggest = "resources_processing"
+        elif key == "resourcesSucceeded":
+            suggest = "resources_succeeded"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GeneratedTemplateTemplateProgress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GeneratedTemplateTemplateProgress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GeneratedTemplateTemplateProgress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resources_failed: Optional[_builtins.int] = None,
+                 resources_pending: Optional[_builtins.int] = None,
+                 resources_processing: Optional[_builtins.int] = None,
+                 resources_succeeded: Optional[_builtins.int] = None):
+        """
+        A summary of the progress of the template generation.
+
+        :param _builtins.int resources_failed: The number of resources that failed the template generation.
+        :param _builtins.int resources_pending: The number of resources that are still pending the template generation.
+        :param _builtins.int resources_processing: The number of resources that are in-process for the template generation.
+        :param _builtins.int resources_succeeded: The number of resources that succeeded the template generation.
+        """
+        if resources_failed is not None:
+            pulumi.set(__self__, "resources_failed", resources_failed)
+        if resources_pending is not None:
+            pulumi.set(__self__, "resources_pending", resources_pending)
+        if resources_processing is not None:
+            pulumi.set(__self__, "resources_processing", resources_processing)
+        if resources_succeeded is not None:
+            pulumi.set(__self__, "resources_succeeded", resources_succeeded)
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesFailed")
+    def resources_failed(self) -> Optional[_builtins.int]:
+        """
+        The number of resources that failed the template generation.
+        """
+        return pulumi.get(self, "resources_failed")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesPending")
+    def resources_pending(self) -> Optional[_builtins.int]:
+        """
+        The number of resources that are still pending the template generation.
+        """
+        return pulumi.get(self, "resources_pending")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesProcessing")
+    def resources_processing(self) -> Optional[_builtins.int]:
+        """
+        The number of resources that are in-process for the template generation.
+        """
+        return pulumi.get(self, "resources_processing")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesSucceeded")
+    def resources_succeeded(self) -> Optional[_builtins.int]:
+        """
+        The number of resources that succeeded the template generation.
+        """
+        return pulumi.get(self, "resources_succeeded")
+
 
 @pulumi.output_type
 class GuardHookS3Location(dict):
@@ -188,6 +329,59 @@ class LambdaHookHookTarget(dict):
     @pulumi.getter(name="targetName")
     def target_name(self) -> _builtins.str:
         return pulumi.get(self, "target_name")
+
+
+@pulumi.output_type
+class LambdaHookLoggingConfig(dict):
+    """
+    Contains logging configuration information for an extension.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logRoleArn":
+            suggest = "log_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LambdaHookLoggingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LambdaHookLoggingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LambdaHookLoggingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: _builtins.str,
+                 log_role_arn: _builtins.str):
+        """
+        Contains logging configuration information for an extension.
+
+        :param _builtins.str log_group_name: The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+        :param _builtins.str log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "log_role_arn", log_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> _builtins.str:
+        """
+        The Amazon CloudWatch Logs group to which CloudFormation sends error logging information when invoking the extension's handlers.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="logRoleArn")
+    def log_role_arn(self) -> _builtins.str:
+        """
+        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch Logs.
+        """
+        return pulumi.get(self, "log_role_arn")
 
 
 @pulumi.output_type

@@ -62,6 +62,8 @@ __all__ = [
     'AppResourceSpecArgsDict',
     'ClusterAlarmDetailsArgs',
     'ClusterAlarmDetailsArgsDict',
+    'ClusterAutoPatchConfigArgs',
+    'ClusterAutoPatchConfigArgsDict',
     'ClusterAutoScalingConfigArgs',
     'ClusterAutoScalingConfigArgsDict',
     'ClusterCapacityRequirementsArgs',
@@ -92,6 +94,8 @@ __all__ = [
     'ClusterOnDemandOptionsArgsDict',
     'ClusterOrchestratorArgs',
     'ClusterOrchestratorArgsDict',
+    'ClusterPatchScheduleArgs',
+    'ClusterPatchScheduleArgsDict',
     'ClusterRestrictedInstanceGroupArgs',
     'ClusterRestrictedInstanceGroupArgsDict',
     'ClusterRestrictedInstanceGroupsConfigArgs',
@@ -2051,6 +2055,65 @@ class ClusterAlarmDetailsArgs:
         pulumi.set(self, "alarm_name", value)
 
 
+class ClusterAutoPatchConfigArgsDict(TypedDict):
+    """
+    The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+    """
+    patching_strategy: pulumi.Input['ClusterAutoPatchConfigPatchingStrategy']
+    """
+    The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+    """
+    deployment_config: NotRequired[pulumi.Input[Optional['ClusterDeploymentConfigArgsDict']]]
+    patch_schedule: NotRequired[pulumi.Input[Optional['ClusterPatchScheduleArgsDict']]]
+
+@pulumi.input_type
+class ClusterAutoPatchConfigArgs:
+    def __init__(__self__, *,
+                 patching_strategy: pulumi.Input['ClusterAutoPatchConfigPatchingStrategy'],
+                 deployment_config: pulumi.Input[Optional['ClusterDeploymentConfigArgs']] = None,
+                 patch_schedule: pulumi.Input[Optional['ClusterPatchScheduleArgs']] = None):
+        """
+        The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.
+
+        :param pulumi.Input['ClusterAutoPatchConfigPatchingStrategy'] patching_strategy: The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+        """
+        pulumi.set(__self__, "patching_strategy", patching_strategy)
+        if deployment_config is not None:
+            pulumi.set(__self__, "deployment_config", deployment_config)
+        if patch_schedule is not None:
+            pulumi.set(__self__, "patch_schedule", patch_schedule)
+
+    @_builtins.property
+    @pulumi.getter(name="patchingStrategy")
+    def patching_strategy(self) -> pulumi.Input['ClusterAutoPatchConfigPatchingStrategy']:
+        """
+        The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
+        """
+        return pulumi.get(self, "patching_strategy")
+
+    @patching_strategy.setter
+    def patching_strategy(self, value: pulumi.Input['ClusterAutoPatchConfigPatchingStrategy']):
+        pulumi.set(self, "patching_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentConfig")
+    def deployment_config(self) -> pulumi.Input[Optional['ClusterDeploymentConfigArgs']]:
+        return pulumi.get(self, "deployment_config")
+
+    @deployment_config.setter
+    def deployment_config(self, value: pulumi.Input[Optional['ClusterDeploymentConfigArgs']]):
+        pulumi.set(self, "deployment_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="patchSchedule")
+    def patch_schedule(self) -> pulumi.Input[Optional['ClusterPatchScheduleArgs']]:
+        return pulumi.get(self, "patch_schedule")
+
+    @patch_schedule.setter
+    def patch_schedule(self, value: pulumi.Input[Optional['ClusterPatchScheduleArgs']]):
+        pulumi.set(self, "patch_schedule", value)
+
+
 class ClusterAutoScalingConfigArgsDict(TypedDict):
     """
     Configuration for cluster auto-scaling
@@ -2343,6 +2406,7 @@ class ClusterInstanceGroupArgsDict(TypedDict):
     The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
     """
     instance_group_name: pulumi.Input[_builtins.str]
+    auto_patch_config: NotRequired[pulumi.Input[Optional['ClusterAutoPatchConfigArgsDict']]]
     capacity_requirements: NotRequired[pulumi.Input[Optional['ClusterCapacityRequirementsArgsDict']]]
     current_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2378,6 +2442,7 @@ class ClusterInstanceGroupArgs:
                  execution_role: pulumi.Input[_builtins.str],
                  instance_count: pulumi.Input[_builtins.int],
                  instance_group_name: pulumi.Input[_builtins.str],
+                 auto_patch_config: pulumi.Input[Optional['ClusterAutoPatchConfigArgs']] = None,
                  capacity_requirements: pulumi.Input[Optional['ClusterCapacityRequirementsArgs']] = None,
                  current_count: pulumi.Input[Optional[_builtins.int]] = None,
                  image_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2406,6 +2471,8 @@ class ClusterInstanceGroupArgs:
         pulumi.set(__self__, "execution_role", execution_role)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_group_name", instance_group_name)
+        if auto_patch_config is not None:
+            pulumi.set(__self__, "auto_patch_config", auto_patch_config)
         if capacity_requirements is not None:
             pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
@@ -2468,6 +2535,15 @@ class ClusterInstanceGroupArgs:
     @instance_group_name.setter
     def instance_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "instance_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoPatchConfig")
+    def auto_patch_config(self) -> pulumi.Input[Optional['ClusterAutoPatchConfigArgs']]:
+        return pulumi.get(self, "auto_patch_config")
+
+    @auto_patch_config.setter
+    def auto_patch_config(self, value: pulumi.Input[Optional['ClusterAutoPatchConfigArgs']]):
+        pulumi.set(self, "auto_patch_config", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityRequirements")
@@ -2920,6 +2996,40 @@ class ClusterOrchestratorArgs:
         Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
         """
         pass
+
+
+class ClusterPatchScheduleArgsDict(TypedDict):
+    """
+    The schedule configuration for automatic patching.
+    """
+    next_patch_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+    """
+
+@pulumi.input_type
+class ClusterPatchScheduleArgs:
+    def __init__(__self__, *,
+                 next_patch_date: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The schedule configuration for automatic patching.
+
+        :param pulumi.Input[_builtins.str] next_patch_date: The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        """
+        if next_patch_date is not None:
+            pulumi.set(__self__, "next_patch_date", next_patch_date)
+
+    @_builtins.property
+    @pulumi.getter(name="nextPatchDate")
+    def next_patch_date(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The date and time of the next scheduled patch, set by the system when a patch AMI is detected.
+        """
+        return pulumi.get(self, "next_patch_date")
+
+    @next_patch_date.setter
+    def next_patch_date(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "next_patch_date", value)
 
 
 class ClusterRestrictedInstanceGroupArgsDict(TypedDict):

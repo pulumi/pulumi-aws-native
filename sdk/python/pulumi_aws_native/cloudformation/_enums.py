@@ -7,6 +7,9 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'GeneratedTemplateStatus',
+    'GeneratedTemplateTemplateConfigurationDeletionPolicy',
+    'GeneratedTemplateTemplateConfigurationUpdateReplacePolicy',
     'GuardHookAction',
     'GuardHookFailureMode',
     'GuardHookHookStatus',
@@ -38,6 +41,39 @@ __all__ = [
     'TypeActivationType',
     'TypeActivationVersionBump',
 ]
+
+
+@pulumi.type_token("aws-native:cloudformation:GeneratedTemplateStatus")
+class GeneratedTemplateStatus(_builtins.str, Enum):
+    """
+    The status of the template generation.
+    """
+    CREATE_PENDING = "CREATE_PENDING"
+    UPDATE_PENDING = "UPDATE_PENDING"
+    DELETE_PENDING = "DELETE_PENDING"
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    FAILED = "FAILED"
+    COMPLETE = "COMPLETE"
+
+
+@pulumi.type_token("aws-native:cloudformation:GeneratedTemplateTemplateConfigurationDeletionPolicy")
+class GeneratedTemplateTemplateConfigurationDeletionPolicy(_builtins.str, Enum):
+    """
+    The DeletionPolicy assigned to resources in the generated template.
+    """
+    DELETE = "DELETE"
+    RETAIN = "RETAIN"
+
+
+@pulumi.type_token("aws-native:cloudformation:GeneratedTemplateTemplateConfigurationUpdateReplacePolicy")
+class GeneratedTemplateTemplateConfigurationUpdateReplacePolicy(_builtins.str, Enum):
+    """
+    The UpdateReplacePolicy assigned to resources in the generated template.
+    """
+    DELETE = "DELETE"
+    RETAIN = "RETAIN"
 
 
 @pulumi.type_token("aws-native:cloudformation:GuardHookAction")

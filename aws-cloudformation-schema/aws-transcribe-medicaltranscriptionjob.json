@@ -1,0 +1,151 @@
+{
+  "typeName" : "AWS::Transcribe::MedicalTranscriptionJob",
+  "description" : "Resource type definition for an Amazon Transcribe Medical Transcription Job",
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the medical transcription job"
+    },
+    "MedicalTranscriptionJobName" : {
+      "type" : "string",
+      "description" : "A unique name for the medical transcription job",
+      "minLength" : 1,
+      "maxLength" : 200,
+      "pattern" : "^[0-9a-zA-Z._-]+$"
+    },
+    "TranscriptionJobStatus" : {
+      "type" : "string",
+      "description" : "The status of the medical transcription job",
+      "enum" : [ "QUEUED", "IN_PROGRESS", "FAILED", "COMPLETED" ]
+    },
+    "LanguageCode" : {
+      "type" : "string",
+      "description" : "The language code for the language spoken in the input media file. Must be en-US."
+    },
+    "MediaSampleRateHertz" : {
+      "type" : "integer",
+      "description" : "The sample rate of the audio in hertz",
+      "minimum" : 16000,
+      "maximum" : 48000
+    },
+    "MediaFormat" : {
+      "type" : "string",
+      "description" : "The format of the input media file",
+      "enum" : [ "mp3", "mp4", "wav", "flac", "ogg", "amr", "webm", "m4a" ]
+    },
+    "Media" : {
+      "description" : "Describes the Amazon S3 location of the media file",
+      "$ref" : "#/definitions/Media"
+    },
+    "Transcript" : {
+      "description" : "Provides the Amazon S3 URI for the transcript",
+      "$ref" : "#/definitions/MedicalTranscript"
+    },
+    "CreationTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "The date and time the medical transcription job was created"
+    },
+    "Settings" : {
+      "description" : "Settings for the medical transcription job",
+      "$ref" : "#/definitions/MedicalTranscriptionSetting"
+    },
+    "Specialty" : {
+      "type" : "string",
+      "description" : "The medical specialty represented in the media",
+      "enum" : [ "PRIMARYCARE" ]
+    },
+    "Type" : {
+      "type" : "string",
+      "description" : "Whether the input media is a dictation or conversation",
+      "enum" : [ "CONVERSATION", "DICTATION" ]
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "Tags associated with the medical transcription job",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "minItems" : 1,
+      "maxItems" : 200
+    }
+  },
+  "definitions" : {
+    "Media" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MediaFileUri" : {
+          "type" : "string",
+          "description" : "The Amazon S3 location of the media file",
+          "minLength" : 1,
+          "maxLength" : 2000,
+          "pattern" : "^(s3://|http(s*)://).+$"
+        }
+      }
+    },
+    "MedicalTranscript" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TranscriptFileUri" : {
+          "type" : "string",
+          "description" : "The Amazon S3 location of the transcript"
+        }
+      }
+    },
+    "MedicalTranscriptionSetting" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ChannelIdentification" : {
+          "type" : "boolean",
+          "description" : "Enables channel identification in multi-channel audio"
+        },
+        "ShowAlternatives" : {
+          "type" : "boolean",
+          "description" : "Include alternative transcriptions"
+        }
+      }
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "required" : [ "Key", "Value" ],
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      }
+    }
+  },
+  "required" : [ "MedicalTranscriptionJobName", "LanguageCode", "Media", "Specialty", "Type" ],
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/LanguageCode", "/properties/Media", "/properties/MediaFormat", "/properties/MediaSampleRateHertz", "/properties/MedicalTranscriptionJobName", "/properties/Settings", "/properties/Specialty", "/properties/Tags", "/properties/Type" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/TranscriptionJobStatus", "/properties/Transcript", "/properties/CreationTime" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/MedicalTranscriptionJobName" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "transcribe:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "transcribe:GetMedicalTranscriptionJob", "transcribe:ListTagsForResource" ]
+    },
+    "list" : {
+      "permissions" : [ "transcribe:ListMedicalTranscriptionJobs" ]
+    }
+  }
+}

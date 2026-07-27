@@ -92,6 +92,8 @@ type LookupDomainResult struct {
 	SoftwareUpdateOptions *DomainSoftwareUpdateOptions `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+	UseCase *DomainUseCase `pulumi:"useCase"`
 	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
 	//
 	// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
@@ -277,6 +279,11 @@ func (o LookupDomainResultOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOp
 // An arbitrary set of tags (key-value pairs) for this Domain.
 func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The primary use case of the domain. Determines the default configuration tuned for the workload. For GENERAL engine-mode domains, this value can be changed after creation. For OPTIMIZED engine-mode domains, this value cannot be changed after creation.
+func (o LookupDomainResultOutput) UseCase() DomainUseCasePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainUseCase { return v.UseCase }).(DomainUseCasePtrOutput)
 }
 
 // The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .

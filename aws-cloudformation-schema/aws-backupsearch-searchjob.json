@@ -1,0 +1,94 @@
+{
+  "typeName" : "AWS::BackupSearch::SearchJob",
+  "description" : "Definition of AWS::BackupSearch::SearchJob Resource Type",
+  "properties" : {
+    "SearchJobArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the search job."
+    },
+    "SearchJobIdentifier" : {
+      "type" : "string",
+      "description" : "The unique identifier of the search job."
+    },
+    "Name" : {
+      "type" : "string",
+      "description" : "The name of the search job.",
+      "maxLength" : 500
+    },
+    "SearchScope" : {
+      "$ref" : "#/definitions/SearchScope",
+      "description" : "The search scope for the search job."
+    },
+    "CreationTime" : {
+      "type" : "string",
+      "description" : "The date and time the search job was created.",
+      "format" : "date-time"
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The current status of the search job.",
+      "enum" : [ "RUNNING", "COMPLETED", "STOPPING", "STOPPED", "FAILED" ]
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "Tags associated with the search job.",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string"
+          },
+          "Value" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      },
+      "maxItems" : 50,
+      "insertionOrder" : false
+    }
+  },
+  "required" : [ "SearchScope" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/SearchScope", "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/SearchJobArn", "/properties/SearchJobIdentifier", "/properties/CreationTime", "/properties/Status" ],
+  "primaryIdentifier" : [ "/properties/SearchJobArn" ],
+  "additionalIdentifiers" : [ [ "/properties/SearchJobIdentifier" ] ],
+  "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "backup-search:ListTagsForResource" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "backup-search:GetSearchJob", "backup-search:ListTagsForResource" ]
+    },
+    "list" : {
+      "permissions" : [ "backup-search:ListSearchJobs" ]
+    }
+  },
+  "definitions" : {
+    "SearchScope" : {
+      "type" : "object",
+      "description" : "The search scope for the search job.",
+      "properties" : {
+        "BackupResourceTypes" : {
+          "type" : "array",
+          "description" : "The resource types included in a search.",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "S3", "EBS" ]
+          },
+          "minItems" : 1,
+          "maxItems" : 1
+        }
+      },
+      "required" : [ "BackupResourceTypes" ],
+      "additionalProperties" : false
+    }
+  }
+}

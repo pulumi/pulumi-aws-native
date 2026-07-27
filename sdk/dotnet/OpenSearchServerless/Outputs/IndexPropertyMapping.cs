@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingCompressionLevel? CompressionLevel;
         /// <summary>
+        /// The data type for knn_vector fields (e.g. float, byte). Controls how vector values are stored.
+        /// </summary>
+        public readonly Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingDataType? DataType;
+        /// <summary>
         /// Dimension size for vector fields, defines the number of dimensions in the vector
         /// </summary>
         public readonly int? Dimension;
@@ -56,6 +60,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
 
             Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingCompressionLevel? compressionLevel,
 
+            Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingDataType? dataType,
+
             int? dimension,
 
             bool? index,
@@ -72,6 +78,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
         {
             Analyzer = analyzer;
             CompressionLevel = compressionLevel;
+            DataType = dataType;
             Dimension = dimension;
             Index = index;
             Method = method;

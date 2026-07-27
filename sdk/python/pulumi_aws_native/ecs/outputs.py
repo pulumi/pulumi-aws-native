@@ -5580,6 +5580,8 @@ class ServiceDeploymentCircuitBreaker(dict):
 
         :param _builtins.bool enable: Determines whether to use the deployment circuit breaker logic for the service.
         :param _builtins.bool rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        :param _builtins.bool reset_on_healthy_task: Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to ``true``, a task that reaches a healthy state resets the failure count to ``0``. When set to ``false``, Amazon ECS does not reset the failure count. The default is ``true``.
+        :param 'ServiceThresholdConfiguration' threshold_configuration: The threshold configuration that controls when the deployment circuit breaker triggers. The ``type`` and ``value`` together determine how many task failures are tolerated before the circuit breaker activates.
         """
         pulumi.set(__self__, "enable", enable)
         pulumi.set(__self__, "rollback", rollback)
@@ -5607,11 +5609,17 @@ class ServiceDeploymentCircuitBreaker(dict):
     @_builtins.property
     @pulumi.getter(name="resetOnHealthyTask")
     def reset_on_healthy_task(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to ``true``, a task that reaches a healthy state resets the failure count to ``0``. When set to ``false``, Amazon ECS does not reset the failure count. The default is ``true``.
+        """
         return pulumi.get(self, "reset_on_healthy_task")
 
     @_builtins.property
     @pulumi.getter(name="thresholdConfiguration")
     def threshold_configuration(self) -> Optional['outputs.ServiceThresholdConfiguration']:
+        """
+        The threshold configuration that controls when the deployment circuit breaker triggers. The ``type`` and ``value`` together determine how many task failures are tolerated before the circuit breaker activates.
+        """
         return pulumi.get(self, "threshold_configuration")
 
 
@@ -7195,20 +7203,37 @@ class ServiceTag(dict):
 
 @pulumi.output_type
 class ServiceThresholdConfiguration(dict):
+    """
+    Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment. The ``type`` and ``value`` together determine the number of task failures that are tolerated before the circuit breaker triggers.
+     By default, the threshold configuration uses a ``type`` of ``BOUNDED_PERCENT`` with a ``value`` of ``50``.
+    """
     def __init__(__self__, *,
                  type: 'ServiceThresholdConfigurationType',
                  value: _builtins.int):
+        """
+        Defines the failure threshold that the deployment circuit breaker uses to monitor a deployment. The ``type`` and ``value`` together determine the number of task failures that are tolerated before the circuit breaker triggers.
+         By default, the threshold configuration uses a ``type`` of ``BOUNDED_PERCENT`` with a ``value`` of ``50``.
+
+        :param 'ServiceThresholdConfigurationType' type: Determines how Amazon ECS uses ``value`` to calculate the failure threshold. For the percentage types (``BOUNDED_PERCENT`` and ``UNBOUNDED_PERCENT``), Amazon ECS multiplies ``value`` by the latest service desired count. For ``COUNT``, Amazon ECS uses ``value`` directly as the threshold. The default is ``BOUNDED_PERCENT``.
+        :param _builtins.int value: Specifies the integer that Amazon ECS uses to calculate the failure threshold. When ``type`` is ``COUNT``, this value is the failure threshold itself. When ``type`` is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is ``50``.
+        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> 'ServiceThresholdConfigurationType':
+        """
+        Determines how Amazon ECS uses ``value`` to calculate the failure threshold. For the percentage types (``BOUNDED_PERCENT`` and ``UNBOUNDED_PERCENT``), Amazon ECS multiplies ``value`` by the latest service desired count. For ``COUNT``, Amazon ECS uses ``value`` directly as the threshold. The default is ``BOUNDED_PERCENT``.
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.int:
+        """
+        Specifies the integer that Amazon ECS uses to calculate the failure threshold. When ``type`` is ``COUNT``, this value is the failure threshold itself. When ``type`` is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is ``50``.
+        """
         return pulumi.get(self, "value")
 
 

@@ -8,7 +8,7 @@
     "cloudFormationSystemTags" : false
   },
   "typeName" : "AWS::SageMaker::Cluster",
-  "readOnlyProperties" : [ "/properties/ClusterArn", "/properties/CreationTime", "/properties/ClusterStatus", "/properties/FailureMessage", "/properties/InstanceGroups/*/CurrentCount", "/properties/RestrictedInstanceGroups/*/CurrentCount" ],
+  "readOnlyProperties" : [ "/properties/ClusterArn", "/properties/CreationTime", "/properties/ClusterStatus", "/properties/FailureMessage", "/properties/InstanceGroups/*/CurrentCount", "/properties/RestrictedInstanceGroups/*/CurrentCount", "/properties/InstanceGroups/*/AutoPatchConfig/PatchSchedule/NextPatchDate" ],
   "description" : "Resource Type definition for AWS::SageMaker::Cluster",
   "createOnlyProperties" : [ "/properties/ClusterName", "/properties/VpcConfig", "/properties/Orchestrator/Eks" ],
   "primaryIdentifier" : [ "/properties/ClusterArn" ],
@@ -148,6 +148,17 @@
         }
       },
       "required" : [ "SecurityGroupIds", "Subnets" ]
+    },
+    "PatchSchedule" : {
+      "description" : "The schedule configuration for automatic patching.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "NextPatchDate" : {
+          "description" : "The date and time of the next scheduled patch, set by the system when a patch AMI is detected.",
+          "type" : "string"
+        }
+      }
     },
     "ClusterKubernetesTaint" : {
       "description" : "A Kubernetes taint to apply to cluster nodes.",
@@ -316,6 +327,25 @@
     "InstanceType" : {
       "description" : "The instance type of the instance group of a SageMaker HyperPod cluster.",
       "type" : "string"
+    },
+    "AutoPatchConfig" : {
+      "description" : "The configuration for automatic patching of the instance group. Enables workload-aware, patch-level AMI updates.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "PatchingStrategy" : {
+          "description" : "The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.",
+          "type" : "string",
+          "enum" : [ "WhenIdle", "WhenAllIdle" ]
+        },
+        "PatchSchedule" : {
+          "$ref" : "#/definitions/PatchSchedule"
+        },
+        "DeploymentConfig" : {
+          "$ref" : "#/definitions/DeploymentConfig"
+        }
+      },
+      "required" : [ "PatchingStrategy" ]
     },
     "ClusterOrchestratorSlurmConfig" : {
       "description" : "Specifies parameter(s) related to Slurm as orchestrator.",
@@ -625,6 +655,9 @@
         },
         "InstanceType" : {
           "$ref" : "#/definitions/InstanceType"
+        },
+        "AutoPatchConfig" : {
+          "$ref" : "#/definitions/AutoPatchConfig"
         },
         "ExecutionRole" : {
           "$ref" : "#/definitions/ExecutionRole"

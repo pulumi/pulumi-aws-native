@@ -36,6 +36,8 @@ __all__ = [
     'FrameworkControlInputParameter',
     'FrameworkTag',
     'LogicallyAirGappedBackupVaultNotificationObjectType',
+    'RecoveryPointSelectionProperties',
+    'RecoveryPointSelectionPropertiesDateRangeProperties',
     'ReportDeliveryChannelProperties',
     'ReportSettingProperties',
     'RestoreTestingPlanRestoreTestingRecoveryPointSelection',
@@ -1355,6 +1357,128 @@ class LogicallyAirGappedBackupVaultNotificationObjectType(dict):
         The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
         """
         return pulumi.get(self, "sns_topic_arn")
+
+
+@pulumi.output_type
+class RecoveryPointSelectionProperties(dict):
+    """
+    The criteria to assign a set of resources, such as resource types or backup vaults.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateRange":
+            suggest = "date_range"
+        elif key == "resourceIdentifiers":
+            suggest = "resource_identifiers"
+        elif key == "vaultNames":
+            suggest = "vault_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecoveryPointSelectionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecoveryPointSelectionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecoveryPointSelectionProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_range: Optional['outputs.RecoveryPointSelectionPropertiesDateRangeProperties'] = None,
+                 resource_identifiers: Optional[Sequence[_builtins.str]] = None,
+                 vault_names: Optional[Sequence[_builtins.str]] = None):
+        """
+        The criteria to assign a set of resources, such as resource types or backup vaults.
+
+        :param 'RecoveryPointSelectionPropertiesDateRangeProperties' date_range: A date range for filtering recovery points.
+        :param Sequence[_builtins.str] resource_identifiers: The resources included in the resource selection.
+        :param Sequence[_builtins.str] vault_names: The names of the vaults in which the selected recovery points are contained.
+        """
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
+        if resource_identifiers is not None:
+            pulumi.set(__self__, "resource_identifiers", resource_identifiers)
+        if vault_names is not None:
+            pulumi.set(__self__, "vault_names", vault_names)
+
+    @_builtins.property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional['outputs.RecoveryPointSelectionPropertiesDateRangeProperties']:
+        """
+        A date range for filtering recovery points.
+        """
+        return pulumi.get(self, "date_range")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceIdentifiers")
+    def resource_identifiers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The resources included in the resource selection.
+        """
+        return pulumi.get(self, "resource_identifiers")
+
+    @_builtins.property
+    @pulumi.getter(name="vaultNames")
+    def vault_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The names of the vaults in which the selected recovery points are contained.
+        """
+        return pulumi.get(self, "vault_names")
+
+
+@pulumi.output_type
+class RecoveryPointSelectionPropertiesDateRangeProperties(dict):
+    """
+    A date range for filtering recovery points.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromDate":
+            suggest = "from_date"
+        elif key == "toDate":
+            suggest = "to_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecoveryPointSelectionPropertiesDateRangeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecoveryPointSelectionPropertiesDateRangeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecoveryPointSelectionPropertiesDateRangeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_date: _builtins.str,
+                 to_date: _builtins.str):
+        """
+        A date range for filtering recovery points.
+
+        :param _builtins.str from_date: The beginning date, inclusive. ISO 8601 date-time.
+        :param _builtins.str to_date: The end date, inclusive. ISO 8601 date-time.
+        """
+        pulumi.set(__self__, "from_date", from_date)
+        pulumi.set(__self__, "to_date", to_date)
+
+    @_builtins.property
+    @pulumi.getter(name="fromDate")
+    def from_date(self) -> _builtins.str:
+        """
+        The beginning date, inclusive. ISO 8601 date-time.
+        """
+        return pulumi.get(self, "from_date")
+
+    @_builtins.property
+    @pulumi.getter(name="toDate")
+    def to_date(self) -> _builtins.str:
+        """
+        The end date, inclusive. ISO 8601 date-time.
+        """
+        return pulumi.get(self, "to_date")
 
 
 @pulumi.output_type

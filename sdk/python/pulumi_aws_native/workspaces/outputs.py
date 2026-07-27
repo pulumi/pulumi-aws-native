@@ -17,6 +17,7 @@ from ._enums import *
 
 __all__ = [
     'ConnectionAliasAssociation',
+    'WorkspaceIpGroupIpRuleItem',
     'WorkspaceProperties',
     'WorkspacesPoolApplicationSettings',
     'WorkspacesPoolCapacity',
@@ -99,6 +100,60 @@ class ConnectionAliasAssociation(dict):
         The identifier of the directory associated with a connection alias.
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class WorkspaceIpGroupIpRuleItem(dict):
+    """
+    Describes a rule for an IP access control group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipRule":
+            suggest = "ip_rule"
+        elif key == "ruleDesc":
+            suggest = "rule_desc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceIpGroupIpRuleItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceIpGroupIpRuleItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceIpGroupIpRuleItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_rule: _builtins.str,
+                 rule_desc: Optional[_builtins.str] = None):
+        """
+        Describes a rule for an IP access control group.
+
+        :param _builtins.str ip_rule: The IP address range, in CIDR notation.
+        :param _builtins.str rule_desc: The description of the rule.
+        """
+        pulumi.set(__self__, "ip_rule", ip_rule)
+        if rule_desc is not None:
+            pulumi.set(__self__, "rule_desc", rule_desc)
+
+    @_builtins.property
+    @pulumi.getter(name="ipRule")
+    def ip_rule(self) -> _builtins.str:
+        """
+        The IP address range, in CIDR notation.
+        """
+        return pulumi.get(self, "ip_rule")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleDesc")
+    def rule_desc(self) -> Optional[_builtins.str]:
+        """
+        The description of the rule.
+        """
+        return pulumi.get(self, "rule_desc")
 
 
 @pulumi.output_type

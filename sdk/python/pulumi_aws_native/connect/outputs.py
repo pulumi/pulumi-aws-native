@@ -5392,8 +5392,8 @@ class SecurityProfileApplication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 application_permissions: Sequence[_builtins.str],
-                 namespace: _builtins.str,
+                 application_permissions: Optional[Sequence[_builtins.str]] = None,
+                 namespace: Optional[_builtins.str] = None,
                  type: Optional['SecurityProfileApplicationType'] = None):
         """
         A third-party application's metadata.
@@ -5402,14 +5402,16 @@ class SecurityProfileApplication(dict):
         :param _builtins.str namespace: Namespace of the application that you want to give access to.
         :param 'SecurityProfileApplicationType' type: The type of the application.
         """
-        pulumi.set(__self__, "application_permissions", application_permissions)
-        pulumi.set(__self__, "namespace", namespace)
+        if application_permissions is not None:
+            pulumi.set(__self__, "application_permissions", application_permissions)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="applicationPermissions")
-    def application_permissions(self) -> Sequence[_builtins.str]:
+    def application_permissions(self) -> Optional[Sequence[_builtins.str]]:
         """
         The permissions that the agent is granted on the application
         """
@@ -5417,7 +5419,7 @@ class SecurityProfileApplication(dict):
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> _builtins.str:
+    def namespace(self) -> Optional[_builtins.str]:
         """
         Namespace of the application that you want to give access to.
         """
@@ -5496,20 +5498,22 @@ class SecurityProfileFlowModule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 flow_module_id: _builtins.str,
-                 type: _builtins.str):
+                 flow_module_id: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
         """
         A first-party application's metadata.
 
         :param _builtins.str flow_module_id: The identifier of the application that you want to give access to.
         :param _builtins.str type: The type of the first-party application
         """
-        pulumi.set(__self__, "flow_module_id", flow_module_id)
-        pulumi.set(__self__, "type", type)
+        if flow_module_id is not None:
+            pulumi.set(__self__, "flow_module_id", flow_module_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="flowModuleId")
-    def flow_module_id(self) -> _builtins.str:
+    def flow_module_id(self) -> Optional[_builtins.str]:
         """
         The identifier of the application that you want to give access to.
         """
@@ -5517,7 +5521,7 @@ class SecurityProfileFlowModule(dict):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> _builtins.str:
+    def type(self) -> Optional[_builtins.str]:
         """
         The type of the first-party application
         """
@@ -5547,17 +5551,18 @@ class SecurityProfilePrimaryAttributeAccessControlConfigurationItem(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 primary_attribute_values: Sequence['outputs.SecurityProfilePrimaryAttributeValue']):
+                 primary_attribute_values: Optional[Sequence['outputs.SecurityProfilePrimaryAttributeValue']] = None):
         """
         Contains the configuration for record-based access control.
 
         :param Sequence['SecurityProfilePrimaryAttributeValue'] primary_attribute_values: An array of PrimaryAttributeValue objects.
         """
-        pulumi.set(__self__, "primary_attribute_values", primary_attribute_values)
+        if primary_attribute_values is not None:
+            pulumi.set(__self__, "primary_attribute_values", primary_attribute_values)
 
     @_builtins.property
     @pulumi.getter(name="primaryAttributeValues")
-    def primary_attribute_values(self) -> Sequence['outputs.SecurityProfilePrimaryAttributeValue']:
+    def primary_attribute_values(self) -> Optional[Sequence['outputs.SecurityProfilePrimaryAttributeValue']]:
         """
         An array of PrimaryAttributeValue objects.
         """
@@ -5589,9 +5594,9 @@ class SecurityProfilePrimaryAttributeValue(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 access_type: 'SecurityProfilePrimaryAttributeValueAccessType',
-                 attribute_name: _builtins.str,
-                 values: Sequence[_builtins.str]):
+                 access_type: Optional['SecurityProfilePrimaryAttributeValueAccessType'] = None,
+                 attribute_name: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
         """
         An object defining the access control for a specific attribute and its values.
 
@@ -5599,13 +5604,16 @@ class SecurityProfilePrimaryAttributeValue(dict):
         :param _builtins.str attribute_name: The name of the primary attribute.
         :param Sequence[_builtins.str] values: An array of allowed primary values for the specified primary attribute.
         """
-        pulumi.set(__self__, "access_type", access_type)
-        pulumi.set(__self__, "attribute_name", attribute_name)
-        pulumi.set(__self__, "values", values)
+        if access_type is not None:
+            pulumi.set(__self__, "access_type", access_type)
+        if attribute_name is not None:
+            pulumi.set(__self__, "attribute_name", attribute_name)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> 'SecurityProfilePrimaryAttributeValueAccessType':
+    def access_type(self) -> Optional['SecurityProfilePrimaryAttributeValueAccessType']:
         """
         Specifies the type of access granted. Currently, only "ALLOW" is supported
         """
@@ -5613,7 +5621,7 @@ class SecurityProfilePrimaryAttributeValue(dict):
 
     @_builtins.property
     @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> _builtins.str:
+    def attribute_name(self) -> Optional[_builtins.str]:
         """
         The name of the primary attribute.
         """
@@ -5621,7 +5629,7 @@ class SecurityProfilePrimaryAttributeValue(dict):
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Sequence[_builtins.str]:
+    def values(self) -> Optional[Sequence[_builtins.str]]:
         """
         An array of allowed primary values for the specified primary attribute.
         """
