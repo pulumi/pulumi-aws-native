@@ -126,6 +126,56 @@ func TestCheckpointPropertyMap(t *testing.T) {
 	assert.Equal(t, inputs, secretInputs)
 }
 
+func TestCheckpointCollapsesConsecutiveSecrets(t *testing.T) {
+	t.Parallel()
+
+	nested := resource.MakeSecret(resource.MakeSecret(resource.NewStringProperty("value")))
+	inputs := resource.PropertyMap{
+		"config": resource.NewObjectProperty(resource.PropertyMap{
+			"apiKey": nested,
+		}),
+	}
+	outputs := resource.PropertyMap{
+		"config": resource.NewObjectProperty(resource.PropertyMap{
+			"apiKey": nested,
+		}),
+	}
+
+	result := CheckpointPropertyMap(inputs, outputs)
+
+	outLeaf := result["config"].ObjectValue()["apiKey"]
+	assert.True(t, outLeaf.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), outLeaf.SecretValue().Element)
+
+	inLeaf := result["__inputs"].SecretValue().Element.ObjectValue()["config"].ObjectValue()["apiKey"]
+	assert.True(t, inLeaf.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), inLeaf.SecretValue().Element)
+}
+
+func TestParseCheckpointObjectCollapsesConsecutiveSecrets(t *testing.T) {
+	t.Parallel()
+
+	inputs := resource.PropertyMap{
+		"apiKey": resource.MakeSecret(resource.MakeSecret(resource.NewStringProperty("value"))),
+		"items": resource.NewArrayProperty([]resource.PropertyValue{
+			resource.MakeSecret(resource.MakeSecret(resource.NewStringProperty("elem"))),
+		}),
+	}
+	obj := resource.PropertyMap{
+		"__inputs": resource.MakeSecret(resource.NewObjectProperty(inputs)),
+	}
+
+	parsed := ParseCheckpointObject(obj)
+
+	apiKey := parsed["apiKey"]
+	assert.True(t, apiKey.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), apiKey.SecretValue().Element)
+
+	item := parsed["items"].ArrayValue()[0]
+	assert.True(t, item.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("elem"), item.SecretValue().Element)
+}
+
 func TestCheckpointPropertyMapWithNilOutputs(t *testing.T) {
 	t.Parallel()
 

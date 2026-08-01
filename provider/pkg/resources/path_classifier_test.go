@@ -200,6 +200,82 @@ func TestPathClassifierActualInputBaselinePreservesSecretWrappers(t *testing.T) 
 	assert.False(t, baseline["tags"].ObjectValue()["plain"].IsSecret())
 }
 
+func TestPreserveSecretWrappersDoesNotNestAlreadySecretValues(t *testing.T) {
+	t.Parallel()
+
+	actual := resource.PropertyMap{
+		"settings": resource.NewObjectProperty(resource.PropertyMap{
+			// Write-only value restored from old desired inputs, already secret.
+			"password": resource.MakeSecret(resource.NewStringProperty("value")),
+		}),
+	}
+	oldDesired := resource.PropertyMap{
+		"settings": resource.NewObjectProperty(resource.PropertyMap{
+			"password": resource.MakeSecret(resource.NewStringProperty("value")),
+		}),
+	}
+
+	PreserveSecretWrappers(actual, oldDesired)
+
+	password := actual["settings"].ObjectValue()["password"]
+	require.True(t, password.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), password.SecretValue().Element)
+
+	// The old desired inputs must not be modified either.
+	oldPassword := oldDesired["settings"].ObjectValue()["password"]
+	require.True(t, oldPassword.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), oldPassword.SecretValue().Element)
+}
+
+func TestAddWriteOnlyOutputFallbacksDoesNotAliasOldInputs(t *testing.T) {
+	t.Parallel()
+
+	spec := metadata.CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"settings": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:Settings"}},
+		},
+		Outputs: map[string]pschema.PropertySpec{
+			"settings": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:Settings"}},
+		},
+		WriteOnly: []string{"settings/environment"},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:test:Settings": {
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"environment": {TypeSpec: pschema.TypeSpec{
+					Type:                 "object",
+					AdditionalProperties: &pschema.TypeSpec{Type: "string"},
+				}},
+			},
+		},
+	}
+	classifier := NewPathClassifier(&spec, types)
+
+	oldDesired := resource.PropertyMap{
+		"settings": resource.NewObjectProperty(resource.PropertyMap{
+			"environment": resource.NewObjectProperty(resource.PropertyMap{
+				"KEY": resource.MakeSecret(resource.NewStringProperty("value")),
+			}),
+		}),
+	}
+	result := resource.PropertyMap{
+		"settings": resource.NewObjectProperty(resource.PropertyMap{}),
+	}
+
+	classifier.AddWriteOnlyOutputFallbacks(result, oldDesired)
+
+	restored, ok := GetPath(result, "settings/environment/KEY")
+	require.True(t, ok)
+	require.True(t, restored.IsSecret())
+
+	// Mutating the restored subtree must not write through into old inputs.
+	result["settings"].ObjectValue()["environment"].ObjectValue()["KEY"] = resource.NewStringProperty("mutated")
+	original, ok := GetPath(oldDesired, "settings/environment/KEY")
+	require.True(t, ok)
+	assert.True(t, original.IsSecret())
+}
+
 func TestPathClassifierArrayOwnership(t *testing.T) {
 	spec := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{

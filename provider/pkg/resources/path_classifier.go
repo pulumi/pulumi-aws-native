@@ -312,7 +312,9 @@ func (c *PathClassifier) addWriteOnlyFallbacks(
 		}
 		for _, concretePath := range ExpandMatchingPaths(oldDesired, path) {
 			if value, ok := GetPath(oldDesired, concretePath); ok {
-				SetPathWithShape(result, oldDesired, concretePath, value)
+				// Clone so result does not alias oldDesired: later mutations of
+				// the restored subtree must not write through into old inputs.
+				SetPathWithShape(result, oldDesired, concretePath, clonePropertyValue(value))
 			}
 		}
 	}
@@ -400,7 +402,14 @@ func PreserveSecretWrappers(actual, oldDesired resource.PropertyMap) {
 
 func preserveSecretWrapper(actual, oldDesired resource.PropertyValue) resource.PropertyValue {
 	if oldDesired.IsSecret() {
-		return resource.MakeSecret(preserveSecretWrapper(actual, oldDesired.SecretValue().Element))
+		inner := preserveSecretWrapper(actual, oldDesired.SecretValue().Element)
+		if inner.IsSecret() {
+			// Already secret, for example a write-only value restored from old
+			// desired inputs. Wrapping again would nest secrets and double the
+			// serialized state size on every refresh.
+			return inner
+		}
+		return resource.MakeSecret(inner)
 	}
 	if actual.IsSecret() {
 		return actual
