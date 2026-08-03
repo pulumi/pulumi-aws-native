@@ -150,10 +150,8 @@ func (c *PathClassifier) actualInputBaseline(
 	oldDesired, projectedActual, newDesired resource.PropertyMap,
 ) resource.PropertyMap {
 	result := clonePropertyMap(projectedActual)
-	// Preserve live readable values before restoring write-only values, which
-	// already carry their secret wrappers from oldDesired.
-	PreserveSecretWrappers(result, oldDesired)
 	c.addWriteOnlyFallbacks(result, oldDesired, true)
+	PreserveSecretWrappers(result, oldDesired)
 	c.pruneUnownedComputed(result, oldDesired, newDesired, "")
 	return result
 }

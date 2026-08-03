@@ -1100,12 +1100,10 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		} else {
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
 			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
-			// Preserve live readable values before restoring write-only values, which
-			// already carry their secret wrappers from inputs.
-			resources.PreserveSecretWrappers(newStateProps, inputs)
-			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
 			baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
 			newInputs = resources.SuppressBaselineDiffs(resourceToken, &spec, inputs, baseline, p.transformCache)
+			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
+			resources.PreserveSecretWrappers(newStateProps, inputs)
 			newState = resources.CheckpointPropertyMap(newInputs, newStateProps)
 		}
 		if newState == nil {

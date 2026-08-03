@@ -69,10 +69,10 @@ func simulateRefreshRead(t *testing.T, state resource.PropertyMap) resource.Prop
 			"timeoutInSeconds": resource.NewNumberProperty(60),
 		}),
 	}
-	PreserveSecretWrappers(newStateProps, inputs)
-	classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
 	baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
 	newInputs := SuppressBaselineDiffs("aws-native:test:Canary", &spec, inputs, baseline, NewTransformCache())
+	classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
+	PreserveSecretWrappers(newStateProps, inputs)
 	return CheckpointPropertyMap(newInputs, newStateProps)
 }
 
@@ -111,6 +111,26 @@ func TestRefreshDoesNotNestWriteOnlySecrets(t *testing.T) {
 		require.Truef(t, ok, "iteration %d: __inputs leaf missing", i)
 		require.Equalf(t, 1, consecutiveSecretDepth(inLeaf), "iteration %d: __inputs secret depth", i)
 	}
+}
+
+func TestRefreshRestoresWriteOnlyValuesUnderSecretParent(t *testing.T) {
+	t.Parallel()
+
+	inputs := canaryInputs(resource.NewStringProperty("fake-36-character-secret-value-here"))
+	inputs["runConfig"] = resource.MakeSecret(inputs["runConfig"])
+	state := CheckpointPropertyMap(inputs, clonePropertyMap(inputs))
+
+	state = simulateRefreshRead(t, state)
+
+	runConfig := state["runConfig"]
+	require.Equal(t, 1, consecutiveSecretDepth(runConfig))
+	_, ok := runConfig.SecretValue().Element.ObjectValue()["environmentVariables"]
+	assert.True(t, ok)
+
+	checkpointRunConfig := ParseCheckpointObject(state)["runConfig"]
+	require.Equal(t, 1, consecutiveSecretDepth(checkpointRunConfig))
+	_, ok = checkpointRunConfig.SecretValue().Element.ObjectValue()["environmentVariables"]
+	assert.True(t, ok)
 }
 
 func TestRefreshHealsNestedWriteOnlySecrets(t *testing.T) {

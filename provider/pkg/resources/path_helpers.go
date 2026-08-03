@@ -16,12 +16,21 @@ import (
 //	}
 //
 // Array indices are written as decimal path segments, such as
-// "defaultActions/0/authenticateOidcConfig/clientSecret".
+// "defaultActions/0/authenticateOidcConfig/clientSecret". Secret wrappers on
+// ancestor values are transparent because they do not change the value's shape.
 func GetPath(m resource.PropertyMap, path string) (resource.PropertyValue, bool) {
+	current := resource.NewObjectProperty(m)
 	if path == "" {
-		return resource.NewObjectProperty(m), true
+		return current, true
 	}
-	return slashPathForValue(resource.NewObjectProperty(m), path).Get(resource.NewObjectProperty(m))
+	for _, segment := range strings.Split(path, "/") {
+		child, ok := getPathChild(current, segment)
+		if !ok {
+			return resource.PropertyValue{}, false
+		}
+		current = child
+	}
+	return current, true
 }
 
 // SetPath writes a slash-delimited SDK path into a property map.
@@ -50,6 +59,7 @@ func DeletePath(m resource.PropertyMap, path string) {
 }
 
 // ExpandMatchingPaths expands a metadata path pattern against concrete values.
+// Secret wrappers on ancestor values are transparent during expansion.
 //
 // For example, given:
 //
@@ -84,6 +94,7 @@ func expandMatchingPaths(v resource.PropertyValue, segments []string, prefix []s
 		*result = append(*result, strings.Join(prefix, "/"))
 		return
 	}
+	v = unwrapSecretValue(v)
 	segment := segments[0]
 	if segment == "*" {
 		if v.IsArray() {
@@ -146,6 +157,7 @@ func slashPathForValueWithShape(root, shape resource.PropertyValue, path string)
 	current := root
 	currentShape := shape
 	for _, segment := range segments {
+		currentShape = unwrapSecretValue(currentShape)
 		if current.IsArray() || currentShape.IsArray() {
 			i, err := strconv.Atoi(segment)
 			if err == nil {
@@ -187,7 +199,10 @@ func slashPathForValueWithShape(root, shape resource.PropertyValue, path string)
 }
 
 // getPathChild reads one child segment from an object or array property value.
+// Secret wrappers are transparent for path lookup because they annotate the
+// wrapped value rather than changing its object or array shape.
 func getPathChild(v resource.PropertyValue, segment string) (resource.PropertyValue, bool) {
+	v = unwrapSecretValue(v)
 	if v.IsObject() {
 		child, ok := v.ObjectValue()[resource.PropertyKey(segment)]
 		return child, ok
@@ -200,6 +215,13 @@ func getPathChild(v resource.PropertyValue, segment string) (resource.PropertyVa
 		return v.ArrayValue()[i], true
 	}
 	return resource.PropertyValue{}, false
+}
+
+func unwrapSecretValue(v resource.PropertyValue) resource.PropertyValue {
+	for v.IsSecret() {
+		v = v.SecretValue().Element
+	}
+	return v
 }
 
 // clonePropertyMap deep-copies a PropertyMap for mutation.

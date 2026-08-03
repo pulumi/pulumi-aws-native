@@ -280,6 +280,23 @@ func TestAddWriteOnlyOutputFallbacksClonesAndNormalizesOldInputs(t *testing.T) {
 	assert.Equal(t, nestedSecret, original)
 }
 
+func TestCloneWriteOnlyFallbackNormalizesArrays(t *testing.T) {
+	t.Parallel()
+
+	nestedSecret := resource.MakeSecret(resource.MakeSecret(resource.NewStringProperty("value")))
+	original := resource.NewArrayProperty([]resource.PropertyValue{
+		resource.NewObjectProperty(resource.PropertyMap{"secret": nestedSecret}),
+	})
+
+	cloned := cloneWriteOnlyFallback(original)
+	secret := cloned.ArrayValue()[0].ObjectValue()["secret"]
+	require.True(t, secret.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), secret.SecretValue().Element)
+
+	cloned.ArrayValue()[0].ObjectValue()["secret"] = resource.NewStringProperty("mutated")
+	assert.Equal(t, nestedSecret, original.ArrayValue()[0].ObjectValue()["secret"])
+}
+
 func TestPathClassifierArrayOwnership(t *testing.T) {
 	spec := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
@@ -431,15 +448,15 @@ func TestPathHelpersNestedReadWriteDelete(t *testing.T) {
 	assert.False(t, ok)
 }
 
-func TestPathHelpersSetPathWithShapeUsesArrayGuide(t *testing.T) {
+func TestPathHelpersSetPathWithShapeUsesSecretArrayGuide(t *testing.T) {
 	shape := resource.PropertyMap{
-		"defaultActions": resource.NewArrayProperty([]resource.PropertyValue{
+		"defaultActions": resource.MakeSecret(resource.NewArrayProperty([]resource.PropertyValue{
 			resource.NewObjectProperty(resource.PropertyMap{
 				"authenticateOidcConfig": resource.NewObjectProperty(resource.PropertyMap{
 					"clientSecret": resource.NewStringProperty("old-secret"),
 				}),
 			}),
-		}),
+		})),
 	}
 	m := resource.PropertyMap{}
 	SetPathWithShape(
@@ -455,9 +472,9 @@ func TestPathHelpersSetPathWithShapeUsesArrayGuide(t *testing.T) {
 	assert.Equal(t, "secret", secret.StringValue())
 }
 
-func TestExpandMatchingPaths(t *testing.T) {
+func TestExpandMatchingPathsThroughSecretAncestor(t *testing.T) {
 	inputs := resource.PropertyMap{
-		"defaultActions": resource.NewArrayProperty([]resource.PropertyValue{
+		"defaultActions": resource.MakeSecret(resource.NewArrayProperty([]resource.PropertyValue{
 			resource.NewObjectProperty(resource.PropertyMap{
 				"authenticateOidcConfig": resource.NewObjectProperty(resource.PropertyMap{
 					"clientSecret": resource.NewStringProperty("secret-0"),
@@ -468,7 +485,7 @@ func TestExpandMatchingPaths(t *testing.T) {
 					"clientSecret": resource.NewStringProperty("secret-1"),
 				}),
 			}),
-		}),
+		})),
 	}
 
 	assert.Equal(t, []string{
