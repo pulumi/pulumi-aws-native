@@ -1787,6 +1787,77 @@ func TestRead(t *testing.T) {
 		assert.Equal(t, "2012-10-17", inputDoc["Version"].StringValue())
 	})
 
+	t.Run("StandardResource/RestoresWriteOnlyValueUnderSecretParent", func(t *testing.T) {
+		const token = "aws-native:test:SecretParent"
+		provider.resourceMap.Resources[token] = metadata.CloudAPIResource{
+			CfType: "AWS::Test::SecretParent",
+			Inputs: map[string]schema.PropertySpec{
+				"name":      {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"runConfig": {TypeSpec: schema.TypeSpec{Ref: "#/types/aws-native:test:RunConfig"}},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				"name":      {TypeSpec: schema.TypeSpec{Type: "string"}},
+				"runConfig": {TypeSpec: schema.TypeSpec{Ref: "#/types/aws-native:test:RunConfig"}},
+			},
+			WriteOnly: []string{"runConfig/environmentVariables"},
+		}
+		oldTypes := provider.resourceMap.Types
+		t.Cleanup(func() { provider.resourceMap.Types = oldTypes })
+		provider.resourceMap.Types = map[string]metadata.CloudAPIType{
+			"aws-native:test:RunConfig": {
+				Type: "object",
+				Properties: map[string]schema.PropertySpec{
+					"timeoutInSeconds": {TypeSpec: schema.TypeSpec{Type: "integer"}},
+					"environmentVariables": {TypeSpec: schema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &schema.TypeSpec{Type: "string"},
+					}},
+				},
+			},
+		}
+
+		runConfig := resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{
+			"timeoutInSeconds": resource.NewNumberProperty(60),
+			"environmentVariables": resource.NewObjectProperty(resource.PropertyMap{
+				"API_KEY": resource.NewStringProperty("secret-value"),
+			}),
+		}))
+		inputs := resource.PropertyMap{
+			"name":      resource.NewStringProperty("canary"),
+			"runConfig": runConfig,
+		}
+		readRequest := &pulumirpc.ReadRequest{
+			Urn: string(resource.NewURN("stack", "project", "parent", token, "name")),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"name":      resource.NewStringProperty("canary"),
+				"runConfig": runConfig,
+				"__inputs":  resource.MakeSecret(resource.NewObjectProperty(inputs)),
+			}),
+		}
+
+		mockCCC.EXPECT().Read(ctx, "AWS::Test::SecretParent", "resource-id").Return(
+			map[string]interface{}{
+				"name": "canary",
+				"runConfig": map[string]interface{}{
+					"timeoutInSeconds": 60,
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, readRequest)
+		require.NoError(t, err)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		refreshedRunConfig := props["runConfig"]
+		require.True(t, refreshedRunConfig.IsSecret())
+		assert.True(t, refreshedRunConfig.SecretValue().Element.ObjectValue().HasValue("environmentVariables"))
+
+		refreshedInputs := mustUnmarshalProperties(t, resp.Inputs)
+		refreshedInputRunConfig := refreshedInputs["runConfig"]
+		require.True(t, refreshedInputRunConfig.IsSecret())
+		assert.True(t, refreshedInputRunConfig.SecretValue().Element.ObjectValue().HasValue("environmentVariables"))
+	})
+
 	t.Run("StandardResource/NotFound", func(t *testing.T) {
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "unknown:resource", "name"))
 

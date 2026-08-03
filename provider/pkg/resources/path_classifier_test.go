@@ -200,6 +200,103 @@ func TestPathClassifierActualInputBaselinePreservesSecretWrappers(t *testing.T) 
 	assert.False(t, baseline["tags"].ObjectValue()["plain"].IsSecret())
 }
 
+func TestPreserveSecretWrapperAddsAtMostOneWrapper(t *testing.T) {
+	t.Parallel()
+
+	plain := resource.NewStringProperty("refreshed")
+	secret := resource.MakeSecret(plain)
+	oldSecret := resource.MakeSecret(resource.NewStringProperty("old"))
+	tests := []struct {
+		name       string
+		actual     resource.PropertyValue
+		oldDesired resource.PropertyValue
+	}{
+		{name: "adds missing wrapper", actual: plain, oldDesired: oldSecret},
+		{name: "keeps existing wrapper", actual: secret, oldDesired: oldSecret},
+		{
+			name:       "does not reproduce legacy nested wrappers",
+			actual:     plain,
+			oldDesired: resource.MakeSecret(oldSecret),
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			actual := preserveSecretWrapper(tt.actual, tt.oldDesired)
+			require.True(t, actual.IsSecret())
+			assert.Equal(t, plain, actual.SecretValue().Element)
+		})
+	}
+}
+
+func TestAddWriteOnlyOutputFallbacksClonesAndNormalizesOldInputs(t *testing.T) {
+	t.Parallel()
+
+	spec := metadata.CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"settings": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:Settings"}},
+		},
+		Outputs: map[string]pschema.PropertySpec{
+			"settings": {TypeSpec: pschema.TypeSpec{Ref: "#/types/aws-native:test:Settings"}},
+		},
+		WriteOnly: []string{"settings/environment"},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:test:Settings": {
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"environment": {TypeSpec: pschema.TypeSpec{
+					Type:                 "object",
+					AdditionalProperties: &pschema.TypeSpec{Type: "string"},
+				}},
+			},
+		},
+	}
+	classifier := NewPathClassifier(&spec, types)
+
+	nestedSecret := resource.MakeSecret(resource.MakeSecret(resource.NewStringProperty("value")))
+	oldDesired := resource.PropertyMap{
+		"settings": resource.NewObjectProperty(resource.PropertyMap{
+			"environment": resource.NewObjectProperty(resource.PropertyMap{
+				"KEY": nestedSecret,
+			}),
+		}),
+	}
+	result := resource.PropertyMap{
+		"settings": resource.NewObjectProperty(resource.PropertyMap{}),
+	}
+
+	classifier.AddWriteOnlyOutputFallbacks(result, oldDesired)
+
+	restored, ok := GetPath(result, "settings/environment/KEY")
+	require.True(t, ok)
+	require.True(t, restored.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), restored.SecretValue().Element)
+
+	// Mutating the restored subtree must not write through into old inputs.
+	result["settings"].ObjectValue()["environment"].ObjectValue()["KEY"] = resource.NewStringProperty("mutated")
+	original, ok := GetPath(oldDesired, "settings/environment/KEY")
+	require.True(t, ok)
+	assert.Equal(t, nestedSecret, original)
+}
+
+func TestCloneWriteOnlyFallbackNormalizesArrays(t *testing.T) {
+	t.Parallel()
+
+	nestedSecret := resource.MakeSecret(resource.MakeSecret(resource.NewStringProperty("value")))
+	original := resource.NewArrayProperty([]resource.PropertyValue{
+		resource.NewObjectProperty(resource.PropertyMap{"secret": nestedSecret}),
+	})
+
+	cloned := cloneWriteOnlyFallback(original)
+	secret := cloned.ArrayValue()[0].ObjectValue()["secret"]
+	require.True(t, secret.IsSecret())
+	assert.Equal(t, resource.NewStringProperty("value"), secret.SecretValue().Element)
+
+	cloned.ArrayValue()[0].ObjectValue()["secret"] = resource.NewStringProperty("mutated")
+	assert.Equal(t, nestedSecret, original.ArrayValue()[0].ObjectValue()["secret"])
+}
+
 func TestPathClassifierArrayOwnership(t *testing.T) {
 	spec := metadata.CloudAPIResource{
 		Inputs: map[string]pschema.PropertySpec{
@@ -351,15 +448,15 @@ func TestPathHelpersNestedReadWriteDelete(t *testing.T) {
 	assert.False(t, ok)
 }
 
-func TestPathHelpersSetPathWithShapeUsesArrayGuide(t *testing.T) {
+func TestPathHelpersSetPathWithShapeUsesSecretArrayGuide(t *testing.T) {
 	shape := resource.PropertyMap{
-		"defaultActions": resource.NewArrayProperty([]resource.PropertyValue{
+		"defaultActions": resource.MakeSecret(resource.NewArrayProperty([]resource.PropertyValue{
 			resource.NewObjectProperty(resource.PropertyMap{
 				"authenticateOidcConfig": resource.NewObjectProperty(resource.PropertyMap{
 					"clientSecret": resource.NewStringProperty("old-secret"),
 				}),
 			}),
-		}),
+		})),
 	}
 	m := resource.PropertyMap{}
 	SetPathWithShape(
@@ -375,9 +472,9 @@ func TestPathHelpersSetPathWithShapeUsesArrayGuide(t *testing.T) {
 	assert.Equal(t, "secret", secret.StringValue())
 }
 
-func TestExpandMatchingPaths(t *testing.T) {
+func TestExpandMatchingPathsThroughSecretAncestor(t *testing.T) {
 	inputs := resource.PropertyMap{
-		"defaultActions": resource.NewArrayProperty([]resource.PropertyValue{
+		"defaultActions": resource.MakeSecret(resource.NewArrayProperty([]resource.PropertyValue{
 			resource.NewObjectProperty(resource.PropertyMap{
 				"authenticateOidcConfig": resource.NewObjectProperty(resource.PropertyMap{
 					"clientSecret": resource.NewStringProperty("secret-0"),
@@ -388,7 +485,7 @@ func TestExpandMatchingPaths(t *testing.T) {
 					"clientSecret": resource.NewStringProperty("secret-1"),
 				}),
 			}),
-		}),
+		})),
 	}
 
 	assert.Equal(t, []string{

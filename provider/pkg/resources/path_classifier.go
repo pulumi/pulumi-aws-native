@@ -150,8 +150,8 @@ func (c *PathClassifier) actualInputBaseline(
 	oldDesired, projectedActual, newDesired resource.PropertyMap,
 ) resource.PropertyMap {
 	result := clonePropertyMap(projectedActual)
-	PreserveSecretWrappers(result, oldDesired)
 	c.addWriteOnlyFallbacks(result, oldDesired, true)
+	PreserveSecretWrappers(result, oldDesired)
 	c.pruneUnownedComputed(result, oldDesired, newDesired, "")
 	return result
 }
@@ -312,9 +312,39 @@ func (c *PathClassifier) addWriteOnlyFallbacks(
 		}
 		for _, concretePath := range ExpandMatchingPaths(oldDesired, path) {
 			if value, ok := GetPath(oldDesired, concretePath); ok {
-				SetPathWithShape(result, oldDesired, concretePath, value)
+				SetPathWithShape(result, oldDesired, concretePath, cloneWriteOnlyFallback(value))
 			}
 		}
+	}
+}
+
+// cloneWriteOnlyFallback deep-copies a checkpointed fallback and collapses
+// consecutive secret wrappers left by older provider versions. Scoping this
+// normalization to write-only values heals affected state without rewriting
+// unrelated outputs or inputs.
+func cloneWriteOnlyFallback(v resource.PropertyValue) resource.PropertyValue {
+	switch {
+	case v.IsSecret():
+		element := v.SecretValue().Element
+		for element.IsSecret() {
+			element = element.SecretValue().Element
+		}
+		return resource.MakeSecret(cloneWriteOnlyFallback(element))
+	case v.IsObject():
+		result := resource.PropertyMap{}
+		for key, value := range v.ObjectValue() {
+			result[key] = cloneWriteOnlyFallback(value)
+		}
+		return resource.NewObjectProperty(result)
+	case v.IsArray():
+		values := v.ArrayValue()
+		result := make([]resource.PropertyValue, len(values))
+		for i, value := range values {
+			result[i] = cloneWriteOnlyFallback(value)
+		}
+		return resource.NewArrayProperty(result)
+	default:
+		return v
 	}
 }
 
@@ -399,11 +429,18 @@ func PreserveSecretWrappers(actual, oldDesired resource.PropertyMap) {
 }
 
 func preserveSecretWrapper(actual, oldDesired resource.PropertyValue) resource.PropertyValue {
-	if oldDesired.IsSecret() {
-		return resource.MakeSecret(preserveSecretWrapper(actual, oldDesired.SecretValue().Element))
-	}
+	// PreserveSecretWrappers is intentionally idempotent. Callers may provide
+	// values that already carry a secret wrapper.
 	if actual.IsSecret() {
 		return actual
+	}
+	if oldDesired.IsSecret() {
+		// Secret wrappers are boolean metadata. Apply one wrapper even if legacy
+		// oldDesired state contains the same marker more than once.
+		for oldDesired.IsSecret() {
+			oldDesired = oldDesired.SecretValue().Element
+		}
+		return resource.MakeSecret(preserveSecretWrapper(actual, oldDesired))
 	}
 	if actual.IsObject() && oldDesired.IsObject() {
 		PreserveSecretWrappers(actual.ObjectValue(), oldDesired.ObjectValue())

@@ -1100,10 +1100,10 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		} else {
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
 			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
-			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
-			resources.PreserveSecretWrappers(newStateProps, inputs)
 			baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
 			newInputs = resources.SuppressBaselineDiffs(resourceToken, &spec, inputs, baseline, p.transformCache)
+			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
+			resources.PreserveSecretWrappers(newStateProps, inputs)
 			newState = resources.CheckpointPropertyMap(newInputs, newStateProps)
 		}
 		if newState == nil {
