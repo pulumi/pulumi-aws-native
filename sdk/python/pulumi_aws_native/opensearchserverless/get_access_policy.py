@@ -63,7 +63,7 @@ def get_access_policy(name: Optional[_builtins.str] = None,
                       type: Optional['AccessPolicyType'] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
-    Amazon OpenSearchServerless access policy resource
+    Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
 
     :param _builtins.str name: The name of the policy
     :param 'AccessPolicyType' type: The type of access policy. Currently the only option is `data` .
@@ -81,7 +81,7 @@ def get_access_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                              type: pulumi.Input[Optional['AccessPolicyType']] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
-    Amazon OpenSearchServerless access policy resource
+    Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
 
     :param _builtins.str name: The name of the policy
     :param 'AccessPolicyType' type: The type of access policy. Currently the only option is `data` .

@@ -37,7 +37,7 @@
   "primaryIdentifier" : [ "/properties/MrapName" ],
   "handlers" : {
     "update" : {
-      "permissions" : [ "s3:PutMultiRegionAccessPointPolicy", "s3:DescribeMultiRegionAccessPointOperation" ]
+      "permissions" : [ "s3:PutMultiRegionAccessPointPolicy", "s3:DescribeMultiRegionAccessPointOperation", "s3:GetMultiRegionAccessPointPolicy", "s3:GetMultiRegionAccessPointPolicyStatus" ]
     },
     "read" : {
       "permissions" : [ "s3:GetMultiRegionAccessPointPolicy", "s3:GetMultiRegionAccessPointPolicyStatus" ]
@@ -46,10 +46,10 @@
       "permissions" : [ ]
     },
     "delete" : {
-      "permissions" : [ "s3:GetMultiRegionAccessPointPolicy", "s3:GetMultiRegionAccessPoint" ]
+      "permissions" : [ "s3:GetMultiRegionAccessPoint", "s3:PutMultiRegionAccessPointPolicy", "s3:DescribeMultiRegionAccessPointOperation" ]
     },
     "create" : {
-      "permissions" : [ "s3:PutMultiRegionAccessPointPolicy", "s3:DescribeMultiRegionAccessPointOperation" ]
+      "permissions" : [ "s3:PutMultiRegionAccessPointPolicy", "s3:DescribeMultiRegionAccessPointOperation", "s3:GetMultiRegionAccessPointPolicy", "s3:GetMultiRegionAccessPointPolicyStatus" ]
     }
   }
 }

@@ -100,6 +100,11 @@ export const getHarness: typeof import("./getHarness").getHarness = null as any;
 export const getHarnessOutput: typeof import("./getHarness").getHarnessOutput = null as any;
 utilities.lazyLoad(exports, ["getHarness","getHarnessOutput"], () => require("./getHarness"));
 
+export { GetHarnessEndpointArgs, GetHarnessEndpointResult, GetHarnessEndpointOutputArgs } from "./getHarnessEndpoint";
+export const getHarnessEndpoint: typeof import("./getHarnessEndpoint").getHarnessEndpoint = null as any;
+export const getHarnessEndpointOutput: typeof import("./getHarnessEndpoint").getHarnessEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getHarnessEndpoint","getHarnessEndpointOutput"], () => require("./getHarnessEndpoint"));
+
 export { GetMemoryArgs, GetMemoryResult, GetMemoryOutputArgs } from "./getMemory";
 export const getMemory: typeof import("./getMemory").getMemory = null as any;
 export const getMemoryOutput: typeof import("./getMemory").getMemoryOutput = null as any;
@@ -164,6 +169,11 @@ export { HarnessArgs } from "./harness";
 export type Harness = import("./harness").Harness;
 export const Harness: typeof import("./harness").Harness = null as any;
 utilities.lazyLoad(exports, ["Harness"], () => require("./harness"));
+
+export { HarnessEndpointArgs } from "./harnessEndpoint";
+export type HarnessEndpoint = import("./harnessEndpoint").HarnessEndpoint;
+export const HarnessEndpoint: typeof import("./harnessEndpoint").HarnessEndpoint = null as any;
+utilities.lazyLoad(exports, ["HarnessEndpoint"], () => require("./harnessEndpoint"));
 
 export { MemoryArgs } from "./memory";
 export type Memory = import("./memory").Memory;
@@ -253,6 +263,8 @@ const _module = {
                 return new GatewayTarget(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Harness":
                 return new Harness(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:HarnessEndpoint":
+                return new HarnessEndpoint(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Memory":
                 return new Memory(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:OAuth2CredentialProvider":

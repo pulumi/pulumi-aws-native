@@ -90,7 +90,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "transcribe:CreateVocabularyFilter", "transcribe:GetVocabularyFilter", "transcribe:TagResource", "iam:PassRole" ]
+      "permissions" : [ "transcribe:CreateVocabularyFilter", "transcribe:GetVocabularyFilter", "transcribe:ListTagsForResource", "transcribe:TagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "transcribe:GetVocabularyFilter", "transcribe:ListTagsForResource" ]
@@ -99,7 +99,7 @@
       "permissions" : [ "transcribe:UpdateVocabularyFilter", "transcribe:GetVocabularyFilter", "transcribe:TagResource", "transcribe:UntagResource", "transcribe:ListTagsForResource", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "transcribe:DeleteVocabularyFilter", "transcribe:GetVocabularyFilter" ]
+      "permissions" : [ "transcribe:DeleteVocabularyFilter", "transcribe:GetVocabularyFilter", "transcribe:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "transcribe:ListVocabularyFilters" ]

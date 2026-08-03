@@ -2628,6 +2628,10 @@ __all__ = [
     'RefreshScheduleMapScheduleFrequencyPropertiesArgsDict',
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs',
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgsDict',
+    'SpaceResourceArgs',
+    'SpaceResourceArgsDict',
+    'SpaceResourcePermissionArgs',
+    'SpaceResourcePermissionArgsDict',
     'TemplateAggregationFunctionArgs',
     'TemplateAggregationFunctionArgsDict',
     'TemplateAggregationSortConfigurationArgs',
@@ -103412,6 +103416,110 @@ class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs:
     @day_of_week.setter
     def day_of_week(self, value: pulumi.Input[Optional['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek']]):
         pulumi.set(self, "day_of_week", value)
+
+
+class SpaceResourceArgsDict(TypedDict):
+    """
+    A QuickSight resource attached to the space.
+    """
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the QuickSight resource.
+    """
+    resource_type: pulumi.Input['SpaceResourceResourceType']
+    """
+    The type of QuickSight resource.
+    """
+
+@pulumi.input_type
+class SpaceResourceArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[_builtins.str],
+                 resource_type: pulumi.Input['SpaceResourceResourceType']):
+        """
+        A QuickSight resource attached to the space.
+
+        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the QuickSight resource.
+        :param pulumi.Input['SpaceResourceResourceType'] resource_type: The type of QuickSight resource.
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the QuickSight resource.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input['SpaceResourceResourceType']:
+        """
+        The type of QuickSight resource.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input['SpaceResourceResourceType']):
+        pulumi.set(self, "resource_type", value)
+
+
+class SpaceResourcePermissionArgsDict(TypedDict):
+    """
+    A permission granted to a principal on a QuickSight resource.
+    """
+    actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of actions granted to the principal.
+    """
+    principal: pulumi.Input[_builtins.str]
+    """
+    The ARN of the principal (user or group) receiving the permission.
+    """
+
+@pulumi.input_type
+class SpaceResourcePermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 principal: pulumi.Input[_builtins.str]):
+        """
+        A permission granted to a principal on a QuickSight resource.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The list of actions granted to the principal.
+        :param pulumi.Input[_builtins.str] principal: The ARN of the principal (user or group) receiving the permission.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of actions granted to the principal.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the principal (user or group) receiving the permission.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "principal", value)
 
 
 class TemplateAggregationFunctionArgsDict(TypedDict):

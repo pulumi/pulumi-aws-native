@@ -100,7 +100,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  type: pulumi.Input[Optional['LifecyclePolicyType']] = None,
                  __props__=None):
         """
-        Amazon OpenSearchServerless lifecycle policy resource
+        Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  args: LifecyclePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Amazon OpenSearchServerless lifecycle policy resource
+        Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -183,6 +183,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayPolicyTable{}
 	case "aws-native:ec2:TransitGatewayPolicyTableAssociation":
 		r = &TransitGatewayPolicyTableAssociation{}
+	case "aws-native:ec2:TransitGatewayPolicyTableEntry":
+		r = &TransitGatewayPolicyTableEntry{}
 	case "aws-native:ec2:TransitGatewayRoute":
 		r = &TransitGatewayRoute{}
 	case "aws-native:ec2:TransitGatewayRouteTable":

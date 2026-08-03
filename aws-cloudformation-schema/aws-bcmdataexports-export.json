@@ -4,7 +4,7 @@
   "definitions" : {
     "CompressionOption" : {
       "type" : "string",
-      "enum" : [ "GZIP", "PARQUET" ]
+      "enum" : [ "GZIP", "PARQUET", "ZIP" ]
     },
     "DataQuery" : {
       "type" : "object",

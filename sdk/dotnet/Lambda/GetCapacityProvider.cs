@@ -74,6 +74,9 @@ namespace Pulumi.AwsNative.Lambda
         /// A key-value pair that provides metadata for the capacity provider.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The telemetry configuration for the capacity provider, including logging settings.
+        /// </summary>
         public readonly Outputs.CapacityProviderTelemetryConfig? TelemetryConfig;
 
         [OutputConstructor]

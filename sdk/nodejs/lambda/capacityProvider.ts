@@ -67,6 +67,9 @@ export class CapacityProvider extends pulumi.CustomResource {
      * A key-value pair that provides metadata for the capacity provider.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The telemetry configuration for the capacity provider, including logging settings.
+     */
     declare public readonly telemetryConfig: pulumi.Output<outputs.lambda.CapacityProviderTelemetryConfig | undefined>;
     /**
      * The VPC configuration for the capacity provider.
@@ -150,6 +153,9 @@ export interface CapacityProviderArgs {
      * A key-value pair that provides metadata for the capacity provider.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    /**
+     * The telemetry configuration for the capacity provider, including logging settings.
+     */
     telemetryConfig?: pulumi.Input<inputs.lambda.CapacityProviderTelemetryConfigArgs | undefined>;
     /**
      * The VPC configuration for the capacity provider.

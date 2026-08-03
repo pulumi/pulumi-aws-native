@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless security policy resource
+ * Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
  *
  * ## Example Usage
  * ### Example

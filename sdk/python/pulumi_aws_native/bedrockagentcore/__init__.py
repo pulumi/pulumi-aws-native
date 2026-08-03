@@ -26,6 +26,7 @@ from .get_evaluator import *
 from .get_gateway import *
 from .get_gateway_target import *
 from .get_harness import *
+from .get_harness_endpoint import *
 from .get_memory import *
 from .get_o_auth2_credential_provider import *
 from .get_online_evaluation_config import *
@@ -39,6 +40,7 @@ from .get_runtime import *
 from .get_runtime_endpoint import *
 from .get_workload_identity import *
 from .harness import *
+from .harness_endpoint import *
 from .memory import *
 from .o_auth2_credential_provider import *
 from .online_evaluation_config import *

@@ -86,6 +86,9 @@ class GetCapacityProviderResult:
     @_builtins.property
     @pulumi.getter(name="telemetryConfig")
     def telemetry_config(self) -> Optional['outputs.CapacityProviderTelemetryConfig']:
+        """
+        The telemetry configuration for the capacity provider, including logging settings.
+        """
         return pulumi.get(self, "telemetry_config")
 
 

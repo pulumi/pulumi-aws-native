@@ -138,7 +138,7 @@ class SecurityConfig(pulumi.CustomResource):
                  type: pulumi.Input[Optional['SecurityConfigType']] = None,
                  __props__=None):
         """
-        Amazon OpenSearchServerless security config resource
+        Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
 
         ## Example Usage
         ### Example
@@ -195,7 +195,7 @@ class SecurityConfig(pulumi.CustomResource):
                  args: Optional[SecurityConfigArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Amazon OpenSearchServerless security config resource
+        Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
 
         ## Example Usage
         ### Example

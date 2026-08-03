@@ -23288,6 +23288,12 @@ const (
 	SpaceResourceSpecInstanceTypeMlR6id32xlarge          = SpaceResourceSpecInstanceType("ml.r6id.32xlarge")
 	SpaceResourceSpecInstanceTypeMlP54xlarge             = SpaceResourceSpecInstanceType("ml.p5.4xlarge")
 	SpaceResourceSpecInstanceTypeMlP6b20048xlarge        = SpaceResourceSpecInstanceType("ml.p6-b200.48xlarge")
+	SpaceResourceSpecInstanceTypeMlG72xlarge             = SpaceResourceSpecInstanceType("ml.g7.2xlarge")
+	SpaceResourceSpecInstanceTypeMlG74xlarge             = SpaceResourceSpecInstanceType("ml.g7.4xlarge")
+	SpaceResourceSpecInstanceTypeMlG78xlarge             = SpaceResourceSpecInstanceType("ml.g7.8xlarge")
+	SpaceResourceSpecInstanceTypeMlG712xlarge            = SpaceResourceSpecInstanceType("ml.g7.12xlarge")
+	SpaceResourceSpecInstanceTypeMlG724xlarge            = SpaceResourceSpecInstanceType("ml.g7.24xlarge")
+	SpaceResourceSpecInstanceTypeMlG748xlarge            = SpaceResourceSpecInstanceType("ml.g7.48xlarge")
 	SpaceResourceSpecInstanceTypeMlG7e2xlarge            = SpaceResourceSpecInstanceType("ml.g7e.2xlarge")
 	SpaceResourceSpecInstanceTypeMlG7e4xlarge            = SpaceResourceSpecInstanceType("ml.g7e.4xlarge")
 	SpaceResourceSpecInstanceTypeMlG7e8xlarge            = SpaceResourceSpecInstanceType("ml.g7e.8xlarge")
@@ -23583,6 +23589,12 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 //	SpaceResourceSpecInstanceTypeMlR6id32xlarge
 //	SpaceResourceSpecInstanceTypeMlP54xlarge
 //	SpaceResourceSpecInstanceTypeMlP6b20048xlarge
+//	SpaceResourceSpecInstanceTypeMlG72xlarge
+//	SpaceResourceSpecInstanceTypeMlG74xlarge
+//	SpaceResourceSpecInstanceTypeMlG78xlarge
+//	SpaceResourceSpecInstanceTypeMlG712xlarge
+//	SpaceResourceSpecInstanceTypeMlG724xlarge
+//	SpaceResourceSpecInstanceTypeMlG748xlarge
 //	SpaceResourceSpecInstanceTypeMlG7e2xlarge
 //	SpaceResourceSpecInstanceTypeMlG7e4xlarge
 //	SpaceResourceSpecInstanceTypeMlG7e8xlarge
@@ -24298,6 +24310,20 @@ const (
 	UserProfileAppInstanceTypeMlR6id16xlarge          = UserProfileAppInstanceType("ml.r6id.16xlarge")
 	UserProfileAppInstanceTypeMlR6id24xlarge          = UserProfileAppInstanceType("ml.r6id.24xlarge")
 	UserProfileAppInstanceTypeMlR6id32xlarge          = UserProfileAppInstanceType("ml.r6id.32xlarge")
+	UserProfileAppInstanceTypeMlP54xlarge             = UserProfileAppInstanceType("ml.p5.4xlarge")
+	UserProfileAppInstanceTypeMlP6b20048xlarge        = UserProfileAppInstanceType("ml.p6-b200.48xlarge")
+	UserProfileAppInstanceTypeMlG72xlarge             = UserProfileAppInstanceType("ml.g7.2xlarge")
+	UserProfileAppInstanceTypeMlG74xlarge             = UserProfileAppInstanceType("ml.g7.4xlarge")
+	UserProfileAppInstanceTypeMlG78xlarge             = UserProfileAppInstanceType("ml.g7.8xlarge")
+	UserProfileAppInstanceTypeMlG712xlarge            = UserProfileAppInstanceType("ml.g7.12xlarge")
+	UserProfileAppInstanceTypeMlG724xlarge            = UserProfileAppInstanceType("ml.g7.24xlarge")
+	UserProfileAppInstanceTypeMlG748xlarge            = UserProfileAppInstanceType("ml.g7.48xlarge")
+	UserProfileAppInstanceTypeMlG7e2xlarge            = UserProfileAppInstanceType("ml.g7e.2xlarge")
+	UserProfileAppInstanceTypeMlG7e4xlarge            = UserProfileAppInstanceType("ml.g7e.4xlarge")
+	UserProfileAppInstanceTypeMlG7e8xlarge            = UserProfileAppInstanceType("ml.g7e.8xlarge")
+	UserProfileAppInstanceTypeMlG7e12xlarge           = UserProfileAppInstanceType("ml.g7e.12xlarge")
+	UserProfileAppInstanceTypeMlG7e24xlarge           = UserProfileAppInstanceType("ml.g7e.24xlarge")
+	UserProfileAppInstanceTypeMlG7e48xlarge           = UserProfileAppInstanceType("ml.g7e.48xlarge")
 )
 
 func (UserProfileAppInstanceType) ElementType() reflect.Type {
@@ -24585,6 +24611,20 @@ func (o UserProfileAppInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 //	UserProfileAppInstanceTypeMlR6id16xlarge
 //	UserProfileAppInstanceTypeMlR6id24xlarge
 //	UserProfileAppInstanceTypeMlR6id32xlarge
+//	UserProfileAppInstanceTypeMlP54xlarge
+//	UserProfileAppInstanceTypeMlP6b20048xlarge
+//	UserProfileAppInstanceTypeMlG72xlarge
+//	UserProfileAppInstanceTypeMlG74xlarge
+//	UserProfileAppInstanceTypeMlG78xlarge
+//	UserProfileAppInstanceTypeMlG712xlarge
+//	UserProfileAppInstanceTypeMlG724xlarge
+//	UserProfileAppInstanceTypeMlG748xlarge
+//	UserProfileAppInstanceTypeMlG7e2xlarge
+//	UserProfileAppInstanceTypeMlG7e4xlarge
+//	UserProfileAppInstanceTypeMlG7e8xlarge
+//	UserProfileAppInstanceTypeMlG7e12xlarge
+//	UserProfileAppInstanceTypeMlG7e24xlarge
+//	UserProfileAppInstanceTypeMlG7e48xlarge
 type UserProfileAppInstanceTypeInput interface {
 	pulumi.Input
 

@@ -57,6 +57,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("defaultResourceSpec")]
         public Input<Inputs.UserProfileResourceSpecArgs>? DefaultResourceSpec { get; set; }
 
+        /// <summary>
+        /// The configuration parameters for EMR settings.
+        /// </summary>
+        [Input("emrSettings")]
+        public Input<Inputs.UserProfileEmrSettingsArgs>? EmrSettings { get; set; }
+
         [Input("lifecycleConfigArns")]
         private InputList<string>? _lifecycleConfigArns;
 

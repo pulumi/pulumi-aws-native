@@ -41,6 +41,10 @@
       "description" : "The number of partitions. Valid only when **Strategy** is set to `partition`",
       "type" : "integer"
     },
+    "ParentGroupId" : {
+      "description" : "The ID of a parent placement group. Valid for strategies that support parent group linking.",
+      "type" : "string"
+    },
     "GroupId" : {
       "description" : "The ID of the placement group.",
       "type" : "string"
@@ -56,7 +60,7 @@
     }
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/Tags", "/properties/Strategy", "/properties/SpreadLevel", "/properties/PartitionCount" ],
+  "createOnlyProperties" : [ "/properties/Tags", "/properties/Strategy", "/properties/SpreadLevel", "/properties/PartitionCount", "/properties/ParentGroupId" ],
   "primaryIdentifier" : [ "/properties/GroupName" ],
   "readOnlyProperties" : [ "/properties/GroupName", "/properties/GroupId" ],
   "tagging" : {

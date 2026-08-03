@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Configuration that specifies the telemetry collection for the capacity provider.
+    /// </summary>
     public sealed class CapacityProviderTelemetryConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The capacity provider's Amazon CloudWatch Logs configuration settings.
+        /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.CapacityProviderLoggingConfigArgs>? LoggingConfig { get; set; }
 

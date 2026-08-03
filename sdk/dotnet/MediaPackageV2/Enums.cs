@@ -36,6 +36,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct ChannelOutputLockingMode : IEquatable<ChannelOutputLockingMode>
+    {
+        private readonly string _value;
+
+        private ChannelOutputLockingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelOutputLockingMode EpochLocked { get; } = new ChannelOutputLockingMode("EPOCH_LOCKED");
+        public static ChannelOutputLockingMode NonEpochLocked { get; } = new ChannelOutputLockingMode("NON_EPOCH_LOCKED");
+
+        public static bool operator ==(ChannelOutputLockingMode left, ChannelOutputLockingMode right) => left.Equals(right);
+        public static bool operator !=(ChannelOutputLockingMode left, ChannelOutputLockingMode right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelOutputLockingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelOutputLockingMode other && Equals(other);
+        public bool Equals(ChannelOutputLockingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointAdMarkerDash : IEquatable<OriginEndpointAdMarkerDash>
     {
         private readonly string _value;
@@ -515,6 +543,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointMssManifestLayout other && Equals(other);
         public bool Equals(OriginEndpointMssManifestLayout other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointOutputTimestampMode : IEquatable<OriginEndpointOutputTimestampMode>
+    {
+        private readonly string _value;
+
+        private OriginEndpointOutputTimestampMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointOutputTimestampMode Passthrough { get; } = new OriginEndpointOutputTimestampMode("PASSTHROUGH");
+        public static OriginEndpointOutputTimestampMode RebasedToChannelStart { get; } = new OriginEndpointOutputTimestampMode("REBASED_TO_CHANNEL_START");
+
+        public static bool operator ==(OriginEndpointOutputTimestampMode left, OriginEndpointOutputTimestampMode right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointOutputTimestampMode left, OriginEndpointOutputTimestampMode right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointOutputTimestampMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointOutputTimestampMode other && Equals(other);
+        public bool Equals(OriginEndpointOutputTimestampMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -52,7 +52,7 @@ type LookupEventSourceMappingResult struct {
 	// (Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.
 	//   When using ``BisectBatchOnFunctionError``, check the ``BatchSize`` parameter in the ``OnFailure`` destination message's metadata. The ``BatchSize`` could be greater than 1 since LAM consolidates failed messages metadata when writing to the ``OnFailure`` destination.
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
-	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
+	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// Specific configuration settings for a DocumentDB event source.
 	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
@@ -79,17 +79,17 @@ type LookupEventSourceMappingResult struct {
 	Id *string `pulumi:"id"`
 	// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The function's Amazon CloudWatch Logs configuration settings.
+	// (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
 	LoggingConfig *EventSourceMappingLoggingConfig `pulumi:"loggingConfig"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//  *Default (, , event sources)*: 0
 	//  *Default (, Kafka, , event sources)*: 500 ms
 	//  *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
 	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
-	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
+	// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
 	// The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
 	MetricsConfig *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
@@ -172,7 +172,7 @@ func (o LookupEventSourceMappingResultOutput) BisectBatchOnFunctionError() pulum
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *bool { return v.BisectBatchOnFunctionError }).(pulumi.BoolPtrOutput)
 }
 
-// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
+// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
 func (o LookupEventSourceMappingResultOutput) DestinationConfig() EventSourceMappingDestinationConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingDestinationConfig {
 		return v.DestinationConfig
@@ -235,7 +235,7 @@ func (o LookupEventSourceMappingResultOutput) KmsKeyArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The function's Amazon CloudWatch Logs configuration settings.
+// (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
 func (o LookupEventSourceMappingResultOutput) LoggingConfig() EventSourceMappingLoggingConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingLoggingConfig { return v.LoggingConfig }).(EventSourceMappingLoggingConfigPtrOutput)
 }
@@ -249,14 +249,14 @@ func (o LookupEventSourceMappingResultOutput) MaximumBatchingWindowInSeconds() p
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
 //
 //	The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
 func (o LookupEventSourceMappingResultOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *int { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
+// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
 func (o LookupEventSourceMappingResultOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }

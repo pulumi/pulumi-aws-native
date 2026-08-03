@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public static class GetCollectionIndex
     {
         /// <summary>
-        /// Resource schema for AWS::OpenSearchServerless::CollectionIndex
+        /// Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
         /// </summary>
         public static Task<GetCollectionIndexResult> InvokeAsync(GetCollectionIndexArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCollectionIndexResult>("aws-native:opensearchserverless:getCollectionIndex", args ?? new GetCollectionIndexArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::OpenSearchServerless::CollectionIndex
+        /// Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
         /// </summary>
         public static Output<GetCollectionIndexResult> Invoke(GetCollectionIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectionIndexResult>("aws-native:opensearchserverless:getCollectionIndex", args ?? new GetCollectionIndexInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::OpenSearchServerless::CollectionIndex
+        /// Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
         /// </summary>
         public static Output<GetCollectionIndexResult> Invoke(GetCollectionIndexInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectionIndexResult>("aws-native:opensearchserverless:getCollectionIndex", args ?? new GetCollectionIndexInvokeArgs(), options.WithDefaults());

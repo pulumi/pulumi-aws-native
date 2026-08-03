@@ -169,6 +169,7 @@ AWS::BedrockAgentCore::Evaluator
 AWS::BedrockAgentCore::Gateway
 AWS::BedrockAgentCore::GatewayTarget
 AWS::BedrockAgentCore::Harness
+AWS::BedrockAgentCore::HarnessEndpoint
 AWS::BedrockAgentCore::Memory
 AWS::BedrockAgentCore::OAuth2CredentialProvider
 AWS::BedrockAgentCore::OnlineEvaluationConfig
@@ -362,6 +363,7 @@ AWS::DAX::SubnetGroup
 AWS::DMS::Certificate
 AWS::DMS::DataMigration
 AWS::DMS::DataProvider
+AWS::DMS::Endpoint
 AWS::DMS::InstanceProfile
 AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
@@ -525,6 +527,7 @@ AWS::EC2::TransitGatewayMulticastGroupSource
 AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayPolicyTable
 AWS::EC2::TransitGatewayPolicyTableAssociation
+AWS::EC2::TransitGatewayPolicyTableEntry
 AWS::EC2::TransitGatewayRoute
 AWS::EC2::TransitGatewayRouteTable
 AWS::EC2::TransitGatewayRouteTableAssociation
@@ -893,6 +896,7 @@ AWS::M2::Application
 AWS::M2::Deployment
 AWS::M2::Environment
 AWS::MSK::BatchScramSecret
+AWS::MSK::Channel
 AWS::MSK::Cluster
 AWS::MSK::ClusterPolicy
 AWS::MSK::Configuration
@@ -918,6 +922,7 @@ AWS::MediaConnect::Gateway
 AWS::MediaConnect::RouterInput
 AWS::MediaConnect::RouterNetworkInterface
 AWS::MediaConnect::RouterOutput
+AWS::MediaConvert::Preset
 AWS::MediaLive::ChannelPlacementGroup
 AWS::MediaLive::CloudWatchAlarmTemplate
 AWS::MediaLive::CloudWatchAlarmTemplateGroup
@@ -1074,6 +1079,7 @@ AWS::QuickSight::Folder
 AWS::QuickSight::KnowledgeBase
 AWS::QuickSight::OAuthClientApplication
 AWS::QuickSight::RefreshSchedule
+AWS::QuickSight::Space
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
 AWS::QuickSight::Topic
@@ -1248,6 +1254,7 @@ AWS::SSM::Parameter
 AWS::SSM::PatchBaseline
 AWS::SSM::ResourceDataSync
 AWS::SSM::ResourcePolicy
+AWS::SSM::ServiceSetting
 AWS::SSMContacts::Contact
 AWS::SSMContacts::ContactChannel
 AWS::SSMContacts::Plan

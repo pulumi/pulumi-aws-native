@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
     /// <summary>
-    /// A health issue associated with the connector
+    /// Represents a specific health issue detected for a connector.
     /// </summary>
     [OutputType]
     public sealed class ConnectorHealthIssue
     {
         /// <summary>
-        /// The code identifying the type of health issue
+        /// The error code that identifies the type of health issue.
         /// </summary>
         public readonly string Code;
         /// <summary>
-        /// The message describing the health issue
+        /// A human-readable message that describes the health issue.
         /// </summary>
         public readonly string Message;
 

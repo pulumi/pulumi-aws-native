@@ -21,6 +21,7 @@ __all__ = ['PlacementGroupArgs', 'PlacementGroup']
 @pulumi.input_type
 class PlacementGroupArgs:
     def __init__(__self__, *,
+                 parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  spread_level: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -28,11 +29,14 @@ class PlacementGroupArgs:
         """
         The set of arguments for constructing a PlacementGroup resource.
 
+        :param pulumi.Input[_builtins.str] parent_group_id: The ID of a parent placement group. Valid for strategies that support parent group linking.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
         :param pulumi.Input[_builtins.str] spread_level: The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         :param pulumi.Input[_builtins.str] strategy: The placement strategy.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        if parent_group_id is not None:
+            pulumi.set(__self__, "parent_group_id", parent_group_id)
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
         if spread_level is not None:
@@ -41,6 +45,18 @@ class PlacementGroupArgs:
             pulumi.set(__self__, "strategy", strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="parentGroupId")
+    def parent_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of a parent placement group. Valid for strategies that support parent group linking.
+        """
+        return pulumi.get(self, "parent_group_id")
+
+    @parent_group_id.setter
+    def parent_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "parent_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")
@@ -97,6 +113,7 @@ class PlacementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  spread_level: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -107,6 +124,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] parent_group_id: The ID of a parent placement group. Valid for strategies that support parent group linking.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
         :param pulumi.Input[_builtins.str] spread_level: The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         :param pulumi.Input[_builtins.str] strategy: The placement strategy.
@@ -136,6 +154,7 @@ class PlacementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 parent_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  spread_level: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -149,13 +168,14 @@ class PlacementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
 
+            __props__.__dict__["parent_group_id"] = parent_group_id
             __props__.__dict__["partition_count"] = partition_count
             __props__.__dict__["spread_level"] = spread_level
             __props__.__dict__["strategy"] = strategy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["group_id"] = None
             __props__.__dict__["group_name"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["partitionCount", "spreadLevel", "strategy", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parentGroupId", "partitionCount", "spreadLevel", "strategy", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PlacementGroup, __self__).__init__(
             'aws-native:ec2:PlacementGroup',
@@ -181,6 +201,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         __props__.__dict__["group_id"] = None
         __props__.__dict__["group_name"] = None
+        __props__.__dict__["parent_group_id"] = None
         __props__.__dict__["partition_count"] = None
         __props__.__dict__["spread_level"] = None
         __props__.__dict__["strategy"] = None
@@ -202,6 +223,14 @@ class PlacementGroup(pulumi.CustomResource):
         The Group Name of Placement Group.
         """
         return pulumi.get(self, "group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="parentGroupId")
+    def parent_group_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of a parent placement group. Valid for strategies that support parent group linking.
+        """
+        return pulumi.get(self, "parent_group_id")
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")

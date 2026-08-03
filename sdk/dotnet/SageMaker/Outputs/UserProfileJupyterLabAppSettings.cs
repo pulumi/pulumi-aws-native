@@ -37,6 +37,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.UserProfileResourceSpec? DefaultResourceSpec;
         /// <summary>
+        /// The configuration parameters for EMR settings.
+        /// </summary>
+        public readonly Outputs.UserProfileEmrSettings? EmrSettings;
+        /// <summary>
         /// A list of LifecycleConfigArns available for use with JupyterLab apps.
         /// </summary>
         public readonly ImmutableArray<string> LifecycleConfigArns;
@@ -53,6 +57,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.UserProfileResourceSpec? defaultResourceSpec,
 
+            Outputs.UserProfileEmrSettings? emrSettings,
+
             ImmutableArray<string> lifecycleConfigArns)
         {
             AppLifecycleManagement = appLifecycleManagement;
@@ -60,6 +66,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             CodeRepositories = codeRepositories;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
+            EmrSettings = emrSettings;
             LifecycleConfigArns = lifecycleConfigArns;
         }
     }

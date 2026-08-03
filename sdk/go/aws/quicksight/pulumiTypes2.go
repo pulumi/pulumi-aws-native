@@ -53052,6 +53052,232 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOu
 	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
 }
 
+// A QuickSight resource attached to the space.
+type SpaceResource struct {
+	// The ARN of the QuickSight resource.
+	ResourceArn string `pulumi:"resourceArn"`
+	// The type of QuickSight resource.
+	ResourceType SpaceResourceResourceType `pulumi:"resourceType"`
+}
+
+// SpaceResourceInput is an input type that accepts SpaceResourceArgs and SpaceResourceOutput values.
+// You can construct a concrete instance of `SpaceResourceInput` via:
+//
+//	SpaceResourceArgs{...}
+type SpaceResourceInput interface {
+	pulumi.Input
+
+	ToSpaceResourceOutput() SpaceResourceOutput
+	ToSpaceResourceOutputWithContext(context.Context) SpaceResourceOutput
+}
+
+// A QuickSight resource attached to the space.
+type SpaceResourceArgs struct {
+	// The ARN of the QuickSight resource.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// The type of QuickSight resource.
+	ResourceType SpaceResourceResourceTypeInput `pulumi:"resourceType"`
+}
+
+func (SpaceResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResource)(nil)).Elem()
+}
+
+func (i SpaceResourceArgs) ToSpaceResourceOutput() SpaceResourceOutput {
+	return i.ToSpaceResourceOutputWithContext(context.Background())
+}
+
+func (i SpaceResourceArgs) ToSpaceResourceOutputWithContext(ctx context.Context) SpaceResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceResourceOutput)
+}
+
+// SpaceResourceArrayInput is an input type that accepts SpaceResourceArray and SpaceResourceArrayOutput values.
+// You can construct a concrete instance of `SpaceResourceArrayInput` via:
+//
+//	SpaceResourceArray{ SpaceResourceArgs{...} }
+type SpaceResourceArrayInput interface {
+	pulumi.Input
+
+	ToSpaceResourceArrayOutput() SpaceResourceArrayOutput
+	ToSpaceResourceArrayOutputWithContext(context.Context) SpaceResourceArrayOutput
+}
+
+type SpaceResourceArray []SpaceResourceInput
+
+func (SpaceResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceResource)(nil)).Elem()
+}
+
+func (i SpaceResourceArray) ToSpaceResourceArrayOutput() SpaceResourceArrayOutput {
+	return i.ToSpaceResourceArrayOutputWithContext(context.Background())
+}
+
+func (i SpaceResourceArray) ToSpaceResourceArrayOutputWithContext(ctx context.Context) SpaceResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceResourceArrayOutput)
+}
+
+// A QuickSight resource attached to the space.
+type SpaceResourceOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResource)(nil)).Elem()
+}
+
+func (o SpaceResourceOutput) ToSpaceResourceOutput() SpaceResourceOutput {
+	return o
+}
+
+func (o SpaceResourceOutput) ToSpaceResourceOutputWithContext(ctx context.Context) SpaceResourceOutput {
+	return o
+}
+
+// The ARN of the QuickSight resource.
+func (o SpaceResourceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceResource) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The type of QuickSight resource.
+func (o SpaceResourceOutput) ResourceType() SpaceResourceResourceTypeOutput {
+	return o.ApplyT(func(v SpaceResource) SpaceResourceResourceType { return v.ResourceType }).(SpaceResourceResourceTypeOutput)
+}
+
+type SpaceResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceResource)(nil)).Elem()
+}
+
+func (o SpaceResourceArrayOutput) ToSpaceResourceArrayOutput() SpaceResourceArrayOutput {
+	return o
+}
+
+func (o SpaceResourceArrayOutput) ToSpaceResourceArrayOutputWithContext(ctx context.Context) SpaceResourceArrayOutput {
+	return o
+}
+
+func (o SpaceResourceArrayOutput) Index(i pulumi.IntInput) SpaceResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpaceResource {
+		return vs[0].([]SpaceResource)[vs[1].(int)]
+	}).(SpaceResourceOutput)
+}
+
+// A permission granted to a principal on a QuickSight resource.
+type SpaceResourcePermission struct {
+	// The list of actions granted to the principal.
+	Actions []string `pulumi:"actions"`
+	// The ARN of the principal (user or group) receiving the permission.
+	Principal string `pulumi:"principal"`
+}
+
+// SpaceResourcePermissionInput is an input type that accepts SpaceResourcePermissionArgs and SpaceResourcePermissionOutput values.
+// You can construct a concrete instance of `SpaceResourcePermissionInput` via:
+//
+//	SpaceResourcePermissionArgs{...}
+type SpaceResourcePermissionInput interface {
+	pulumi.Input
+
+	ToSpaceResourcePermissionOutput() SpaceResourcePermissionOutput
+	ToSpaceResourcePermissionOutputWithContext(context.Context) SpaceResourcePermissionOutput
+}
+
+// A permission granted to a principal on a QuickSight resource.
+type SpaceResourcePermissionArgs struct {
+	// The list of actions granted to the principal.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// The ARN of the principal (user or group) receiving the permission.
+	Principal pulumi.StringInput `pulumi:"principal"`
+}
+
+func (SpaceResourcePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourcePermission)(nil)).Elem()
+}
+
+func (i SpaceResourcePermissionArgs) ToSpaceResourcePermissionOutput() SpaceResourcePermissionOutput {
+	return i.ToSpaceResourcePermissionOutputWithContext(context.Background())
+}
+
+func (i SpaceResourcePermissionArgs) ToSpaceResourcePermissionOutputWithContext(ctx context.Context) SpaceResourcePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceResourcePermissionOutput)
+}
+
+// SpaceResourcePermissionArrayInput is an input type that accepts SpaceResourcePermissionArray and SpaceResourcePermissionArrayOutput values.
+// You can construct a concrete instance of `SpaceResourcePermissionArrayInput` via:
+//
+//	SpaceResourcePermissionArray{ SpaceResourcePermissionArgs{...} }
+type SpaceResourcePermissionArrayInput interface {
+	pulumi.Input
+
+	ToSpaceResourcePermissionArrayOutput() SpaceResourcePermissionArrayOutput
+	ToSpaceResourcePermissionArrayOutputWithContext(context.Context) SpaceResourcePermissionArrayOutput
+}
+
+type SpaceResourcePermissionArray []SpaceResourcePermissionInput
+
+func (SpaceResourcePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceResourcePermission)(nil)).Elem()
+}
+
+func (i SpaceResourcePermissionArray) ToSpaceResourcePermissionArrayOutput() SpaceResourcePermissionArrayOutput {
+	return i.ToSpaceResourcePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i SpaceResourcePermissionArray) ToSpaceResourcePermissionArrayOutputWithContext(ctx context.Context) SpaceResourcePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceResourcePermissionArrayOutput)
+}
+
+// A permission granted to a principal on a QuickSight resource.
+type SpaceResourcePermissionOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourcePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourcePermission)(nil)).Elem()
+}
+
+func (o SpaceResourcePermissionOutput) ToSpaceResourcePermissionOutput() SpaceResourcePermissionOutput {
+	return o
+}
+
+func (o SpaceResourcePermissionOutput) ToSpaceResourcePermissionOutputWithContext(ctx context.Context) SpaceResourcePermissionOutput {
+	return o
+}
+
+// The list of actions granted to the principal.
+func (o SpaceResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpaceResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the principal (user or group) receiving the permission.
+func (o SpaceResourcePermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type SpaceResourcePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourcePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpaceResourcePermission)(nil)).Elem()
+}
+
+func (o SpaceResourcePermissionArrayOutput) ToSpaceResourcePermissionArrayOutput() SpaceResourcePermissionArrayOutput {
+	return o
+}
+
+func (o SpaceResourcePermissionArrayOutput) ToSpaceResourcePermissionArrayOutputWithContext(ctx context.Context) SpaceResourcePermissionArrayOutput {
+	return o
+}
+
+func (o SpaceResourcePermissionArrayOutput) Index(i pulumi.IntInput) SpaceResourcePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpaceResourcePermission {
+		return vs[0].([]SpaceResourcePermission)[vs[1].(int)]
+	}).(SpaceResourcePermissionOutput)
+}
+
+// A key-value pair to associate with the space resource.
+type SpaceTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type TemplateAggregationFunction struct {
 	// Aggregation for attributes.
 	AttributeAggregationFunction *TemplateAttributeAggregationFunction `pulumi:"attributeAggregationFunction"`
@@ -82357,555 +82583,6 @@ func (o TemplateFilterListControlPtrOutput) Type() TemplateSheetControlListTypeP
 	}).(TemplateSheetControlListTypePtrOutput)
 }
 
-type TemplateFilterOperationSelectedFieldsConfiguration struct {
-	// <p>The selected columns of a dataset.</p>
-	SelectedColumns []TemplateColumnIdentifier `pulumi:"selectedColumns"`
-	// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
-	//
-	// Valid values are defined as follows:
-	//
-	// - `ALL_FIELDS` : Applies the filter operation to all fields.
-	SelectedFieldOptions *TemplateSelectedFieldOptions `pulumi:"selectedFieldOptions"`
-	// Chooses the fields that are filtered in `CustomActionFilterOperation` .
-	SelectedFields []string `pulumi:"selectedFields"`
-}
-
-// TemplateFilterOperationSelectedFieldsConfigurationInput is an input type that accepts TemplateFilterOperationSelectedFieldsConfigurationArgs and TemplateFilterOperationSelectedFieldsConfigurationOutput values.
-// You can construct a concrete instance of `TemplateFilterOperationSelectedFieldsConfigurationInput` via:
-//
-//	TemplateFilterOperationSelectedFieldsConfigurationArgs{...}
-type TemplateFilterOperationSelectedFieldsConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateFilterOperationSelectedFieldsConfigurationOutput() TemplateFilterOperationSelectedFieldsConfigurationOutput
-	ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(context.Context) TemplateFilterOperationSelectedFieldsConfigurationOutput
-}
-
-type TemplateFilterOperationSelectedFieldsConfigurationArgs struct {
-	// <p>The selected columns of a dataset.</p>
-	SelectedColumns TemplateColumnIdentifierArrayInput `pulumi:"selectedColumns"`
-	// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
-	//
-	// Valid values are defined as follows:
-	//
-	// - `ALL_FIELDS` : Applies the filter operation to all fields.
-	SelectedFieldOptions TemplateSelectedFieldOptionsPtrInput `pulumi:"selectedFieldOptions"`
-	// Chooses the fields that are filtered in `CustomActionFilterOperation` .
-	SelectedFields pulumi.StringArrayInput `pulumi:"selectedFields"`
-}
-
-func (TemplateFilterOperationSelectedFieldsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
-}
-
-func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationOutput() TemplateFilterOperationSelectedFieldsConfigurationOutput {
-	return i.ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationSelectedFieldsConfigurationOutput)
-}
-
-func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return i.ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationSelectedFieldsConfigurationOutput).ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterOperationSelectedFieldsConfigurationPtrInput is an input type that accepts TemplateFilterOperationSelectedFieldsConfigurationArgs, TemplateFilterOperationSelectedFieldsConfigurationPtr and TemplateFilterOperationSelectedFieldsConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterOperationSelectedFieldsConfigurationPtrInput` via:
-//
-//	        TemplateFilterOperationSelectedFieldsConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterOperationSelectedFieldsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput
-	ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput
-}
-
-type templateFilterOperationSelectedFieldsConfigurationPtrType TemplateFilterOperationSelectedFieldsConfigurationArgs
-
-func TemplateFilterOperationSelectedFieldsConfigurationPtr(v *TemplateFilterOperationSelectedFieldsConfigurationArgs) TemplateFilterOperationSelectedFieldsConfigurationPtrInput {
-	return (*templateFilterOperationSelectedFieldsConfigurationPtrType)(v)
-}
-
-func (*templateFilterOperationSelectedFieldsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
-}
-
-func (i *templateFilterOperationSelectedFieldsConfigurationPtrType) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return i.ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterOperationSelectedFieldsConfigurationPtrType) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput)
-}
-
-type TemplateFilterOperationSelectedFieldsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterOperationSelectedFieldsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
-}
-
-func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationOutput() TemplateFilterOperationSelectedFieldsConfigurationOutput {
-	return o
-}
-
-func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationOutput {
-	return o
-}
-
-func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return o.ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterOperationSelectedFieldsConfiguration) *TemplateFilterOperationSelectedFieldsConfiguration {
-		return &v
-	}).(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput)
-}
-
-// <p>The selected columns of a dataset.</p>
-func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) SelectedColumns() TemplateColumnIdentifierArrayOutput {
-	return o.ApplyT(func(v TemplateFilterOperationSelectedFieldsConfiguration) []TemplateColumnIdentifier {
-		return v.SelectedColumns
-	}).(TemplateColumnIdentifierArrayOutput)
-}
-
-// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
-//
-// Valid values are defined as follows:
-//
-// - `ALL_FIELDS` : Applies the filter operation to all fields.
-func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) SelectedFieldOptions() TemplateSelectedFieldOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateFilterOperationSelectedFieldsConfiguration) *TemplateSelectedFieldOptions {
-		return v.SelectedFieldOptions
-	}).(TemplateSelectedFieldOptionsPtrOutput)
-}
-
-// Chooses the fields that are filtered in `CustomActionFilterOperation` .
-func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) SelectedFields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TemplateFilterOperationSelectedFieldsConfiguration) []string { return v.SelectedFields }).(pulumi.StringArrayOutput)
-}
-
-type TemplateFilterOperationSelectedFieldsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
-}
-
-func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) Elem() TemplateFilterOperationSelectedFieldsConfigurationOutput {
-	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) TemplateFilterOperationSelectedFieldsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterOperationSelectedFieldsConfiguration
-		return ret
-	}).(TemplateFilterOperationSelectedFieldsConfigurationOutput)
-}
-
-// <p>The selected columns of a dataset.</p>
-func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedColumns() TemplateColumnIdentifierArrayOutput {
-	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) []TemplateColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedColumns
-	}).(TemplateColumnIdentifierArrayOutput)
-}
-
-// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
-//
-// Valid values are defined as follows:
-//
-// - `ALL_FIELDS` : Applies the filter operation to all fields.
-func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedFieldOptions() TemplateSelectedFieldOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) *TemplateSelectedFieldOptions {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedFieldOptions
-	}).(TemplateSelectedFieldOptionsPtrOutput)
-}
-
-// Chooses the fields that are filtered in `CustomActionFilterOperation` .
-func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedFields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SelectedFields
-	}).(pulumi.StringArrayOutput)
-}
-
-type TemplateFilterOperationTargetVisualsConfiguration struct {
-	// The configuration of the same-sheet target visuals that you want to be filtered.
-	SameSheetTargetVisualConfiguration *TemplateSameSheetTargetVisualConfiguration `pulumi:"sameSheetTargetVisualConfiguration"`
-}
-
-// TemplateFilterOperationTargetVisualsConfigurationInput is an input type that accepts TemplateFilterOperationTargetVisualsConfigurationArgs and TemplateFilterOperationTargetVisualsConfigurationOutput values.
-// You can construct a concrete instance of `TemplateFilterOperationTargetVisualsConfigurationInput` via:
-//
-//	TemplateFilterOperationTargetVisualsConfigurationArgs{...}
-type TemplateFilterOperationTargetVisualsConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateFilterOperationTargetVisualsConfigurationOutput() TemplateFilterOperationTargetVisualsConfigurationOutput
-	ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(context.Context) TemplateFilterOperationTargetVisualsConfigurationOutput
-}
-
-type TemplateFilterOperationTargetVisualsConfigurationArgs struct {
-	// The configuration of the same-sheet target visuals that you want to be filtered.
-	SameSheetTargetVisualConfiguration TemplateSameSheetTargetVisualConfigurationPtrInput `pulumi:"sameSheetTargetVisualConfiguration"`
-}
-
-func (TemplateFilterOperationTargetVisualsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
-}
-
-func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationOutput() TemplateFilterOperationTargetVisualsConfigurationOutput {
-	return i.ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationTargetVisualsConfigurationOutput)
-}
-
-func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return i.ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationTargetVisualsConfigurationOutput).ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterOperationTargetVisualsConfigurationPtrInput is an input type that accepts TemplateFilterOperationTargetVisualsConfigurationArgs, TemplateFilterOperationTargetVisualsConfigurationPtr and TemplateFilterOperationTargetVisualsConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterOperationTargetVisualsConfigurationPtrInput` via:
-//
-//	        TemplateFilterOperationTargetVisualsConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterOperationTargetVisualsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput
-	ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput
-}
-
-type templateFilterOperationTargetVisualsConfigurationPtrType TemplateFilterOperationTargetVisualsConfigurationArgs
-
-func TemplateFilterOperationTargetVisualsConfigurationPtr(v *TemplateFilterOperationTargetVisualsConfigurationArgs) TemplateFilterOperationTargetVisualsConfigurationPtrInput {
-	return (*templateFilterOperationTargetVisualsConfigurationPtrType)(v)
-}
-
-func (*templateFilterOperationTargetVisualsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
-}
-
-func (i *templateFilterOperationTargetVisualsConfigurationPtrType) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return i.ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterOperationTargetVisualsConfigurationPtrType) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationTargetVisualsConfigurationPtrOutput)
-}
-
-type TemplateFilterOperationTargetVisualsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterOperationTargetVisualsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
-}
-
-func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationOutput() TemplateFilterOperationTargetVisualsConfigurationOutput {
-	return o
-}
-
-func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationOutput {
-	return o
-}
-
-func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return o.ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterOperationTargetVisualsConfiguration) *TemplateFilterOperationTargetVisualsConfiguration {
-		return &v
-	}).(TemplateFilterOperationTargetVisualsConfigurationPtrOutput)
-}
-
-// The configuration of the same-sheet target visuals that you want to be filtered.
-func (o TemplateFilterOperationTargetVisualsConfigurationOutput) SameSheetTargetVisualConfiguration() TemplateSameSheetTargetVisualConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateFilterOperationTargetVisualsConfiguration) *TemplateSameSheetTargetVisualConfiguration {
-		return v.SameSheetTargetVisualConfiguration
-	}).(TemplateSameSheetTargetVisualConfigurationPtrOutput)
-}
-
-type TemplateFilterOperationTargetVisualsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterOperationTargetVisualsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
-}
-
-func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) Elem() TemplateFilterOperationTargetVisualsConfigurationOutput {
-	return o.ApplyT(func(v *TemplateFilterOperationTargetVisualsConfiguration) TemplateFilterOperationTargetVisualsConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterOperationTargetVisualsConfiguration
-		return ret
-	}).(TemplateFilterOperationTargetVisualsConfigurationOutput)
-}
-
-// The configuration of the same-sheet target visuals that you want to be filtered.
-func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) SameSheetTargetVisualConfiguration() TemplateSameSheetTargetVisualConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterOperationTargetVisualsConfiguration) *TemplateSameSheetTargetVisualConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SameSheetTargetVisualConfiguration
-	}).(TemplateSameSheetTargetVisualConfigurationPtrOutput)
-}
-
-type TemplateFilterRelativeDateTimeControl struct {
-	// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
-	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
-	// The display options of a control.
-	DisplayOptions *TemplateRelativeDateTimeControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `FilterTextAreaControl` .
-	FilterControlId string `pulumi:"filterControlId"`
-	// The source filter ID of the `FilterTextAreaControl` .
-	SourceFilterId string `pulumi:"sourceFilterId"`
-	// The title of the `FilterTextAreaControl` .
-	Title string `pulumi:"title"`
-}
-
-// TemplateFilterRelativeDateTimeControlInput is an input type that accepts TemplateFilterRelativeDateTimeControlArgs and TemplateFilterRelativeDateTimeControlOutput values.
-// You can construct a concrete instance of `TemplateFilterRelativeDateTimeControlInput` via:
-//
-//	TemplateFilterRelativeDateTimeControlArgs{...}
-type TemplateFilterRelativeDateTimeControlInput interface {
-	pulumi.Input
-
-	ToTemplateFilterRelativeDateTimeControlOutput() TemplateFilterRelativeDateTimeControlOutput
-	ToTemplateFilterRelativeDateTimeControlOutputWithContext(context.Context) TemplateFilterRelativeDateTimeControlOutput
-}
-
-type TemplateFilterRelativeDateTimeControlArgs struct {
-	// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
-	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
-	// The display options of a control.
-	DisplayOptions TemplateRelativeDateTimeControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `FilterTextAreaControl` .
-	FilterControlId pulumi.StringInput `pulumi:"filterControlId"`
-	// The source filter ID of the `FilterTextAreaControl` .
-	SourceFilterId pulumi.StringInput `pulumi:"sourceFilterId"`
-	// The title of the `FilterTextAreaControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-}
-
-func (TemplateFilterRelativeDateTimeControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterRelativeDateTimeControl)(nil)).Elem()
-}
-
-func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlOutput() TemplateFilterRelativeDateTimeControlOutput {
-	return i.ToTemplateFilterRelativeDateTimeControlOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterRelativeDateTimeControlOutput)
-}
-
-func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
-	return i.ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterRelativeDateTimeControlOutput).ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterRelativeDateTimeControlPtrInput is an input type that accepts TemplateFilterRelativeDateTimeControlArgs, TemplateFilterRelativeDateTimeControlPtr and TemplateFilterRelativeDateTimeControlPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterRelativeDateTimeControlPtrInput` via:
-//
-//	        TemplateFilterRelativeDateTimeControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterRelativeDateTimeControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput
-	ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Context) TemplateFilterRelativeDateTimeControlPtrOutput
-}
-
-type templateFilterRelativeDateTimeControlPtrType TemplateFilterRelativeDateTimeControlArgs
-
-func TemplateFilterRelativeDateTimeControlPtr(v *TemplateFilterRelativeDateTimeControlArgs) TemplateFilterRelativeDateTimeControlPtrInput {
-	return (*templateFilterRelativeDateTimeControlPtrType)(v)
-}
-
-func (*templateFilterRelativeDateTimeControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterRelativeDateTimeControl)(nil)).Elem()
-}
-
-func (i *templateFilterRelativeDateTimeControlPtrType) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
-	return i.ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterRelativeDateTimeControlPtrType) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterRelativeDateTimeControlPtrOutput)
-}
-
-type TemplateFilterRelativeDateTimeControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterRelativeDateTimeControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterRelativeDateTimeControl)(nil)).Elem()
-}
-
-func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlOutput() TemplateFilterRelativeDateTimeControlOutput {
-	return o
-}
-
-func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlOutput {
-	return o
-}
-
-func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
-	return o.ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterRelativeDateTimeControl) *TemplateFilterRelativeDateTimeControl {
-		return &v
-	}).(TemplateFilterRelativeDateTimeControlPtrOutput)
-}
-
-// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
-func (o TemplateFilterRelativeDateTimeControlOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateFilterRelativeDateTimeControlOutput) DisplayOptions() TemplateRelativeDateTimeControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) *TemplateRelativeDateTimeControlDisplayOptions {
-		return v.DisplayOptions
-	}).(TemplateRelativeDateTimeControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterTextAreaControl` .
-func (o TemplateFilterRelativeDateTimeControlOutput) FilterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) string { return v.FilterControlId }).(pulumi.StringOutput)
-}
-
-// The source filter ID of the `FilterTextAreaControl` .
-func (o TemplateFilterRelativeDateTimeControlOutput) SourceFilterId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) string { return v.SourceFilterId }).(pulumi.StringOutput)
-}
-
-// The title of the `FilterTextAreaControl` .
-func (o TemplateFilterRelativeDateTimeControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-type TemplateFilterRelativeDateTimeControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterRelativeDateTimeControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterRelativeDateTimeControl)(nil)).Elem()
-}
-
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) Elem() TemplateFilterRelativeDateTimeControlOutput {
-	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) TemplateFilterRelativeDateTimeControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterRelativeDateTimeControl
-		return ret
-	}).(TemplateFilterRelativeDateTimeControlOutput)
-}
-
-// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *TemplateCommitMode {
-		if v == nil {
-			return nil
-		}
-		return v.CommitMode
-	}).(TemplateCommitModePtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) DisplayOptions() TemplateRelativeDateTimeControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *TemplateRelativeDateTimeControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateRelativeDateTimeControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterTextAreaControl` .
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) FilterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source filter ID of the `FilterTextAreaControl` .
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) SourceFilterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceFilterId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `FilterTextAreaControl` .
-func (o TemplateFilterRelativeDateTimeControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRangeEndsLabelTypeInput)(nil)).Elem(), DashboardRangeEndsLabelTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRangeEndsLabelTypePtrInput)(nil)).Elem(), DashboardRangeEndsLabelTypeArgs{})
@@ -83534,6 +83211,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceInput)(nil)).Elem(), SpaceResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceArrayInput)(nil)).Elem(), SpaceResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourcePermissionInput)(nil)).Elem(), SpaceResourcePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourcePermissionArrayInput)(nil)).Elem(), SpaceResourcePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationFunctionInput)(nil)).Elem(), TemplateAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationFunctionPtrInput)(nil)).Elem(), TemplateAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAggregationSortConfigurationInput)(nil)).Elem(), TemplateAggregationSortConfigurationArgs{})
@@ -83875,12 +83556,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterListConfigurationPtrInput)(nil)).Elem(), TemplateFilterListConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterListControlInput)(nil)).Elem(), TemplateFilterListControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterListControlPtrInput)(nil)).Elem(), TemplateFilterListControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfigurationInput)(nil)).Elem(), TemplateFilterOperationSelectedFieldsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfigurationPtrInput)(nil)).Elem(), TemplateFilterOperationSelectedFieldsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfigurationInput)(nil)).Elem(), TemplateFilterOperationTargetVisualsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfigurationPtrInput)(nil)).Elem(), TemplateFilterOperationTargetVisualsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterRelativeDateTimeControlInput)(nil)).Elem(), TemplateFilterRelativeDateTimeControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterRelativeDateTimeControlPtrInput)(nil)).Elem(), TemplateFilterRelativeDateTimeControlArgs{})
 	pulumi.RegisterOutputType(DashboardRangeEndsLabelTypeOutput{})
 	pulumi.RegisterOutputType(DashboardRangeEndsLabelTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardReferenceLineOutput{})
@@ -84517,6 +84192,10 @@ func init() {
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SpaceResourceOutput{})
+	pulumi.RegisterOutputType(SpaceResourceArrayOutput{})
+	pulumi.RegisterOutputType(SpaceResourcePermissionOutput{})
+	pulumi.RegisterOutputType(SpaceResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateAggregationSortConfigurationOutput{})
@@ -84862,10 +84541,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateFilterListConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateFilterListControlOutput{})
 	pulumi.RegisterOutputType(TemplateFilterListControlPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterOperationSelectedFieldsConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterOperationTargetVisualsConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateFilterOperationTargetVisualsConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterRelativeDateTimeControlOutput{})
-	pulumi.RegisterOutputType(TemplateFilterRelativeDateTimeControlPtrOutput{})
 }

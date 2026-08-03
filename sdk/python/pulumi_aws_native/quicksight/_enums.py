@@ -316,6 +316,7 @@ __all__ = [
     'RefreshScheduleMapRefreshType',
     'RefreshScheduleMapScheduleFrequencyPropertiesInterval',
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek',
+    'SpaceResourceResourceType',
     'TemplateAnchorOption',
     'TemplateArcThickness',
     'TemplateArcThicknessOptions',
@@ -2832,6 +2833,18 @@ class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWe
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+@pulumi.type_token("aws-native:quicksight:SpaceResourceResourceType")
+class SpaceResourceResourceType(_builtins.str, Enum):
+    """
+    The type of QuickSight resource.
+    """
+    TOPIC = "TOPIC"
+    DASHBOARD = "DASHBOARD"
+    KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
+    ACTION_CONNECTOR = "ACTION_CONNECTOR"
+    DATA_SET = "DATA_SET"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateAnchorOption")

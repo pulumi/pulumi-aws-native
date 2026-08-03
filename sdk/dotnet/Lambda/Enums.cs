@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+    /// </summary>
     [EnumType]
     public readonly struct CapacityProviderLoggingConfigSystemLogLevel : IEquatable<CapacityProviderLoggingConfigSystemLogLevel>
     {

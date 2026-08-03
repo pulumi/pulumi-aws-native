@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Aps.Inputs
         [Input("ampConfiguration")]
         public Input<Inputs.ScraperDestinationAmpConfigurationPropertiesArgs>? AmpConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration for CloudWatch metrics destination
+        /// </summary>
+        [Input("cloudWatchConfiguration")]
+        public Input<Inputs.ScraperDestinationCloudWatchConfigurationPropertiesArgs>? CloudWatchConfiguration { get; set; }
+
         public ScraperDestinationArgs()
         {
         }

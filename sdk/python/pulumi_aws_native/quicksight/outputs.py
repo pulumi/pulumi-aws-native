@@ -1330,6 +1330,8 @@ __all__ = [
     'RefreshScheduleMap',
     'RefreshScheduleMapScheduleFrequencyProperties',
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties',
+    'SpaceResource',
+    'SpaceResourcePermission',
     'TemplateAggregationFunction',
     'TemplateAggregationSortConfiguration',
     'TemplateAllSheetsFilterScopeConfiguration',
@@ -87305,6 +87307,93 @@ class RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties(dict):
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional['RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek']:
         return pulumi.get(self, "day_of_week")
+
+
+@pulumi.output_type
+class SpaceResource(dict):
+    """
+    A QuickSight resource attached to the space.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_arn: _builtins.str,
+                 resource_type: 'SpaceResourceResourceType'):
+        """
+        A QuickSight resource attached to the space.
+
+        :param _builtins.str resource_arn: The ARN of the QuickSight resource.
+        :param 'SpaceResourceResourceType' resource_type: The type of QuickSight resource.
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> _builtins.str:
+        """
+        The ARN of the QuickSight resource.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> 'SpaceResourceResourceType':
+        """
+        The type of QuickSight resource.
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class SpaceResourcePermission(dict):
+    """
+    A permission granted to a principal on a QuickSight resource.
+    """
+    def __init__(__self__, *,
+                 actions: Sequence[_builtins.str],
+                 principal: _builtins.str):
+        """
+        A permission granted to a principal on a QuickSight resource.
+
+        :param Sequence[_builtins.str] actions: The list of actions granted to the principal.
+        :param _builtins.str principal: The ARN of the principal (user or group) receiving the permission.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Sequence[_builtins.str]:
+        """
+        The list of actions granted to the principal.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> _builtins.str:
+        """
+        The ARN of the principal (user or group) receiving the permission.
+        """
+        return pulumi.get(self, "principal")
 
 
 @pulumi.output_type

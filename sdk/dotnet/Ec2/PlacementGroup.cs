@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of a parent placement group. Valid for strategies that support parent group linking.
+        /// </summary>
+        [Output("parentGroupId")]
+        public Output<string?> ParentGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The number of partitions. Valid only when **Strategy** is set to `partition`
         /// </summary>
         [Output("partitionCount")]
@@ -76,6 +82,7 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "parentGroupId",
                     "partitionCount",
                     "spreadLevel",
                     "strategy",
@@ -103,6 +110,12 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of a parent placement group. Valid for strategies that support parent group linking.
+        /// </summary>
+        [Input("parentGroupId")]
+        public Input<string>? ParentGroupId { get; set; }
+
         /// <summary>
         /// The number of partitions. Valid only when **Strategy** is set to `partition`
         /// </summary>

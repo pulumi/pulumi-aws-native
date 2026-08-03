@@ -440,8 +440,10 @@ const (
 	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard")
 	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1")
 	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2a     = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2a")
 	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2")
 	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3a     = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3a")
 	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1")
 	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1")
 )
@@ -571,8 +573,10 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) T
 //	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard
 //	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1
 //	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2a
 //	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2
 //	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3a
 //	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1
 //	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput interface {
@@ -1774,8 +1778,10 @@ const (
 	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard")
 	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1")
 	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2a     = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2a")
 	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2")
 	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3a     = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3a")
 	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1")
 	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1")
 )
@@ -1905,8 +1911,10 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToStr
 //	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard
 //	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1
 //	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2a
 //	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2
 //	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3a
 //	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1
 //	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1
 type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput interface {

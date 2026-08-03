@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
     /// <summary>
-    /// The configuration settings for an Azure CSPM provider
+    /// The configuration for connecting to an Azure environment.
     /// </summary>
     public sealed class ConnectorAzureProviderConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the AWS Config connector used for the Azure integration
+        /// The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
         /// </summary>
         [Input("awsConfigConnectorArn", required: true)]
         public Input<string> AwsConfigConnectorArn { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<string>? _azureRegions;
 
         /// <summary>
-        /// The list of Azure regions to include in the connector scope
+        /// The list of Azure regions to monitor.
         /// </summary>
         public InputList<string> AzureRegions
         {
@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
             set => _azureRegions = value;
         }
 
+        /// <summary>
+        /// The scope configuration that defines which Azure resources are monitored.
+        /// </summary>
         [Input("scopeConfiguration", required: true)]
         public Input<Inputs.ConnectorAzureScopeConfigurationArgs> ScopeConfiguration { get; set; } = null!;
 

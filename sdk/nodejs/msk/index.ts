@@ -10,6 +10,11 @@ export type BatchScramSecret = import("./batchScramSecret").BatchScramSecret;
 export const BatchScramSecret: typeof import("./batchScramSecret").BatchScramSecret = null as any;
 utilities.lazyLoad(exports, ["BatchScramSecret"], () => require("./batchScramSecret"));
 
+export { ChannelArgs } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -29,6 +34,11 @@ export { GetBatchScramSecretArgs, GetBatchScramSecretResult, GetBatchScramSecret
 export const getBatchScramSecret: typeof import("./getBatchScramSecret").getBatchScramSecret = null as any;
 export const getBatchScramSecretOutput: typeof import("./getBatchScramSecret").getBatchScramSecretOutput = null as any;
 utilities.lazyLoad(exports, ["getBatchScramSecret","getBatchScramSecretOutput"], () => require("./getBatchScramSecret"));
+
+export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
+export const getChannel: typeof import("./getChannel").getChannel = null as any;
+export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
@@ -95,6 +105,8 @@ const _module = {
         switch (type) {
             case "aws-native:msk:BatchScramSecret":
                 return new BatchScramSecret(name, <any>undefined, { urn })
+            case "aws-native:msk:Channel":
+                return new Channel(name, <any>undefined, { urn })
             case "aws-native:msk:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:msk:ClusterPolicy":

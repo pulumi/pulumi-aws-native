@@ -63,7 +63,7 @@ def get_security_policy(name: Optional[_builtins.str] = None,
                         type: Optional['SecurityPolicyType'] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPolicyResult:
     """
-    Amazon OpenSearchServerless security policy resource
+    Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
 
     :param _builtins.str name: The name of the policy
     :param 'SecurityPolicyType' type: The type of security policy. Can be either `encryption` or `network` .
@@ -81,7 +81,7 @@ def get_security_policy_output(name: pulumi.Input[Optional[_builtins.str]] = Non
                                type: pulumi.Input[Optional['SecurityPolicyType']] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPolicyResult]:
     """
-    Amazon OpenSearchServerless security policy resource
+    Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
 
     :param _builtins.str name: The name of the policy
     :param 'SecurityPolicyType' type: The type of security policy. Can be either `encryption` or `network` .

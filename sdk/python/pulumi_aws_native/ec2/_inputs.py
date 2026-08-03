@@ -368,6 +368,8 @@ __all__ = [
     'TransitGatewayConnectPeerConfigurationArgsDict',
     'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs',
     'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgsDict',
+    'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs',
+    'TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict',
     'VerifiedAccessEndpointCidrOptionsArgs',
     'VerifiedAccessEndpointCidrOptionsArgsDict',
     'VerifiedAccessEndpointLoadBalancerOptionsArgs',
@@ -17256,6 +17258,115 @@ class TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs:
     @transit_gateway_asn.setter
     def transit_gateway_asn(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "transit_gateway_asn", value)
+
+
+class TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgsDict(TypedDict):
+    destination_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The destination CIDR block for the transit gateway policy rule.
+    """
+    destination_port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The destination port range for the transit gateway policy rule.
+    """
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The protocol for the transit gateway policy rule.
+    """
+    source_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The source CIDR block for the transit gateway policy rule.
+    """
+    source_port_range: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The source port range for the transit gateway policy rule.
+    """
+
+@pulumi.input_type
+class TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs:
+    def __init__(__self__, *,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port_range: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port_range: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block for the transit gateway policy rule.
+        :param pulumi.Input[_builtins.str] destination_port_range: The destination port range for the transit gateway policy rule.
+        :param pulumi.Input[_builtins.str] protocol: The protocol for the transit gateway policy rule.
+        :param pulumi.Input[_builtins.str] source_cidr_block: The source CIDR block for the transit gateway policy rule.
+        :param pulumi.Input[_builtins.str] source_port_range: The source port range for the transit gateway policy rule.
+        """
+        if destination_cidr_block is not None:
+            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_cidr_block is not None:
+            pulumi.set(__self__, "source_cidr_block", source_cidr_block)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The destination CIDR block for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @destination_cidr_block.setter
+    def destination_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_cidr_block", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The destination port range for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @destination_port_range.setter
+    def destination_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_port_range", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The protocol for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceCidrBlock")
+    def source_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The source CIDR block for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "source_cidr_block")
+
+    @source_cidr_block.setter
+    def source_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_cidr_block", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The source port range for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "source_port_range")
+
+    @source_port_range.setter
+    def source_port_range(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_port_range", value)
 
 
 class VerifiedAccessEndpointCidrOptionsArgsDict(TypedDict):

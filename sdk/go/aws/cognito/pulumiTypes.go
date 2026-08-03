@@ -3880,6 +3880,229 @@ func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserPoolEumsSmsConfiguration struct {
+	CallerArn            string  `pulumi:"callerArn"`
+	ConfigurationSetName *string `pulumi:"configurationSetName"`
+	ExternalId           *string `pulumi:"externalId"`
+	InEntityId           *string `pulumi:"inEntityId"`
+	InTemplateId         *string `pulumi:"inTemplateId"`
+	OriginationIdentity  *string `pulumi:"originationIdentity"`
+	Region               *string `pulumi:"region"`
+}
+
+// UserPoolEumsSmsConfigurationInput is an input type that accepts UserPoolEumsSmsConfigurationArgs and UserPoolEumsSmsConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolEumsSmsConfigurationInput` via:
+//
+//	UserPoolEumsSmsConfigurationArgs{...}
+type UserPoolEumsSmsConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolEumsSmsConfigurationOutput() UserPoolEumsSmsConfigurationOutput
+	ToUserPoolEumsSmsConfigurationOutputWithContext(context.Context) UserPoolEumsSmsConfigurationOutput
+}
+
+type UserPoolEumsSmsConfigurationArgs struct {
+	CallerArn            pulumi.StringInput    `pulumi:"callerArn"`
+	ConfigurationSetName pulumi.StringPtrInput `pulumi:"configurationSetName"`
+	ExternalId           pulumi.StringPtrInput `pulumi:"externalId"`
+	InEntityId           pulumi.StringPtrInput `pulumi:"inEntityId"`
+	InTemplateId         pulumi.StringPtrInput `pulumi:"inTemplateId"`
+	OriginationIdentity  pulumi.StringPtrInput `pulumi:"originationIdentity"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (UserPoolEumsSmsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolEumsSmsConfigurationArgs) ToUserPoolEumsSmsConfigurationOutput() UserPoolEumsSmsConfigurationOutput {
+	return i.ToUserPoolEumsSmsConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolEumsSmsConfigurationArgs) ToUserPoolEumsSmsConfigurationOutputWithContext(ctx context.Context) UserPoolEumsSmsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEumsSmsConfigurationOutput)
+}
+
+func (i UserPoolEumsSmsConfigurationArgs) ToUserPoolEumsSmsConfigurationPtrOutput() UserPoolEumsSmsConfigurationPtrOutput {
+	return i.ToUserPoolEumsSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolEumsSmsConfigurationArgs) ToUserPoolEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEumsSmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEumsSmsConfigurationOutput).ToUserPoolEumsSmsConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolEumsSmsConfigurationPtrInput is an input type that accepts UserPoolEumsSmsConfigurationArgs, UserPoolEumsSmsConfigurationPtr and UserPoolEumsSmsConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolEumsSmsConfigurationPtrInput` via:
+//
+//	        UserPoolEumsSmsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolEumsSmsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolEumsSmsConfigurationPtrOutput() UserPoolEumsSmsConfigurationPtrOutput
+	ToUserPoolEumsSmsConfigurationPtrOutputWithContext(context.Context) UserPoolEumsSmsConfigurationPtrOutput
+}
+
+type userPoolEumsSmsConfigurationPtrType UserPoolEumsSmsConfigurationArgs
+
+func UserPoolEumsSmsConfigurationPtr(v *UserPoolEumsSmsConfigurationArgs) UserPoolEumsSmsConfigurationPtrInput {
+	return (*userPoolEumsSmsConfigurationPtrType)(v)
+}
+
+func (*userPoolEumsSmsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolEumsSmsConfigurationPtrType) ToUserPoolEumsSmsConfigurationPtrOutput() UserPoolEumsSmsConfigurationPtrOutput {
+	return i.ToUserPoolEumsSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolEumsSmsConfigurationPtrType) ToUserPoolEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEumsSmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEumsSmsConfigurationPtrOutput)
+}
+
+type UserPoolEumsSmsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolEumsSmsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) ToUserPoolEumsSmsConfigurationOutput() UserPoolEumsSmsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) ToUserPoolEumsSmsConfigurationOutputWithContext(ctx context.Context) UserPoolEumsSmsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) ToUserPoolEumsSmsConfigurationPtrOutput() UserPoolEumsSmsConfigurationPtrOutput {
+	return o.ToUserPoolEumsSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) ToUserPoolEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEumsSmsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolEumsSmsConfiguration) *UserPoolEumsSmsConfiguration {
+		return &v
+	}).(UserPoolEumsSmsConfigurationPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) CallerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolEumsSmsConfiguration) string { return v.CallerArn }).(pulumi.StringOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) ConfigurationSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEumsSmsConfiguration) *string { return v.ConfigurationSetName }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEumsSmsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) InEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEumsSmsConfiguration) *string { return v.InEntityId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) InTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEumsSmsConfiguration) *string { return v.InTemplateId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) OriginationIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEumsSmsConfiguration) *string { return v.OriginationIdentity }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolEumsSmsConfiguration) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolEumsSmsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolEumsSmsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) ToUserPoolEumsSmsConfigurationPtrOutput() UserPoolEumsSmsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) ToUserPoolEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEumsSmsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) Elem() UserPoolEumsSmsConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) UserPoolEumsSmsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolEumsSmsConfiguration
+		return ret
+	}).(UserPoolEumsSmsConfigurationOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) CallerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CallerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) ConfigurationSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationSetName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) InEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InEntityId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) InTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) OriginationIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginationIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolEumsSmsConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserPoolInboundFederation struct {
 	LambdaArn     *string `pulumi:"lambdaArn"`
 	LambdaVersion *string `pulumi:"lambdaVersion"`
@@ -6225,6 +6448,233 @@ func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) Sour
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration struct {
+	CallerArn            string  `pulumi:"callerArn"`
+	ConfigurationSetName *string `pulumi:"configurationSetName"`
+	ExternalId           *string `pulumi:"externalId"`
+	InEntityId           *string `pulumi:"inEntityId"`
+	InTemplateId         *string `pulumi:"inTemplateId"`
+	OriginationIdentity  *string `pulumi:"originationIdentity"`
+	Region               *string `pulumi:"region"`
+}
+
+// UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationInput is an input type that accepts UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs and UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs{...}
+type UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput
+	ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs struct {
+	CallerArn            pulumi.StringInput    `pulumi:"callerArn"`
+	ConfigurationSetName pulumi.StringPtrInput `pulumi:"configurationSetName"`
+	ExternalId           pulumi.StringPtrInput `pulumi:"externalId"`
+	InEntityId           pulumi.StringPtrInput `pulumi:"inEntityId"`
+	InTemplateId         pulumi.StringPtrInput `pulumi:"inTemplateId"`
+	OriginationIdentity  pulumi.StringPtrInput `pulumi:"originationIdentity"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput).ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs, UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtr and UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrType UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs
+
+func UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtr(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrType) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrType) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) CallerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) string { return v.CallerArn }).(pulumi.StringOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) ConfigurationSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		return v.ConfigurationSetName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) InEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string { return v.InEntityId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) InTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string { return v.InTemplateId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) OriginationIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		return v.OriginationIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) ToUserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) CallerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CallerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) ConfigurationSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationSetName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) InEntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InEntityId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) InTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) OriginationIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginationIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserPoolRegionalConfigurationAttachmentInboundFederation struct {
 	LambdaArn     *string `pulumi:"lambdaArn"`
 	LambdaVersion *string `pulumi:"lambdaVersion"`
@@ -6877,9 +7327,10 @@ func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput
 }
 
 type UserPoolRegionalConfigurationAttachmentSmsConfiguration struct {
-	ExternalId   *string `pulumi:"externalId"`
-	SnsCallerArn *string `pulumi:"snsCallerArn"`
-	SnsRegion    *string `pulumi:"snsRegion"`
+	EumsSms      *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration `pulumi:"eumsSms"`
+	ExternalId   *string                                                      `pulumi:"externalId"`
+	SnsCallerArn *string                                                      `pulumi:"snsCallerArn"`
+	SnsRegion    *string                                                      `pulumi:"snsRegion"`
 }
 
 // UserPoolRegionalConfigurationAttachmentSmsConfigurationInput is an input type that accepts UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs and UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput values.
@@ -6894,9 +7345,10 @@ type UserPoolRegionalConfigurationAttachmentSmsConfigurationInput interface {
 }
 
 type UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs struct {
-	ExternalId   pulumi.StringPtrInput `pulumi:"externalId"`
-	SnsCallerArn pulumi.StringPtrInput `pulumi:"snsCallerArn"`
-	SnsRegion    pulumi.StringPtrInput `pulumi:"snsRegion"`
+	EumsSms      UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrInput `pulumi:"eumsSms"`
+	ExternalId   pulumi.StringPtrInput                                               `pulumi:"externalId"`
+	SnsCallerArn pulumi.StringPtrInput                                               `pulumi:"snsCallerArn"`
+	SnsRegion    pulumi.StringPtrInput                                               `pulumi:"snsRegion"`
 }
 
 func (UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs) ElementType() reflect.Type {
@@ -6976,6 +7428,12 @@ func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ToUserPoo
 	}).(UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput)
 }
 
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) EumsSms() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentSmsConfiguration) *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration {
+		return v.EumsSms
+	}).(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput)
+}
+
 func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentSmsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
@@ -7010,6 +7468,15 @@ func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) Elem()
 		var ret UserPoolRegionalConfigurationAttachmentSmsConfiguration
 		return ret
 	}).(UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) EumsSms() UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentSmsConfiguration) *UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EumsSms
+	}).(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput)
 }
 
 func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
@@ -8847,6 +9314,7 @@ func (o UserPoolSignInPolicyPtrOutput) AllowedFirstAuthFactors() pulumi.StringAr
 }
 
 type UserPoolSmsConfiguration struct {
+	EumsSms *UserPoolEumsSmsConfiguration `pulumi:"eumsSms"`
 	// The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
 	//
 	// For more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
@@ -8871,6 +9339,7 @@ type UserPoolSmsConfigurationInput interface {
 }
 
 type UserPoolSmsConfigurationArgs struct {
+	EumsSms UserPoolEumsSmsConfigurationPtrInput `pulumi:"eumsSms"`
 	// The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
 	//
 	// For more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
@@ -8960,6 +9429,10 @@ func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationPtrOutputWithC
 	}).(UserPoolSmsConfigurationPtrOutput)
 }
 
+func (o UserPoolSmsConfigurationOutput) EumsSms() UserPoolEumsSmsConfigurationPtrOutput {
+	return o.ApplyT(func(v UserPoolSmsConfiguration) *UserPoolEumsSmsConfiguration { return v.EumsSms }).(UserPoolEumsSmsConfigurationPtrOutput)
+}
+
 // The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
 //
 // For more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
@@ -9001,6 +9474,15 @@ func (o UserPoolSmsConfigurationPtrOutput) Elem() UserPoolSmsConfigurationOutput
 		var ret UserPoolSmsConfiguration
 		return ret
 	}).(UserPoolSmsConfigurationOutput)
+}
+
+func (o UserPoolSmsConfigurationPtrOutput) EumsSms() UserPoolEumsSmsConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPoolSmsConfiguration) *UserPoolEumsSmsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EumsSms
+	}).(UserPoolEumsSmsConfigurationPtrOutput)
 }
 
 // The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
@@ -9894,6 +10376,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainRoutingTypePtrInput)(nil)).Elem(), UserPoolDomainRoutingTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEmailConfigurationPtrInput)(nil)).Elem(), UserPoolEmailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEumsSmsConfigurationInput)(nil)).Elem(), UserPoolEumsSmsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEumsSmsConfigurationPtrInput)(nil)).Elem(), UserPoolEumsSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInboundFederationInput)(nil)).Elem(), UserPoolInboundFederationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInboundFederationPtrInput)(nil)).Elem(), UserPoolInboundFederationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInviteMessageTemplateInput)(nil)).Elem(), UserPoolInviteMessageTemplateArgs{})
@@ -9920,6 +10404,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEmailConfigurationInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentInboundFederationInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentInboundFederationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentInboundFederationPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentInboundFederationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentLambdaConfigInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentLambdaConfigArgs{})
@@ -10012,6 +10498,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolDomainRoutingTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolEumsSmsConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolEumsSmsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolInboundFederationOutput{})
 	pulumi.RegisterOutputType(UserPoolInboundFederationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolInviteMessageTemplateOutput{})
@@ -10038,6 +10526,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentInboundFederationOutput{})
 	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentLambdaConfigOutput{})

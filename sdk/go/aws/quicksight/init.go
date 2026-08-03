@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OAuthClientApplication{}
 	case "aws-native:quicksight:RefreshSchedule":
 		r = &RefreshSchedule{}
+	case "aws-native:quicksight:Space":
+		r = &Space{}
 	case "aws-native:quicksight:Template":
 		r = &Template{}
 	case "aws-native:quicksight:Theme":

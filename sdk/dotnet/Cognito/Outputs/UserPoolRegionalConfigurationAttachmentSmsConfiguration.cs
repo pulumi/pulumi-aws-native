@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRegionalConfigurationAttachmentSmsConfiguration
     {
+        public readonly Outputs.UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration? EumsSms;
         public readonly string? ExternalId;
         public readonly string? SnsCallerArn;
         public readonly string? SnsRegion;
 
         [OutputConstructor]
         private UserPoolRegionalConfigurationAttachmentSmsConfiguration(
+            Outputs.UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration? eumsSms,
+
             string? externalId,
 
             string? snsCallerArn,
 
             string? snsRegion)
         {
+            EumsSms = eumsSms;
             ExternalId = externalId;
             SnsCallerArn = snsCallerArn;
             SnsRegion = snsRegion;

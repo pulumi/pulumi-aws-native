@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public static class GetAccessPolicy
     {
         /// <summary>
-        /// Amazon OpenSearchServerless access policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("aws-native:opensearchserverless:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless access policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("aws-native:opensearchserverless:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless access policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("aws-native:opensearchserverless:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());

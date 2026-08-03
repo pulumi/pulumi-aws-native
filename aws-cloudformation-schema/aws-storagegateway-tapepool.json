@@ -91,7 +91,7 @@
       "permissions" : [ "storagegateway:ListTapePools", "storagegateway:AddTagsToResource", "storagegateway:RemoveTagsFromResource", "storagegateway:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "storagegateway:DeleteTapePool", "storagegateway:ListTapePools" ]
+      "permissions" : [ "storagegateway:DeleteTapePool", "storagegateway:ListTapePools", "storagegateway:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "storagegateway:ListTapePools" ]

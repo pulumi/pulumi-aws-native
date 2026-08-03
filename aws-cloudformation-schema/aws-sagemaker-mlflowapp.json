@@ -60,10 +60,12 @@
     },
     "CreationTime" : {
       "type" : "string",
+      "format" : "date-time",
       "description" : "The date and time that the MLflow App was created."
     },
     "LastModifiedTime" : {
       "type" : "string",
+      "format" : "date-time",
       "description" : "The date and time that the MLflow App was last modified."
     },
     "Tags" : {
@@ -121,7 +123,7 @@
       "permissions" : [ "sagemaker:UpdateMlflowApp", "sagemaker:DescribeMlflowApp", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
     },
     "delete" : {
-      "permissions" : [ "sagemaker:DeleteMlflowApp", "sagemaker:DescribeMlflowApp" ]
+      "permissions" : [ "sagemaker:DeleteMlflowApp", "sagemaker:DescribeMlflowApp", "sagemaker:ListTags" ]
     },
     "list" : {
       "permissions" : [ "sagemaker:ListMlflowApps" ]

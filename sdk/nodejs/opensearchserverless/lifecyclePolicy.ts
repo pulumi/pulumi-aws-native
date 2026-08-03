@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless lifecycle policy resource
+ * Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**

@@ -335,6 +335,8 @@ if typing.TYPE_CHECKING:
     macie = __macie
     import pulumi_aws_native.mediaconnect as __mediaconnect
     mediaconnect = __mediaconnect
+    import pulumi_aws_native.mediaconvert as __mediaconvert
+    mediaconvert = __mediaconvert
     import pulumi_aws_native.medialive as __medialive
     medialive = __medialive
     import pulumi_aws_native.mediapackage as __mediapackage
@@ -702,6 +704,7 @@ else:
     m2 = _utilities.lazy_import('pulumi_aws_native.m2')
     macie = _utilities.lazy_import('pulumi_aws_native.macie')
     mediaconnect = _utilities.lazy_import('pulumi_aws_native.mediaconnect')
+    mediaconvert = _utilities.lazy_import('pulumi_aws_native.mediaconvert')
     medialive = _utilities.lazy_import('pulumi_aws_native.medialive')
     mediapackage = _utilities.lazy_import('pulumi_aws_native.mediapackage')
     mediapackagev2 = _utilities.lazy_import('pulumi_aws_native.mediapackagev2')
@@ -1211,6 +1214,7 @@ _utilities.register(
    "aws-native:bedrockagentcore:Gateway": "Gateway",
    "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
    "aws-native:bedrockagentcore:Harness": "Harness",
+   "aws-native:bedrockagentcore:HarnessEndpoint": "HarnessEndpoint",
    "aws-native:bedrockagentcore:Memory": "Memory",
    "aws-native:bedrockagentcore:OAuth2CredentialProvider": "OAuth2CredentialProvider",
    "aws-native:bedrockagentcore:OnlineEvaluationConfig": "OnlineEvaluationConfig",
@@ -1800,6 +1804,7 @@ _utilities.register(
    "aws-native:dms:Certificate": "Certificate",
    "aws-native:dms:DataMigration": "DataMigration",
    "aws-native:dms:DataProvider": "DataProvider",
+   "aws-native:dms:Endpoint": "Endpoint",
    "aws-native:dms:InstanceProfile": "InstanceProfile",
    "aws-native:dms:MigrationProject": "MigrationProject",
    "aws-native:dms:ReplicationConfig": "ReplicationConfig"
@@ -1925,6 +1930,7 @@ _utilities.register(
    "aws-native:ec2:TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachment",
    "aws-native:ec2:TransitGatewayPolicyTable": "TransitGatewayPolicyTable",
    "aws-native:ec2:TransitGatewayPolicyTableAssociation": "TransitGatewayPolicyTableAssociation",
+   "aws-native:ec2:TransitGatewayPolicyTableEntry": "TransitGatewayPolicyTableEntry",
    "aws-native:ec2:TransitGatewayRoute": "TransitGatewayRoute",
    "aws-native:ec2:TransitGatewayRouteTable": "TransitGatewayRouteTable",
    "aws-native:ec2:TransitGatewayRouteTableAssociation": "TransitGatewayRouteTableAssociation",
@@ -2813,6 +2819,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "mediaconvert",
+  "fqn": "pulumi_aws_native.mediaconvert",
+  "classes": {
+   "aws-native:mediaconvert:Preset": "Preset"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "medialive",
   "fqn": "pulumi_aws_native.medialive",
   "classes": {
@@ -2886,6 +2900,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.msk",
   "classes": {
    "aws-native:msk:BatchScramSecret": "BatchScramSecret",
+   "aws-native:msk:Channel": "Channel",
    "aws-native:msk:Cluster": "Cluster",
    "aws-native:msk:ClusterPolicy": "ClusterPolicy",
    "aws-native:msk:Configuration": "Configuration",
@@ -3227,6 +3242,7 @@ _utilities.register(
    "aws-native:quicksight:KnowledgeBase": "KnowledgeBase",
    "aws-native:quicksight:OAuthClientApplication": "OAuthClientApplication",
    "aws-native:quicksight:RefreshSchedule": "RefreshSchedule",
+   "aws-native:quicksight:Space": "Space",
    "aws-native:quicksight:Template": "Template",
    "aws-native:quicksight:Theme": "Theme",
    "aws-native:quicksight:Topic": "Topic",
@@ -3810,7 +3826,8 @@ _utilities.register(
    "aws-native:ssm:Parameter": "Parameter",
    "aws-native:ssm:PatchBaseline": "PatchBaseline",
    "aws-native:ssm:ResourceDataSync": "ResourceDataSync",
-   "aws-native:ssm:ResourcePolicy": "ResourcePolicy"
+   "aws-native:ssm:ResourcePolicy": "ResourcePolicy",
+   "aws-native:ssm:ServiceSetting": "ServiceSetting"
   }
  },
  {

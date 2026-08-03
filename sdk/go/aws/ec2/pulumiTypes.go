@@ -34297,6 +34297,168 @@ type TransitGatewayPeeringAttachmentTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type TransitGatewayPolicyTableEntryTransitGatewayPolicyRule struct {
+	// The destination CIDR block for the transit gateway policy rule.
+	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
+	// The destination port range for the transit gateway policy rule.
+	DestinationPortRange *string `pulumi:"destinationPortRange"`
+	// The protocol for the transit gateway policy rule.
+	Protocol *string `pulumi:"protocol"`
+	// The source CIDR block for the transit gateway policy rule.
+	SourceCidrBlock *string `pulumi:"sourceCidrBlock"`
+	// The source port range for the transit gateway policy rule.
+	SourcePortRange *string `pulumi:"sourcePortRange"`
+}
+
+// TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleInput is an input type that accepts TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs and TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput values.
+// You can construct a concrete instance of `TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleInput` via:
+//
+//	TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs{...}
+type TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleInput interface {
+	pulumi.Input
+
+	ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput() TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput
+	ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutputWithContext(context.Context) TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput
+}
+
+type TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs struct {
+	// The destination CIDR block for the transit gateway policy rule.
+	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
+	// The destination port range for the transit gateway policy rule.
+	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
+	// The protocol for the transit gateway policy rule.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The source CIDR block for the transit gateway policy rule.
+	SourceCidrBlock pulumi.StringPtrInput `pulumi:"sourceCidrBlock"`
+	// The source port range for the transit gateway policy rule.
+	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
+}
+
+func (TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPolicyTableEntryTransitGatewayPolicyRule)(nil)).Elem()
+}
+
+func (i TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs) ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput() TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput {
+	return i.ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs) ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutputWithContext(ctx context.Context) TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput)
+}
+
+type TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayPolicyTableEntryTransitGatewayPolicyRule)(nil)).Elem()
+}
+
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput() TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput {
+	return o
+}
+
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutputWithContext(ctx context.Context) TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput {
+	return o
+}
+
+// The destination CIDR block for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The destination port range for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) DestinationPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
+}
+
+// The protocol for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The source CIDR block for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) SourceCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string { return v.SourceCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The source port range for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput) SourcePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayPolicyTableEntryTransitGatewayPolicyRule)(nil)).Elem()
+}
+
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput() TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput {
+	return o
+}
+
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) ToTransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutputWithContext(ctx context.Context) TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput {
+	return o
+}
+
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) Elem() TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput {
+	return o.ApplyT(func(v *TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) TransitGatewayPolicyTableEntryTransitGatewayPolicyRule {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayPolicyTableEntryTransitGatewayPolicyRule
+		return ret
+	}).(TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput)
+}
+
+// The destination CIDR block for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationCidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination port range for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) DestinationPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortRange
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source CIDR block for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) SourceCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceCidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source port range for the transit gateway policy rule.
+func (o TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput) SourcePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayPolicyTableEntryTransitGatewayPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePortRange
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransitGatewayPolicyTableTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -40352,6 +40514,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationInput)(nil)).Elem(), TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayInput)(nil)).Elem(), TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleInput)(nil)).Elem(), TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointCidrOptionsPtrInput)(nil)).Elem(), VerifiedAccessEndpointCidrOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessEndpointLoadBalancerOptionsInput)(nil)).Elem(), VerifiedAccessEndpointLoadBalancerOptionsArgs{})
@@ -40802,6 +40965,8 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleOutput{})
+	pulumi.RegisterOutputType(TransitGatewayPolicyTableEntryTransitGatewayPolicyRulePtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointCidrOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointCidrOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessEndpointLoadBalancerOptionsOutput{})

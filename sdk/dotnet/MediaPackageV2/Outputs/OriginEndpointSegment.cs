@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.&lt;/p&gt;
         /// </summary>
         public readonly bool? IncludeIframeOnlyStreams;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointOutputTimestampMode? OutputTimestampMode;
         /// <summary>
         /// The SCTE-35 configuration associated with the segment.
         /// </summary>
@@ -51,6 +52,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             bool? includeIframeOnlyStreams,
 
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointOutputTimestampMode? outputTimestampMode,
+
             Outputs.OriginEndpointScte? scte,
 
             int? segmentDurationSeconds,
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         {
             Encryption = encryption;
             IncludeIframeOnlyStreams = includeIframeOnlyStreams;
+            OutputTimestampMode = outputTimestampMode;
             Scte = scte;
             SegmentDurationSeconds = segmentDurationSeconds;
             SegmentName = segmentName;

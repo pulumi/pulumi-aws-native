@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public static class GetVpcEndpoint
     {
         /// <summary>
-        /// Amazon OpenSearchServerless vpc endpoint resource
+        /// Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
         /// </summary>
         public static Task<GetVpcEndpointResult> InvokeAsync(GetVpcEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointResult>("aws-native:opensearchserverless:getVpcEndpoint", args ?? new GetVpcEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless vpc endpoint resource
+        /// Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
         /// </summary>
         public static Output<GetVpcEndpointResult> Invoke(GetVpcEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointResult>("aws-native:opensearchserverless:getVpcEndpoint", args ?? new GetVpcEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless vpc endpoint resource
+        /// Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
         /// </summary>
         public static Output<GetVpcEndpointResult> Invoke(GetVpcEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointResult>("aws-native:opensearchserverless:getVpcEndpoint", args ?? new GetVpcEndpointInvokeArgs(), options.WithDefaults());

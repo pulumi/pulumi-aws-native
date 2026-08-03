@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
     /// <summary>
-    /// The scope configuration for an Azure connector
+    /// The scope configuration for an Azure connector, defining the tenant or subscription scope.
     /// </summary>
     public sealed class ConnectorAzureScopeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The scope type for the Azure connector
+        /// The type of scope. Valid values are ``tenant`` and ``subscription``.
         /// </summary>
         [Input("scopeType", required: true)]
         public Input<Pulumi.AwsNative.SecurityHub.ConnectorAzureScopeConfigurationScopeType> ScopeType { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<string>? _scopeValues;
 
         /// <summary>
-        /// The list of scope values for the Azure connector
+        /// The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
         /// </summary>
         public InputList<string> ScopeValues
         {

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon OpenSearchServerless lifecycle policy resource
+// Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 

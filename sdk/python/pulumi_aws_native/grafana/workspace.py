@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -38,6 +40,7 @@ class WorkspaceArgs:
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  saml_configuration: pulumi.Input[Optional['WorkspaceSamlConfigurationArgs']] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_configuration: pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
@@ -64,6 +67,7 @@ class WorkspaceArgs:
         :param pulumi.Input[_builtins.str] role_arn: IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         :param pulumi.Input['WorkspaceSamlConfigurationArgs'] saml_configuration: If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
         :param pulumi.Input[_builtins.str] stack_set_name: The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags associated with the workspace.
         :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
                
                > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -97,6 +101,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "saml_configuration", saml_configuration)
         if stack_set_name is not None:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if vpc_configuration is not None:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
@@ -299,6 +305,18 @@ class WorkspaceArgs:
         pulumi.set(self, "stack_set_name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The list of tags associated with the workspace.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input[Optional['WorkspaceVpcConfigurationArgs']]:
         """
@@ -335,6 +353,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -364,6 +383,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role_arn: IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         :param pulumi.Input[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']] saml_configuration: If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
         :param pulumi.Input[_builtins.str] stack_set_name: The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of tags associated with the workspace.
         :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
                
                > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -408,6 +428,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -440,6 +461,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["saml_configuration"] = saml_configuration
             __props__.__dict__["stack_set_name"] = stack_set_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_timestamp"] = None
@@ -495,6 +517,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["sso_client_id"] = None
         __props__.__dict__["stack_set_name"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_configuration"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
@@ -695,6 +718,14 @@ class Workspace(pulumi.CustomResource):
         Type: String
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The list of tags associated with the workspace.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")

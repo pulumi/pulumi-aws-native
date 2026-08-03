@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<bool?> BisectBatchOnFunctionError { get; private set; } = null!;
 
         /// <summary>
-        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
+        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
         /// </summary>
         [Output("destinationConfig")]
         public Output<Outputs.EventSourceMappingDestinationConfig?> DestinationConfig { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The function's Amazon CloudWatch Logs configuration settings.
+        /// (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
         /// </summary>
         [Output("loggingConfig")]
         public Output<Outputs.EventSourceMappingLoggingConfig?> LoggingConfig { get; private set; } = null!;
@@ -140,14 +140,14 @@ namespace Pulumi.AwsNative.Lambda
         public Output<int?> MaximumBatchingWindowInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
         ///   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         /// </summary>
         [Output("maximumRecordAgeInSeconds")]
         public Output<int?> MaximumRecordAgeInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
+        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         /// </summary>
         [Output("maximumRetryAttempts")]
         public Output<int?> MaximumRetryAttempts { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.AwsNative.Lambda
         public Input<bool>? BisectBatchOnFunctionError { get; set; }
 
         /// <summary>
-        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
+        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
         /// </summary>
         [Input("destinationConfig")]
         public Input<Inputs.EventSourceMappingDestinationConfigArgs>? DestinationConfig { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.AwsNative.Lambda
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The function's Amazon CloudWatch Logs configuration settings.
+        /// (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.EventSourceMappingLoggingConfigArgs>? LoggingConfig { get; set; }
@@ -397,14 +397,14 @@ namespace Pulumi.AwsNative.Lambda
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
 
         /// <summary>
-        /// (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
         ///   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         /// </summary>
         [Input("maximumRecordAgeInSeconds")]
         public Input<int>? MaximumRecordAgeInSeconds { get; set; }
 
         /// <summary>
-        /// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
+        /// (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }

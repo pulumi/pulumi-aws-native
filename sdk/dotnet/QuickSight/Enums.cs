@@ -9169,6 +9169,40 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of QuickSight resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct SpaceResourceResourceType : IEquatable<SpaceResourceResourceType>
+    {
+        private readonly string _value;
+
+        private SpaceResourceResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SpaceResourceResourceType Topic { get; } = new SpaceResourceResourceType("TOPIC");
+        public static SpaceResourceResourceType Dashboard { get; } = new SpaceResourceResourceType("DASHBOARD");
+        public static SpaceResourceResourceType KnowledgeBase { get; } = new SpaceResourceResourceType("KNOWLEDGE_BASE");
+        public static SpaceResourceResourceType ActionConnector { get; } = new SpaceResourceResourceType("ACTION_CONNECTOR");
+        public static SpaceResourceResourceType DataSet { get; } = new SpaceResourceResourceType("DATA_SET");
+
+        public static bool operator ==(SpaceResourceResourceType left, SpaceResourceResourceType right) => left.Equals(right);
+        public static bool operator !=(SpaceResourceResourceType left, SpaceResourceResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SpaceResourceResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SpaceResourceResourceType other && Equals(other);
+        public bool Equals(SpaceResourceResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct TemplateAnchorOption : IEquatable<TemplateAnchorOption>
     {

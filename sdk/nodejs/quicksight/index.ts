@@ -105,6 +105,11 @@ export const getOAuthClientApplication: typeof import("./getOAuthClientApplicati
 export const getOAuthClientApplicationOutput: typeof import("./getOAuthClientApplication").getOAuthClientApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getOAuthClientApplication","getOAuthClientApplicationOutput"], () => require("./getOAuthClientApplication"));
 
+export { GetSpaceArgs, GetSpaceResult, GetSpaceOutputArgs } from "./getSpace";
+export const getSpace: typeof import("./getSpace").getSpace = null as any;
+export const getSpaceOutput: typeof import("./getSpace").getSpaceOutput = null as any;
+utilities.lazyLoad(exports, ["getSpace","getSpaceOutput"], () => require("./getSpace"));
+
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
@@ -139,6 +144,11 @@ export { RefreshScheduleArgs } from "./refreshSchedule";
 export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
 export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
 utilities.lazyLoad(exports, ["RefreshSchedule"], () => require("./refreshSchedule"));
+
+export { SpaceArgs } from "./space";
+export type Space = import("./space").Space;
+export const Space: typeof import("./space").Space = null as any;
+utilities.lazyLoad(exports, ["Space"], () => require("./space"));
 
 export { TemplateArgs } from "./template";
 export type Template = import("./template").Template;
@@ -192,6 +202,8 @@ const _module = {
                 return new OAuthClientApplication(name, <any>undefined, { urn })
             case "aws-native:quicksight:RefreshSchedule":
                 return new RefreshSchedule(name, <any>undefined, { urn })
+            case "aws-native:quicksight:Space":
+                return new Space(name, <any>undefined, { urn })
             case "aws-native:quicksight:Template":
                 return new Template(name, <any>undefined, { urn })
             case "aws-native:quicksight:Theme":

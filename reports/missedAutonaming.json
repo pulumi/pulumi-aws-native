@@ -4751,6 +4751,138 @@
       }
     }
   },
+  "aws-native:dms:Endpoint": {
+    "cfTypeName": "AWS::DMS::Endpoint",
+    "properties": {
+      "certificateArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) for the certificate."
+      },
+      "databaseName": {
+        "type": "string",
+        "description": "The name of the endpoint database. For a MySQL source or target endpoint, don't specify DatabaseName. To migrate to a specific database, use this setting and targetDbType."
+      },
+      "docDbSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointDocDbSettings",
+        "description": "Settings in JSON format for the source and target DocumentDB endpoint"
+      },
+      "dynamoDbSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointDynamoDbSettings",
+        "description": "Settings in JSON format for the target Amazon DynamoDB endpoint"
+      },
+      "elasticsearchSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointElasticsearchSettings",
+        "description": "Settings in JSON format for the target OpenSearch endpoint"
+      },
+      "endpointIdentifier": {
+        "type": "string",
+        "description": "The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens."
+      },
+      "endpointType": {
+        "type": "string",
+        "description": "The type of endpoint. Valid values are source and target."
+      },
+      "engineName": {
+        "type": "string",
+        "description": "The type of engine for the endpoint, depending on the EndpointType value."
+      },
+      "extraConnectionAttributes": {
+        "type": "string",
+        "description": "Additional attributes associated with the connection"
+      },
+      "gcpMySqlSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointGcpMySqlSettings",
+        "description": "Settings in JSON format for the source GCP MySQL endpoint"
+      },
+      "ibmDb2Settings": {
+        "$ref": "#/types/aws-native:dms:EndpointIbmDb2Settings",
+        "description": "Settings in JSON format for the source IBM Db2 LUW endpoint"
+      },
+      "kafkaSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointKafkaSettings",
+        "description": "Settings in JSON format for the target Apache Kafka endpoint"
+      },
+      "kinesisSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointKinesisSettings",
+        "description": "Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams"
+      },
+      "kmsKeyId": {
+        "type": "string",
+        "description": "An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.If you don't specify a value for the KmsKeyId parameter, AWS DMS uses your default encryption key."
+      },
+      "microsoftSqlServerSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointMicrosoftSqlServerSettings",
+        "description": "Settings in JSON format for the source and target Microsoft SQL Server endpoint"
+      },
+      "mongoDbSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointMongoDbSettings",
+        "description": "Settings in JSON format for the source MongoDB endpoint"
+      },
+      "mySqlSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointMySqlSettings",
+        "description": "Settings in JSON format for the source and target MySQL endpoin"
+      },
+      "neptuneSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointNeptuneSettings",
+        "description": "Settings in JSON format for the target Amazon Neptune endpoint"
+      },
+      "oracleSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointOracleSettings",
+        "description": "Settings in JSON format for the source and target Oracle endpoint"
+      },
+      "password": {
+        "type": "string",
+        "description": "The password to be used to log in to the endpoint database."
+      },
+      "port": {
+        "type": "integer",
+        "description": "The port used by the endpoint database."
+      },
+      "postgreSqlSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointPostgreSqlSettings",
+        "description": "Settings in JSON format for the source and target PostgreSQL endpoint."
+      },
+      "redisSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointRedisSettings",
+        "description": "Settings in JSON format for the target Redis endpoint"
+      },
+      "redshiftSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointRedshiftSettings",
+        "description": "Settings in JSON format for the Amazon Redshift endpoint."
+      },
+      "resourceIdentifier": {
+        "type": "string",
+        "description": "A display name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object."
+      },
+      "s3Settings": {
+        "$ref": "#/types/aws-native:dms:EndpointS3Settings",
+        "description": "Settings in JSON format for the source and target Amazon S3 endpoint"
+      },
+      "serverName": {
+        "type": "string",
+        "description": "The name of the server where the endpoint database resides."
+      },
+      "sslMode": {
+        "type": "string",
+        "description": "The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is none."
+      },
+      "sybaseSettings": {
+        "$ref": "#/types/aws-native:dms:EndpointSybaseSettings",
+        "description": "Settings in JSON format for the source and target SAP ASE endpoint."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags to be assigned to the endpoint."
+      },
+      "username": {
+        "type": "string",
+        "description": "The user name to be used to log in to the endpoint database."
+      }
+    }
+  },
   "aws-native:dms:ReplicationConfig": {
     "cfTypeName": "AWS::DMS::ReplicationConfig",
     "properties": {
@@ -6455,6 +6587,10 @@
   "aws-native:ec2:PlacementGroup": {
     "cfTypeName": "AWS::EC2::PlacementGroup",
     "properties": {
+      "parentGroupId": {
+        "type": "string",
+        "description": "The ID of a parent placement group. Valid for strategies that support parent group linking."
+      },
       "partitionCount": {
         "type": "integer",
         "description": "The number of partitions. Valid only when **Strategy** is set to `partition`"
@@ -7410,6 +7546,27 @@
       "transitGatewayPolicyTableId": {
         "type": "string",
         "description": "The ID of transit gateway policy table."
+      }
+    }
+  },
+  "aws-native:ec2:TransitGatewayPolicyTableEntry": {
+    "cfTypeName": "AWS::EC2::TransitGatewayPolicyTableEntry",
+    "properties": {
+      "policyRule": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayPolicyTableEntryTransitGatewayPolicyRule",
+        "description": "The policy rule associated with the entry."
+      },
+      "policyRuleNumber": {
+        "type": "string",
+        "description": "The rule number for the policy table entry."
+      },
+      "targetRouteTableId": {
+        "type": "string",
+        "description": "The ID of the target route table."
+      },
+      "transitGatewayPolicyTableId": {
+        "type": "string",
+        "description": "The ID of the transit gateway policy table."
       }
     }
   },
@@ -11278,7 +11435,7 @@
       },
       "destinationConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingDestinationConfig",
-        "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it."
+        "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it."
       },
       "documentDbEventSourceConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfig",
@@ -11313,7 +11470,7 @@
       },
       "loggingConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingLoggingConfig",
-        "description": "The function's Amazon CloudWatch Logs configuration settings."
+        "description": "(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html)."
       },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
@@ -11321,11 +11478,11 @@
       },
       "maximumRecordAgeInSeconds": {
         "type": "integer",
-        "description": "(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.\n  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed"
+        "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.\n  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed"
       },
       "maximumRetryAttempts": {
         "type": "integer",
-        "description": "(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
+        "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
       },
       "metricsConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfig",
@@ -17162,6 +17319,19 @@
       "resourceArn": {
         "type": "string",
         "description": "Arn of OpsItemGroup etc."
+      }
+    }
+  },
+  "aws-native:ssm:ServiceSetting": {
+    "cfTypeName": "AWS::SSM::ServiceSetting",
+    "properties": {
+      "settingId": {
+        "type": "string",
+        "description": "The ID of the service setting, such as /ssm/parameter-store/high-throughput-enabled."
+      },
+      "settingValue": {
+        "type": "string",
+        "description": "The value of the service setting."
       }
     }
   },

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless vpc endpoint resource
+ * Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
  */
 export function getVpcEndpoint(args: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,7 +36,7 @@ export interface GetVpcEndpointResult {
     readonly subnetIds?: string[];
 }
 /**
- * Amazon OpenSearchServerless vpc endpoint resource
+ * Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
  */
 export function getVpcEndpointOutput(args: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -175,14 +175,11 @@ import (
 type Topic struct {
 	pulumi.CustomResourceState
 
-	// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
+	// The ``ArchivePolicy`` determines the number of days SNS retains messages in FIFO topics. You can set a retention period ranging from 1 to 365 days. This property is only applicable to FIFO topics; attempting to use it with standard topics will result in a creation failure.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy pulumi.AnyOutput `pulumi:"archivePolicy"`
-	// Enables content-based deduplication for FIFO topics.
-	//   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
-	//   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-	//       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+	// ``ContentBasedDeduplication`` enables deduplication of messages based on their content for FIFO topics. By default, this property is set to false. If you create a FIFO topic with ``ContentBasedDeduplication`` set to false, you must provide a ``MessageDeduplicationId`` for each ``Publish`` action. When set to true, SNS automatically generates a ``MessageDeduplicationId`` using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a ``MessageDeduplicationId`` in the ``Publish`` action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail.
 	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
 	// The body of the policy document you want to use for this topic.
 	//  You can only add one policy per topic.
@@ -194,7 +191,7 @@ type Topic struct {
 	// The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
 	//   +  HTTP
 	//   +  Amazon Kinesis Data Firehose
-	//   +   AWS Lambda
+	//   +  AWS Lambda
 	//   +  Platform application endpoint
 	//   +  Amazon Simple Queue Service
 	//
@@ -202,7 +199,7 @@ type Topic struct {
 	DeliveryStatusLogging TopicLoggingConfigArrayOutput `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are ``Topic`` or ``MessageGroup``.
 	FifoThroughputScope pulumi.StringPtrOutput `pulumi:"fifoThroughputScope"`
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
@@ -272,14 +269,11 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
+	// The ``ArchivePolicy`` determines the number of days SNS retains messages in FIFO topics. You can set a retention period ranging from 1 to 365 days. This property is only applicable to FIFO topics; attempting to use it with standard topics will result in a creation failure.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy interface{} `pulumi:"archivePolicy"`
-	// Enables content-based deduplication for FIFO topics.
-	//   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
-	//   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-	//       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+	// ``ContentBasedDeduplication`` enables deduplication of messages based on their content for FIFO topics. By default, this property is set to false. If you create a FIFO topic with ``ContentBasedDeduplication`` set to false, you must provide a ``MessageDeduplicationId`` for each ``Publish`` action. When set to true, SNS automatically generates a ``MessageDeduplicationId`` using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a ``MessageDeduplicationId`` in the ``Publish`` action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail.
 	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
 	// The body of the policy document you want to use for this topic.
 	//  You can only add one policy per topic.
@@ -291,7 +285,7 @@ type topicArgs struct {
 	// The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
 	//   +  HTTP
 	//   +  Amazon Kinesis Data Firehose
-	//   +   AWS Lambda
+	//   +  AWS Lambda
 	//   +  Platform application endpoint
 	//   +  Amazon Simple Queue Service
 	//
@@ -299,7 +293,7 @@ type topicArgs struct {
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are ``Topic`` or ``MessageGroup``.
 	FifoThroughputScope *string `pulumi:"fifoThroughputScope"`
 	// Set to true to create a FIFO topic.
 	FifoTopic *bool `pulumi:"fifoTopic"`
@@ -324,14 +318,11 @@ type topicArgs struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
+	// The ``ArchivePolicy`` determines the number of days SNS retains messages in FIFO topics. You can set a retention period ranging from 1 to 365 days. This property is only applicable to FIFO topics; attempting to use it with standard topics will result in a creation failure.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 	ArchivePolicy pulumi.Input
-	// Enables content-based deduplication for FIFO topics.
-	//   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
-	//   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-	//       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+	// ``ContentBasedDeduplication`` enables deduplication of messages based on their content for FIFO topics. By default, this property is set to false. If you create a FIFO topic with ``ContentBasedDeduplication`` set to false, you must provide a ``MessageDeduplicationId`` for each ``Publish`` action. When set to true, SNS automatically generates a ``MessageDeduplicationId`` using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a ``MessageDeduplicationId`` in the ``Publish`` action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail.
 	ContentBasedDeduplication pulumi.BoolPtrInput
 	// The body of the policy document you want to use for this topic.
 	//  You can only add one policy per topic.
@@ -343,7 +334,7 @@ type TopicArgs struct {
 	// The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
 	//   +  HTTP
 	//   +  Amazon Kinesis Data Firehose
-	//   +   AWS Lambda
+	//   +  AWS Lambda
 	//   +  Platform application endpoint
 	//   +  Amazon Simple Queue Service
 	//
@@ -351,7 +342,7 @@ type TopicArgs struct {
 	DeliveryStatusLogging TopicLoggingConfigArrayInput
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 	DisplayName pulumi.StringPtrInput
-	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+	// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are ``Topic`` or ``MessageGroup``.
 	FifoThroughputScope pulumi.StringPtrInput
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrInput
@@ -411,17 +402,14 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
-// The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.
+// The “ArchivePolicy“ determines the number of days SNS retains messages in FIFO topics. You can set a retention period ranging from 1 to 365 days. This property is only applicable to FIFO topics; attempting to use it with standard topics will result in a creation failure.
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
 func (o TopicOutput) ArchivePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.ArchivePolicy }).(pulumi.AnyOutput)
 }
 
-// Enables content-based deduplication for FIFO topics.
-//   - By default, “ContentBasedDeduplication“ is set to “false“. If you create a FIFO topic and this attribute is “false“, you must specify a value for the “MessageDeduplicationId“ parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
-//   - When you set “ContentBasedDeduplication“ to “true“, SNS uses a SHA-256 hash to generate the “MessageDeduplicationId“ using the body of the message (but not the attributes of the message).
-//     (Optional) To override the generated value, you can specify a value for the the “MessageDeduplicationId“ parameter for the “Publish“ action.
+// “ContentBasedDeduplication“ enables deduplication of messages based on their content for FIFO topics. By default, this property is set to false. If you create a FIFO topic with “ContentBasedDeduplication“ set to false, you must provide a “MessageDeduplicationId“ for each “Publish“ action. When set to true, SNS automatically generates a “MessageDeduplicationId“ using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a “MessageDeduplicationId“ in the “Publish“ action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail.
 func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
 }
@@ -459,7 +447,7 @@ func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
+// Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are “Topic“ or “MessageGroup“.
 func (o TopicOutput) FifoThroughputScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.FifoThroughputScope }).(pulumi.StringPtrOutput)
 }

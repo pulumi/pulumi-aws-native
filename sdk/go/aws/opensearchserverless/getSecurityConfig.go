@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon OpenSearchServerless security config resource
+// Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
 func LookupSecurityConfig(ctx *pulumi.Context, args *LookupSecurityConfigArgs, opts ...pulumi.InvokeOption) (*LookupSecurityConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityConfigResult

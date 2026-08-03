@@ -311,7 +311,7 @@ class ConfigurationPolicyParameterConfigurationValueType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:securityhub:ConnectorAzureScopeConfigurationScopeType")
 class ConnectorAzureScopeConfigurationScopeType(_builtins.str, Enum):
     """
-    The scope type for the Azure connector
+    The type of scope. Valid values are ``tenant`` and ``subscription``.
     """
     TENANT = "TENANT"
     SUBSCRIPTION = "SUBSCRIPTION"

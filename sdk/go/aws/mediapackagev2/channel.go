@@ -44,6 +44,7 @@ type Channel struct {
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrOutput `pulumi:"outputHeaderConfiguration"`
+	OutputLockingMode         ChannelOutputLockingModePtrOutput         `pulumi:"outputLockingMode"`
 	Tags                      aws.TagArrayOutput                        `pulumi:"tags"`
 }
 
@@ -61,6 +62,7 @@ func NewChannel(ctx *pulumi.Context,
 		"channelGroupName",
 		"channelName",
 		"inputType",
+		"outputLockingMode",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -113,6 +115,7 @@ type channelArgs struct {
 	InputType *ChannelInputType `pulumi:"inputType"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
+	OutputLockingMode         *ChannelOutputLockingMode         `pulumi:"outputLockingMode"`
 	Tags                      []aws.Tag                         `pulumi:"tags"`
 }
 
@@ -135,6 +138,7 @@ type ChannelArgs struct {
 	InputType ChannelInputTypePtrInput
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrInput
+	OutputLockingMode         ChannelOutputLockingModePtrInput
 	Tags                      aws.TagArrayInput
 }
 
@@ -233,6 +237,10 @@ func (o ChannelOutput) ModifiedAt() pulumi.StringOutput {
 // The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 func (o ChannelOutput) OutputHeaderConfiguration() ChannelOutputHeaderConfigurationPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelOutputHeaderConfigurationPtrOutput { return v.OutputHeaderConfiguration }).(ChannelOutputHeaderConfigurationPtrOutput)
+}
+
+func (o ChannelOutput) OutputLockingMode() ChannelOutputLockingModePtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelOutputLockingModePtrOutput { return v.OutputLockingMode }).(ChannelOutputLockingModePtrOutput)
 }
 
 func (o ChannelOutput) Tags() aws.TagArrayOutput {

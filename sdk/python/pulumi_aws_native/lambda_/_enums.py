@@ -61,6 +61,9 @@ class CapacityProviderArchitecture(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:lambda:CapacityProviderLoggingConfigSystemLogLevel")
 class CapacityProviderLoggingConfigSystemLogLevel(_builtins.str, Enum):
+    """
+    Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+    """
     DEBUG = "DEBUG"
     INFO = "INFO"
     WARN = "WARN"

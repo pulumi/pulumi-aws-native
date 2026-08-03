@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
-    /// <summary>
-    /// The CSPM provider configuration for the connector
-    /// </summary>
     [OutputType]
     public sealed class ConnectorProvider
     {

@@ -993,6 +993,39 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct HarnessEndpointStatus : IEquatable<HarnessEndpointStatus>
+    {
+        private readonly string _value;
+
+        private HarnessEndpointStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessEndpointStatus Creating { get; } = new HarnessEndpointStatus("CREATING");
+        public static HarnessEndpointStatus CreateFailed { get; } = new HarnessEndpointStatus("CREATE_FAILED");
+        public static HarnessEndpointStatus Updating { get; } = new HarnessEndpointStatus("UPDATING");
+        public static HarnessEndpointStatus UpdateFailed { get; } = new HarnessEndpointStatus("UPDATE_FAILED");
+        public static HarnessEndpointStatus Ready { get; } = new HarnessEndpointStatus("READY");
+        public static HarnessEndpointStatus Deleting { get; } = new HarnessEndpointStatus("DELETING");
+        public static HarnessEndpointStatus DeleteFailed { get; } = new HarnessEndpointStatus("DELETE_FAILED");
+
+        public static bool operator ==(HarnessEndpointStatus left, HarnessEndpointStatus right) => left.Equals(right);
+        public static bool operator !=(HarnessEndpointStatus left, HarnessEndpointStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessEndpointStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessEndpointStatus other && Equals(other);
+        public bool Equals(HarnessEndpointStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct HarnessManagedMemoryConfigurationStrategiesItem : IEquatable<HarnessManagedMemoryConfigurationStrategiesItem>
     {
         private readonly string _value;

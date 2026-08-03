@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon OpenSearchServerless access policy resource
+// Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 

@@ -7005,6 +7005,10 @@ export namespace aps {
          * Configuration for Amazon Managed Prometheus metrics destination
          */
         ampConfiguration?: pulumi.Input<inputs.aps.ScraperDestinationAmpConfigurationPropertiesArgs | undefined>;
+        /**
+         * Configuration for CloudWatch metrics destination
+         */
+        cloudWatchConfiguration?: pulumi.Input<inputs.aps.ScraperDestinationCloudWatchConfigurationPropertiesArgs | undefined>;
     }
 
     /**
@@ -7015,6 +7019,16 @@ export namespace aps {
          * ARN of an Amazon Managed Prometheus workspace
          */
         workspaceArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for CloudWatch metrics destination
+     */
+    export interface ScraperDestinationCloudWatchConfigurationPropertiesArgs {
+        /**
+         * ARN of a CloudWatch dataset
+         */
+        datasetArn: pulumi.Input<string>;
     }
 
     /**
@@ -23869,6 +23883,16 @@ export namespace cognito {
         sourceArn?: pulumi.Input<string | undefined>;
     }
 
+    export interface UserPoolEumsSmsConfigurationArgs {
+        callerArn: pulumi.Input<string>;
+        configurationSetName?: pulumi.Input<string | undefined>;
+        externalId?: pulumi.Input<string | undefined>;
+        inEntityId?: pulumi.Input<string | undefined>;
+        inTemplateId?: pulumi.Input<string | undefined>;
+        originationIdentity?: pulumi.Input<string | undefined>;
+        region?: pulumi.Input<string | undefined>;
+    }
+
     export interface UserPoolInboundFederationArgs {
         lambdaArn?: pulumi.Input<string | undefined>;
         lambdaVersion?: pulumi.Input<string | undefined>;
@@ -24057,6 +24081,16 @@ export namespace cognito {
         sourceArn?: pulumi.Input<string | undefined>;
     }
 
+    export interface UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs {
+        callerArn: pulumi.Input<string>;
+        configurationSetName?: pulumi.Input<string | undefined>;
+        externalId?: pulumi.Input<string | undefined>;
+        inEntityId?: pulumi.Input<string | undefined>;
+        inTemplateId?: pulumi.Input<string | undefined>;
+        originationIdentity?: pulumi.Input<string | undefined>;
+        region?: pulumi.Input<string | undefined>;
+    }
+
     export interface UserPoolRegionalConfigurationAttachmentInboundFederationArgs {
         lambdaArn?: pulumi.Input<string | undefined>;
         lambdaVersion?: pulumi.Input<string | undefined>;
@@ -24086,6 +24120,7 @@ export namespace cognito {
     }
 
     export interface UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs {
+        eumsSms?: pulumi.Input<inputs.cognito.UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs | undefined>;
         externalId?: pulumi.Input<string | undefined>;
         snsCallerArn?: pulumi.Input<string | undefined>;
         snsRegion?: pulumi.Input<string | undefined>;
@@ -24260,6 +24295,7 @@ export namespace cognito {
     }
 
     export interface UserPoolSmsConfigurationArgs {
+        eumsSms?: pulumi.Input<inputs.cognito.UserPoolEumsSmsConfigurationArgs | undefined>;
         /**
          * The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
          *
@@ -32235,6 +32271,1040 @@ export namespace dms {
     }
 
     /**
+     * Provides information that defines a DocumentDB endpoint.
+     */
+    export interface EndpointDocDbSettingsArgs {
+        /**
+         * Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+         */
+        docsToInvestigate?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the document ID. Use this setting when NestingLevel is set to "none"
+         */
+        extractDocId?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies either document or table mode.
+         */
+        nestingLevel?: pulumi.Input<string | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information, including the Amazon Resource Name (ARN) of the IAM role used to define an Amazon DynamoDB target endpoint.
+     */
+    export interface EndpointDynamoDbSettingsArgs {
+        /**
+         * The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines an OpenSearch endpoint.
+     */
+    export interface EndpointElasticsearchSettingsArgs {
+        /**
+         * The endpoint for the OpenSearch cluster. AWS DMS uses HTTPS if a transport protocol (either HTTP or HTTPS) isn't specified.
+         */
+        endpointUri?: pulumi.Input<string | undefined>;
+        /**
+         * The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
+         */
+        errorRetryDuration?: pulumi.Input<number | undefined>;
+        /**
+         * The maximum percentage of records that can fail to be written before a full load operation stops.
+         */
+        fullLoadErrorPercentage?: pulumi.Input<number | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines a GCP MySQL endpoint.
+     */
+    export interface EndpointGcpMySqlSettingsArgs {
+        /**
+         * Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+         */
+        afterConnectScript?: pulumi.Input<string | undefined>;
+        /**
+         * Adjusts the behavior of AWS DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need AWS DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to false.
+         */
+        cleanSourceMetadataOnMismatch?: pulumi.Input<boolean | undefined>;
+        /**
+         * Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify the database using the DatabaseName request parameter on either the CreateEndpoint or ModifyEndpoint API call. Specifying DatabaseName when you create or modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the AWS DMS task.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+         */
+        eventsPollInterval?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+         */
+        maxFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread. The default is one.
+         */
+        parallelLoadThreads?: pulumi.Input<number | undefined>;
+        /**
+         * Endpoint connection password.
+         */
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * The port used by the endpoint database.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the MySQL endpoint.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * The MySQL host name.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+         */
+        serverTimezone?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines an IBMDB2 endpoint.
+     */
+    export interface EndpointIbmDb2SettingsArgs {
+        /**
+         * For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
+         */
+        currentLsn?: pulumi.Input<string | undefined>;
+        /**
+         * If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these files for analysis and troubleshooting.
+         */
+        keepCsvFiles?: pulumi.Input<boolean | undefined>;
+        /**
+         * The amount of time (in milliseconds) before AWS DMS times out operations performed by DMS on the Db2 target. The default value is 1200 (20 minutes).
+         */
+        loadTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.
+         */
+        maxFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
+         */
+        maxKBytesPerRead?: pulumi.Input<number | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value ofthe AWS Secrets Manager secret that allows access to the Db2 LUW endpoint.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the IBMDB2 endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
+         */
+        setDataCaptureChanges?: pulumi.Input<boolean | undefined>;
+        /**
+         * The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk on the DMS replication instance. The default value is 1024 (1 MB).
+         */
+        writeBufferSize?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Provides information that describes an Apache Kafka endpoint.
+     */
+    export interface EndpointKafkaSettingsArgs {
+        /**
+         * A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port
+         */
+        broker?: pulumi.Input<string | undefined>;
+        /**
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is false.
+         */
+        includeControlDetails?: pulumi.Input<boolean | undefined>;
+        /**
+         * Include NULL and empty columns for records migrated to the endpoint. The default is false.
+         */
+        includeNullAndEmpty?: pulumi.Input<boolean | undefined>;
+        /**
+         * Shows the partition value within the Kafka message output unless the partition type is schema-table-type. The default is false.
+         */
+        includePartitionValue?: pulumi.Input<boolean | undefined>;
+        /**
+         * Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+         */
+        includeTableAlterOperations?: pulumi.Input<boolean | undefined>;
+        /**
+         * Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for transaction_id, previous transaction_id, and transaction_record_id (the record offset within a transaction). The default is false.
+         */
+        includeTransactionDetails?: pulumi.Input<boolean | undefined>;
+        /**
+         * The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+         */
+        messageFormat?: pulumi.Input<string | undefined>;
+        /**
+         * The maximum size in bytes for records created on the endpoint The default is 1,000,000.
+         */
+        messageMaxBytes?: pulumi.Input<number | undefined>;
+        /**
+         * Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the NoHexPrefix endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
+         */
+        noHexPrefix?: pulumi.Input<boolean | undefined>;
+        /**
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+         */
+        partitionIncludeSchemaTable?: pulumi.Input<boolean | undefined>;
+        /**
+         * The secure password that you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         */
+        saslPassword?: pulumi.Input<string | undefined>;
+        /**
+         * The secure user name you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         */
+        saslUserName?: pulumi.Input<string | undefined>;
+        /**
+         * Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires SaslUsername and SaslPassword.
+         */
+        securityProtocol?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+         */
+        sslCaCertificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+         */
+        sslClientCertificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+         */
+        sslClientKeyArn?: pulumi.Input<string | undefined>;
+        /**
+         * The password for the client private key used to securely connect to a Kafka target endpoint.
+         */
+        sslClientKeyPassword?: pulumi.Input<string | undefined>;
+        /**
+         * The topic to which you migrate the data. If you don't specify a topic, AWS DMS specifies "kafka-default-topic" as the migration topic.
+         */
+        topic?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that describes an Amazon Kinesis Data Stream endpoint.
+     */
+    export interface EndpointKinesisSettingsArgs {
+        /**
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is false.
+         */
+        includeControlDetails?: pulumi.Input<boolean | undefined>;
+        /**
+         * Include NULL and empty columns for records migrated to the endpoint. The default is false.
+         */
+        includeNullAndEmpty?: pulumi.Input<boolean | undefined>;
+        /**
+         * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is false.
+         */
+        includePartitionValue?: pulumi.Input<boolean | undefined>;
+        /**
+         * Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+         */
+        includeTableAlterOperations?: pulumi.Input<boolean | undefined>;
+        /**
+         * Provides detailed transaction information from the source database.
+         */
+        includeTransactionDetails?: pulumi.Input<boolean | undefined>;
+        /**
+         * The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+         */
+        messageFormat?: pulumi.Input<string | undefined>;
+        /**
+         * Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format.
+         */
+        noHexPrefix?: pulumi.Input<boolean | undefined>;
+        /**
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+         */
+        partitionIncludeSchemaTable?: pulumi.Input<boolean | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) for the IAM role that AWS DMS uses to write to the Kinesis data stream. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
+         */
+        streamArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines a Microsoft SQL Server endpoint.
+     */
+    export interface EndpointMicrosoftSqlServerSettingsArgs {
+        /**
+         * The maximum size of the packets (in bytes) used to transfer data using BCP.
+         */
+        bcpPacketSize?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies a file group for the AWS DMS internal tables.
+         */
+        controlTablesFileGroup?: pulumi.Input<string | undefined>;
+        /**
+         * Database name for the endpoint.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Forces LOB lookup on inline LOB.
+         */
+        forceLobLookup?: pulumi.Input<boolean | undefined>;
+        /**
+         * Endpoint connection password.
+         */
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * Endpoint TCP port.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * Cleans and recreates table metadata information on the replication instance when a mismatch occurs. An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.
+         */
+        querySingleAlwaysOnNode?: pulumi.Input<boolean | undefined>;
+        /**
+         * When this attribute is set to Y, AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to Y enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+         */
+        readBackupOnly?: pulumi.Input<boolean | undefined>;
+        /**
+         * Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
+         */
+        safeguardPolicy?: pulumi.Input<string | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MicrosoftSQLServer endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of DescribeDBInstances, in the Endpoint.Address field.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * Indicates the mode used to fetch CDC data.
+         */
+        tlogAccessMode?: pulumi.Input<string | undefined>;
+        /**
+         * Use the TrimSpaceInChar source endpoint setting to right-trim data on CHAR and NCHAR data types during migration. Setting TrimSpaceInChar does not left-trim data. The default value is true.
+         */
+        trimSpaceInChar?: pulumi.Input<boolean | undefined>;
+        /**
+         * Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+         */
+        useBcpFullLoad?: pulumi.Input<boolean | undefined>;
+        /**
+         * When this attribute is set to Y, DMS processes third-party transaction log backups if they are created in native format.
+         */
+        useThirdPartyBackupDevice?: pulumi.Input<boolean | undefined>;
+        /**
+         * Endpoint connection user name.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines a MongoDB endpoint.
+     */
+    export interface EndpointMongoDbSettingsArgs {
+        /**
+         * The authentication mechanism you use to access the MongoDB source endpoint.
+         */
+        authMechanism?: pulumi.Input<string | undefined>;
+        /**
+         * The MongoDB database name. This setting isn't used when AuthType is set to "no".
+         */
+        authSource?: pulumi.Input<string | undefined>;
+        /**
+         * The authentication type you use to access the MongoDB source endpoint.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * The database name on the MongoDB source endpoint.
+         */
+        databaseName?: pulumi.Input<string | undefined>;
+        /**
+         * Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+         */
+        docsToInvestigate?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the document ID. Use this setting when NestingLevel is set to "none".
+         */
+        extractDocId?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies either document or table mode.
+         */
+        nestingLevel?: pulumi.Input<string | undefined>;
+        /**
+         * The password for the user account you use to access the MongoDB source endpoint.
+         */
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * The port value for the MongoDB source endpoint.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MongoDB endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the server on the MongoDB source endpoint.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * The user name you use to access the MongoDB source endpoint.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines a MySQL endpoint.
+     */
+    export interface EndpointMySqlSettingsArgs {
+        /**
+         * Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+         */
+        afterConnectScript?: pulumi.Input<string | undefined>;
+        /**
+         * Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
+         */
+        cleanSourceMetadataOnMismatch?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+         */
+        eventsPollInterval?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+         */
+        maxFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database.
+         */
+        parallelLoadThreads?: pulumi.Input<number | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the time zone for the source MySQL database.
+         */
+        serverTimezone?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+         */
+        targetDbType?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines an Amazon Neptune endpoint
+     */
+    export interface EndpointNeptuneSettingsArgs {
+        /**
+         * The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
+         */
+        errorRetryDuration?: pulumi.Input<number | undefined>;
+        /**
+         * If you want IAM authorization enabled for this endpoint, set this parameter to true.
+         */
+        iamAuthEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database.
+         */
+        maxFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
+         */
+        maxRetryCount?: pulumi.Input<number | undefined>;
+        /**
+         * A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by S3BucketName
+         */
+        s3BucketFolder?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database.
+         */
+        s3BucketName?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines an Oracle endpoint
+     */
+    export interface EndpointOracleSettingsArgs {
+        /**
+         * Set this attribute to false in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        accessAlternateDirectly?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+         */
+        addSupplementalLogging?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this attribute with ArchivedLogDestId in a primary/ standby setup
+         */
+        additionalArchivedLogDestId?: pulumi.Input<number | undefined>;
+        /**
+         * Set this attribute to true to enable replication of Oracle tables containing columns that are nested tables or defined types.
+         */
+        allowSelectNestedTables?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the ID of the destination for the archived redo logs.
+         */
+        archivedLogDestId?: pulumi.Input<number | undefined>;
+        /**
+         * When this field is set to True, AWS DMS only accesses the archived redo logs
+         */
+        archivedLogsOnly?: pulumi.Input<boolean | undefined>;
+        /**
+         * For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+         */
+        asmPassword?: pulumi.Input<string | undefined>;
+        /**
+         * For an Oracle source endpoint, your ASM server address.
+         */
+        asmServer?: pulumi.Input<string | undefined>;
+        /**
+         * For an Oracle source endpoint, your ASM user name.
+         */
+        asmUser?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies whether the length of a character column is in bytes or in characters.
+         */
+        charLengthSemantics?: pulumi.Input<string | undefined>;
+        /**
+         * When set to true, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+         */
+        directPathNoLog?: pulumi.Input<boolean | undefined>;
+        /**
+         * When set to true, this attribute specifies a parallel load when useDirectPathFullLoad is set to Y.
+         */
+        directPathParallelLoad?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+         */
+        enableHomogenousTablespace?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the IDs of one more destinations for one or more archived redo logs.
+         */
+        extraArchivedLogDestIds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+        /**
+         * When set to true, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified LobMaxSize.
+         */
+        failTasksOnLobTruncation?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the number scale. You can select a scale up to 38, or you can select FLOAT. By default, the NUMBER data type is converted to precision 38, scale 10.
+         */
+        numberDatatypeScale?: pulumi.Input<number | undefined>;
+        /**
+         * Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        oraclePathPrefix?: pulumi.Input<string | undefined>;
+        /**
+         * Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+         */
+        parallelAsmReadThreads?: pulumi.Input<number | undefined>;
+        /**
+         * Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+         */
+        readAheadBlocks?: pulumi.Input<number | undefined>;
+        /**
+         * When set to true, this attribute supports tablespace replication.
+         */
+        readTableSpaceName?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        replacePathPrefix?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the number of seconds that the system waits before resending a query.
+         */
+        retryInterval?: pulumi.Input<number | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+         */
+        secretsManagerOracleAsmAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+         */
+        secretsManagerOracleAsmSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Oracle endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+         */
+        securityDbEncryption?: pulumi.Input<string | undefined>;
+        /**
+         * For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+         */
+        securityDbEncryptionName?: pulumi.Input<string | undefined>;
+        /**
+         * Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible. Or you can create your own custom function that mimics the operation of SDOGEOJSON and set SpatialDataOptionToGeoJsonFunctionName to call it instead.
+         */
+        spatialDataOptionToGeoJsonFunctionName?: pulumi.Input<string | undefined>;
+        /**
+         * Use this attribute to specify a time in minutes for the delay in standby sync.
+         */
+        standbyDelayTime?: pulumi.Input<number | undefined>;
+        /**
+         * Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source
+         */
+        useAlternateFolderForOnline?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this attribute to True to capture change data using the Binary Reader utility.
+         */
+        useBFile?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this attribute to True to have AWS DMS use a direct path full load.
+         */
+        useDirectPathFullLoad?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this attribute to True to capture change data using the Oracle LogMiner utility (the default).
+         */
+        useLogminerReader?: pulumi.Input<boolean | undefined>;
+        /**
+         * Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        usePathPrefix?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines a PostgreSQL endpoint
+     */
+    export interface EndpointPostgreSqlSettingsArgs {
+        /**
+         * For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+         */
+        afterConnectScript?: pulumi.Input<string | undefined>;
+        /**
+         * The Babelfish for Aurora PostgreSQL database name for the endpoint.
+         */
+        babelfishDatabaseName?: pulumi.Input<string | undefined>;
+        /**
+         * To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts.
+         */
+        captureDdls?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+         */
+        databaseMode?: pulumi.Input<string | undefined>;
+        /**
+         * The schema in which the operational DDL database artifacts are created.
+         */
+        ddlArtifactsSchema?: pulumi.Input<string | undefined>;
+        /**
+         * Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+         */
+        executeTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * When set to true, this value causes a task to fail if the actual size of a LOB column is greater than the specified LobMaxSize.
+         */
+        failTasksOnLobTruncation?: pulumi.Input<boolean | undefined>;
+        /**
+         * The write-ahead log (WAL) heartbeat feature mimics a dummy transaction.
+         */
+        heartbeatEnable?: pulumi.Input<boolean | undefined>;
+        /**
+         * Sets the WAL heartbeat frequency (in minutes).
+         */
+        heartbeatFrequency?: pulumi.Input<number | undefined>;
+        /**
+         * Sets the schema in which the heartbeat artifacts are created.
+         */
+        heartbeatSchema?: pulumi.Input<string | undefined>;
+        /**
+         * When true, lets PostgreSQL migrate the boolean type as boolean.
+         */
+        mapBooleanAsBoolean?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+         */
+        maxFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the plugin to use to create a replication slot.
+         */
+        pluginName?: pulumi.Input<string | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the PostgreSQL endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance.
+         */
+        slotName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines a Redis target endpoint.
+     */
+    export interface EndpointRedisSettingsArgs {
+        /**
+         * The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+         */
+        authPassword?: pulumi.Input<string | undefined>;
+        /**
+         * The type of authentication to perform when connecting to a Redis target.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * The user name provided with the auth-role option of the AuthType setting for a Redis target endpoint.
+         */
+        authUserName?: pulumi.Input<string | undefined>;
+        /**
+         * Transmission Control Protocol (TCP) port for the endpoint.
+         */
+        port?: pulumi.Input<number | undefined>;
+        /**
+         * Fully qualified domain name of the endpoint.
+         */
+        serverName?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+         */
+        sslCaCertificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid values include plaintext and ssl-encryption.
+         */
+        sslSecurityProtocol?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Provides information that defines an Amazon Redshift endpoint.
+     */
+    export interface EndpointRedshiftSettingsArgs {
+        /**
+         * A value that indicates to allow any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose true or false (the default).
+         */
+        acceptAnyDate?: pulumi.Input<boolean | undefined>;
+        /**
+         * Code to run after connecting. This parameter should contain the code itself, not the name of a file containing the code.
+         */
+        afterConnectScript?: pulumi.Input<string | undefined>;
+        /**
+         * An S3 folder where the comma-separated-value (.csv) files are stored before being uploaded to the target Redshift cluster.
+         */
+        bucketFolder?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift.
+         */
+        bucketName?: pulumi.Input<string | undefined>;
+        /**
+         * If Amazon Redshift is configured to support case sensitive schema names, set CaseSensitiveNames to true. The default is false.
+         */
+        caseSensitiveNames?: pulumi.Input<boolean | undefined>;
+        /**
+         * If you set CompUpdate to true Amazon Redshift applies automatic compression if the table is empty.
+         */
+        compUpdate?: pulumi.Input<boolean | undefined>;
+        /**
+         * A value that sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+         */
+        connectionTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * The date format that you are using.
+         */
+        dateFormat?: pulumi.Input<string | undefined>;
+        /**
+         * A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of true sets empty CHAR and VARCHAR fields to null. The default is false.
+         */
+        emptyAsNull?: pulumi.Input<boolean | undefined>;
+        /**
+         * The type of server-side encryption that you want to use for your data.
+         */
+        encryptionMode?: pulumi.Input<string | undefined>;
+        /**
+         * This setting is only valid for a full-load migration task. Set ExplicitIds to true to have tables with IDENTITY columns override their auto-generated values with explicit values loaded from the source data files used to populate the tables. The default is false.
+         */
+        explicitIds?: pulumi.Input<boolean | undefined>;
+        /**
+         * The number of threads used to upload a single file. This parameter accepts a value from 1 through 64. It defaults to 10.
+         */
+        fileTransferUploadStreams?: pulumi.Input<number | undefined>;
+        /**
+         * The amount of time to wait (in milliseconds) before timing out of operations performed by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.
+         */
+        loadTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as varchar(1). You must set this setting on both the source and target endpoints for it to take effect.
+         */
+        mapBooleanAsBoolean?: pulumi.Input<boolean | undefined>;
+        /**
+         * The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1 GB).
+         */
+        maxFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * A value that specifies to remove surrounding quotation marks from strings in the incoming data.
+         */
+        removeQuotes?: pulumi.Input<boolean | undefined>;
+        /**
+         * A value that specifies to replaces the invalid characters specified in ReplaceInvalidChars, substituting the specified characters instead. The default is "?".
+         */
+        replaceChars?: pulumi.Input<string | undefined>;
+        /**
+         * A list of characters that you want to replace. Use with ReplaceChars.
+         */
+        replaceInvalidChars?: pulumi.Input<string | undefined>;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Amazon Redshift endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+        /**
+         * The AWS KMS key ID. If you are using SSE_KMS for the EncryptionMode, provide this key ID.
+         */
+        serverSideEncryptionKmsKeyId?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift service. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The time format that you want to use. Valid values are auto (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'.
+         */
+        timeFormat?: pulumi.Input<string | undefined>;
+        /**
+         * A value that specifies to remove the trailing white space characters from a VARCHAR string.
+         */
+        trimBlanks?: pulumi.Input<boolean | undefined>;
+        /**
+         * A value that specifies to truncate data in columns to the appropriate number of characters, so that the data fits in the column.
+         */
+        truncateColumns?: pulumi.Input<boolean | undefined>;
+        /**
+         * The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk at the DMS replication instance. The default value is 1000 (buffer size is 1000KB).
+         */
+        writeBufferSize?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Provides information that defines an Amazon S3 endpoint.
+     */
+    export interface EndpointS3SettingsArgs {
+        /**
+         * An optional parameter that, when set to true or y, you can use to add column name information to the .csv output file.
+         */
+        addColumnName?: pulumi.Input<boolean | undefined>;
+        /**
+         * Use the S3 target endpoint setting AddTrailingPaddingCharacter to add padding on string data. The default value is false.
+         */
+        addTrailingPaddingCharacter?: pulumi.Input<boolean | undefined>;
+        /**
+         * An optional parameter to set a folder name in the S3 bucket.
+         */
+        bucketFolder?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the S3 bucket.
+         */
+        bucketName?: pulumi.Input<string | undefined>;
+        /**
+         * A value that enables AWS DMS to specify a predefined (canned) access control list (ACL) for objects created in an Amazon S3 bucket as .csv or .parquet files.
+         */
+        cannedAclForObjects?: pulumi.Input<string | undefined>;
+        /**
+         * A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files.
+         */
+        cdcInsertsAndUpdates?: pulumi.Input<boolean | undefined>;
+        /**
+         * A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the false setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
+         */
+        cdcInsertsOnly?: pulumi.Input<boolean | undefined>;
+        /**
+         * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3.
+         */
+        cdcMaxBatchInterval?: pulumi.Input<number | undefined>;
+        /**
+         * Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.
+         */
+        cdcMinFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional.
+         */
+        cdcPath?: pulumi.Input<string | undefined>;
+        /**
+         * An optional parameter. When set to GZIP it enables the service to compress the target files.
+         */
+        compressionType?: pulumi.Input<string | undefined>;
+        /**
+         * The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
+         */
+        csvDelimiter?: pulumi.Input<string | undefined>;
+        /**
+         * This setting only applies if your Amazon S3 output files during a change data capture (CDC) load are written in .csv format.
+         */
+        csvNoSupValue?: pulumi.Input<string | undefined>;
+        /**
+         * An optional parameter that specifies how AWS DMS treats null values.
+         */
+        csvNullValue?: pulumi.Input<string | undefined>;
+        /**
+         * The delimiter used to separate rows in the .csv file for both source and target.
+         */
+        csvRowDelimiter?: pulumi.Input<string | undefined>;
+        /**
+         * The format of the data that you want to use for output.
+         */
+        dataFormat?: pulumi.Input<string | undefined>;
+        /**
+         * The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
+         */
+        dataPageSize?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies a date separating delimiter to use during folder partitioning. The default value is SLASH. Use this parameter when DatePartitionedEnabled is set to true.
+         */
+        datePartitionDelimiter?: pulumi.Input<string | undefined>;
+        /**
+         * When set to true, this parameter partitions S3 bucket folders based on transaction commit dates. The default value is false.
+         */
+        datePartitionEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Identifies the sequence of the date format to use during folder partitioning. The default value is YYYYMMDD. Use this parameter when DatePartitionedEnabled is set to true.
+         */
+        datePartitionSequence?: pulumi.Input<string | undefined>;
+        /**
+         * When creating an S3 target endpoint, set DatePartitionTimezone to convert the current UTC time into a specified time zone.
+         */
+        datePartitionTimezone?: pulumi.Input<string | undefined>;
+        /**
+         * The maximum size of an encoded dictionary page of a column
+         */
+        dictPageSizeLimit?: pulumi.Input<number | undefined>;
+        /**
+         * A value that enables statistics for Parquet pages and row groups.
+         */
+        enableStatistics?: pulumi.Input<boolean | undefined>;
+        /**
+         * The type of encoding that you're using.
+         */
+        encodingType?: pulumi.Input<string | undefined>;
+        /**
+         * The type of server-side encryption that you want to use for your data.
+         */
+        encryptionMode?: pulumi.Input<string | undefined>;
+        /**
+         * To specify a bucket owner and prevent sniping, you can use the ExpectedBucketOwner endpoint setting.
+         */
+        expectedBucketOwner?: pulumi.Input<string | undefined>;
+        /**
+         * The external table definition.
+         */
+        externalTableDefinition?: pulumi.Input<string | undefined>;
+        /**
+         * When true, allows AWS Glue to catalog your S3 bucket. Creating an AWS Glue catalog lets you use Athena to query your data.
+         */
+        glueCatalogGeneration?: pulumi.Input<boolean | undefined>;
+        /**
+         * When this value is set to 1, AWS DMS ignores the first row header in a .csv file. A value of 1 turns on the feature; a value of 0 turns off the feature.
+         */
+        ignoreHeaderRows?: pulumi.Input<number | undefined>;
+        /**
+         * A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
+         */
+        includeOpForFullLoad?: pulumi.Input<boolean | undefined>;
+        /**
+         * A value that specifies the maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load.
+         */
+        maxFileSize?: pulumi.Input<number | undefined>;
+        /**
+         * A value that specifies the precision of any TIMESTAMP column values that are written to an Amazon S3 object file in .parquet format.
+         */
+        parquetTimestampInMillisecond?: pulumi.Input<boolean | undefined>;
+        /**
+         * The version of the Apache Parquet format that you want to use: parquet_1_0 (the default) or parquet_2_0.
+         */
+        parquetVersion?: pulumi.Input<string | undefined>;
+        /**
+         * If this setting is set to true, AWS DMS saves the transaction order for a change data capture (CDC) load on the Amazon S3 target specified by CdcPath.
+         */
+        preserveTransactions?: pulumi.Input<boolean | undefined>;
+        /**
+         * For an S3 source, when this value is set to true or y, each leading double quotation mark has to be followed by an ending double quotation mark.
+         */
+        rfc4180?: pulumi.Input<boolean | undefined>;
+        /**
+         * The number of rows in a row group.
+         */
+        rowGroupLength?: pulumi.Input<number | undefined>;
+        /**
+         * If you are using SSE_KMS for the EncryptionMode, provide the AWS KMS key ID. The key that you use needs an attached policy that enables IAM user permissions and allows use of the key.
+         */
+        serverSideEncryptionKmsKeyId?: pulumi.Input<string | undefined>;
+        /**
+         * A required parameter that specifies the Amazon Resource Name (ARN) used by the service to access the IAM role.
+         */
+        serviceAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target.
+         */
+        timestampColumnName?: pulumi.Input<string | undefined>;
+        /**
+         * This setting applies if the S3 output files during a change data capture (CDC) load are written in .csv format. If this setting is set to true for columns not included in the supplemental log, AWS DMS uses the value specified by CsvNoSupValue. If this setting isn't set or is set to false, AWS DMS uses the null value for these columns.
+         */
+        useCsvNoSupValue?: pulumi.Input<boolean | undefined>;
+        /**
+         * When set to true, this parameter uses the task start time as the timestamp column value instead of the time data is written to target
+         */
+        useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * Provides information that defines a SAP ASE endpoint.
+     */
+    export interface EndpointSybaseSettingsArgs {
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the SAP SAE endpoint connection details.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
      * It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
      */
     export interface MigrationProjectDataProviderDescriptorArgs {
@@ -37284,6 +38354,29 @@ export namespace ec2 {
          * The transit gateway Autonomous System Number (ASN).
          */
         transitGatewayAsn?: pulumi.Input<number | undefined>;
+    }
+
+    export interface TransitGatewayPolicyTableEntryTransitGatewayPolicyRuleArgs {
+        /**
+         * The destination CIDR block for the transit gateway policy rule.
+         */
+        destinationCidrBlock?: pulumi.Input<string | undefined>;
+        /**
+         * The destination port range for the transit gateway policy rule.
+         */
+        destinationPortRange?: pulumi.Input<string | undefined>;
+        /**
+         * The protocol for the transit gateway policy rule.
+         */
+        protocol?: pulumi.Input<string | undefined>;
+        /**
+         * The source CIDR block for the transit gateway policy rule.
+         */
+        sourceCidrBlock?: pulumi.Input<string | undefined>;
+        /**
+         * The source port range for the transit gateway policy rule.
+         */
+        sourcePortRange?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -59894,8 +60987,17 @@ export namespace lambda {
         excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
+    /**
+     * The capacity provider's Amazon CloudWatch Logs configuration settings.
+     */
     export interface CapacityProviderLoggingConfigArgs {
+        /**
+         * The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named ``/aws/lambda/capacity-provider/<capacity provider name>``. To use a different log group, enter an existing log group or enter a new log group name.
+         */
         logGroup?: pulumi.Input<string | undefined>;
+        /**
+         * Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+         */
         systemLogLevel?: pulumi.Input<enums.lambda.CapacityProviderLoggingConfigSystemLogLevel | undefined>;
     }
 
@@ -59969,7 +61071,13 @@ export namespace lambda {
         targetValue: pulumi.Input<number>;
     }
 
+    /**
+     * Configuration that specifies the telemetry collection for the capacity provider.
+     */
     export interface CapacityProviderTelemetryConfigArgs {
+        /**
+         * The capacity provider's Amazon CloudWatch Logs configuration settings.
+         */
         loggingConfig?: pulumi.Input<inputs.lambda.CapacityProviderLoggingConfigArgs | undefined>;
     }
 
@@ -60132,7 +61240,12 @@ export namespace lambda {
      */
     export interface EventSourceMappingMetricsConfigArgs {
         /**
-         * The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+         * The metrics you want your event source mapping to produce, including ``EventCount``, ``ErrorCount``, ``KafkaMetrics``.
+         *   +  ``EventCount`` to receive metrics related to the number of events processed by your event source mapping.
+         *   +  ``ErrorCount`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.
+         *   +  ``KafkaMetrics`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.
+         *
+         *   For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
          */
         metrics?: pulumi.Input<pulumi.Input<enums.lambda.EventSourceMappingMetricsConfigMetricsItem>[] | undefined>;
     }
@@ -60143,7 +61256,7 @@ export namespace lambda {
     export interface EventSourceMappingOnFailureArgs {
         /**
          * The Amazon Resource Name (ARN) of the destination resource.
-         *  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
+         *  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.
          *   Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
          *   To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
          */
@@ -66201,7 +67314,13 @@ export namespace mediapackagev2 {
         publishMqcs?: pulumi.Input<boolean | undefined>;
     }
 
+    /**
+     * <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
+     */
     export interface OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs {
+        /**
+         * <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
+         */
         fixedAvailabilityStartTime: pulumi.Input<string>;
     }
 
@@ -66715,6 +67834,7 @@ export namespace mediapackagev2 {
          * <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
          */
         includeIframeOnlyStreams?: pulumi.Input<boolean | undefined>;
+        outputTimestampMode?: pulumi.Input<enums.mediapackagev2.OriginEndpointOutputTimestampMode | undefined>;
         /**
          * The SCTE-35 configuration associated with the segment.
          */
@@ -67201,6 +68321,255 @@ export namespace memorydb {
 }
 
 export namespace msk {
+    /**
+     * Catalog configuration of the destination
+     */
+    export interface ChannelCatalogArgs {
+        /**
+         * The ARN of the catalog
+         */
+        catalogArn?: pulumi.Input<string | undefined>;
+        /**
+         * The warehouse location
+         */
+        warehouseLocation?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * CloudWatch Logs log destination details
+     */
+    export interface ChannelCloudWatchLogsLogDestinationArgs {
+        /**
+         * Whether CloudWatch Logs logging is enabled
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch log group for log delivery
+         */
+        logGroup?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Dead letter queue S3 configuration of the destination
+     */
+    export interface ChannelDeadLetterQueueS3Args {
+        /**
+         * The ARN of the S3 bucket
+         */
+        bucketArn: pulumi.Input<string>;
+        /**
+         * The error output prefix
+         */
+        errorOutputPrefix: pulumi.Input<string>;
+        /**
+         * Optional 12-digit AWS account ID expected to own the dead-letter S3 bucket
+         */
+        expectedBucketOwner?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Destination table configuration
+     */
+    export interface ChannelDestinationTableArgs {
+        /**
+         * The destination database name
+         */
+        destinationDatabaseName: pulumi.Input<string>;
+        /**
+         * The destination table name
+         */
+        destinationTableName: pulumi.Input<string>;
+        partitionSpec?: pulumi.Input<inputs.msk.ChannelPartitionSpecArgs | undefined>;
+    }
+
+    /**
+     * Encryption configuration
+     */
+    export interface ChannelEncryptionConfigurationArgs {
+        /**
+         * The ARN of the KMS key for encryption
+         */
+        kmsKeyArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Firehose log destination details
+     */
+    export interface ChannelFirehoseLogDestinationArgs {
+        /**
+         * The Firehose delivery stream for log delivery
+         */
+        deliveryStream?: pulumi.Input<string | undefined>;
+        /**
+         * Whether Firehose logging is enabled
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Iceberg destination configuration
+     */
+    export interface ChannelIcebergDestinationConfigurationArgs {
+        /**
+         * Append only mode
+         */
+        appendOnly: pulumi.Input<boolean>;
+        catalog?: pulumi.Input<inputs.msk.ChannelCatalogArgs | undefined>;
+        compressionType?: pulumi.Input<enums.msk.ChannelIcebergCompressionType | undefined>;
+        /**
+         * Data freshness in seconds
+         */
+        dataFreshnessInSeconds?: pulumi.Input<number | undefined>;
+        deadLetterQueueS3: pulumi.Input<inputs.msk.ChannelDeadLetterQueueS3Args>;
+        /**
+         * List of destination tables
+         */
+        destinationTableList: pulumi.Input<pulumi.Input<inputs.msk.ChannelDestinationTableArgs>[]>;
+        schemaEvolution: pulumi.Input<inputs.msk.ChannelSchemaEvolutionArgs>;
+        /**
+         * The Amazon Resource Name (ARN) of an IAM role used by MSK to access the table
+         */
+        serviceExecutionRoleArn: pulumi.Input<string>;
+        tableCreation: pulumi.Input<inputs.msk.ChannelTableCreationArgs>;
+    }
+
+    /**
+     * Log configuration details for Channel
+     */
+    export interface ChannelLoggingInfoArgs {
+        cloudWatchLogs?: pulumi.Input<inputs.msk.ChannelCloudWatchLogsLogDestinationArgs | undefined>;
+        firehose?: pulumi.Input<inputs.msk.ChannelFirehoseLogDestinationArgs | undefined>;
+        s3?: pulumi.Input<inputs.msk.ChannelS3LogDestinationArgs | undefined>;
+    }
+
+    /**
+     * Partition source configuration
+     */
+    export interface ChannelPartitionSourceArgs {
+        /**
+         * Source name
+         */
+        sourceName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Partition specification
+     */
+    export interface ChannelPartitionSpecArgs {
+        partitionStrategy: pulumi.Input<enums.msk.ChannelPartitionStrategy>;
+        /**
+         * Source list
+         */
+        sourceList?: pulumi.Input<pulumi.Input<inputs.msk.ChannelPartitionSourceArgs>[] | undefined>;
+    }
+
+    /**
+     * Record converter configuration for a topic
+     */
+    export interface ChannelRecordConverterArgs {
+        valueConverter: pulumi.Input<enums.msk.ChannelValueConverter>;
+    }
+
+    /**
+     * Record schema configuration for a topic
+     */
+    export interface ChannelRecordSchemaArgs {
+        /**
+         * ARN of Glue Schema Registry resource used for table schema
+         */
+        gsrArn: pulumi.Input<string>;
+    }
+
+    /**
+     * S3 destination configuration
+     */
+    export interface ChannelS3DestinationConfigurationArgs {
+        /**
+         * Data freshness in seconds
+         */
+        dataFreshnessInSeconds?: pulumi.Input<number | undefined>;
+        deadLetterQueueS3: pulumi.Input<inputs.msk.ChannelDeadLetterQueueS3Args>;
+        /**
+         * The Amazon Resource Name (ARN) of an IAM role used by MSK to access S3
+         */
+        serviceExecutionRoleArn: pulumi.Input<string>;
+        storage: pulumi.Input<inputs.msk.ChannelS3StorageArgs>;
+    }
+
+    /**
+     * S3 log destination details
+     */
+    export interface ChannelS3LogDestinationArgs {
+        /**
+         * The name of the S3 bucket for log delivery
+         */
+        bucket?: pulumi.Input<string | undefined>;
+        /**
+         * Whether S3 logging is enabled
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The S3 prefix for log delivery
+         */
+        prefix?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * S3 storage configuration
+     */
+    export interface ChannelS3StorageArgs {
+        /**
+         * ARN of the S3 bucket
+         */
+        bucketArn: pulumi.Input<string>;
+        compressionType: pulumi.Input<enums.msk.ChannelS3CompressionType>;
+        /**
+         * Optional 12-digit AWS account ID expected to own the S3 bucket
+         */
+        expectedBucketOwner?: pulumi.Input<string | undefined>;
+        /**
+         * Template for S3 key for output objects, used for partitioning
+         */
+        outputKeyTemplate?: pulumi.Input<string | undefined>;
+        /**
+         * Optional prefix for output objects
+         */
+        outputPrefix?: pulumi.Input<string | undefined>;
+        storageClass: pulumi.Input<enums.msk.ChannelS3StorageClass>;
+    }
+
+    /**
+     * Schema evolution configuration of the destination
+     */
+    export interface ChannelSchemaEvolutionArgs {
+        /**
+         * Whether schema evolution is enabled
+         */
+        enableSchemaEvolution: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Table creation configuration of the destination
+     */
+    export interface ChannelTableCreationArgs {
+        /**
+         * Whether table creation is enabled
+         */
+        enableTableCreation: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Configuration of topic in a channel
+     */
+    export interface ChannelTopicConfigurationArgs {
+        recordConverter: pulumi.Input<inputs.msk.ChannelRecordConverterArgs>;
+        recordSchema?: pulumi.Input<inputs.msk.ChannelRecordSchemaArgs | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) that uniquely identifies the topic
+         */
+        topicArn: pulumi.Input<string>;
+    }
+
     export interface ClusterBrokerLogsArgs {
         cloudWatchLogs?: pulumi.Input<inputs.msk.ClusterCloudWatchLogsArgs | undefined>;
         /**
@@ -95518,6 +96887,34 @@ export namespace quicksight {
         dayOfWeek?: pulumi.Input<enums.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek | undefined>;
     }
 
+    /**
+     * A QuickSight resource attached to the space.
+     */
+    export interface SpaceResourceArgs {
+        /**
+         * The ARN of the QuickSight resource.
+         */
+        resourceArn: pulumi.Input<string>;
+        /**
+         * The type of QuickSight resource.
+         */
+        resourceType: pulumi.Input<enums.quicksight.SpaceResourceResourceType>;
+    }
+
+    /**
+     * A permission granted to a principal on a QuickSight resource.
+     */
+    export interface SpaceResourcePermissionArgs {
+        /**
+         * The list of actions granted to the principal.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ARN of the principal (user or group) receiving the permission.
+         */
+        principal: pulumi.Input<string>;
+    }
+
     export interface TemplateAggregationFunctionArgs {
         /**
          * Aggregation for attributes.
@@ -115561,6 +116958,20 @@ export namespace sagemaker {
         fileSystemPath?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+     */
+    export interface UserProfileEmrSettingsArgs {
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+         */
+        assumableRoleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+         */
+        executionRoleArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface UserProfileFSxLustreFileSystemConfigArgs {
         /**
          * The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
@@ -115626,6 +117037,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.UserProfileResourceSpecArgs | undefined>;
+        /**
+         * The configuration parameters for EMR settings.
+         */
+        emrSettings?: pulumi.Input<inputs.sagemaker.UserProfileEmrSettingsArgs | undefined>;
         /**
          * A list of LifecycleConfigArns available for use with JupyterLab apps.
          */
@@ -115699,6 +117114,10 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sageMakerImageVersionArn?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+         */
+        trainingPlanArn?: pulumi.Input<string | undefined>;
     }
 
     export interface UserProfileS3FileSystemConfigArgs {
@@ -116594,6 +118013,10 @@ export namespace securityagent {
      */
     export interface PentestIntegratedRepositoryArgs {
         /**
+         * An optional override for the repository branch
+         */
+        branch?: pulumi.Input<string | undefined>;
+        /**
          * Unique identifier of the provider integration
          */
         integrationId: pulumi.Input<string>;
@@ -116853,7 +118276,7 @@ export namespace securityhub {
          *   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
          *   +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
          *
-         *  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+         *  The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
          */
         comparison: pulumi.Input<enums.securityhub.AutomationRuleStringFilterComparison>;
         /**
@@ -117501,37 +118924,37 @@ export namespace securityhub {
     }
 
     /**
-     * The configuration settings for an Azure CSPM provider
+     * The configuration for connecting to an Azure environment.
      */
     export interface ConnectorAzureProviderConfigurationArgs {
         /**
-         * The ARN of the AWS Config connector used for the Azure integration
+         * The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
          */
         awsConfigConnectorArn: pulumi.Input<string>;
         /**
-         * The list of Azure regions to include in the connector scope
+         * The list of Azure regions to monitor.
          */
         azureRegions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The scope configuration that defines which Azure resources are monitored.
+         */
         scopeConfiguration: pulumi.Input<inputs.securityhub.ConnectorAzureScopeConfigurationArgs>;
     }
 
     /**
-     * The scope configuration for an Azure connector
+     * The scope configuration for an Azure connector, defining the tenant or subscription scope.
      */
     export interface ConnectorAzureScopeConfigurationArgs {
         /**
-         * The scope type for the Azure connector
+         * The type of scope. Valid values are ``tenant`` and ``subscription``.
          */
         scopeType: pulumi.Input<enums.securityhub.ConnectorAzureScopeConfigurationScopeType>;
         /**
-         * The list of scope values for the Azure connector
+         * The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
          */
         scopeValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
-    /**
-     * The CSPM provider configuration for the connector
-     */
     export interface ConnectorProviderArgs {
         azure: pulumi.Input<inputs.securityhub.ConnectorAzureProviderConfigurationArgs>;
     }

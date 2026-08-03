@@ -16,6 +16,42 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ChannelCatalogArgs',
+    'ChannelCatalogArgsDict',
+    'ChannelCloudWatchLogsLogDestinationArgs',
+    'ChannelCloudWatchLogsLogDestinationArgsDict',
+    'ChannelDeadLetterQueueS3Args',
+    'ChannelDeadLetterQueueS3ArgsDict',
+    'ChannelDestinationTableArgs',
+    'ChannelDestinationTableArgsDict',
+    'ChannelEncryptionConfigurationArgs',
+    'ChannelEncryptionConfigurationArgsDict',
+    'ChannelFirehoseLogDestinationArgs',
+    'ChannelFirehoseLogDestinationArgsDict',
+    'ChannelIcebergDestinationConfigurationArgs',
+    'ChannelIcebergDestinationConfigurationArgsDict',
+    'ChannelLoggingInfoArgs',
+    'ChannelLoggingInfoArgsDict',
+    'ChannelPartitionSourceArgs',
+    'ChannelPartitionSourceArgsDict',
+    'ChannelPartitionSpecArgs',
+    'ChannelPartitionSpecArgsDict',
+    'ChannelRecordConverterArgs',
+    'ChannelRecordConverterArgsDict',
+    'ChannelRecordSchemaArgs',
+    'ChannelRecordSchemaArgsDict',
+    'ChannelS3DestinationConfigurationArgs',
+    'ChannelS3DestinationConfigurationArgsDict',
+    'ChannelS3LogDestinationArgs',
+    'ChannelS3LogDestinationArgsDict',
+    'ChannelS3StorageArgs',
+    'ChannelS3StorageArgsDict',
+    'ChannelSchemaEvolutionArgs',
+    'ChannelSchemaEvolutionArgsDict',
+    'ChannelTableCreationArgs',
+    'ChannelTableCreationArgsDict',
+    'ChannelTopicConfigurationArgs',
+    'ChannelTopicConfigurationArgsDict',
     'ClusterBrokerLogsArgs',
     'ClusterBrokerLogsArgsDict',
     'ClusterBrokerNodeGroupInfoArgs',
@@ -129,6 +165,1070 @@ __all__ = [
     'ServerlessClusterVpcConfigArgs',
     'ServerlessClusterVpcConfigArgsDict',
 ]
+
+class ChannelCatalogArgsDict(TypedDict):
+    """
+    Catalog configuration of the destination
+    """
+    catalog_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the catalog
+    """
+    warehouse_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The warehouse location
+    """
+
+@pulumi.input_type
+class ChannelCatalogArgs:
+    def __init__(__self__, *,
+                 catalog_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse_location: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Catalog configuration of the destination
+
+        :param pulumi.Input[_builtins.str] catalog_arn: The ARN of the catalog
+        :param pulumi.Input[_builtins.str] warehouse_location: The warehouse location
+        """
+        if catalog_arn is not None:
+            pulumi.set(__self__, "catalog_arn", catalog_arn)
+        if warehouse_location is not None:
+            pulumi.set(__self__, "warehouse_location", warehouse_location)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogArn")
+    def catalog_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the catalog
+        """
+        return pulumi.get(self, "catalog_arn")
+
+    @catalog_arn.setter
+    def catalog_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warehouseLocation")
+    def warehouse_location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The warehouse location
+        """
+        return pulumi.get(self, "warehouse_location")
+
+    @warehouse_location.setter
+    def warehouse_location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "warehouse_location", value)
+
+
+class ChannelCloudWatchLogsLogDestinationArgsDict(TypedDict):
+    """
+    CloudWatch Logs log destination details
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether CloudWatch Logs logging is enabled
+    """
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The CloudWatch log group for log delivery
+    """
+
+@pulumi.input_type
+class ChannelCloudWatchLogsLogDestinationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        CloudWatch Logs log destination details
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether CloudWatch Logs logging is enabled
+        :param pulumi.Input[_builtins.str] log_group: The CloudWatch log group for log delivery
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether CloudWatch Logs logging is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The CloudWatch log group for log delivery
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+
+class ChannelDeadLetterQueueS3ArgsDict(TypedDict):
+    """
+    Dead letter queue S3 configuration of the destination
+    """
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the S3 bucket
+    """
+    error_output_prefix: pulumi.Input[_builtins.str]
+    """
+    The error output prefix
+    """
+    expected_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional 12-digit AWS account ID expected to own the dead-letter S3 bucket
+    """
+
+@pulumi.input_type
+class ChannelDeadLetterQueueS3Args:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[_builtins.str],
+                 error_output_prefix: pulumi.Input[_builtins.str],
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Dead letter queue S3 configuration of the destination
+
+        :param pulumi.Input[_builtins.str] bucket_arn: The ARN of the S3 bucket
+        :param pulumi.Input[_builtins.str] error_output_prefix: The error output prefix
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Optional 12-digit AWS account ID expected to own the dead-letter S3 bucket
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the S3 bucket
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        The error output prefix
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+    @error_output_prefix.setter
+    def error_output_prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "error_output_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional 12-digit AWS account ID expected to own the dead-letter S3 bucket
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+
+class ChannelDestinationTableArgsDict(TypedDict):
+    """
+    Destination table configuration
+    """
+    destination_database_name: pulumi.Input[_builtins.str]
+    """
+    The destination database name
+    """
+    destination_table_name: pulumi.Input[_builtins.str]
+    """
+    The destination table name
+    """
+    partition_spec: NotRequired[pulumi.Input[Optional['ChannelPartitionSpecArgsDict']]]
+
+@pulumi.input_type
+class ChannelDestinationTableArgs:
+    def __init__(__self__, *,
+                 destination_database_name: pulumi.Input[_builtins.str],
+                 destination_table_name: pulumi.Input[_builtins.str],
+                 partition_spec: pulumi.Input[Optional['ChannelPartitionSpecArgs']] = None):
+        """
+        Destination table configuration
+
+        :param pulumi.Input[_builtins.str] destination_database_name: The destination database name
+        :param pulumi.Input[_builtins.str] destination_table_name: The destination table name
+        """
+        pulumi.set(__self__, "destination_database_name", destination_database_name)
+        pulumi.set(__self__, "destination_table_name", destination_table_name)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDatabaseName")
+    def destination_database_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The destination database name
+        """
+        return pulumi.get(self, "destination_database_name")
+
+    @destination_database_name.setter
+    def destination_database_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableName")
+    def destination_table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The destination table name
+        """
+        return pulumi.get(self, "destination_table_name")
+
+    @destination_table_name.setter
+    def destination_table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_table_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> pulumi.Input[Optional['ChannelPartitionSpecArgs']]:
+        return pulumi.get(self, "partition_spec")
+
+    @partition_spec.setter
+    def partition_spec(self, value: pulumi.Input[Optional['ChannelPartitionSpecArgs']]):
+        pulumi.set(self, "partition_spec", value)
+
+
+class ChannelEncryptionConfigurationArgsDict(TypedDict):
+    """
+    Encryption configuration
+    """
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the KMS key for encryption
+    """
+
+@pulumi.input_type
+class ChannelEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: pulumi.Input[_builtins.str]):
+        """
+        Encryption configuration
+
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key for encryption
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the KMS key for encryption
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+class ChannelFirehoseLogDestinationArgsDict(TypedDict):
+    """
+    Firehose log destination details
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether Firehose logging is enabled
+    """
+    delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Firehose delivery stream for log delivery
+    """
+
+@pulumi.input_type
+class ChannelFirehoseLogDestinationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Firehose log destination details
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether Firehose logging is enabled
+        :param pulumi.Input[_builtins.str] delivery_stream: The Firehose delivery stream for log delivery
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether Firehose logging is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Firehose delivery stream for log delivery
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+class ChannelIcebergDestinationConfigurationArgsDict(TypedDict):
+    """
+    Iceberg destination configuration
+    """
+    append_only: pulumi.Input[_builtins.bool]
+    """
+    Append only mode
+    """
+    dead_letter_queue_s3: pulumi.Input['ChannelDeadLetterQueueS3ArgsDict']
+    destination_table_list: pulumi.Input[Sequence[pulumi.Input['ChannelDestinationTableArgsDict']]]
+    """
+    List of destination tables
+    """
+    schema_evolution: pulumi.Input['ChannelSchemaEvolutionArgsDict']
+    service_execution_role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an IAM role used by MSK to access the table
+    """
+    table_creation: pulumi.Input['ChannelTableCreationArgsDict']
+    catalog: NotRequired[pulumi.Input[Optional['ChannelCatalogArgsDict']]]
+    compression_type: NotRequired[pulumi.Input[Optional['ChannelIcebergCompressionType']]]
+    data_freshness_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Data freshness in seconds
+    """
+
+@pulumi.input_type
+class ChannelIcebergDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 append_only: pulumi.Input[_builtins.bool],
+                 dead_letter_queue_s3: pulumi.Input['ChannelDeadLetterQueueS3Args'],
+                 destination_table_list: pulumi.Input[Sequence[pulumi.Input['ChannelDestinationTableArgs']]],
+                 schema_evolution: pulumi.Input['ChannelSchemaEvolutionArgs'],
+                 service_execution_role_arn: pulumi.Input[_builtins.str],
+                 table_creation: pulumi.Input['ChannelTableCreationArgs'],
+                 catalog: pulumi.Input[Optional['ChannelCatalogArgs']] = None,
+                 compression_type: pulumi.Input[Optional['ChannelIcebergCompressionType']] = None,
+                 data_freshness_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Iceberg destination configuration
+
+        :param pulumi.Input[_builtins.bool] append_only: Append only mode
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationTableArgs']]] destination_table_list: List of destination tables
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of an IAM role used by MSK to access the table
+        :param pulumi.Input[_builtins.int] data_freshness_in_seconds: Data freshness in seconds
+        """
+        pulumi.set(__self__, "append_only", append_only)
+        pulumi.set(__self__, "dead_letter_queue_s3", dead_letter_queue_s3)
+        pulumi.set(__self__, "destination_table_list", destination_table_list)
+        pulumi.set(__self__, "schema_evolution", schema_evolution)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "table_creation", table_creation)
+        if catalog is not None:
+            pulumi.set(__self__, "catalog", catalog)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="appendOnly")
+    def append_only(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Append only mode
+        """
+        return pulumi.get(self, "append_only")
+
+    @append_only.setter
+    def append_only(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "append_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3")
+    def dead_letter_queue_s3(self) -> pulumi.Input['ChannelDeadLetterQueueS3Args']:
+        return pulumi.get(self, "dead_letter_queue_s3")
+
+    @dead_letter_queue_s3.setter
+    def dead_letter_queue_s3(self, value: pulumi.Input['ChannelDeadLetterQueueS3Args']):
+        pulumi.set(self, "dead_letter_queue_s3", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTableList")
+    def destination_table_list(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelDestinationTableArgs']]]:
+        """
+        List of destination tables
+        """
+        return pulumi.get(self, "destination_table_list")
+
+    @destination_table_list.setter
+    def destination_table_list(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelDestinationTableArgs']]]):
+        pulumi.set(self, "destination_table_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaEvolution")
+    def schema_evolution(self) -> pulumi.Input['ChannelSchemaEvolutionArgs']:
+        return pulumi.get(self, "schema_evolution")
+
+    @schema_evolution.setter
+    def schema_evolution(self, value: pulumi.Input['ChannelSchemaEvolutionArgs']):
+        pulumi.set(self, "schema_evolution", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceExecutionRoleArn")
+    def service_execution_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role used by MSK to access the table
+        """
+        return pulumi.get(self, "service_execution_role_arn")
+
+    @service_execution_role_arn.setter
+    def service_execution_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_execution_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableCreation")
+    def table_creation(self) -> pulumi.Input['ChannelTableCreationArgs']:
+        return pulumi.get(self, "table_creation")
+
+    @table_creation.setter
+    def table_creation(self, value: pulumi.Input['ChannelTableCreationArgs']):
+        pulumi.set(self, "table_creation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def catalog(self) -> pulumi.Input[Optional['ChannelCatalogArgs']]:
+        return pulumi.get(self, "catalog")
+
+    @catalog.setter
+    def catalog(self, value: pulumi.Input[Optional['ChannelCatalogArgs']]):
+        pulumi.set(self, "catalog", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input[Optional['ChannelIcebergCompressionType']]:
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input[Optional['ChannelIcebergCompressionType']]):
+        pulumi.set(self, "compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Data freshness in seconds
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+    @data_freshness_in_seconds.setter
+    def data_freshness_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "data_freshness_in_seconds", value)
+
+
+class ChannelLoggingInfoArgsDict(TypedDict):
+    """
+    Log configuration details for Channel
+    """
+    cloud_watch_logs: NotRequired[pulumi.Input[Optional['ChannelCloudWatchLogsLogDestinationArgsDict']]]
+    firehose: NotRequired[pulumi.Input[Optional['ChannelFirehoseLogDestinationArgsDict']]]
+    s3: NotRequired[pulumi.Input[Optional['ChannelS3LogDestinationArgsDict']]]
+
+@pulumi.input_type
+class ChannelLoggingInfoArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: pulumi.Input[Optional['ChannelCloudWatchLogsLogDestinationArgs']] = None,
+                 firehose: pulumi.Input[Optional['ChannelFirehoseLogDestinationArgs']] = None,
+                 s3: pulumi.Input[Optional['ChannelS3LogDestinationArgs']] = None):
+        """
+        Log configuration details for Channel
+        """
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> pulumi.Input[Optional['ChannelCloudWatchLogsLogDestinationArgs']]:
+        return pulumi.get(self, "cloud_watch_logs")
+
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: pulumi.Input[Optional['ChannelCloudWatchLogsLogDestinationArgs']]):
+        pulumi.set(self, "cloud_watch_logs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> pulumi.Input[Optional['ChannelFirehoseLogDestinationArgs']]:
+        return pulumi.get(self, "firehose")
+
+    @firehose.setter
+    def firehose(self, value: pulumi.Input[Optional['ChannelFirehoseLogDestinationArgs']]):
+        pulumi.set(self, "firehose", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['ChannelS3LogDestinationArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['ChannelS3LogDestinationArgs']]):
+        pulumi.set(self, "s3", value)
+
+
+class ChannelPartitionSourceArgsDict(TypedDict):
+    """
+    Partition source configuration
+    """
+    source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Source name
+    """
+
+@pulumi.input_type
+class ChannelPartitionSourceArgs:
+    def __init__(__self__, *,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Partition source configuration
+
+        :param pulumi.Input[_builtins.str] source_name: Source name
+        """
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source name
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_name", value)
+
+
+class ChannelPartitionSpecArgsDict(TypedDict):
+    """
+    Partition specification
+    """
+    partition_strategy: pulumi.Input['ChannelPartitionStrategy']
+    source_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelPartitionSourceArgsDict']]]]]
+    """
+    Source list
+    """
+
+@pulumi.input_type
+class ChannelPartitionSpecArgs:
+    def __init__(__self__, *,
+                 partition_strategy: pulumi.Input['ChannelPartitionStrategy'],
+                 source_list: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelPartitionSourceArgs']]]] = None):
+        """
+        Partition specification
+
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelPartitionSourceArgs']]] source_list: Source list
+        """
+        pulumi.set(__self__, "partition_strategy", partition_strategy)
+        if source_list is not None:
+            pulumi.set(__self__, "source_list", source_list)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionStrategy")
+    def partition_strategy(self) -> pulumi.Input['ChannelPartitionStrategy']:
+        return pulumi.get(self, "partition_strategy")
+
+    @partition_strategy.setter
+    def partition_strategy(self, value: pulumi.Input['ChannelPartitionStrategy']):
+        pulumi.set(self, "partition_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceList")
+    def source_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelPartitionSourceArgs']]]]:
+        """
+        Source list
+        """
+        return pulumi.get(self, "source_list")
+
+    @source_list.setter
+    def source_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelPartitionSourceArgs']]]]):
+        pulumi.set(self, "source_list", value)
+
+
+class ChannelRecordConverterArgsDict(TypedDict):
+    """
+    Record converter configuration for a topic
+    """
+    value_converter: pulumi.Input['ChannelValueConverter']
+
+@pulumi.input_type
+class ChannelRecordConverterArgs:
+    def __init__(__self__, *,
+                 value_converter: pulumi.Input['ChannelValueConverter']):
+        """
+        Record converter configuration for a topic
+        """
+        pulumi.set(__self__, "value_converter", value_converter)
+
+    @_builtins.property
+    @pulumi.getter(name="valueConverter")
+    def value_converter(self) -> pulumi.Input['ChannelValueConverter']:
+        return pulumi.get(self, "value_converter")
+
+    @value_converter.setter
+    def value_converter(self, value: pulumi.Input['ChannelValueConverter']):
+        pulumi.set(self, "value_converter", value)
+
+
+class ChannelRecordSchemaArgsDict(TypedDict):
+    """
+    Record schema configuration for a topic
+    """
+    gsr_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of Glue Schema Registry resource used for table schema
+    """
+
+@pulumi.input_type
+class ChannelRecordSchemaArgs:
+    def __init__(__self__, *,
+                 gsr_arn: pulumi.Input[_builtins.str]):
+        """
+        Record schema configuration for a topic
+
+        :param pulumi.Input[_builtins.str] gsr_arn: ARN of Glue Schema Registry resource used for table schema
+        """
+        pulumi.set(__self__, "gsr_arn", gsr_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="gsrArn")
+    def gsr_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of Glue Schema Registry resource used for table schema
+        """
+        return pulumi.get(self, "gsr_arn")
+
+    @gsr_arn.setter
+    def gsr_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "gsr_arn", value)
+
+
+class ChannelS3DestinationConfigurationArgsDict(TypedDict):
+    """
+    S3 destination configuration
+    """
+    dead_letter_queue_s3: pulumi.Input['ChannelDeadLetterQueueS3ArgsDict']
+    service_execution_role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an IAM role used by MSK to access S3
+    """
+    storage: pulumi.Input['ChannelS3StorageArgsDict']
+    data_freshness_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Data freshness in seconds
+    """
+
+@pulumi.input_type
+class ChannelS3DestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 dead_letter_queue_s3: pulumi.Input['ChannelDeadLetterQueueS3Args'],
+                 service_execution_role_arn: pulumi.Input[_builtins.str],
+                 storage: pulumi.Input['ChannelS3StorageArgs'],
+                 data_freshness_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        S3 destination configuration
+
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of an IAM role used by MSK to access S3
+        :param pulumi.Input[_builtins.int] data_freshness_in_seconds: Data freshness in seconds
+        """
+        pulumi.set(__self__, "dead_letter_queue_s3", dead_letter_queue_s3)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "storage", storage)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3")
+    def dead_letter_queue_s3(self) -> pulumi.Input['ChannelDeadLetterQueueS3Args']:
+        return pulumi.get(self, "dead_letter_queue_s3")
+
+    @dead_letter_queue_s3.setter
+    def dead_letter_queue_s3(self, value: pulumi.Input['ChannelDeadLetterQueueS3Args']):
+        pulumi.set(self, "dead_letter_queue_s3", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceExecutionRoleArn")
+    def service_execution_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role used by MSK to access S3
+        """
+        return pulumi.get(self, "service_execution_role_arn")
+
+    @service_execution_role_arn.setter
+    def service_execution_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service_execution_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def storage(self) -> pulumi.Input['ChannelS3StorageArgs']:
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: pulumi.Input['ChannelS3StorageArgs']):
+        pulumi.set(self, "storage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Data freshness in seconds
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+    @data_freshness_in_seconds.setter
+    def data_freshness_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "data_freshness_in_seconds", value)
+
+
+class ChannelS3LogDestinationArgsDict(TypedDict):
+    """
+    S3 log destination details
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether S3 logging is enabled
+    """
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the S3 bucket for log delivery
+    """
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 prefix for log delivery
+    """
+
+@pulumi.input_type
+class ChannelS3LogDestinationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        S3 log destination details
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether S3 logging is enabled
+        :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket for log delivery
+        :param pulumi.Input[_builtins.str] prefix: The S3 prefix for log delivery
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether S3 logging is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the S3 bucket for log delivery
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 prefix for log delivery
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+class ChannelS3StorageArgsDict(TypedDict):
+    """
+    S3 storage configuration
+    """
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the S3 bucket
+    """
+    compression_type: pulumi.Input['ChannelS3CompressionType']
+    storage_class: pulumi.Input['ChannelS3StorageClass']
+    expected_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional 12-digit AWS account ID expected to own the S3 bucket
+    """
+    output_key_template: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Template for S3 key for output objects, used for partitioning
+    """
+    output_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional prefix for output objects
+    """
+
+@pulumi.input_type
+class ChannelS3StorageArgs:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[_builtins.str],
+                 compression_type: pulumi.Input['ChannelS3CompressionType'],
+                 storage_class: pulumi.Input['ChannelS3StorageClass'],
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_key_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        S3 storage configuration
+
+        :param pulumi.Input[_builtins.str] bucket_arn: ARN of the S3 bucket
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Optional 12-digit AWS account ID expected to own the S3 bucket
+        :param pulumi.Input[_builtins.str] output_key_template: Template for S3 key for output objects, used for partitioning
+        :param pulumi.Input[_builtins.str] output_prefix: Optional prefix for output objects
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "storage_class", storage_class)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if output_key_template is not None:
+            pulumi.set(__self__, "output_key_template", output_key_template)
+        if output_prefix is not None:
+            pulumi.set(__self__, "output_prefix", output_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the S3 bucket
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input['ChannelS3CompressionType']:
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input['ChannelS3CompressionType']):
+        pulumi.set(self, "compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> pulumi.Input['ChannelS3StorageClass']:
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: pulumi.Input['ChannelS3StorageClass']):
+        pulumi.set(self, "storage_class", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional 12-digit AWS account ID expected to own the S3 bucket
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputKeyTemplate")
+    def output_key_template(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Template for S3 key for output objects, used for partitioning
+        """
+        return pulumi.get(self, "output_key_template")
+
+    @output_key_template.setter
+    def output_key_template(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "output_key_template", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputPrefix")
+    def output_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional prefix for output objects
+        """
+        return pulumi.get(self, "output_prefix")
+
+    @output_prefix.setter
+    def output_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "output_prefix", value)
+
+
+class ChannelSchemaEvolutionArgsDict(TypedDict):
+    """
+    Schema evolution configuration of the destination
+    """
+    enable_schema_evolution: pulumi.Input[_builtins.bool]
+    """
+    Whether schema evolution is enabled
+    """
+
+@pulumi.input_type
+class ChannelSchemaEvolutionArgs:
+    def __init__(__self__, *,
+                 enable_schema_evolution: pulumi.Input[_builtins.bool]):
+        """
+        Schema evolution configuration of the destination
+
+        :param pulumi.Input[_builtins.bool] enable_schema_evolution: Whether schema evolution is enabled
+        """
+        pulumi.set(__self__, "enable_schema_evolution", enable_schema_evolution)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSchemaEvolution")
+    def enable_schema_evolution(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether schema evolution is enabled
+        """
+        return pulumi.get(self, "enable_schema_evolution")
+
+    @enable_schema_evolution.setter
+    def enable_schema_evolution(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enable_schema_evolution", value)
+
+
+class ChannelTableCreationArgsDict(TypedDict):
+    """
+    Table creation configuration of the destination
+    """
+    enable_table_creation: pulumi.Input[_builtins.bool]
+    """
+    Whether table creation is enabled
+    """
+
+@pulumi.input_type
+class ChannelTableCreationArgs:
+    def __init__(__self__, *,
+                 enable_table_creation: pulumi.Input[_builtins.bool]):
+        """
+        Table creation configuration of the destination
+
+        :param pulumi.Input[_builtins.bool] enable_table_creation: Whether table creation is enabled
+        """
+        pulumi.set(__self__, "enable_table_creation", enable_table_creation)
+
+    @_builtins.property
+    @pulumi.getter(name="enableTableCreation")
+    def enable_table_creation(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether table creation is enabled
+        """
+        return pulumi.get(self, "enable_table_creation")
+
+    @enable_table_creation.setter
+    def enable_table_creation(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enable_table_creation", value)
+
+
+class ChannelTopicConfigurationArgsDict(TypedDict):
+    """
+    Configuration of topic in a channel
+    """
+    record_converter: pulumi.Input['ChannelRecordConverterArgsDict']
+    topic_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) that uniquely identifies the topic
+    """
+    record_schema: NotRequired[pulumi.Input[Optional['ChannelRecordSchemaArgsDict']]]
+
+@pulumi.input_type
+class ChannelTopicConfigurationArgs:
+    def __init__(__self__, *,
+                 record_converter: pulumi.Input['ChannelRecordConverterArgs'],
+                 topic_arn: pulumi.Input[_builtins.str],
+                 record_schema: pulumi.Input[Optional['ChannelRecordSchemaArgs']] = None):
+        """
+        Configuration of topic in a channel
+
+        :param pulumi.Input[_builtins.str] topic_arn: The Amazon Resource Name (ARN) that uniquely identifies the topic
+        """
+        pulumi.set(__self__, "record_converter", record_converter)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        if record_schema is not None:
+            pulumi.set(__self__, "record_schema", record_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="recordConverter")
+    def record_converter(self) -> pulumi.Input['ChannelRecordConverterArgs']:
+        return pulumi.get(self, "record_converter")
+
+    @record_converter.setter
+    def record_converter(self, value: pulumi.Input['ChannelRecordConverterArgs']):
+        pulumi.set(self, "record_converter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the topic
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordSchema")
+    def record_schema(self) -> pulumi.Input[Optional['ChannelRecordSchemaArgs']]:
+        return pulumi.get(self, "record_schema")
+
+    @record_schema.setter
+    def record_schema(self, value: pulumi.Input[Optional['ChannelRecordSchemaArgs']]):
+        pulumi.set(self, "record_schema", value)
+
 
 class ClusterBrokerLogsArgsDict(TypedDict):
     cloud_watch_logs: NotRequired[pulumi.Input[Optional['ClusterCloudWatchLogsArgsDict']]]

@@ -29,8 +29,8 @@ class ConnectorArgs:
         """
         The set of arguments for constructing a Connector resource.
 
-        :param pulumi.Input[_builtins.str] description: A description of the connector
-        :param pulumi.Input[_builtins.str] name: The name of the connector
+        :param pulumi.Input[_builtins.str] description: The description of the connector.
+        :param pulumi.Input[_builtins.str] name: The name of the connector.
         """
         pulumi.set(__self__, "provider", provider)
         if description is not None:
@@ -53,7 +53,7 @@ class ConnectorArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the connector
+        The description of the connector.
         """
         return pulumi.get(self, "description")
 
@@ -65,7 +65,7 @@ class ConnectorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the connector
+        The name of the connector.
         """
         return pulumi.get(self, "name")
 
@@ -95,12 +95,12 @@ class Connector(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::SecurityHub::Connector
+        Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description of the connector
-        :param pulumi.Input[_builtins.str] name: The name of the connector
+        :param pulumi.Input[_builtins.str] description: The description of the connector.
+        :param pulumi.Input[_builtins.str] name: The name of the connector.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class Connector(pulumi.CustomResource):
                  args: ConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::SecurityHub::Connector
+        Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -198,17 +198,11 @@ class Connector(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ARN of the connector
-        """
         return pulumi.get(self, "connector_arn")
 
     @_builtins.property
     @pulumi.getter(name="connectorId")
     def connector_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the connector
-        """
         return pulumi.get(self, "connector_id")
 
     @_builtins.property
@@ -219,72 +213,51 @@ class Connector(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time for createdAt in UTC and ISO 8601 format.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The principal that created the connector
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description of the connector
+        The description of the connector.
         """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="enablementStatus")
     def enablement_status(self) -> pulumi.Output[_builtins.str]:
-        """
-        The enablement status of the connector
-        """
         return pulumi.get(self, "enablement_status")
 
     @_builtins.property
     @pulumi.getter
     def issues(self) -> pulumi.Output[Sequence['outputs.ConnectorHealthIssue']]:
-        """
-        The list of health issues associated with the connector
-        """
         return pulumi.get(self, "issues")
 
     @_builtins.property
     @pulumi.getter(name="lastCheckedAt")
     def last_checked_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time for lastCheckedAt in UTC and ISO 8601 format.
-        """
         return pulumi.get(self, "last_checked_at")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[_builtins.str]:
-        """
-        The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
     @pulumi.getter
     def message(self) -> pulumi.Output[_builtins.str]:
-        """
-        The message associated with the connector status change
-        """
         return pulumi.get(self, "message")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the connector
+        The name of the connector.
         """
         return pulumi.get(self, "name")
 

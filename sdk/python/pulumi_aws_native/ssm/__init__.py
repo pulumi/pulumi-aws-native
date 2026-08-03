@@ -19,6 +19,7 @@ from .get_parameter import *
 from .get_patch_baseline import *
 from .get_resource_data_sync import *
 from .get_resource_policy import *
+from .get_service_setting import *
 from .maintenance_window import *
 from .maintenance_window_target import *
 from .maintenance_window_task import *
@@ -27,5 +28,6 @@ from .parameter import *
 from .patch_baseline import *
 from .resource_data_sync import *
 from .resource_policy import *
+from .service_setting import *
 from ._inputs import *
 from . import outputs

@@ -3619,7 +3619,7 @@ func (in *configurationPolicyParameterConfigurationValueTypePtr) ToConfiguration
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationPolicyParameterConfigurationValueTypePtrOutput)
 }
 
-// The scope type for the Azure connector
+// The type of scope. Valid values are “tenant“ and “subscription“.
 type ConnectorAzureScopeConfigurationScopeType string
 
 const (

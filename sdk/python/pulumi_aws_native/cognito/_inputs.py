@@ -66,6 +66,8 @@ __all__ = [
     'UserPoolDomainRoutingTypeArgsDict',
     'UserPoolEmailConfigurationArgs',
     'UserPoolEmailConfigurationArgsDict',
+    'UserPoolEumsSmsConfigurationArgs',
+    'UserPoolEumsSmsConfigurationArgsDict',
     'UserPoolInboundFederationArgs',
     'UserPoolInboundFederationArgsDict',
     'UserPoolInviteMessageTemplateArgs',
@@ -92,6 +94,8 @@ __all__ = [
     'UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgsDict',
     'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs',
     'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgsDict',
+    'UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs',
+    'UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgsDict',
     'UserPoolRegionalConfigurationAttachmentInboundFederationArgs',
     'UserPoolRegionalConfigurationAttachmentInboundFederationArgsDict',
     'UserPoolRegionalConfigurationAttachmentLambdaConfigArgs',
@@ -1517,6 +1521,103 @@ class UserPoolEmailConfigurationArgs:
         pulumi.set(self, "source_arn", value)
 
 
+class UserPoolEumsSmsConfigurationArgsDict(TypedDict):
+    caller_arn: pulumi.Input[_builtins.str]
+    configuration_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    in_entity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    in_template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    origination_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserPoolEumsSmsConfigurationArgs:
+    def __init__(__self__, *,
+                 caller_arn: pulumi.Input[_builtins.str],
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 origination_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "caller_arn", caller_arn)
+        if configuration_set_name is not None:
+            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if in_entity_id is not None:
+            pulumi.set(__self__, "in_entity_id", in_entity_id)
+        if in_template_id is not None:
+            pulumi.set(__self__, "in_template_id", in_template_id)
+        if origination_identity is not None:
+            pulumi.set(__self__, "origination_identity", origination_identity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="callerArn")
+    def caller_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "caller_arn")
+
+    @caller_arn.setter
+    def caller_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "caller_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationSetName")
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "configuration_set_name")
+
+    @configuration_set_name.setter
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_set_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inEntityId")
+    def in_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "in_entity_id")
+
+    @in_entity_id.setter
+    def in_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "in_entity_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inTemplateId")
+    def in_template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "in_template_id")
+
+    @in_template_id.setter
+    def in_template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "in_template_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originationIdentity")
+    def origination_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "origination_identity")
+
+    @origination_identity.setter
+    def origination_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "origination_identity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
 class UserPoolInboundFederationArgsDict(TypedDict):
     lambda_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     lambda_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -2475,6 +2576,103 @@ class UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs:
         pulumi.set(self, "source_arn", value)
 
 
+class UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgsDict(TypedDict):
+    caller_arn: pulumi.Input[_builtins.str]
+    configuration_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    in_entity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    in_template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    origination_identity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs:
+    def __init__(__self__, *,
+                 caller_arn: pulumi.Input[_builtins.str],
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 origination_identity: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "caller_arn", caller_arn)
+        if configuration_set_name is not None:
+            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if in_entity_id is not None:
+            pulumi.set(__self__, "in_entity_id", in_entity_id)
+        if in_template_id is not None:
+            pulumi.set(__self__, "in_template_id", in_template_id)
+        if origination_identity is not None:
+            pulumi.set(__self__, "origination_identity", origination_identity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="callerArn")
+    def caller_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "caller_arn")
+
+    @caller_arn.setter
+    def caller_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "caller_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationSetName")
+    def configuration_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "configuration_set_name")
+
+    @configuration_set_name.setter
+    def configuration_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_set_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inEntityId")
+    def in_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "in_entity_id")
+
+    @in_entity_id.setter
+    def in_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "in_entity_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inTemplateId")
+    def in_template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "in_template_id")
+
+    @in_template_id.setter
+    def in_template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "in_template_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originationIdentity")
+    def origination_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "origination_identity")
+
+    @origination_identity.setter
+    def origination_identity(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "origination_identity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
 class UserPoolRegionalConfigurationAttachmentInboundFederationArgsDict(TypedDict):
     lambda_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     lambda_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -2744,6 +2942,7 @@ class UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs:
 
 
 class UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict(TypedDict):
+    eums_sms: NotRequired[pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgsDict']]]
     external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     sns_caller_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     sns_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -2751,15 +2950,27 @@ class UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict(TypedDict)
 @pulumi.input_type
 class UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs:
     def __init__(__self__, *,
+                 eums_sms: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs']] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_caller_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_region: pulumi.Input[Optional[_builtins.str]] = None):
+        if eums_sms is not None:
+            pulumi.set(__self__, "eums_sms", eums_sms)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if sns_caller_arn is not None:
             pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
         if sns_region is not None:
             pulumi.set(__self__, "sns_region", sns_region)
+
+    @_builtins.property
+    @pulumi.getter(name="eumsSms")
+    def eums_sms(self) -> pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs']]:
+        return pulumi.get(self, "eums_sms")
+
+    @eums_sms.setter
+    def eums_sms(self, value: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs']]):
+        pulumi.set(self, "eums_sms", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")
@@ -3533,6 +3744,7 @@ class UserPoolSignInPolicyArgs:
 
 
 class UserPoolSmsConfigurationArgsDict(TypedDict):
+    eums_sms: NotRequired[pulumi.Input[Optional['UserPoolEumsSmsConfigurationArgsDict']]]
     external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
@@ -3553,6 +3765,7 @@ class UserPoolSmsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class UserPoolSmsConfigurationArgs:
     def __init__(__self__, *,
+                 eums_sms: pulumi.Input[Optional['UserPoolEumsSmsConfigurationArgs']] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_caller_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_region: pulumi.Input[Optional[_builtins.str]] = None):
@@ -3565,12 +3778,23 @@ class UserPoolSmsConfigurationArgs:
                
                Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         """
+        if eums_sms is not None:
+            pulumi.set(__self__, "eums_sms", eums_sms)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if sns_caller_arn is not None:
             pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
         if sns_region is not None:
             pulumi.set(__self__, "sns_region", sns_region)
+
+    @_builtins.property
+    @pulumi.getter(name="eumsSms")
+    def eums_sms(self) -> pulumi.Input[Optional['UserPoolEumsSmsConfigurationArgs']]:
+        return pulumi.get(self, "eums_sms")
+
+    @eums_sms.setter
+    def eums_sms(self, value: pulumi.Input[Optional['UserPoolEumsSmsConfigurationArgs']]):
+        pulumi.set(self, "eums_sms", value)
 
     @_builtins.property
     @pulumi.getter(name="externalId")

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchServerless
 {
     /// <summary>
-    /// Amazon OpenSearchServerless vpc endpoint resource
+    /// Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
     /// 
     /// ## Example Usage
     /// ### Example

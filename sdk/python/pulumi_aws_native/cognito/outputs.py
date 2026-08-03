@@ -42,6 +42,7 @@ __all__ = [
     'UserPoolDomainFailoverType',
     'UserPoolDomainRoutingType',
     'UserPoolEmailConfiguration',
+    'UserPoolEumsSmsConfiguration',
     'UserPoolInboundFederation',
     'UserPoolInviteMessageTemplate',
     'UserPoolIssuerConfiguration',
@@ -55,6 +56,7 @@ __all__ = [
     'UserPoolRegionalConfigurationAttachmentCustomEmailSender',
     'UserPoolRegionalConfigurationAttachmentCustomSmsSender',
     'UserPoolRegionalConfigurationAttachmentEmailConfiguration',
+    'UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration',
     'UserPoolRegionalConfigurationAttachmentInboundFederation',
     'UserPoolRegionalConfigurationAttachmentLambdaConfig',
     'UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig',
@@ -1400,6 +1402,93 @@ class UserPoolEmailConfiguration(dict):
 
 
 @pulumi.output_type
+class UserPoolEumsSmsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "callerArn":
+            suggest = "caller_arn"
+        elif key == "configurationSetName":
+            suggest = "configuration_set_name"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "inEntityId":
+            suggest = "in_entity_id"
+        elif key == "inTemplateId":
+            suggest = "in_template_id"
+        elif key == "originationIdentity":
+            suggest = "origination_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolEumsSmsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolEumsSmsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolEumsSmsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caller_arn: _builtins.str,
+                 configuration_set_name: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 in_entity_id: Optional[_builtins.str] = None,
+                 in_template_id: Optional[_builtins.str] = None,
+                 origination_identity: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "caller_arn", caller_arn)
+        if configuration_set_name is not None:
+            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if in_entity_id is not None:
+            pulumi.set(__self__, "in_entity_id", in_entity_id)
+        if in_template_id is not None:
+            pulumi.set(__self__, "in_template_id", in_template_id)
+        if origination_identity is not None:
+            pulumi.set(__self__, "origination_identity", origination_identity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="callerArn")
+    def caller_arn(self) -> _builtins.str:
+        return pulumi.get(self, "caller_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationSetName")
+    def configuration_set_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "configuration_set_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="inEntityId")
+    def in_entity_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "in_entity_id")
+
+    @_builtins.property
+    @pulumi.getter(name="inTemplateId")
+    def in_template_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "in_template_id")
+
+    @_builtins.property
+    @pulumi.getter(name="originationIdentity")
+    def origination_identity(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "origination_identity")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
 class UserPoolInboundFederation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2248,6 +2337,93 @@ class UserPoolRegionalConfigurationAttachmentEmailConfiguration(dict):
 
 
 @pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "callerArn":
+            suggest = "caller_arn"
+        elif key == "configurationSetName":
+            suggest = "configuration_set_name"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "inEntityId":
+            suggest = "in_entity_id"
+        elif key == "inTemplateId":
+            suggest = "in_template_id"
+        elif key == "originationIdentity":
+            suggest = "origination_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caller_arn: _builtins.str,
+                 configuration_set_name: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 in_entity_id: Optional[_builtins.str] = None,
+                 in_template_id: Optional[_builtins.str] = None,
+                 origination_identity: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "caller_arn", caller_arn)
+        if configuration_set_name is not None:
+            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if in_entity_id is not None:
+            pulumi.set(__self__, "in_entity_id", in_entity_id)
+        if in_template_id is not None:
+            pulumi.set(__self__, "in_template_id", in_template_id)
+        if origination_identity is not None:
+            pulumi.set(__self__, "origination_identity", origination_identity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="callerArn")
+    def caller_arn(self) -> _builtins.str:
+        return pulumi.get(self, "caller_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationSetName")
+    def configuration_set_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "configuration_set_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="inEntityId")
+    def in_entity_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "in_entity_id")
+
+    @_builtins.property
+    @pulumi.getter(name="inTemplateId")
+    def in_template_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "in_template_id")
+
+    @_builtins.property
+    @pulumi.getter(name="originationIdentity")
+    def origination_identity(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "origination_identity")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
 class UserPoolRegionalConfigurationAttachmentInboundFederation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2502,7 +2678,9 @@ class UserPoolRegionalConfigurationAttachmentSmsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "externalId":
+        if key == "eumsSms":
+            suggest = "eums_sms"
+        elif key == "externalId":
             suggest = "external_id"
         elif key == "snsCallerArn":
             suggest = "sns_caller_arn"
@@ -2521,15 +2699,23 @@ class UserPoolRegionalConfigurationAttachmentSmsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 eums_sms: Optional['outputs.UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration'] = None,
                  external_id: Optional[_builtins.str] = None,
                  sns_caller_arn: Optional[_builtins.str] = None,
                  sns_region: Optional[_builtins.str] = None):
+        if eums_sms is not None:
+            pulumi.set(__self__, "eums_sms", eums_sms)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if sns_caller_arn is not None:
             pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
         if sns_region is not None:
             pulumi.set(__self__, "sns_region", sns_region)
+
+    @_builtins.property
+    @pulumi.getter(name="eumsSms")
+    def eums_sms(self) -> Optional['outputs.UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration']:
+        return pulumi.get(self, "eums_sms")
 
     @_builtins.property
     @pulumi.getter(name="externalId")
@@ -3227,7 +3413,9 @@ class UserPoolSmsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "externalId":
+        if key == "eumsSms":
+            suggest = "eums_sms"
+        elif key == "externalId":
             suggest = "external_id"
         elif key == "snsCallerArn":
             suggest = "sns_caller_arn"
@@ -3246,6 +3434,7 @@ class UserPoolSmsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 eums_sms: Optional['outputs.UserPoolEumsSmsConfiguration'] = None,
                  external_id: Optional[_builtins.str] = None,
                  sns_caller_arn: Optional[_builtins.str] = None,
                  sns_region: Optional[_builtins.str] = None):
@@ -3258,12 +3447,19 @@ class UserPoolSmsConfiguration(dict):
                
                Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         """
+        if eums_sms is not None:
+            pulumi.set(__self__, "eums_sms", eums_sms)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if sns_caller_arn is not None:
             pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
         if sns_region is not None:
             pulumi.set(__self__, "sns_region", sns_region)
+
+    @_builtins.property
+    @pulumi.getter(name="eumsSms")
+    def eums_sms(self) -> Optional['outputs.UserPoolEumsSmsConfiguration']:
+        return pulumi.get(self, "eums_sms")
 
     @_builtins.property
     @pulumi.getter(name="externalId")

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::OpenSearchServerless::CollectionIndex
+// Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
 type CollectionIndex struct {
 	pulumi.CustomResourceState
 

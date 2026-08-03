@@ -3221,6 +3221,8 @@ func (o PentestEndpointArrayOutput) Index(i pulumi.IntInput) PentestEndpointOutp
 
 // A repository connected via a provider integration
 type PentestIntegratedRepository struct {
+	// An optional override for the repository branch
+	Branch *string `pulumi:"branch"`
 	// Unique identifier of the provider integration
 	IntegrationId string `pulumi:"integrationId"`
 	// Identifier of the resource within the provider integration
@@ -3240,6 +3242,8 @@ type PentestIntegratedRepositoryInput interface {
 
 // A repository connected via a provider integration
 type PentestIntegratedRepositoryArgs struct {
+	// An optional override for the repository branch
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
 	// Unique identifier of the provider integration
 	IntegrationId pulumi.StringInput `pulumi:"integrationId"`
 	// Identifier of the resource within the provider integration
@@ -3296,6 +3300,11 @@ func (o PentestIntegratedRepositoryOutput) ToPentestIntegratedRepositoryOutput()
 
 func (o PentestIntegratedRepositoryOutput) ToPentestIntegratedRepositoryOutputWithContext(ctx context.Context) PentestIntegratedRepositoryOutput {
 	return o
+}
+
+// An optional override for the repository branch
+func (o PentestIntegratedRepositoryOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PentestIntegratedRepository) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier of the provider integration

@@ -36,6 +36,8 @@ __all__ = [
     'ScraperDestinationArgsDict',
     'ScraperDestinationAmpConfigurationPropertiesArgs',
     'ScraperDestinationAmpConfigurationPropertiesArgsDict',
+    'ScraperDestinationCloudWatchConfigurationPropertiesArgs',
+    'ScraperDestinationCloudWatchConfigurationPropertiesArgsDict',
     'ScraperLoggingConfigurationArgs',
     'ScraperLoggingConfigurationArgsDict',
     'ScraperLoggingDestinationArgs',
@@ -455,18 +457,26 @@ class ScraperDestinationArgsDict(TypedDict):
     """
     Configuration for Amazon Managed Prometheus metrics destination
     """
+    cloud_watch_configuration: NotRequired[pulumi.Input[Optional['ScraperDestinationCloudWatchConfigurationPropertiesArgsDict']]]
+    """
+    Configuration for CloudWatch metrics destination
+    """
 
 @pulumi.input_type
 class ScraperDestinationArgs:
     def __init__(__self__, *,
-                 amp_configuration: pulumi.Input[Optional['ScraperDestinationAmpConfigurationPropertiesArgs']] = None):
+                 amp_configuration: pulumi.Input[Optional['ScraperDestinationAmpConfigurationPropertiesArgs']] = None,
+                 cloud_watch_configuration: pulumi.Input[Optional['ScraperDestinationCloudWatchConfigurationPropertiesArgs']] = None):
         """
         Scraper metrics destination
 
         :param pulumi.Input['ScraperDestinationAmpConfigurationPropertiesArgs'] amp_configuration: Configuration for Amazon Managed Prometheus metrics destination
+        :param pulumi.Input['ScraperDestinationCloudWatchConfigurationPropertiesArgs'] cloud_watch_configuration: Configuration for CloudWatch metrics destination
         """
         if amp_configuration is not None:
             pulumi.set(__self__, "amp_configuration", amp_configuration)
+        if cloud_watch_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_configuration", cloud_watch_configuration)
 
     @_builtins.property
     @pulumi.getter(name="ampConfiguration")
@@ -479,6 +489,18 @@ class ScraperDestinationArgs:
     @amp_configuration.setter
     def amp_configuration(self, value: pulumi.Input[Optional['ScraperDestinationAmpConfigurationPropertiesArgs']]):
         pulumi.set(self, "amp_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchConfiguration")
+    def cloud_watch_configuration(self) -> pulumi.Input[Optional['ScraperDestinationCloudWatchConfigurationPropertiesArgs']]:
+        """
+        Configuration for CloudWatch metrics destination
+        """
+        return pulumi.get(self, "cloud_watch_configuration")
+
+    @cloud_watch_configuration.setter
+    def cloud_watch_configuration(self, value: pulumi.Input[Optional['ScraperDestinationCloudWatchConfigurationPropertiesArgs']]):
+        pulumi.set(self, "cloud_watch_configuration", value)
 
 
 class ScraperDestinationAmpConfigurationPropertiesArgsDict(TypedDict):
@@ -512,6 +534,39 @@ class ScraperDestinationAmpConfigurationPropertiesArgs:
     @workspace_arn.setter
     def workspace_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_arn", value)
+
+
+class ScraperDestinationCloudWatchConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Configuration for CloudWatch metrics destination
+    """
+    dataset_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of a CloudWatch dataset
+    """
+
+@pulumi.input_type
+class ScraperDestinationCloudWatchConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 dataset_arn: pulumi.Input[_builtins.str]):
+        """
+        Configuration for CloudWatch metrics destination
+
+        :param pulumi.Input[_builtins.str] dataset_arn: ARN of a CloudWatch dataset
+        """
+        pulumi.set(__self__, "dataset_arn", dataset_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetArn")
+    def dataset_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of a CloudWatch dataset
+        """
+        return pulumi.get(self, "dataset_arn")
+
+    @dataset_arn.setter
+    def dataset_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dataset_arn", value)
 
 
 class ScraperLoggingConfigurationArgsDict(TypedDict):

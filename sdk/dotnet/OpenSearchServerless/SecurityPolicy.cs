@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchServerless
 {
     /// <summary>
-    /// Amazon OpenSearchServerless security policy resource
+    /// Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
     /// 
     /// ## Example Usage
     /// ### Example

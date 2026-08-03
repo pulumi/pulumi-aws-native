@@ -99,7 +99,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Amazon OpenSearchServerless vpc endpoint resource
+        Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
 
         ## Example Usage
         ### Example
@@ -144,7 +144,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  args: VpcEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Amazon OpenSearchServerless vpc endpoint resource
+        Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
 
         ## Example Usage
         ### Example

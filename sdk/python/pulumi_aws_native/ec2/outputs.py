@@ -214,6 +214,7 @@ __all__ = [
     'TransitGatewayConnectPeerConfiguration',
     'TransitGatewayConnectPeerTransitGatewayAttachmentBgpConfiguration',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
+    'TransitGatewayPolicyTableEntryTransitGatewayPolicyRule',
     'VerifiedAccessEndpointCidrOptions',
     'VerifiedAccessEndpointLoadBalancerOptions',
     'VerifiedAccessEndpointNetworkInterfaceOptions',
@@ -15943,6 +15944,96 @@ class TransitGatewayPeeringAttachmentPeeringAttachmentStatus(dict):
         The status message, if applicable.
         """
         return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class TransitGatewayPolicyTableEntryTransitGatewayPolicyRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationCidrBlock":
+            suggest = "destination_cidr_block"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "sourceCidrBlock":
+            suggest = "source_cidr_block"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransitGatewayPolicyTableEntryTransitGatewayPolicyRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransitGatewayPolicyTableEntryTransitGatewayPolicyRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransitGatewayPolicyTableEntryTransitGatewayPolicyRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_cidr_block: Optional[_builtins.str] = None,
+                 destination_port_range: Optional[_builtins.str] = None,
+                 protocol: Optional[_builtins.str] = None,
+                 source_cidr_block: Optional[_builtins.str] = None,
+                 source_port_range: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str destination_cidr_block: The destination CIDR block for the transit gateway policy rule.
+        :param _builtins.str destination_port_range: The destination port range for the transit gateway policy rule.
+        :param _builtins.str protocol: The protocol for the transit gateway policy rule.
+        :param _builtins.str source_cidr_block: The source CIDR block for the transit gateway policy rule.
+        :param _builtins.str source_port_range: The source port range for the transit gateway policy rule.
+        """
+        if destination_cidr_block is not None:
+            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_cidr_block is not None:
+            pulumi.set(__self__, "source_cidr_block", source_cidr_block)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> Optional[_builtins.str]:
+        """
+        The destination CIDR block for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[_builtins.str]:
+        """
+        The destination port range for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[_builtins.str]:
+        """
+        The protocol for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceCidrBlock")
+    def source_cidr_block(self) -> Optional[_builtins.str]:
+        """
+        The source CIDR block for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "source_cidr_block")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[_builtins.str]:
+        """
+        The source port range for the transit gateway policy rule.
+        """
+        return pulumi.get(self, "source_port_range")
 
 
 @pulumi.output_type

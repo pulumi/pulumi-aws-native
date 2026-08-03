@@ -4936,6 +4936,12 @@ namespace Pulumi.AwsNative.SageMaker
         public static SpaceResourceSpecInstanceType MlR6id32xlarge { get; } = new SpaceResourceSpecInstanceType("ml.r6id.32xlarge");
         public static SpaceResourceSpecInstanceType MlP54xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p5.4xlarge");
         public static SpaceResourceSpecInstanceType MlP6b20048xlarge { get; } = new SpaceResourceSpecInstanceType("ml.p6-b200.48xlarge");
+        public static SpaceResourceSpecInstanceType MlG72xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7.2xlarge");
+        public static SpaceResourceSpecInstanceType MlG74xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7.4xlarge");
+        public static SpaceResourceSpecInstanceType MlG78xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7.8xlarge");
+        public static SpaceResourceSpecInstanceType MlG712xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7.12xlarge");
+        public static SpaceResourceSpecInstanceType MlG724xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7.24xlarge");
+        public static SpaceResourceSpecInstanceType MlG748xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7.48xlarge");
         public static SpaceResourceSpecInstanceType MlG7e2xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.2xlarge");
         public static SpaceResourceSpecInstanceType MlG7e4xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.4xlarge");
         public static SpaceResourceSpecInstanceType MlG7e8xlarge { get; } = new SpaceResourceSpecInstanceType("ml.g7e.8xlarge");
@@ -5232,6 +5238,20 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileAppInstanceType MlR6id16xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.16xlarge");
         public static UserProfileAppInstanceType MlR6id24xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.24xlarge");
         public static UserProfileAppInstanceType MlR6id32xlarge { get; } = new UserProfileAppInstanceType("ml.r6id.32xlarge");
+        public static UserProfileAppInstanceType MlP54xlarge { get; } = new UserProfileAppInstanceType("ml.p5.4xlarge");
+        public static UserProfileAppInstanceType MlP6b20048xlarge { get; } = new UserProfileAppInstanceType("ml.p6-b200.48xlarge");
+        public static UserProfileAppInstanceType MlG72xlarge { get; } = new UserProfileAppInstanceType("ml.g7.2xlarge");
+        public static UserProfileAppInstanceType MlG74xlarge { get; } = new UserProfileAppInstanceType("ml.g7.4xlarge");
+        public static UserProfileAppInstanceType MlG78xlarge { get; } = new UserProfileAppInstanceType("ml.g7.8xlarge");
+        public static UserProfileAppInstanceType MlG712xlarge { get; } = new UserProfileAppInstanceType("ml.g7.12xlarge");
+        public static UserProfileAppInstanceType MlG724xlarge { get; } = new UserProfileAppInstanceType("ml.g7.24xlarge");
+        public static UserProfileAppInstanceType MlG748xlarge { get; } = new UserProfileAppInstanceType("ml.g7.48xlarge");
+        public static UserProfileAppInstanceType MlG7e2xlarge { get; } = new UserProfileAppInstanceType("ml.g7e.2xlarge");
+        public static UserProfileAppInstanceType MlG7e4xlarge { get; } = new UserProfileAppInstanceType("ml.g7e.4xlarge");
+        public static UserProfileAppInstanceType MlG7e8xlarge { get; } = new UserProfileAppInstanceType("ml.g7e.8xlarge");
+        public static UserProfileAppInstanceType MlG7e12xlarge { get; } = new UserProfileAppInstanceType("ml.g7e.12xlarge");
+        public static UserProfileAppInstanceType MlG7e24xlarge { get; } = new UserProfileAppInstanceType("ml.g7e.24xlarge");
+        public static UserProfileAppInstanceType MlG7e48xlarge { get; } = new UserProfileAppInstanceType("ml.g7e.48xlarge");
 
         public static bool operator ==(UserProfileAppInstanceType left, UserProfileAppInstanceType right) => left.Equals(right);
         public static bool operator !=(UserProfileAppInstanceType left, UserProfileAppInstanceType right) => !left.Equals(right);

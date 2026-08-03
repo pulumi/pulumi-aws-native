@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackageV2.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;The configuration for the DASH &lt;code&gt;availabilityStartTime&lt;/code&gt; attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.&lt;/p&gt;
+    /// </summary>
     public sealed class OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after &lt;code&gt;2024-01-01T00:00:00Z&lt;/code&gt; and must be at least 14 days before the current time.&lt;/p&gt;
+        /// </summary>
         [Input("fixedAvailabilityStartTime", required: true)]
         public Input<string> FixedAvailabilityStartTime { get; set; } = null!;
 

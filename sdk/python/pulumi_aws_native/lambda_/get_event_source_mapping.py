@@ -142,7 +142,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional['outputs.EventSourceMappingDestinationConfig']:
         """
-        (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.
+        (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
         """
         return pulumi.get(self, "destination_config")
 
@@ -223,7 +223,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional['outputs.EventSourceMappingLoggingConfig']:
         """
-        The function's Amazon CloudWatch Logs configuration settings.
+        (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
         """
         return pulumi.get(self, "logging_config")
 
@@ -242,7 +242,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> Optional[_builtins.int]:
         """
-        (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+        (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
           The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         """
         return pulumi.get(self, "maximum_record_age_in_seconds")
@@ -251,7 +251,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[_builtins.int]:
         """
-        (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
+        (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         """
         return pulumi.get(self, "maximum_retry_attempts")
 

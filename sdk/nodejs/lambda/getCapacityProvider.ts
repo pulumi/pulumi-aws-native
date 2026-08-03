@@ -39,6 +39,9 @@ export interface GetCapacityProviderResult {
      * A key-value pair that provides metadata for the capacity provider.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The telemetry configuration for the capacity provider, including logging settings.
+     */
     readonly telemetryConfig?: outputs.lambda.CapacityProviderTelemetryConfig;
 }
 /**

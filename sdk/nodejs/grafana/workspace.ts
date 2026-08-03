@@ -144,6 +144,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.grafana.WorkspaceStatus>;
     /**
+     * The list of tags associated with the workspace.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
      *
      * > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -186,6 +190,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["samlConfiguration"] = args?.samlConfiguration;
             resourceInputs["stackSetName"] = args?.stackSetName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcConfiguration"] = args?.vpcConfiguration;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
@@ -218,6 +223,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["ssoClientId"] = undefined /*out*/;
             resourceInputs["stackSetName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -301,6 +307,10 @@ export interface WorkspaceArgs {
      * The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
      */
     stackSetName?: pulumi.Input<string | undefined>;
+    /**
+     * The list of tags associated with the workspace.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
      *

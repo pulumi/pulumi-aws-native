@@ -6923,6 +6923,10 @@ export namespace aps {
          * Configuration for Amazon Managed Prometheus metrics destination
          */
         ampConfiguration?: outputs.aps.ScraperDestinationAmpConfigurationProperties;
+        /**
+         * Configuration for CloudWatch metrics destination
+         */
+        cloudWatchConfiguration?: outputs.aps.ScraperDestinationCloudWatchConfigurationProperties;
     }
 
     /**
@@ -6933,6 +6937,16 @@ export namespace aps {
          * ARN of an Amazon Managed Prometheus workspace
          */
         workspaceArn: string;
+    }
+
+    /**
+     * Configuration for CloudWatch metrics destination
+     */
+    export interface ScraperDestinationCloudWatchConfigurationProperties {
+        /**
+         * ARN of a CloudWatch dataset
+         */
+        datasetArn: string;
     }
 
     /**
@@ -25043,6 +25057,16 @@ export namespace cognito {
         sourceArn?: string;
     }
 
+    export interface UserPoolEumsSmsConfiguration {
+        callerArn: string;
+        configurationSetName?: string;
+        externalId?: string;
+        inEntityId?: string;
+        inTemplateId?: string;
+        originationIdentity?: string;
+        region?: string;
+    }
+
     export interface UserPoolInboundFederation {
         lambdaArn?: string;
         lambdaVersion?: string;
@@ -25231,6 +25255,16 @@ export namespace cognito {
         sourceArn?: string;
     }
 
+    export interface UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration {
+        callerArn: string;
+        configurationSetName?: string;
+        externalId?: string;
+        inEntityId?: string;
+        inTemplateId?: string;
+        originationIdentity?: string;
+        region?: string;
+    }
+
     export interface UserPoolRegionalConfigurationAttachmentInboundFederation {
         lambdaArn?: string;
         lambdaVersion?: string;
@@ -25260,6 +25294,7 @@ export namespace cognito {
     }
 
     export interface UserPoolRegionalConfigurationAttachmentSmsConfiguration {
+        eumsSms?: outputs.cognito.UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration;
         externalId?: string;
         snsCallerArn?: string;
         snsRegion?: string;
@@ -25434,6 +25469,7 @@ export namespace cognito {
     }
 
     export interface UserPoolSmsConfiguration {
+        eumsSms?: outputs.cognito.UserPoolEumsSmsConfiguration;
         /**
          * The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
          *
@@ -33921,6 +33957,1040 @@ export namespace dms {
     }
 
     /**
+     * Provides information that defines a DocumentDB endpoint.
+     */
+    export interface EndpointDocDbSettings {
+        /**
+         * Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+         */
+        docsToInvestigate?: number;
+        /**
+         * Specifies the document ID. Use this setting when NestingLevel is set to "none"
+         */
+        extractDocId?: boolean;
+        /**
+         * Specifies either document or table mode.
+         */
+        nestingLevel?: string;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+         */
+        secretsManagerSecretId?: string;
+    }
+
+    /**
+     * Provides information, including the Amazon Resource Name (ARN) of the IAM role used to define an Amazon DynamoDB target endpoint.
+     */
+    export interface EndpointDynamoDbSettings {
+        /**
+         * The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: string;
+    }
+
+    /**
+     * Provides information that defines an OpenSearch endpoint.
+     */
+    export interface EndpointElasticsearchSettings {
+        /**
+         * The endpoint for the OpenSearch cluster. AWS DMS uses HTTPS if a transport protocol (either HTTP or HTTPS) isn't specified.
+         */
+        endpointUri?: string;
+        /**
+         * The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
+         */
+        errorRetryDuration?: number;
+        /**
+         * The maximum percentage of records that can fail to be written before a full load operation stops.
+         */
+        fullLoadErrorPercentage?: number;
+        /**
+         * The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: string;
+    }
+
+    /**
+     * Provides information that defines a GCP MySQL endpoint.
+     */
+    export interface EndpointGcpMySqlSettings {
+        /**
+         * Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+         */
+        afterConnectScript?: string;
+        /**
+         * Adjusts the behavior of AWS DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need AWS DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to false.
+         */
+        cleanSourceMetadataOnMismatch?: boolean;
+        /**
+         * Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify the database using the DatabaseName request parameter on either the CreateEndpoint or ModifyEndpoint API call. Specifying DatabaseName when you create or modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the AWS DMS task.
+         */
+        databaseName?: string;
+        /**
+         * Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+         */
+        eventsPollInterval?: number;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+         */
+        maxFileSize?: number;
+        /**
+         * Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread. The default is one.
+         */
+        parallelLoadThreads?: number;
+        /**
+         * Endpoint connection password.
+         */
+        password?: string;
+        /**
+         * The port used by the endpoint database.
+         */
+        port?: number;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the MySQL endpoint.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * The MySQL host name.
+         */
+        serverName?: string;
+        /**
+         * Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+         */
+        serverTimezone?: string;
+        /**
+         * Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+         */
+        username?: string;
+    }
+
+    /**
+     * Provides information that defines an IBMDB2 endpoint.
+     */
+    export interface EndpointIbmDb2Settings {
+        /**
+         * For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
+         */
+        currentLsn?: string;
+        /**
+         * If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these files for analysis and troubleshooting.
+         */
+        keepCsvFiles?: boolean;
+        /**
+         * The amount of time (in milliseconds) before AWS DMS times out operations performed by DMS on the Db2 target. The default value is 1200 (20 minutes).
+         */
+        loadTimeout?: number;
+        /**
+         * Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.
+         */
+        maxFileSize?: number;
+        /**
+         * Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
+         */
+        maxKBytesPerRead?: number;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value ofthe AWS Secrets Manager secret that allows access to the Db2 LUW endpoint.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the IBMDB2 endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
+         */
+        setDataCaptureChanges?: boolean;
+        /**
+         * The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk on the DMS replication instance. The default value is 1024 (1 MB).
+         */
+        writeBufferSize?: number;
+    }
+
+    /**
+     * Provides information that describes an Apache Kafka endpoint.
+     */
+    export interface EndpointKafkaSettings {
+        /**
+         * A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port
+         */
+        broker?: string;
+        /**
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is false.
+         */
+        includeControlDetails?: boolean;
+        /**
+         * Include NULL and empty columns for records migrated to the endpoint. The default is false.
+         */
+        includeNullAndEmpty?: boolean;
+        /**
+         * Shows the partition value within the Kafka message output unless the partition type is schema-table-type. The default is false.
+         */
+        includePartitionValue?: boolean;
+        /**
+         * Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+         */
+        includeTableAlterOperations?: boolean;
+        /**
+         * Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for transaction_id, previous transaction_id, and transaction_record_id (the record offset within a transaction). The default is false.
+         */
+        includeTransactionDetails?: boolean;
+        /**
+         * The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+         */
+        messageFormat?: string;
+        /**
+         * The maximum size in bytes for records created on the endpoint The default is 1,000,000.
+         */
+        messageMaxBytes?: number;
+        /**
+         * Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the NoHexPrefix endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
+         */
+        noHexPrefix?: boolean;
+        /**
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+         */
+        partitionIncludeSchemaTable?: boolean;
+        /**
+         * The secure password that you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         */
+        saslPassword?: string;
+        /**
+         * The secure user name you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         */
+        saslUserName?: string;
+        /**
+         * Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires SaslUsername and SaslPassword.
+         */
+        securityProtocol?: string;
+        /**
+         * The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+         */
+        sslCaCertificateArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+         */
+        sslClientCertificateArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+         */
+        sslClientKeyArn?: string;
+        /**
+         * The password for the client private key used to securely connect to a Kafka target endpoint.
+         */
+        sslClientKeyPassword?: string;
+        /**
+         * The topic to which you migrate the data. If you don't specify a topic, AWS DMS specifies "kafka-default-topic" as the migration topic.
+         */
+        topic?: string;
+    }
+
+    /**
+     * Provides information that describes an Amazon Kinesis Data Stream endpoint.
+     */
+    export interface EndpointKinesisSettings {
+        /**
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is false.
+         */
+        includeControlDetails?: boolean;
+        /**
+         * Include NULL and empty columns for records migrated to the endpoint. The default is false.
+         */
+        includeNullAndEmpty?: boolean;
+        /**
+         * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is false.
+         */
+        includePartitionValue?: boolean;
+        /**
+         * Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+         */
+        includeTableAlterOperations?: boolean;
+        /**
+         * Provides detailed transaction information from the source database.
+         */
+        includeTransactionDetails?: boolean;
+        /**
+         * The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+         */
+        messageFormat?: string;
+        /**
+         * Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format.
+         */
+        noHexPrefix?: boolean;
+        /**
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+         */
+        partitionIncludeSchemaTable?: boolean;
+        /**
+         * The Amazon Resource Name (ARN) for the IAM role that AWS DMS uses to write to the Kinesis data stream. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
+         */
+        streamArn?: string;
+    }
+
+    /**
+     * Provides information that defines a Microsoft SQL Server endpoint.
+     */
+    export interface EndpointMicrosoftSqlServerSettings {
+        /**
+         * The maximum size of the packets (in bytes) used to transfer data using BCP.
+         */
+        bcpPacketSize?: number;
+        /**
+         * Specifies a file group for the AWS DMS internal tables.
+         */
+        controlTablesFileGroup?: string;
+        /**
+         * Database name for the endpoint.
+         */
+        databaseName?: string;
+        /**
+         * Forces LOB lookup on inline LOB.
+         */
+        forceLobLookup?: boolean;
+        /**
+         * Endpoint connection password.
+         */
+        password?: string;
+        /**
+         * Endpoint TCP port.
+         */
+        port?: number;
+        /**
+         * Cleans and recreates table metadata information on the replication instance when a mismatch occurs. An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.
+         */
+        querySingleAlwaysOnNode?: boolean;
+        /**
+         * When this attribute is set to Y, AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to Y enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+         */
+        readBackupOnly?: boolean;
+        /**
+         * Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
+         */
+        safeguardPolicy?: string;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MicrosoftSQLServer endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of DescribeDBInstances, in the Endpoint.Address field.
+         */
+        serverName?: string;
+        /**
+         * Indicates the mode used to fetch CDC data.
+         */
+        tlogAccessMode?: string;
+        /**
+         * Use the TrimSpaceInChar source endpoint setting to right-trim data on CHAR and NCHAR data types during migration. Setting TrimSpaceInChar does not left-trim data. The default value is true.
+         */
+        trimSpaceInChar?: boolean;
+        /**
+         * Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+         */
+        useBcpFullLoad?: boolean;
+        /**
+         * When this attribute is set to Y, DMS processes third-party transaction log backups if they are created in native format.
+         */
+        useThirdPartyBackupDevice?: boolean;
+        /**
+         * Endpoint connection user name.
+         */
+        username?: string;
+    }
+
+    /**
+     * Provides information that defines a MongoDB endpoint.
+     */
+    export interface EndpointMongoDbSettings {
+        /**
+         * The authentication mechanism you use to access the MongoDB source endpoint.
+         */
+        authMechanism?: string;
+        /**
+         * The MongoDB database name. This setting isn't used when AuthType is set to "no".
+         */
+        authSource?: string;
+        /**
+         * The authentication type you use to access the MongoDB source endpoint.
+         */
+        authType?: string;
+        /**
+         * The database name on the MongoDB source endpoint.
+         */
+        databaseName?: string;
+        /**
+         * Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+         */
+        docsToInvestigate?: string;
+        /**
+         * Specifies the document ID. Use this setting when NestingLevel is set to "none".
+         */
+        extractDocId?: string;
+        /**
+         * Specifies either document or table mode.
+         */
+        nestingLevel?: string;
+        /**
+         * The password for the user account you use to access the MongoDB source endpoint.
+         */
+        password?: string;
+        /**
+         * The port value for the MongoDB source endpoint.
+         */
+        port?: number;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MongoDB endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * The name of the server on the MongoDB source endpoint.
+         */
+        serverName?: string;
+        /**
+         * The user name you use to access the MongoDB source endpoint.
+         */
+        username?: string;
+    }
+
+    /**
+     * Provides information that defines a MySQL endpoint.
+     */
+    export interface EndpointMySqlSettings {
+        /**
+         * Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+         */
+        afterConnectScript?: string;
+        /**
+         * Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
+         */
+        cleanSourceMetadataOnMismatch?: boolean;
+        /**
+         * Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+         */
+        eventsPollInterval?: number;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+         */
+        maxFileSize?: number;
+        /**
+         * Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database.
+         */
+        parallelLoadThreads?: number;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * Specifies the time zone for the source MySQL database.
+         */
+        serverTimezone?: string;
+        /**
+         * Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+         */
+        targetDbType?: string;
+    }
+
+    /**
+     * Provides information that defines an Amazon Neptune endpoint
+     */
+    export interface EndpointNeptuneSettings {
+        /**
+         * The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
+         */
+        errorRetryDuration?: number;
+        /**
+         * If you want IAM authorization enabled for this endpoint, set this parameter to true.
+         */
+        iamAuthEnabled?: boolean;
+        /**
+         * The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database.
+         */
+        maxFileSize?: number;
+        /**
+         * The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
+         */
+        maxRetryCount?: number;
+        /**
+         * A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by S3BucketName
+         */
+        s3BucketFolder?: string;
+        /**
+         * The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database.
+         */
+        s3BucketName?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: string;
+    }
+
+    /**
+     * Provides information that defines an Oracle endpoint
+     */
+    export interface EndpointOracleSettings {
+        /**
+         * Set this attribute to false in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        accessAlternateDirectly?: boolean;
+        /**
+         * Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+         */
+        addSupplementalLogging?: boolean;
+        /**
+         * Set this attribute with ArchivedLogDestId in a primary/ standby setup
+         */
+        additionalArchivedLogDestId?: number;
+        /**
+         * Set this attribute to true to enable replication of Oracle tables containing columns that are nested tables or defined types.
+         */
+        allowSelectNestedTables?: boolean;
+        /**
+         * Specifies the ID of the destination for the archived redo logs.
+         */
+        archivedLogDestId?: number;
+        /**
+         * When this field is set to True, AWS DMS only accesses the archived redo logs
+         */
+        archivedLogsOnly?: boolean;
+        /**
+         * For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+         */
+        asmPassword?: string;
+        /**
+         * For an Oracle source endpoint, your ASM server address.
+         */
+        asmServer?: string;
+        /**
+         * For an Oracle source endpoint, your ASM user name.
+         */
+        asmUser?: string;
+        /**
+         * Specifies whether the length of a character column is in bytes or in characters.
+         */
+        charLengthSemantics?: string;
+        /**
+         * When set to true, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+         */
+        directPathNoLog?: boolean;
+        /**
+         * When set to true, this attribute specifies a parallel load when useDirectPathFullLoad is set to Y.
+         */
+        directPathParallelLoad?: boolean;
+        /**
+         * Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+         */
+        enableHomogenousTablespace?: boolean;
+        /**
+         * Specifies the IDs of one more destinations for one or more archived redo logs.
+         */
+        extraArchivedLogDestIds?: number[];
+        /**
+         * When set to true, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified LobMaxSize.
+         */
+        failTasksOnLobTruncation?: boolean;
+        /**
+         * Specifies the number scale. You can select a scale up to 38, or you can select FLOAT. By default, the NUMBER data type is converted to precision 38, scale 10.
+         */
+        numberDatatypeScale?: number;
+        /**
+         * Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        oraclePathPrefix?: string;
+        /**
+         * Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+         */
+        parallelAsmReadThreads?: number;
+        /**
+         * Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+         */
+        readAheadBlocks?: number;
+        /**
+         * When set to true, this attribute supports tablespace replication.
+         */
+        readTableSpaceName?: boolean;
+        /**
+         * Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        replacePathPrefix?: boolean;
+        /**
+         * Specifies the number of seconds that the system waits before resending a query.
+         */
+        retryInterval?: number;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+         */
+        secretsManagerOracleAsmAccessRoleArn?: string;
+        /**
+         * Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+         */
+        secretsManagerOracleAsmSecretId?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Oracle endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+         */
+        securityDbEncryption?: string;
+        /**
+         * For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+         */
+        securityDbEncryptionName?: string;
+        /**
+         * Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible. Or you can create your own custom function that mimics the operation of SDOGEOJSON and set SpatialDataOptionToGeoJsonFunctionName to call it instead.
+         */
+        spatialDataOptionToGeoJsonFunctionName?: string;
+        /**
+         * Use this attribute to specify a time in minutes for the delay in standby sync.
+         */
+        standbyDelayTime?: number;
+        /**
+         * Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source
+         */
+        useAlternateFolderForOnline?: boolean;
+        /**
+         * Set this attribute to True to capture change data using the Binary Reader utility.
+         */
+        useBFile?: boolean;
+        /**
+         * Set this attribute to True to have AWS DMS use a direct path full load.
+         */
+        useDirectPathFullLoad?: boolean;
+        /**
+         * Set this attribute to True to capture change data using the Oracle LogMiner utility (the default).
+         */
+        useLogminerReader?: boolean;
+        /**
+         * Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+         */
+        usePathPrefix?: string;
+    }
+
+    /**
+     * Provides information that defines a PostgreSQL endpoint
+     */
+    export interface EndpointPostgreSqlSettings {
+        /**
+         * For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+         */
+        afterConnectScript?: string;
+        /**
+         * The Babelfish for Aurora PostgreSQL database name for the endpoint.
+         */
+        babelfishDatabaseName?: string;
+        /**
+         * To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts.
+         */
+        captureDdls?: boolean;
+        /**
+         * Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+         */
+        databaseMode?: string;
+        /**
+         * The schema in which the operational DDL database artifacts are created.
+         */
+        ddlArtifactsSchema?: string;
+        /**
+         * Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+         */
+        executeTimeout?: number;
+        /**
+         * When set to true, this value causes a task to fail if the actual size of a LOB column is greater than the specified LobMaxSize.
+         */
+        failTasksOnLobTruncation?: boolean;
+        /**
+         * The write-ahead log (WAL) heartbeat feature mimics a dummy transaction.
+         */
+        heartbeatEnable?: boolean;
+        /**
+         * Sets the WAL heartbeat frequency (in minutes).
+         */
+        heartbeatFrequency?: number;
+        /**
+         * Sets the schema in which the heartbeat artifacts are created.
+         */
+        heartbeatSchema?: string;
+        /**
+         * When true, lets PostgreSQL migrate the boolean type as boolean.
+         */
+        mapBooleanAsBoolean?: boolean;
+        /**
+         * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+         */
+        maxFileSize?: number;
+        /**
+         * Specifies the plugin to use to create a replication slot.
+         */
+        pluginName?: string;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the PostgreSQL endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance.
+         */
+        slotName?: string;
+    }
+
+    /**
+     * Provides information that defines a Redis target endpoint.
+     */
+    export interface EndpointRedisSettings {
+        /**
+         * The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+         */
+        authPassword?: string;
+        /**
+         * The type of authentication to perform when connecting to a Redis target.
+         */
+        authType?: string;
+        /**
+         * The user name provided with the auth-role option of the AuthType setting for a Redis target endpoint.
+         */
+        authUserName?: string;
+        /**
+         * Transmission Control Protocol (TCP) port for the endpoint.
+         */
+        port?: number;
+        /**
+         * Fully qualified domain name of the endpoint.
+         */
+        serverName?: string;
+        /**
+         * The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+         */
+        sslCaCertificateArn?: string;
+        /**
+         * The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid values include plaintext and ssl-encryption.
+         */
+        sslSecurityProtocol?: string;
+    }
+
+    /**
+     * Provides information that defines an Amazon Redshift endpoint.
+     */
+    export interface EndpointRedshiftSettings {
+        /**
+         * A value that indicates to allow any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose true or false (the default).
+         */
+        acceptAnyDate?: boolean;
+        /**
+         * Code to run after connecting. This parameter should contain the code itself, not the name of a file containing the code.
+         */
+        afterConnectScript?: string;
+        /**
+         * An S3 folder where the comma-separated-value (.csv) files are stored before being uploaded to the target Redshift cluster.
+         */
+        bucketFolder?: string;
+        /**
+         * The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift.
+         */
+        bucketName?: string;
+        /**
+         * If Amazon Redshift is configured to support case sensitive schema names, set CaseSensitiveNames to true. The default is false.
+         */
+        caseSensitiveNames?: boolean;
+        /**
+         * If you set CompUpdate to true Amazon Redshift applies automatic compression if the table is empty.
+         */
+        compUpdate?: boolean;
+        /**
+         * A value that sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+         */
+        connectionTimeout?: number;
+        /**
+         * The date format that you are using.
+         */
+        dateFormat?: string;
+        /**
+         * A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of true sets empty CHAR and VARCHAR fields to null. The default is false.
+         */
+        emptyAsNull?: boolean;
+        /**
+         * The type of server-side encryption that you want to use for your data.
+         */
+        encryptionMode?: string;
+        /**
+         * This setting is only valid for a full-load migration task. Set ExplicitIds to true to have tables with IDENTITY columns override their auto-generated values with explicit values loaded from the source data files used to populate the tables. The default is false.
+         */
+        explicitIds?: boolean;
+        /**
+         * The number of threads used to upload a single file. This parameter accepts a value from 1 through 64. It defaults to 10.
+         */
+        fileTransferUploadStreams?: number;
+        /**
+         * The amount of time to wait (in milliseconds) before timing out of operations performed by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.
+         */
+        loadTimeout?: number;
+        /**
+         * When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as varchar(1). You must set this setting on both the source and target endpoints for it to take effect.
+         */
+        mapBooleanAsBoolean?: boolean;
+        /**
+         * The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1 GB).
+         */
+        maxFileSize?: number;
+        /**
+         * A value that specifies to remove surrounding quotation marks from strings in the incoming data.
+         */
+        removeQuotes?: boolean;
+        /**
+         * A value that specifies to replaces the invalid characters specified in ReplaceInvalidChars, substituting the specified characters instead. The default is "?".
+         */
+        replaceChars?: string;
+        /**
+         * A list of characters that you want to replace. Use with ReplaceChars.
+         */
+        replaceInvalidChars?: string;
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Amazon Redshift endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+        /**
+         * The AWS KMS key ID. If you are using SSE_KMS for the EncryptionMode, provide this key ID.
+         */
+        serverSideEncryptionKmsKeyId?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift service. The role must allow the iam:PassRole action.
+         */
+        serviceAccessRoleArn?: string;
+        /**
+         * The time format that you want to use. Valid values are auto (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'.
+         */
+        timeFormat?: string;
+        /**
+         * A value that specifies to remove the trailing white space characters from a VARCHAR string.
+         */
+        trimBlanks?: boolean;
+        /**
+         * A value that specifies to truncate data in columns to the appropriate number of characters, so that the data fits in the column.
+         */
+        truncateColumns?: boolean;
+        /**
+         * The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk at the DMS replication instance. The default value is 1000 (buffer size is 1000KB).
+         */
+        writeBufferSize?: number;
+    }
+
+    /**
+     * Provides information that defines an Amazon S3 endpoint.
+     */
+    export interface EndpointS3Settings {
+        /**
+         * An optional parameter that, when set to true or y, you can use to add column name information to the .csv output file.
+         */
+        addColumnName?: boolean;
+        /**
+         * Use the S3 target endpoint setting AddTrailingPaddingCharacter to add padding on string data. The default value is false.
+         */
+        addTrailingPaddingCharacter?: boolean;
+        /**
+         * An optional parameter to set a folder name in the S3 bucket.
+         */
+        bucketFolder?: string;
+        /**
+         * The name of the S3 bucket.
+         */
+        bucketName?: string;
+        /**
+         * A value that enables AWS DMS to specify a predefined (canned) access control list (ACL) for objects created in an Amazon S3 bucket as .csv or .parquet files.
+         */
+        cannedAclForObjects?: string;
+        /**
+         * A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files.
+         */
+        cdcInsertsAndUpdates?: boolean;
+        /**
+         * A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the false setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
+         */
+        cdcInsertsOnly?: boolean;
+        /**
+         * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3.
+         */
+        cdcMaxBatchInterval?: number;
+        /**
+         * Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.
+         */
+        cdcMinFileSize?: number;
+        /**
+         * Specifies the folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional.
+         */
+        cdcPath?: string;
+        /**
+         * An optional parameter. When set to GZIP it enables the service to compress the target files.
+         */
+        compressionType?: string;
+        /**
+         * The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
+         */
+        csvDelimiter?: string;
+        /**
+         * This setting only applies if your Amazon S3 output files during a change data capture (CDC) load are written in .csv format.
+         */
+        csvNoSupValue?: string;
+        /**
+         * An optional parameter that specifies how AWS DMS treats null values.
+         */
+        csvNullValue?: string;
+        /**
+         * The delimiter used to separate rows in the .csv file for both source and target.
+         */
+        csvRowDelimiter?: string;
+        /**
+         * The format of the data that you want to use for output.
+         */
+        dataFormat?: string;
+        /**
+         * The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
+         */
+        dataPageSize?: number;
+        /**
+         * Specifies a date separating delimiter to use during folder partitioning. The default value is SLASH. Use this parameter when DatePartitionedEnabled is set to true.
+         */
+        datePartitionDelimiter?: string;
+        /**
+         * When set to true, this parameter partitions S3 bucket folders based on transaction commit dates. The default value is false.
+         */
+        datePartitionEnabled?: boolean;
+        /**
+         * Identifies the sequence of the date format to use during folder partitioning. The default value is YYYYMMDD. Use this parameter when DatePartitionedEnabled is set to true.
+         */
+        datePartitionSequence?: string;
+        /**
+         * When creating an S3 target endpoint, set DatePartitionTimezone to convert the current UTC time into a specified time zone.
+         */
+        datePartitionTimezone?: string;
+        /**
+         * The maximum size of an encoded dictionary page of a column
+         */
+        dictPageSizeLimit?: number;
+        /**
+         * A value that enables statistics for Parquet pages and row groups.
+         */
+        enableStatistics?: boolean;
+        /**
+         * The type of encoding that you're using.
+         */
+        encodingType?: string;
+        /**
+         * The type of server-side encryption that you want to use for your data.
+         */
+        encryptionMode?: string;
+        /**
+         * To specify a bucket owner and prevent sniping, you can use the ExpectedBucketOwner endpoint setting.
+         */
+        expectedBucketOwner?: string;
+        /**
+         * The external table definition.
+         */
+        externalTableDefinition?: string;
+        /**
+         * When true, allows AWS Glue to catalog your S3 bucket. Creating an AWS Glue catalog lets you use Athena to query your data.
+         */
+        glueCatalogGeneration?: boolean;
+        /**
+         * When this value is set to 1, AWS DMS ignores the first row header in a .csv file. A value of 1 turns on the feature; a value of 0 turns off the feature.
+         */
+        ignoreHeaderRows?: number;
+        /**
+         * A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
+         */
+        includeOpForFullLoad?: boolean;
+        /**
+         * A value that specifies the maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load.
+         */
+        maxFileSize?: number;
+        /**
+         * A value that specifies the precision of any TIMESTAMP column values that are written to an Amazon S3 object file in .parquet format.
+         */
+        parquetTimestampInMillisecond?: boolean;
+        /**
+         * The version of the Apache Parquet format that you want to use: parquet_1_0 (the default) or parquet_2_0.
+         */
+        parquetVersion?: string;
+        /**
+         * If this setting is set to true, AWS DMS saves the transaction order for a change data capture (CDC) load on the Amazon S3 target specified by CdcPath.
+         */
+        preserveTransactions?: boolean;
+        /**
+         * For an S3 source, when this value is set to true or y, each leading double quotation mark has to be followed by an ending double quotation mark.
+         */
+        rfc4180?: boolean;
+        /**
+         * The number of rows in a row group.
+         */
+        rowGroupLength?: number;
+        /**
+         * If you are using SSE_KMS for the EncryptionMode, provide the AWS KMS key ID. The key that you use needs an attached policy that enables IAM user permissions and allows use of the key.
+         */
+        serverSideEncryptionKmsKeyId?: string;
+        /**
+         * A required parameter that specifies the Amazon Resource Name (ARN) used by the service to access the IAM role.
+         */
+        serviceAccessRoleArn?: string;
+        /**
+         * A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target.
+         */
+        timestampColumnName?: string;
+        /**
+         * This setting applies if the S3 output files during a change data capture (CDC) load are written in .csv format. If this setting is set to true for columns not included in the supplemental log, AWS DMS uses the value specified by CsvNoSupValue. If this setting isn't set or is set to false, AWS DMS uses the null value for these columns.
+         */
+        useCsvNoSupValue?: boolean;
+        /**
+         * When set to true, this parameter uses the task start time as the timestamp column value instead of the time data is written to target
+         */
+        useTaskStartTimeForFullLoadTimestamp?: boolean;
+    }
+
+    /**
+     * Provides information that defines a SAP ASE endpoint.
+     */
+    export interface EndpointSybaseSettings {
+        /**
+         * The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the SAP SAE endpoint connection details.
+         */
+        secretsManagerSecretId?: string;
+    }
+
+    /**
      * It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
      */
     export interface MigrationProjectDataProviderDescriptor {
@@ -39626,6 +40696,29 @@ export namespace ec2 {
          * The status message, if applicable.
          */
         message?: string;
+    }
+
+    export interface TransitGatewayPolicyTableEntryTransitGatewayPolicyRule {
+        /**
+         * The destination CIDR block for the transit gateway policy rule.
+         */
+        destinationCidrBlock?: string;
+        /**
+         * The destination port range for the transit gateway policy rule.
+         */
+        destinationPortRange?: string;
+        /**
+         * The protocol for the transit gateway policy rule.
+         */
+        protocol?: string;
+        /**
+         * The source CIDR block for the transit gateway policy rule.
+         */
+        sourceCidrBlock?: string;
+        /**
+         * The source port range for the transit gateway policy rule.
+         */
+        sourcePortRange?: string;
     }
 
     /**
@@ -62775,8 +63868,17 @@ export namespace lambda {
         excludedInstanceTypes?: string[];
     }
 
+    /**
+     * The capacity provider's Amazon CloudWatch Logs configuration settings.
+     */
     export interface CapacityProviderLoggingConfig {
+        /**
+         * The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named ``/aws/lambda/capacity-provider/<capacity provider name>``. To use a different log group, enter an existing log group or enter a new log group name.
+         */
         logGroup?: string;
+        /**
+         * Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+         */
         systemLogLevel?: enums.lambda.CapacityProviderLoggingConfigSystemLogLevel;
     }
 
@@ -62850,7 +63952,13 @@ export namespace lambda {
         targetValue: number;
     }
 
+    /**
+     * Configuration that specifies the telemetry collection for the capacity provider.
+     */
     export interface CapacityProviderTelemetryConfig {
+        /**
+         * The capacity provider's Amazon CloudWatch Logs configuration settings.
+         */
         loggingConfig?: outputs.lambda.CapacityProviderLoggingConfig;
     }
 
@@ -63013,7 +64121,12 @@ export namespace lambda {
      */
     export interface EventSourceMappingMetricsConfig {
         /**
-         * The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+         * The metrics you want your event source mapping to produce, including ``EventCount``, ``ErrorCount``, ``KafkaMetrics``.
+         *   +  ``EventCount`` to receive metrics related to the number of events processed by your event source mapping.
+         *   +  ``ErrorCount`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.
+         *   +  ``KafkaMetrics`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.
+         *
+         *   For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
          */
         metrics?: enums.lambda.EventSourceMappingMetricsConfigMetricsItem[];
     }
@@ -63024,7 +64137,7 @@ export namespace lambda {
     export interface EventSourceMappingOnFailure {
         /**
          * The Amazon Resource Name (ARN) of the destination resource.
-         *  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
+         *  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.
          *   Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
          *   To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
          */
@@ -69207,7 +70320,13 @@ export namespace mediapackagev2 {
         publishMqcs?: boolean;
     }
 
+    /**
+     * <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
+     */
     export interface OriginEndpointDashAvailabilityStartTimeConfigurationProperties {
+        /**
+         * <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
+         */
         fixedAvailabilityStartTime: string;
     }
 
@@ -69721,6 +70840,7 @@ export namespace mediapackagev2 {
          * <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
          */
         includeIframeOnlyStreams?: boolean;
+        outputTimestampMode?: enums.mediapackagev2.OriginEndpointOutputTimestampMode;
         /**
          * The SCTE-35 configuration associated with the segment.
          */
@@ -70207,6 +71327,269 @@ export namespace memorydb {
 }
 
 export namespace msk {
+    /**
+     * Catalog configuration of the destination
+     */
+    export interface ChannelCatalog {
+        /**
+         * The ARN of the catalog
+         */
+        catalogArn?: string;
+        /**
+         * The warehouse location
+         */
+        warehouseLocation?: string;
+    }
+
+    /**
+     * CloudWatch Logs log destination details
+     */
+    export interface ChannelCloudWatchLogsLogDestination {
+        /**
+         * Whether CloudWatch Logs logging is enabled
+         */
+        enabled: boolean;
+        /**
+         * The CloudWatch log group for log delivery
+         */
+        logGroup?: string;
+    }
+
+    /**
+     * Dead letter queue S3 configuration of the destination
+     */
+    export interface ChannelDeadLetterQueueS3 {
+        /**
+         * The ARN of the S3 bucket
+         */
+        bucketArn: string;
+        /**
+         * The error output prefix
+         */
+        errorOutputPrefix: string;
+        /**
+         * Optional 12-digit AWS account ID expected to own the dead-letter S3 bucket
+         */
+        expectedBucketOwner?: string;
+    }
+
+    /**
+     * Destination table configuration
+     */
+    export interface ChannelDestinationTable {
+        /**
+         * The destination database name
+         */
+        destinationDatabaseName: string;
+        /**
+         * The destination table name
+         */
+        destinationTableName: string;
+        partitionSpec?: outputs.msk.ChannelPartitionSpec;
+    }
+
+    /**
+     * Encryption configuration
+     */
+    export interface ChannelEncryptionConfiguration {
+        /**
+         * The ARN of the KMS key for encryption
+         */
+        kmsKeyArn: string;
+    }
+
+    /**
+     * Firehose log destination details
+     */
+    export interface ChannelFirehoseLogDestination {
+        /**
+         * The Firehose delivery stream for log delivery
+         */
+        deliveryStream?: string;
+        /**
+         * Whether Firehose logging is enabled
+         */
+        enabled: boolean;
+    }
+
+    /**
+     * Iceberg destination configuration
+     */
+    export interface ChannelIcebergDestinationConfiguration {
+        /**
+         * Append only mode
+         */
+        appendOnly: boolean;
+        catalog?: outputs.msk.ChannelCatalog;
+        compressionType?: enums.msk.ChannelIcebergCompressionType;
+        /**
+         * Data freshness in seconds
+         */
+        dataFreshnessInSeconds?: number;
+        deadLetterQueueS3: outputs.msk.ChannelDeadLetterQueueS3;
+        /**
+         * List of destination tables
+         */
+        destinationTableList: outputs.msk.ChannelDestinationTable[];
+        schemaEvolution: outputs.msk.ChannelSchemaEvolution;
+        /**
+         * The Amazon Resource Name (ARN) of an IAM role used by MSK to access the table
+         */
+        serviceExecutionRoleArn: string;
+        tableCreation: outputs.msk.ChannelTableCreation;
+    }
+
+    /**
+     * Log configuration details for Channel
+     */
+    export interface ChannelLoggingInfo {
+        cloudWatchLogs?: outputs.msk.ChannelCloudWatchLogsLogDestination;
+        firehose?: outputs.msk.ChannelFirehoseLogDestination;
+        s3?: outputs.msk.ChannelS3LogDestination;
+    }
+
+    /**
+     * Partition source configuration
+     */
+    export interface ChannelPartitionSource {
+        /**
+         * Source name
+         */
+        sourceName?: string;
+    }
+
+    /**
+     * Partition specification
+     */
+    export interface ChannelPartitionSpec {
+        partitionStrategy: enums.msk.ChannelPartitionStrategy;
+        /**
+         * Source list
+         */
+        sourceList?: outputs.msk.ChannelPartitionSource[];
+    }
+
+    /**
+     * Record converter configuration for a topic
+     */
+    export interface ChannelRecordConverter {
+        valueConverter: enums.msk.ChannelValueConverter;
+    }
+
+    /**
+     * Record schema configuration for a topic
+     */
+    export interface ChannelRecordSchema {
+        /**
+         * ARN of Glue Schema Registry resource used for table schema
+         */
+        gsrArn: string;
+    }
+
+    /**
+     * S3 destination configuration
+     */
+    export interface ChannelS3DestinationConfiguration {
+        /**
+         * Data freshness in seconds
+         */
+        dataFreshnessInSeconds?: number;
+        deadLetterQueueS3: outputs.msk.ChannelDeadLetterQueueS3;
+        /**
+         * The Amazon Resource Name (ARN) of an IAM role used by MSK to access S3
+         */
+        serviceExecutionRoleArn: string;
+        storage: outputs.msk.ChannelS3Storage;
+    }
+
+    /**
+     * S3 log destination details
+     */
+    export interface ChannelS3LogDestination {
+        /**
+         * The name of the S3 bucket for log delivery
+         */
+        bucket?: string;
+        /**
+         * Whether S3 logging is enabled
+         */
+        enabled: boolean;
+        /**
+         * The S3 prefix for log delivery
+         */
+        prefix?: string;
+    }
+
+    /**
+     * S3 storage configuration
+     */
+    export interface ChannelS3Storage {
+        /**
+         * ARN of the S3 bucket
+         */
+        bucketArn: string;
+        compressionType: enums.msk.ChannelS3CompressionType;
+        /**
+         * Optional 12-digit AWS account ID expected to own the S3 bucket
+         */
+        expectedBucketOwner?: string;
+        /**
+         * Template for S3 key for output objects, used for partitioning
+         */
+        outputKeyTemplate?: string;
+        /**
+         * Optional prefix for output objects
+         */
+        outputPrefix?: string;
+        storageClass: enums.msk.ChannelS3StorageClass;
+    }
+
+    /**
+     * Schema evolution configuration of the destination
+     */
+    export interface ChannelSchemaEvolution {
+        /**
+         * Whether schema evolution is enabled
+         */
+        enableSchemaEvolution: boolean;
+    }
+
+    /**
+     * Includes information about the channel state
+     */
+    export interface ChannelStateInfo {
+        /**
+         * Code for channel state
+         */
+        code?: string;
+        /**
+         * Message for channel state
+         */
+        message?: string;
+    }
+
+    /**
+     * Table creation configuration of the destination
+     */
+    export interface ChannelTableCreation {
+        /**
+         * Whether table creation is enabled
+         */
+        enableTableCreation: boolean;
+    }
+
+    /**
+     * Configuration of topic in a channel
+     */
+    export interface ChannelTopicConfiguration {
+        recordConverter: outputs.msk.ChannelRecordConverter;
+        recordSchema?: outputs.msk.ChannelRecordSchema;
+        /**
+         * The Amazon Resource Name (ARN) that uniquely identifies the topic
+         */
+        topicArn: string;
+    }
+
     export interface ClusterBrokerLogs {
         cloudWatchLogs?: outputs.msk.ClusterCloudWatchLogs;
         /**
@@ -99249,6 +100632,34 @@ export namespace quicksight {
         dayOfWeek?: enums.quicksight.RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek;
     }
 
+    /**
+     * A QuickSight resource attached to the space.
+     */
+    export interface SpaceResource {
+        /**
+         * The ARN of the QuickSight resource.
+         */
+        resourceArn: string;
+        /**
+         * The type of QuickSight resource.
+         */
+        resourceType: enums.quicksight.SpaceResourceResourceType;
+    }
+
+    /**
+     * A permission granted to a principal on a QuickSight resource.
+     */
+    export interface SpaceResourcePermission {
+        /**
+         * The list of actions granted to the principal.
+         */
+        actions: string[];
+        /**
+         * The ARN of the principal (user or group) receiving the permission.
+         */
+        principal: string;
+    }
+
     export interface TemplateAggregationFunction {
         /**
          * Aggregation for attributes.
@@ -119845,6 +121256,20 @@ export namespace sagemaker {
         fileSystemPath?: string;
     }
 
+    /**
+     * Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+     */
+    export interface UserProfileEmrSettings {
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+         */
+        assumableRoleArns?: string[];
+        /**
+         * An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+         */
+        executionRoleArns?: string[];
+    }
+
     export interface UserProfileFSxLustreFileSystemConfig {
         /**
          * The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
@@ -119910,6 +121335,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileResourceSpec;
+        /**
+         * The configuration parameters for EMR settings.
+         */
+        emrSettings?: outputs.sagemaker.UserProfileEmrSettings;
         /**
          * A list of LifecycleConfigArns available for use with JupyterLab apps.
          */
@@ -119983,6 +121412,10 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sageMakerImageVersionArn?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+         */
+        trainingPlanArn?: string;
     }
 
     export interface UserProfileS3FileSystemConfig {
@@ -120880,6 +122313,10 @@ export namespace securityagent {
      */
     export interface PentestIntegratedRepository {
         /**
+         * An optional override for the repository branch
+         */
+        branch?: string;
+        /**
          * Unique identifier of the provider integration
          */
         integrationId: string;
@@ -121183,7 +122620,7 @@ export namespace securityhub {
          *   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
          *   +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
          *
-         *  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+         *  The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
          */
         comparison: enums.securityhub.AutomationRuleStringFilterComparison;
         /**
@@ -121831,51 +123268,51 @@ export namespace securityhub {
     }
 
     /**
-     * The configuration settings for an Azure CSPM provider
+     * The configuration for connecting to an Azure environment.
      */
     export interface ConnectorAzureProviderConfiguration {
         /**
-         * The ARN of the AWS Config connector used for the Azure integration
+         * The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
          */
         awsConfigConnectorArn: string;
         /**
-         * The list of Azure regions to include in the connector scope
+         * The list of Azure regions to monitor.
          */
         azureRegions: string[];
+        /**
+         * The scope configuration that defines which Azure resources are monitored.
+         */
         scopeConfiguration: outputs.securityhub.ConnectorAzureScopeConfiguration;
     }
 
     /**
-     * The scope configuration for an Azure connector
+     * The scope configuration for an Azure connector, defining the tenant or subscription scope.
      */
     export interface ConnectorAzureScopeConfiguration {
         /**
-         * The scope type for the Azure connector
+         * The type of scope. Valid values are ``tenant`` and ``subscription``.
          */
         scopeType: enums.securityhub.ConnectorAzureScopeConfigurationScopeType;
         /**
-         * The list of scope values for the Azure connector
+         * The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
          */
         scopeValues?: string[];
     }
 
     /**
-     * A health issue associated with the connector
+     * Represents a specific health issue detected for a connector.
      */
     export interface ConnectorHealthIssue {
         /**
-         * The code identifying the type of health issue
+         * The error code that identifies the type of health issue.
          */
         code: string;
         /**
-         * The message describing the health issue
+         * A human-readable message that describes the health issue.
          */
         message: string;
     }
 
-    /**
-     * The CSPM provider configuration for the connector
-     */
     export interface ConnectorProvider {
         azure: outputs.securityhub.ConnectorAzureProviderConfiguration;
     }

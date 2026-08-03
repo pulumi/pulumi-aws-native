@@ -46,6 +46,10 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly groupName: pulumi.Output<string>;
     /**
+     * The ID of a parent placement group. Valid for strategies that support parent group linking.
+     */
+    declare public readonly parentGroupId: pulumi.Output<string | undefined>;
+    /**
      * The number of partitions. Valid only when **Strategy** is set to `partition`
      */
     declare public readonly partitionCount: pulumi.Output<number | undefined>;
@@ -73,6 +77,7 @@ export class PlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["parentGroupId"] = args?.parentGroupId;
             resourceInputs["partitionCount"] = args?.partitionCount;
             resourceInputs["spreadLevel"] = args?.spreadLevel;
             resourceInputs["strategy"] = args?.strategy;
@@ -82,13 +87,14 @@ export class PlacementGroup extends pulumi.CustomResource {
         } else {
             resourceInputs["groupId"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["parentGroupId"] = undefined /*out*/;
             resourceInputs["partitionCount"] = undefined /*out*/;
             resourceInputs["spreadLevel"] = undefined /*out*/;
             resourceInputs["strategy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["partitionCount", "spreadLevel", "strategy", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["parentGroupId", "partitionCount", "spreadLevel", "strategy", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -98,6 +104,10 @@ export class PlacementGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a PlacementGroup resource.
  */
 export interface PlacementGroupArgs {
+    /**
+     * The ID of a parent placement group. Valid for strategies that support parent group linking.
+     */
+    parentGroupId?: pulumi.Input<string | undefined>;
     /**
      * The number of partitions. Valid only when **Strategy** is set to `partition`
      */

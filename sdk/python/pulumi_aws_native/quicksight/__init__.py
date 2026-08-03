@@ -27,6 +27,7 @@ from .get_flow import *
 from .get_folder import *
 from .get_knowledge_base import *
 from .get_o_auth_client_application import *
+from .get_space import *
 from .get_template import *
 from .get_theme import *
 from .get_topic import *
@@ -34,6 +35,7 @@ from .get_vpc_connection import *
 from .knowledge_base import *
 from .o_auth_client_application import *
 from .refresh_schedule import *
+from .space import *
 from .template import *
 from .theme import *
 from .topic import *

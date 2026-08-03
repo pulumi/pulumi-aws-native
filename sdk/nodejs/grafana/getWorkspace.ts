@@ -128,6 +128,10 @@ export interface GetWorkspaceResult {
      */
     readonly status?: enums.grafana.WorkspaceStatus;
     /**
+     * The list of tags associated with the workspace.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
      *
      * > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -76,6 +77,8 @@ type Workspace struct {
 	//
 	// Type: String
 	Status WorkspaceStatusOutput `pulumi:"status"`
+	// The list of tags associated with the workspace.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -173,6 +176,8 @@ type workspaceArgs struct {
 	SamlConfiguration *WorkspaceSamlConfiguration `pulumi:"samlConfiguration"`
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
 	StackSetName *string `pulumi:"stackSetName"`
+	// The list of tags associated with the workspace.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -219,6 +224,8 @@ type WorkspaceArgs struct {
 	SamlConfiguration WorkspaceSamlConfigurationPtrInput
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
 	StackSetName pulumi.StringPtrInput
+	// The list of tags associated with the workspace.
+	Tags aws.TagArrayInput
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -389,6 +396,11 @@ func (o WorkspaceOutput) StackSetName() pulumi.StringPtrOutput {
 // Type: String
 func (o WorkspaceOutput) Status() WorkspaceStatusOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceStatusOutput { return v.Status }).(WorkspaceStatusOutput)
+}
+
+// The list of tags associated with the workspace.
+func (o WorkspaceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Workspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon OpenSearchServerless lifecycle policy resource
+// Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
 func LookupLifecyclePolicy(ctx *pulumi.Context, args *LookupLifecyclePolicyArgs, opts ...pulumi.InvokeOption) (*LookupLifecyclePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLifecyclePolicyResult

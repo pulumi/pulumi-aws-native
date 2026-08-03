@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Aps.Outputs
         /// Configuration for Amazon Managed Prometheus metrics destination
         /// </summary>
         public readonly Outputs.ScraperDestinationAmpConfigurationProperties? AmpConfiguration;
+        /// <summary>
+        /// Configuration for CloudWatch metrics destination
+        /// </summary>
+        public readonly Outputs.ScraperDestinationCloudWatchConfigurationProperties? CloudWatchConfiguration;
 
         [OutputConstructor]
-        private ScraperDestination(Outputs.ScraperDestinationAmpConfigurationProperties? ampConfiguration)
+        private ScraperDestination(
+            Outputs.ScraperDestinationAmpConfigurationProperties? ampConfiguration,
+
+            Outputs.ScraperDestinationCloudWatchConfigurationProperties? cloudWatchConfiguration)
         {
             AmpConfiguration = ampConfiguration;
+            CloudWatchConfiguration = cloudWatchConfiguration;
         }
     }
 }

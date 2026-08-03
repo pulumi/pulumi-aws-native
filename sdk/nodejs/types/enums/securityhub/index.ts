@@ -292,7 +292,7 @@ export const ConnectorAzureScopeConfigurationScopeType = {
 } as const;
 
 /**
- * The scope type for the Azure connector
+ * The type of scope. Valid values are ``tenant`` and ``subscription``.
  */
 export type ConnectorAzureScopeConfigurationScopeType = (typeof ConnectorAzureScopeConfigurationScopeType)[keyof typeof ConnectorAzureScopeConfigurationScopeType];
 

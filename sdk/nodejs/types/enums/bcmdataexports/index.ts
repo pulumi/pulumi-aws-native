@@ -5,6 +5,7 @@
 export const ExportCompressionOption = {
     Gzip: "GZIP",
     Parquet: "PARQUET",
+    Zip: "ZIP",
 } as const;
 
 export type ExportCompressionOption = (typeof ExportCompressionOption)[keyof typeof ExportCompressionOption];

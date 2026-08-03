@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
     /// <summary>
-    /// The scope configuration for an Azure connector
+    /// The scope configuration for an Azure connector, defining the tenant or subscription scope.
     /// </summary>
     [OutputType]
     public sealed class ConnectorAzureScopeConfiguration
     {
         /// <summary>
-        /// The scope type for the Azure connector
+        /// The type of scope. Valid values are ``tenant`` and ``subscription``.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.ConnectorAzureScopeConfigurationScopeType ScopeType;
         /// <summary>
-        /// The list of scope values for the Azure connector
+        /// The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
         /// </summary>
         public readonly ImmutableArray<string> ScopeValues;
 

@@ -13,6 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TagsItemProperties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Maps Grafana friendly names to the IdPs SAML attributes.
 type WorkspaceAssertionAttributes struct {
 	// Name of the attribute within the SAML assert to use as the users email in Grafana.

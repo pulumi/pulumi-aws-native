@@ -11,19 +11,22 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
     /// <summary>
-    /// The configuration settings for an Azure CSPM provider
+    /// The configuration for connecting to an Azure environment.
     /// </summary>
     [OutputType]
     public sealed class ConnectorAzureProviderConfiguration
     {
         /// <summary>
-        /// The ARN of the AWS Config connector used for the Azure integration
+        /// The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
         /// </summary>
         public readonly string AwsConfigConnectorArn;
         /// <summary>
-        /// The list of Azure regions to include in the connector scope
+        /// The list of Azure regions to monitor.
         /// </summary>
         public readonly ImmutableArray<string> AzureRegions;
+        /// <summary>
+        /// The scope configuration that defines which Azure resources are monitored.
+        /// </summary>
         public readonly Outputs.ConnectorAzureScopeConfiguration ScopeConfiguration;
 
         [OutputConstructor]

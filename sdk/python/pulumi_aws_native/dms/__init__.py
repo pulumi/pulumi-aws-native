@@ -10,9 +10,11 @@ from ._enums import *
 from .certificate import *
 from .data_migration import *
 from .data_provider import *
+from .endpoint import *
 from .get_certificate import *
 from .get_data_migration import *
 from .get_data_provider import *
+from .get_endpoint import *
 from .get_instance_profile import *
 from .get_migration_project import *
 from .get_replication_config import *

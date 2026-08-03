@@ -13,6 +13,555 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateFilterOperationSelectedFieldsConfiguration struct {
+	// <p>The selected columns of a dataset.</p>
+	SelectedColumns []TemplateColumnIdentifier `pulumi:"selectedColumns"`
+	// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `ALL_FIELDS` : Applies the filter operation to all fields.
+	SelectedFieldOptions *TemplateSelectedFieldOptions `pulumi:"selectedFieldOptions"`
+	// Chooses the fields that are filtered in `CustomActionFilterOperation` .
+	SelectedFields []string `pulumi:"selectedFields"`
+}
+
+// TemplateFilterOperationSelectedFieldsConfigurationInput is an input type that accepts TemplateFilterOperationSelectedFieldsConfigurationArgs and TemplateFilterOperationSelectedFieldsConfigurationOutput values.
+// You can construct a concrete instance of `TemplateFilterOperationSelectedFieldsConfigurationInput` via:
+//
+//	TemplateFilterOperationSelectedFieldsConfigurationArgs{...}
+type TemplateFilterOperationSelectedFieldsConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateFilterOperationSelectedFieldsConfigurationOutput() TemplateFilterOperationSelectedFieldsConfigurationOutput
+	ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(context.Context) TemplateFilterOperationSelectedFieldsConfigurationOutput
+}
+
+type TemplateFilterOperationSelectedFieldsConfigurationArgs struct {
+	// <p>The selected columns of a dataset.</p>
+	SelectedColumns TemplateColumnIdentifierArrayInput `pulumi:"selectedColumns"`
+	// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `ALL_FIELDS` : Applies the filter operation to all fields.
+	SelectedFieldOptions TemplateSelectedFieldOptionsPtrInput `pulumi:"selectedFieldOptions"`
+	// Chooses the fields that are filtered in `CustomActionFilterOperation` .
+	SelectedFields pulumi.StringArrayInput `pulumi:"selectedFields"`
+}
+
+func (TemplateFilterOperationSelectedFieldsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
+}
+
+func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationOutput() TemplateFilterOperationSelectedFieldsConfigurationOutput {
+	return i.ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationSelectedFieldsConfigurationOutput)
+}
+
+func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return i.ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterOperationSelectedFieldsConfigurationArgs) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationSelectedFieldsConfigurationOutput).ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateFilterOperationSelectedFieldsConfigurationPtrInput is an input type that accepts TemplateFilterOperationSelectedFieldsConfigurationArgs, TemplateFilterOperationSelectedFieldsConfigurationPtr and TemplateFilterOperationSelectedFieldsConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateFilterOperationSelectedFieldsConfigurationPtrInput` via:
+//
+//	        TemplateFilterOperationSelectedFieldsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFilterOperationSelectedFieldsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput
+	ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput
+}
+
+type templateFilterOperationSelectedFieldsConfigurationPtrType TemplateFilterOperationSelectedFieldsConfigurationArgs
+
+func TemplateFilterOperationSelectedFieldsConfigurationPtr(v *TemplateFilterOperationSelectedFieldsConfigurationArgs) TemplateFilterOperationSelectedFieldsConfigurationPtrInput {
+	return (*templateFilterOperationSelectedFieldsConfigurationPtrType)(v)
+}
+
+func (*templateFilterOperationSelectedFieldsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
+}
+
+func (i *templateFilterOperationSelectedFieldsConfigurationPtrType) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return i.ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFilterOperationSelectedFieldsConfigurationPtrType) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput)
+}
+
+type TemplateFilterOperationSelectedFieldsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterOperationSelectedFieldsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationOutput() TemplateFilterOperationSelectedFieldsConfigurationOutput {
+	return o
+}
+
+func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationOutput {
+	return o
+}
+
+func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return o.ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterOperationSelectedFieldsConfiguration) *TemplateFilterOperationSelectedFieldsConfiguration {
+		return &v
+	}).(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput)
+}
+
+// <p>The selected columns of a dataset.</p>
+func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) SelectedColumns() TemplateColumnIdentifierArrayOutput {
+	return o.ApplyT(func(v TemplateFilterOperationSelectedFieldsConfiguration) []TemplateColumnIdentifier {
+		return v.SelectedColumns
+	}).(TemplateColumnIdentifierArrayOutput)
+}
+
+// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
+//
+// Valid values are defined as follows:
+//
+// - `ALL_FIELDS` : Applies the filter operation to all fields.
+func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) SelectedFieldOptions() TemplateSelectedFieldOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFilterOperationSelectedFieldsConfiguration) *TemplateSelectedFieldOptions {
+		return v.SelectedFieldOptions
+	}).(TemplateSelectedFieldOptionsPtrOutput)
+}
+
+// Chooses the fields that are filtered in `CustomActionFilterOperation` .
+func (o TemplateFilterOperationSelectedFieldsConfigurationOutput) SelectedFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TemplateFilterOperationSelectedFieldsConfiguration) []string { return v.SelectedFields }).(pulumi.StringArrayOutput)
+}
+
+type TemplateFilterOperationSelectedFieldsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFilterOperationSelectedFieldsConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutput() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) ToTemplateFilterOperationSelectedFieldsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) Elem() TemplateFilterOperationSelectedFieldsConfigurationOutput {
+	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) TemplateFilterOperationSelectedFieldsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFilterOperationSelectedFieldsConfiguration
+		return ret
+	}).(TemplateFilterOperationSelectedFieldsConfigurationOutput)
+}
+
+// <p>The selected columns of a dataset.</p>
+func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedColumns() TemplateColumnIdentifierArrayOutput {
+	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) []TemplateColumnIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedColumns
+	}).(TemplateColumnIdentifierArrayOutput)
+}
+
+// A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation` .
+//
+// Valid values are defined as follows:
+//
+// - `ALL_FIELDS` : Applies the filter operation to all fields.
+func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedFieldOptions() TemplateSelectedFieldOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) *TemplateSelectedFieldOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedFieldOptions
+	}).(TemplateSelectedFieldOptionsPtrOutput)
+}
+
+// Chooses the fields that are filtered in `CustomActionFilterOperation` .
+func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateFilterOperationSelectedFieldsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedFields
+	}).(pulumi.StringArrayOutput)
+}
+
+type TemplateFilterOperationTargetVisualsConfiguration struct {
+	// The configuration of the same-sheet target visuals that you want to be filtered.
+	SameSheetTargetVisualConfiguration *TemplateSameSheetTargetVisualConfiguration `pulumi:"sameSheetTargetVisualConfiguration"`
+}
+
+// TemplateFilterOperationTargetVisualsConfigurationInput is an input type that accepts TemplateFilterOperationTargetVisualsConfigurationArgs and TemplateFilterOperationTargetVisualsConfigurationOutput values.
+// You can construct a concrete instance of `TemplateFilterOperationTargetVisualsConfigurationInput` via:
+//
+//	TemplateFilterOperationTargetVisualsConfigurationArgs{...}
+type TemplateFilterOperationTargetVisualsConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateFilterOperationTargetVisualsConfigurationOutput() TemplateFilterOperationTargetVisualsConfigurationOutput
+	ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(context.Context) TemplateFilterOperationTargetVisualsConfigurationOutput
+}
+
+type TemplateFilterOperationTargetVisualsConfigurationArgs struct {
+	// The configuration of the same-sheet target visuals that you want to be filtered.
+	SameSheetTargetVisualConfiguration TemplateSameSheetTargetVisualConfigurationPtrInput `pulumi:"sameSheetTargetVisualConfiguration"`
+}
+
+func (TemplateFilterOperationTargetVisualsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
+}
+
+func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationOutput() TemplateFilterOperationTargetVisualsConfigurationOutput {
+	return i.ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationTargetVisualsConfigurationOutput)
+}
+
+func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return i.ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterOperationTargetVisualsConfigurationArgs) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationTargetVisualsConfigurationOutput).ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateFilterOperationTargetVisualsConfigurationPtrInput is an input type that accepts TemplateFilterOperationTargetVisualsConfigurationArgs, TemplateFilterOperationTargetVisualsConfigurationPtr and TemplateFilterOperationTargetVisualsConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateFilterOperationTargetVisualsConfigurationPtrInput` via:
+//
+//	        TemplateFilterOperationTargetVisualsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFilterOperationTargetVisualsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput
+	ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput
+}
+
+type templateFilterOperationTargetVisualsConfigurationPtrType TemplateFilterOperationTargetVisualsConfigurationArgs
+
+func TemplateFilterOperationTargetVisualsConfigurationPtr(v *TemplateFilterOperationTargetVisualsConfigurationArgs) TemplateFilterOperationTargetVisualsConfigurationPtrInput {
+	return (*templateFilterOperationTargetVisualsConfigurationPtrType)(v)
+}
+
+func (*templateFilterOperationTargetVisualsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
+}
+
+func (i *templateFilterOperationTargetVisualsConfigurationPtrType) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return i.ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFilterOperationTargetVisualsConfigurationPtrType) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOperationTargetVisualsConfigurationPtrOutput)
+}
+
+type TemplateFilterOperationTargetVisualsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterOperationTargetVisualsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationOutput() TemplateFilterOperationTargetVisualsConfigurationOutput {
+	return o
+}
+
+func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationOutput {
+	return o
+}
+
+func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return o.ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterOperationTargetVisualsConfiguration) *TemplateFilterOperationTargetVisualsConfiguration {
+		return &v
+	}).(TemplateFilterOperationTargetVisualsConfigurationPtrOutput)
+}
+
+// The configuration of the same-sheet target visuals that you want to be filtered.
+func (o TemplateFilterOperationTargetVisualsConfigurationOutput) SameSheetTargetVisualConfiguration() TemplateSameSheetTargetVisualConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateFilterOperationTargetVisualsConfiguration) *TemplateSameSheetTargetVisualConfiguration {
+		return v.SameSheetTargetVisualConfiguration
+	}).(TemplateSameSheetTargetVisualConfigurationPtrOutput)
+}
+
+type TemplateFilterOperationTargetVisualsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterOperationTargetVisualsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFilterOperationTargetVisualsConfiguration)(nil)).Elem()
+}
+
+func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutput() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) ToTemplateFilterOperationTargetVisualsConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) Elem() TemplateFilterOperationTargetVisualsConfigurationOutput {
+	return o.ApplyT(func(v *TemplateFilterOperationTargetVisualsConfiguration) TemplateFilterOperationTargetVisualsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFilterOperationTargetVisualsConfiguration
+		return ret
+	}).(TemplateFilterOperationTargetVisualsConfigurationOutput)
+}
+
+// The configuration of the same-sheet target visuals that you want to be filtered.
+func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) SameSheetTargetVisualConfiguration() TemplateSameSheetTargetVisualConfigurationPtrOutput {
+	return o.ApplyT(func(v *TemplateFilterOperationTargetVisualsConfiguration) *TemplateSameSheetTargetVisualConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SameSheetTargetVisualConfiguration
+	}).(TemplateSameSheetTargetVisualConfigurationPtrOutput)
+}
+
+type TemplateFilterRelativeDateTimeControl struct {
+	// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
+	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
+	// The display options of a control.
+	DisplayOptions *TemplateRelativeDateTimeControlDisplayOptions `pulumi:"displayOptions"`
+	// The ID of the `FilterTextAreaControl` .
+	FilterControlId string `pulumi:"filterControlId"`
+	// The source filter ID of the `FilterTextAreaControl` .
+	SourceFilterId string `pulumi:"sourceFilterId"`
+	// The title of the `FilterTextAreaControl` .
+	Title string `pulumi:"title"`
+}
+
+// TemplateFilterRelativeDateTimeControlInput is an input type that accepts TemplateFilterRelativeDateTimeControlArgs and TemplateFilterRelativeDateTimeControlOutput values.
+// You can construct a concrete instance of `TemplateFilterRelativeDateTimeControlInput` via:
+//
+//	TemplateFilterRelativeDateTimeControlArgs{...}
+type TemplateFilterRelativeDateTimeControlInput interface {
+	pulumi.Input
+
+	ToTemplateFilterRelativeDateTimeControlOutput() TemplateFilterRelativeDateTimeControlOutput
+	ToTemplateFilterRelativeDateTimeControlOutputWithContext(context.Context) TemplateFilterRelativeDateTimeControlOutput
+}
+
+type TemplateFilterRelativeDateTimeControlArgs struct {
+	// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
+	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
+	// The display options of a control.
+	DisplayOptions TemplateRelativeDateTimeControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
+	// The ID of the `FilterTextAreaControl` .
+	FilterControlId pulumi.StringInput `pulumi:"filterControlId"`
+	// The source filter ID of the `FilterTextAreaControl` .
+	SourceFilterId pulumi.StringInput `pulumi:"sourceFilterId"`
+	// The title of the `FilterTextAreaControl` .
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (TemplateFilterRelativeDateTimeControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilterRelativeDateTimeControl)(nil)).Elem()
+}
+
+func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlOutput() TemplateFilterRelativeDateTimeControlOutput {
+	return i.ToTemplateFilterRelativeDateTimeControlOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterRelativeDateTimeControlOutput)
+}
+
+func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
+	return i.ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterRelativeDateTimeControlArgs) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterRelativeDateTimeControlOutput).ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx)
+}
+
+// TemplateFilterRelativeDateTimeControlPtrInput is an input type that accepts TemplateFilterRelativeDateTimeControlArgs, TemplateFilterRelativeDateTimeControlPtr and TemplateFilterRelativeDateTimeControlPtrOutput values.
+// You can construct a concrete instance of `TemplateFilterRelativeDateTimeControlPtrInput` via:
+//
+//	        TemplateFilterRelativeDateTimeControlArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateFilterRelativeDateTimeControlPtrInput interface {
+	pulumi.Input
+
+	ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput
+	ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Context) TemplateFilterRelativeDateTimeControlPtrOutput
+}
+
+type templateFilterRelativeDateTimeControlPtrType TemplateFilterRelativeDateTimeControlArgs
+
+func TemplateFilterRelativeDateTimeControlPtr(v *TemplateFilterRelativeDateTimeControlArgs) TemplateFilterRelativeDateTimeControlPtrInput {
+	return (*templateFilterRelativeDateTimeControlPtrType)(v)
+}
+
+func (*templateFilterRelativeDateTimeControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFilterRelativeDateTimeControl)(nil)).Elem()
+}
+
+func (i *templateFilterRelativeDateTimeControlPtrType) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
+	return i.ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Background())
+}
+
+func (i *templateFilterRelativeDateTimeControlPtrType) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterRelativeDateTimeControlPtrOutput)
+}
+
+type TemplateFilterRelativeDateTimeControlOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterRelativeDateTimeControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilterRelativeDateTimeControl)(nil)).Elem()
+}
+
+func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlOutput() TemplateFilterRelativeDateTimeControlOutput {
+	return o
+}
+
+func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlOutput {
+	return o
+}
+
+func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
+	return o.ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateFilterRelativeDateTimeControlOutput) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterRelativeDateTimeControl) *TemplateFilterRelativeDateTimeControl {
+		return &v
+	}).(TemplateFilterRelativeDateTimeControlPtrOutput)
+}
+
+// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
+func (o TemplateFilterRelativeDateTimeControlOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
+}
+
+// The display options of a control.
+func (o TemplateFilterRelativeDateTimeControlOutput) DisplayOptions() TemplateRelativeDateTimeControlDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) *TemplateRelativeDateTimeControlDisplayOptions {
+		return v.DisplayOptions
+	}).(TemplateRelativeDateTimeControlDisplayOptionsPtrOutput)
+}
+
+// The ID of the `FilterTextAreaControl` .
+func (o TemplateFilterRelativeDateTimeControlOutput) FilterControlId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) string { return v.FilterControlId }).(pulumi.StringOutput)
+}
+
+// The source filter ID of the `FilterTextAreaControl` .
+func (o TemplateFilterRelativeDateTimeControlOutput) SourceFilterId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) string { return v.SourceFilterId }).(pulumi.StringOutput)
+}
+
+// The title of the `FilterTextAreaControl` .
+func (o TemplateFilterRelativeDateTimeControlOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateFilterRelativeDateTimeControl) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type TemplateFilterRelativeDateTimeControlPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterRelativeDateTimeControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateFilterRelativeDateTimeControl)(nil)).Elem()
+}
+
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) ToTemplateFilterRelativeDateTimeControlPtrOutput() TemplateFilterRelativeDateTimeControlPtrOutput {
+	return o
+}
+
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) ToTemplateFilterRelativeDateTimeControlPtrOutputWithContext(ctx context.Context) TemplateFilterRelativeDateTimeControlPtrOutput {
+	return o
+}
+
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) Elem() TemplateFilterRelativeDateTimeControlOutput {
+	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) TemplateFilterRelativeDateTimeControl {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateFilterRelativeDateTimeControl
+		return ret
+	}).(TemplateFilterRelativeDateTimeControlOutput)
+}
+
+// The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl` .
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
+	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *TemplateCommitMode {
+		if v == nil {
+			return nil
+		}
+		return v.CommitMode
+	}).(TemplateCommitModePtrOutput)
+}
+
+// The display options of a control.
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) DisplayOptions() TemplateRelativeDateTimeControlDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *TemplateRelativeDateTimeControlDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayOptions
+	}).(TemplateRelativeDateTimeControlDisplayOptionsPtrOutput)
+}
+
+// The ID of the `FilterTextAreaControl` .
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) FilterControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterControlId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source filter ID of the `FilterTextAreaControl` .
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) SourceFilterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceFilterId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the `FilterTextAreaControl` .
+func (o TemplateFilterRelativeDateTimeControlPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateFilterRelativeDateTimeControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
 type TemplateFilterScopeConfiguration struct {
 	// The configuration that applies a filter to all sheets. When you choose `AllSheets` as the value for a `FilterScopeConfiguration` , this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The `AllSheetsFilterScopeConfiguration` is chosen.
 	AllSheets *TemplateAllSheetsFilterScopeConfiguration `pulumi:"allSheets"`
@@ -68143,6 +68692,12 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfigurationInput)(nil)).Elem(), TemplateFilterOperationSelectedFieldsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationSelectedFieldsConfigurationPtrInput)(nil)).Elem(), TemplateFilterOperationSelectedFieldsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfigurationInput)(nil)).Elem(), TemplateFilterOperationTargetVisualsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterOperationTargetVisualsConfigurationPtrInput)(nil)).Elem(), TemplateFilterOperationTargetVisualsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterRelativeDateTimeControlInput)(nil)).Elem(), TemplateFilterRelativeDateTimeControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterRelativeDateTimeControlPtrInput)(nil)).Elem(), TemplateFilterRelativeDateTimeControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterScopeConfigurationInput)(nil)).Elem(), TemplateFilterScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterSelectableValuesInput)(nil)).Elem(), TemplateFilterSelectableValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterSelectableValuesPtrInput)(nil)).Elem(), TemplateFilterSelectableValuesArgs{})
@@ -68901,6 +69456,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateFilterOperationSelectedFieldsConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFilterOperationTargetVisualsConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateFilterOperationTargetVisualsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateFilterRelativeDateTimeControlOutput{})
+	pulumi.RegisterOutputType(TemplateFilterRelativeDateTimeControlPtrOutput{})
 	pulumi.RegisterOutputType(TemplateFilterScopeConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateFilterSelectableValuesOutput{})
 	pulumi.RegisterOutputType(TemplateFilterSelectableValuesPtrOutput{})

@@ -4865,6 +4865,101 @@ func (in *harnessCustomClaimValidationTypeInboundTokenClaimValueTypePtr) ToHarne
 	return pulumi.ToOutputWithContext(ctx, in).(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput)
 }
 
+type HarnessEndpointStatus string
+
+const (
+	HarnessEndpointStatusCreating     = HarnessEndpointStatus("CREATING")
+	HarnessEndpointStatusCreateFailed = HarnessEndpointStatus("CREATE_FAILED")
+	HarnessEndpointStatusUpdating     = HarnessEndpointStatus("UPDATING")
+	HarnessEndpointStatusUpdateFailed = HarnessEndpointStatus("UPDATE_FAILED")
+	HarnessEndpointStatusReady        = HarnessEndpointStatus("READY")
+	HarnessEndpointStatusDeleting     = HarnessEndpointStatus("DELETING")
+	HarnessEndpointStatusDeleteFailed = HarnessEndpointStatus("DELETE_FAILED")
+)
+
+type HarnessEndpointStatusOutput struct{ *pulumi.OutputState }
+
+func (HarnessEndpointStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessEndpointStatus)(nil)).Elem()
+}
+
+func (o HarnessEndpointStatusOutput) ToHarnessEndpointStatusOutput() HarnessEndpointStatusOutput {
+	return o
+}
+
+func (o HarnessEndpointStatusOutput) ToHarnessEndpointStatusOutputWithContext(ctx context.Context) HarnessEndpointStatusOutput {
+	return o
+}
+
+func (o HarnessEndpointStatusOutput) ToHarnessEndpointStatusPtrOutput() HarnessEndpointStatusPtrOutput {
+	return o.ToHarnessEndpointStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessEndpointStatusOutput) ToHarnessEndpointStatusPtrOutputWithContext(ctx context.Context) HarnessEndpointStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessEndpointStatus) *HarnessEndpointStatus {
+		return &v
+	}).(HarnessEndpointStatusPtrOutput)
+}
+
+func (o HarnessEndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessEndpointStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessEndpointStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessEndpointStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessEndpointStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessEndpointStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessEndpointStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessEndpointStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessEndpointStatus)(nil)).Elem()
+}
+
+func (o HarnessEndpointStatusPtrOutput) ToHarnessEndpointStatusPtrOutput() HarnessEndpointStatusPtrOutput {
+	return o
+}
+
+func (o HarnessEndpointStatusPtrOutput) ToHarnessEndpointStatusPtrOutputWithContext(ctx context.Context) HarnessEndpointStatusPtrOutput {
+	return o
+}
+
+func (o HarnessEndpointStatusPtrOutput) Elem() HarnessEndpointStatusOutput {
+	return o.ApplyT(func(v *HarnessEndpointStatus) HarnessEndpointStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessEndpointStatus
+		return ret
+	}).(HarnessEndpointStatusOutput)
+}
+
+func (o HarnessEndpointStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessEndpointStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessEndpointStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type HarnessManagedMemoryConfigurationStrategiesItem string
 
 const (
@@ -14628,6 +14723,8 @@ func init() {
 	pulumi.RegisterOutputType(HarnessBedrockModelConfigApiFormatPtrOutput{})
 	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeOutput{})
 	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput{})
+	pulumi.RegisterOutputType(HarnessEndpointStatusOutput{})
+	pulumi.RegisterOutputType(HarnessEndpointStatusPtrOutput{})
 	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemOutput{})
 	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemPtrOutput{})
 	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemArrayOutput{})

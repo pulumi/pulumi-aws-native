@@ -39,6 +39,7 @@ __all__ = [
     'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator',
     'HarnessBedrockModelConfigApiFormat',
     'HarnessCustomClaimValidationTypeInboundTokenClaimValueType',
+    'HarnessEndpointStatus',
     'HarnessManagedMemoryConfigurationStrategiesItem',
     'HarnessManagedVpcResourceEndpointIpAddressType',
     'HarnessNetworkConfigurationNetworkMode',
@@ -382,6 +383,17 @@ class HarnessBedrockModelConfigApiFormat(_builtins.str, Enum):
 class HarnessCustomClaimValidationTypeInboundTokenClaimValueType(_builtins.str, Enum):
     STRING = "STRING"
     STRING_ARRAY = "STRING_ARRAY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessEndpointStatus")
+class HarnessEndpointStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    READY = "READY"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessManagedMemoryConfigurationStrategiesItem")

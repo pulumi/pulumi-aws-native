@@ -166,6 +166,10 @@ namespace Pulumi.AwsNative.Grafana
         /// </summary>
         public readonly Pulumi.AwsNative.Grafana.WorkspaceStatus? Status;
         /// <summary>
+        /// The list of tags associated with the workspace.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
         /// 
         /// &gt; Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -218,6 +222,8 @@ namespace Pulumi.AwsNative.Grafana
 
             Pulumi.AwsNative.Grafana.WorkspaceStatus? status,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.WorkspaceVpcConfiguration? vpcConfiguration)
         {
             AccountAccessType = accountAccessType;
@@ -242,6 +248,7 @@ namespace Pulumi.AwsNative.Grafana
             SsoClientId = ssoClientId;
             StackSetName = stackSetName;
             Status = status;
+            Tags = tags;
             VpcConfiguration = vpcConfiguration;
         }
     }

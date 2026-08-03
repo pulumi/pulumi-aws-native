@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless vpc endpoint resource
+ * Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
  *
  * ## Example Usage
  * ### Example

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::OpenSearchServerless::CollectionIndex
+ * Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
  */
 export function getCollectionIndex(args: GetCollectionIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectionIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +33,7 @@ export interface GetCollectionIndexResult {
     readonly indexSchema?: string;
 }
 /**
- * Resource schema for AWS::OpenSearchServerless::CollectionIndex
+ * Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
  */
 export function getCollectionIndexOutput(args: GetCollectionIndexOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCollectionIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

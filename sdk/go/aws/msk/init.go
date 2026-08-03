@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:msk:BatchScramSecret":
 		r = &BatchScramSecret{}
+	case "aws-native:msk:Channel":
+		r = &Channel{}
 	case "aws-native:msk:Cluster":
 		r = &Cluster{}
 	case "aws-native:msk:ClusterPolicy":
