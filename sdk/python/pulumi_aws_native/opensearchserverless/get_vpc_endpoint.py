@@ -73,7 +73,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
 def get_vpc_endpoint(id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointResult:
     """
-    Amazon OpenSearchServerless vpc endpoint resource
+    Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
 
     :param _builtins.str id: The identifier of the VPC Endpoint
     """
@@ -89,7 +89,7 @@ def get_vpc_endpoint(id: Optional[_builtins.str] = None,
 def get_vpc_endpoint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
-    Amazon OpenSearchServerless vpc endpoint resource
+    Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
 
     :param _builtins.str id: The identifier of the VPC Endpoint
     """

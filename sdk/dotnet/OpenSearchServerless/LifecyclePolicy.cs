@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchServerless
 {
     /// <summary>
-    /// Amazon OpenSearchServerless lifecycle policy resource
+    /// Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:opensearchserverless:LifecyclePolicy")]
     public partial class LifecyclePolicy : global::Pulumi.CustomResource

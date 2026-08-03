@@ -98,7 +98,7 @@ class AwaitableGetSecurityConfigResult(GetSecurityConfigResult):
 def get_security_config(id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityConfigResult:
     """
-    Amazon OpenSearchServerless security config resource
+    Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
 
     :param _builtins.str id: The identifier of the security config
     """
@@ -116,7 +116,7 @@ def get_security_config(id: Optional[_builtins.str] = None,
 def get_security_config_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConfigResult]:
     """
-    Amazon OpenSearchServerless security config resource
+    Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
 
     :param _builtins.str id: The identifier of the security config
     """

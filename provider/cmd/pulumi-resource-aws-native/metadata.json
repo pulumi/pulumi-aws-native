@@ -14822,6 +14822,9 @@
                 "backupPlanId",
                 "versionId"
             ],
+            "unorderedCollections": [
+                "backupPlan/advancedBackupSettings"
+            ],
             "tagsProperty": "backupPlanTags",
             "tagsStyle": "stringMap",
             "primaryIdentifier": [
@@ -20944,6 +20947,135 @@
             ],
             "listInputs": {
                 "type": "object"
+            },
+            "hasListHandler": true
+        },
+        "aws-native:bedrockagentcore:HarnessEndpoint": {
+            "cf": "AWS::BedrockAgentCore::HarnessEndpoint",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the endpoint."
+                },
+                "endpointName": {
+                    "type": "string",
+                    "description": "The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores."
+                },
+                "harnessId": {
+                    "type": "string",
+                    "description": "The ID of the harness that the endpoint belongs to."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "Tags to apply to the harness endpoint resource."
+                },
+                "targetVersion": {
+                    "type": "string",
+                    "description": "The harness version that the endpoint points to and serves invocations from."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the endpoint."
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp when the endpoint was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the endpoint."
+                },
+                "endpointName": {
+                    "type": "string",
+                    "description": "The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores.",
+                    "replaceOnChanges": true
+                },
+                "harnessId": {
+                    "type": "string",
+                    "description": "The ID of the harness that the endpoint belongs to.",
+                    "replaceOnChanges": true
+                },
+                "harnessName": {
+                    "type": "string",
+                    "description": "The name of the harness that the endpoint belongs to."
+                },
+                "liveVersion": {
+                    "type": "string",
+                    "description": "The harness version that the endpoint is currently serving."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:HarnessEndpointStatus"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "Tags to apply to the harness endpoint resource."
+                },
+                "targetVersion": {
+                    "type": "string",
+                    "description": "The harness version that the endpoint points to and serves invocations from."
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "The timestamp when the endpoint was last updated."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "endpointName"
+            },
+            "required": [
+                "harnessId"
+            ],
+            "createOnly": [
+                "endpointName",
+                "harnessId"
+            ],
+            "readOnly": [
+                "arn",
+                "createdAt",
+                "harnessName",
+                "liveVersion",
+                "status",
+                "updatedAt"
+            ],
+            "writeOnly": [
+                "targetVersion"
+            ],
+            "unorderedCollections": [
+                "tags"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "arn"
+            ],
+            "listHandlerSchema": {
+                "properties": {
+                    "HarnessId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "HarnessId"
+                ]
+            },
+            "listInputs": {
+                "properties": {
+                    "harnessId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "harnessId"
+                ]
             },
             "hasListHandler": true
         },
@@ -52202,6 +52334,329 @@
             },
             "hasListHandler": true
         },
+        "aws-native:dms:Endpoint": {
+            "cf": "AWS::DMS::Endpoint",
+            "inputs": {
+                "certificateArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the certificate."
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the endpoint database. For a MySQL source or target endpoint, don't specify DatabaseName. To migrate to a specific database, use this setting and targetDbType."
+                },
+                "docDbSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointDocDbSettings",
+                    "description": "Settings in JSON format for the source and target DocumentDB endpoint"
+                },
+                "dynamoDbSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointDynamoDbSettings",
+                    "description": "Settings in JSON format for the target Amazon DynamoDB endpoint"
+                },
+                "elasticsearchSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointElasticsearchSettings",
+                    "description": "Settings in JSON format for the target OpenSearch endpoint"
+                },
+                "endpointIdentifier": {
+                    "type": "string",
+                    "description": "The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens."
+                },
+                "endpointType": {
+                    "type": "string",
+                    "description": "The type of endpoint. Valid values are source and target."
+                },
+                "engineName": {
+                    "type": "string",
+                    "description": "The type of engine for the endpoint, depending on the EndpointType value."
+                },
+                "extraConnectionAttributes": {
+                    "type": "string",
+                    "description": "Additional attributes associated with the connection"
+                },
+                "gcpMySqlSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointGcpMySqlSettings",
+                    "description": "Settings in JSON format for the source GCP MySQL endpoint"
+                },
+                "ibmDb2Settings": {
+                    "$ref": "#/types/aws-native:dms:EndpointIbmDb2Settings",
+                    "description": "Settings in JSON format for the source IBM Db2 LUW endpoint"
+                },
+                "kafkaSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointKafkaSettings",
+                    "description": "Settings in JSON format for the target Apache Kafka endpoint"
+                },
+                "kinesisSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointKinesisSettings",
+                    "description": "Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.If you don't specify a value for the KmsKeyId parameter, AWS DMS uses your default encryption key."
+                },
+                "microsoftSqlServerSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointMicrosoftSqlServerSettings",
+                    "description": "Settings in JSON format for the source and target Microsoft SQL Server endpoint"
+                },
+                "mongoDbSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointMongoDbSettings",
+                    "description": "Settings in JSON format for the source MongoDB endpoint"
+                },
+                "mySqlSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointMySqlSettings",
+                    "description": "Settings in JSON format for the source and target MySQL endpoin"
+                },
+                "neptuneSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointNeptuneSettings",
+                    "description": "Settings in JSON format for the target Amazon Neptune endpoint"
+                },
+                "oracleSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointOracleSettings",
+                    "description": "Settings in JSON format for the source and target Oracle endpoint"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password to be used to log in to the endpoint database."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port used by the endpoint database."
+                },
+                "postgreSqlSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointPostgreSqlSettings",
+                    "description": "Settings in JSON format for the source and target PostgreSQL endpoint."
+                },
+                "redisSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointRedisSettings",
+                    "description": "Settings in JSON format for the target Redis endpoint"
+                },
+                "redshiftSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointRedshiftSettings",
+                    "description": "Settings in JSON format for the Amazon Redshift endpoint."
+                },
+                "resourceIdentifier": {
+                    "type": "string",
+                    "description": "A display name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object."
+                },
+                "s3Settings": {
+                    "$ref": "#/types/aws-native:dms:EndpointS3Settings",
+                    "description": "Settings in JSON format for the source and target Amazon S3 endpoint"
+                },
+                "serverName": {
+                    "type": "string",
+                    "description": "The name of the server where the endpoint database resides."
+                },
+                "sslMode": {
+                    "type": "string",
+                    "description": "The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is none."
+                },
+                "sybaseSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointSybaseSettings",
+                    "description": "Settings in JSON format for the source and target SAP ASE endpoint."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "One or more tags to be assigned to the endpoint."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user name to be used to log in to the endpoint database."
+                }
+            },
+            "outputs": {
+                "certificateArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the certificate."
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the endpoint database. For a MySQL source or target endpoint, don't specify DatabaseName. To migrate to a specific database, use this setting and targetDbType."
+                },
+                "docDbSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointDocDbSettings",
+                    "description": "Settings in JSON format for the source and target DocumentDB endpoint"
+                },
+                "dynamoDbSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointDynamoDbSettings",
+                    "description": "Settings in JSON format for the target Amazon DynamoDB endpoint"
+                },
+                "elasticsearchSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointElasticsearchSettings",
+                    "description": "Settings in JSON format for the target OpenSearch endpoint"
+                },
+                "endpointArn": {
+                    "type": "string",
+                    "description": "The endpoint ARN."
+                },
+                "endpointIdentifier": {
+                    "type": "string",
+                    "description": "The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens."
+                },
+                "endpointType": {
+                    "type": "string",
+                    "description": "The type of endpoint. Valid values are source and target."
+                },
+                "engineName": {
+                    "type": "string",
+                    "description": "The type of engine for the endpoint, depending on the EndpointType value."
+                },
+                "externalId": {
+                    "type": "string",
+                    "description": "A value that can be used for cross-account validation."
+                },
+                "extraConnectionAttributes": {
+                    "type": "string",
+                    "description": "Additional attributes associated with the connection"
+                },
+                "gcpMySqlSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointGcpMySqlSettings",
+                    "description": "Settings in JSON format for the source GCP MySQL endpoint"
+                },
+                "ibmDb2Settings": {
+                    "$ref": "#/types/aws-native:dms:EndpointIbmDb2Settings",
+                    "description": "Settings in JSON format for the source IBM Db2 LUW endpoint"
+                },
+                "kafkaSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointKafkaSettings",
+                    "description": "Settings in JSON format for the target Apache Kafka endpoint"
+                },
+                "kinesisSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointKinesisSettings",
+                    "description": "Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams"
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.If you don't specify a value for the KmsKeyId parameter, AWS DMS uses your default encryption key.",
+                    "replaceOnChanges": true
+                },
+                "microsoftSqlServerSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointMicrosoftSqlServerSettings",
+                    "description": "Settings in JSON format for the source and target Microsoft SQL Server endpoint"
+                },
+                "mongoDbSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointMongoDbSettings",
+                    "description": "Settings in JSON format for the source MongoDB endpoint"
+                },
+                "mySqlSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointMySqlSettings",
+                    "description": "Settings in JSON format for the source and target MySQL endpoin"
+                },
+                "neptuneSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointNeptuneSettings",
+                    "description": "Settings in JSON format for the target Amazon Neptune endpoint"
+                },
+                "oracleSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointOracleSettings",
+                    "description": "Settings in JSON format for the source and target Oracle endpoint"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password to be used to log in to the endpoint database."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port used by the endpoint database."
+                },
+                "postgreSqlSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointPostgreSqlSettings",
+                    "description": "Settings in JSON format for the source and target PostgreSQL endpoint."
+                },
+                "redisSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointRedisSettings",
+                    "description": "Settings in JSON format for the target Redis endpoint"
+                },
+                "redshiftSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointRedshiftSettings",
+                    "description": "Settings in JSON format for the Amazon Redshift endpoint."
+                },
+                "resourceIdentifier": {
+                    "type": "string",
+                    "description": "A display name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.",
+                    "replaceOnChanges": true
+                },
+                "s3Settings": {
+                    "$ref": "#/types/aws-native:dms:EndpointS3Settings",
+                    "description": "Settings in JSON format for the source and target Amazon S3 endpoint"
+                },
+                "serverName": {
+                    "type": "string",
+                    "description": "The name of the server where the endpoint database resides."
+                },
+                "sslMode": {
+                    "type": "string",
+                    "description": "The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is none."
+                },
+                "sybaseSettings": {
+                    "$ref": "#/types/aws-native:dms:EndpointSybaseSettings",
+                    "description": "Settings in JSON format for the source and target SAP ASE endpoint."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "One or more tags to be assigned to the endpoint."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user name to be used to log in to the endpoint database."
+                }
+            },
+            "required": [
+                "endpointType",
+                "engineName"
+            ],
+            "createOnly": [
+                "elasticsearchSettings/endpointUri",
+                "kmsKeyId",
+                "mongoDbSettings/authType",
+                "resourceIdentifier"
+            ],
+            "readOnly": [
+                "endpointArn",
+                "externalId"
+            ],
+            "writeOnly": [
+                "docDbSettings/secretsManagerSecretId",
+                "extraConnectionAttributes",
+                "gcpMySqlSettings/password",
+                "kafkaSettings/saslPassword",
+                "kafkaSettings/sslClientKeyPassword",
+                "microsoftSqlServerSettings/password",
+                "mongoDbSettings/password",
+                "oracleSettings/asmPassword",
+                "oracleSettings/securityDbEncryption",
+                "oracleSettings/securityDbEncryptionName",
+                "password",
+                "redisSettings/authPassword",
+                "redshiftSettings/serverSideEncryptionKmsKeyId",
+                "redshiftSettings/truncateColumns",
+                "resourceIdentifier",
+                "s3Settings/serverSideEncryptionKmsKeyId"
+            ],
+            "irreversibleNames": {
+                "gcpMySqlSettings": "GcpMySQLSettings",
+                "s3Settings": "S3Settings"
+            },
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "endpointArn"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true,
+            "propertyTransforms": {
+                "extraConnectionAttributes": "$join([\".*\",ExtraConnectionAttributes,\".*\"])",
+                "mongoDbSettings/authMechanism": "$replace(MongoDbSettings.AuthMechanism, '-', '_')",
+                "oracleSettings/charLengthSemantics": "$uppercase(OracleSettings.CharLengthSemantics)",
+                "postgreSqlSettings/pluginName": "$replace(PostgreSqlSettings.PluginName, '-', '_')",
+                "s3Settings/datePartitionSequence": "$uppercase(S3Settings.DatePartitionSequence)"
+            }
+        },
         "aws-native:dms:InstanceProfile": {
             "cf": "AWS::DMS::InstanceProfile",
             "inputs": {
@@ -58936,6 +59391,10 @@
         "aws-native:ec2:PlacementGroup": {
             "cf": "AWS::EC2::PlacementGroup",
             "inputs": {
+                "parentGroupId": {
+                    "type": "string",
+                    "description": "The ID of a parent placement group. Valid for strategies that support parent group linking."
+                },
                 "partitionCount": {
                     "type": "integer",
                     "description": "The number of partitions. Valid only when **Strategy** is set to `partition`"
@@ -58965,6 +59424,11 @@
                     "type": "string",
                     "description": "The Group Name of Placement Group."
                 },
+                "parentGroupId": {
+                    "type": "string",
+                    "description": "The ID of a parent placement group. Valid for strategies that support parent group linking.",
+                    "replaceOnChanges": true
+                },
                 "partitionCount": {
                     "type": "integer",
                     "description": "The number of partitions. Valid only when **Strategy** is set to `partition`",
@@ -58990,6 +59454,7 @@
                 }
             },
             "createOnly": [
+                "parentGroupId",
                 "partitionCount",
                 "spreadLevel",
                 "strategy",
@@ -62473,6 +62938,96 @@
                 ]
             },
             "hasListHandler": true
+        },
+        "aws-native:ec2:TransitGatewayPolicyTableEntry": {
+            "cf": "AWS::EC2::TransitGatewayPolicyTableEntry",
+            "inputs": {
+                "policyRule": {
+                    "$ref": "#/types/aws-native:ec2:TransitGatewayPolicyTableEntryTransitGatewayPolicyRule",
+                    "description": "The policy rule associated with the entry."
+                },
+                "policyRuleNumber": {
+                    "type": "string",
+                    "description": "The rule number for the policy table entry."
+                },
+                "targetRouteTableId": {
+                    "type": "string",
+                    "description": "The ID of the target route table."
+                },
+                "transitGatewayPolicyTableId": {
+                    "type": "string",
+                    "description": "The ID of the transit gateway policy table."
+                }
+            },
+            "outputs": {
+                "policyRule": {
+                    "$ref": "#/types/aws-native:ec2:TransitGatewayPolicyTableEntryTransitGatewayPolicyRule",
+                    "description": "The policy rule associated with the entry."
+                },
+                "policyRuleNumber": {
+                    "type": "string",
+                    "description": "The rule number for the policy table entry.",
+                    "replaceOnChanges": true
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The state of the policy table entry."
+                },
+                "targetRouteTableId": {
+                    "type": "string",
+                    "description": "The ID of the target route table."
+                },
+                "transitGatewayPolicyTableId": {
+                    "type": "string",
+                    "description": "The ID of the transit gateway policy table.",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "policyRule",
+                "policyRuleNumber",
+                "targetRouteTableId",
+                "transitGatewayPolicyTableId"
+            ],
+            "createOnly": [
+                "policyRuleNumber",
+                "transitGatewayPolicyTableId"
+            ],
+            "readOnly": [
+                "state"
+            ],
+            "primaryIdentifier": [
+                "transitGatewayPolicyTableId",
+                "policyRuleNumber"
+            ],
+            "listHandlerSchema": {
+                "properties": {
+                    "TransitGatewayPolicyTableId": {
+                        "description": "The ID of the transit gateway policy table.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "TransitGatewayPolicyTableId"
+                ]
+            },
+            "listInputs": {
+                "properties": {
+                    "transitGatewayPolicyTableId": {
+                        "type": "string",
+                        "description": "The ID of the transit gateway policy table."
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "transitGatewayPolicyTableId"
+                ]
+            },
+            "hasListHandler": true,
+            "propertyTransforms": {
+                "policyRule/destinationPortRange": "$count($split(DestinationPortRange, \"-\")) = 2 and $split(DestinationPortRange, \"-\")[0] = $split(DestinationPortRange, \"-\")[1] ? $split(DestinationPortRange, \"-\")[0] : DestinationPortRange",
+                "policyRule/sourcePortRange": "$count($split(SourcePortRange, \"-\")) = 2 and $split(SourcePortRange, \"-\")[0] = $split(SourcePortRange, \"-\")[1] ? $split(SourcePortRange, \"-\")[0] : SourcePortRange"
+            }
         },
         "aws-native:ec2:TransitGatewayRoute": {
             "cf": "AWS::EC2::TransitGatewayRoute",
@@ -81930,6 +82485,13 @@
                     "type": "string",
                     "description": "The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace."
                 },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The list of tags associated with the workspace."
+                },
                 "vpcConfiguration": {
                     "$ref": "#/types/aws-native:grafana:WorkspaceVpcConfiguration",
                     "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.\n\n\u003e Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2)."
@@ -82041,6 +82603,13 @@
                     "$ref": "#/types/aws-native:grafana:WorkspaceStatus",
                     "description": "The current status of the workspace.\n\nValid values: `ACTIVE | CREATING | DELETING | FAILED | UPDATING | UPGRADING | DELETION_FAILED | CREATION_FAILED | UPDATE_FAILED | UPGRADE_FAILED | LICENSE_REMOVAL_FAILED`\n\nType: String"
                 },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The list of tags associated with the workspace."
+                },
                 "vpcConfiguration": {
                     "$ref": "#/types/aws-native:grafana:WorkspaceVpcConfiguration",
                     "description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.\n\n\u003e Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2)."
@@ -82079,12 +82648,15 @@
                 "samlConfiguration/allowedOrganizations",
                 "samlConfiguration/roleValues/admin",
                 "samlConfiguration/roleValues/editor",
+                "tags",
                 "vpcConfiguration/securityGroupIds",
                 "vpcConfiguration/subnetIds"
             ],
             "irreversibleNames": {
                 "awsId": "Id"
             },
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
             "cfRef": {
                 "property": "Name"
             },
@@ -97519,7 +98091,8 @@
                     "description": "A key-value pair that provides metadata for the capacity provider."
                 },
                 "telemetryConfig": {
-                    "$ref": "#/types/aws-native:lambda:CapacityProviderTelemetryConfig"
+                    "$ref": "#/types/aws-native:lambda:CapacityProviderTelemetryConfig",
+                    "description": "The telemetry configuration for the capacity provider, including logging settings."
                 },
                 "vpcConfig": {
                     "$ref": "#/types/aws-native:lambda:CapacityProviderVpcConfig",
@@ -97569,7 +98142,8 @@
                     "description": "A key-value pair that provides metadata for the capacity provider."
                 },
                 "telemetryConfig": {
-                    "$ref": "#/types/aws-native:lambda:CapacityProviderTelemetryConfig"
+                    "$ref": "#/types/aws-native:lambda:CapacityProviderTelemetryConfig",
+                    "description": "The telemetry configuration for the capacity provider, including logging settings."
                 },
                 "vpcConfig": {
                     "$ref": "#/types/aws-native:lambda:CapacityProviderVpcConfig",
@@ -97805,7 +98379,7 @@
                 },
                 "destinationConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingDestinationConfig",
-                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it."
+                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it."
                 },
                 "documentDbEventSourceConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfig",
@@ -97840,7 +98414,7 @@
                 },
                 "loggingConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingLoggingConfig",
-                    "description": "The function's Amazon CloudWatch Logs configuration settings."
+                    "description": "(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html)."
                 },
                 "maximumBatchingWindowInSeconds": {
                     "type": "integer",
@@ -97848,11 +98422,11 @@
                 },
                 "maximumRecordAgeInSeconds": {
                     "type": "integer",
-                    "description": "(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.\n  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed"
+                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.\n  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed"
                 },
                 "maximumRetryAttempts": {
                     "type": "integer",
-                    "description": "(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
+                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
                 },
                 "metricsConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfig",
@@ -97938,7 +98512,7 @@
                 },
                 "destinationConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingDestinationConfig",
-                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it."
+                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it."
                 },
                 "documentDbEventSourceConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfig",
@@ -97978,7 +98552,7 @@
                 },
                 "loggingConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingLoggingConfig",
-                    "description": "The function's Amazon CloudWatch Logs configuration settings."
+                    "description": "(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html)."
                 },
                 "maximumBatchingWindowInSeconds": {
                     "type": "integer",
@@ -97986,11 +98560,11 @@
                 },
                 "maximumRecordAgeInSeconds": {
                     "type": "integer",
-                    "description": "(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.\n  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed"
+                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.\n  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed"
                 },
                 "maximumRetryAttempts": {
                     "type": "integer",
-                    "description": "(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
+                    "description": "(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
                 },
                 "metricsConfig": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfig",
@@ -107119,6 +107693,82 @@
                 "maintenanceConfiguration/preferredDayTime/time": "($groups := $match(Time, /^([0-9]{2}):([0-9]{2})(?::([0-9]{2})(?:\\.[0-9]+)?)?(?:Z|([+\\-][0-9]{2}:[0-9]{2}))?$/).groups;$seconds := $groups[2] ? $groups[2] : \"00\";$timezone := $groups[3] ? $groups[3] : \"+00:00\";$join([$groups[0], \":\", $groups[1], \":\", $seconds, \"Z\"]);)"
             }
         },
+        "aws-native:mediaconvert:Preset": {
+            "cf": "AWS::MediaConvert::Preset",
+            "inputs": {
+                "category": {
+                    "type": "string",
+                    "description": "The new category for the preset, if you are changing it."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The new description for the preset, if you are changing it."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the preset that you are modifying."
+                },
+                "settingsJson": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.\n\nFor more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` ."
+                },
+                "awsId": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "The new category for the preset, if you are changing it."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The new description for the preset, if you are changing it."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the preset that you are modifying.",
+                    "replaceOnChanges": true
+                },
+                "settingsJson": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.\n\nFor more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "settingsJson"
+            ],
+            "createOnly": [
+                "name"
+            ],
+            "readOnly": [
+                "arn",
+                "id"
+            ],
+            "irreversibleNames": {
+                "awsId": "Id"
+            },
+            "tagsProperty": "tags",
+            "tagsStyle": "untyped",
+            "primaryIdentifier": [
+                "id"
+            ]
+        },
         "aws-native:medialive:ChannelPlacementGroup": {
             "cf": "AWS::MediaLive::ChannelPlacementGroup",
             "inputs": {
@@ -109144,6 +109794,9 @@
                     "$ref": "#/types/aws-native:mediapackagev2:ChannelOutputHeaderConfiguration",
                     "description": "The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN."
                 },
+                "outputLockingMode": {
+                    "$ref": "#/types/aws-native:mediapackagev2:ChannelOutputLockingMode"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -109205,6 +109858,10 @@
                     "$ref": "#/types/aws-native:mediapackagev2:ChannelOutputHeaderConfiguration",
                     "description": "The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN."
                 },
+                "outputLockingMode": {
+                    "$ref": "#/types/aws-native:mediapackagev2:ChannelOutputLockingMode",
+                    "replaceOnChanges": true
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -109223,7 +109880,8 @@
             "createOnly": [
                 "channelGroupName",
                 "channelName",
-                "inputType"
+                "inputType",
+                "outputLockingMode"
             ],
             "readOnly": [
                 "arn",
@@ -111289,6 +111947,158 @@
                 "required": [
                     "clusterArn"
                 ]
+            },
+            "hasListHandler": true
+        },
+        "aws-native:msk:Channel": {
+            "cf": "AWS::MSK::Channel",
+            "inputs": {
+                "channelName": {
+                    "type": "string"
+                },
+                "clusterArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the cluster"
+                },
+                "encryptionConfiguration": {
+                    "$ref": "#/types/aws-native:msk:ChannelEncryptionConfiguration"
+                },
+                "icebergDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:msk:ChannelIcebergDestinationConfiguration"
+                },
+                "loggingInfo": {
+                    "$ref": "#/types/aws-native:msk:ChannelLoggingInfo"
+                },
+                "s3DestinationConfiguration": {
+                    "$ref": "#/types/aws-native:msk:ChannelS3DestinationConfiguration"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "topicConfigurationList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:msk:ChannelTopicConfiguration"
+                    },
+                    "description": "Topic configuration"
+                }
+            },
+            "outputs": {
+                "channelArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) that uniquely identifies the channel"
+                },
+                "channelName": {
+                    "type": "string",
+                    "replaceOnChanges": true
+                },
+                "clusterArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the cluster",
+                    "replaceOnChanges": true
+                },
+                "encryptionConfiguration": {
+                    "$ref": "#/types/aws-native:msk:ChannelEncryptionConfiguration",
+                    "replaceOnChanges": true
+                },
+                "icebergDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:msk:ChannelIcebergDestinationConfiguration"
+                },
+                "loggingInfo": {
+                    "$ref": "#/types/aws-native:msk:ChannelLoggingInfo",
+                    "replaceOnChanges": true
+                },
+                "s3DestinationConfiguration": {
+                    "$ref": "#/types/aws-native:msk:ChannelS3DestinationConfiguration"
+                },
+                "stateInfo": {
+                    "$ref": "#/types/aws-native:msk:ChannelStateInfo"
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:msk:ChannelStatus"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "topicConfigurationList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:msk:ChannelTopicConfiguration"
+                    },
+                    "description": "Topic configuration",
+                    "replaceOnChanges": true
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "channelName"
+            },
+            "required": [
+                "topicConfigurationList"
+            ],
+            "createOnly": [
+                "channelName",
+                "clusterArn",
+                "encryptionConfiguration",
+                "icebergDestinationConfiguration/appendOnly",
+                "icebergDestinationConfiguration/catalog",
+                "icebergDestinationConfiguration/catalog/catalogArn",
+                "icebergDestinationConfiguration/catalog/warehouseLocation",
+                "icebergDestinationConfiguration/compressionType",
+                "icebergDestinationConfiguration/deadLetterQueueS3",
+                "icebergDestinationConfiguration/deadLetterQueueS3/bucketArn",
+                "icebergDestinationConfiguration/deadLetterQueueS3/errorOutputPrefix",
+                "icebergDestinationConfiguration/deadLetterQueueS3/expectedBucketOwner",
+                "icebergDestinationConfiguration/destinationTableList",
+                "icebergDestinationConfiguration/destinationTableList/*/destinationDatabaseName",
+                "icebergDestinationConfiguration/destinationTableList/*/destinationTableName",
+                "icebergDestinationConfiguration/destinationTableList/*/partitionSpec",
+                "icebergDestinationConfiguration/destinationTableList/*/partitionSpec/partitionStrategy",
+                "icebergDestinationConfiguration/destinationTableList/*/partitionSpec/sourceList",
+                "icebergDestinationConfiguration/destinationTableList/*/partitionSpec/sourceList/*/sourceName",
+                "icebergDestinationConfiguration/schemaEvolution",
+                "icebergDestinationConfiguration/schemaEvolution/enableSchemaEvolution",
+                "icebergDestinationConfiguration/serviceExecutionRoleArn",
+                "icebergDestinationConfiguration/tableCreation",
+                "icebergDestinationConfiguration/tableCreation/enableTableCreation",
+                "loggingInfo",
+                "s3DestinationConfiguration/deadLetterQueueS3",
+                "s3DestinationConfiguration/deadLetterQueueS3/bucketArn",
+                "s3DestinationConfiguration/deadLetterQueueS3/errorOutputPrefix",
+                "s3DestinationConfiguration/deadLetterQueueS3/expectedBucketOwner",
+                "s3DestinationConfiguration/serviceExecutionRoleArn",
+                "s3DestinationConfiguration/storage",
+                "s3DestinationConfiguration/storage/bucketArn",
+                "s3DestinationConfiguration/storage/compressionType",
+                "s3DestinationConfiguration/storage/expectedBucketOwner",
+                "s3DestinationConfiguration/storage/outputKeyTemplate",
+                "s3DestinationConfiguration/storage/outputPrefix",
+                "s3DestinationConfiguration/storage/storageClass",
+                "topicConfigurationList"
+            ],
+            "readOnly": [
+                "channelArn",
+                "stateInfo",
+                "status"
+            ],
+            "writeOnly": [
+                "clusterArn"
+            ],
+            "irreversibleNames": {
+                "s3DestinationConfiguration": "S3DestinationConfiguration"
+            },
+            "tagsProperty": "tags",
+            "tagsStyle": "stringMap",
+            "primaryIdentifier": [
+                "channelArn"
+            ],
+            "listInputs": {
+                "type": "object"
             },
             "hasListHandler": true
         },
@@ -128169,6 +128979,160 @@
                 "required": [
                     "awsAccountId",
                     "dataSetId"
+                ]
+            },
+            "hasListHandler": true
+        },
+        "aws-native:quicksight:Space": {
+            "cf": "AWS::QuickSight::Space",
+            "inputs": {
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "The ID of the Amazon Web Services account where the space is being created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the space."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the space."
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:quicksight:SpaceResourcePermission"
+                    },
+                    "description": "A list of permissions granted on the space."
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:quicksight:SpaceResource"
+                    },
+                    "description": "A list of QuickSight resources attached to the space."
+                },
+                "spaceId": {
+                    "type": "string",
+                    "description": "The unique identifier for the space."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "A list of key-value pairs to associate with the space resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the space."
+                },
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "The ID of the Amazon Web Services account where the space is being created.",
+                    "replaceOnChanges": true
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "The date and time the space was created."
+                },
+                "createdBy": {
+                    "type": "string",
+                    "description": "The user name of the principal who created the space."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the space."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the space."
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:quicksight:SpaceResourcePermission"
+                    },
+                    "description": "A list of permissions granted on the space."
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:quicksight:SpaceResource"
+                    },
+                    "description": "A list of QuickSight resources attached to the space."
+                },
+                "spaceId": {
+                    "type": "string",
+                    "description": "The unique identifier for the space.",
+                    "replaceOnChanges": true
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "A list of key-value pairs to associate with the space resource."
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "The date and time the space was last updated."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "awsAccountId",
+                "spaceId"
+            ],
+            "createOnly": [
+                "awsAccountId",
+                "spaceId"
+            ],
+            "readOnly": [
+                "arn",
+                "createdAt",
+                "createdBy",
+                "updatedAt"
+            ],
+            "unorderedCollections": [
+                "permissions",
+                "permissions/*/actions",
+                "resources",
+                "tags"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "awsAccountId",
+                "spaceId"
+            ],
+            "listHandlerSchema": {
+                "properties": {
+                    "AwsAccountId": {
+                        "description": "The ID of the Amazon Web Services account where the space is being created.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "AwsAccountId"
+                ]
+            },
+            "listInputs": {
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string",
+                        "description": "The ID of the Amazon Web Services account where the space is being created."
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "awsAccountId"
                 ]
             },
             "hasListHandler": true
@@ -148834,7 +149798,7 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/aws-native:index:CreateOnlyTag"
+                        "$ref": "#/types/aws-native:index:Tag"
                     },
                     "description": "A list of tags to apply to the user profile."
                 },
@@ -148866,10 +149830,9 @@
                 "tags": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/aws-native:index:CreateOnlyTag"
+                        "$ref": "#/types/aws-native:index:Tag"
                     },
-                    "description": "A list of tags to apply to the user profile.",
-                    "replaceOnChanges": true
+                    "description": "A list of tags to apply to the user profile."
                 },
                 "userProfileArn": {
                     "type": "string",
@@ -148897,16 +149860,12 @@
                 "domainId",
                 "singleSignOnUserIdentifier",
                 "singleSignOnUserValue",
-                "tags",
                 "userProfileName",
                 "userSettings/rStudioServerProAppSettings/accessStatus",
                 "userSettings/rStudioServerProAppSettings/userGroup"
             ],
             "readOnly": [
                 "userProfileArn"
-            ],
-            "writeOnly": [
-                "tags"
             ],
             "unorderedCollections": [
                 "userSettings/studioWebPortalSettings/hiddenAppTypes",
@@ -148916,7 +149875,7 @@
                 "userSettings/studioWebPortalSettings/hiddenSageMakerImageVersionAliases/*/versionAliases"
             ],
             "tagsProperty": "tags",
-            "tagsStyle": "keyValueArrayCreateOnly",
+            "tagsStyle": "keyValueArray",
             "cfRef": {
                 "property": "UserProfileName"
             },
@@ -150476,11 +151435,11 @@
             "inputs": {
                 "description": {
                     "type": "string",
-                    "description": "A description of the connector"
+                    "description": "The description of the connector."
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the connector"
+                    "description": "The name of the connector."
                 },
                 "provider": {
                     "$ref": "#/types/aws-native:securityhub:ConnectorProvider"
@@ -150494,54 +151453,45 @@
             },
             "outputs": {
                 "connectorArn": {
-                    "type": "string",
-                    "description": "The ARN of the connector"
+                    "type": "string"
                 },
                 "connectorId": {
-                    "type": "string",
-                    "description": "The ID of the connector"
+                    "type": "string"
                 },
                 "connectorStatus": {
                     "type": "string"
                 },
                 "createdAt": {
-                    "type": "string",
-                    "description": "The date and time for createdAt in UTC and ISO 8601 format."
+                    "type": "string"
                 },
                 "createdBy": {
-                    "type": "string",
-                    "description": "The principal that created the connector"
+                    "type": "string"
                 },
                 "description": {
                     "type": "string",
-                    "description": "A description of the connector"
+                    "description": "The description of the connector."
                 },
                 "enablementStatus": {
-                    "type": "string",
-                    "description": "The enablement status of the connector"
+                    "type": "string"
                 },
                 "issues": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:securityhub:ConnectorHealthIssue"
-                    },
-                    "description": "The list of health issues associated with the connector"
+                    }
                 },
                 "lastCheckedAt": {
-                    "type": "string",
-                    "description": "The date and time for lastCheckedAt in UTC and ISO 8601 format."
+                    "type": "string"
                 },
                 "lastUpdatedAt": {
-                    "type": "string",
-                    "description": "The date and time for lastUpdatedAt in UTC and ISO 8601 format."
+                    "type": "string"
                 },
                 "message": {
-                    "type": "string",
-                    "description": "The message associated with the connector status change"
+                    "type": "string"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the connector",
+                    "description": "The name of the connector.",
                     "replaceOnChanges": true
                 },
                 "provider": {
@@ -156439,11 +157389,11 @@
             "inputs": {
                 "archivePolicy": {
                     "$ref": "pulumi.json#/Any",
-                    "description": "The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property."
+                    "description": "The ``ArchivePolicy`` determines the number of days SNS retains messages in FIFO topics. You can set a retention period ranging from 1 to 365 days. This property is only applicable to FIFO topics; attempting to use it with standard topics will result in a creation failure.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property."
                 },
                 "contentBasedDeduplication": {
                     "type": "boolean",
-                    "description": "Enables content-based deduplication for FIFO topics.\n  +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. \n  +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).\n (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action."
+                    "description": "``ContentBasedDeduplication`` enables deduplication of messages based on their content for FIFO topics. By default, this property is set to false. If you create a FIFO topic with ``ContentBasedDeduplication`` set to false, you must provide a ``MessageDeduplicationId`` for each ``Publish`` action. When set to true, SNS automatically generates a ``MessageDeduplicationId`` using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a ``MessageDeduplicationId`` in the ``Publish`` action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail."
                 },
                 "dataProtectionPolicy": {
                     "$ref": "pulumi.json#/Any",
@@ -156454,7 +157404,7 @@
                     "items": {
                         "$ref": "#/types/aws-native:sns:TopicLoggingConfig"
                     },
-                    "description": "The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:\n  +  HTTP \n  +  Amazon Kinesis Data Firehose\n  +   AWS Lambda\n  +  Platform application endpoint\n  +  Amazon Simple Queue Service\n  \n Once configured, log entries are sent to Amazon CloudWatch Logs."
+                    "description": "The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:\n  +  HTTP \n  +  Amazon Kinesis Data Firehose\n  +  AWS Lambda\n  +  Platform application endpoint\n  +  Amazon Simple Queue Service\n  \n Once configured, log entries are sent to Amazon CloudWatch Logs."
                 },
                 "displayName": {
                     "type": "string",
@@ -156462,7 +157412,7 @@
                 },
                 "fifoThroughputScope": {
                     "type": "string",
-                    "description": "Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` ."
+                    "description": "Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are ``Topic`` or ``MessageGroup``."
                 },
                 "fifoTopic": {
                     "type": "boolean",
@@ -156502,11 +157452,11 @@
             "outputs": {
                 "archivePolicy": {
                     "$ref": "pulumi.json#/Any",
-                    "description": "The archive policy determines the number of days SNS retains messages. You can set a retention period from 1 to 365 days.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property."
+                    "description": "The ``ArchivePolicy`` determines the number of days SNS retains messages in FIFO topics. You can set a retention period ranging from 1 to 365 days. This property is only applicable to FIFO topics; attempting to use it with standard topics will result in a creation failure.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property."
                 },
                 "contentBasedDeduplication": {
                     "type": "boolean",
-                    "description": "Enables content-based deduplication for FIFO topics.\n  +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. \n  +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).\n (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action."
+                    "description": "``ContentBasedDeduplication`` enables deduplication of messages based on their content for FIFO topics. By default, this property is set to false. If you create a FIFO topic with ``ContentBasedDeduplication`` set to false, you must provide a ``MessageDeduplicationId`` for each ``Publish`` action. When set to true, SNS automatically generates a ``MessageDeduplicationId`` using a SHA-256 hash of the message body (excluding message attributes). You can optionally override this generated value by specifying a ``MessageDeduplicationId`` in the ``Publish`` action. Note that this property only applies to FIFO topics; using it with standard topics will cause the creation to fail."
                 },
                 "dataProtectionPolicy": {
                     "$ref": "pulumi.json#/Any",
@@ -156517,7 +157467,7 @@
                     "items": {
                         "$ref": "#/types/aws-native:sns:TopicLoggingConfig"
                     },
-                    "description": "The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:\n  +  HTTP \n  +  Amazon Kinesis Data Firehose\n  +   AWS Lambda\n  +  Platform application endpoint\n  +  Amazon Simple Queue Service\n  \n Once configured, log entries are sent to Amazon CloudWatch Logs."
+                    "description": "The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:\n  +  HTTP \n  +  Amazon Kinesis Data Firehose\n  +  AWS Lambda\n  +  Platform application endpoint\n  +  Amazon Simple Queue Service\n  \n Once configured, log entries are sent to Amazon CloudWatch Logs."
                 },
                 "displayName": {
                     "type": "string",
@@ -156525,7 +157475,7 @@
                 },
                 "fifoThroughputScope": {
                     "type": "string",
-                    "description": "Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` ."
+                    "description": "Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are ``Topic`` or ``MessageGroup``."
                 },
                 "fifoTopic": {
                     "type": "boolean",
@@ -158292,6 +159242,84 @@
             ],
             "listInputs": {
                 "type": "object"
+            },
+            "hasListHandler": true
+        },
+        "aws-native:ssm:ServiceSetting": {
+            "cf": "AWS::SSM::ServiceSetting",
+            "inputs": {
+                "settingId": {
+                    "type": "string",
+                    "description": "The ID of the service setting, such as /ssm/parameter-store/high-throughput-enabled."
+                },
+                "settingValue": {
+                    "type": "string",
+                    "description": "The value of the service setting."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the service setting."
+                },
+                "lastModifiedDate": {
+                    "type": "string",
+                    "description": "The last time the service setting was modified."
+                },
+                "lastModifiedUser": {
+                    "type": "string",
+                    "description": "The ARN of the last modified user."
+                },
+                "settingId": {
+                    "type": "string",
+                    "description": "The ID of the service setting, such as /ssm/parameter-store/high-throughput-enabled.",
+                    "replaceOnChanges": true
+                },
+                "settingValue": {
+                    "type": "string",
+                    "description": "The value of the service setting."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the service setting. The value can be Default, Customized or PendingUpdate."
+                }
+            },
+            "required": [
+                "settingId",
+                "settingValue"
+            ],
+            "createOnly": [
+                "settingId"
+            ],
+            "readOnly": [
+                "arn",
+                "lastModifiedDate",
+                "lastModifiedUser",
+                "status"
+            ],
+            "primaryIdentifier": [
+                "arn"
+            ],
+            "listHandlerSchema": {
+                "properties": {
+                    "SettingId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "SettingId"
+                ]
+            },
+            "listInputs": {
+                "properties": {
+                    "settingId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "settingId"
+                ]
             },
             "hasListHandler": true
         },
@@ -179512,6 +180540,10 @@
                 "ampConfiguration": {
                     "$ref": "#/types/aws-native:aps:ScraperDestinationAmpConfigurationProperties",
                     "description": "Configuration for Amazon Managed Prometheus metrics destination"
+                },
+                "cloudWatchConfiguration": {
+                    "$ref": "#/types/aws-native:aps:ScraperDestinationCloudWatchConfigurationProperties",
+                    "description": "Configuration for CloudWatch metrics destination"
                 }
             }
         },
@@ -179525,6 +180557,18 @@
             },
             "required": [
                 "workspaceArn"
+            ]
+        },
+        "aws-native:aps:ScraperDestinationCloudWatchConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "datasetArn": {
+                    "type": "string",
+                    "description": "ARN of a CloudWatch dataset"
+                }
+            },
+            "required": [
+                "datasetArn"
             ]
         },
         "aws-native:aps:ScraperLoggingConfiguration": {
@@ -195496,6 +196540,24 @@
                 "mountPath"
             ]
         },
+        "aws-native:bedrockagentcore:HarnessEndpointStatus": {
+            "type": "string"
+        },
+        "aws-native:bedrockagentcore:HarnessEndpointTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:bedrockagentcore:HarnessEnvironmentArtifact": {
             "type": "object",
             "properties": {
@@ -207891,6 +208953,35 @@
         "aws-native:cognito:UserPoolEncryptionKeyType": {
             "type": "string"
         },
+        "aws-native:cognito:UserPoolEumsSmsConfiguration": {
+            "type": "object",
+            "properties": {
+                "callerArn": {
+                    "type": "string"
+                },
+                "configurationSetName": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "inEntityId": {
+                    "type": "string"
+                },
+                "inTemplateId": {
+                    "type": "string"
+                },
+                "originationIdentity": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "callerArn"
+            ]
+        },
         "aws-native:cognito:UserPoolInboundFederation": {
             "type": "object",
             "properties": {
@@ -208139,6 +209230,35 @@
                 }
             }
         },
+        "aws-native:cognito:UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration": {
+            "type": "object",
+            "properties": {
+                "callerArn": {
+                    "type": "string"
+                },
+                "configurationSetName": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "inEntityId": {
+                    "type": "string"
+                },
+                "inTemplateId": {
+                    "type": "string"
+                },
+                "originationIdentity": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "callerArn"
+            ]
+        },
         "aws-native:cognito:UserPoolRegionalConfigurationAttachmentInboundFederation": {
             "type": "object",
             "properties": {
@@ -208218,6 +209338,9 @@
         "aws-native:cognito:UserPoolRegionalConfigurationAttachmentSmsConfiguration": {
             "type": "object",
             "properties": {
+                "eumsSms": {
+                    "$ref": "#/types/aws-native:cognito:UserPoolRegionalConfigurationAttachmentEumsSmsConfiguration"
+                },
                 "externalId": {
                     "type": "string"
                 },
@@ -208450,6 +209573,9 @@
         "aws-native:cognito:UserPoolSmsConfiguration": {
             "type": "object",
             "properties": {
+                "eumsSms": {
+                    "$ref": "#/types/aws-native:cognito:UserPoolEumsSmsConfiguration"
+                },
                 "externalId": {
                     "type": "string",
                     "description": "The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .\n\nFor more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) ."
@@ -222361,6 +223487,1052 @@
                 "value"
             ]
         },
+        "aws-native:dms:EndpointDocDbSettings": {
+            "type": "object",
+            "properties": {
+                "docsToInvestigate": {
+                    "type": "integer",
+                    "description": "Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to \"one\"."
+                },
+                "extractDocId": {
+                    "type": "boolean",
+                    "description": "Specifies the document ID. Use this setting when NestingLevel is set to \"none\""
+                },
+                "nestingLevel": {
+                    "type": "string",
+                    "description": "Specifies either document or table mode."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint."
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint."
+                }
+            }
+        },
+        "aws-native:dms:EndpointDynamoDbSettings": {
+            "type": "object",
+            "properties": {
+                "serviceAccessRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action."
+                }
+            }
+        },
+        "aws-native:dms:EndpointElasticsearchSettings": {
+            "type": "object",
+            "properties": {
+                "endpointUri": {
+                    "type": "string",
+                    "description": "The endpoint for the OpenSearch cluster. AWS DMS uses HTTPS if a transport protocol (either HTTP or HTTPS) isn't specified.",
+                    "replaceOnChanges": true
+                },
+                "errorRetryDuration": {
+                    "type": "integer",
+                    "description": "The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster."
+                },
+                "fullLoadErrorPercentage": {
+                    "type": "integer",
+                    "description": "The maximum percentage of records that can fail to be written before a full load operation stops."
+                },
+                "serviceAccessRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action."
+                }
+            }
+        },
+        "aws-native:dms:EndpointGcpMySqlSettings": {
+            "type": "object",
+            "properties": {
+                "afterConnectScript": {
+                    "type": "string",
+                    "description": "Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails."
+                },
+                "cleanSourceMetadataOnMismatch": {
+                    "type": "boolean",
+                    "description": "Adjusts the behavior of AWS DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need AWS DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to false."
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify the database using the DatabaseName request parameter on either the CreateEndpoint or ModifyEndpoint API call. Specifying DatabaseName when you create or modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the AWS DMS task."
+                },
+                "eventsPollInterval": {
+                    "type": "integer",
+                    "description": "Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds."
+                },
+                "maxFileSize": {
+                    "type": "integer",
+                    "description": "Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database."
+                },
+                "parallelLoadThreads": {
+                    "type": "integer",
+                    "description": "Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread. The default is one."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Endpoint connection password."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port used by the endpoint database."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the MySQL endpoint."
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details."
+                },
+                "serverName": {
+                    "type": "string",
+                    "description": "The MySQL host name."
+                },
+                "serverTimezone": {
+                    "type": "string",
+                    "description": "Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks."
+                }
+            }
+        },
+        "aws-native:dms:EndpointIbmDb2Settings": {
+            "type": "object",
+            "properties": {
+                "currentLsn": {
+                    "type": "string",
+                    "description": "For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start."
+                },
+                "keepCsvFiles": {
+                    "type": "boolean",
+                    "description": "If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these files for analysis and troubleshooting."
+                },
+                "loadTimeout": {
+                    "type": "integer",
+                    "description": "The amount of time (in milliseconds) before AWS DMS times out operations performed by DMS on the Db2 target. The default value is 1200 (20 minutes)."
+                },
+                "maxFileSize": {
+                    "type": "integer",
+                    "description": "Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW."
+                },
+                "maxKBytesPerRead": {
+                    "type": "integer",
+                    "description": "Maximum number of bytes per read, as a NUMBER value. The default is 64 KB."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value ofthe AWS Secrets Manager secret that allows access to the Db2 LUW endpoint."
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the IBMDB2 endpoint connection details."
+                },
+                "setDataCaptureChanges": {
+                    "type": "boolean",
+                    "description": "Enables ongoing replication (CDC) as a BOOLEAN value. The default is true."
+                },
+                "writeBufferSize": {
+                    "type": "integer",
+                    "description": "The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk on the DMS replication instance. The default value is 1024 (1 MB)."
+                }
+            }
+        },
+        "aws-native:dms:EndpointKafkaSettings": {
+            "type": "object",
+            "properties": {
+                "broker": {
+                    "type": "string",
+                    "description": "A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port "
+                },
+                "includeControlDetails": {
+                    "type": "boolean",
+                    "description": "Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is false."
+                },
+                "includeNullAndEmpty": {
+                    "type": "boolean",
+                    "description": "Include NULL and empty columns for records migrated to the endpoint. The default is false."
+                },
+                "includePartitionValue": {
+                    "type": "boolean",
+                    "description": "Shows the partition value within the Kafka message output unless the partition type is schema-table-type. The default is false."
+                },
+                "includeTableAlterOperations": {
+                    "type": "boolean",
+                    "description": "Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false."
+                },
+                "includeTransactionDetails": {
+                    "type": "boolean",
+                    "description": "Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for transaction_id, previous transaction_id, and transaction_record_id (the record offset within a transaction). The default is false."
+                },
+                "messageFormat": {
+                    "type": "string",
+                    "description": "The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab)."
+                },
+                "messageMaxBytes": {
+                    "type": "integer",
+                    "description": "The maximum size in bytes for records created on the endpoint The default is 1,000,000."
+                },
+                "noHexPrefix": {
+                    "type": "boolean",
+                    "description": "Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the NoHexPrefix endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix."
+                },
+                "partitionIncludeSchemaTable": {
+                    "type": "boolean",
+                    "description": "Prefixes schema and table names to partition values, when the partition type is primary-key-type."
+                },
+                "saslPassword": {
+                    "type": "string",
+                    "description": "The secure password that you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication."
+                },
+                "saslUserName": {
+                    "type": "string",
+                    "description": "The secure user name you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication."
+                },
+                "securityProtocol": {
+                    "type": "string",
+                    "description": "Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires SaslUsername and SaslPassword."
+                },
+                "sslCaCertificateArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint."
+                },
+                "sslClientCertificateArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint."
+                },
+                "sslClientKeyArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint."
+                },
+                "sslClientKeyPassword": {
+                    "type": "string",
+                    "description": "The password for the client private key used to securely connect to a Kafka target endpoint."
+                },
+                "topic": {
+                    "type": "string",
+                    "description": "The topic to which you migrate the data. If you don't specify a topic, AWS DMS specifies \"kafka-default-topic\" as the migration topic."
+                }
+            }
+        },
+        "aws-native:dms:EndpointKinesisSettings": {
+            "type": "object",
+            "properties": {
+                "includeControlDetails": {
+                    "type": "boolean",
+                    "description": "Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is false."
+                },
+                "includeNullAndEmpty": {
+                    "type": "boolean",
+                    "description": "Include NULL and empty columns for records migrated to the endpoint. The default is false."
+                },
+                "includePartitionValue": {
+                    "type": "boolean",
+                    "description": "Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is false."
+                },
+                "includeTableAlterOperations": {
+                    "type": "boolean",
+                    "description": "Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false."
+                },
+                "includeTransactionDetails": {
+                    "type": "boolean",
+                    "description": "Provides detailed transaction information from the source database."
+                },
+                "messageFormat": {
+                    "type": "string",
+                    "description": "The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab)."
+                },
+                "noHexPrefix": {
+                    "type": "boolean",
+                    "description": "Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format."
+                },
+                "partitionIncludeSchemaTable": {
+                    "type": "boolean",
+                    "description": "Prefixes schema and table names to partition values, when the partition type is primary-key-type."
+                },
+                "serviceAccessRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the IAM role that AWS DMS uses to write to the Kinesis data stream. The role must allow the iam:PassRole action."
+                },
+                "streamArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint."
+                }
+            }
+        },
+        "aws-native:dms:EndpointMicrosoftSqlServerSettings": {
+            "type": "object",
+            "properties": {
+                "bcpPacketSize": {
+                    "type": "integer",
+                    "description": "The maximum size of the packets (in bytes) used to transfer data using BCP."
+                },
+                "controlTablesFileGroup": {
+                    "type": "string",
+                    "description": "Specifies a file group for the AWS DMS internal tables."
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "Database name for the endpoint."
+                },
+                "forceLobLookup": {
+                    "type": "boolean",
+                    "description": "Forces LOB lookup on inline LOB."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Endpoint connection password."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Endpoint TCP port."
+                },
+                "querySingleAlwaysOnNode": {
+                    "type": "boolean",
+                    "description": "Cleans and recreates table metadata information on the replication instance when a mismatch occurs. An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance."
+                },
+                "readBackupOnly": {
+                    "type": "boolean",
+                    "description": "When this attribute is set to Y, AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to Y enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication."
+                },
+                "safeguardPolicy": {
+                    "type": "string",
+                    "description": "Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret"
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MicrosoftSQLServer endpoint connection details."
+                },
+                "serverName": {
+                    "type": "string",
+                    "description": "Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of DescribeDBInstances, in the Endpoint.Address field."
+                },
+                "tlogAccessMode": {
+                    "type": "string",
+                    "description": "Indicates the mode used to fetch CDC data."
+                },
+                "trimSpaceInChar": {
+                    "type": "boolean",
+                    "description": "Use the TrimSpaceInChar source endpoint setting to right-trim data on CHAR and NCHAR data types during migration. Setting TrimSpaceInChar does not left-trim data. The default value is true."
+                },
+                "useBcpFullLoad": {
+                    "type": "boolean",
+                    "description": "Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option."
+                },
+                "useThirdPartyBackupDevice": {
+                    "type": "boolean",
+                    "description": "When this attribute is set to Y, DMS processes third-party transaction log backups if they are created in native format."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Endpoint connection user name."
+                }
+            }
+        },
+        "aws-native:dms:EndpointMongoDbSettings": {
+            "type": "object",
+            "properties": {
+                "authMechanism": {
+                    "type": "string",
+                    "description": "The authentication mechanism you use to access the MongoDB source endpoint."
+                },
+                "authSource": {
+                    "type": "string",
+                    "description": "The MongoDB database name. This setting isn't used when AuthType is set to \"no\"."
+                },
+                "authType": {
+                    "type": "string",
+                    "description": "The authentication type you use to access the MongoDB source endpoint.",
+                    "replaceOnChanges": true
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "The database name on the MongoDB source endpoint."
+                },
+                "docsToInvestigate": {
+                    "type": "string",
+                    "description": "Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to \"one\"."
+                },
+                "extractDocId": {
+                    "type": "string",
+                    "description": "Specifies the document ID. Use this setting when NestingLevel is set to \"none\"."
+                },
+                "nestingLevel": {
+                    "type": "string",
+                    "description": "Specifies either document or table mode."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the user account you use to access the MongoDB source endpoint."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port value for the MongoDB source endpoint."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret"
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MongoDB endpoint connection details."
+                },
+                "serverName": {
+                    "type": "string",
+                    "description": "The name of the server on the MongoDB source endpoint."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The user name you use to access the MongoDB source endpoint."
+                }
+            }
+        },
+        "aws-native:dms:EndpointMySqlSettings": {
+            "type": "object",
+            "properties": {
+                "afterConnectScript": {
+                    "type": "string",
+                    "description": "Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails."
+                },
+                "cleanSourceMetadataOnMismatch": {
+                    "type": "boolean",
+                    "description": "Cleans and recreates table metadata information on the replication instance when a mismatch occurs."
+                },
+                "eventsPollInterval": {
+                    "type": "integer",
+                    "description": "Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds."
+                },
+                "maxFileSize": {
+                    "type": "integer",
+                    "description": "Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database."
+                },
+                "parallelLoadThreads": {
+                    "type": "integer",
+                    "description": "Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret."
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details."
+                },
+                "serverTimezone": {
+                    "type": "string",
+                    "description": "Specifies the time zone for the source MySQL database."
+                },
+                "targetDbType": {
+                    "type": "string",
+                    "description": "Specifies where to migrate source tables on the target, either to a single database or multiple databases."
+                }
+            }
+        },
+        "aws-native:dms:EndpointNeptuneSettings": {
+            "type": "object",
+            "properties": {
+                "errorRetryDuration": {
+                    "type": "integer",
+                    "description": "The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250."
+                },
+                "iamAuthEnabled": {
+                    "type": "boolean",
+                    "description": "If you want IAM authorization enabled for this endpoint, set this parameter to true."
+                },
+                "maxFileSize": {
+                    "type": "integer",
+                    "description": "The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database."
+                },
+                "maxRetryCount": {
+                    "type": "integer",
+                    "description": "The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5."
+                },
+                "s3BucketFolder": {
+                    "type": "string",
+                    "description": "A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by S3BucketName"
+                },
+                "s3BucketName": {
+                    "type": "string",
+                    "description": "The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database."
+                },
+                "serviceAccessRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the iam:PassRole action."
+                }
+            },
+            "irreversibleNames": {
+                "s3BucketFolder": "S3BucketFolder",
+                "s3BucketName": "S3BucketName"
+            }
+        },
+        "aws-native:dms:EndpointOracleSettings": {
+            "type": "object",
+            "properties": {
+                "accessAlternateDirectly": {
+                    "type": "boolean",
+                    "description": "Set this attribute to false in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source."
+                },
+                "addSupplementalLogging": {
+                    "type": "boolean",
+                    "description": "Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task."
+                },
+                "additionalArchivedLogDestId": {
+                    "type": "integer",
+                    "description": "Set this attribute with ArchivedLogDestId in a primary/ standby setup"
+                },
+                "allowSelectNestedTables": {
+                    "type": "boolean",
+                    "description": "Set this attribute to true to enable replication of Oracle tables containing columns that are nested tables or defined types."
+                },
+                "archivedLogDestId": {
+                    "type": "integer",
+                    "description": "Specifies the ID of the destination for the archived redo logs."
+                },
+                "archivedLogsOnly": {
+                    "type": "boolean",
+                    "description": "When this field is set to True, AWS DMS only accesses the archived redo logs"
+                },
+                "asmPassword": {
+                    "type": "string",
+                    "description": "For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password."
+                },
+                "asmServer": {
+                    "type": "string",
+                    "description": "For an Oracle source endpoint, your ASM server address."
+                },
+                "asmUser": {
+                    "type": "string",
+                    "description": "For an Oracle source endpoint, your ASM user name."
+                },
+                "charLengthSemantics": {
+                    "type": "string",
+                    "description": "Specifies whether the length of a character column is in bytes or in characters."
+                },
+                "directPathNoLog": {
+                    "type": "boolean",
+                    "description": "When set to true, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs."
+                },
+                "directPathParallelLoad": {
+                    "type": "boolean",
+                    "description": "When set to true, this attribute specifies a parallel load when useDirectPathFullLoad is set to Y."
+                },
+                "enableHomogenousTablespace": {
+                    "type": "boolean",
+                    "description": "Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target."
+                },
+                "extraArchivedLogDestIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Specifies the IDs of one more destinations for one or more archived redo logs."
+                },
+                "failTasksOnLobTruncation": {
+                    "type": "boolean",
+                    "description": "When set to true, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified LobMaxSize."
+                },
+                "numberDatatypeScale": {
+                    "type": "integer",
+                    "description": "Specifies the number scale. You can select a scale up to 38, or you can select FLOAT. By default, the NUMBER data type is converted to precision 38, scale 10."
+                },
+                "oraclePathPrefix": {
+                    "type": "string",
+                    "description": "Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source."
+                },
+                "parallelAsmReadThreads": {
+                    "type": "integer",
+                    "description": "Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM)."
+                },
+                "readAheadBlocks": {
+                    "type": "integer",
+                    "description": "Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM)."
+                },
+                "readTableSpaceName": {
+                    "type": "boolean",
+                    "description": "When set to true, this attribute supports tablespace replication."
+                },
+                "replacePathPrefix": {
+                    "type": "boolean",
+                    "description": "Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source."
+                },
+                "retryInterval": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds that the system waits before resending a query."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret."
+                },
+                "secretsManagerOracleAsmAccessRoleArn": {
+                    "type": "string",
+                    "description": "Required only if your Oracle endpoint uses Advanced Storage Manager (ASM)."
+                },
+                "secretsManagerOracleAsmSecretId": {
+                    "type": "string",
+                    "description": "Required only if your Oracle endpoint uses Advanced Storage Manager (ASM)."
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Oracle endpoint connection details."
+                },
+                "securityDbEncryption": {
+                    "type": "string",
+                    "description": "For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader."
+                },
+                "securityDbEncryptionName": {
+                    "type": "string",
+                    "description": "For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE."
+                },
+                "spatialDataOptionToGeoJsonFunctionName": {
+                    "type": "string",
+                    "description": "Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible. Or you can create your own custom function that mimics the operation of SDOGEOJSON and set SpatialDataOptionToGeoJsonFunctionName to call it instead."
+                },
+                "standbyDelayTime": {
+                    "type": "integer",
+                    "description": "Use this attribute to specify a time in minutes for the delay in standby sync."
+                },
+                "useAlternateFolderForOnline": {
+                    "type": "boolean",
+                    "description": "Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source"
+                },
+                "useBFile": {
+                    "type": "boolean",
+                    "description": "Set this attribute to True to capture change data using the Binary Reader utility."
+                },
+                "useDirectPathFullLoad": {
+                    "type": "boolean",
+                    "description": "Set this attribute to True to have AWS DMS use a direct path full load."
+                },
+                "useLogminerReader": {
+                    "type": "boolean",
+                    "description": "Set this attribute to True to capture change data using the Oracle LogMiner utility (the default)."
+                },
+                "usePathPrefix": {
+                    "type": "string",
+                    "description": "Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source."
+                }
+            }
+        },
+        "aws-native:dms:EndpointPostgreSqlSettings": {
+            "type": "object",
+            "properties": {
+                "afterConnectScript": {
+                    "type": "string",
+                    "description": "For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data."
+                },
+                "babelfishDatabaseName": {
+                    "type": "string",
+                    "description": "The Babelfish for Aurora PostgreSQL database name for the endpoint."
+                },
+                "captureDdls": {
+                    "type": "boolean",
+                    "description": "To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts."
+                },
+                "databaseMode": {
+                    "type": "string",
+                    "description": "Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints."
+                },
+                "ddlArtifactsSchema": {
+                    "type": "string",
+                    "description": "The schema in which the operational DDL database artifacts are created."
+                },
+                "executeTimeout": {
+                    "type": "integer",
+                    "description": "Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds."
+                },
+                "failTasksOnLobTruncation": {
+                    "type": "boolean",
+                    "description": "When set to true, this value causes a task to fail if the actual size of a LOB column is greater than the specified LobMaxSize."
+                },
+                "heartbeatEnable": {
+                    "type": "boolean",
+                    "description": "The write-ahead log (WAL) heartbeat feature mimics a dummy transaction."
+                },
+                "heartbeatFrequency": {
+                    "type": "integer",
+                    "description": "Sets the WAL heartbeat frequency (in minutes)."
+                },
+                "heartbeatSchema": {
+                    "type": "string",
+                    "description": "Sets the schema in which the heartbeat artifacts are created."
+                },
+                "mapBooleanAsBoolean": {
+                    "type": "boolean",
+                    "description": "When true, lets PostgreSQL migrate the boolean type as boolean."
+                },
+                "maxFileSize": {
+                    "type": "integer",
+                    "description": "Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL."
+                },
+                "pluginName": {
+                    "type": "string",
+                    "description": "Specifies the plugin to use to create a replication slot."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret."
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the PostgreSQL endpoint connection details."
+                },
+                "slotName": {
+                    "type": "string",
+                    "description": "Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance."
+                }
+            }
+        },
+        "aws-native:dms:EndpointRedisSettings": {
+            "type": "object",
+            "properties": {
+                "authPassword": {
+                    "type": "string",
+                    "description": "The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint."
+                },
+                "authType": {
+                    "type": "string",
+                    "description": "The type of authentication to perform when connecting to a Redis target."
+                },
+                "authUserName": {
+                    "type": "string",
+                    "description": "The user name provided with the auth-role option of the AuthType setting for a Redis target endpoint."
+                },
+                "port": {
+                    "type": "number",
+                    "description": "Transmission Control Protocol (TCP) port for the endpoint."
+                },
+                "serverName": {
+                    "type": "string",
+                    "description": "Fully qualified domain name of the endpoint."
+                },
+                "sslCaCertificateArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint."
+                },
+                "sslSecurityProtocol": {
+                    "type": "string",
+                    "description": "The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid values include plaintext and ssl-encryption."
+                }
+            }
+        },
+        "aws-native:dms:EndpointRedshiftSettings": {
+            "type": "object",
+            "properties": {
+                "acceptAnyDate": {
+                    "type": "boolean",
+                    "description": "A value that indicates to allow any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose true or false (the default)."
+                },
+                "afterConnectScript": {
+                    "type": "string",
+                    "description": "Code to run after connecting. This parameter should contain the code itself, not the name of a file containing the code."
+                },
+                "bucketFolder": {
+                    "type": "string",
+                    "description": "An S3 folder where the comma-separated-value (.csv) files are stored before being uploaded to the target Redshift cluster."
+                },
+                "bucketName": {
+                    "type": "string",
+                    "description": "The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift."
+                },
+                "caseSensitiveNames": {
+                    "type": "boolean",
+                    "description": "If Amazon Redshift is configured to support case sensitive schema names, set CaseSensitiveNames to true. The default is false."
+                },
+                "compUpdate": {
+                    "type": "boolean",
+                    "description": "If you set CompUpdate to true Amazon Redshift applies automatic compression if the table is empty."
+                },
+                "connectionTimeout": {
+                    "type": "integer",
+                    "description": "A value that sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection."
+                },
+                "dateFormat": {
+                    "type": "string",
+                    "description": "The date format that you are using."
+                },
+                "emptyAsNull": {
+                    "type": "boolean",
+                    "description": "A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of true sets empty CHAR and VARCHAR fields to null. The default is false."
+                },
+                "encryptionMode": {
+                    "type": "string",
+                    "description": "The type of server-side encryption that you want to use for your data."
+                },
+                "explicitIds": {
+                    "type": "boolean",
+                    "description": "This setting is only valid for a full-load migration task. Set ExplicitIds to true to have tables with IDENTITY columns override their auto-generated values with explicit values loaded from the source data files used to populate the tables. The default is false."
+                },
+                "fileTransferUploadStreams": {
+                    "type": "integer",
+                    "description": "The number of threads used to upload a single file. This parameter accepts a value from 1 through 64. It defaults to 10."
+                },
+                "loadTimeout": {
+                    "type": "integer",
+                    "description": "The amount of time to wait (in milliseconds) before timing out of operations performed by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE."
+                },
+                "mapBooleanAsBoolean": {
+                    "type": "boolean",
+                    "description": "When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as varchar(1). You must set this setting on both the source and target endpoints for it to take effect."
+                },
+                "maxFileSize": {
+                    "type": "integer",
+                    "description": "The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1 GB)."
+                },
+                "removeQuotes": {
+                    "type": "boolean",
+                    "description": "A value that specifies to remove surrounding quotation marks from strings in the incoming data."
+                },
+                "replaceChars": {
+                    "type": "string",
+                    "description": "A value that specifies to replaces the invalid characters specified in ReplaceInvalidChars, substituting the specified characters instead. The default is \"?\"."
+                },
+                "replaceInvalidChars": {
+                    "type": "string",
+                    "description": "A list of characters that you want to replace. Use with ReplaceChars."
+                },
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret."
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Amazon Redshift endpoint connection details."
+                },
+                "serverSideEncryptionKmsKeyId": {
+                    "type": "string",
+                    "description": "The AWS KMS key ID. If you are using SSE_KMS for the EncryptionMode, provide this key ID."
+                },
+                "serviceAccessRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift service. The role must allow the iam:PassRole action."
+                },
+                "timeFormat": {
+                    "type": "string",
+                    "description": "The time format that you want to use. Valid values are auto (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'."
+                },
+                "trimBlanks": {
+                    "type": "boolean",
+                    "description": "A value that specifies to remove the trailing white space characters from a VARCHAR string."
+                },
+                "truncateColumns": {
+                    "type": "boolean",
+                    "description": "A value that specifies to truncate data in columns to the appropriate number of characters, so that the data fits in the column."
+                },
+                "writeBufferSize": {
+                    "type": "integer",
+                    "description": "The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk at the DMS replication instance. The default value is 1000 (buffer size is 1000KB)."
+                }
+            }
+        },
+        "aws-native:dms:EndpointS3Settings": {
+            "type": "object",
+            "properties": {
+                "addColumnName": {
+                    "type": "boolean",
+                    "description": "An optional parameter that, when set to true or y, you can use to add column name information to the .csv output file."
+                },
+                "addTrailingPaddingCharacter": {
+                    "type": "boolean",
+                    "description": "Use the S3 target endpoint setting AddTrailingPaddingCharacter to add padding on string data. The default value is false."
+                },
+                "bucketFolder": {
+                    "type": "string",
+                    "description": "An optional parameter to set a folder name in the S3 bucket."
+                },
+                "bucketName": {
+                    "type": "string",
+                    "description": "The name of the S3 bucket."
+                },
+                "cannedAclForObjects": {
+                    "type": "string",
+                    "description": "A value that enables AWS DMS to specify a predefined (canned) access control list (ACL) for objects created in an Amazon S3 bucket as .csv or .parquet files."
+                },
+                "cdcInsertsAndUpdates": {
+                    "type": "boolean",
+                    "description": "A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files."
+                },
+                "cdcInsertsOnly": {
+                    "type": "boolean",
+                    "description": "A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the false setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target."
+                },
+                "cdcMaxBatchInterval": {
+                    "type": "integer",
+                    "description": "Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3."
+                },
+                "cdcMinFileSize": {
+                    "type": "integer",
+                    "description": "Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3."
+                },
+                "cdcPath": {
+                    "type": "string",
+                    "description": "Specifies the folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional."
+                },
+                "compressionType": {
+                    "type": "string",
+                    "description": "An optional parameter. When set to GZIP it enables the service to compress the target files."
+                },
+                "csvDelimiter": {
+                    "type": "string",
+                    "description": "The delimiter used to separate columns in the .csv file for both source and target. The default is a comma."
+                },
+                "csvNoSupValue": {
+                    "type": "string",
+                    "description": "This setting only applies if your Amazon S3 output files during a change data capture (CDC) load are written in .csv format."
+                },
+                "csvNullValue": {
+                    "type": "string",
+                    "description": "An optional parameter that specifies how AWS DMS treats null values."
+                },
+                "csvRowDelimiter": {
+                    "type": "string",
+                    "description": "The delimiter used to separate rows in the .csv file for both source and target."
+                },
+                "dataFormat": {
+                    "type": "string",
+                    "description": "The format of the data that you want to use for output."
+                },
+                "dataPageSize": {
+                    "type": "integer",
+                    "description": "The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only."
+                },
+                "datePartitionDelimiter": {
+                    "type": "string",
+                    "description": "Specifies a date separating delimiter to use during folder partitioning. The default value is SLASH. Use this parameter when DatePartitionedEnabled is set to true."
+                },
+                "datePartitionEnabled": {
+                    "type": "boolean",
+                    "description": "When set to true, this parameter partitions S3 bucket folders based on transaction commit dates. The default value is false."
+                },
+                "datePartitionSequence": {
+                    "type": "string",
+                    "description": "Identifies the sequence of the date format to use during folder partitioning. The default value is YYYYMMDD. Use this parameter when DatePartitionedEnabled is set to true."
+                },
+                "datePartitionTimezone": {
+                    "type": "string",
+                    "description": "When creating an S3 target endpoint, set DatePartitionTimezone to convert the current UTC time into a specified time zone."
+                },
+                "dictPageSizeLimit": {
+                    "type": "integer",
+                    "description": "The maximum size of an encoded dictionary page of a column"
+                },
+                "enableStatistics": {
+                    "type": "boolean",
+                    "description": "A value that enables statistics for Parquet pages and row groups."
+                },
+                "encodingType": {
+                    "type": "string",
+                    "description": "The type of encoding that you're using."
+                },
+                "encryptionMode": {
+                    "type": "string",
+                    "description": "The type of server-side encryption that you want to use for your data."
+                },
+                "expectedBucketOwner": {
+                    "type": "string",
+                    "description": "To specify a bucket owner and prevent sniping, you can use the ExpectedBucketOwner endpoint setting."
+                },
+                "externalTableDefinition": {
+                    "type": "string",
+                    "description": "The external table definition."
+                },
+                "glueCatalogGeneration": {
+                    "type": "boolean",
+                    "description": "When true, allows AWS Glue to catalog your S3 bucket. Creating an AWS Glue catalog lets you use Athena to query your data."
+                },
+                "ignoreHeaderRows": {
+                    "type": "integer",
+                    "description": "When this value is set to 1, AWS DMS ignores the first row header in a .csv file. A value of 1 turns on the feature; a value of 0 turns off the feature."
+                },
+                "includeOpForFullLoad": {
+                    "type": "boolean",
+                    "description": "A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database."
+                },
+                "maxFileSize": {
+                    "type": "integer",
+                    "description": "A value that specifies the maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load."
+                },
+                "parquetTimestampInMillisecond": {
+                    "type": "boolean",
+                    "description": "A value that specifies the precision of any TIMESTAMP column values that are written to an Amazon S3 object file in .parquet format."
+                },
+                "parquetVersion": {
+                    "type": "string",
+                    "description": "The version of the Apache Parquet format that you want to use: parquet_1_0 (the default) or parquet_2_0."
+                },
+                "preserveTransactions": {
+                    "type": "boolean",
+                    "description": "If this setting is set to true, AWS DMS saves the transaction order for a change data capture (CDC) load on the Amazon S3 target specified by CdcPath."
+                },
+                "rfc4180": {
+                    "type": "boolean",
+                    "description": "For an S3 source, when this value is set to true or y, each leading double quotation mark has to be followed by an ending double quotation mark."
+                },
+                "rowGroupLength": {
+                    "type": "integer",
+                    "description": "The number of rows in a row group."
+                },
+                "serverSideEncryptionKmsKeyId": {
+                    "type": "string",
+                    "description": "If you are using SSE_KMS for the EncryptionMode, provide the AWS KMS key ID. The key that you use needs an attached policy that enables IAM user permissions and allows use of the key."
+                },
+                "serviceAccessRoleArn": {
+                    "type": "string",
+                    "description": "A required parameter that specifies the Amazon Resource Name (ARN) used by the service to access the IAM role."
+                },
+                "timestampColumnName": {
+                    "type": "string",
+                    "description": "A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target."
+                },
+                "useCsvNoSupValue": {
+                    "type": "boolean",
+                    "description": "This setting applies if the S3 output files during a change data capture (CDC) load are written in .csv format. If this setting is set to true for columns not included in the supplemental log, AWS DMS uses the value specified by CsvNoSupValue. If this setting isn't set or is set to false, AWS DMS uses the null value for these columns."
+                },
+                "useTaskStartTimeForFullLoadTimestamp": {
+                    "type": "boolean",
+                    "description": "When set to true, this parameter uses the task start time as the timestamp column value instead of the time data is written to target"
+                }
+            },
+            "irreversibleNames": {
+                "rfc4180": "Rfc4180"
+            }
+        },
+        "aws-native:dms:EndpointSybaseSettings": {
+            "type": "object",
+            "properties": {
+                "secretsManagerAccessRoleArn": {
+                    "type": "string",
+                    "description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret"
+                },
+                "secretsManagerSecretId": {
+                    "type": "string",
+                    "description": "The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the SAP SAE endpoint connection details."
+                }
+            }
+        },
+        "aws-native:dms:EndpointTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A key is the required name of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A value is the optional value of the tag."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:dms:InstanceProfileNetworkType": {
             "type": "string"
         },
@@ -229363,6 +231535,31 @@
                 "value": {
                     "type": "string",
                     "description": "The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters."
+                }
+            }
+        },
+        "aws-native:ec2:TransitGatewayPolicyTableEntryTransitGatewayPolicyRule": {
+            "type": "object",
+            "properties": {
+                "destinationCidrBlock": {
+                    "type": "string",
+                    "description": "The destination CIDR block for the transit gateway policy rule."
+                },
+                "destinationPortRange": {
+                    "type": "string",
+                    "description": "The destination port range for the transit gateway policy rule."
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "The protocol for the transit gateway policy rule."
+                },
+                "sourceCidrBlock": {
+                    "type": "string",
+                    "description": "The source CIDR block for the transit gateway policy rule."
+                },
+                "sourcePortRange": {
+                    "type": "string",
+                    "description": "The source port range for the transit gateway policy rule."
                 }
             }
         },
@@ -244399,6 +246596,21 @@
         },
         "aws-native:glue:UserDefinedFunctionResourceUriResourceType": {
             "type": "string"
+        },
+        "aws-native:grafana:TagsItemProperties": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
         },
         "aws-native:grafana:WorkspaceAccountAccessType": {
             "type": "string"
@@ -260895,10 +263107,12 @@
             "type": "object",
             "properties": {
                 "logGroup": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named ``/aws/lambda/capacity-provider/\u003ccapacity provider name\u003e``. To use a different log group, enter an existing log group or enter a new log group name."
                 },
                 "systemLogLevel": {
-                    "$ref": "#/types/aws-native:lambda:CapacityProviderLoggingConfigSystemLogLevel"
+                    "$ref": "#/types/aws-native:lambda:CapacityProviderLoggingConfigSystemLogLevel",
+                    "description": "Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest."
                 }
             }
         },
@@ -261002,7 +263216,8 @@
             "type": "object",
             "properties": {
                 "loggingConfig": {
-                    "$ref": "#/types/aws-native:lambda:CapacityProviderLoggingConfig"
+                    "$ref": "#/types/aws-native:lambda:CapacityProviderLoggingConfig",
+                    "description": "The capacity provider's Amazon CloudWatch Logs configuration settings."
                 }
             }
         },
@@ -261210,7 +263425,7 @@
                     "items": {
                         "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfigMetricsItem"
                     },
-                    "description": "The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics)."
+                    "description": "The metrics you want your event source mapping to produce, including ``EventCount``, ``ErrorCount``, ``KafkaMetrics``. \n  +  ``EventCount`` to receive metrics related to the number of events processed by your event source mapping.\n  +  ``ErrorCount`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.\n  +  ``KafkaMetrics`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.\n  \n  For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics)."
                 }
             }
         },
@@ -261222,7 +263437,7 @@
             "properties": {
                 "destination": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the destination resource.\n To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.\n  Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).\n  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination."
+                    "description": "The Amazon Resource Name (ARN) of the destination resource.\n To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.\n  Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).\n  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination."
                 }
             }
         },
@@ -270915,6 +273130,9 @@
                 "publishMqcs": "PublishMQCS"
             }
         },
+        "aws-native:mediapackagev2:ChannelOutputLockingMode": {
+            "type": "string"
+        },
         "aws-native:mediapackagev2:ChannelTag": {
             "type": "object",
             "properties": {
@@ -270950,7 +273168,8 @@
             "type": "object",
             "properties": {
                 "fixedAvailabilityStartTime": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after \u003ccode\u003e2024-01-01T00:00:00Z\u003c/code\u003e and must be at least 14 days before the current time.\u003c/p\u003e"
                 }
             },
             "required": [
@@ -270961,7 +273180,8 @@
             "type": "object",
             "properties": {
                 "fixedAvailabilityStartTime": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "\u003cp\u003eThe fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after \u003ccode\u003e2024-01-01T00:00:00Z\u003c/code\u003e and must be at least 14 days before the current time.\u003c/p\u003e"
                 }
             },
             "required": [
@@ -271451,6 +273671,9 @@
         "aws-native:mediapackagev2:OriginEndpointMssManifestLayout": {
             "type": "string"
         },
+        "aws-native:mediapackagev2:OriginEndpointOutputTimestampMode": {
+            "type": "string"
+        },
         "aws-native:mediapackagev2:OriginEndpointPolicyCdnAuthConfiguration": {
             "type": "object",
             "properties": {
@@ -271543,6 +273766,9 @@
                 "includeIframeOnlyStreams": {
                     "type": "boolean",
                     "description": "\u003cp\u003eWhen selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.\u003c/p\u003e"
+                },
+                "outputTimestampMode": {
+                    "$ref": "#/types/aws-native:mediapackagev2:OriginEndpointOutputTimestampMode"
                 },
                 "scte": {
                     "$ref": "#/types/aws-native:mediapackagev2:OriginEndpointScte",
@@ -272314,6 +274540,404 @@
             "required": [
                 "key"
             ]
+        },
+        "aws-native:msk:ChannelCatalog": {
+            "type": "object",
+            "properties": {
+                "catalogArn": {
+                    "type": "string",
+                    "description": "The ARN of the catalog",
+                    "replaceOnChanges": true
+                },
+                "warehouseLocation": {
+                    "type": "string",
+                    "description": "The warehouse location",
+                    "replaceOnChanges": true
+                }
+            }
+        },
+        "aws-native:msk:ChannelCloudWatchLogsLogDestination": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether CloudWatch Logs logging is enabled"
+                },
+                "logGroup": {
+                    "type": "string",
+                    "description": "The CloudWatch log group for log delivery"
+                }
+            },
+            "required": [
+                "enabled"
+            ]
+        },
+        "aws-native:msk:ChannelDeadLetterQueueS3": {
+            "type": "object",
+            "properties": {
+                "bucketArn": {
+                    "type": "string",
+                    "description": "The ARN of the S3 bucket",
+                    "replaceOnChanges": true
+                },
+                "errorOutputPrefix": {
+                    "type": "string",
+                    "description": "The error output prefix",
+                    "replaceOnChanges": true
+                },
+                "expectedBucketOwner": {
+                    "type": "string",
+                    "description": "Optional 12-digit AWS account ID expected to own the dead-letter S3 bucket",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "bucketArn",
+                "errorOutputPrefix"
+            ]
+        },
+        "aws-native:msk:ChannelDestinationTable": {
+            "type": "object",
+            "properties": {
+                "destinationDatabaseName": {
+                    "type": "string",
+                    "description": "The destination database name",
+                    "replaceOnChanges": true
+                },
+                "destinationTableName": {
+                    "type": "string",
+                    "description": "The destination table name",
+                    "replaceOnChanges": true
+                },
+                "partitionSpec": {
+                    "$ref": "#/types/aws-native:msk:ChannelPartitionSpec",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "destinationDatabaseName",
+                "destinationTableName"
+            ]
+        },
+        "aws-native:msk:ChannelEncryptionConfiguration": {
+            "type": "object",
+            "properties": {
+                "kmsKeyArn": {
+                    "type": "string",
+                    "description": "The ARN of the KMS key for encryption"
+                }
+            },
+            "required": [
+                "kmsKeyArn"
+            ]
+        },
+        "aws-native:msk:ChannelFirehoseLogDestination": {
+            "type": "object",
+            "properties": {
+                "deliveryStream": {
+                    "type": "string",
+                    "description": "The Firehose delivery stream for log delivery"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Firehose logging is enabled"
+                }
+            },
+            "required": [
+                "enabled"
+            ]
+        },
+        "aws-native:msk:ChannelIcebergCompressionType": {
+            "type": "string"
+        },
+        "aws-native:msk:ChannelIcebergDestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "appendOnly": {
+                    "type": "boolean",
+                    "description": "Append only mode",
+                    "replaceOnChanges": true
+                },
+                "catalog": {
+                    "$ref": "#/types/aws-native:msk:ChannelCatalog",
+                    "replaceOnChanges": true
+                },
+                "compressionType": {
+                    "$ref": "#/types/aws-native:msk:ChannelIcebergCompressionType",
+                    "replaceOnChanges": true
+                },
+                "dataFreshnessInSeconds": {
+                    "type": "integer",
+                    "description": "Data freshness in seconds"
+                },
+                "deadLetterQueueS3": {
+                    "$ref": "#/types/aws-native:msk:ChannelDeadLetterQueueS3",
+                    "replaceOnChanges": true
+                },
+                "destinationTableList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:msk:ChannelDestinationTable"
+                    },
+                    "description": "List of destination tables",
+                    "replaceOnChanges": true
+                },
+                "schemaEvolution": {
+                    "$ref": "#/types/aws-native:msk:ChannelSchemaEvolution",
+                    "replaceOnChanges": true
+                },
+                "serviceExecutionRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an IAM role used by MSK to access the table",
+                    "replaceOnChanges": true
+                },
+                "tableCreation": {
+                    "$ref": "#/types/aws-native:msk:ChannelTableCreation",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "appendOnly",
+                "deadLetterQueueS3",
+                "destinationTableList",
+                "schemaEvolution",
+                "serviceExecutionRoleArn",
+                "tableCreation"
+            ],
+            "irreversibleNames": {
+                "deadLetterQueueS3": "DeadLetterQueueS3"
+            }
+        },
+        "aws-native:msk:ChannelLoggingInfo": {
+            "type": "object",
+            "properties": {
+                "cloudWatchLogs": {
+                    "$ref": "#/types/aws-native:msk:ChannelCloudWatchLogsLogDestination"
+                },
+                "firehose": {
+                    "$ref": "#/types/aws-native:msk:ChannelFirehoseLogDestination"
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:msk:ChannelS3LogDestination"
+                }
+            },
+            "irreversibleNames": {
+                "s3": "S3"
+            }
+        },
+        "aws-native:msk:ChannelPartitionSource": {
+            "type": "object",
+            "properties": {
+                "sourceName": {
+                    "type": "string",
+                    "description": "Source name",
+                    "replaceOnChanges": true
+                }
+            }
+        },
+        "aws-native:msk:ChannelPartitionSpec": {
+            "type": "object",
+            "properties": {
+                "partitionStrategy": {
+                    "$ref": "#/types/aws-native:msk:ChannelPartitionStrategy",
+                    "replaceOnChanges": true
+                },
+                "sourceList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:msk:ChannelPartitionSource"
+                    },
+                    "description": "Source list",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "partitionStrategy"
+            ]
+        },
+        "aws-native:msk:ChannelPartitionStrategy": {
+            "type": "string"
+        },
+        "aws-native:msk:ChannelRecordConverter": {
+            "type": "object",
+            "properties": {
+                "valueConverter": {
+                    "$ref": "#/types/aws-native:msk:ChannelValueConverter"
+                }
+            },
+            "required": [
+                "valueConverter"
+            ]
+        },
+        "aws-native:msk:ChannelRecordSchema": {
+            "type": "object",
+            "properties": {
+                "gsrArn": {
+                    "type": "string",
+                    "description": "ARN of Glue Schema Registry resource used for table schema"
+                }
+            },
+            "required": [
+                "gsrArn"
+            ]
+        },
+        "aws-native:msk:ChannelS3CompressionType": {
+            "type": "string"
+        },
+        "aws-native:msk:ChannelS3DestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "dataFreshnessInSeconds": {
+                    "type": "integer",
+                    "description": "Data freshness in seconds"
+                },
+                "deadLetterQueueS3": {
+                    "$ref": "#/types/aws-native:msk:ChannelDeadLetterQueueS3",
+                    "replaceOnChanges": true
+                },
+                "serviceExecutionRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an IAM role used by MSK to access S3",
+                    "replaceOnChanges": true
+                },
+                "storage": {
+                    "$ref": "#/types/aws-native:msk:ChannelS3Storage",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "deadLetterQueueS3",
+                "serviceExecutionRoleArn",
+                "storage"
+            ],
+            "irreversibleNames": {
+                "deadLetterQueueS3": "DeadLetterQueueS3"
+            }
+        },
+        "aws-native:msk:ChannelS3LogDestination": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "The name of the S3 bucket for log delivery"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether S3 logging is enabled"
+                },
+                "prefix": {
+                    "type": "string",
+                    "description": "The S3 prefix for log delivery"
+                }
+            },
+            "required": [
+                "enabled"
+            ]
+        },
+        "aws-native:msk:ChannelS3Storage": {
+            "type": "object",
+            "properties": {
+                "bucketArn": {
+                    "type": "string",
+                    "description": "ARN of the S3 bucket",
+                    "replaceOnChanges": true
+                },
+                "compressionType": {
+                    "$ref": "#/types/aws-native:msk:ChannelS3CompressionType",
+                    "replaceOnChanges": true
+                },
+                "expectedBucketOwner": {
+                    "type": "string",
+                    "description": "Optional 12-digit AWS account ID expected to own the S3 bucket",
+                    "replaceOnChanges": true
+                },
+                "outputKeyTemplate": {
+                    "type": "string",
+                    "description": "Template for S3 key for output objects, used for partitioning",
+                    "replaceOnChanges": true
+                },
+                "outputPrefix": {
+                    "type": "string",
+                    "description": "Optional prefix for output objects",
+                    "replaceOnChanges": true
+                },
+                "storageClass": {
+                    "$ref": "#/types/aws-native:msk:ChannelS3StorageClass",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "bucketArn",
+                "compressionType",
+                "storageClass"
+            ]
+        },
+        "aws-native:msk:ChannelS3StorageClass": {
+            "type": "string"
+        },
+        "aws-native:msk:ChannelSchemaEvolution": {
+            "type": "object",
+            "properties": {
+                "enableSchemaEvolution": {
+                    "type": "boolean",
+                    "description": "Whether schema evolution is enabled",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "enableSchemaEvolution"
+            ]
+        },
+        "aws-native:msk:ChannelStateInfo": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Code for channel state"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Message for channel state"
+                }
+            }
+        },
+        "aws-native:msk:ChannelStatus": {
+            "type": "string"
+        },
+        "aws-native:msk:ChannelTableCreation": {
+            "type": "object",
+            "properties": {
+                "enableTableCreation": {
+                    "type": "boolean",
+                    "description": "Whether table creation is enabled",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "enableTableCreation"
+            ]
+        },
+        "aws-native:msk:ChannelTopicConfiguration": {
+            "type": "object",
+            "properties": {
+                "recordConverter": {
+                    "$ref": "#/types/aws-native:msk:ChannelRecordConverter"
+                },
+                "recordSchema": {
+                    "$ref": "#/types/aws-native:msk:ChannelRecordSchema"
+                },
+                "topicArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) that uniquely identifies the topic"
+                }
+            },
+            "required": [
+                "recordConverter",
+                "topicArn"
+            ]
+        },
+        "aws-native:msk:ChannelValueConverter": {
+            "type": "string"
         },
         "aws-native:msk:ClusterBrokerLogs": {
             "type": "object",
@@ -312556,6 +315180,63 @@
         "aws-native:quicksight:RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek": {
             "type": "string"
         },
+        "aws-native:quicksight:SpaceResource": {
+            "type": "object",
+            "properties": {
+                "resourceArn": {
+                    "type": "string",
+                    "description": "The ARN of the QuickSight resource."
+                },
+                "resourceType": {
+                    "$ref": "#/types/aws-native:quicksight:SpaceResourceResourceType",
+                    "description": "The type of QuickSight resource."
+                }
+            },
+            "required": [
+                "resourceArn",
+                "resourceType"
+            ]
+        },
+        "aws-native:quicksight:SpaceResourcePermission": {
+            "type": "object",
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of actions granted to the principal."
+                },
+                "principal": {
+                    "type": "string",
+                    "description": "The ARN of the principal (user or group) receiving the permission."
+                }
+            },
+            "required": [
+                "actions",
+                "principal"
+            ]
+        },
+        "aws-native:quicksight:SpaceResourceResourceType": {
+            "type": "string"
+        },
+        "aws-native:quicksight:SpaceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:quicksight:TemplateAggregationFunction": {
             "type": "object",
             "properties": {
@@ -341234,6 +343915,25 @@
                 "fileSystemId"
             ]
         },
+        "aws-native:sagemaker:UserProfileEmrSettings": {
+            "type": "object",
+            "properties": {
+                "assumableRoleArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume."
+                },
+                "executionRoleArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of ARNs of IAM roles used by EMR cluster instances or job execution environments."
+                }
+            }
+        },
         "aws-native:sagemaker:UserProfileFSxLustreFileSystemConfig": {
             "type": "object",
             "properties": {
@@ -341318,6 +344018,10 @@
                 "defaultResourceSpec": {
                     "$ref": "#/types/aws-native:sagemaker:UserProfileResourceSpec",
                     "description": "The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app."
+                },
+                "emrSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:UserProfileEmrSettings",
+                    "description": "The configuration parameters for EMR settings."
                 },
                 "lifecycleConfigArns": {
                     "type": "array",
@@ -341412,6 +344116,10 @@
                 "sageMakerImageVersionArn": {
                     "type": "string",
                     "description": "The ARN of the image version created on the instance."
+                },
+                "trainingPlanArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec."
                 }
             }
         },
@@ -342573,6 +345281,10 @@
         "aws-native:securityagent:PentestIntegratedRepository": {
             "type": "object",
             "properties": {
+                "branch": {
+                    "type": "string",
+                    "description": "An optional override for the repository branch"
+                },
                 "integrationId": {
                     "type": "string",
                     "description": "Unique identifier of the provider integration"
@@ -342938,7 +345650,7 @@
             "properties": {
                 "comparison": {
                     "$ref": "#/types/aws-native:securityhub:AutomationRuleStringFilterComparison",
-                    "description": "The condition to apply to a string value when filtering Security Hub CSPM findings.\n To search for values that have the filter value, use one of the following comparison operators:\n  +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.\n  +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.\n  +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.\n  \n ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.\n To search for values that don’t have the filter value, use one of the following comparison operators:\n  +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.\n  +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.\n  +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.\n  \n ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.\n You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. \n You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.\n For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.\n  +   ``ResourceType PREFIX AwsIam`` \n  +   ``ResourceType PREFIX AwsEc2`` \n  +   ``ResourceType NOT_EQUALS AwsIamPolicy`` \n  +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` \n  \n ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*."
+                    "description": "The condition to apply to a string value when filtering Security Hub CSPM findings.\n To search for values that have the filter value, use one of the following comparison operators:\n  +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.\n  +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.\n  +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.\n  \n ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.\n To search for values that don’t have the filter value, use one of the following comparison operators:\n  +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.\n  +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.\n  +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.\n  \n ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.\n You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters. \n You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.\n For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.\n  +   ``ResourceType PREFIX AwsIam`` \n  +   ``ResourceType PREFIX AwsEc2`` \n  +   ``ResourceType NOT_EQUALS AwsIamPolicy`` \n  +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface`` \n  \n The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*."
                 },
                 "value": {
                     "type": "string",
@@ -343766,7 +346478,7 @@
             "properties": {
                 "awsConfigConnectorArn": {
                     "type": "string",
-                    "description": "The ARN of the AWS Config connector used for the Azure integration",
+                    "description": "The ARN of the multi-cloud configuration connector used to establish the connection to Azure.",
                     "replaceOnChanges": true
                 },
                 "azureRegions": {
@@ -343774,10 +346486,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of Azure regions to include in the connector scope"
+                    "description": "The list of Azure regions to monitor."
                 },
                 "scopeConfiguration": {
-                    "$ref": "#/types/aws-native:securityhub:ConnectorAzureScopeConfiguration"
+                    "$ref": "#/types/aws-native:securityhub:ConnectorAzureScopeConfiguration",
+                    "description": "The scope configuration that defines which Azure resources are monitored."
                 }
             },
             "required": [
@@ -343794,14 +346507,14 @@
             "properties": {
                 "scopeType": {
                     "$ref": "#/types/aws-native:securityhub:ConnectorAzureScopeConfigurationScopeType",
-                    "description": "The scope type for the Azure connector"
+                    "description": "The type of scope. Valid values are ``tenant`` and ``subscription``."
                 },
                 "scopeValues": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of scope values for the Azure connector"
+                    "description": "The list of scope values, such as subscription IDs, when the scope type is ``subscription``."
                 }
             },
             "required": [
@@ -343816,11 +346529,11 @@
             "properties": {
                 "code": {
                     "type": "string",
-                    "description": "The code identifying the type of health issue"
+                    "description": "The error code that identifies the type of health issue."
                 },
                 "message": {
                     "type": "string",
-                    "description": "The message describing the health issue"
+                    "description": "A human-readable message that describes the health issue."
                 }
             },
             "required": [
@@ -360682,6 +363395,12 @@
                 "arn"
             ]
         },
+        "aws-native:bedrockagentcore:getHarnessEndpoint": {
+            "cf": "AWS::BedrockAgentCore::HarnessEndpoint",
+            "ids": [
+                "arn"
+            ]
+        },
         "aws-native:bedrockagentcore:getMemory": {
             "cf": "AWS::BedrockAgentCore::Memory",
             "ids": [
@@ -362308,6 +365027,12 @@
                 "dataProviderArn"
             ]
         },
+        "aws-native:dms:getEndpoint": {
+            "cf": "AWS::DMS::Endpoint",
+            "ids": [
+                "endpointArn"
+            ]
+        },
         "aws-native:dms:getInstanceProfile": {
             "cf": "AWS::DMS::InstanceProfile",
             "ids": [
@@ -362844,6 +365569,13 @@
             "ids": [
                 "transitGatewayPolicyTableId",
                 "transitGatewayAttachmentId"
+            ]
+        },
+        "aws-native:ec2:getTransitGatewayPolicyTableEntry": {
+            "cf": "AWS::EC2::TransitGatewayPolicyTableEntry",
+            "ids": [
+                "transitGatewayPolicyTableId",
+                "policyRuleNumber"
             ]
         },
         "aws-native:ec2:getTransitGatewayRouteTable": {
@@ -365085,6 +367817,12 @@
                 "arn"
             ]
         },
+        "aws-native:mediaconvert:getPreset": {
+            "cf": "AWS::MediaConvert::Preset",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:medialive:getChannelPlacementGroup": {
             "cf": "AWS::MediaLive::ChannelPlacementGroup",
             "ids": [
@@ -365300,6 +368038,12 @@
             "cf": "AWS::MSK::BatchScramSecret",
             "ids": [
                 "clusterArn"
+            ]
+        },
+        "aws-native:msk:getChannel": {
+            "cf": "AWS::MSK::Channel",
+            "ids": [
+                "channelArn"
             ]
         },
         "aws-native:msk:getCluster": {
@@ -366065,6 +368809,13 @@
             "cf": "AWS::QuickSight::OAuthClientApplication",
             "ids": [
                 "arn"
+            ]
+        },
+        "aws-native:quicksight:getSpace": {
+            "cf": "AWS::QuickSight::Space",
+            "ids": [
+                "awsAccountId",
+                "spaceId"
             ]
         },
         "aws-native:quicksight:getTemplate": {
@@ -367654,6 +370405,12 @@
             "ids": [
                 "policyId",
                 "resourceArn"
+            ]
+        },
+        "aws-native:ssm:getServiceSetting": {
+            "cf": "AWS::SSM::ServiceSetting",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:ssmcontacts:getContact": {

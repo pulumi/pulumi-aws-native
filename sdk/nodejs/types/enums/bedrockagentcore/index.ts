@@ -315,6 +315,18 @@ export const HarnessCustomClaimValidationTypeInboundTokenClaimValueType = {
 
 export type HarnessCustomClaimValidationTypeInboundTokenClaimValueType = (typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType)[keyof typeof HarnessCustomClaimValidationTypeInboundTokenClaimValueType];
 
+export const HarnessEndpointStatus = {
+    Creating: "CREATING",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Ready: "READY",
+    Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+export type HarnessEndpointStatus = (typeof HarnessEndpointStatus)[keyof typeof HarnessEndpointStatus];
+
 export const HarnessManagedMemoryConfigurationStrategiesItem = {
     Semantic: "SEMANTIC",
     Summarization: "SUMMARIZATION",

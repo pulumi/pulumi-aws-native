@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.BcmDataExports
 
         public static ExportCompressionOption Gzip { get; } = new ExportCompressionOption("GZIP");
         public static ExportCompressionOption Parquet { get; } = new ExportCompressionOption("PARQUET");
+        public static ExportCompressionOption Zip { get; } = new ExportCompressionOption("ZIP");
 
         public static bool operator ==(ExportCompressionOption left, ExportCompressionOption right) => left.Equals(right);
         public static bool operator !=(ExportCompressionOption left, ExportCompressionOption right) => !left.Equals(right);

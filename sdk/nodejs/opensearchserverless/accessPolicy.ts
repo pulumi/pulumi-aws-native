@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless access policy resource
+ * Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**

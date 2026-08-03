@@ -20,6 +20,11 @@ export type DataProvider = import("./dataProvider").DataProvider;
 export const DataProvider: typeof import("./dataProvider").DataProvider = null as any;
 utilities.lazyLoad(exports, ["DataProvider"], () => require("./dataProvider"));
 
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
@@ -34,6 +39,11 @@ export { GetDataProviderArgs, GetDataProviderResult, GetDataProviderOutputArgs }
 export const getDataProvider: typeof import("./getDataProvider").getDataProvider = null as any;
 export const getDataProviderOutput: typeof import("./getDataProvider").getDataProviderOutput = null as any;
 utilities.lazyLoad(exports, ["getDataProvider","getDataProviderOutput"], () => require("./getDataProvider"));
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
 export { GetInstanceProfileArgs, GetInstanceProfileResult, GetInstanceProfileOutputArgs } from "./getInstanceProfile";
 export const getInstanceProfile: typeof import("./getInstanceProfile").getInstanceProfile = null as any;
@@ -79,6 +89,8 @@ const _module = {
                 return new DataMigration(name, <any>undefined, { urn })
             case "aws-native:dms:DataProvider":
                 return new DataProvider(name, <any>undefined, { urn })
+            case "aws-native:dms:Endpoint":
+                return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:dms:InstanceProfile":
                 return new InstanceProfile(name, <any>undefined, { urn })
             case "aws-native:dms:MigrationProject":

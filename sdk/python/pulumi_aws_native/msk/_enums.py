@@ -7,6 +7,12 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ChannelIcebergCompressionType',
+    'ChannelPartitionStrategy',
+    'ChannelS3CompressionType',
+    'ChannelS3StorageClass',
+    'ChannelStatus',
+    'ChannelValueConverter',
     'ClusterEncryptionInTransitClientBroker',
     'ClusterEnhancedMonitoring',
     'ClusterNetworkType',
@@ -20,6 +26,68 @@ __all__ = [
     'ReplicatorReplicationTopicNameConfigurationType',
     'VpcConnectionAuthentication',
 ]
+
+
+@pulumi.type_token("aws-native:msk:ChannelIcebergCompressionType")
+class ChannelIcebergCompressionType(_builtins.str, Enum):
+    """
+    Compression codec for Iceberg table data files. Defaults to ZSTD.
+    """
+    ZSTD = "ZSTD"
+    SNAPPY = "SNAPPY"
+
+
+@pulumi.type_token("aws-native:msk:ChannelPartitionStrategy")
+class ChannelPartitionStrategy(_builtins.str, Enum):
+    """
+    Partition strategy for MSK channel
+    """
+    TIME_HOUR = "TIME_HOUR"
+
+
+@pulumi.type_token("aws-native:msk:ChannelS3CompressionType")
+class ChannelS3CompressionType(_builtins.str, Enum):
+    """
+    S3 compression type
+    """
+    NONE = "NONE"
+    GZIP = "GZIP"
+    ZSTD = "ZSTD"
+
+
+@pulumi.type_token("aws-native:msk:ChannelS3StorageClass")
+class ChannelS3StorageClass(_builtins.str, Enum):
+    """
+    S3 storage class
+    """
+    STANDARD = "STANDARD"
+    INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
+    GLACIER_IR = "GLACIER_IR"
+
+
+@pulumi.type_token("aws-native:msk:ChannelStatus")
+class ChannelStatus(_builtins.str, Enum):
+    """
+    Status of a channel resource
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    SUSPENDING = "SUSPENDING"
+    SUSPENDED = "SUSPENDED"
+
+
+@pulumi.type_token("aws-native:msk:ChannelValueConverter")
+class ChannelValueConverter(_builtins.str, Enum):
+    """
+    Value converter for topic data
+    """
+    BYTE_ARRAY = "BYTE_ARRAY"
+    JSON = "JSON"
+    JSON_SCHEMA_GSR = "JSON_SCHEMA_GSR"
+    STRING = "STRING"
 
 
 @pulumi.type_token("aws-native:msk:ClusterEncryptionInTransitClientBroker")

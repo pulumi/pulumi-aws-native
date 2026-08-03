@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -86,6 +87,8 @@ type LookupWorkspaceResult struct {
 	//
 	// Type: String
 	Status *WorkspaceStatus `pulumi:"status"`
+	// The list of tags associated with the workspace.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
@@ -248,6 +251,11 @@ func (o LookupWorkspaceResultOutput) StackSetName() pulumi.StringPtrOutput {
 // Type: String
 func (o LookupWorkspaceResultOutput) Status() WorkspaceStatusPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceStatus { return v.Status }).(WorkspaceStatusPtrOutput)
+}
+
+// The list of tags associated with the workspace.
+func (o LookupWorkspaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.

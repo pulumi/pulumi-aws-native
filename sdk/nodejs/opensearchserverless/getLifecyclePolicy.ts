@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless lifecycle policy resource
+ * Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
  */
 export function getLifecyclePolicy(args: GetLifecyclePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +40,7 @@ export interface GetLifecyclePolicyResult {
     readonly policy?: string;
 }
 /**
- * Amazon OpenSearchServerless lifecycle policy resource
+ * Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
  */
 export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecyclePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

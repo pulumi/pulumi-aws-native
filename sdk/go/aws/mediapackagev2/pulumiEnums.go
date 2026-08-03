@@ -175,6 +175,171 @@ func (in *channelInputTypePtr) ToChannelInputTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelInputTypePtrOutput)
 }
 
+type ChannelOutputLockingMode string
+
+const (
+	ChannelOutputLockingModeEpochLocked    = ChannelOutputLockingMode("EPOCH_LOCKED")
+	ChannelOutputLockingModeNonEpochLocked = ChannelOutputLockingMode("NON_EPOCH_LOCKED")
+)
+
+func (ChannelOutputLockingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelOutputLockingMode)(nil)).Elem()
+}
+
+func (e ChannelOutputLockingMode) ToChannelOutputLockingModeOutput() ChannelOutputLockingModeOutput {
+	return pulumi.ToOutput(e).(ChannelOutputLockingModeOutput)
+}
+
+func (e ChannelOutputLockingMode) ToChannelOutputLockingModeOutputWithContext(ctx context.Context) ChannelOutputLockingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelOutputLockingModeOutput)
+}
+
+func (e ChannelOutputLockingMode) ToChannelOutputLockingModePtrOutput() ChannelOutputLockingModePtrOutput {
+	return e.ToChannelOutputLockingModePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelOutputLockingMode) ToChannelOutputLockingModePtrOutputWithContext(ctx context.Context) ChannelOutputLockingModePtrOutput {
+	return ChannelOutputLockingMode(e).ToChannelOutputLockingModeOutputWithContext(ctx).ToChannelOutputLockingModePtrOutputWithContext(ctx)
+}
+
+func (e ChannelOutputLockingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelOutputLockingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelOutputLockingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelOutputLockingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelOutputLockingModeOutput struct{ *pulumi.OutputState }
+
+func (ChannelOutputLockingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelOutputLockingMode)(nil)).Elem()
+}
+
+func (o ChannelOutputLockingModeOutput) ToChannelOutputLockingModeOutput() ChannelOutputLockingModeOutput {
+	return o
+}
+
+func (o ChannelOutputLockingModeOutput) ToChannelOutputLockingModeOutputWithContext(ctx context.Context) ChannelOutputLockingModeOutput {
+	return o
+}
+
+func (o ChannelOutputLockingModeOutput) ToChannelOutputLockingModePtrOutput() ChannelOutputLockingModePtrOutput {
+	return o.ToChannelOutputLockingModePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelOutputLockingModeOutput) ToChannelOutputLockingModePtrOutputWithContext(ctx context.Context) ChannelOutputLockingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelOutputLockingMode) *ChannelOutputLockingMode {
+		return &v
+	}).(ChannelOutputLockingModePtrOutput)
+}
+
+func (o ChannelOutputLockingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelOutputLockingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelOutputLockingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelOutputLockingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelOutputLockingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelOutputLockingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelOutputLockingModePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelOutputLockingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelOutputLockingMode)(nil)).Elem()
+}
+
+func (o ChannelOutputLockingModePtrOutput) ToChannelOutputLockingModePtrOutput() ChannelOutputLockingModePtrOutput {
+	return o
+}
+
+func (o ChannelOutputLockingModePtrOutput) ToChannelOutputLockingModePtrOutputWithContext(ctx context.Context) ChannelOutputLockingModePtrOutput {
+	return o
+}
+
+func (o ChannelOutputLockingModePtrOutput) Elem() ChannelOutputLockingModeOutput {
+	return o.ApplyT(func(v *ChannelOutputLockingMode) ChannelOutputLockingMode {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelOutputLockingMode
+		return ret
+	}).(ChannelOutputLockingModeOutput)
+}
+
+func (o ChannelOutputLockingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelOutputLockingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelOutputLockingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelOutputLockingModeInput is an input type that accepts values of the ChannelOutputLockingMode enum
+// A concrete instance of `ChannelOutputLockingModeInput` can be one of the following:
+//
+//	ChannelOutputLockingModeEpochLocked
+//	ChannelOutputLockingModeNonEpochLocked
+type ChannelOutputLockingModeInput interface {
+	pulumi.Input
+
+	ToChannelOutputLockingModeOutput() ChannelOutputLockingModeOutput
+	ToChannelOutputLockingModeOutputWithContext(context.Context) ChannelOutputLockingModeOutput
+}
+
+var channelOutputLockingModePtrType = reflect.TypeOf((**ChannelOutputLockingMode)(nil)).Elem()
+
+type ChannelOutputLockingModePtrInput interface {
+	pulumi.Input
+
+	ToChannelOutputLockingModePtrOutput() ChannelOutputLockingModePtrOutput
+	ToChannelOutputLockingModePtrOutputWithContext(context.Context) ChannelOutputLockingModePtrOutput
+}
+
+type channelOutputLockingModePtr string
+
+func ChannelOutputLockingModePtr(v string) ChannelOutputLockingModePtrInput {
+	return (*channelOutputLockingModePtr)(&v)
+}
+
+func (*channelOutputLockingModePtr) ElementType() reflect.Type {
+	return channelOutputLockingModePtrType
+}
+
+func (in *channelOutputLockingModePtr) ToChannelOutputLockingModePtrOutput() ChannelOutputLockingModePtrOutput {
+	return pulumi.ToOutput(in).(ChannelOutputLockingModePtrOutput)
+}
+
+func (in *channelOutputLockingModePtr) ToChannelOutputLockingModePtrOutputWithContext(ctx context.Context) ChannelOutputLockingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelOutputLockingModePtrOutput)
+}
+
 type OriginEndpointAdMarkerDash string
 
 const (
@@ -3227,6 +3392,171 @@ func (in *originEndpointMssManifestLayoutPtr) ToOriginEndpointMssManifestLayoutP
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointMssManifestLayoutPtrOutput)
 }
 
+type OriginEndpointOutputTimestampMode string
+
+const (
+	OriginEndpointOutputTimestampModePassthrough           = OriginEndpointOutputTimestampMode("PASSTHROUGH")
+	OriginEndpointOutputTimestampModeRebasedToChannelStart = OriginEndpointOutputTimestampMode("REBASED_TO_CHANNEL_START")
+)
+
+func (OriginEndpointOutputTimestampMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointOutputTimestampMode)(nil)).Elem()
+}
+
+func (e OriginEndpointOutputTimestampMode) ToOriginEndpointOutputTimestampModeOutput() OriginEndpointOutputTimestampModeOutput {
+	return pulumi.ToOutput(e).(OriginEndpointOutputTimestampModeOutput)
+}
+
+func (e OriginEndpointOutputTimestampMode) ToOriginEndpointOutputTimestampModeOutputWithContext(ctx context.Context) OriginEndpointOutputTimestampModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointOutputTimestampModeOutput)
+}
+
+func (e OriginEndpointOutputTimestampMode) ToOriginEndpointOutputTimestampModePtrOutput() OriginEndpointOutputTimestampModePtrOutput {
+	return e.ToOriginEndpointOutputTimestampModePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointOutputTimestampMode) ToOriginEndpointOutputTimestampModePtrOutputWithContext(ctx context.Context) OriginEndpointOutputTimestampModePtrOutput {
+	return OriginEndpointOutputTimestampMode(e).ToOriginEndpointOutputTimestampModeOutputWithContext(ctx).ToOriginEndpointOutputTimestampModePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointOutputTimestampMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointOutputTimestampMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointOutputTimestampMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointOutputTimestampMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointOutputTimestampModeOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointOutputTimestampModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointOutputTimestampMode)(nil)).Elem()
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToOriginEndpointOutputTimestampModeOutput() OriginEndpointOutputTimestampModeOutput {
+	return o
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToOriginEndpointOutputTimestampModeOutputWithContext(ctx context.Context) OriginEndpointOutputTimestampModeOutput {
+	return o
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToOriginEndpointOutputTimestampModePtrOutput() OriginEndpointOutputTimestampModePtrOutput {
+	return o.ToOriginEndpointOutputTimestampModePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToOriginEndpointOutputTimestampModePtrOutputWithContext(ctx context.Context) OriginEndpointOutputTimestampModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointOutputTimestampMode) *OriginEndpointOutputTimestampMode {
+		return &v
+	}).(OriginEndpointOutputTimestampModePtrOutput)
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointOutputTimestampMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointOutputTimestampModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointOutputTimestampMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointOutputTimestampModePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointOutputTimestampModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointOutputTimestampMode)(nil)).Elem()
+}
+
+func (o OriginEndpointOutputTimestampModePtrOutput) ToOriginEndpointOutputTimestampModePtrOutput() OriginEndpointOutputTimestampModePtrOutput {
+	return o
+}
+
+func (o OriginEndpointOutputTimestampModePtrOutput) ToOriginEndpointOutputTimestampModePtrOutputWithContext(ctx context.Context) OriginEndpointOutputTimestampModePtrOutput {
+	return o
+}
+
+func (o OriginEndpointOutputTimestampModePtrOutput) Elem() OriginEndpointOutputTimestampModeOutput {
+	return o.ApplyT(func(v *OriginEndpointOutputTimestampMode) OriginEndpointOutputTimestampMode {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointOutputTimestampMode
+		return ret
+	}).(OriginEndpointOutputTimestampModeOutput)
+}
+
+func (o OriginEndpointOutputTimestampModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointOutputTimestampModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointOutputTimestampMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointOutputTimestampModeInput is an input type that accepts values of the OriginEndpointOutputTimestampMode enum
+// A concrete instance of `OriginEndpointOutputTimestampModeInput` can be one of the following:
+//
+//	OriginEndpointOutputTimestampModePassthrough
+//	OriginEndpointOutputTimestampModeRebasedToChannelStart
+type OriginEndpointOutputTimestampModeInput interface {
+	pulumi.Input
+
+	ToOriginEndpointOutputTimestampModeOutput() OriginEndpointOutputTimestampModeOutput
+	ToOriginEndpointOutputTimestampModeOutputWithContext(context.Context) OriginEndpointOutputTimestampModeOutput
+}
+
+var originEndpointOutputTimestampModePtrType = reflect.TypeOf((**OriginEndpointOutputTimestampMode)(nil)).Elem()
+
+type OriginEndpointOutputTimestampModePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointOutputTimestampModePtrOutput() OriginEndpointOutputTimestampModePtrOutput
+	ToOriginEndpointOutputTimestampModePtrOutputWithContext(context.Context) OriginEndpointOutputTimestampModePtrOutput
+}
+
+type originEndpointOutputTimestampModePtr string
+
+func OriginEndpointOutputTimestampModePtr(v string) OriginEndpointOutputTimestampModePtrInput {
+	return (*originEndpointOutputTimestampModePtr)(&v)
+}
+
+func (*originEndpointOutputTimestampModePtr) ElementType() reflect.Type {
+	return originEndpointOutputTimestampModePtrType
+}
+
+func (in *originEndpointOutputTimestampModePtr) ToOriginEndpointOutputTimestampModePtrOutput() OriginEndpointOutputTimestampModePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointOutputTimestampModePtrOutput)
+}
+
+func (in *originEndpointOutputTimestampModePtr) ToOriginEndpointOutputTimestampModePtrOutputWithContext(ctx context.Context) OriginEndpointOutputTimestampModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointOutputTimestampModePtrOutput)
+}
+
 type OriginEndpointPresetSpeke20Audio string
 
 const (
@@ -4653,6 +4983,8 @@ func (in *originEndpointUriSeparatorPtr) ToOriginEndpointUriSeparatorPtrOutputWi
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypeInput)(nil)).Elem(), ChannelInputType("HLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypePtrInput)(nil)).Elem(), ChannelInputType("HLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLockingModeInput)(nil)).Elem(), ChannelOutputLockingMode("EPOCH_LOCKED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLockingModePtrInput)(nil)).Elem(), ChannelOutputLockingMode("EPOCH_LOCKED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdMarkerDashInput)(nil)).Elem(), OriginEndpointAdMarkerDash("BINARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdMarkerDashPtrInput)(nil)).Elem(), OriginEndpointAdMarkerDash("BINARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdMarkerHlsInput)(nil)).Elem(), OriginEndpointAdMarkerHls("DATERANGE"))
@@ -4692,6 +5024,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointIsmEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointIsmEncryptionMethod("CENC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestLayoutInput)(nil)).Elem(), OriginEndpointMssManifestLayout("FULL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestLayoutPtrInput)(nil)).Elem(), OriginEndpointMssManifestLayout("FULL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointOutputTimestampModeInput)(nil)).Elem(), OriginEndpointOutputTimestampMode("PASSTHROUGH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointOutputTimestampModePtrInput)(nil)).Elem(), OriginEndpointOutputTimestampMode("PASSTHROUGH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20AudioInput)(nil)).Elem(), OriginEndpointPresetSpeke20Audio("PRESET_AUDIO_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20AudioPtrInput)(nil)).Elem(), OriginEndpointPresetSpeke20Audio("PRESET_AUDIO_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPresetSpeke20VideoInput)(nil)).Elem(), OriginEndpointPresetSpeke20Video("PRESET_VIDEO_1"))
@@ -4711,6 +5045,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointUriSeparatorPtrInput)(nil)).Elem(), OriginEndpointUriSeparator("UNDERSCORE"))
 	pulumi.RegisterOutputType(ChannelInputTypeOutput{})
 	pulumi.RegisterOutputType(ChannelInputTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelOutputLockingModeOutput{})
+	pulumi.RegisterOutputType(ChannelOutputLockingModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerDashOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerDashPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerHlsOutput{})
@@ -4750,6 +5086,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointIsmEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointMssManifestLayoutOutput{})
 	pulumi.RegisterOutputType(OriginEndpointMssManifestLayoutPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointOutputTimestampModeOutput{})
+	pulumi.RegisterOutputType(OriginEndpointOutputTimestampModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20AudioOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20AudioPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPresetSpeke20VideoOutput{})

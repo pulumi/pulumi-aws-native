@@ -1091,6 +1091,8 @@ func (o ScraperComponentConfigPtrOutput) Options() pulumi.StringMapOutput {
 type ScraperDestination struct {
 	// Configuration for Amazon Managed Prometheus metrics destination
 	AmpConfiguration *ScraperDestinationAmpConfigurationProperties `pulumi:"ampConfiguration"`
+	// Configuration for CloudWatch metrics destination
+	CloudWatchConfiguration *ScraperDestinationCloudWatchConfigurationProperties `pulumi:"cloudWatchConfiguration"`
 }
 
 // ScraperDestinationInput is an input type that accepts ScraperDestinationArgs and ScraperDestinationOutput values.
@@ -1108,6 +1110,8 @@ type ScraperDestinationInput interface {
 type ScraperDestinationArgs struct {
 	// Configuration for Amazon Managed Prometheus metrics destination
 	AmpConfiguration ScraperDestinationAmpConfigurationPropertiesPtrInput `pulumi:"ampConfiguration"`
+	// Configuration for CloudWatch metrics destination
+	CloudWatchConfiguration ScraperDestinationCloudWatchConfigurationPropertiesPtrInput `pulumi:"cloudWatchConfiguration"`
 }
 
 func (ScraperDestinationArgs) ElementType() reflect.Type {
@@ -1142,6 +1146,13 @@ func (o ScraperDestinationOutput) AmpConfiguration() ScraperDestinationAmpConfig
 	return o.ApplyT(func(v ScraperDestination) *ScraperDestinationAmpConfigurationProperties { return v.AmpConfiguration }).(ScraperDestinationAmpConfigurationPropertiesPtrOutput)
 }
 
+// Configuration for CloudWatch metrics destination
+func (o ScraperDestinationOutput) CloudWatchConfiguration() ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v ScraperDestination) *ScraperDestinationCloudWatchConfigurationProperties {
+		return v.CloudWatchConfiguration
+	}).(ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput)
+}
+
 type ScraperDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (ScraperDestinationPtrOutput) ElementType() reflect.Type {
@@ -1174,6 +1185,16 @@ func (o ScraperDestinationPtrOutput) AmpConfiguration() ScraperDestinationAmpCon
 		}
 		return v.AmpConfiguration
 	}).(ScraperDestinationAmpConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for CloudWatch metrics destination
+func (o ScraperDestinationPtrOutput) CloudWatchConfiguration() ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *ScraperDestination) *ScraperDestinationCloudWatchConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchConfiguration
+	}).(ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput)
 }
 
 // Configuration for Amazon Managed Prometheus metrics destination
@@ -1313,6 +1334,146 @@ func (o ScraperDestinationAmpConfigurationPropertiesPtrOutput) WorkspaceArn() pu
 			return nil
 		}
 		return &v.WorkspaceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for CloudWatch metrics destination
+type ScraperDestinationCloudWatchConfigurationProperties struct {
+	// ARN of a CloudWatch dataset
+	DatasetArn string `pulumi:"datasetArn"`
+}
+
+// ScraperDestinationCloudWatchConfigurationPropertiesInput is an input type that accepts ScraperDestinationCloudWatchConfigurationPropertiesArgs and ScraperDestinationCloudWatchConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ScraperDestinationCloudWatchConfigurationPropertiesInput` via:
+//
+//	ScraperDestinationCloudWatchConfigurationPropertiesArgs{...}
+type ScraperDestinationCloudWatchConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToScraperDestinationCloudWatchConfigurationPropertiesOutput() ScraperDestinationCloudWatchConfigurationPropertiesOutput
+	ToScraperDestinationCloudWatchConfigurationPropertiesOutputWithContext(context.Context) ScraperDestinationCloudWatchConfigurationPropertiesOutput
+}
+
+// Configuration for CloudWatch metrics destination
+type ScraperDestinationCloudWatchConfigurationPropertiesArgs struct {
+	// ARN of a CloudWatch dataset
+	DatasetArn pulumi.StringInput `pulumi:"datasetArn"`
+}
+
+func (ScraperDestinationCloudWatchConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestinationCloudWatchConfigurationProperties)(nil)).Elem()
+}
+
+func (i ScraperDestinationCloudWatchConfigurationPropertiesArgs) ToScraperDestinationCloudWatchConfigurationPropertiesOutput() ScraperDestinationCloudWatchConfigurationPropertiesOutput {
+	return i.ToScraperDestinationCloudWatchConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ScraperDestinationCloudWatchConfigurationPropertiesArgs) ToScraperDestinationCloudWatchConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperDestinationCloudWatchConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationCloudWatchConfigurationPropertiesOutput)
+}
+
+func (i ScraperDestinationCloudWatchConfigurationPropertiesArgs) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutput() ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return i.ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperDestinationCloudWatchConfigurationPropertiesArgs) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationCloudWatchConfigurationPropertiesOutput).ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ScraperDestinationCloudWatchConfigurationPropertiesPtrInput is an input type that accepts ScraperDestinationCloudWatchConfigurationPropertiesArgs, ScraperDestinationCloudWatchConfigurationPropertiesPtr and ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ScraperDestinationCloudWatchConfigurationPropertiesPtrInput` via:
+//
+//	        ScraperDestinationCloudWatchConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperDestinationCloudWatchConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutput() ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput
+	ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(context.Context) ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput
+}
+
+type scraperDestinationCloudWatchConfigurationPropertiesPtrType ScraperDestinationCloudWatchConfigurationPropertiesArgs
+
+func ScraperDestinationCloudWatchConfigurationPropertiesPtr(v *ScraperDestinationCloudWatchConfigurationPropertiesArgs) ScraperDestinationCloudWatchConfigurationPropertiesPtrInput {
+	return (*scraperDestinationCloudWatchConfigurationPropertiesPtrType)(v)
+}
+
+func (*scraperDestinationCloudWatchConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperDestinationCloudWatchConfigurationProperties)(nil)).Elem()
+}
+
+func (i *scraperDestinationCloudWatchConfigurationPropertiesPtrType) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutput() ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return i.ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperDestinationCloudWatchConfigurationPropertiesPtrType) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for CloudWatch metrics destination
+type ScraperDestinationCloudWatchConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationCloudWatchConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestinationCloudWatchConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperDestinationCloudWatchConfigurationPropertiesOutput) ToScraperDestinationCloudWatchConfigurationPropertiesOutput() ScraperDestinationCloudWatchConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudWatchConfigurationPropertiesOutput) ToScraperDestinationCloudWatchConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperDestinationCloudWatchConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudWatchConfigurationPropertiesOutput) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutput() ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return o.ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperDestinationCloudWatchConfigurationPropertiesOutput) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperDestinationCloudWatchConfigurationProperties) *ScraperDestinationCloudWatchConfigurationProperties {
+		return &v
+	}).(ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput)
+}
+
+// ARN of a CloudWatch dataset
+func (o ScraperDestinationCloudWatchConfigurationPropertiesOutput) DatasetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScraperDestinationCloudWatchConfigurationProperties) string { return v.DatasetArn }).(pulumi.StringOutput)
+}
+
+type ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperDestinationCloudWatchConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutput() ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput) ToScraperDestinationCloudWatchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput) Elem() ScraperDestinationCloudWatchConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ScraperDestinationCloudWatchConfigurationProperties) ScraperDestinationCloudWatchConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperDestinationCloudWatchConfigurationProperties
+		return ret
+	}).(ScraperDestinationCloudWatchConfigurationPropertiesOutput)
+}
+
+// ARN of a CloudWatch dataset
+func (o ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput) DatasetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperDestinationCloudWatchConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3259,6 +3420,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpConfigurationPropertiesInput)(nil)).Elem(), ScraperDestinationAmpConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperDestinationAmpConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationCloudWatchConfigurationPropertiesInput)(nil)).Elem(), ScraperDestinationCloudWatchConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationCloudWatchConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperDestinationCloudWatchConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationInput)(nil)).Elem(), ScraperLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationPtrInput)(nil)).Elem(), ScraperLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingDestinationInput)(nil)).Elem(), ScraperLoggingDestinationArgs{})
@@ -3306,6 +3469,8 @@ func init() {
 	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ScraperDestinationCloudWatchConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ScraperDestinationCloudWatchConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ScraperLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(ScraperLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperLoggingDestinationOutput{})

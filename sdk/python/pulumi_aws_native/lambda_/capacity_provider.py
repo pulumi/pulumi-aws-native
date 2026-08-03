@@ -43,6 +43,7 @@ class CapacityProviderArgs:
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the capacity provider's resources.
         :param pulumi.Input['CapacityProviderPropagateTagsConfigArgs'] propagate_tags: Configuration for tag propagation to managed resources launched by the capacity provider.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair that provides metadata for the capacity provider.
+        :param pulumi.Input['CapacityProviderTelemetryConfigArgs'] telemetry_config: The telemetry configuration for the capacity provider, including logging settings.
         """
         pulumi.set(__self__, "permissions_config", permissions_config)
         pulumi.set(__self__, "vpc_config", vpc_config)
@@ -157,6 +158,9 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="telemetryConfig")
     def telemetry_config(self) -> pulumi.Input[Optional['CapacityProviderTelemetryConfigArgs']]:
+        """
+        The telemetry configuration for the capacity provider, including logging settings.
+        """
         return pulumi.get(self, "telemetry_config")
 
     @telemetry_config.setter
@@ -191,6 +195,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: The permissions configuration for the capacity provider.
         :param pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']] propagate_tags: Configuration for tag propagation to managed resources launched by the capacity provider.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair that provides metadata for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderTelemetryConfigArgs', 'CapacityProviderTelemetryConfigArgsDict']] telemetry_config: The telemetry configuration for the capacity provider, including logging settings.
         :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: The VPC configuration for the capacity provider.
         """
         ...
@@ -356,6 +361,9 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="telemetryConfig")
     def telemetry_config(self) -> pulumi.Output[Optional['outputs.CapacityProviderTelemetryConfig']]:
+        """
+        The telemetry configuration for the capacity provider, including logging settings.
+        """
         return pulumi.get(self, "telemetry_config")
 
     @_builtins.property

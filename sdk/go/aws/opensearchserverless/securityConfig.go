@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon OpenSearchServerless security config resource
+// Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
 //
 // ## Example Usage
 // ### Example

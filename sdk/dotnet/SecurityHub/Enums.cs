@@ -733,7 +733,7 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
-    /// The scope type for the Azure connector
+    /// The type of scope. Valid values are ``tenant`` and ``subscription``.
     /// </summary>
     [EnumType]
     public readonly struct ConnectorAzureScopeConfigurationScopeType : IEquatable<ConnectorAzureScopeConfigurationScopeType>

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("includeIframeOnlyStreams")]
         public Input<bool>? IncludeIframeOnlyStreams { get; set; }
 
+        [Input("outputTimestampMode")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointOutputTimestampMode>? OutputTimestampMode { get; set; }
+
         /// <summary>
         /// The SCTE-35 configuration associated with the segment.
         /// </summary>

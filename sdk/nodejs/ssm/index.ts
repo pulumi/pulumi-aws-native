@@ -65,6 +65,11 @@ export const getResourcePolicy: typeof import("./getResourcePolicy").getResource
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
+export { GetServiceSettingArgs, GetServiceSettingResult, GetServiceSettingOutputArgs } from "./getServiceSetting";
+export const getServiceSetting: typeof import("./getServiceSetting").getServiceSetting = null as any;
+export const getServiceSettingOutput: typeof import("./getServiceSetting").getServiceSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceSetting","getServiceSettingOutput"], () => require("./getServiceSetting"));
+
 export { MaintenanceWindowArgs } from "./maintenanceWindow";
 export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
 export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
@@ -105,6 +110,11 @@ export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
+export { ServiceSettingArgs } from "./serviceSetting";
+export type ServiceSetting = import("./serviceSetting").ServiceSetting;
+export const ServiceSetting: typeof import("./serviceSetting").ServiceSetting = null as any;
+utilities.lazyLoad(exports, ["ServiceSetting"], () => require("./serviceSetting"));
+
 
 // Export enums:
 export * from "../types/enums/ssm";
@@ -133,6 +143,8 @@ const _module = {
                 return new ResourceDataSync(name, <any>undefined, { urn })
             case "aws-native:ssm:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws-native:ssm:ServiceSetting":
+                return new ServiceSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

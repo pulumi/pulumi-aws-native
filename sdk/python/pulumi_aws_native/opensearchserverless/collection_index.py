@@ -83,7 +83,7 @@ class CollectionIndex(pulumi.CustomResource):
                  index_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::OpenSearchServerless::CollectionIndex
+        Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +98,7 @@ class CollectionIndex(pulumi.CustomResource):
                  args: CollectionIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::OpenSearchServerless::CollectionIndex
+        Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
 
         :param str resource_name: The name of the resource.
         :param CollectionIndexArgs args: The arguments to use to populate this resource's properties.

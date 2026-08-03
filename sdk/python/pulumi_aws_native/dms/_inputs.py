@@ -20,6 +20,40 @@ __all__ = [
     'DataMigrationSettingsArgsDict',
     'DataMigrationSourceDataSettingsArgs',
     'DataMigrationSourceDataSettingsArgsDict',
+    'EndpointDocDbSettingsArgs',
+    'EndpointDocDbSettingsArgsDict',
+    'EndpointDynamoDbSettingsArgs',
+    'EndpointDynamoDbSettingsArgsDict',
+    'EndpointElasticsearchSettingsArgs',
+    'EndpointElasticsearchSettingsArgsDict',
+    'EndpointGcpMySqlSettingsArgs',
+    'EndpointGcpMySqlSettingsArgsDict',
+    'EndpointIbmDb2SettingsArgs',
+    'EndpointIbmDb2SettingsArgsDict',
+    'EndpointKafkaSettingsArgs',
+    'EndpointKafkaSettingsArgsDict',
+    'EndpointKinesisSettingsArgs',
+    'EndpointKinesisSettingsArgsDict',
+    'EndpointMicrosoftSqlServerSettingsArgs',
+    'EndpointMicrosoftSqlServerSettingsArgsDict',
+    'EndpointMongoDbSettingsArgs',
+    'EndpointMongoDbSettingsArgsDict',
+    'EndpointMySqlSettingsArgs',
+    'EndpointMySqlSettingsArgsDict',
+    'EndpointNeptuneSettingsArgs',
+    'EndpointNeptuneSettingsArgsDict',
+    'EndpointOracleSettingsArgs',
+    'EndpointOracleSettingsArgsDict',
+    'EndpointPostgreSqlSettingsArgs',
+    'EndpointPostgreSqlSettingsArgsDict',
+    'EndpointRedisSettingsArgs',
+    'EndpointRedisSettingsArgsDict',
+    'EndpointRedshiftSettingsArgs',
+    'EndpointRedshiftSettingsArgsDict',
+    'EndpointS3SettingsArgs',
+    'EndpointS3SettingsArgsDict',
+    'EndpointSybaseSettingsArgs',
+    'EndpointSybaseSettingsArgsDict',
     'MigrationProjectDataProviderDescriptorArgs',
     'MigrationProjectDataProviderDescriptorArgsDict',
     'ReplicationConfigComputeConfigArgs',
@@ -208,6 +242,4904 @@ class DataMigrationSourceDataSettingsArgs:
     @slot_name.setter
     def slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slot_name", value)
+
+
+class EndpointDocDbSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a DocumentDB endpoint.
+    """
+    docs_to_investigate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+    """
+    extract_doc_id: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies the document ID. Use this setting when NestingLevel is set to "none"
+    """
+    nesting_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies either document or table mode.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+    """
+
+@pulumi.input_type
+class EndpointDocDbSettingsArgs:
+    def __init__(__self__, *,
+                 docs_to_investigate: pulumi.Input[Optional[_builtins.int]] = None,
+                 extract_doc_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 nesting_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a DocumentDB endpoint.
+
+        :param pulumi.Input[_builtins.int] docs_to_investigate: Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+        :param pulumi.Input[_builtins.bool] extract_doc_id: Specifies the document ID. Use this setting when NestingLevel is set to "none"
+        :param pulumi.Input[_builtins.str] nesting_level: Specifies either document or table mode.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+        """
+        if docs_to_investigate is not None:
+            pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
+        if extract_doc_id is not None:
+            pulumi.set(__self__, "extract_doc_id", extract_doc_id)
+        if nesting_level is not None:
+            pulumi.set(__self__, "nesting_level", nesting_level)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="docsToInvestigate")
+    def docs_to_investigate(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+        """
+        return pulumi.get(self, "docs_to_investigate")
+
+    @docs_to_investigate.setter
+    def docs_to_investigate(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "docs_to_investigate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extractDocId")
+    def extract_doc_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies the document ID. Use this setting when NestingLevel is set to "none"
+        """
+        return pulumi.get(self, "extract_doc_id")
+
+    @extract_doc_id.setter
+    def extract_doc_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "extract_doc_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nestingLevel")
+    def nesting_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies either document or table mode.
+        """
+        return pulumi.get(self, "nesting_level")
+
+    @nesting_level.setter
+    def nesting_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "nesting_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the DocumentDB endpoint.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+
+class EndpointDynamoDbSettingsArgsDict(TypedDict):
+    """
+    Provides information, including the Amazon Resource Name (ARN) of the IAM role used to define an Amazon DynamoDB target endpoint.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+    """
+
+@pulumi.input_type
+class EndpointDynamoDbSettingsArgs:
+    def __init__(__self__, *,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information, including the Amazon Resource Name (ARN) of the IAM role used to define an Amazon DynamoDB target endpoint.
+
+        :param pulumi.Input[_builtins.str] service_access_role_arn: The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+        """
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+
+class EndpointElasticsearchSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines an OpenSearch endpoint.
+    """
+    endpoint_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The endpoint for the OpenSearch cluster. AWS DMS uses HTTPS if a transport protocol (either HTTP or HTTPS) isn't specified.
+    """
+    error_retry_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
+    """
+    full_load_error_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum percentage of records that can fail to be written before a full load operation stops.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+    """
+
+@pulumi.input_type
+class EndpointElasticsearchSettingsArgs:
+    def __init__(__self__, *,
+                 endpoint_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_retry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 full_load_error_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines an OpenSearch endpoint.
+
+        :param pulumi.Input[_builtins.str] endpoint_uri: The endpoint for the OpenSearch cluster. AWS DMS uses HTTPS if a transport protocol (either HTTP or HTTPS) isn't specified.
+        :param pulumi.Input[_builtins.int] error_retry_duration: The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
+        :param pulumi.Input[_builtins.int] full_load_error_percentage: The maximum percentage of records that can fail to be written before a full load operation stops.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+        """
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        if error_retry_duration is not None:
+            pulumi.set(__self__, "error_retry_duration", error_retry_duration)
+        if full_load_error_percentage is not None:
+            pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The endpoint for the OpenSearch cluster. AWS DMS uses HTTPS if a transport protocol (either HTTP or HTTPS) isn't specified.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorRetryDuration")
+    def error_retry_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster.
+        """
+        return pulumi.get(self, "error_retry_duration")
+
+    @error_retry_duration.setter
+    def error_retry_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "error_retry_duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fullLoadErrorPercentage")
+    def full_load_error_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum percentage of records that can fail to be written before a full load operation stops.
+        """
+        return pulumi.get(self, "full_load_error_percentage")
+
+    @full_load_error_percentage.setter
+    def full_load_error_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "full_load_error_percentage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) used by the service to access the IAM role. The role must allow the iam:PassRole action.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+
+class EndpointGcpMySqlSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a GCP MySQL endpoint.
+    """
+    after_connect_script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+    """
+    clean_source_metadata_on_mismatch: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Adjusts the behavior of AWS DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need AWS DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to false.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify the database using the DatabaseName request parameter on either the CreateEndpoint or ModifyEndpoint API call. Specifying DatabaseName when you create or modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the AWS DMS task.
+    """
+    events_poll_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+    """
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+    """
+    parallel_load_threads: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread. The default is one.
+    """
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Endpoint connection password.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The port used by the endpoint database.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the MySQL endpoint.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The MySQL host name.
+    """
+    server_timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+    """
+
+@pulumi.input_type
+class EndpointGcpMySqlSettingsArgs:
+    def __init__(__self__, *,
+                 after_connect_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 clean_source_metadata_on_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 events_poll_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 parallel_load_threads: pulumi.Input[Optional[_builtins.int]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a GCP MySQL endpoint.
+
+        :param pulumi.Input[_builtins.str] after_connect_script: Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+        :param pulumi.Input[_builtins.bool] clean_source_metadata_on_mismatch: Adjusts the behavior of AWS DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need AWS DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to false.
+        :param pulumi.Input[_builtins.str] database_name: Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify the database using the DatabaseName request parameter on either the CreateEndpoint or ModifyEndpoint API call. Specifying DatabaseName when you create or modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the AWS DMS task.
+        :param pulumi.Input[_builtins.int] events_poll_interval: Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+        :param pulumi.Input[_builtins.int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        :param pulumi.Input[_builtins.int] parallel_load_threads: Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread. The default is one.
+        :param pulumi.Input[_builtins.str] password: Endpoint connection password.
+        :param pulumi.Input[_builtins.int] port: The port used by the endpoint database.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the MySQL endpoint.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+        :param pulumi.Input[_builtins.str] server_name: The MySQL host name.
+        :param pulumi.Input[_builtins.str] server_timezone: Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+        :param pulumi.Input[_builtins.str] username: Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+        """
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if clean_source_metadata_on_mismatch is not None:
+            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if events_poll_interval is not None:
+            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parallel_load_threads is not None:
+            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if server_timezone is not None:
+            pulumi.set(__self__, "server_timezone", server_timezone)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+        """
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cleanSourceMetadataOnMismatch")
+    def clean_source_metadata_on_mismatch(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Adjusts the behavior of AWS DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need AWS DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to false.
+        """
+        return pulumi.get(self, "clean_source_metadata_on_mismatch")
+
+    @clean_source_metadata_on_mismatch.setter
+    def clean_source_metadata_on_mismatch(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "clean_source_metadata_on_mismatch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify the database using the DatabaseName request parameter on either the CreateEndpoint or ModifyEndpoint API call. Specifying DatabaseName when you create or modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the AWS DMS task.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventsPollInterval")
+    def events_poll_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+        """
+        return pulumi.get(self, "events_poll_interval")
+
+    @events_poll_interval.setter
+    def events_poll_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "events_poll_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parallelLoadThreads")
+    def parallel_load_threads(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database. Setting a large number of threads can have an adverse effect on database performance, because a separate connection is required for each thread. The default is one.
+        """
+        return pulumi.get(self, "parallel_load_threads")
+
+    @parallel_load_threads.setter
+    def parallel_load_threads(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "parallel_load_threads", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Endpoint connection password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The port used by the endpoint database.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value of the AWS Secrets Manager secret that allows access to the MySQL endpoint.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The MySQL host name.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverTimezone")
+    def server_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+        """
+        return pulumi.get(self, "server_timezone")
+
+    @server_timezone.setter
+    def server_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_timezone", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the time zone for the source MySQL database. Don't enclose time zones in single quotation marks.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class EndpointIbmDb2SettingsArgsDict(TypedDict):
+    """
+    Provides information that defines an IBMDB2 endpoint.
+    """
+    current_lsn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
+    """
+    keep_csv_files: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these files for analysis and troubleshooting.
+    """
+    load_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The amount of time (in milliseconds) before AWS DMS times out operations performed by DMS on the Db2 target. The default value is 1200 (20 minutes).
+    """
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.
+    """
+    max_k_bytes_per_read: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value ofthe AWS Secrets Manager secret that allows access to the Db2 LUW endpoint.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the IBMDB2 endpoint connection details.
+    """
+    set_data_capture_changes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
+    """
+    write_buffer_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk on the DMS replication instance. The default value is 1024 (1 MB).
+    """
+
+@pulumi.input_type
+class EndpointIbmDb2SettingsArgs:
+    def __init__(__self__, *,
+                 current_lsn: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_csv_files: pulumi.Input[Optional[_builtins.bool]] = None,
+                 load_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_k_bytes_per_read: pulumi.Input[Optional[_builtins.int]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 set_data_capture_changes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 write_buffer_size: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Provides information that defines an IBMDB2 endpoint.
+
+        :param pulumi.Input[_builtins.str] current_lsn: For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
+        :param pulumi.Input[_builtins.bool] keep_csv_files: If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these files for analysis and troubleshooting.
+        :param pulumi.Input[_builtins.int] load_timeout: The amount of time (in milliseconds) before AWS DMS times out operations performed by DMS on the Db2 target. The default value is 1200 (20 minutes).
+        :param pulumi.Input[_builtins.int] max_file_size: Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.
+        :param pulumi.Input[_builtins.int] max_k_bytes_per_read: Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value ofthe AWS Secrets Manager secret that allows access to the Db2 LUW endpoint.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the IBMDB2 endpoint connection details.
+        :param pulumi.Input[_builtins.bool] set_data_capture_changes: Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
+        :param pulumi.Input[_builtins.int] write_buffer_size: The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk on the DMS replication instance. The default value is 1024 (1 MB).
+        """
+        if current_lsn is not None:
+            pulumi.set(__self__, "current_lsn", current_lsn)
+        if keep_csv_files is not None:
+            pulumi.set(__self__, "keep_csv_files", keep_csv_files)
+        if load_timeout is not None:
+            pulumi.set(__self__, "load_timeout", load_timeout)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if max_k_bytes_per_read is not None:
+            pulumi.set(__self__, "max_k_bytes_per_read", max_k_bytes_per_read)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if set_data_capture_changes is not None:
+            pulumi.set(__self__, "set_data_capture_changes", set_data_capture_changes)
+        if write_buffer_size is not None:
+            pulumi.set(__self__, "write_buffer_size", write_buffer_size)
+
+    @_builtins.property
+    @pulumi.getter(name="currentLsn")
+    def current_lsn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
+        """
+        return pulumi.get(self, "current_lsn")
+
+    @current_lsn.setter
+    def current_lsn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "current_lsn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keepCsvFiles")
+    def keep_csv_files(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, AWS DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these files for analysis and troubleshooting.
+        """
+        return pulumi.get(self, "keep_csv_files")
+
+    @keep_csv_files.setter
+    def keep_csv_files(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "keep_csv_files", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadTimeout")
+    def load_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The amount of time (in milliseconds) before AWS DMS times out operations performed by DMS on the Db2 target. The default value is 1200 (20 minutes).
+        """
+        return pulumi.get(self, "load_timeout")
+
+    @load_timeout.setter
+    def load_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "load_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxKBytesPerRead")
+    def max_k_bytes_per_read(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
+        """
+        return pulumi.get(self, "max_k_bytes_per_read")
+
+    @max_k_bytes_per_read.setter
+    def max_k_bytes_per_read(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_k_bytes_per_read", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret. The role must allow the iam:PassRole action. SecretsManagerSecret has the value ofthe AWS Secrets Manager secret that allows access to the Db2 LUW endpoint.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the IBMDB2 endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="setDataCaptureChanges")
+    def set_data_capture_changes(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
+        """
+        return pulumi.get(self, "set_data_capture_changes")
+
+    @set_data_capture_changes.setter
+    def set_data_capture_changes(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "set_data_capture_changes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="writeBufferSize")
+    def write_buffer_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk on the DMS replication instance. The default value is 1024 (1 MB).
+        """
+        return pulumi.get(self, "write_buffer_size")
+
+    @write_buffer_size.setter
+    def write_buffer_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "write_buffer_size", value)
+
+
+class EndpointKafkaSettingsArgsDict(TypedDict):
+    """
+    Provides information that describes an Apache Kafka endpoint.
+    """
+    broker: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port
+    """
+    include_control_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is false.
+    """
+    include_null_and_empty: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Include NULL and empty columns for records migrated to the endpoint. The default is false.
+    """
+    include_partition_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Shows the partition value within the Kafka message output unless the partition type is schema-table-type. The default is false.
+    """
+    include_table_alter_operations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+    """
+    include_transaction_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for transaction_id, previous transaction_id, and transaction_record_id (the record offset within a transaction). The default is false.
+    """
+    message_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+    """
+    message_max_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum size in bytes for records created on the endpoint The default is 1,000,000.
+    """
+    no_hex_prefix: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the NoHexPrefix endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
+    """
+    partition_include_schema_table: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+    """
+    sasl_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The secure password that you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+    """
+    sasl_user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The secure user name you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+    """
+    security_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires SaslUsername and SaslPassword.
+    """
+    ssl_ca_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+    """
+    ssl_client_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+    """
+    ssl_client_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+    """
+    ssl_client_key_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The password for the client private key used to securely connect to a Kafka target endpoint.
+    """
+    topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The topic to which you migrate the data. If you don't specify a topic, AWS DMS specifies "kafka-default-topic" as the migration topic.
+    """
+
+@pulumi.input_type
+class EndpointKafkaSettingsArgs:
+    def __init__(__self__, *,
+                 broker: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_control_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_null_and_empty: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_partition_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_table_alter_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_transaction_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_max_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 no_hex_prefix: pulumi.Input[Optional[_builtins.bool]] = None,
+                 partition_include_schema_table: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sasl_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 sasl_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_ca_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_client_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_client_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_client_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that describes an Apache Kafka endpoint.
+
+        :param pulumi.Input[_builtins.str] broker: A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port
+        :param pulumi.Input[_builtins.bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is false.
+        :param pulumi.Input[_builtins.bool] include_null_and_empty: Include NULL and empty columns for records migrated to the endpoint. The default is false.
+        :param pulumi.Input[_builtins.bool] include_partition_value: Shows the partition value within the Kafka message output unless the partition type is schema-table-type. The default is false.
+        :param pulumi.Input[_builtins.bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+        :param pulumi.Input[_builtins.bool] include_transaction_details: Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for transaction_id, previous transaction_id, and transaction_record_id (the record offset within a transaction). The default is false.
+        :param pulumi.Input[_builtins.str] message_format: The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+        :param pulumi.Input[_builtins.int] message_max_bytes: The maximum size in bytes for records created on the endpoint The default is 1,000,000.
+        :param pulumi.Input[_builtins.bool] no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the NoHexPrefix endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
+        :param pulumi.Input[_builtins.bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+        :param pulumi.Input[_builtins.str] sasl_password: The secure password that you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        :param pulumi.Input[_builtins.str] sasl_user_name: The secure user name you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        :param pulumi.Input[_builtins.str] security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires SaslUsername and SaslPassword.
+        :param pulumi.Input[_builtins.str] ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        :param pulumi.Input[_builtins.str] ssl_client_certificate_arn: The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[_builtins.str] ssl_client_key_arn: The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[_builtins.str] ssl_client_key_password: The password for the client private key used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[_builtins.str] topic: The topic to which you migrate the data. If you don't specify a topic, AWS DMS specifies "kafka-default-topic" as the migration topic.
+        """
+        if broker is not None:
+            pulumi.set(__self__, "broker", broker)
+        if include_control_details is not None:
+            pulumi.set(__self__, "include_control_details", include_control_details)
+        if include_null_and_empty is not None:
+            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
+        if include_table_alter_operations is not None:
+            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        if include_transaction_details is not None:
+            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        if message_format is not None:
+            pulumi.set(__self__, "message_format", message_format)
+        if message_max_bytes is not None:
+            pulumi.set(__self__, "message_max_bytes", message_max_bytes)
+        if no_hex_prefix is not None:
+            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+        if partition_include_schema_table is not None:
+            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+        if sasl_password is not None:
+            pulumi.set(__self__, "sasl_password", sasl_password)
+        if sasl_user_name is not None:
+            pulumi.set(__self__, "sasl_user_name", sasl_user_name)
+        if security_protocol is not None:
+            pulumi.set(__self__, "security_protocol", security_protocol)
+        if ssl_ca_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        if ssl_client_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
+        if ssl_client_key_arn is not None:
+            pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
+        if ssl_client_key_password is not None:
+            pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @_builtins.property
+    @pulumi.getter
+    def broker(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location in the form broker-hostname-or-ip:port
+        """
+        return pulumi.get(self, "broker")
+
+    @broker.setter
+    def broker(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "broker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is false.
+        """
+        return pulumi.get(self, "include_control_details")
+
+    @include_control_details.setter
+    def include_control_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_control_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Include NULL and empty columns for records migrated to the endpoint. The default is false.
+        """
+        return pulumi.get(self, "include_null_and_empty")
+
+    @include_null_and_empty.setter
+    def include_null_and_empty(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_null_and_empty", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Shows the partition value within the Kafka message output unless the partition type is schema-table-type. The default is false.
+        """
+        return pulumi.get(self, "include_partition_value")
+
+    @include_partition_value.setter
+    def include_partition_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_partition_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+        """
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @include_table_alter_operations.setter
+    def include_table_alter_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_table_alter_operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for transaction_id, previous transaction_id, and transaction_record_id (the record offset within a transaction). The default is false.
+        """
+        return pulumi.get(self, "include_transaction_details")
+
+    @include_transaction_details.setter
+    def include_transaction_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_transaction_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageFormat")
+    def message_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+        """
+        return pulumi.get(self, "message_format")
+
+    @message_format.setter
+    def message_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageMaxBytes")
+    def message_max_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum size in bytes for records created on the endpoint The default is 1,000,000.
+        """
+        return pulumi.get(self, "message_max_bytes")
+
+    @message_max_bytes.setter
+    def message_max_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "message_max_bytes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noHexPrefix")
+    def no_hex_prefix(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the NoHexPrefix endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.
+        """
+        return pulumi.get(self, "no_hex_prefix")
+
+    @no_hex_prefix.setter
+    def no_hex_prefix(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "no_hex_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+        """
+        return pulumi.get(self, "partition_include_schema_table")
+
+    @partition_include_schema_table.setter
+    def partition_include_schema_table(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "partition_include_schema_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="saslPassword")
+    def sasl_password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The secure password that you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        """
+        return pulumi.get(self, "sasl_password")
+
+    @sasl_password.setter
+    def sasl_password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sasl_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="saslUserName")
+    def sasl_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The secure user name you created when you first set up your Amazon MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        """
+        return pulumi.get(self, "sasl_user_name")
+
+    @sasl_user_name.setter
+    def sasl_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sasl_user_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityProtocol")
+    def security_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include ssl-encryption, ssl-authentication, and sasl-ssl. sasl-ssl requires SaslUsername and SaslPassword.
+        """
+        return pulumi.get(self, "security_protocol")
+
+    @security_protocol.setter
+    def security_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @ssl_ca_certificate_arn.setter
+    def ssl_ca_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_ca_certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslClientCertificateArn")
+    def ssl_client_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_client_certificate_arn")
+
+    @ssl_client_certificate_arn.setter
+    def ssl_client_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_client_certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslClientKeyArn")
+    def ssl_client_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_client_key_arn")
+
+    @ssl_client_key_arn.setter
+    def ssl_client_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_client_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslClientKeyPassword")
+    def ssl_client_key_password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The password for the client private key used to securely connect to a Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_client_key_password")
+
+    @ssl_client_key_password.setter
+    def ssl_client_key_password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_client_key_password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def topic(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The topic to which you migrate the data. If you don't specify a topic, AWS DMS specifies "kafka-default-topic" as the migration topic.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic", value)
+
+
+class EndpointKinesisSettingsArgsDict(TypedDict):
+    """
+    Provides information that describes an Amazon Kinesis Data Stream endpoint.
+    """
+    include_control_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is false.
+    """
+    include_null_and_empty: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Include NULL and empty columns for records migrated to the endpoint. The default is false.
+    """
+    include_partition_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is false.
+    """
+    include_table_alter_operations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+    """
+    include_transaction_details: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Provides detailed transaction information from the source database.
+    """
+    message_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+    """
+    no_hex_prefix: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format.
+    """
+    partition_include_schema_table: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) for the IAM role that AWS DMS uses to write to the Kinesis data stream. The role must allow the iam:PassRole action.
+    """
+    stream_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
+    """
+
+@pulumi.input_type
+class EndpointKinesisSettingsArgs:
+    def __init__(__self__, *,
+                 include_control_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_null_and_empty: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_partition_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_table_alter_operations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_transaction_details: pulumi.Input[Optional[_builtins.bool]] = None,
+                 message_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 no_hex_prefix: pulumi.Input[Optional[_builtins.bool]] = None,
+                 partition_include_schema_table: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that describes an Amazon Kinesis Data Stream endpoint.
+
+        :param pulumi.Input[_builtins.bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is false.
+        :param pulumi.Input[_builtins.bool] include_null_and_empty: Include NULL and empty columns for records migrated to the endpoint. The default is false.
+        :param pulumi.Input[_builtins.bool] include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is false.
+        :param pulumi.Input[_builtins.bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+        :param pulumi.Input[_builtins.bool] include_transaction_details: Provides detailed transaction information from the source database.
+        :param pulumi.Input[_builtins.str] message_format: The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+        :param pulumi.Input[_builtins.bool] no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format.
+        :param pulumi.Input[_builtins.bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: The Amazon Resource Name (ARN) for the IAM role that AWS DMS uses to write to the Kinesis data stream. The role must allow the iam:PassRole action.
+        :param pulumi.Input[_builtins.str] stream_arn: The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
+        """
+        if include_control_details is not None:
+            pulumi.set(__self__, "include_control_details", include_control_details)
+        if include_null_and_empty is not None:
+            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
+        if include_table_alter_operations is not None:
+            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        if include_transaction_details is not None:
+            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        if message_format is not None:
+            pulumi.set(__self__, "message_format", message_format)
+        if no_hex_prefix is not None:
+            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+        if partition_include_schema_table is not None:
+            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        if stream_arn is not None:
+            pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is false.
+        """
+        return pulumi.get(self, "include_control_details")
+
+    @include_control_details.setter
+    def include_control_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_control_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Include NULL and empty columns for records migrated to the endpoint. The default is false.
+        """
+        return pulumi.get(self, "include_null_and_empty")
+
+    @include_null_and_empty.setter
+    def include_null_and_empty(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_null_and_empty", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is false.
+        """
+        return pulumi.get(self, "include_partition_value")
+
+    @include_partition_value.setter
+    def include_partition_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_partition_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Includes any data definition language (DDL) operations that change the table in the control data, such as rename-table, drop-table, add-column, drop-column, and rename-column. The default is false.
+        """
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @include_table_alter_operations.setter
+    def include_table_alter_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_table_alter_operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Provides detailed transaction information from the source database.
+        """
+        return pulumi.get(self, "include_transaction_details")
+
+    @include_transaction_details.setter
+    def include_transaction_details(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_transaction_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageFormat")
+    def message_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The output format for the records created on the endpoint. The message format is JSON (default) or JSON_UNFORMATTED (a single line with no tab).
+        """
+        return pulumi.get(self, "message_format")
+
+    @message_format.setter
+    def message_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "message_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noHexPrefix")
+    def no_hex_prefix(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format.
+        """
+        return pulumi.get(self, "no_hex_prefix")
+
+    @no_hex_prefix.setter
+    def no_hex_prefix(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "no_hex_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Prefixes schema and table names to partition values, when the partition type is primary-key-type.
+        """
+        return pulumi.get(self, "partition_include_schema_table")
+
+    @partition_include_schema_table.setter
+    def partition_include_schema_table(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "partition_include_schema_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM role that AWS DMS uses to write to the Kinesis data stream. The role must allow the iam:PassRole action.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
+        """
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stream_arn", value)
+
+
+class EndpointMicrosoftSqlServerSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a Microsoft SQL Server endpoint.
+    """
+    bcp_packet_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum size of the packets (in bytes) used to transfer data using BCP.
+    """
+    control_tables_file_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a file group for the AWS DMS internal tables.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name for the endpoint.
+    """
+    force_lob_lookup: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Forces LOB lookup on inline LOB.
+    """
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Endpoint connection password.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Endpoint TCP port.
+    """
+    query_single_always_on_node: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Cleans and recreates table metadata information on the replication instance when a mismatch occurs. An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.
+    """
+    read_backup_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When this attribute is set to Y, AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to Y enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+    """
+    safeguard_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MicrosoftSQLServer endpoint connection details.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of DescribeDBInstances, in the Endpoint.Address field.
+    """
+    tlog_access_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates the mode used to fetch CDC data.
+    """
+    trim_space_in_char: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Use the TrimSpaceInChar source endpoint setting to right-trim data on CHAR and NCHAR data types during migration. Setting TrimSpaceInChar does not left-trim data. The default value is true.
+    """
+    use_bcp_full_load: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+    """
+    use_third_party_backup_device: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When this attribute is set to Y, DMS processes third-party transaction log backups if they are created in native format.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Endpoint connection user name.
+    """
+
+@pulumi.input_type
+class EndpointMicrosoftSqlServerSettingsArgs:
+    def __init__(__self__, *,
+                 bcp_packet_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 control_tables_file_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 force_lob_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 query_single_always_on_node: pulumi.Input[Optional[_builtins.bool]] = None,
+                 read_backup_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 safeguard_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tlog_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 trim_space_in_char: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_bcp_full_load: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_third_party_backup_device: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a Microsoft SQL Server endpoint.
+
+        :param pulumi.Input[_builtins.int] bcp_packet_size: The maximum size of the packets (in bytes) used to transfer data using BCP.
+        :param pulumi.Input[_builtins.str] control_tables_file_group: Specifies a file group for the AWS DMS internal tables.
+        :param pulumi.Input[_builtins.str] database_name: Database name for the endpoint.
+        :param pulumi.Input[_builtins.bool] force_lob_lookup: Forces LOB lookup on inline LOB.
+        :param pulumi.Input[_builtins.str] password: Endpoint connection password.
+        :param pulumi.Input[_builtins.int] port: Endpoint TCP port.
+        :param pulumi.Input[_builtins.bool] query_single_always_on_node: Cleans and recreates table metadata information on the replication instance when a mismatch occurs. An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.
+        :param pulumi.Input[_builtins.bool] read_backup_only: When this attribute is set to Y, AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to Y enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+        :param pulumi.Input[_builtins.str] safeguard_policy: Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MicrosoftSQLServer endpoint connection details.
+        :param pulumi.Input[_builtins.str] server_name: Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of DescribeDBInstances, in the Endpoint.Address field.
+        :param pulumi.Input[_builtins.str] tlog_access_mode: Indicates the mode used to fetch CDC data.
+        :param pulumi.Input[_builtins.bool] trim_space_in_char: Use the TrimSpaceInChar source endpoint setting to right-trim data on CHAR and NCHAR data types during migration. Setting TrimSpaceInChar does not left-trim data. The default value is true.
+        :param pulumi.Input[_builtins.bool] use_bcp_full_load: Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+        :param pulumi.Input[_builtins.bool] use_third_party_backup_device: When this attribute is set to Y, DMS processes third-party transaction log backups if they are created in native format.
+        :param pulumi.Input[_builtins.str] username: Endpoint connection user name.
+        """
+        if bcp_packet_size is not None:
+            pulumi.set(__self__, "bcp_packet_size", bcp_packet_size)
+        if control_tables_file_group is not None:
+            pulumi.set(__self__, "control_tables_file_group", control_tables_file_group)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if force_lob_lookup is not None:
+            pulumi.set(__self__, "force_lob_lookup", force_lob_lookup)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if query_single_always_on_node is not None:
+            pulumi.set(__self__, "query_single_always_on_node", query_single_always_on_node)
+        if read_backup_only is not None:
+            pulumi.set(__self__, "read_backup_only", read_backup_only)
+        if safeguard_policy is not None:
+            pulumi.set(__self__, "safeguard_policy", safeguard_policy)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if tlog_access_mode is not None:
+            pulumi.set(__self__, "tlog_access_mode", tlog_access_mode)
+        if trim_space_in_char is not None:
+            pulumi.set(__self__, "trim_space_in_char", trim_space_in_char)
+        if use_bcp_full_load is not None:
+            pulumi.set(__self__, "use_bcp_full_load", use_bcp_full_load)
+        if use_third_party_backup_device is not None:
+            pulumi.set(__self__, "use_third_party_backup_device", use_third_party_backup_device)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="bcpPacketSize")
+    def bcp_packet_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum size of the packets (in bytes) used to transfer data using BCP.
+        """
+        return pulumi.get(self, "bcp_packet_size")
+
+    @bcp_packet_size.setter
+    def bcp_packet_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "bcp_packet_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="controlTablesFileGroup")
+    def control_tables_file_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a file group for the AWS DMS internal tables.
+        """
+        return pulumi.get(self, "control_tables_file_group")
+
+    @control_tables_file_group.setter
+    def control_tables_file_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "control_tables_file_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name for the endpoint.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forceLobLookup")
+    def force_lob_lookup(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Forces LOB lookup on inline LOB.
+        """
+        return pulumi.get(self, "force_lob_lookup")
+
+    @force_lob_lookup.setter
+    def force_lob_lookup(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "force_lob_lookup", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Endpoint connection password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Endpoint TCP port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="querySingleAlwaysOnNode")
+    def query_single_always_on_node(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Cleans and recreates table metadata information on the replication instance when a mismatch occurs. An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.
+        """
+        return pulumi.get(self, "query_single_always_on_node")
+
+    @query_single_always_on_node.setter
+    def query_single_always_on_node(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "query_single_always_on_node", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readBackupOnly")
+    def read_backup_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When this attribute is set to Y, AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to Y enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.
+        """
+        return pulumi.get(self, "read_backup_only")
+
+    @read_backup_only.setter
+    def read_backup_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "read_backup_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="safeguardPolicy")
+    def safeguard_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.
+        """
+        return pulumi.get(self, "safeguard_policy")
+
+    @safeguard_policy.setter
+    def safeguard_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "safeguard_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MicrosoftSQLServer endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of DescribeDBInstances, in the Endpoint.Address field.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tlogAccessMode")
+    def tlog_access_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates the mode used to fetch CDC data.
+        """
+        return pulumi.get(self, "tlog_access_mode")
+
+    @tlog_access_mode.setter
+    def tlog_access_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tlog_access_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpaceInChar")
+    def trim_space_in_char(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Use the TrimSpaceInChar source endpoint setting to right-trim data on CHAR and NCHAR data types during migration. Setting TrimSpaceInChar does not left-trim data. The default value is true.
+        """
+        return pulumi.get(self, "trim_space_in_char")
+
+    @trim_space_in_char.setter
+    def trim_space_in_char(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "trim_space_in_char", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useBcpFullLoad")
+    def use_bcp_full_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.
+        """
+        return pulumi.get(self, "use_bcp_full_load")
+
+    @use_bcp_full_load.setter
+    def use_bcp_full_load(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_bcp_full_load", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useThirdPartyBackupDevice")
+    def use_third_party_backup_device(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When this attribute is set to Y, DMS processes third-party transaction log backups if they are created in native format.
+        """
+        return pulumi.get(self, "use_third_party_backup_device")
+
+    @use_third_party_backup_device.setter
+    def use_third_party_backup_device(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_third_party_backup_device", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Endpoint connection user name.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class EndpointMongoDbSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a MongoDB endpoint.
+    """
+    auth_mechanism: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The authentication mechanism you use to access the MongoDB source endpoint.
+    """
+    auth_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The MongoDB database name. This setting isn't used when AuthType is set to "no".
+    """
+    auth_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The authentication type you use to access the MongoDB source endpoint.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The database name on the MongoDB source endpoint.
+    """
+    docs_to_investigate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+    """
+    extract_doc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the document ID. Use this setting when NestingLevel is set to "none".
+    """
+    nesting_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies either document or table mode.
+    """
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The password for the user account you use to access the MongoDB source endpoint.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The port value for the MongoDB source endpoint.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MongoDB endpoint connection details.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the server on the MongoDB source endpoint.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The user name you use to access the MongoDB source endpoint.
+    """
+
+@pulumi.input_type
+class EndpointMongoDbSettingsArgs:
+    def __init__(__self__, *,
+                 auth_mechanism: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 docs_to_investigate: pulumi.Input[Optional[_builtins.str]] = None,
+                 extract_doc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nesting_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a MongoDB endpoint.
+
+        :param pulumi.Input[_builtins.str] auth_mechanism: The authentication mechanism you use to access the MongoDB source endpoint.
+        :param pulumi.Input[_builtins.str] auth_source: The MongoDB database name. This setting isn't used when AuthType is set to "no".
+        :param pulumi.Input[_builtins.str] auth_type: The authentication type you use to access the MongoDB source endpoint.
+        :param pulumi.Input[_builtins.str] database_name: The database name on the MongoDB source endpoint.
+        :param pulumi.Input[_builtins.str] docs_to_investigate: Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+        :param pulumi.Input[_builtins.str] extract_doc_id: Specifies the document ID. Use this setting when NestingLevel is set to "none".
+        :param pulumi.Input[_builtins.str] nesting_level: Specifies either document or table mode.
+        :param pulumi.Input[_builtins.str] password: The password for the user account you use to access the MongoDB source endpoint.
+        :param pulumi.Input[_builtins.int] port: The port value for the MongoDB source endpoint.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MongoDB endpoint connection details.
+        :param pulumi.Input[_builtins.str] server_name: The name of the server on the MongoDB source endpoint.
+        :param pulumi.Input[_builtins.str] username: The user name you use to access the MongoDB source endpoint.
+        """
+        if auth_mechanism is not None:
+            pulumi.set(__self__, "auth_mechanism", auth_mechanism)
+        if auth_source is not None:
+            pulumi.set(__self__, "auth_source", auth_source)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if docs_to_investigate is not None:
+            pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
+        if extract_doc_id is not None:
+            pulumi.set(__self__, "extract_doc_id", extract_doc_id)
+        if nesting_level is not None:
+            pulumi.set(__self__, "nesting_level", nesting_level)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="authMechanism")
+    def auth_mechanism(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The authentication mechanism you use to access the MongoDB source endpoint.
+        """
+        return pulumi.get(self, "auth_mechanism")
+
+    @auth_mechanism.setter
+    def auth_mechanism(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_mechanism", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authSource")
+    def auth_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The MongoDB database name. This setting isn't used when AuthType is set to "no".
+        """
+        return pulumi.get(self, "auth_source")
+
+    @auth_source.setter
+    def auth_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The authentication type you use to access the MongoDB source endpoint.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The database name on the MongoDB source endpoint.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="docsToInvestigate")
+    def docs_to_investigate(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates the number of documents to preview to determine the document organization. Use this setting when NestingLevel is set to "one".
+        """
+        return pulumi.get(self, "docs_to_investigate")
+
+    @docs_to_investigate.setter
+    def docs_to_investigate(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "docs_to_investigate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extractDocId")
+    def extract_doc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the document ID. Use this setting when NestingLevel is set to "none".
+        """
+        return pulumi.get(self, "extract_doc_id")
+
+    @extract_doc_id.setter
+    def extract_doc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "extract_doc_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nestingLevel")
+    def nesting_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies either document or table mode.
+        """
+        return pulumi.get(self, "nesting_level")
+
+    @nesting_level.setter
+    def nesting_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "nesting_level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The password for the user account you use to access the MongoDB source endpoint.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The port value for the MongoDB source endpoint.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MongoDB endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the server on the MongoDB source endpoint.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The user name you use to access the MongoDB source endpoint.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class EndpointMySqlSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a MySQL endpoint.
+    """
+    after_connect_script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+    """
+    clean_source_metadata_on_mismatch: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
+    """
+    events_poll_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+    """
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+    """
+    parallel_load_threads: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+    """
+    server_timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the time zone for the source MySQL database.
+    """
+    target_db_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+    """
+
+@pulumi.input_type
+class EndpointMySqlSettingsArgs:
+    def __init__(__self__, *,
+                 after_connect_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 clean_source_metadata_on_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 events_poll_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 parallel_load_threads: pulumi.Input[Optional[_builtins.int]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_db_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a MySQL endpoint.
+
+        :param pulumi.Input[_builtins.str] after_connect_script: Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+        :param pulumi.Input[_builtins.bool] clean_source_metadata_on_mismatch: Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
+        :param pulumi.Input[_builtins.int] events_poll_interval: Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+        :param pulumi.Input[_builtins.int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        :param pulumi.Input[_builtins.int] parallel_load_threads: Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+        :param pulumi.Input[_builtins.str] server_timezone: Specifies the time zone for the source MySQL database.
+        :param pulumi.Input[_builtins.str] target_db_type: Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+        """
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if clean_source_metadata_on_mismatch is not None:
+            pulumi.set(__self__, "clean_source_metadata_on_mismatch", clean_source_metadata_on_mismatch)
+        if events_poll_interval is not None:
+            pulumi.set(__self__, "events_poll_interval", events_poll_interval)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parallel_load_threads is not None:
+            pulumi.set(__self__, "parallel_load_threads", parallel_load_threads)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_timezone is not None:
+            pulumi.set(__self__, "server_timezone", server_timezone)
+        if target_db_type is not None:
+            pulumi.set(__self__, "target_db_type", target_db_type)
+
+    @_builtins.property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a script to run immediately after AWS DMS connects to the endpoint. The migration task continues running regardless if the SQL statement succeeds or fails.
+        """
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cleanSourceMetadataOnMismatch")
+    def clean_source_metadata_on_mismatch(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Cleans and recreates table metadata information on the replication instance when a mismatch occurs.
+        """
+        return pulumi.get(self, "clean_source_metadata_on_mismatch")
+
+    @clean_source_metadata_on_mismatch.setter
+    def clean_source_metadata_on_mismatch(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "clean_source_metadata_on_mismatch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventsPollInterval")
+    def events_poll_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.
+        """
+        return pulumi.get(self, "events_poll_interval")
+
+    @events_poll_interval.setter
+    def events_poll_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "events_poll_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parallelLoadThreads")
+    def parallel_load_threads(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Improves performance when loading data into the MySQL-compatible target database. Specifies how many threads to use to load the data into the MySQL-compatible target database.
+        """
+        return pulumi.get(self, "parallel_load_threads")
+
+    @parallel_load_threads.setter
+    def parallel_load_threads(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "parallel_load_threads", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the MySQL endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverTimezone")
+    def server_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the time zone for the source MySQL database.
+        """
+        return pulumi.get(self, "server_timezone")
+
+    @server_timezone.setter
+    def server_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_timezone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetDbType")
+    def target_db_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies where to migrate source tables on the target, either to a single database or multiple databases.
+        """
+        return pulumi.get(self, "target_db_type")
+
+    @target_db_type.setter
+    def target_db_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_db_type", value)
+
+
+class EndpointNeptuneSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines an Amazon Neptune endpoint
+    """
+    error_retry_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
+    """
+    iam_auth_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If you want IAM authorization enabled for this endpoint, set this parameter to true.
+    """
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database.
+    """
+    max_retry_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
+    """
+    s3_bucket_folder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by S3BucketName
+    """
+    s3_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the iam:PassRole action.
+    """
+
+@pulumi.input_type
+class EndpointNeptuneSettingsArgs:
+    def __init__(__self__, *,
+                 error_retry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 iam_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retry_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_bucket_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines an Amazon Neptune endpoint
+
+        :param pulumi.Input[_builtins.int] error_retry_duration: The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
+        :param pulumi.Input[_builtins.bool] iam_auth_enabled: If you want IAM authorization enabled for this endpoint, set this parameter to true.
+        :param pulumi.Input[_builtins.int] max_file_size: The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database.
+        :param pulumi.Input[_builtins.int] max_retry_count: The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
+        :param pulumi.Input[_builtins.str] s3_bucket_folder: A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by S3BucketName
+        :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the iam:PassRole action.
+        """
+        if error_retry_duration is not None:
+            pulumi.set(__self__, "error_retry_duration", error_retry_duration)
+        if iam_auth_enabled is not None:
+            pulumi.set(__self__, "iam_auth_enabled", iam_auth_enabled)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if max_retry_count is not None:
+            pulumi.set(__self__, "max_retry_count", max_retry_count)
+        if s3_bucket_folder is not None:
+            pulumi.set(__self__, "s3_bucket_folder", s3_bucket_folder)
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="errorRetryDuration")
+    def error_retry_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph data to the Neptune target database before raising an error. The default is 250.
+        """
+        return pulumi.get(self, "error_retry_duration")
+
+    @error_retry_duration.setter
+    def error_retry_duration(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "error_retry_duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="iamAuthEnabled")
+    def iam_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If you want IAM authorization enabled for this endpoint, set this parameter to true.
+        """
+        return pulumi.get(self, "iam_auth_enabled")
+
+    @iam_auth_enabled.setter
+    def iam_auth_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "iam_auth_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum size in kilobytes of migrated graph data stored in a .csv file before AWS DMS bulk-loads the data to the Neptune target database.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRetryCount")
+    def max_retry_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of times for AWS DMS to retry a bulk load of migrated graph data to the Neptune target database before raising an error. The default is 5.
+        """
+        return pulumi.get(self, "max_retry_count")
+
+    @max_retry_count.setter
+    def max_retry_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_retry_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketFolder")
+    def s3_bucket_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A folder path where you want AWS DMS to store migrated graph data in the S3 bucket specified by S3BucketName
+        """
+        return pulumi.get(self, "s3_bucket_folder")
+
+    @s3_bucket_folder.setter
+    def s3_bucket_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_folder", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph data in .csv files before bulk-loading it to the Neptune target database.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the service role that you created for the Neptune target endpoint. The role must allow the iam:PassRole action.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+
+class EndpointOracleSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines an Oracle endpoint
+    """
+    access_alternate_directly: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to false in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+    """
+    add_supplemental_logging: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+    """
+    additional_archived_log_dest_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Set this attribute with ArchivedLogDestId in a primary/ standby setup
+    """
+    allow_select_nested_tables: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to true to enable replication of Oracle tables containing columns that are nested tables or defined types.
+    """
+    archived_log_dest_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the ID of the destination for the archived redo logs.
+    """
+    archived_logs_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When this field is set to True, AWS DMS only accesses the archived redo logs
+    """
+    asm_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+    """
+    asm_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    For an Oracle source endpoint, your ASM server address.
+    """
+    asm_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    For an Oracle source endpoint, your ASM user name.
+    """
+    char_length_semantics: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies whether the length of a character column is in bytes or in characters.
+    """
+    direct_path_no_log: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+    """
+    direct_path_parallel_load: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, this attribute specifies a parallel load when useDirectPathFullLoad is set to Y.
+    """
+    enable_homogenous_tablespace: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+    """
+    extra_archived_log_dest_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    """
+    Specifies the IDs of one more destinations for one or more archived redo logs.
+    """
+    fail_tasks_on_lob_truncation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified LobMaxSize.
+    """
+    number_datatype_scale: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the number scale. You can select a scale up to 38, or you can select FLOAT. By default, the NUMBER data type is converted to precision 38, scale 10.
+    """
+    oracle_path_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+    """
+    parallel_asm_read_threads: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+    """
+    read_ahead_blocks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+    """
+    read_table_space_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, this attribute supports tablespace replication.
+    """
+    replace_path_prefix: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+    """
+    retry_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the number of seconds that the system waits before resending a query.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+    """
+    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+    """
+    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Oracle endpoint connection details.
+    """
+    security_db_encryption: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+    """
+    security_db_encryption_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+    """
+    spatial_data_option_to_geo_json_function_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible. Or you can create your own custom function that mimics the operation of SDOGEOJSON and set SpatialDataOptionToGeoJsonFunctionName to call it instead.
+    """
+    standby_delay_time: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Use this attribute to specify a time in minutes for the delay in standby sync.
+    """
+    use_alternate_folder_for_online: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source
+    """
+    use_b_file: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to True to capture change data using the Binary Reader utility.
+    """
+    use_direct_path_full_load: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to True to have AWS DMS use a direct path full load.
+    """
+    use_logminer_reader: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Set this attribute to True to capture change data using the Oracle LogMiner utility (the default).
+    """
+    use_path_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+    """
+
+@pulumi.input_type
+class EndpointOracleSettingsArgs:
+    def __init__(__self__, *,
+                 access_alternate_directly: pulumi.Input[Optional[_builtins.bool]] = None,
+                 add_supplemental_logging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 additional_archived_log_dest_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 allow_select_nested_tables: pulumi.Input[Optional[_builtins.bool]] = None,
+                 archived_log_dest_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 archived_logs_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 asm_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 asm_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 asm_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 char_length_semantics: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_path_no_log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 direct_path_parallel_load: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_homogenous_tablespace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extra_archived_log_dest_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 fail_tasks_on_lob_truncation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number_datatype_scale: pulumi.Input[Optional[_builtins.int]] = None,
+                 oracle_path_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallel_asm_read_threads: pulumi.Input[Optional[_builtins.int]] = None,
+                 read_ahead_blocks: pulumi.Input[Optional[_builtins.int]] = None,
+                 read_table_space_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace_path_prefix: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retry_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_db_encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_db_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spatial_data_option_to_geo_json_function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_delay_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_alternate_folder_for_online: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_b_file: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_direct_path_full_load: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_logminer_reader: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_path_prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines an Oracle endpoint
+
+        :param pulumi.Input[_builtins.bool] access_alternate_directly: Set this attribute to false in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        :param pulumi.Input[_builtins.bool] add_supplemental_logging: Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+        :param pulumi.Input[_builtins.int] additional_archived_log_dest_id: Set this attribute with ArchivedLogDestId in a primary/ standby setup
+        :param pulumi.Input[_builtins.bool] allow_select_nested_tables: Set this attribute to true to enable replication of Oracle tables containing columns that are nested tables or defined types.
+        :param pulumi.Input[_builtins.int] archived_log_dest_id: Specifies the ID of the destination for the archived redo logs.
+        :param pulumi.Input[_builtins.bool] archived_logs_only: When this field is set to True, AWS DMS only accesses the archived redo logs
+        :param pulumi.Input[_builtins.str] asm_password: For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+        :param pulumi.Input[_builtins.str] asm_server: For an Oracle source endpoint, your ASM server address.
+        :param pulumi.Input[_builtins.str] asm_user: For an Oracle source endpoint, your ASM user name.
+        :param pulumi.Input[_builtins.str] char_length_semantics: Specifies whether the length of a character column is in bytes or in characters.
+        :param pulumi.Input[_builtins.bool] direct_path_no_log: When set to true, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+        :param pulumi.Input[_builtins.bool] direct_path_parallel_load: When set to true, this attribute specifies a parallel load when useDirectPathFullLoad is set to Y.
+        :param pulumi.Input[_builtins.bool] enable_homogenous_tablespace: Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] extra_archived_log_dest_ids: Specifies the IDs of one more destinations for one or more archived redo logs.
+        :param pulumi.Input[_builtins.bool] fail_tasks_on_lob_truncation: When set to true, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified LobMaxSize.
+        :param pulumi.Input[_builtins.int] number_datatype_scale: Specifies the number scale. You can select a scale up to 38, or you can select FLOAT. By default, the NUMBER data type is converted to precision 38, scale 10.
+        :param pulumi.Input[_builtins.str] oracle_path_prefix: Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        :param pulumi.Input[_builtins.int] parallel_asm_read_threads: Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+        :param pulumi.Input[_builtins.int] read_ahead_blocks: Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+        :param pulumi.Input[_builtins.bool] read_table_space_name: When set to true, this attribute supports tablespace replication.
+        :param pulumi.Input[_builtins.bool] replace_path_prefix: Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        :param pulumi.Input[_builtins.int] retry_interval: Specifies the number of seconds that the system waits before resending a query.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[_builtins.str] secrets_manager_oracle_asm_access_role_arn: Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+        :param pulumi.Input[_builtins.str] secrets_manager_oracle_asm_secret_id: Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Oracle endpoint connection details.
+        :param pulumi.Input[_builtins.str] security_db_encryption: For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+        :param pulumi.Input[_builtins.str] security_db_encryption_name: For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+        :param pulumi.Input[_builtins.str] spatial_data_option_to_geo_json_function_name: Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible. Or you can create your own custom function that mimics the operation of SDOGEOJSON and set SpatialDataOptionToGeoJsonFunctionName to call it instead.
+        :param pulumi.Input[_builtins.int] standby_delay_time: Use this attribute to specify a time in minutes for the delay in standby sync.
+        :param pulumi.Input[_builtins.bool] use_alternate_folder_for_online: Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source
+        :param pulumi.Input[_builtins.bool] use_b_file: Set this attribute to True to capture change data using the Binary Reader utility.
+        :param pulumi.Input[_builtins.bool] use_direct_path_full_load: Set this attribute to True to have AWS DMS use a direct path full load.
+        :param pulumi.Input[_builtins.bool] use_logminer_reader: Set this attribute to True to capture change data using the Oracle LogMiner utility (the default).
+        :param pulumi.Input[_builtins.str] use_path_prefix: Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        """
+        if access_alternate_directly is not None:
+            pulumi.set(__self__, "access_alternate_directly", access_alternate_directly)
+        if add_supplemental_logging is not None:
+            pulumi.set(__self__, "add_supplemental_logging", add_supplemental_logging)
+        if additional_archived_log_dest_id is not None:
+            pulumi.set(__self__, "additional_archived_log_dest_id", additional_archived_log_dest_id)
+        if allow_select_nested_tables is not None:
+            pulumi.set(__self__, "allow_select_nested_tables", allow_select_nested_tables)
+        if archived_log_dest_id is not None:
+            pulumi.set(__self__, "archived_log_dest_id", archived_log_dest_id)
+        if archived_logs_only is not None:
+            pulumi.set(__self__, "archived_logs_only", archived_logs_only)
+        if asm_password is not None:
+            pulumi.set(__self__, "asm_password", asm_password)
+        if asm_server is not None:
+            pulumi.set(__self__, "asm_server", asm_server)
+        if asm_user is not None:
+            pulumi.set(__self__, "asm_user", asm_user)
+        if char_length_semantics is not None:
+            pulumi.set(__self__, "char_length_semantics", char_length_semantics)
+        if direct_path_no_log is not None:
+            pulumi.set(__self__, "direct_path_no_log", direct_path_no_log)
+        if direct_path_parallel_load is not None:
+            pulumi.set(__self__, "direct_path_parallel_load", direct_path_parallel_load)
+        if enable_homogenous_tablespace is not None:
+            pulumi.set(__self__, "enable_homogenous_tablespace", enable_homogenous_tablespace)
+        if extra_archived_log_dest_ids is not None:
+            pulumi.set(__self__, "extra_archived_log_dest_ids", extra_archived_log_dest_ids)
+        if fail_tasks_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        if number_datatype_scale is not None:
+            pulumi.set(__self__, "number_datatype_scale", number_datatype_scale)
+        if oracle_path_prefix is not None:
+            pulumi.set(__self__, "oracle_path_prefix", oracle_path_prefix)
+        if parallel_asm_read_threads is not None:
+            pulumi.set(__self__, "parallel_asm_read_threads", parallel_asm_read_threads)
+        if read_ahead_blocks is not None:
+            pulumi.set(__self__, "read_ahead_blocks", read_ahead_blocks)
+        if read_table_space_name is not None:
+            pulumi.set(__self__, "read_table_space_name", read_table_space_name)
+        if replace_path_prefix is not None:
+            pulumi.set(__self__, "replace_path_prefix", replace_path_prefix)
+        if retry_interval is not None:
+            pulumi.set(__self__, "retry_interval", retry_interval)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_oracle_asm_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
+        if secrets_manager_oracle_asm_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_secret_id", secrets_manager_oracle_asm_secret_id)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if security_db_encryption is not None:
+            pulumi.set(__self__, "security_db_encryption", security_db_encryption)
+        if security_db_encryption_name is not None:
+            pulumi.set(__self__, "security_db_encryption_name", security_db_encryption_name)
+        if spatial_data_option_to_geo_json_function_name is not None:
+            pulumi.set(__self__, "spatial_data_option_to_geo_json_function_name", spatial_data_option_to_geo_json_function_name)
+        if standby_delay_time is not None:
+            pulumi.set(__self__, "standby_delay_time", standby_delay_time)
+        if use_alternate_folder_for_online is not None:
+            pulumi.set(__self__, "use_alternate_folder_for_online", use_alternate_folder_for_online)
+        if use_b_file is not None:
+            pulumi.set(__self__, "use_b_file", use_b_file)
+        if use_direct_path_full_load is not None:
+            pulumi.set(__self__, "use_direct_path_full_load", use_direct_path_full_load)
+        if use_logminer_reader is not None:
+            pulumi.set(__self__, "use_logminer_reader", use_logminer_reader)
+        if use_path_prefix is not None:
+            pulumi.set(__self__, "use_path_prefix", use_path_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="accessAlternateDirectly")
+    def access_alternate_directly(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to false in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        """
+        return pulumi.get(self, "access_alternate_directly")
+
+    @access_alternate_directly.setter
+    def access_alternate_directly(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "access_alternate_directly", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addSupplementalLogging")
+    def add_supplemental_logging(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+        """
+        return pulumi.get(self, "add_supplemental_logging")
+
+    @add_supplemental_logging.setter
+    def add_supplemental_logging(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "add_supplemental_logging", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalArchivedLogDestId")
+    def additional_archived_log_dest_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Set this attribute with ArchivedLogDestId in a primary/ standby setup
+        """
+        return pulumi.get(self, "additional_archived_log_dest_id")
+
+    @additional_archived_log_dest_id.setter
+    def additional_archived_log_dest_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "additional_archived_log_dest_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowSelectNestedTables")
+    def allow_select_nested_tables(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to true to enable replication of Oracle tables containing columns that are nested tables or defined types.
+        """
+        return pulumi.get(self, "allow_select_nested_tables")
+
+    @allow_select_nested_tables.setter
+    def allow_select_nested_tables(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "allow_select_nested_tables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="archivedLogDestId")
+    def archived_log_dest_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the ID of the destination for the archived redo logs.
+        """
+        return pulumi.get(self, "archived_log_dest_id")
+
+    @archived_log_dest_id.setter
+    def archived_log_dest_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "archived_log_dest_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="archivedLogsOnly")
+    def archived_logs_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When this field is set to True, AWS DMS only accesses the archived redo logs
+        """
+        return pulumi.get(self, "archived_logs_only")
+
+    @archived_logs_only.setter
+    def archived_logs_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "archived_logs_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="asmPassword")
+    def asm_password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+        """
+        return pulumi.get(self, "asm_password")
+
+    @asm_password.setter
+    def asm_password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "asm_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="asmServer")
+    def asm_server(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For an Oracle source endpoint, your ASM server address.
+        """
+        return pulumi.get(self, "asm_server")
+
+    @asm_server.setter
+    def asm_server(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "asm_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="asmUser")
+    def asm_user(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For an Oracle source endpoint, your ASM user name.
+        """
+        return pulumi.get(self, "asm_user")
+
+    @asm_user.setter
+    def asm_user(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "asm_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="charLengthSemantics")
+    def char_length_semantics(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies whether the length of a character column is in bytes or in characters.
+        """
+        return pulumi.get(self, "char_length_semantics")
+
+    @char_length_semantics.setter
+    def char_length_semantics(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "char_length_semantics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directPathNoLog")
+    def direct_path_no_log(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+        """
+        return pulumi.get(self, "direct_path_no_log")
+
+    @direct_path_no_log.setter
+    def direct_path_no_log(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "direct_path_no_log", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directPathParallelLoad")
+    def direct_path_parallel_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, this attribute specifies a parallel load when useDirectPathFullLoad is set to Y.
+        """
+        return pulumi.get(self, "direct_path_parallel_load")
+
+    @direct_path_parallel_load.setter
+    def direct_path_parallel_load(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "direct_path_parallel_load", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableHomogenousTablespace")
+    def enable_homogenous_tablespace(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+        """
+        return pulumi.get(self, "enable_homogenous_tablespace")
+
+    @enable_homogenous_tablespace.setter
+    def enable_homogenous_tablespace(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_homogenous_tablespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extraArchivedLogDestIds")
+    def extra_archived_log_dest_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        Specifies the IDs of one more destinations for one or more archived redo logs.
+        """
+        return pulumi.get(self, "extra_archived_log_dest_ids")
+
+    @extra_archived_log_dest_ids.setter
+    def extra_archived_log_dest_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
+        pulumi.set(self, "extra_archived_log_dest_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified LobMaxSize.
+        """
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @fail_tasks_on_lob_truncation.setter
+    def fail_tasks_on_lob_truncation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fail_tasks_on_lob_truncation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberDatatypeScale")
+    def number_datatype_scale(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the number scale. You can select a scale up to 38, or you can select FLOAT. By default, the NUMBER data type is converted to precision 38, scale 10.
+        """
+        return pulumi.get(self, "number_datatype_scale")
+
+    @number_datatype_scale.setter
+    def number_datatype_scale(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_datatype_scale", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oraclePathPrefix")
+    def oracle_path_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        """
+        return pulumi.get(self, "oracle_path_prefix")
+
+    @oracle_path_prefix.setter
+    def oracle_path_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "oracle_path_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parallelAsmReadThreads")
+    def parallel_asm_read_threads(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+        """
+        return pulumi.get(self, "parallel_asm_read_threads")
+
+    @parallel_asm_read_threads.setter
+    def parallel_asm_read_threads(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "parallel_asm_read_threads", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readAheadBlocks")
+    def read_ahead_blocks(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM).
+        """
+        return pulumi.get(self, "read_ahead_blocks")
+
+    @read_ahead_blocks.setter
+    def read_ahead_blocks(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "read_ahead_blocks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readTableSpaceName")
+    def read_table_space_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, this attribute supports tablespace replication.
+        """
+        return pulumi.get(self, "read_table_space_name")
+
+    @read_table_space_name.setter
+    def read_table_space_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "read_table_space_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replacePathPrefix")
+    def replace_path_prefix(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        """
+        return pulumi.get(self, "replace_path_prefix")
+
+    @replace_path_prefix.setter
+    def replace_path_prefix(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "replace_path_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retryInterval")
+    def retry_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the number of seconds that the system waits before resending a query.
+        """
+        return pulumi.get(self, "retry_interval")
+
+    @retry_interval.setter
+    def retry_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "retry_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
+    def secrets_manager_oracle_asm_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+        """
+        return pulumi.get(self, "secrets_manager_oracle_asm_access_role_arn")
+
+    @secrets_manager_oracle_asm_access_role_arn.setter
+    def secrets_manager_oracle_asm_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerOracleAsmSecretId")
+    def secrets_manager_oracle_asm_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Required only if your Oracle endpoint uses Advanced Storage Manager (ASM).
+        """
+        return pulumi.get(self, "secrets_manager_oracle_asm_secret_id")
+
+    @secrets_manager_oracle_asm_secret_id.setter
+    def secrets_manager_oracle_asm_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Oracle endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityDbEncryption")
+    def security_db_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+        """
+        return pulumi.get(self, "security_db_encryption")
+
+    @security_db_encryption.setter
+    def security_db_encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_db_encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityDbEncryptionName")
+    def security_db_encryption_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+        """
+        return pulumi.get(self, "security_db_encryption_name")
+
+    @security_db_encryption_name.setter
+    def security_db_encryption_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_db_encryption_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spatialDataOptionToGeoJsonFunctionName")
+    def spatial_data_option_to_geo_json_function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible. Or you can create your own custom function that mimics the operation of SDOGEOJSON and set SpatialDataOptionToGeoJsonFunctionName to call it instead.
+        """
+        return pulumi.get(self, "spatial_data_option_to_geo_json_function_name")
+
+    @spatial_data_option_to_geo_json_function_name.setter
+    def spatial_data_option_to_geo_json_function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "spatial_data_option_to_geo_json_function_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="standbyDelayTime")
+    def standby_delay_time(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Use this attribute to specify a time in minutes for the delay in standby sync.
+        """
+        return pulumi.get(self, "standby_delay_time")
+
+    @standby_delay_time.setter
+    def standby_delay_time(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "standby_delay_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useAlternateFolderForOnline")
+    def use_alternate_folder_for_online(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source
+        """
+        return pulumi.get(self, "use_alternate_folder_for_online")
+
+    @use_alternate_folder_for_online.setter
+    def use_alternate_folder_for_online(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_alternate_folder_for_online", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useBFile")
+    def use_b_file(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to True to capture change data using the Binary Reader utility.
+        """
+        return pulumi.get(self, "use_b_file")
+
+    @use_b_file.setter
+    def use_b_file(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_b_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useDirectPathFullLoad")
+    def use_direct_path_full_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to True to have AWS DMS use a direct path full load.
+        """
+        return pulumi.get(self, "use_direct_path_full_load")
+
+    @use_direct_path_full_load.setter
+    def use_direct_path_full_load(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_direct_path_full_load", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useLogminerReader")
+    def use_logminer_reader(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Set this attribute to True to capture change data using the Oracle LogMiner utility (the default).
+        """
+        return pulumi.get(self, "use_logminer_reader")
+
+    @use_logminer_reader.setter
+    def use_logminer_reader(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_logminer_reader", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePathPrefix")
+    def use_path_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        """
+        return pulumi.get(self, "use_path_prefix")
+
+    @use_path_prefix.setter
+    def use_path_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "use_path_prefix", value)
+
+
+class EndpointPostgreSqlSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a PostgreSQL endpoint
+    """
+    after_connect_script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+    """
+    babelfish_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Babelfish for Aurora PostgreSQL database name for the endpoint.
+    """
+    capture_ddls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts.
+    """
+    database_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+    """
+    ddl_artifacts_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The schema in which the operational DDL database artifacts are created.
+    """
+    execute_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+    """
+    fail_tasks_on_lob_truncation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, this value causes a task to fail if the actual size of a LOB column is greater than the specified LobMaxSize.
+    """
+    heartbeat_enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    The write-ahead log (WAL) heartbeat feature mimics a dummy transaction.
+    """
+    heartbeat_frequency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Sets the WAL heartbeat frequency (in minutes).
+    """
+    heartbeat_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Sets the schema in which the heartbeat artifacts are created.
+    """
+    map_boolean_as_boolean: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, lets PostgreSQL migrate the boolean type as boolean.
+    """
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+    """
+    plugin_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the plugin to use to create a replication slot.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the PostgreSQL endpoint connection details.
+    """
+    slot_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance.
+    """
+
+@pulumi.input_type
+class EndpointPostgreSqlSettingsArgs:
+    def __init__(__self__, *,
+                 after_connect_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 babelfish_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 capture_ddls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 ddl_artifacts_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 fail_tasks_on_lob_truncation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 heartbeat_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 heartbeat_frequency: pulumi.Input[Optional[_builtins.int]] = None,
+                 heartbeat_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_boolean_as_boolean: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 plugin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slot_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a PostgreSQL endpoint
+
+        :param pulumi.Input[_builtins.str] after_connect_script: For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        :param pulumi.Input[_builtins.str] babelfish_database_name: The Babelfish for Aurora PostgreSQL database name for the endpoint.
+        :param pulumi.Input[_builtins.bool] capture_ddls: To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts.
+        :param pulumi.Input[_builtins.str] database_mode: Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+        :param pulumi.Input[_builtins.str] ddl_artifacts_schema: The schema in which the operational DDL database artifacts are created.
+        :param pulumi.Input[_builtins.int] execute_timeout: Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+        :param pulumi.Input[_builtins.bool] fail_tasks_on_lob_truncation: When set to true, this value causes a task to fail if the actual size of a LOB column is greater than the specified LobMaxSize.
+        :param pulumi.Input[_builtins.bool] heartbeat_enable: The write-ahead log (WAL) heartbeat feature mimics a dummy transaction.
+        :param pulumi.Input[_builtins.int] heartbeat_frequency: Sets the WAL heartbeat frequency (in minutes).
+        :param pulumi.Input[_builtins.str] heartbeat_schema: Sets the schema in which the heartbeat artifacts are created.
+        :param pulumi.Input[_builtins.bool] map_boolean_as_boolean: When true, lets PostgreSQL migrate the boolean type as boolean.
+        :param pulumi.Input[_builtins.int] max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+        :param pulumi.Input[_builtins.str] plugin_name: Specifies the plugin to use to create a replication slot.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the PostgreSQL endpoint connection details.
+        :param pulumi.Input[_builtins.str] slot_name: Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance.
+        """
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if babelfish_database_name is not None:
+            pulumi.set(__self__, "babelfish_database_name", babelfish_database_name)
+        if capture_ddls is not None:
+            pulumi.set(__self__, "capture_ddls", capture_ddls)
+        if database_mode is not None:
+            pulumi.set(__self__, "database_mode", database_mode)
+        if ddl_artifacts_schema is not None:
+            pulumi.set(__self__, "ddl_artifacts_schema", ddl_artifacts_schema)
+        if execute_timeout is not None:
+            pulumi.set(__self__, "execute_timeout", execute_timeout)
+        if fail_tasks_on_lob_truncation is not None:
+            pulumi.set(__self__, "fail_tasks_on_lob_truncation", fail_tasks_on_lob_truncation)
+        if heartbeat_enable is not None:
+            pulumi.set(__self__, "heartbeat_enable", heartbeat_enable)
+        if heartbeat_frequency is not None:
+            pulumi.set(__self__, "heartbeat_frequency", heartbeat_frequency)
+        if heartbeat_schema is not None:
+            pulumi.set(__self__, "heartbeat_schema", heartbeat_schema)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if plugin_name is not None:
+            pulumi.set(__self__, "plugin_name", plugin_name)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+
+    @_builtins.property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+        """
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @_builtins.property
+    @pulumi.getter(name="babelfishDatabaseName")
+    def babelfish_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Babelfish for Aurora PostgreSQL database name for the endpoint.
+        """
+        return pulumi.get(self, "babelfish_database_name")
+
+    @babelfish_database_name.setter
+    def babelfish_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "babelfish_database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="captureDdls")
+    def capture_ddls(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts. You can later remove these artifacts.
+        """
+        return pulumi.get(self, "capture_ddls")
+
+    @capture_ddls.setter
+    def capture_ddls(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "capture_ddls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseMode")
+    def database_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+        """
+        return pulumi.get(self, "database_mode")
+
+    @database_mode.setter
+    def database_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ddlArtifactsSchema")
+    def ddl_artifacts_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The schema in which the operational DDL database artifacts are created.
+        """
+        return pulumi.get(self, "ddl_artifacts_schema")
+
+    @ddl_artifacts_schema.setter
+    def ddl_artifacts_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ddl_artifacts_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executeTimeout")
+    def execute_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Sets the client statement timeout for the PostgreSQL instance, in seconds. The default value is 60 seconds.
+        """
+        return pulumi.get(self, "execute_timeout")
+
+    @execute_timeout.setter
+    def execute_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "execute_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failTasksOnLobTruncation")
+    def fail_tasks_on_lob_truncation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, this value causes a task to fail if the actual size of a LOB column is greater than the specified LobMaxSize.
+        """
+        return pulumi.get(self, "fail_tasks_on_lob_truncation")
+
+    @fail_tasks_on_lob_truncation.setter
+    def fail_tasks_on_lob_truncation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fail_tasks_on_lob_truncation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="heartbeatEnable")
+    def heartbeat_enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        The write-ahead log (WAL) heartbeat feature mimics a dummy transaction.
+        """
+        return pulumi.get(self, "heartbeat_enable")
+
+    @heartbeat_enable.setter
+    def heartbeat_enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "heartbeat_enable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="heartbeatFrequency")
+    def heartbeat_frequency(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Sets the WAL heartbeat frequency (in minutes).
+        """
+        return pulumi.get(self, "heartbeat_frequency")
+
+    @heartbeat_frequency.setter
+    def heartbeat_frequency(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "heartbeat_frequency", value)
+
+    @_builtins.property
+    @pulumi.getter(name="heartbeatSchema")
+    def heartbeat_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the schema in which the heartbeat artifacts are created.
+        """
+        return pulumi.get(self, "heartbeat_schema")
+
+    @heartbeat_schema.setter
+    def heartbeat_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "heartbeat_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, lets PostgreSQL migrate the boolean type as boolean.
+        """
+        return pulumi.get(self, "map_boolean_as_boolean")
+
+    @map_boolean_as_boolean.setter
+    def map_boolean_as_boolean(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "map_boolean_as_boolean", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pluginName")
+    def plugin_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the plugin to use to create a replication slot.
+        """
+        return pulumi.get(self, "plugin_name")
+
+    @plugin_name.setter
+    def plugin_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "plugin_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the PostgreSQL endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance.
+        """
+        return pulumi.get(self, "slot_name")
+
+    @slot_name.setter
+    def slot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "slot_name", value)
+
+
+class EndpointRedisSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a Redis target endpoint.
+    """
+    auth_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+    """
+    auth_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of authentication to perform when connecting to a Redis target.
+    """
+    auth_user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The user name provided with the auth-role option of the AuthType setting for a Redis target endpoint.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Transmission Control Protocol (TCP) port for the endpoint.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Fully qualified domain name of the endpoint.
+    """
+    ssl_ca_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+    """
+    ssl_security_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid values include plaintext and ssl-encryption.
+    """
+
+@pulumi.input_type
+class EndpointRedisSettingsArgs:
+    def __init__(__self__, *,
+                 auth_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.float]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_ca_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_security_protocol: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a Redis target endpoint.
+
+        :param pulumi.Input[_builtins.str] auth_password: The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+        :param pulumi.Input[_builtins.str] auth_type: The type of authentication to perform when connecting to a Redis target.
+        :param pulumi.Input[_builtins.str] auth_user_name: The user name provided with the auth-role option of the AuthType setting for a Redis target endpoint.
+        :param pulumi.Input[_builtins.float] port: Transmission Control Protocol (TCP) port for the endpoint.
+        :param pulumi.Input[_builtins.str] server_name: Fully qualified domain name of the endpoint.
+        :param pulumi.Input[_builtins.str] ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        :param pulumi.Input[_builtins.str] ssl_security_protocol: The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid values include plaintext and ssl-encryption.
+        """
+        if auth_password is not None:
+            pulumi.set(__self__, "auth_password", auth_password)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if auth_user_name is not None:
+            pulumi.set(__self__, "auth_user_name", auth_user_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_ca_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        if ssl_security_protocol is not None:
+            pulumi.set(__self__, "ssl_security_protocol", ssl_security_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="authPassword")
+    def auth_password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+        """
+        return pulumi.get(self, "auth_password")
+
+    @auth_password.setter
+    def auth_password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of authentication to perform when connecting to a Redis target.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authUserName")
+    def auth_user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The user name provided with the auth-role option of the AuthType setting for a Redis target endpoint.
+        """
+        return pulumi.get(self, "auth_user_name")
+
+    @auth_user_name.setter
+    def auth_user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_user_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Transmission Control Protocol (TCP) port for the endpoint.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Fully qualified domain name of the endpoint.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        """
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @ssl_ca_certificate_arn.setter
+    def ssl_ca_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_ca_certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslSecurityProtocol")
+    def ssl_security_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The connection to a Redis target endpoint using Transport Layer Security (TLS). Valid values include plaintext and ssl-encryption.
+        """
+        return pulumi.get(self, "ssl_security_protocol")
+
+    @ssl_security_protocol.setter
+    def ssl_security_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_security_protocol", value)
+
+
+class EndpointRedshiftSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines an Amazon Redshift endpoint.
+    """
+    accept_any_date: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that indicates to allow any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose true or false (the default).
+    """
+    after_connect_script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Code to run after connecting. This parameter should contain the code itself, not the name of a file containing the code.
+    """
+    bucket_folder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An S3 folder where the comma-separated-value (.csv) files are stored before being uploaded to the target Redshift cluster.
+    """
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift.
+    """
+    case_sensitive_names: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If Amazon Redshift is configured to support case sensitive schema names, set CaseSensitiveNames to true. The default is false.
+    """
+    comp_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If you set CompUpdate to true Amazon Redshift applies automatic compression if the table is empty.
+    """
+    connection_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    A value that sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+    """
+    date_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The date format that you are using.
+    """
+    empty_as_null: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of true sets empty CHAR and VARCHAR fields to null. The default is false.
+    """
+    encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of server-side encryption that you want to use for your data.
+    """
+    explicit_ids: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    This setting is only valid for a full-load migration task. Set ExplicitIds to true to have tables with IDENTITY columns override their auto-generated values with explicit values loaded from the source data files used to populate the tables. The default is false.
+    """
+    file_transfer_upload_streams: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of threads used to upload a single file. This parameter accepts a value from 1 through 64. It defaults to 10.
+    """
+    load_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The amount of time to wait (in milliseconds) before timing out of operations performed by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.
+    """
+    map_boolean_as_boolean: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as varchar(1). You must set this setting on both the source and target endpoints for it to take effect.
+    """
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1 GB).
+    """
+    remove_quotes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that specifies to remove surrounding quotation marks from strings in the incoming data.
+    """
+    replace_chars: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A value that specifies to replaces the invalid characters specified in ReplaceInvalidChars, substituting the specified characters instead. The default is "?".
+    """
+    replace_invalid_chars: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A list of characters that you want to replace. Use with ReplaceChars.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Amazon Redshift endpoint connection details.
+    """
+    server_side_encryption_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS KMS key ID. If you are using SSE_KMS for the EncryptionMode, provide this key ID.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift service. The role must allow the iam:PassRole action.
+    """
+    time_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time format that you want to use. Valid values are auto (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'.
+    """
+    trim_blanks: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that specifies to remove the trailing white space characters from a VARCHAR string.
+    """
+    truncate_columns: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that specifies to truncate data in columns to the appropriate number of characters, so that the data fits in the column.
+    """
+    write_buffer_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk at the DMS replication instance. The default value is 1000 (buffer size is 1000KB).
+    """
+
+@pulumi.input_type
+class EndpointRedshiftSettingsArgs:
+    def __init__(__self__, *,
+                 accept_any_date: pulumi.Input[Optional[_builtins.bool]] = None,
+                 after_connect_script: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 case_sensitive_names: pulumi.Input[Optional[_builtins.bool]] = None,
+                 comp_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 empty_as_null: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 explicit_ids: pulumi.Input[Optional[_builtins.bool]] = None,
+                 file_transfer_upload_streams: pulumi.Input[Optional[_builtins.int]] = None,
+                 load_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 map_boolean_as_boolean: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 remove_quotes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace_chars: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_invalid_chars: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 trim_blanks: pulumi.Input[Optional[_builtins.bool]] = None,
+                 truncate_columns: pulumi.Input[Optional[_builtins.bool]] = None,
+                 write_buffer_size: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Provides information that defines an Amazon Redshift endpoint.
+
+        :param pulumi.Input[_builtins.bool] accept_any_date: A value that indicates to allow any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose true or false (the default).
+        :param pulumi.Input[_builtins.str] after_connect_script: Code to run after connecting. This parameter should contain the code itself, not the name of a file containing the code.
+        :param pulumi.Input[_builtins.str] bucket_folder: An S3 folder where the comma-separated-value (.csv) files are stored before being uploaded to the target Redshift cluster.
+        :param pulumi.Input[_builtins.str] bucket_name: The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift.
+        :param pulumi.Input[_builtins.bool] case_sensitive_names: If Amazon Redshift is configured to support case sensitive schema names, set CaseSensitiveNames to true. The default is false.
+        :param pulumi.Input[_builtins.bool] comp_update: If you set CompUpdate to true Amazon Redshift applies automatic compression if the table is empty.
+        :param pulumi.Input[_builtins.int] connection_timeout: A value that sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+        :param pulumi.Input[_builtins.str] date_format: The date format that you are using.
+        :param pulumi.Input[_builtins.bool] empty_as_null: A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of true sets empty CHAR and VARCHAR fields to null. The default is false.
+        :param pulumi.Input[_builtins.str] encryption_mode: The type of server-side encryption that you want to use for your data.
+        :param pulumi.Input[_builtins.bool] explicit_ids: This setting is only valid for a full-load migration task. Set ExplicitIds to true to have tables with IDENTITY columns override their auto-generated values with explicit values loaded from the source data files used to populate the tables. The default is false.
+        :param pulumi.Input[_builtins.int] file_transfer_upload_streams: The number of threads used to upload a single file. This parameter accepts a value from 1 through 64. It defaults to 10.
+        :param pulumi.Input[_builtins.int] load_timeout: The amount of time to wait (in milliseconds) before timing out of operations performed by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.
+        :param pulumi.Input[_builtins.bool] map_boolean_as_boolean: When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as varchar(1). You must set this setting on both the source and target endpoints for it to take effect.
+        :param pulumi.Input[_builtins.int] max_file_size: The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1 GB).
+        :param pulumi.Input[_builtins.bool] remove_quotes: A value that specifies to remove surrounding quotation marks from strings in the incoming data.
+        :param pulumi.Input[_builtins.str] replace_chars: A value that specifies to replaces the invalid characters specified in ReplaceInvalidChars, substituting the specified characters instead. The default is "?".
+        :param pulumi.Input[_builtins.str] replace_invalid_chars: A list of characters that you want to replace. Use with ReplaceChars.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Amazon Redshift endpoint connection details.
+        :param pulumi.Input[_builtins.str] server_side_encryption_kms_key_id: The AWS KMS key ID. If you are using SSE_KMS for the EncryptionMode, provide this key ID.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift service. The role must allow the iam:PassRole action.
+        :param pulumi.Input[_builtins.str] time_format: The time format that you want to use. Valid values are auto (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'.
+        :param pulumi.Input[_builtins.bool] trim_blanks: A value that specifies to remove the trailing white space characters from a VARCHAR string.
+        :param pulumi.Input[_builtins.bool] truncate_columns: A value that specifies to truncate data in columns to the appropriate number of characters, so that the data fits in the column.
+        :param pulumi.Input[_builtins.int] write_buffer_size: The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk at the DMS replication instance. The default value is 1000 (buffer size is 1000KB).
+        """
+        if accept_any_date is not None:
+            pulumi.set(__self__, "accept_any_date", accept_any_date)
+        if after_connect_script is not None:
+            pulumi.set(__self__, "after_connect_script", after_connect_script)
+        if bucket_folder is not None:
+            pulumi.set(__self__, "bucket_folder", bucket_folder)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if case_sensitive_names is not None:
+            pulumi.set(__self__, "case_sensitive_names", case_sensitive_names)
+        if comp_update is not None:
+            pulumi.set(__self__, "comp_update", comp_update)
+        if connection_timeout is not None:
+            pulumi.set(__self__, "connection_timeout", connection_timeout)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_as_null is not None:
+            pulumi.set(__self__, "empty_as_null", empty_as_null)
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if explicit_ids is not None:
+            pulumi.set(__self__, "explicit_ids", explicit_ids)
+        if file_transfer_upload_streams is not None:
+            pulumi.set(__self__, "file_transfer_upload_streams", file_transfer_upload_streams)
+        if load_timeout is not None:
+            pulumi.set(__self__, "load_timeout", load_timeout)
+        if map_boolean_as_boolean is not None:
+            pulumi.set(__self__, "map_boolean_as_boolean", map_boolean_as_boolean)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if remove_quotes is not None:
+            pulumi.set(__self__, "remove_quotes", remove_quotes)
+        if replace_chars is not None:
+            pulumi.set(__self__, "replace_chars", replace_chars)
+        if replace_invalid_chars is not None:
+            pulumi.set(__self__, "replace_invalid_chars", replace_invalid_chars)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+        if server_side_encryption_kms_key_id is not None:
+            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if trim_blanks is not None:
+            pulumi.set(__self__, "trim_blanks", trim_blanks)
+        if truncate_columns is not None:
+            pulumi.set(__self__, "truncate_columns", truncate_columns)
+        if write_buffer_size is not None:
+            pulumi.set(__self__, "write_buffer_size", write_buffer_size)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptAnyDate")
+    def accept_any_date(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that indicates to allow any date format, including invalid formats such as 00/00/00 00:00:00, to be loaded without generating an error. You can choose true or false (the default).
+        """
+        return pulumi.get(self, "accept_any_date")
+
+    @accept_any_date.setter
+    def accept_any_date(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "accept_any_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="afterConnectScript")
+    def after_connect_script(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Code to run after connecting. This parameter should contain the code itself, not the name of a file containing the code.
+        """
+        return pulumi.get(self, "after_connect_script")
+
+    @after_connect_script.setter
+    def after_connect_script(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "after_connect_script", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketFolder")
+    def bucket_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An S3 folder where the comma-separated-value (.csv) files are stored before being uploaded to the target Redshift cluster.
+        """
+        return pulumi.get(self, "bucket_folder")
+
+    @bucket_folder.setter
+    def bucket_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_folder", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="caseSensitiveNames")
+    def case_sensitive_names(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If Amazon Redshift is configured to support case sensitive schema names, set CaseSensitiveNames to true. The default is false.
+        """
+        return pulumi.get(self, "case_sensitive_names")
+
+    @case_sensitive_names.setter
+    def case_sensitive_names(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "case_sensitive_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compUpdate")
+    def comp_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If you set CompUpdate to true Amazon Redshift applies automatic compression if the table is empty.
+        """
+        return pulumi.get(self, "comp_update")
+
+    @comp_update.setter
+    def comp_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "comp_update", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionTimeout")
+    def connection_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        A value that sets the amount of time to wait (in milliseconds) before timing out, beginning from when you initially establish a connection.
+        """
+        return pulumi.get(self, "connection_timeout")
+
+    @connection_timeout.setter
+    def connection_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "connection_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The date format that you are using.
+        """
+        return pulumi.get(self, "date_format")
+
+    @date_format.setter
+    def date_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "date_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emptyAsNull")
+    def empty_as_null(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A value of true sets empty CHAR and VARCHAR fields to null. The default is false.
+        """
+        return pulumi.get(self, "empty_as_null")
+
+    @empty_as_null.setter
+    def empty_as_null(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "empty_as_null", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of server-side encryption that you want to use for your data.
+        """
+        return pulumi.get(self, "encryption_mode")
+
+    @encryption_mode.setter
+    def encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="explicitIds")
+    def explicit_ids(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        This setting is only valid for a full-load migration task. Set ExplicitIds to true to have tables with IDENTITY columns override their auto-generated values with explicit values loaded from the source data files used to populate the tables. The default is false.
+        """
+        return pulumi.get(self, "explicit_ids")
+
+    @explicit_ids.setter
+    def explicit_ids(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "explicit_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileTransferUploadStreams")
+    def file_transfer_upload_streams(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of threads used to upload a single file. This parameter accepts a value from 1 through 64. It defaults to 10.
+        """
+        return pulumi.get(self, "file_transfer_upload_streams")
+
+    @file_transfer_upload_streams.setter
+    def file_transfer_upload_streams(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "file_transfer_upload_streams", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadTimeout")
+    def load_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The amount of time to wait (in milliseconds) before timing out of operations performed by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.
+        """
+        return pulumi.get(self, "load_timeout")
+
+    @load_timeout.setter
+    def load_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "load_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mapBooleanAsBoolean")
+    def map_boolean_as_boolean(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as varchar(1). You must set this setting on both the source and target endpoints for it to take effect.
+        """
+        return pulumi.get(self, "map_boolean_as_boolean")
+
+    @map_boolean_as_boolean.setter
+    def map_boolean_as_boolean(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "map_boolean_as_boolean", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1 GB).
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="removeQuotes")
+    def remove_quotes(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that specifies to remove surrounding quotation marks from strings in the incoming data.
+        """
+        return pulumi.get(self, "remove_quotes")
+
+    @remove_quotes.setter
+    def remove_quotes(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "remove_quotes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replaceChars")
+    def replace_chars(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A value that specifies to replaces the invalid characters specified in ReplaceInvalidChars, substituting the specified characters instead. The default is "?".
+        """
+        return pulumi.get(self, "replace_chars")
+
+    @replace_chars.setter
+    def replace_chars(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "replace_chars", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidChars")
+    def replace_invalid_chars(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A list of characters that you want to replace. Use with ReplaceChars.
+        """
+        return pulumi.get(self, "replace_invalid_chars")
+
+    @replace_invalid_chars.setter
+    def replace_invalid_chars(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "replace_invalid_chars", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the Amazon Redshift endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS KMS key ID. If you are using SSE_KMS for the EncryptionMode, provide this key ID.
+        """
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
+
+    @server_side_encryption_kms_key_id.setter
+    def server_side_encryption_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_side_encryption_kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift service. The role must allow the iam:PassRole action.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time format that you want to use. Valid values are auto (case-sensitive), 'timeformat_string', 'epochsecs', or 'epochmillisecs'.
+        """
+        return pulumi.get(self, "time_format")
+
+    @time_format.setter
+    def time_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "time_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trimBlanks")
+    def trim_blanks(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that specifies to remove the trailing white space characters from a VARCHAR string.
+        """
+        return pulumi.get(self, "trim_blanks")
+
+    @trim_blanks.setter
+    def trim_blanks(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "trim_blanks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="truncateColumns")
+    def truncate_columns(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that specifies to truncate data in columns to the appropriate number of characters, so that the data fits in the column.
+        """
+        return pulumi.get(self, "truncate_columns")
+
+    @truncate_columns.setter
+    def truncate_columns(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "truncate_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="writeBufferSize")
+    def write_buffer_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk at the DMS replication instance. The default value is 1000 (buffer size is 1000KB).
+        """
+        return pulumi.get(self, "write_buffer_size")
+
+    @write_buffer_size.setter
+    def write_buffer_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "write_buffer_size", value)
+
+
+class EndpointS3SettingsArgsDict(TypedDict):
+    """
+    Provides information that defines an Amazon S3 endpoint.
+    """
+    add_column_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    An optional parameter that, when set to true or y, you can use to add column name information to the .csv output file.
+    """
+    add_trailing_padding_character: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Use the S3 target endpoint setting AddTrailingPaddingCharacter to add padding on string data. The default value is false.
+    """
+    bucket_folder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional parameter to set a folder name in the S3 bucket.
+    """
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the S3 bucket.
+    """
+    canned_acl_for_objects: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A value that enables AWS DMS to specify a predefined (canned) access control list (ACL) for objects created in an Amazon S3 bucket as .csv or .parquet files.
+    """
+    cdc_inserts_and_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files.
+    """
+    cdc_inserts_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the false setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
+    """
+    cdc_max_batch_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3.
+    """
+    cdc_min_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.
+    """
+    cdc_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional.
+    """
+    compression_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional parameter. When set to GZIP it enables the service to compress the target files.
+    """
+    csv_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
+    """
+    csv_no_sup_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    This setting only applies if your Amazon S3 output files during a change data capture (CDC) load are written in .csv format.
+    """
+    csv_null_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional parameter that specifies how AWS DMS treats null values.
+    """
+    csv_row_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The delimiter used to separate rows in the .csv file for both source and target.
+    """
+    data_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The format of the data that you want to use for output.
+    """
+    data_page_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
+    """
+    date_partition_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a date separating delimiter to use during folder partitioning. The default value is SLASH. Use this parameter when DatePartitionedEnabled is set to true.
+    """
+    date_partition_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, this parameter partitions S3 bucket folders based on transaction commit dates. The default value is false.
+    """
+    date_partition_sequence: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifies the sequence of the date format to use during folder partitioning. The default value is YYYYMMDD. Use this parameter when DatePartitionedEnabled is set to true.
+    """
+    date_partition_timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When creating an S3 target endpoint, set DatePartitionTimezone to convert the current UTC time into a specified time zone.
+    """
+    dict_page_size_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum size of an encoded dictionary page of a column
+    """
+    enable_statistics: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that enables statistics for Parquet pages and row groups.
+    """
+    encoding_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of encoding that you're using.
+    """
+    encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of server-side encryption that you want to use for your data.
+    """
+    expected_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    To specify a bucket owner and prevent sniping, you can use the ExpectedBucketOwner endpoint setting.
+    """
+    external_table_definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The external table definition.
+    """
+    glue_catalog_generation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, allows AWS Glue to catalog your S3 bucket. Creating an AWS Glue catalog lets you use Athena to query your data.
+    """
+    ignore_header_rows: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    When this value is set to 1, AWS DMS ignores the first row header in a .csv file. A value of 1 turns on the feature; a value of 0 turns off the feature.
+    """
+    include_op_for_full_load: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
+    """
+    max_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    A value that specifies the maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load.
+    """
+    parquet_timestamp_in_millisecond: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A value that specifies the precision of any TIMESTAMP column values that are written to an Amazon S3 object file in .parquet format.
+    """
+    parquet_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The version of the Apache Parquet format that you want to use: parquet_1_0 (the default) or parquet_2_0.
+    """
+    preserve_transactions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If this setting is set to true, AWS DMS saves the transaction order for a change data capture (CDC) load on the Amazon S3 target specified by CdcPath.
+    """
+    rfc4180: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    For an S3 source, when this value is set to true or y, each leading double quotation mark has to be followed by an ending double quotation mark.
+    """
+    row_group_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of rows in a row group.
+    """
+    server_side_encryption_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If you are using SSE_KMS for the EncryptionMode, provide the AWS KMS key ID. The key that you use needs an attached policy that enables IAM user permissions and allows use of the key.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A required parameter that specifies the Amazon Resource Name (ARN) used by the service to access the IAM role.
+    """
+    timestamp_column_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target.
+    """
+    use_csv_no_sup_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    This setting applies if the S3 output files during a change data capture (CDC) load are written in .csv format. If this setting is set to true for columns not included in the supplemental log, AWS DMS uses the value specified by CsvNoSupValue. If this setting isn't set or is set to false, AWS DMS uses the null value for these columns.
+    """
+    use_task_start_time_for_full_load_timestamp: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When set to true, this parameter uses the task start time as the timestamp column value instead of the time data is written to target
+    """
+
+@pulumi.input_type
+class EndpointS3SettingsArgs:
+    def __init__(__self__, *,
+                 add_column_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 add_trailing_padding_character: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bucket_folder: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 canned_acl_for_objects: pulumi.Input[Optional[_builtins.str]] = None,
+                 cdc_inserts_and_updates: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdc_inserts_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cdc_max_batch_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 cdc_min_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cdc_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 csv_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 csv_no_sup_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 csv_null_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 csv_row_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_page_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 date_partition_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_partition_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 date_partition_sequence: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_partition_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 dict_page_size_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_statistics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encoding_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_table_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 glue_catalog_generation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_header_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 include_op_for_full_load: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_file_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 parquet_timestamp_in_millisecond: pulumi.Input[Optional[_builtins.bool]] = None,
+                 parquet_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 preserve_transactions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rfc4180: pulumi.Input[Optional[_builtins.bool]] = None,
+                 row_group_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_side_encryption_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_csv_no_sup_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_task_start_time_for_full_load_timestamp: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Provides information that defines an Amazon S3 endpoint.
+
+        :param pulumi.Input[_builtins.bool] add_column_name: An optional parameter that, when set to true or y, you can use to add column name information to the .csv output file.
+        :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Use the S3 target endpoint setting AddTrailingPaddingCharacter to add padding on string data. The default value is false.
+        :param pulumi.Input[_builtins.str] bucket_folder: An optional parameter to set a folder name in the S3 bucket.
+        :param pulumi.Input[_builtins.str] bucket_name: The name of the S3 bucket.
+        :param pulumi.Input[_builtins.str] canned_acl_for_objects: A value that enables AWS DMS to specify a predefined (canned) access control list (ACL) for objects created in an Amazon S3 bucket as .csv or .parquet files.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_only: A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the false setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
+        :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3.
+        :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.
+        :param pulumi.Input[_builtins.str] cdc_path: Specifies the folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional.
+        :param pulumi.Input[_builtins.str] compression_type: An optional parameter. When set to GZIP it enables the service to compress the target files.
+        :param pulumi.Input[_builtins.str] csv_delimiter: The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
+        :param pulumi.Input[_builtins.str] csv_no_sup_value: This setting only applies if your Amazon S3 output files during a change data capture (CDC) load are written in .csv format.
+        :param pulumi.Input[_builtins.str] csv_null_value: An optional parameter that specifies how AWS DMS treats null values.
+        :param pulumi.Input[_builtins.str] csv_row_delimiter: The delimiter used to separate rows in the .csv file for both source and target.
+        :param pulumi.Input[_builtins.str] data_format: The format of the data that you want to use for output.
+        :param pulumi.Input[_builtins.int] data_page_size: The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
+        :param pulumi.Input[_builtins.str] date_partition_delimiter: Specifies a date separating delimiter to use during folder partitioning. The default value is SLASH. Use this parameter when DatePartitionedEnabled is set to true.
+        :param pulumi.Input[_builtins.bool] date_partition_enabled: When set to true, this parameter partitions S3 bucket folders based on transaction commit dates. The default value is false.
+        :param pulumi.Input[_builtins.str] date_partition_sequence: Identifies the sequence of the date format to use during folder partitioning. The default value is YYYYMMDD. Use this parameter when DatePartitionedEnabled is set to true.
+        :param pulumi.Input[_builtins.str] date_partition_timezone: When creating an S3 target endpoint, set DatePartitionTimezone to convert the current UTC time into a specified time zone.
+        :param pulumi.Input[_builtins.int] dict_page_size_limit: The maximum size of an encoded dictionary page of a column
+        :param pulumi.Input[_builtins.bool] enable_statistics: A value that enables statistics for Parquet pages and row groups.
+        :param pulumi.Input[_builtins.str] encoding_type: The type of encoding that you're using.
+        :param pulumi.Input[_builtins.str] encryption_mode: The type of server-side encryption that you want to use for your data.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: To specify a bucket owner and prevent sniping, you can use the ExpectedBucketOwner endpoint setting.
+        :param pulumi.Input[_builtins.str] external_table_definition: The external table definition.
+        :param pulumi.Input[_builtins.bool] glue_catalog_generation: When true, allows AWS Glue to catalog your S3 bucket. Creating an AWS Glue catalog lets you use Athena to query your data.
+        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to 1, AWS DMS ignores the first row header in a .csv file. A value of 1 turns on the feature; a value of 0 turns off the feature.
+        :param pulumi.Input[_builtins.bool] include_op_for_full_load: A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
+        :param pulumi.Input[_builtins.int] max_file_size: A value that specifies the maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load.
+        :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: A value that specifies the precision of any TIMESTAMP column values that are written to an Amazon S3 object file in .parquet format.
+        :param pulumi.Input[_builtins.str] parquet_version: The version of the Apache Parquet format that you want to use: parquet_1_0 (the default) or parquet_2_0.
+        :param pulumi.Input[_builtins.bool] preserve_transactions: If this setting is set to true, AWS DMS saves the transaction order for a change data capture (CDC) load on the Amazon S3 target specified by CdcPath.
+        :param pulumi.Input[_builtins.bool] rfc4180: For an S3 source, when this value is set to true or y, each leading double quotation mark has to be followed by an ending double quotation mark.
+        :param pulumi.Input[_builtins.int] row_group_length: The number of rows in a row group.
+        :param pulumi.Input[_builtins.str] server_side_encryption_kms_key_id: If you are using SSE_KMS for the EncryptionMode, provide the AWS KMS key ID. The key that you use needs an attached policy that enables IAM user permissions and allows use of the key.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: A required parameter that specifies the Amazon Resource Name (ARN) used by the service to access the IAM role.
+        :param pulumi.Input[_builtins.str] timestamp_column_name: A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target.
+        :param pulumi.Input[_builtins.bool] use_csv_no_sup_value: This setting applies if the S3 output files during a change data capture (CDC) load are written in .csv format. If this setting is set to true for columns not included in the supplemental log, AWS DMS uses the value specified by CsvNoSupValue. If this setting isn't set or is set to false, AWS DMS uses the null value for these columns.
+        :param pulumi.Input[_builtins.bool] use_task_start_time_for_full_load_timestamp: When set to true, this parameter uses the task start time as the timestamp column value instead of the time data is written to target
+        """
+        if add_column_name is not None:
+            pulumi.set(__self__, "add_column_name", add_column_name)
+        if add_trailing_padding_character is not None:
+            pulumi.set(__self__, "add_trailing_padding_character", add_trailing_padding_character)
+        if bucket_folder is not None:
+            pulumi.set(__self__, "bucket_folder", bucket_folder)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if canned_acl_for_objects is not None:
+            pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+        if cdc_inserts_and_updates is not None:
+            pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+        if cdc_inserts_only is not None:
+            pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+        if cdc_max_batch_interval is not None:
+            pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+        if cdc_min_file_size is not None:
+            pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+        if cdc_path is not None:
+            pulumi.set(__self__, "cdc_path", cdc_path)
+        if compression_type is not None:
+            pulumi.set(__self__, "compression_type", compression_type)
+        if csv_delimiter is not None:
+            pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+        if csv_no_sup_value is not None:
+            pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+        if csv_null_value is not None:
+            pulumi.set(__self__, "csv_null_value", csv_null_value)
+        if csv_row_delimiter is not None:
+            pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if data_page_size is not None:
+            pulumi.set(__self__, "data_page_size", data_page_size)
+        if date_partition_delimiter is not None:
+            pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
+        if date_partition_enabled is not None:
+            pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+        if date_partition_sequence is not None:
+            pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+        if date_partition_timezone is not None:
+            pulumi.set(__self__, "date_partition_timezone", date_partition_timezone)
+        if dict_page_size_limit is not None:
+            pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+        if enable_statistics is not None:
+            pulumi.set(__self__, "enable_statistics", enable_statistics)
+        if encoding_type is not None:
+            pulumi.set(__self__, "encoding_type", encoding_type)
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if external_table_definition is not None:
+            pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if glue_catalog_generation is not None:
+            pulumi.set(__self__, "glue_catalog_generation", glue_catalog_generation)
+        if ignore_header_rows is not None:
+            pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
+        if include_op_for_full_load is not None:
+            pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
+        if parquet_timestamp_in_millisecond is not None:
+            pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+        if parquet_version is not None:
+            pulumi.set(__self__, "parquet_version", parquet_version)
+        if preserve_transactions is not None:
+            pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+        if rfc4180 is not None:
+            pulumi.set(__self__, "rfc4180", rfc4180)
+        if row_group_length is not None:
+            pulumi.set(__self__, "row_group_length", row_group_length)
+        if server_side_encryption_kms_key_id is not None:
+            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        if timestamp_column_name is not None:
+            pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+        if use_csv_no_sup_value is not None:
+            pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+        if use_task_start_time_for_full_load_timestamp is not None:
+            pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+
+    @_builtins.property
+    @pulumi.getter(name="addColumnName")
+    def add_column_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        An optional parameter that, when set to true or y, you can use to add column name information to the .csv output file.
+        """
+        return pulumi.get(self, "add_column_name")
+
+    @add_column_name.setter
+    def add_column_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "add_column_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addTrailingPaddingCharacter")
+    def add_trailing_padding_character(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Use the S3 target endpoint setting AddTrailingPaddingCharacter to add padding on string data. The default value is false.
+        """
+        return pulumi.get(self, "add_trailing_padding_character")
+
+    @add_trailing_padding_character.setter
+    def add_trailing_padding_character(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "add_trailing_padding_character", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketFolder")
+    def bucket_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional parameter to set a folder name in the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_folder")
+
+    @bucket_folder.setter
+    def bucket_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_folder", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cannedAclForObjects")
+    def canned_acl_for_objects(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A value that enables AWS DMS to specify a predefined (canned) access control list (ACL) for objects created in an Amazon S3 bucket as .csv or .parquet files.
+        """
+        return pulumi.get(self, "canned_acl_for_objects")
+
+    @canned_acl_for_objects.setter
+    def canned_acl_for_objects(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "canned_acl_for_objects", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cdcInsertsAndUpdates")
+    def cdc_inserts_and_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files.
+        """
+        return pulumi.get(self, "cdc_inserts_and_updates")
+
+    @cdc_inserts_and_updates.setter
+    def cdc_inserts_and_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "cdc_inserts_and_updates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cdcInsertsOnly")
+    def cdc_inserts_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that enables a change data capture (CDC) load to write only INSERT operations to .csv or columnar storage (.parquet) output files. By default (the false setting), the first field in a .csv or .parquet record contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate whether the row was inserted, updated, or deleted at the source database for a CDC load to the target.
+        """
+        return pulumi.get(self, "cdc_inserts_only")
+
+    @cdc_inserts_only.setter
+    def cdc_inserts_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "cdc_inserts_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cdcMaxBatchInterval")
+    def cdc_max_batch_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3.
+        """
+        return pulumi.get(self, "cdc_max_batch_interval")
+
+    @cdc_max_batch_interval.setter
+    def cdc_max_batch_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cdc_max_batch_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cdcMinFileSize")
+    def cdc_min_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.
+        """
+        return pulumi.get(self, "cdc_min_file_size")
+
+    @cdc_min_file_size.setter
+    def cdc_min_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cdc_min_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cdcPath")
+    def cdc_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it's optional.
+        """
+        return pulumi.get(self, "cdc_path")
+
+    @cdc_path.setter
+    def cdc_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cdc_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional parameter. When set to GZIP it enables the service to compress the target files.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="csvDelimiter")
+    def csv_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
+        """
+        return pulumi.get(self, "csv_delimiter")
+
+    @csv_delimiter.setter
+    def csv_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "csv_delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="csvNoSupValue")
+    def csv_no_sup_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        This setting only applies if your Amazon S3 output files during a change data capture (CDC) load are written in .csv format.
+        """
+        return pulumi.get(self, "csv_no_sup_value")
+
+    @csv_no_sup_value.setter
+    def csv_no_sup_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "csv_no_sup_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="csvNullValue")
+    def csv_null_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional parameter that specifies how AWS DMS treats null values.
+        """
+        return pulumi.get(self, "csv_null_value")
+
+    @csv_null_value.setter
+    def csv_null_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "csv_null_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="csvRowDelimiter")
+    def csv_row_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The delimiter used to separate rows in the .csv file for both source and target.
+        """
+        return pulumi.get(self, "csv_row_delimiter")
+
+    @csv_row_delimiter.setter
+    def csv_row_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "csv_row_delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The format of the data that you want to use for output.
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataPageSize")
+    def data_page_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB). This number is used for .parquet file format only.
+        """
+        return pulumi.get(self, "data_page_size")
+
+    @data_page_size.setter
+    def data_page_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "data_page_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datePartitionDelimiter")
+    def date_partition_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a date separating delimiter to use during folder partitioning. The default value is SLASH. Use this parameter when DatePartitionedEnabled is set to true.
+        """
+        return pulumi.get(self, "date_partition_delimiter")
+
+    @date_partition_delimiter.setter
+    def date_partition_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "date_partition_delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datePartitionEnabled")
+    def date_partition_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, this parameter partitions S3 bucket folders based on transaction commit dates. The default value is false.
+        """
+        return pulumi.get(self, "date_partition_enabled")
+
+    @date_partition_enabled.setter
+    def date_partition_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "date_partition_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datePartitionSequence")
+    def date_partition_sequence(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifies the sequence of the date format to use during folder partitioning. The default value is YYYYMMDD. Use this parameter when DatePartitionedEnabled is set to true.
+        """
+        return pulumi.get(self, "date_partition_sequence")
+
+    @date_partition_sequence.setter
+    def date_partition_sequence(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "date_partition_sequence", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datePartitionTimezone")
+    def date_partition_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When creating an S3 target endpoint, set DatePartitionTimezone to convert the current UTC time into a specified time zone.
+        """
+        return pulumi.get(self, "date_partition_timezone")
+
+    @date_partition_timezone.setter
+    def date_partition_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "date_partition_timezone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dictPageSizeLimit")
+    def dict_page_size_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum size of an encoded dictionary page of a column
+        """
+        return pulumi.get(self, "dict_page_size_limit")
+
+    @dict_page_size_limit.setter
+    def dict_page_size_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "dict_page_size_limit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableStatistics")
+    def enable_statistics(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that enables statistics for Parquet pages and row groups.
+        """
+        return pulumi.get(self, "enable_statistics")
+
+    @enable_statistics.setter
+    def enable_statistics(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_statistics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encodingType")
+    def encoding_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of encoding that you're using.
+        """
+        return pulumi.get(self, "encoding_type")
+
+    @encoding_type.setter
+    def encoding_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encoding_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of server-side encryption that you want to use for your data.
+        """
+        return pulumi.get(self, "encryption_mode")
+
+    @encryption_mode.setter
+    def encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        To specify a bucket owner and prevent sniping, you can use the ExpectedBucketOwner endpoint setting.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalTableDefinition")
+    def external_table_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The external table definition.
+        """
+        return pulumi.get(self, "external_table_definition")
+
+    @external_table_definition.setter
+    def external_table_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_table_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="glueCatalogGeneration")
+    def glue_catalog_generation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, allows AWS Glue to catalog your S3 bucket. Creating an AWS Glue catalog lets you use Athena to query your data.
+        """
+        return pulumi.get(self, "glue_catalog_generation")
+
+    @glue_catalog_generation.setter
+    def glue_catalog_generation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "glue_catalog_generation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreHeaderRows")
+    def ignore_header_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        When this value is set to 1, AWS DMS ignores the first row header in a .csv file. A value of 1 turns on the feature; a value of 0 turns off the feature.
+        """
+        return pulumi.get(self, "ignore_header_rows")
+
+    @ignore_header_rows.setter
+    def ignore_header_rows(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ignore_header_rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeOpForFullLoad")
+    def include_op_for_full_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.
+        """
+        return pulumi.get(self, "include_op_for_full_load")
+
+    @include_op_for_full_load.setter
+    def include_op_for_full_load(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "include_op_for_full_load", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        A value that specifies the maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load.
+        """
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_file_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parquetTimestampInMillisecond")
+    def parquet_timestamp_in_millisecond(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A value that specifies the precision of any TIMESTAMP column values that are written to an Amazon S3 object file in .parquet format.
+        """
+        return pulumi.get(self, "parquet_timestamp_in_millisecond")
+
+    @parquet_timestamp_in_millisecond.setter
+    def parquet_timestamp_in_millisecond(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "parquet_timestamp_in_millisecond", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parquetVersion")
+    def parquet_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The version of the Apache Parquet format that you want to use: parquet_1_0 (the default) or parquet_2_0.
+        """
+        return pulumi.get(self, "parquet_version")
+
+    @parquet_version.setter
+    def parquet_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "parquet_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preserveTransactions")
+    def preserve_transactions(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If this setting is set to true, AWS DMS saves the transaction order for a change data capture (CDC) load on the Amazon S3 target specified by CdcPath.
+        """
+        return pulumi.get(self, "preserve_transactions")
+
+    @preserve_transactions.setter
+    def preserve_transactions(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "preserve_transactions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def rfc4180(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        For an S3 source, when this value is set to true or y, each leading double quotation mark has to be followed by an ending double quotation mark.
+        """
+        return pulumi.get(self, "rfc4180")
+
+    @rfc4180.setter
+    def rfc4180(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "rfc4180", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rowGroupLength")
+    def row_group_length(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of rows in a row group.
+        """
+        return pulumi.get(self, "row_group_length")
+
+    @row_group_length.setter
+    def row_group_length(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "row_group_length", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If you are using SSE_KMS for the EncryptionMode, provide the AWS KMS key ID. The key that you use needs an attached policy that enables IAM user permissions and allows use of the key.
+        """
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
+
+    @server_side_encryption_kms_key_id.setter
+    def server_side_encryption_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_side_encryption_kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A required parameter that specifies the Amazon Resource Name (ARN) used by the service to access the IAM role.
+        """
+        return pulumi.get(self, "service_access_role_arn")
+
+    @service_access_role_arn.setter
+    def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timestampColumnName")
+    def timestamp_column_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A value that when nonblank causes AWS DMS to add a column with timestamp information to the endpoint data for an Amazon S3 target.
+        """
+        return pulumi.get(self, "timestamp_column_name")
+
+    @timestamp_column_name.setter
+    def timestamp_column_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timestamp_column_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useCsvNoSupValue")
+    def use_csv_no_sup_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        This setting applies if the S3 output files during a change data capture (CDC) load are written in .csv format. If this setting is set to true for columns not included in the supplemental log, AWS DMS uses the value specified by CsvNoSupValue. If this setting isn't set or is set to false, AWS DMS uses the null value for these columns.
+        """
+        return pulumi.get(self, "use_csv_no_sup_value")
+
+    @use_csv_no_sup_value.setter
+    def use_csv_no_sup_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_csv_no_sup_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
+    def use_task_start_time_for_full_load_timestamp(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When set to true, this parameter uses the task start time as the timestamp column value instead of the time data is written to target
+        """
+        return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
+
+    @use_task_start_time_for_full_load_timestamp.setter
+    def use_task_start_time_for_full_load_timestamp(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_task_start_time_for_full_load_timestamp", value)
+
+
+class EndpointSybaseSettingsArgsDict(TypedDict):
+    """
+    Provides information that defines a SAP ASE endpoint.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the SAP SAE endpoint connection details.
+    """
+
+@pulumi.input_type
+class EndpointSybaseSettingsArgs:
+    def __init__(__self__, *,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Provides information that defines a SAP ASE endpoint.
+
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the SAP SAE endpoint connection details.
+        """
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in SecretsManagerSecret
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The full ARN, partial ARN, or display name of the SecretsManagerSecret that contains the SAP SAE endpoint connection details.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
 
 
 class MigrationProjectDataProviderDescriptorArgsDict(TypedDict):

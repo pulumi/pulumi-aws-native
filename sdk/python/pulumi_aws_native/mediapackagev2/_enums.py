@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'ChannelInputType',
+    'ChannelOutputLockingMode',
     'OriginEndpointAdMarkerDash',
     'OriginEndpointAdMarkerHls',
     'OriginEndpointCmafEncryptionMethod',
@@ -25,6 +26,7 @@ __all__ = [
     'OriginEndpointEndpointErrorCondition',
     'OriginEndpointIsmEncryptionMethod',
     'OriginEndpointMssManifestLayout',
+    'OriginEndpointOutputTimestampMode',
     'OriginEndpointPresetSpeke20Audio',
     'OriginEndpointPresetSpeke20Video',
     'OriginEndpointScteFilter',
@@ -40,6 +42,12 @@ __all__ = [
 class ChannelInputType(_builtins.str, Enum):
     HLS = "HLS"
     CMAF = "CMAF"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:ChannelOutputLockingMode")
+class ChannelOutputLockingMode(_builtins.str, Enum):
+    EPOCH_LOCKED = "EPOCH_LOCKED"
+    NON_EPOCH_LOCKED = "NON_EPOCH_LOCKED"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointAdMarkerDash")
@@ -153,6 +161,12 @@ class OriginEndpointIsmEncryptionMethod(_builtins.str, Enum):
 class OriginEndpointMssManifestLayout(_builtins.str, Enum):
     FULL = "FULL"
     COMPACT = "COMPACT"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointOutputTimestampMode")
+class OriginEndpointOutputTimestampMode(_builtins.str, Enum):
+    PASSTHROUGH = "PASSTHROUGH"
+    REBASED_TO_CHANNEL_START = "REBASED_TO_CHANNEL_START"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointPresetSpeke20Audio")

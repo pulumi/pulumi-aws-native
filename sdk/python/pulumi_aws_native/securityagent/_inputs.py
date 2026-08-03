@@ -1505,20 +1505,28 @@ class PentestIntegratedRepositoryArgsDict(TypedDict):
     """
     Identifier of the resource within the provider integration
     """
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional override for the repository branch
+    """
 
 @pulumi.input_type
 class PentestIntegratedRepositoryArgs:
     def __init__(__self__, *,
                  integration_id: pulumi.Input[_builtins.str],
-                 provider_resource_id: pulumi.Input[_builtins.str]):
+                 provider_resource_id: pulumi.Input[_builtins.str],
+                 branch: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A repository connected via a provider integration
 
         :param pulumi.Input[_builtins.str] integration_id: Unique identifier of the provider integration
         :param pulumi.Input[_builtins.str] provider_resource_id: Identifier of the resource within the provider integration
+        :param pulumi.Input[_builtins.str] branch: An optional override for the repository branch
         """
         pulumi.set(__self__, "integration_id", integration_id)
         pulumi.set(__self__, "provider_resource_id", provider_resource_id)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
 
     @_builtins.property
     @pulumi.getter(name="integrationId")
@@ -1543,6 +1551,18 @@ class PentestIntegratedRepositoryArgs:
     @provider_resource_id.setter
     def provider_resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "provider_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional override for the repository branch
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "branch", value)
 
 
 class PentestNetworkTrafficConfigArgsDict(TypedDict):

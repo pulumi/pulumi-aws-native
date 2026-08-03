@@ -1301,15 +1301,19 @@ class PentestIntegratedRepository(dict):
 
     def __init__(__self__, *,
                  integration_id: _builtins.str,
-                 provider_resource_id: _builtins.str):
+                 provider_resource_id: _builtins.str,
+                 branch: Optional[_builtins.str] = None):
         """
         A repository connected via a provider integration
 
         :param _builtins.str integration_id: Unique identifier of the provider integration
         :param _builtins.str provider_resource_id: Identifier of the resource within the provider integration
+        :param _builtins.str branch: An optional override for the repository branch
         """
         pulumi.set(__self__, "integration_id", integration_id)
         pulumi.set(__self__, "provider_resource_id", provider_resource_id)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
 
     @_builtins.property
     @pulumi.getter(name="integrationId")
@@ -1326,6 +1330,14 @@ class PentestIntegratedRepository(dict):
         Identifier of the resource within the provider integration
         """
         return pulumi.get(self, "provider_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[_builtins.str]:
+        """
+        An optional override for the repository branch
+        """
+        return pulumi.get(self, "branch")
 
 
 @pulumi.output_type

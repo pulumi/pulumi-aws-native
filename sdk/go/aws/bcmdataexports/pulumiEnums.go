@@ -15,6 +15,7 @@ type ExportCompressionOption string
 const (
 	ExportCompressionOptionGzip    = ExportCompressionOption("GZIP")
 	ExportCompressionOptionParquet = ExportCompressionOption("PARQUET")
+	ExportCompressionOptionZip     = ExportCompressionOption("ZIP")
 )
 
 func (ExportCompressionOption) ElementType() reflect.Type {
@@ -141,6 +142,7 @@ func (o ExportCompressionOptionPtrOutput) ToStringPtrOutputWithContext(ctx conte
 //
 //	ExportCompressionOptionGzip
 //	ExportCompressionOptionParquet
+//	ExportCompressionOptionZip
 type ExportCompressionOptionInput interface {
 	pulumi.Input
 

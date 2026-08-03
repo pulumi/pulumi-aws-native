@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public static class GetLifecyclePolicy
     {
         /// <summary>
-        /// Amazon OpenSearchServerless lifecycle policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
         /// </summary>
         public static Task<GetLifecyclePolicyResult> InvokeAsync(GetLifecyclePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLifecyclePolicyResult>("aws-native:opensearchserverless:getLifecyclePolicy", args ?? new GetLifecyclePolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless lifecycle policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
         /// </summary>
         public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyResult>("aws-native:opensearchserverless:getLifecyclePolicy", args ?? new GetLifecyclePolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless lifecycle policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::LifecyclePolicy
         /// </summary>
         public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyResult>("aws-native:opensearchserverless:getLifecyclePolicy", args ?? new GetLifecyclePolicyInvokeArgs(), options.WithDefaults());

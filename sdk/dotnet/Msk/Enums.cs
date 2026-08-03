@@ -8,6 +8,200 @@ using Pulumi;
 namespace Pulumi.AwsNative.Msk
 {
     /// <summary>
+    /// Compression codec for Iceberg table data files. Defaults to ZSTD.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelIcebergCompressionType : IEquatable<ChannelIcebergCompressionType>
+    {
+        private readonly string _value;
+
+        private ChannelIcebergCompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelIcebergCompressionType Zstd { get; } = new ChannelIcebergCompressionType("ZSTD");
+        public static ChannelIcebergCompressionType Snappy { get; } = new ChannelIcebergCompressionType("SNAPPY");
+
+        public static bool operator ==(ChannelIcebergCompressionType left, ChannelIcebergCompressionType right) => left.Equals(right);
+        public static bool operator !=(ChannelIcebergCompressionType left, ChannelIcebergCompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelIcebergCompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelIcebergCompressionType other && Equals(other);
+        public bool Equals(ChannelIcebergCompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Partition strategy for MSK channel
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelPartitionStrategy : IEquatable<ChannelPartitionStrategy>
+    {
+        private readonly string _value;
+
+        private ChannelPartitionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelPartitionStrategy TimeHour { get; } = new ChannelPartitionStrategy("TIME_HOUR");
+
+        public static bool operator ==(ChannelPartitionStrategy left, ChannelPartitionStrategy right) => left.Equals(right);
+        public static bool operator !=(ChannelPartitionStrategy left, ChannelPartitionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelPartitionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelPartitionStrategy other && Equals(other);
+        public bool Equals(ChannelPartitionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// S3 compression type
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelS3CompressionType : IEquatable<ChannelS3CompressionType>
+    {
+        private readonly string _value;
+
+        private ChannelS3CompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelS3CompressionType None { get; } = new ChannelS3CompressionType("NONE");
+        public static ChannelS3CompressionType Gzip { get; } = new ChannelS3CompressionType("GZIP");
+        public static ChannelS3CompressionType Zstd { get; } = new ChannelS3CompressionType("ZSTD");
+
+        public static bool operator ==(ChannelS3CompressionType left, ChannelS3CompressionType right) => left.Equals(right);
+        public static bool operator !=(ChannelS3CompressionType left, ChannelS3CompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelS3CompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelS3CompressionType other && Equals(other);
+        public bool Equals(ChannelS3CompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// S3 storage class
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelS3StorageClass : IEquatable<ChannelS3StorageClass>
+    {
+        private readonly string _value;
+
+        private ChannelS3StorageClass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelS3StorageClass Standard { get; } = new ChannelS3StorageClass("STANDARD");
+        public static ChannelS3StorageClass IntelligentTiering { get; } = new ChannelS3StorageClass("INTELLIGENT_TIERING");
+        public static ChannelS3StorageClass GlacierIr { get; } = new ChannelS3StorageClass("GLACIER_IR");
+
+        public static bool operator ==(ChannelS3StorageClass left, ChannelS3StorageClass right) => left.Equals(right);
+        public static bool operator !=(ChannelS3StorageClass left, ChannelS3StorageClass right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelS3StorageClass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelS3StorageClass other && Equals(other);
+        public bool Equals(ChannelS3StorageClass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of a channel resource
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelStatus : IEquatable<ChannelStatus>
+    {
+        private readonly string _value;
+
+        private ChannelStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelStatus Creating { get; } = new ChannelStatus("CREATING");
+        public static ChannelStatus Active { get; } = new ChannelStatus("ACTIVE");
+        public static ChannelStatus Updating { get; } = new ChannelStatus("UPDATING");
+        public static ChannelStatus Deleting { get; } = new ChannelStatus("DELETING");
+        public static ChannelStatus Failed { get; } = new ChannelStatus("FAILED");
+        public static ChannelStatus Suspending { get; } = new ChannelStatus("SUSPENDING");
+        public static ChannelStatus Suspended { get; } = new ChannelStatus("SUSPENDED");
+
+        public static bool operator ==(ChannelStatus left, ChannelStatus right) => left.Equals(right);
+        public static bool operator !=(ChannelStatus left, ChannelStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelStatus other && Equals(other);
+        public bool Equals(ChannelStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Value converter for topic data
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelValueConverter : IEquatable<ChannelValueConverter>
+    {
+        private readonly string _value;
+
+        private ChannelValueConverter(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelValueConverter ByteArray { get; } = new ChannelValueConverter("BYTE_ARRAY");
+        public static ChannelValueConverter Json { get; } = new ChannelValueConverter("JSON");
+        public static ChannelValueConverter JsonSchemaGsr { get; } = new ChannelValueConverter("JSON_SCHEMA_GSR");
+        public static ChannelValueConverter String { get; } = new ChannelValueConverter("STRING");
+
+        public static bool operator ==(ChannelValueConverter left, ChannelValueConverter right) => left.Equals(right);
+        public static bool operator !=(ChannelValueConverter left, ChannelValueConverter right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelValueConverter value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelValueConverter other && Equals(other);
+        public bool Equals(ChannelValueConverter other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the encryption setting for data in transit between clients and brokers. You must set it to one of the following values.
     /// 
     /// - `TLS` : Indicates that client-broker communication is enabled with TLS only.

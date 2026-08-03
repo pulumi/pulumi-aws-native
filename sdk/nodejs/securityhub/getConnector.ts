@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::SecurityHub::Connector
+ * Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,59 +18,29 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetConnectorArgs {
-    /**
-     * The ARN of the connector
-     */
     connectorArn: string;
 }
 
 export interface GetConnectorResult {
-    /**
-     * The ARN of the connector
-     */
     readonly connectorArn?: string;
-    /**
-     * The ID of the connector
-     */
     readonly connectorId?: string;
     readonly connectorStatus?: string;
-    /**
-     * The date and time for createdAt in UTC and ISO 8601 format.
-     */
     readonly createdAt?: string;
-    /**
-     * The principal that created the connector
-     */
     readonly createdBy?: string;
     /**
-     * A description of the connector
+     * The description of the connector.
      */
     readonly description?: string;
-    /**
-     * The enablement status of the connector
-     */
     readonly enablementStatus?: string;
-    /**
-     * The list of health issues associated with the connector
-     */
     readonly issues?: outputs.securityhub.ConnectorHealthIssue[];
-    /**
-     * The date and time for lastCheckedAt in UTC and ISO 8601 format.
-     */
     readonly lastCheckedAt?: string;
-    /**
-     * The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-     */
     readonly lastUpdatedAt?: string;
-    /**
-     * The message associated with the connector status change
-     */
     readonly message?: string;
     readonly provider?: outputs.securityhub.ConnectorProvider;
     readonly tags?: {[key: string]: string};
 }
 /**
- * Resource schema for AWS::SecurityHub::Connector
+ * Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,8 +50,5 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
 }
 
 export interface GetConnectorOutputArgs {
-    /**
-     * The ARN of the connector
-     */
     connectorArn: pulumi.Input<string>;
 }

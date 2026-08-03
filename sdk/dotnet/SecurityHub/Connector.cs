@@ -10,76 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub
 {
     /// <summary>
-    /// Resource schema for AWS::SecurityHub::Connector
+    /// Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
     /// </summary>
     [AwsNativeResourceType("aws-native:securityhub:Connector")]
     public partial class Connector : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the connector
-        /// </summary>
         [Output("connectorArn")]
         public Output<string> ConnectorArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the connector
-        /// </summary>
         [Output("connectorId")]
         public Output<string> ConnectorId { get; private set; } = null!;
 
         [Output("connectorStatus")]
         public Output<string> ConnectorStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time for createdAt in UTC and ISO 8601 format.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The principal that created the connector
-        /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the connector
+        /// The description of the connector.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The enablement status of the connector
-        /// </summary>
         [Output("enablementStatus")]
         public Output<string> EnablementStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of health issues associated with the connector
-        /// </summary>
         [Output("issues")]
         public Output<ImmutableArray<Outputs.ConnectorHealthIssue>> Issues { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time for lastCheckedAt in UTC and ISO 8601 format.
-        /// </summary>
         [Output("lastCheckedAt")]
         public Output<string> LastCheckedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The message associated with the connector status change
-        /// </summary>
         [Output("message")]
         public Output<string> Message { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the connector
+        /// The name of the connector.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -141,13 +114,13 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the connector
+        /// The description of the connector.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the connector
+        /// The name of the connector.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

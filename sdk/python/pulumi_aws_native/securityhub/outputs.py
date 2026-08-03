@@ -504,7 +504,7 @@ class AutomationRuleStringFilter(dict):
                  +   ``ResourceType NOT_EQUALS AwsIamPolicy``
                  +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
                
-                ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+                The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         :param _builtins.str value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
@@ -535,7 +535,7 @@ class AutomationRuleStringFilter(dict):
           +   ``ResourceType NOT_EQUALS AwsIamPolicy``
           +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 
-         ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+         The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         """
         return pulumi.get(self, "comparison")
 
@@ -2673,7 +2673,7 @@ class ConfigurationPolicySecurityHubPolicy(dict):
 @pulumi.output_type
 class ConnectorAzureProviderConfiguration(dict):
     """
-    The configuration settings for an Azure CSPM provider
+    The configuration for connecting to an Azure environment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2701,10 +2701,11 @@ class ConnectorAzureProviderConfiguration(dict):
                  azure_regions: Sequence[_builtins.str],
                  scope_configuration: 'outputs.ConnectorAzureScopeConfiguration'):
         """
-        The configuration settings for an Azure CSPM provider
+        The configuration for connecting to an Azure environment.
 
-        :param _builtins.str aws_config_connector_arn: The ARN of the AWS Config connector used for the Azure integration
-        :param Sequence[_builtins.str] azure_regions: The list of Azure regions to include in the connector scope
+        :param _builtins.str aws_config_connector_arn: The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
+        :param Sequence[_builtins.str] azure_regions: The list of Azure regions to monitor.
+        :param 'ConnectorAzureScopeConfiguration' scope_configuration: The scope configuration that defines which Azure resources are monitored.
         """
         pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
         pulumi.set(__self__, "azure_regions", azure_regions)
@@ -2714,7 +2715,7 @@ class ConnectorAzureProviderConfiguration(dict):
     @pulumi.getter(name="awsConfigConnectorArn")
     def aws_config_connector_arn(self) -> _builtins.str:
         """
-        The ARN of the AWS Config connector used for the Azure integration
+        The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
         """
         return pulumi.get(self, "aws_config_connector_arn")
 
@@ -2722,20 +2723,23 @@ class ConnectorAzureProviderConfiguration(dict):
     @pulumi.getter(name="azureRegions")
     def azure_regions(self) -> Sequence[_builtins.str]:
         """
-        The list of Azure regions to include in the connector scope
+        The list of Azure regions to monitor.
         """
         return pulumi.get(self, "azure_regions")
 
     @_builtins.property
     @pulumi.getter(name="scopeConfiguration")
     def scope_configuration(self) -> 'outputs.ConnectorAzureScopeConfiguration':
+        """
+        The scope configuration that defines which Azure resources are monitored.
+        """
         return pulumi.get(self, "scope_configuration")
 
 
 @pulumi.output_type
 class ConnectorAzureScopeConfiguration(dict):
     """
-    The scope configuration for an Azure connector
+    The scope configuration for an Azure connector, defining the tenant or subscription scope.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2760,10 +2764,10 @@ class ConnectorAzureScopeConfiguration(dict):
                  scope_type: 'ConnectorAzureScopeConfigurationScopeType',
                  scope_values: Optional[Sequence[_builtins.str]] = None):
         """
-        The scope configuration for an Azure connector
+        The scope configuration for an Azure connector, defining the tenant or subscription scope.
 
-        :param 'ConnectorAzureScopeConfigurationScopeType' scope_type: The scope type for the Azure connector
-        :param Sequence[_builtins.str] scope_values: The list of scope values for the Azure connector
+        :param 'ConnectorAzureScopeConfigurationScopeType' scope_type: The type of scope. Valid values are ``tenant`` and ``subscription``.
+        :param Sequence[_builtins.str] scope_values: The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
         """
         pulumi.set(__self__, "scope_type", scope_type)
         if scope_values is not None:
@@ -2773,7 +2777,7 @@ class ConnectorAzureScopeConfiguration(dict):
     @pulumi.getter(name="scopeType")
     def scope_type(self) -> 'ConnectorAzureScopeConfigurationScopeType':
         """
-        The scope type for the Azure connector
+        The type of scope. Valid values are ``tenant`` and ``subscription``.
         """
         return pulumi.get(self, "scope_type")
 
@@ -2781,7 +2785,7 @@ class ConnectorAzureScopeConfiguration(dict):
     @pulumi.getter(name="scopeValues")
     def scope_values(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The list of scope values for the Azure connector
+        The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
         """
         return pulumi.get(self, "scope_values")
 
@@ -2789,16 +2793,16 @@ class ConnectorAzureScopeConfiguration(dict):
 @pulumi.output_type
 class ConnectorHealthIssue(dict):
     """
-    A health issue associated with the connector
+    Represents a specific health issue detected for a connector.
     """
     def __init__(__self__, *,
                  code: _builtins.str,
                  message: _builtins.str):
         """
-        A health issue associated with the connector
+        Represents a specific health issue detected for a connector.
 
-        :param _builtins.str code: The code identifying the type of health issue
-        :param _builtins.str message: The message describing the health issue
+        :param _builtins.str code: The error code that identifies the type of health issue.
+        :param _builtins.str message: A human-readable message that describes the health issue.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -2807,7 +2811,7 @@ class ConnectorHealthIssue(dict):
     @pulumi.getter
     def code(self) -> _builtins.str:
         """
-        The code identifying the type of health issue
+        The error code that identifies the type of health issue.
         """
         return pulumi.get(self, "code")
 
@@ -2815,21 +2819,15 @@ class ConnectorHealthIssue(dict):
     @pulumi.getter
     def message(self) -> _builtins.str:
         """
-        The message describing the health issue
+        A human-readable message that describes the health issue.
         """
         return pulumi.get(self, "message")
 
 
 @pulumi.output_type
 class ConnectorProvider(dict):
-    """
-    The CSPM provider configuration for the connector
-    """
     def __init__(__self__, *,
                  azure: 'outputs.ConnectorAzureProviderConfiguration'):
-        """
-        The CSPM provider configuration for the connector
-        """
         pulumi.set(__self__, "azure", azure)
 
     @_builtins.property

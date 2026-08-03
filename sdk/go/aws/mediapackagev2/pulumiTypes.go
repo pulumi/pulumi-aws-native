@@ -379,11 +379,15 @@ type ChannelTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
 type OriginEndpointDashAvailabilityStartTimeConfiguration0Properties struct {
+	// <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
 	FixedAvailabilityStartTime string `pulumi:"fixedAvailabilityStartTime"`
 }
 
+// <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
 type OriginEndpointDashAvailabilityStartTimeConfigurationProperties struct {
+	// <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
 	FixedAvailabilityStartTime string `pulumi:"fixedAvailabilityStartTime"`
 }
 
@@ -398,7 +402,9 @@ type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesInput interfa
 	ToOriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutputWithContext(context.Context) OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput
 }
 
+// <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
 type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs struct {
+	// <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
 	FixedAvailabilityStartTime pulumi.StringInput `pulumi:"fixedAvailabilityStartTime"`
 }
 
@@ -455,6 +461,7 @@ func (i *originEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput)
 }
 
+// <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
 type OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -479,6 +486,7 @@ func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) To
 	}).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput)
 }
 
+// <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
 func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput) FixedAvailabilityStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointDashAvailabilityStartTimeConfigurationProperties) string {
 		return v.FixedAvailabilityStartTime
@@ -509,6 +517,7 @@ func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput)
 	}).(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput)
 }
 
+// <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
 func (o OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput) FixedAvailabilityStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashAvailabilityStartTimeConfigurationProperties) *string {
 		if v == nil {
@@ -4251,7 +4260,8 @@ type OriginEndpointSegment struct {
 	// Whether to use encryption for the segment.
 	Encryption *OriginEndpointEncryption `pulumi:"encryption"`
 	// <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
-	IncludeIframeOnlyStreams *bool `pulumi:"includeIframeOnlyStreams"`
+	IncludeIframeOnlyStreams *bool                              `pulumi:"includeIframeOnlyStreams"`
+	OutputTimestampMode      *OriginEndpointOutputTimestampMode `pulumi:"outputTimestampMode"`
 	// The SCTE-35 configuration associated with the segment.
 	Scte *OriginEndpointScte `pulumi:"scte"`
 	// <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
@@ -4280,7 +4290,8 @@ type OriginEndpointSegmentArgs struct {
 	// Whether to use encryption for the segment.
 	Encryption OriginEndpointEncryptionPtrInput `pulumi:"encryption"`
 	// <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
-	IncludeIframeOnlyStreams pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStreams"`
+	IncludeIframeOnlyStreams pulumi.BoolPtrInput                       `pulumi:"includeIframeOnlyStreams"`
+	OutputTimestampMode      OriginEndpointOutputTimestampModePtrInput `pulumi:"outputTimestampMode"`
 	// The SCTE-35 configuration associated with the segment.
 	Scte OriginEndpointSctePtrInput `pulumi:"scte"`
 	// <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
@@ -4381,6 +4392,10 @@ func (o OriginEndpointSegmentOutput) IncludeIframeOnlyStreams() pulumi.BoolPtrOu
 	return o.ApplyT(func(v OriginEndpointSegment) *bool { return v.IncludeIframeOnlyStreams }).(pulumi.BoolPtrOutput)
 }
 
+func (o OriginEndpointSegmentOutput) OutputTimestampMode() OriginEndpointOutputTimestampModePtrOutput {
+	return o.ApplyT(func(v OriginEndpointSegment) *OriginEndpointOutputTimestampMode { return v.OutputTimestampMode }).(OriginEndpointOutputTimestampModePtrOutput)
+}
+
 // The SCTE-35 configuration associated with the segment.
 func (o OriginEndpointSegmentOutput) Scte() OriginEndpointSctePtrOutput {
 	return o.ApplyT(func(v OriginEndpointSegment) *OriginEndpointScte { return v.Scte }).(OriginEndpointSctePtrOutput)
@@ -4448,6 +4463,15 @@ func (o OriginEndpointSegmentPtrOutput) IncludeIframeOnlyStreams() pulumi.BoolPt
 		}
 		return v.IncludeIframeOnlyStreams
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o OriginEndpointSegmentPtrOutput) OutputTimestampMode() OriginEndpointOutputTimestampModePtrOutput {
+	return o.ApplyT(func(v *OriginEndpointSegment) *OriginEndpointOutputTimestampMode {
+		if v == nil {
+			return nil
+		}
+		return v.OutputTimestampMode
+	}).(OriginEndpointOutputTimestampModePtrOutput)
 }
 
 // The SCTE-35 configuration associated with the segment.

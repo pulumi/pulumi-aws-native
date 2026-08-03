@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspaceResult:
-    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, network_access_control=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, plugin_admin_enabled=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None, vpc_configuration=None):
+    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, network_access_control=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, plugin_admin_enabled=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None, tags=None, vpc_configuration=None):
         if account_access_type and not isinstance(account_access_type, str):
             raise TypeError("Expected argument 'account_access_type' to be a str")
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -92,6 +93,9 @@ class GetWorkspaceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if vpc_configuration and not isinstance(vpc_configuration, dict):
             raise TypeError("Expected argument 'vpc_configuration' to be a dict")
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
@@ -287,6 +291,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The list of tags associated with the workspace.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional['outputs.WorkspaceVpcConfiguration']:
         """
@@ -325,6 +337,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             sso_client_id=self.sso_client_id,
             stack_set_name=self.stack_set_name,
             status=self.status,
+            tags=self.tags,
             vpc_configuration=self.vpc_configuration)
 
 
@@ -363,6 +376,7 @@ def get_workspace(id: Optional[_builtins.str] = None,
         sso_client_id=pulumi.get(__ret__, 'sso_client_id'),
         stack_set_name=pulumi.get(__ret__, 'stack_set_name'),
         status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
         vpc_configuration=pulumi.get(__ret__, 'vpc_configuration'))
 def get_workspace_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -398,4 +412,5 @@ def get_workspace_output(id: pulumi.Input[Optional[_builtins.str]] = None,
         sso_client_id=pulumi.get(__response__, 'sso_client_id'),
         stack_set_name=pulumi.get(__response__, 'stack_set_name'),
         status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
         vpc_configuration=pulumi.get(__response__, 'vpc_configuration')))

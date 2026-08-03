@@ -27,6 +27,7 @@ __all__ = [
     'ScraperComponentConfig',
     'ScraperDestination',
     'ScraperDestinationAmpConfigurationProperties',
+    'ScraperDestinationCloudWatchConfigurationProperties',
     'ScraperLoggingConfiguration',
     'ScraperLoggingDestination',
     'ScraperRoleConfiguration',
@@ -370,6 +371,8 @@ class ScraperDestination(dict):
         suggest = None
         if key == "ampConfiguration":
             suggest = "amp_configuration"
+        elif key == "cloudWatchConfiguration":
+            suggest = "cloud_watch_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ScraperDestination. Access the value via the '{suggest}' property getter instead.")
@@ -383,14 +386,18 @@ class ScraperDestination(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 amp_configuration: Optional['outputs.ScraperDestinationAmpConfigurationProperties'] = None):
+                 amp_configuration: Optional['outputs.ScraperDestinationAmpConfigurationProperties'] = None,
+                 cloud_watch_configuration: Optional['outputs.ScraperDestinationCloudWatchConfigurationProperties'] = None):
         """
         Scraper metrics destination
 
         :param 'ScraperDestinationAmpConfigurationProperties' amp_configuration: Configuration for Amazon Managed Prometheus metrics destination
+        :param 'ScraperDestinationCloudWatchConfigurationProperties' cloud_watch_configuration: Configuration for CloudWatch metrics destination
         """
         if amp_configuration is not None:
             pulumi.set(__self__, "amp_configuration", amp_configuration)
+        if cloud_watch_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_configuration", cloud_watch_configuration)
 
     @_builtins.property
     @pulumi.getter(name="ampConfiguration")
@@ -399,6 +406,14 @@ class ScraperDestination(dict):
         Configuration for Amazon Managed Prometheus metrics destination
         """
         return pulumi.get(self, "amp_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchConfiguration")
+    def cloud_watch_configuration(self) -> Optional['outputs.ScraperDestinationCloudWatchConfigurationProperties']:
+        """
+        Configuration for CloudWatch metrics destination
+        """
+        return pulumi.get(self, "cloud_watch_configuration")
 
 
 @pulumi.output_type
@@ -439,6 +454,46 @@ class ScraperDestinationAmpConfigurationProperties(dict):
         ARN of an Amazon Managed Prometheus workspace
         """
         return pulumi.get(self, "workspace_arn")
+
+
+@pulumi.output_type
+class ScraperDestinationCloudWatchConfigurationProperties(dict):
+    """
+    Configuration for CloudWatch metrics destination
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetArn":
+            suggest = "dataset_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperDestinationCloudWatchConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperDestinationCloudWatchConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperDestinationCloudWatchConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataset_arn: _builtins.str):
+        """
+        Configuration for CloudWatch metrics destination
+
+        :param _builtins.str dataset_arn: ARN of a CloudWatch dataset
+        """
+        pulumi.set(__self__, "dataset_arn", dataset_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetArn")
+    def dataset_arn(self) -> _builtins.str:
+        """
+        ARN of a CloudWatch dataset
+        """
+        return pulumi.get(self, "dataset_arn")
 
 
 @pulumi.output_type

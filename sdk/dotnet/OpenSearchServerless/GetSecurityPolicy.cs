@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public static class GetSecurityPolicy
     {
         /// <summary>
-        /// Amazon OpenSearchServerless security policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
         /// </summary>
         public static Task<GetSecurityPolicyResult> InvokeAsync(GetSecurityPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPolicyResult>("aws-native:opensearchserverless:getSecurityPolicy", args ?? new GetSecurityPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless security policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
         /// </summary>
         public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("aws-native:opensearchserverless:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless security policy resource
+        /// Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
         /// </summary>
         public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("aws-native:opensearchserverless:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithDefaults());

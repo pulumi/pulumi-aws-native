@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataMigration{}
 	case "aws-native:dms:DataProvider":
 		r = &DataProvider{}
+	case "aws-native:dms:Endpoint":
+		r = &Endpoint{}
 	case "aws-native:dms:InstanceProfile":
 		r = &InstanceProfile{}
 	case "aws-native:dms:MigrationProject":

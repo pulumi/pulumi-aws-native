@@ -2,6 +2,74 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ChannelIcebergCompressionType = {
+    Zstd: "ZSTD",
+    Snappy: "SNAPPY",
+} as const;
+
+/**
+ * Compression codec for Iceberg table data files. Defaults to ZSTD.
+ */
+export type ChannelIcebergCompressionType = (typeof ChannelIcebergCompressionType)[keyof typeof ChannelIcebergCompressionType];
+
+export const ChannelPartitionStrategy = {
+    TimeHour: "TIME_HOUR",
+} as const;
+
+/**
+ * Partition strategy for MSK channel
+ */
+export type ChannelPartitionStrategy = (typeof ChannelPartitionStrategy)[keyof typeof ChannelPartitionStrategy];
+
+export const ChannelS3CompressionType = {
+    None: "NONE",
+    Gzip: "GZIP",
+    Zstd: "ZSTD",
+} as const;
+
+/**
+ * S3 compression type
+ */
+export type ChannelS3CompressionType = (typeof ChannelS3CompressionType)[keyof typeof ChannelS3CompressionType];
+
+export const ChannelS3StorageClass = {
+    Standard: "STANDARD",
+    IntelligentTiering: "INTELLIGENT_TIERING",
+    GlacierIr: "GLACIER_IR",
+} as const;
+
+/**
+ * S3 storage class
+ */
+export type ChannelS3StorageClass = (typeof ChannelS3StorageClass)[keyof typeof ChannelS3StorageClass];
+
+export const ChannelStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+    Suspending: "SUSPENDING",
+    Suspended: "SUSPENDED",
+} as const;
+
+/**
+ * Status of a channel resource
+ */
+export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
+
+export const ChannelValueConverter = {
+    ByteArray: "BYTE_ARRAY",
+    Json: "JSON",
+    JsonSchemaGsr: "JSON_SCHEMA_GSR",
+    String: "STRING",
+} as const;
+
+/**
+ * Value converter for topic data
+ */
+export type ChannelValueConverter = (typeof ChannelValueConverter)[keyof typeof ChannelValueConverter];
+
 export const ClusterEncryptionInTransitClientBroker = {
     Tls: "TLS",
     TlsPlaintext: "TLS_PLAINTEXT",

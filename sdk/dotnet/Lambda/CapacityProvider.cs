@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The telemetry configuration for the capacity provider, including logging settings.
+        /// </summary>
         [Output("telemetryConfig")]
         public Output<Outputs.CapacityProviderTelemetryConfig?> TelemetryConfig { get; private set; } = null!;
 
@@ -170,6 +173,9 @@ namespace Pulumi.AwsNative.Lambda
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The telemetry configuration for the capacity provider, including logging settings.
+        /// </summary>
         [Input("telemetryConfig")]
         public Input<Inputs.CapacityProviderTelemetryConfigArgs>? TelemetryConfig { get; set; }
 

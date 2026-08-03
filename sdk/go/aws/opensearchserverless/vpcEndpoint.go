@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon OpenSearchServerless vpc endpoint resource
+// Resource Type definition for AWS::OpenSearchServerless::VpcEndpoint
 //
 // ## Example Usage
 // ### Example

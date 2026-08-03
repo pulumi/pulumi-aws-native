@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::SecurityHub::Connector
+ * Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
  */
 export class Connector extends pulumi.CustomResource {
     /**
@@ -37,49 +37,22 @@ export class Connector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connector.__pulumiType;
     }
 
-    /**
-     * The ARN of the connector
-     */
     declare public /*out*/ readonly connectorArn: pulumi.Output<string>;
-    /**
-     * The ID of the connector
-     */
     declare public /*out*/ readonly connectorId: pulumi.Output<string>;
     declare public /*out*/ readonly connectorStatus: pulumi.Output<string>;
-    /**
-     * The date and time for createdAt in UTC and ISO 8601 format.
-     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
-    /**
-     * The principal that created the connector
-     */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
-     * A description of the connector
+     * The description of the connector.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
-    /**
-     * The enablement status of the connector
-     */
     declare public /*out*/ readonly enablementStatus: pulumi.Output<string>;
-    /**
-     * The list of health issues associated with the connector
-     */
     declare public /*out*/ readonly issues: pulumi.Output<outputs.securityhub.ConnectorHealthIssue[]>;
-    /**
-     * The date and time for lastCheckedAt in UTC and ISO 8601 format.
-     */
     declare public /*out*/ readonly lastCheckedAt: pulumi.Output<string>;
-    /**
-     * The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-     */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
-    /**
-     * The message associated with the connector status change
-     */
     declare public /*out*/ readonly message: pulumi.Output<string>;
     /**
-     * The name of the connector
+     * The name of the connector.
      */
     declare public readonly name: pulumi.Output<string>;
     declare public readonly provider: pulumi.Output<outputs.securityhub.ConnectorProvider>;
@@ -141,11 +114,11 @@ export class Connector extends pulumi.CustomResource {
  */
 export interface ConnectorArgs {
     /**
-     * A description of the connector
+     * The description of the connector.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the connector
+     * The name of the connector.
      */
     name?: pulumi.Input<string | undefined>;
     provider: pulumi.Input<inputs.securityhub.ConnectorProviderArgs>;

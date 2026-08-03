@@ -96,7 +96,7 @@
       "permissions" : [ "glue:UpdateBlueprint", "glue:GetBlueprint", "glue:TagResource", "glue:UntagResource", "glue:GetTags", "s3:GetObject" ]
     },
     "delete" : {
-      "permissions" : [ "glue:DeleteBlueprint", "glue:GetBlueprint" ]
+      "permissions" : [ "glue:DeleteBlueprint", "glue:GetBlueprint", "glue:GetTags" ]
     },
     "list" : {
       "permissions" : [ "glue:ListBlueprints" ]

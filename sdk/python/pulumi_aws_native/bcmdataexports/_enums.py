@@ -19,6 +19,7 @@ __all__ = [
 class ExportCompressionOption(_builtins.str, Enum):
     GZIP = "GZIP"
     PARQUET = "PARQUET"
+    ZIP = "ZIP"
 
 
 @pulumi.type_token("aws-native:bcmdataexports:ExportFormatOption")

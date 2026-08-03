@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolSmsConfiguration
     {
+        public readonly Outputs.UserPoolEumsSmsConfiguration? EumsSms;
         /// <summary>
         /// The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
         /// 
@@ -32,12 +33,15 @@ namespace Pulumi.AwsNative.Cognito.Outputs
 
         [OutputConstructor]
         private UserPoolSmsConfiguration(
+            Outputs.UserPoolEumsSmsConfiguration? eumsSms,
+
             string? externalId,
 
             string? snsCallerArn,
 
             string? snsRegion)
         {
+            EumsSms = eumsSms;
             ExternalId = externalId;
             SnsCallerArn = snsCallerArn;
             SnsRegion = snsRegion;

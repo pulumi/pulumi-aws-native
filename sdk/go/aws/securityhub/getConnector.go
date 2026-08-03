@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::SecurityHub::Connector
+// Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectorResult
@@ -23,34 +23,24 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 }
 
 type LookupConnectorArgs struct {
-	// The ARN of the connector
 	ConnectorArn string `pulumi:"connectorArn"`
 }
 
 type LookupConnectorResult struct {
-	// The ARN of the connector
-	ConnectorArn *string `pulumi:"connectorArn"`
-	// The ID of the connector
+	ConnectorArn    *string `pulumi:"connectorArn"`
 	ConnectorId     *string `pulumi:"connectorId"`
 	ConnectorStatus *string `pulumi:"connectorStatus"`
-	// The date and time for createdAt in UTC and ISO 8601 format.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The principal that created the connector
-	CreatedBy *string `pulumi:"createdBy"`
-	// A description of the connector
-	Description *string `pulumi:"description"`
-	// The enablement status of the connector
-	EnablementStatus *string `pulumi:"enablementStatus"`
-	// The list of health issues associated with the connector
-	Issues []ConnectorHealthIssue `pulumi:"issues"`
-	// The date and time for lastCheckedAt in UTC and ISO 8601 format.
-	LastCheckedAt *string `pulumi:"lastCheckedAt"`
-	// The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
-	// The message associated with the connector status change
-	Message  *string            `pulumi:"message"`
-	Provider *ConnectorProvider `pulumi:"provider"`
-	Tags     map[string]string  `pulumi:"tags"`
+	CreatedAt       *string `pulumi:"createdAt"`
+	CreatedBy       *string `pulumi:"createdBy"`
+	// The description of the connector.
+	Description      *string                `pulumi:"description"`
+	EnablementStatus *string                `pulumi:"enablementStatus"`
+	Issues           []ConnectorHealthIssue `pulumi:"issues"`
+	LastCheckedAt    *string                `pulumi:"lastCheckedAt"`
+	LastUpdatedAt    *string                `pulumi:"lastUpdatedAt"`
+	Message          *string                `pulumi:"message"`
+	Provider         *ConnectorProvider     `pulumi:"provider"`
+	Tags             map[string]string      `pulumi:"tags"`
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
@@ -63,7 +53,6 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 }
 
 type LookupConnectorOutputArgs struct {
-	// The ARN of the connector
 	ConnectorArn pulumi.StringInput `pulumi:"connectorArn"`
 }
 
@@ -85,12 +74,10 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 	return o
 }
 
-// The ARN of the connector
 func (o LookupConnectorResultOutput) ConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorArn }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the connector
 func (o LookupConnectorResultOutput) ConnectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorId }).(pulumi.StringPtrOutput)
 }
@@ -99,42 +86,35 @@ func (o LookupConnectorResultOutput) ConnectorStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorStatus }).(pulumi.StringPtrOutput)
 }
 
-// The date and time for createdAt in UTC and ISO 8601 format.
 func (o LookupConnectorResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The principal that created the connector
 func (o LookupConnectorResultOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// A description of the connector
+// The description of the connector.
 func (o LookupConnectorResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The enablement status of the connector
 func (o LookupConnectorResultOutput) EnablementStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.EnablementStatus }).(pulumi.StringPtrOutput)
 }
 
-// The list of health issues associated with the connector
 func (o LookupConnectorResultOutput) Issues() ConnectorHealthIssueArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []ConnectorHealthIssue { return v.Issues }).(ConnectorHealthIssueArrayOutput)
 }
 
-// The date and time for lastCheckedAt in UTC and ISO 8601 format.
 func (o LookupConnectorResultOutput) LastCheckedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.LastCheckedAt }).(pulumi.StringPtrOutput)
 }
 
-// The date and time for lastUpdatedAt in UTC and ISO 8601 format.
 func (o LookupConnectorResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The message associated with the connector status change
 func (o LookupConnectorResultOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.Message }).(pulumi.StringPtrOutput)
 }

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public static class GetSecurityConfig
     {
         /// <summary>
-        /// Amazon OpenSearchServerless security config resource
+        /// Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
         /// </summary>
         public static Task<GetSecurityConfigResult> InvokeAsync(GetSecurityConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConfigResult>("aws-native:opensearchserverless:getSecurityConfig", args ?? new GetSecurityConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless security config resource
+        /// Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
         /// </summary>
         public static Output<GetSecurityConfigResult> Invoke(GetSecurityConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConfigResult>("aws-native:opensearchserverless:getSecurityConfig", args ?? new GetSecurityConfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon OpenSearchServerless security config resource
+        /// Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
         /// </summary>
         public static Output<GetSecurityConfigResult> Invoke(GetSecurityConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConfigResult>("aws-native:opensearchserverless:getSecurityConfig", args ?? new GetSecurityConfigInvokeArgs(), options.WithDefaults());

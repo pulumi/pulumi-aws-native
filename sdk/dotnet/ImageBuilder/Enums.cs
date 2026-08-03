@@ -116,8 +116,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Standard { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard");
         public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Io1 { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1");
         public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Io2 { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2");
+        public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Io2a { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2a");
         public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Gp2 { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2");
         public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Gp3 { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3");
+        public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Gp3a { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3a");
         public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType Sc1 { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1");
         public static ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType St1 { get; } = new ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1");
 
@@ -367,8 +369,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Standard { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard");
         public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Io1 { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1");
         public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Io2 { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2");
+        public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Io2a { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2a");
         public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Gp2 { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2");
         public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Gp3 { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3");
+        public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Gp3a { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3a");
         public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType Sc1 { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1");
         public static ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType St1 { get; } = new ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1");
 

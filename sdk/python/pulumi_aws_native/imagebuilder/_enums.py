@@ -66,8 +66,10 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType(_builtins.str
     STANDARD = "standard"
     IO1 = "io1"
     IO2 = "io2"
+    IO2A = "io2a"
     GP2 = "gp2"
     GP3 = "gp3"
+    GP3A = "gp3a"
     SC1 = "sc1"
     ST1 = "st1"
 
@@ -141,8 +143,10 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType(_builtins.str, En
     STANDARD = "standard"
     IO1 = "io1"
     IO2 = "io2"
+    IO2A = "io2a"
     GP2 = "gp2"
     GP3 = "gp3"
+    GP3A = "gp3a"
     SC1 = "sc1"
     ST1 = "st1"
 

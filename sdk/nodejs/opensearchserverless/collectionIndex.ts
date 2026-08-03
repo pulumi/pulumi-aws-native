@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::OpenSearchServerless::CollectionIndex
+ * Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
  */
 export class CollectionIndex extends pulumi.CustomResource {
     /**

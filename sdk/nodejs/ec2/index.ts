@@ -460,6 +460,11 @@ export const getTransitGatewayPolicyTableAssociation: typeof import("./getTransi
 export const getTransitGatewayPolicyTableAssociationOutput: typeof import("./getTransitGatewayPolicyTableAssociation").getTransitGatewayPolicyTableAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayPolicyTableAssociation","getTransitGatewayPolicyTableAssociationOutput"], () => require("./getTransitGatewayPolicyTableAssociation"));
 
+export { GetTransitGatewayPolicyTableEntryArgs, GetTransitGatewayPolicyTableEntryResult, GetTransitGatewayPolicyTableEntryOutputArgs } from "./getTransitGatewayPolicyTableEntry";
+export const getTransitGatewayPolicyTableEntry: typeof import("./getTransitGatewayPolicyTableEntry").getTransitGatewayPolicyTableEntry = null as any;
+export const getTransitGatewayPolicyTableEntryOutput: typeof import("./getTransitGatewayPolicyTableEntry").getTransitGatewayPolicyTableEntryOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayPolicyTableEntry","getTransitGatewayPolicyTableEntryOutput"], () => require("./getTransitGatewayPolicyTableEntry"));
+
 export { GetTransitGatewayRouteTableArgs, GetTransitGatewayRouteTableResult, GetTransitGatewayRouteTableOutputArgs } from "./getTransitGatewayRouteTable";
 export const getTransitGatewayRouteTable: typeof import("./getTransitGatewayRouteTable").getTransitGatewayRouteTable = null as any;
 export const getTransitGatewayRouteTableOutput: typeof import("./getTransitGatewayRouteTable").getTransitGatewayRouteTableOutput = null as any;
@@ -905,6 +910,11 @@ export type TransitGatewayPolicyTableAssociation = import("./transitGatewayPolic
 export const TransitGatewayPolicyTableAssociation: typeof import("./transitGatewayPolicyTableAssociation").TransitGatewayPolicyTableAssociation = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayPolicyTableAssociation"], () => require("./transitGatewayPolicyTableAssociation"));
 
+export { TransitGatewayPolicyTableEntryArgs } from "./transitGatewayPolicyTableEntry";
+export type TransitGatewayPolicyTableEntry = import("./transitGatewayPolicyTableEntry").TransitGatewayPolicyTableEntry;
+export const TransitGatewayPolicyTableEntry: typeof import("./transitGatewayPolicyTableEntry").TransitGatewayPolicyTableEntry = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayPolicyTableEntry"], () => require("./transitGatewayPolicyTableEntry"));
+
 export { TransitGatewayRouteArgs } from "./transitGatewayRoute";
 export type TransitGatewayRoute = import("./transitGatewayRoute").TransitGatewayRoute;
 export const TransitGatewayRoute: typeof import("./transitGatewayRoute").TransitGatewayRoute = null as any;
@@ -1210,6 +1220,8 @@ const _module = {
                 return new TransitGatewayPolicyTable(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayPolicyTableAssociation":
                 return new TransitGatewayPolicyTableAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayPolicyTableEntry":
+                return new TransitGatewayPolicyTableEntry(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayRoute":
                 return new TransitGatewayRoute(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayRouteTable":

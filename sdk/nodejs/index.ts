@@ -221,6 +221,7 @@ import * as lookoutvision from "./lookoutvision";
 import * as m2 from "./m2";
 import * as macie from "./macie";
 import * as mediaconnect from "./mediaconnect";
+import * as mediaconvert from "./mediaconvert";
 import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
 import * as mediapackagev2 from "./mediapackagev2";
@@ -485,6 +486,7 @@ export {
     m2,
     macie,
     mediaconnect,
+    mediaconvert,
     medialive,
     mediapackage,
     mediapackagev2,

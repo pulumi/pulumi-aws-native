@@ -289,6 +289,9 @@ class CapacityProviderInstanceRequirements(dict):
 
 @pulumi.output_type
 class CapacityProviderLoggingConfig(dict):
+    """
+    The capacity provider's Amazon CloudWatch Logs configuration settings.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -311,6 +314,12 @@ class CapacityProviderLoggingConfig(dict):
     def __init__(__self__, *,
                  log_group: Optional[_builtins.str] = None,
                  system_log_level: Optional['CapacityProviderLoggingConfigSystemLogLevel'] = None):
+        """
+        The capacity provider's Amazon CloudWatch Logs configuration settings.
+
+        :param _builtins.str log_group: The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named ``/aws/lambda/capacity-provider/<capacity provider name>``. To use a different log group, enter an existing log group or enter a new log group name.
+        :param 'CapacityProviderLoggingConfigSystemLogLevel' system_log_level: Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+        """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
         if system_log_level is not None:
@@ -319,11 +328,17 @@ class CapacityProviderLoggingConfig(dict):
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[_builtins.str]:
+        """
+        The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named ``/aws/lambda/capacity-provider/<capacity provider name>``. To use a different log group, enter an existing log group or enter a new log group name.
+        """
         return pulumi.get(self, "log_group")
 
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> Optional['CapacityProviderLoggingConfigSystemLogLevel']:
+        """
+        Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+        """
         return pulumi.get(self, "system_log_level")
 
 
@@ -579,6 +594,9 @@ class CapacityProviderTargetTrackingScalingPolicy(dict):
 
 @pulumi.output_type
 class CapacityProviderTelemetryConfig(dict):
+    """
+    Configuration that specifies the telemetry collection for the capacity provider.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -598,12 +616,20 @@ class CapacityProviderTelemetryConfig(dict):
 
     def __init__(__self__, *,
                  logging_config: Optional['outputs.CapacityProviderLoggingConfig'] = None):
+        """
+        Configuration that specifies the telemetry collection for the capacity provider.
+
+        :param 'CapacityProviderLoggingConfig' logging_config: The capacity provider's Amazon CloudWatch Logs configuration settings.
+        """
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional['outputs.CapacityProviderLoggingConfig']:
+        """
+        The capacity provider's Amazon CloudWatch Logs configuration settings.
+        """
         return pulumi.get(self, "logging_config")
 
 
@@ -1154,7 +1180,12 @@ class EventSourceMappingMetricsConfig(dict):
         """
         The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
 
-        :param Sequence['EventSourceMappingMetricsConfigMetricsItem'] metrics: The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+        :param Sequence['EventSourceMappingMetricsConfigMetricsItem'] metrics: The metrics you want your event source mapping to produce, including ``EventCount``, ``ErrorCount``, ``KafkaMetrics``.
+                 +  ``EventCount`` to receive metrics related to the number of events processed by your event source mapping.
+                 +  ``ErrorCount`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.
+                 +  ``KafkaMetrics`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.
+               
+                 For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
@@ -1163,7 +1194,12 @@ class EventSourceMappingMetricsConfig(dict):
     @pulumi.getter
     def metrics(self) -> Optional[Sequence['EventSourceMappingMetricsConfigMetricsItem']]:
         """
-        The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+        The metrics you want your event source mapping to produce, including ``EventCount``, ``ErrorCount``, ``KafkaMetrics``.
+          +  ``EventCount`` to receive metrics related to the number of events processed by your event source mapping.
+          +  ``ErrorCount`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.
+          +  ``KafkaMetrics`` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.
+
+          For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         return pulumi.get(self, "metrics")
 
@@ -1179,7 +1215,7 @@ class EventSourceMappingOnFailure(dict):
         A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 
         :param _builtins.str destination: The Amazon Resource Name (ARN) of the destination resource.
-                To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
+                To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.
                  Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
                  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
@@ -1191,7 +1227,7 @@ class EventSourceMappingOnFailure(dict):
     def destination(self) -> Optional[_builtins.str]:
         """
         The Amazon Resource Name (ARN) of the destination resource.
-         To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
+         To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.
           Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
           To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """

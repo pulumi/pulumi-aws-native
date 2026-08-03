@@ -52950,6 +52950,165 @@ func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+type UserProfileEmrSettings struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+	AssumableRoleArns []string `pulumi:"assumableRoleArns"`
+	// An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+	ExecutionRoleArns []string `pulumi:"executionRoleArns"`
+}
+
+// UserProfileEmrSettingsInput is an input type that accepts UserProfileEmrSettingsArgs and UserProfileEmrSettingsOutput values.
+// You can construct a concrete instance of `UserProfileEmrSettingsInput` via:
+//
+//	UserProfileEmrSettingsArgs{...}
+type UserProfileEmrSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileEmrSettingsOutput() UserProfileEmrSettingsOutput
+	ToUserProfileEmrSettingsOutputWithContext(context.Context) UserProfileEmrSettingsOutput
+}
+
+// Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+type UserProfileEmrSettingsArgs struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+	AssumableRoleArns pulumi.StringArrayInput `pulumi:"assumableRoleArns"`
+	// An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+	ExecutionRoleArns pulumi.StringArrayInput `pulumi:"executionRoleArns"`
+}
+
+func (UserProfileEmrSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileEmrSettings)(nil)).Elem()
+}
+
+func (i UserProfileEmrSettingsArgs) ToUserProfileEmrSettingsOutput() UserProfileEmrSettingsOutput {
+	return i.ToUserProfileEmrSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileEmrSettingsArgs) ToUserProfileEmrSettingsOutputWithContext(ctx context.Context) UserProfileEmrSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileEmrSettingsOutput)
+}
+
+func (i UserProfileEmrSettingsArgs) ToUserProfileEmrSettingsPtrOutput() UserProfileEmrSettingsPtrOutput {
+	return i.ToUserProfileEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileEmrSettingsArgs) ToUserProfileEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileEmrSettingsOutput).ToUserProfileEmrSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileEmrSettingsPtrInput is an input type that accepts UserProfileEmrSettingsArgs, UserProfileEmrSettingsPtr and UserProfileEmrSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileEmrSettingsPtrInput` via:
+//
+//	        UserProfileEmrSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileEmrSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileEmrSettingsPtrOutput() UserProfileEmrSettingsPtrOutput
+	ToUserProfileEmrSettingsPtrOutputWithContext(context.Context) UserProfileEmrSettingsPtrOutput
+}
+
+type userProfileEmrSettingsPtrType UserProfileEmrSettingsArgs
+
+func UserProfileEmrSettingsPtr(v *UserProfileEmrSettingsArgs) UserProfileEmrSettingsPtrInput {
+	return (*userProfileEmrSettingsPtrType)(v)
+}
+
+func (*userProfileEmrSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileEmrSettings)(nil)).Elem()
+}
+
+func (i *userProfileEmrSettingsPtrType) ToUserProfileEmrSettingsPtrOutput() UserProfileEmrSettingsPtrOutput {
+	return i.ToUserProfileEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileEmrSettingsPtrType) ToUserProfileEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileEmrSettingsPtrOutput)
+}
+
+// Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+type UserProfileEmrSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileEmrSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileEmrSettings)(nil)).Elem()
+}
+
+func (o UserProfileEmrSettingsOutput) ToUserProfileEmrSettingsOutput() UserProfileEmrSettingsOutput {
+	return o
+}
+
+func (o UserProfileEmrSettingsOutput) ToUserProfileEmrSettingsOutputWithContext(ctx context.Context) UserProfileEmrSettingsOutput {
+	return o
+}
+
+func (o UserProfileEmrSettingsOutput) ToUserProfileEmrSettingsPtrOutput() UserProfileEmrSettingsPtrOutput {
+	return o.ToUserProfileEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileEmrSettingsOutput) ToUserProfileEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileEmrSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileEmrSettings) *UserProfileEmrSettings {
+		return &v
+	}).(UserProfileEmrSettingsPtrOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+func (o UserProfileEmrSettingsOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileEmrSettings) []string { return v.AssumableRoleArns }).(pulumi.StringArrayOutput)
+}
+
+// An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+func (o UserProfileEmrSettingsOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileEmrSettings) []string { return v.ExecutionRoleArns }).(pulumi.StringArrayOutput)
+}
+
+type UserProfileEmrSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileEmrSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileEmrSettings)(nil)).Elem()
+}
+
+func (o UserProfileEmrSettingsPtrOutput) ToUserProfileEmrSettingsPtrOutput() UserProfileEmrSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileEmrSettingsPtrOutput) ToUserProfileEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileEmrSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileEmrSettingsPtrOutput) Elem() UserProfileEmrSettingsOutput {
+	return o.ApplyT(func(v *UserProfileEmrSettings) UserProfileEmrSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileEmrSettings
+		return ret
+	}).(UserProfileEmrSettingsOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+func (o UserProfileEmrSettingsPtrOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumableRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+func (o UserProfileEmrSettingsPtrOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
 type UserProfileFSxLustreFileSystemConfig struct {
 	// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
 	FileSystemId string `pulumi:"fileSystemId"`
@@ -53420,6 +53579,8 @@ type UserProfileJupyterLabAppSettings struct {
 	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
 	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
+	// The configuration parameters for EMR settings.
+	EmrSettings *UserProfileEmrSettings `pulumi:"emrSettings"`
 	// A list of LifecycleConfigArns available for use with JupyterLab apps.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
@@ -53447,6 +53608,8 @@ type UserProfileJupyterLabAppSettingsArgs struct {
 	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
 	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The configuration parameters for EMR settings.
+	EmrSettings UserProfileEmrSettingsPtrInput `pulumi:"emrSettings"`
 	// A list of LifecycleConfigArns available for use with JupyterLab apps.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
@@ -53556,6 +53719,11 @@ func (o UserProfileJupyterLabAppSettingsOutput) DefaultResourceSpec() UserProfil
 	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
 }
 
+// The configuration parameters for EMR settings.
+func (o UserProfileJupyterLabAppSettingsOutput) EmrSettings() UserProfileEmrSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) *UserProfileEmrSettings { return v.EmrSettings }).(UserProfileEmrSettingsPtrOutput)
+}
+
 // A list of LifecycleConfigArns available for use with JupyterLab apps.
 func (o UserProfileJupyterLabAppSettingsOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileJupyterLabAppSettings) []string { return v.LifecycleConfigArns }).(pulumi.StringArrayOutput)
@@ -53633,6 +53801,16 @@ func (o UserProfileJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() UserPro
 		}
 		return v.DefaultResourceSpec
 	}).(UserProfileResourceSpecPtrOutput)
+}
+
+// The configuration parameters for EMR settings.
+func (o UserProfileJupyterLabAppSettingsPtrOutput) EmrSettings() UserProfileEmrSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileJupyterLabAppSettings) *UserProfileEmrSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmrSettings
+	}).(UserProfileEmrSettingsPtrOutput)
 }
 
 // A list of LifecycleConfigArns available for use with JupyterLab apps.
@@ -54158,6 +54336,8 @@ type UserProfileResourceSpec struct {
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
+	// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+	TrainingPlanArn *string `pulumi:"trainingPlanArn"`
 }
 
 // UserProfileResourceSpecInput is an input type that accepts UserProfileResourceSpecArgs and UserProfileResourceSpecOutput values.
@@ -54184,6 +54364,8 @@ type UserProfileResourceSpecArgs struct {
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
+	// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+	TrainingPlanArn pulumi.StringPtrInput `pulumi:"trainingPlanArn"`
 }
 
 func (UserProfileResourceSpecArgs) ElementType() reflect.Type {
@@ -54287,6 +54469,11 @@ func (o UserProfileResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringP
 	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+func (o UserProfileResourceSpecOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.TrainingPlanArn }).(pulumi.StringPtrOutput)
+}
+
 type UserProfileResourceSpecPtrOutput struct{ *pulumi.OutputState }
 
 func (UserProfileResourceSpecPtrOutput) ElementType() reflect.Type {
@@ -54352,6 +54539,16 @@ func (o UserProfileResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.Stri
 			return nil
 		}
 		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+func (o UserProfileResourceSpecPtrOutput) TrainingPlanArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrainingPlanArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -55990,6 +56187,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDefaultSpaceStorageSettingsPtrInput)(nil)).Elem(), UserProfileDefaultSpaceStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEfsFileSystemConfigInput)(nil)).Elem(), UserProfileEfsFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEfsFileSystemConfigPtrInput)(nil)).Elem(), UserProfileEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEmrSettingsInput)(nil)).Elem(), UserProfileEmrSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEmrSettingsPtrInput)(nil)).Elem(), UserProfileEmrSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileFSxLustreFileSystemConfigInput)(nil)).Elem(), UserProfileFSxLustreFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileFSxLustreFileSystemConfigPtrInput)(nil)).Elem(), UserProfileFSxLustreFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileHiddenSageMakerImageInput)(nil)).Elem(), UserProfileHiddenSageMakerImageArgs{})
@@ -56664,6 +56863,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileDefaultSpaceStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileEfsFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(UserProfileEfsFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileEmrSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileEmrSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileFSxLustreFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(UserProfileFSxLustreFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileHiddenSageMakerImageOutput{})

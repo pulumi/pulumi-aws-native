@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchServerless
 {
     /// <summary>
-    /// Resource schema for AWS::OpenSearchServerless::CollectionIndex
+    /// Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
     /// </summary>
     [AwsNativeResourceType("aws-native:opensearchserverless:CollectionIndex")]
     public partial class CollectionIndex : global::Pulumi.CustomResource

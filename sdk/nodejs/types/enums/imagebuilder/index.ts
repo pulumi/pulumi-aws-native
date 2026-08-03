@@ -36,8 +36,10 @@ export const ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType = {
     Standard: "standard",
     Io1: "io1",
     Io2: "io2",
+    Io2a: "io2a",
     Gp2: "gp2",
     Gp3: "gp3",
+    Gp3a: "gp3a",
     Sc1: "sc1",
     St1: "st1",
 } as const;
@@ -119,8 +121,10 @@ export const ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = {
     Standard: "standard",
     Io1: "io1",
     Io2: "io2",
+    Io2a: "io2a",
     Gp2: "gp2",
     Gp3: "gp3",
+    Gp3a: "gp3a",
     Sc1: "sc1",
     St1: "st1",
 } as const;

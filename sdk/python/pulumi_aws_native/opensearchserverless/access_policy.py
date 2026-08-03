@@ -100,7 +100,7 @@ class AccessPolicy(pulumi.CustomResource):
                  type: pulumi.Input[Optional['AccessPolicyType']] = None,
                  __props__=None):
         """
-        Amazon OpenSearchServerless access policy resource
+        Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class AccessPolicy(pulumi.CustomResource):
                  args: AccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Amazon OpenSearchServerless access policy resource
+        Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

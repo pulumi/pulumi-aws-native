@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayTarget{}
 	case "aws-native:bedrockagentcore:Harness":
 		r = &Harness{}
+	case "aws-native:bedrockagentcore:HarnessEndpoint":
+		r = &HarnessEndpoint{}
 	case "aws-native:bedrockagentcore:Memory":
 		r = &Memory{}
 	case "aws-native:bedrockagentcore:OAuth2CredentialProvider":

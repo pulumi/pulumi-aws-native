@@ -1093,7 +1093,7 @@ type AutomationRuleStringFilter struct {
 	//   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
 	//   +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 	//
-	//  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+	//  The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleStringFilterComparison `pulumi:"comparison"`
 	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
 	Value string `pulumi:"value"`
@@ -1133,7 +1133,7 @@ type AutomationRuleStringFilterArgs struct {
 	//   +   ``ResourceType NOT_EQUALS AwsIamPolicy``
 	//   +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 	//
-	//  ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+	//  The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 	Comparison AutomationRuleStringFilterComparisonInput `pulumi:"comparison"`
 	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1213,7 +1213,7 @@ func (o AutomationRuleStringFilterOutput) ToAutomationRuleStringFilterOutputWith
 //	 +   ``ResourceType NOT_EQUALS AwsIamPolicy``
 //	 +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 //
-//	``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+//	The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
 func (o AutomationRuleStringFilterOutput) Comparison() AutomationRuleStringFilterComparisonOutput {
 	return o.ApplyT(func(v AutomationRuleStringFilter) AutomationRuleStringFilterComparison { return v.Comparison }).(AutomationRuleStringFilterComparisonOutput)
 }
@@ -5476,12 +5476,13 @@ func (o ConfigurationPolicySecurityHubPolicyPtrOutput) ServiceEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The configuration settings for an Azure CSPM provider
+// The configuration for connecting to an Azure environment.
 type ConnectorAzureProviderConfiguration struct {
-	// The ARN of the AWS Config connector used for the Azure integration
+	// The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
 	AwsConfigConnectorArn string `pulumi:"awsConfigConnectorArn"`
-	// The list of Azure regions to include in the connector scope
-	AzureRegions       []string                         `pulumi:"azureRegions"`
+	// The list of Azure regions to monitor.
+	AzureRegions []string `pulumi:"azureRegions"`
+	// The scope configuration that defines which Azure resources are monitored.
 	ScopeConfiguration ConnectorAzureScopeConfiguration `pulumi:"scopeConfiguration"`
 }
 
@@ -5496,12 +5497,13 @@ type ConnectorAzureProviderConfigurationInput interface {
 	ToConnectorAzureProviderConfigurationOutputWithContext(context.Context) ConnectorAzureProviderConfigurationOutput
 }
 
-// The configuration settings for an Azure CSPM provider
+// The configuration for connecting to an Azure environment.
 type ConnectorAzureProviderConfigurationArgs struct {
-	// The ARN of the AWS Config connector used for the Azure integration
+	// The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
 	AwsConfigConnectorArn pulumi.StringInput `pulumi:"awsConfigConnectorArn"`
-	// The list of Azure regions to include in the connector scope
-	AzureRegions       pulumi.StringArrayInput               `pulumi:"azureRegions"`
+	// The list of Azure regions to monitor.
+	AzureRegions pulumi.StringArrayInput `pulumi:"azureRegions"`
+	// The scope configuration that defines which Azure resources are monitored.
 	ScopeConfiguration ConnectorAzureScopeConfigurationInput `pulumi:"scopeConfiguration"`
 }
 
@@ -5517,7 +5519,7 @@ func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureProviderConfigurationOutput)
 }
 
-// The configuration settings for an Azure CSPM provider
+// The configuration for connecting to an Azure environment.
 type ConnectorAzureProviderConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorAzureProviderConfigurationOutput) ElementType() reflect.Type {
@@ -5532,16 +5534,17 @@ func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfi
 	return o
 }
 
-// The ARN of the AWS Config connector used for the Azure integration
+// The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
 func (o ConnectorAzureProviderConfigurationOutput) AwsConfigConnectorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) string { return v.AwsConfigConnectorArn }).(pulumi.StringOutput)
 }
 
-// The list of Azure regions to include in the connector scope
+// The list of Azure regions to monitor.
 func (o ConnectorAzureProviderConfigurationOutput) AzureRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) []string { return v.AzureRegions }).(pulumi.StringArrayOutput)
 }
 
+// The scope configuration that defines which Azure resources are monitored.
 func (o ConnectorAzureProviderConfigurationOutput) ScopeConfiguration() ConnectorAzureScopeConfigurationOutput {
 	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) ConnectorAzureScopeConfiguration {
 		return v.ScopeConfiguration
@@ -5572,7 +5575,7 @@ func (o ConnectorAzureProviderConfigurationPtrOutput) Elem() ConnectorAzureProvi
 	}).(ConnectorAzureProviderConfigurationOutput)
 }
 
-// The ARN of the AWS Config connector used for the Azure integration
+// The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
 func (o ConnectorAzureProviderConfigurationPtrOutput) AwsConfigConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) *string {
 		if v == nil {
@@ -5582,7 +5585,7 @@ func (o ConnectorAzureProviderConfigurationPtrOutput) AwsConfigConnectorArn() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of Azure regions to include in the connector scope
+// The list of Azure regions to monitor.
 func (o ConnectorAzureProviderConfigurationPtrOutput) AzureRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) []string {
 		if v == nil {
@@ -5592,6 +5595,7 @@ func (o ConnectorAzureProviderConfigurationPtrOutput) AzureRegions() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
+// The scope configuration that defines which Azure resources are monitored.
 func (o ConnectorAzureProviderConfigurationPtrOutput) ScopeConfiguration() ConnectorAzureScopeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) *ConnectorAzureScopeConfiguration {
 		if v == nil {
@@ -5601,11 +5605,11 @@ func (o ConnectorAzureProviderConfigurationPtrOutput) ScopeConfiguration() Conne
 	}).(ConnectorAzureScopeConfigurationPtrOutput)
 }
 
-// The scope configuration for an Azure connector
+// The scope configuration for an Azure connector, defining the tenant or subscription scope.
 type ConnectorAzureScopeConfiguration struct {
-	// The scope type for the Azure connector
+	// The type of scope. Valid values are ``tenant`` and ``subscription``.
 	ScopeType ConnectorAzureScopeConfigurationScopeType `pulumi:"scopeType"`
-	// The list of scope values for the Azure connector
+	// The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
 	ScopeValues []string `pulumi:"scopeValues"`
 }
 
@@ -5620,11 +5624,11 @@ type ConnectorAzureScopeConfigurationInput interface {
 	ToConnectorAzureScopeConfigurationOutputWithContext(context.Context) ConnectorAzureScopeConfigurationOutput
 }
 
-// The scope configuration for an Azure connector
+// The scope configuration for an Azure connector, defining the tenant or subscription scope.
 type ConnectorAzureScopeConfigurationArgs struct {
-	// The scope type for the Azure connector
+	// The type of scope. Valid values are ``tenant`` and ``subscription``.
 	ScopeType ConnectorAzureScopeConfigurationScopeTypeInput `pulumi:"scopeType"`
-	// The list of scope values for the Azure connector
+	// The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
 	ScopeValues pulumi.StringArrayInput `pulumi:"scopeValues"`
 }
 
@@ -5640,7 +5644,7 @@ func (i ConnectorAzureScopeConfigurationArgs) ToConnectorAzureScopeConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureScopeConfigurationOutput)
 }
 
-// The scope configuration for an Azure connector
+// The scope configuration for an Azure connector, defining the tenant or subscription scope.
 type ConnectorAzureScopeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorAzureScopeConfigurationOutput) ElementType() reflect.Type {
@@ -5655,12 +5659,12 @@ func (o ConnectorAzureScopeConfigurationOutput) ToConnectorAzureScopeConfigurati
 	return o
 }
 
-// The scope type for the Azure connector
+// The type of scope. Valid values are “tenant“ and “subscription“.
 func (o ConnectorAzureScopeConfigurationOutput) ScopeType() ConnectorAzureScopeConfigurationScopeTypeOutput {
 	return o.ApplyT(func(v ConnectorAzureScopeConfiguration) ConnectorAzureScopeConfigurationScopeType { return v.ScopeType }).(ConnectorAzureScopeConfigurationScopeTypeOutput)
 }
 
-// The list of scope values for the Azure connector
+// The list of scope values, such as subscription IDs, when the scope type is “subscription“.
 func (o ConnectorAzureScopeConfigurationOutput) ScopeValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorAzureScopeConfiguration) []string { return v.ScopeValues }).(pulumi.StringArrayOutput)
 }
@@ -5689,7 +5693,7 @@ func (o ConnectorAzureScopeConfigurationPtrOutput) Elem() ConnectorAzureScopeCon
 	}).(ConnectorAzureScopeConfigurationOutput)
 }
 
-// The scope type for the Azure connector
+// The type of scope. Valid values are “tenant“ and “subscription“.
 func (o ConnectorAzureScopeConfigurationPtrOutput) ScopeType() ConnectorAzureScopeConfigurationScopeTypePtrOutput {
 	return o.ApplyT(func(v *ConnectorAzureScopeConfiguration) *ConnectorAzureScopeConfigurationScopeType {
 		if v == nil {
@@ -5699,7 +5703,7 @@ func (o ConnectorAzureScopeConfigurationPtrOutput) ScopeType() ConnectorAzureSco
 	}).(ConnectorAzureScopeConfigurationScopeTypePtrOutput)
 }
 
-// The list of scope values for the Azure connector
+// The list of scope values, such as subscription IDs, when the scope type is “subscription“.
 func (o ConnectorAzureScopeConfigurationPtrOutput) ScopeValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectorAzureScopeConfiguration) []string {
 		if v == nil {
@@ -5709,15 +5713,15 @@ func (o ConnectorAzureScopeConfigurationPtrOutput) ScopeValues() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// A health issue associated with the connector
+// Represents a specific health issue detected for a connector.
 type ConnectorHealthIssue struct {
-	// The code identifying the type of health issue
+	// The error code that identifies the type of health issue.
 	Code string `pulumi:"code"`
-	// The message describing the health issue
+	// A human-readable message that describes the health issue.
 	Message string `pulumi:"message"`
 }
 
-// A health issue associated with the connector
+// Represents a specific health issue detected for a connector.
 type ConnectorHealthIssueOutput struct{ *pulumi.OutputState }
 
 func (ConnectorHealthIssueOutput) ElementType() reflect.Type {
@@ -5732,12 +5736,12 @@ func (o ConnectorHealthIssueOutput) ToConnectorHealthIssueOutputWithContext(ctx 
 	return o
 }
 
-// The code identifying the type of health issue
+// The error code that identifies the type of health issue.
 func (o ConnectorHealthIssueOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorHealthIssue) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// The message describing the health issue
+// A human-readable message that describes the health issue.
 func (o ConnectorHealthIssueOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorHealthIssue) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -5762,7 +5766,6 @@ func (o ConnectorHealthIssueArrayOutput) Index(i pulumi.IntInput) ConnectorHealt
 	}).(ConnectorHealthIssueOutput)
 }
 
-// The CSPM provider configuration for the connector
 type ConnectorProvider struct {
 	Azure ConnectorAzureProviderConfiguration `pulumi:"azure"`
 }
@@ -5778,7 +5781,6 @@ type ConnectorProviderInput interface {
 	ToConnectorProviderOutputWithContext(context.Context) ConnectorProviderOutput
 }
 
-// The CSPM provider configuration for the connector
 type ConnectorProviderArgs struct {
 	Azure ConnectorAzureProviderConfigurationInput `pulumi:"azure"`
 }
@@ -5795,7 +5797,6 @@ func (i ConnectorProviderArgs) ToConnectorProviderOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProviderOutput)
 }
 
-// The CSPM provider configuration for the connector
 type ConnectorProviderOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProviderOutput) ElementType() reflect.Type {

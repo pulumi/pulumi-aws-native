@@ -51473,6 +51473,178 @@ func (in *refreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDay
 	return pulumi.ToOutputWithContext(ctx, in).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
 }
 
+// The type of QuickSight resource.
+type SpaceResourceResourceType string
+
+const (
+	SpaceResourceResourceTypeTopic           = SpaceResourceResourceType("TOPIC")
+	SpaceResourceResourceTypeDashboard       = SpaceResourceResourceType("DASHBOARD")
+	SpaceResourceResourceTypeKnowledgeBase   = SpaceResourceResourceType("KNOWLEDGE_BASE")
+	SpaceResourceResourceTypeActionConnector = SpaceResourceResourceType("ACTION_CONNECTOR")
+	SpaceResourceResourceTypeDataSet         = SpaceResourceResourceType("DATA_SET")
+)
+
+func (SpaceResourceResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourceResourceType)(nil)).Elem()
+}
+
+func (e SpaceResourceResourceType) ToSpaceResourceResourceTypeOutput() SpaceResourceResourceTypeOutput {
+	return pulumi.ToOutput(e).(SpaceResourceResourceTypeOutput)
+}
+
+func (e SpaceResourceResourceType) ToSpaceResourceResourceTypeOutputWithContext(ctx context.Context) SpaceResourceResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SpaceResourceResourceTypeOutput)
+}
+
+func (e SpaceResourceResourceType) ToSpaceResourceResourceTypePtrOutput() SpaceResourceResourceTypePtrOutput {
+	return e.ToSpaceResourceResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e SpaceResourceResourceType) ToSpaceResourceResourceTypePtrOutputWithContext(ctx context.Context) SpaceResourceResourceTypePtrOutput {
+	return SpaceResourceResourceType(e).ToSpaceResourceResourceTypeOutputWithContext(ctx).ToSpaceResourceResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e SpaceResourceResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceResourceResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SpaceResourceResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SpaceResourceResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SpaceResourceResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceResourceResourceType)(nil)).Elem()
+}
+
+func (o SpaceResourceResourceTypeOutput) ToSpaceResourceResourceTypeOutput() SpaceResourceResourceTypeOutput {
+	return o
+}
+
+func (o SpaceResourceResourceTypeOutput) ToSpaceResourceResourceTypeOutputWithContext(ctx context.Context) SpaceResourceResourceTypeOutput {
+	return o
+}
+
+func (o SpaceResourceResourceTypeOutput) ToSpaceResourceResourceTypePtrOutput() SpaceResourceResourceTypePtrOutput {
+	return o.ToSpaceResourceResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceResourceTypeOutput) ToSpaceResourceResourceTypePtrOutputWithContext(ctx context.Context) SpaceResourceResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceResourceResourceType) *SpaceResourceResourceType {
+		return &v
+	}).(SpaceResourceResourceTypePtrOutput)
+}
+
+func (o SpaceResourceResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceResourceResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SpaceResourceResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpaceResourceResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceResourceResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceResourceResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceResourceResourceType)(nil)).Elem()
+}
+
+func (o SpaceResourceResourceTypePtrOutput) ToSpaceResourceResourceTypePtrOutput() SpaceResourceResourceTypePtrOutput {
+	return o
+}
+
+func (o SpaceResourceResourceTypePtrOutput) ToSpaceResourceResourceTypePtrOutputWithContext(ctx context.Context) SpaceResourceResourceTypePtrOutput {
+	return o
+}
+
+func (o SpaceResourceResourceTypePtrOutput) Elem() SpaceResourceResourceTypeOutput {
+	return o.ApplyT(func(v *SpaceResourceResourceType) SpaceResourceResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceResourceResourceType
+		return ret
+	}).(SpaceResourceResourceTypeOutput)
+}
+
+func (o SpaceResourceResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceResourceResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpaceResourceResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SpaceResourceResourceTypeInput is an input type that accepts values of the SpaceResourceResourceType enum
+// A concrete instance of `SpaceResourceResourceTypeInput` can be one of the following:
+//
+//	SpaceResourceResourceTypeTopic
+//	SpaceResourceResourceTypeDashboard
+//	SpaceResourceResourceTypeKnowledgeBase
+//	SpaceResourceResourceTypeActionConnector
+//	SpaceResourceResourceTypeDataSet
+type SpaceResourceResourceTypeInput interface {
+	pulumi.Input
+
+	ToSpaceResourceResourceTypeOutput() SpaceResourceResourceTypeOutput
+	ToSpaceResourceResourceTypeOutputWithContext(context.Context) SpaceResourceResourceTypeOutput
+}
+
+var spaceResourceResourceTypePtrType = reflect.TypeOf((**SpaceResourceResourceType)(nil)).Elem()
+
+type SpaceResourceResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToSpaceResourceResourceTypePtrOutput() SpaceResourceResourceTypePtrOutput
+	ToSpaceResourceResourceTypePtrOutputWithContext(context.Context) SpaceResourceResourceTypePtrOutput
+}
+
+type spaceResourceResourceTypePtr string
+
+func SpaceResourceResourceTypePtr(v string) SpaceResourceResourceTypePtrInput {
+	return (*spaceResourceResourceTypePtr)(&v)
+}
+
+func (*spaceResourceResourceTypePtr) ElementType() reflect.Type {
+	return spaceResourceResourceTypePtrType
+}
+
+func (in *spaceResourceResourceTypePtr) ToSpaceResourceResourceTypePtrOutput() SpaceResourceResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(SpaceResourceResourceTypePtrOutput)
+}
+
+func (in *spaceResourceResourceTypePtr) ToSpaceResourceResourceTypePtrOutputWithContext(ctx context.Context) SpaceResourceResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SpaceResourceResourceTypePtrOutput)
+}
+
 type TemplateAnchorOption string
 
 const (
@@ -76939,6 +77111,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE15"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceResourceTypeInput)(nil)).Elem(), SpaceResourceResourceType("TOPIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceResourceTypePtrInput)(nil)).Elem(), SpaceResourceResourceType("TOPIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAnchorOptionInput)(nil)).Elem(), TemplateAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAnchorOptionPtrInput)(nil)).Elem(), TemplateAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArcThicknessInput)(nil)).Elem(), TemplateArcThickness("SMALL"))
@@ -77847,6 +78021,8 @@ func init() {
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput{})
+	pulumi.RegisterOutputType(SpaceResourceResourceTypeOutput{})
+	pulumi.RegisterOutputType(SpaceResourceResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateAnchorOptionOutput{})
 	pulumi.RegisterOutputType(TemplateAnchorOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateArcThicknessOutput{})

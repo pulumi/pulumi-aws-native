@@ -12,32 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::SecurityHub::Connector
+// Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
 type Connector struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the connector
-	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
-	// The ID of the connector
+	ConnectorArn    pulumi.StringOutput `pulumi:"connectorArn"`
 	ConnectorId     pulumi.StringOutput `pulumi:"connectorId"`
 	ConnectorStatus pulumi.StringOutput `pulumi:"connectorStatus"`
-	// The date and time for createdAt in UTC and ISO 8601 format.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The principal that created the connector
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// A description of the connector
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The enablement status of the connector
-	EnablementStatus pulumi.StringOutput `pulumi:"enablementStatus"`
-	// The list of health issues associated with the connector
-	Issues ConnectorHealthIssueArrayOutput `pulumi:"issues"`
-	// The date and time for lastCheckedAt in UTC and ISO 8601 format.
-	LastCheckedAt pulumi.StringOutput `pulumi:"lastCheckedAt"`
-	// The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
-	// The message associated with the connector status change
-	Message pulumi.StringOutput `pulumi:"message"`
-	// The name of the connector
+	CreatedAt       pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedBy       pulumi.StringOutput `pulumi:"createdBy"`
+	// The description of the connector.
+	Description      pulumi.StringPtrOutput          `pulumi:"description"`
+	EnablementStatus pulumi.StringOutput             `pulumi:"enablementStatus"`
+	Issues           ConnectorHealthIssueArrayOutput `pulumi:"issues"`
+	LastCheckedAt    pulumi.StringOutput             `pulumi:"lastCheckedAt"`
+	LastUpdatedAt    pulumi.StringOutput             `pulumi:"lastUpdatedAt"`
+	Message          pulumi.StringOutput             `pulumi:"message"`
+	// The name of the connector.
 	Name     pulumi.StringOutput     `pulumi:"name"`
 	Provider ConnectorProviderOutput `pulumi:"provider"`
 	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
@@ -91,9 +82,9 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	// A description of the connector
+	// The description of the connector.
 	Description *string `pulumi:"description"`
-	// The name of the connector
+	// The name of the connector.
 	Name     *string           `pulumi:"name"`
 	Provider ConnectorProvider `pulumi:"provider"`
 	Tags     map[string]string `pulumi:"tags"`
@@ -101,9 +92,9 @@ type connectorArgs struct {
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
-	// A description of the connector
+	// The description of the connector.
 	Description pulumi.StringPtrInput
-	// The name of the connector
+	// The name of the connector.
 	Name     pulumi.StringPtrInput
 	Provider ConnectorProviderInput
 	Tags     pulumi.StringMapInput
@@ -146,12 +137,10 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
-// The ARN of the connector
 func (o ConnectorOutput) ConnectorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorArn }).(pulumi.StringOutput)
 }
 
-// The ID of the connector
 func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
 }
@@ -160,47 +149,40 @@ func (o ConnectorOutput) ConnectorStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorStatus }).(pulumi.StringOutput)
 }
 
-// The date and time for createdAt in UTC and ISO 8601 format.
 func (o ConnectorOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The principal that created the connector
 func (o ConnectorOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// A description of the connector
+// The description of the connector.
 func (o ConnectorOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The enablement status of the connector
 func (o ConnectorOutput) EnablementStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.EnablementStatus }).(pulumi.StringOutput)
 }
 
-// The list of health issues associated with the connector
 func (o ConnectorOutput) Issues() ConnectorHealthIssueArrayOutput {
 	return o.ApplyT(func(v *Connector) ConnectorHealthIssueArrayOutput { return v.Issues }).(ConnectorHealthIssueArrayOutput)
 }
 
-// The date and time for lastCheckedAt in UTC and ISO 8601 format.
 func (o ConnectorOutput) LastCheckedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.LastCheckedAt }).(pulumi.StringOutput)
 }
 
-// The date and time for lastUpdatedAt in UTC and ISO 8601 format.
 func (o ConnectorOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
-// The message associated with the connector status change
 func (o ConnectorOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
 }
 
-// The name of the connector
+// The name of the connector.
 func (o ConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

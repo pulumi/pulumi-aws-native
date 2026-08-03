@@ -30,6 +30,7 @@ class ChannelArgs:
                  input_switch_configuration: pulumi.Input[Optional['ChannelInputSwitchConfigurationArgs']] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
                  output_header_configuration: pulumi.Input[Optional['ChannelOutputHeaderConfigurationArgs']] = None,
+                 output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
@@ -57,6 +58,8 @@ class ChannelArgs:
             pulumi.set(__self__, "input_type", input_type)
         if output_header_configuration is not None:
             pulumi.set(__self__, "output_header_configuration", output_header_configuration)
+        if output_locking_mode is not None:
+            pulumi.set(__self__, "output_locking_mode", output_locking_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -138,6 +141,15 @@ class ChannelArgs:
         pulumi.set(self, "output_header_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="outputLockingMode")
+    def output_locking_mode(self) -> pulumi.Input[Optional['ChannelOutputLockingMode']]:
+        return pulumi.get(self, "output_locking_mode")
+
+    @output_locking_mode.setter
+    def output_locking_mode(self, value: pulumi.Input[Optional['ChannelOutputLockingMode']]):
+        pulumi.set(self, "output_locking_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -159,6 +171,7 @@ class Channel(pulumi.CustomResource):
                  input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
                  output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
+                 output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -208,6 +221,7 @@ class Channel(pulumi.CustomResource):
                  input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
                  output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
+                 output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -226,13 +240,14 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["input_switch_configuration"] = input_switch_configuration
             __props__.__dict__["input_type"] = input_type
             __props__.__dict__["output_header_configuration"] = output_header_configuration
+            __props__.__dict__["output_locking_mode"] = output_locking_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["ingest_endpoints"] = None
             __props__.__dict__["modified_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName", "inputType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channelGroupName", "channelName", "inputType", "outputLockingMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Channel, __self__).__init__(
             'aws-native:mediapackagev2:Channel',
@@ -267,6 +282,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["input_type"] = None
         __props__.__dict__["modified_at"] = None
         __props__.__dict__["output_header_configuration"] = None
+        __props__.__dict__["output_locking_mode"] = None
         __props__.__dict__["tags"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
 
@@ -362,6 +378,11 @@ class Channel(pulumi.CustomResource):
         The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
         """
         return pulumi.get(self, "output_header_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="outputLockingMode")
+    def output_locking_mode(self) -> pulumi.Output[Optional['ChannelOutputLockingMode']]:
+        return pulumi.get(self, "output_locking_mode")
 
     @_builtins.property
     @pulumi.getter

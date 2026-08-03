@@ -32,7 +32,8 @@ type CapacityProvider struct {
 	// The current state of the capacity provider.
 	State CapacityProviderStateEnumOutput `pulumi:"state"`
 	// A key-value pair that provides metadata for the capacity provider.
-	Tags            aws.TagArrayOutput                       `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The telemetry configuration for the capacity provider, including logging settings.
 	TelemetryConfig CapacityProviderTelemetryConfigPtrOutput `pulumi:"telemetryConfig"`
 	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfigOutput `pulumi:"vpcConfig"`
@@ -104,7 +105,8 @@ type capacityProviderArgs struct {
 	// Configuration for tag propagation to managed resources launched by the capacity provider.
 	PropagateTags *CapacityProviderPropagateTagsConfig `pulumi:"propagateTags"`
 	// A key-value pair that provides metadata for the capacity provider.
-	Tags            []aws.Tag                        `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The telemetry configuration for the capacity provider, including logging settings.
 	TelemetryConfig *CapacityProviderTelemetryConfig `pulumi:"telemetryConfig"`
 	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfig `pulumi:"vpcConfig"`
@@ -124,7 +126,8 @@ type CapacityProviderArgs struct {
 	// Configuration for tag propagation to managed resources launched by the capacity provider.
 	PropagateTags CapacityProviderPropagateTagsConfigPtrInput
 	// A key-value pair that provides metadata for the capacity provider.
-	Tags            aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The telemetry configuration for the capacity provider, including logging settings.
 	TelemetryConfig CapacityProviderTelemetryConfigPtrInput
 	// The VPC configuration for the capacity provider.
 	VpcConfig CapacityProviderVpcConfigInput
@@ -212,6 +215,7 @@ func (o CapacityProviderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CapacityProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The telemetry configuration for the capacity provider, including logging settings.
 func (o CapacityProviderOutput) TelemetryConfig() CapacityProviderTelemetryConfigPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderTelemetryConfigPtrOutput { return v.TelemetryConfig }).(CapacityProviderTelemetryConfigPtrOutput)
 }

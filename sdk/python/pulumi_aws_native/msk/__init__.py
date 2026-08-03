@@ -8,10 +8,12 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .batch_scram_secret import *
+from .channel import *
 from .cluster import *
 from .cluster_policy import *
 from .configuration import *
 from .get_batch_scram_secret import *
+from .get_channel import *
 from .get_cluster import *
 from .get_cluster_policy import *
 from .get_configuration import *

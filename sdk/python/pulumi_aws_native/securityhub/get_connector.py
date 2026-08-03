@@ -69,17 +69,11 @@ class GetConnectorResult:
     @_builtins.property
     @pulumi.getter(name="connectorArn")
     def connector_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the connector
-        """
         return pulumi.get(self, "connector_arn")
 
     @_builtins.property
     @pulumi.getter(name="connectorId")
     def connector_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the connector
-        """
         return pulumi.get(self, "connector_id")
 
     @_builtins.property
@@ -90,65 +84,44 @@ class GetConnectorResult:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
-        """
-        The date and time for createdAt in UTC and ISO 8601 format.
-        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[_builtins.str]:
-        """
-        The principal that created the connector
-        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        A description of the connector
+        The description of the connector.
         """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="enablementStatus")
     def enablement_status(self) -> Optional[_builtins.str]:
-        """
-        The enablement status of the connector
-        """
         return pulumi.get(self, "enablement_status")
 
     @_builtins.property
     @pulumi.getter
     def issues(self) -> Optional[Sequence['outputs.ConnectorHealthIssue']]:
-        """
-        The list of health issues associated with the connector
-        """
         return pulumi.get(self, "issues")
 
     @_builtins.property
     @pulumi.getter(name="lastCheckedAt")
     def last_checked_at(self) -> Optional[_builtins.str]:
-        """
-        The date and time for lastCheckedAt in UTC and ISO 8601 format.
-        """
         return pulumi.get(self, "last_checked_at")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[_builtins.str]:
-        """
-        The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
-        """
-        The message associated with the connector status change
-        """
         return pulumi.get(self, "message")
 
     @_builtins.property
@@ -186,9 +159,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 def get_connector(connector_arn: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
-    Resource schema for AWS::SecurityHub::Connector
-
-    :param _builtins.str connector_arn: The ARN of the connector
+    Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
     """
     __args__ = dict()
     __args__['connectorArn'] = connector_arn
@@ -212,9 +183,7 @@ def get_connector(connector_arn: Optional[_builtins.str] = None,
 def get_connector_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
-    Resource schema for AWS::SecurityHub::Connector
-
-    :param _builtins.str connector_arn: The ARN of the connector
+    Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
     """
     __args__ = dict()
     __args__['connectorArn'] = connector_arn

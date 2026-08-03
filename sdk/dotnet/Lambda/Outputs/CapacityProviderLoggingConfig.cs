@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// The capacity provider's Amazon CloudWatch Logs configuration settings.
+    /// </summary>
     [OutputType]
     public sealed class CapacityProviderLoggingConfig
     {
+        /// <summary>
+        /// The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named ``/aws/lambda/capacity-provider/&lt;capacity provider name&gt;``. To use a different log group, enter an existing log group or enter a new log group name.
+        /// </summary>
         public readonly string? LogGroup;
+        /// <summary>
+        /// Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.CapacityProviderLoggingConfigSystemLogLevel? SystemLogLevel;
 
         [OutputConstructor]

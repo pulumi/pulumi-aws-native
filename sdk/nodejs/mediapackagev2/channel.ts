@@ -86,6 +86,7 @@ export class Channel extends pulumi.CustomResource {
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
     declare public readonly outputHeaderConfiguration: pulumi.Output<outputs.mediapackagev2.ChannelOutputHeaderConfiguration | undefined>;
+    declare public readonly outputLockingMode: pulumi.Output<enums.mediapackagev2.ChannelOutputLockingMode | undefined>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -108,6 +109,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["inputSwitchConfiguration"] = args?.inputSwitchConfiguration;
             resourceInputs["inputType"] = args?.inputType;
             resourceInputs["outputHeaderConfiguration"] = args?.outputHeaderConfiguration;
+            resourceInputs["outputLockingMode"] = args?.outputLockingMode;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -126,10 +128,11 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["inputType"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["outputHeaderConfiguration"] = undefined /*out*/;
+            resourceInputs["outputLockingMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["channelGroupName", "channelName", "inputType"] };
+        const replaceOnChanges = { replaceOnChanges: ["channelGroupName", "channelName", "inputType", "outputLockingMode"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
@@ -168,5 +171,6 @@ export interface ChannelArgs {
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
     outputHeaderConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelOutputHeaderConfigurationArgs | undefined>;
+    outputLockingMode?: pulumi.Input<enums.mediapackagev2.ChannelOutputLockingMode | undefined>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

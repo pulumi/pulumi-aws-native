@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless security config resource
+ * Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
  */
 export function getSecurityConfig(args: GetSecurityConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +47,7 @@ export interface GetSecurityConfigResult {
     readonly samlOptions?: outputs.opensearchserverless.SecurityConfigSamlConfigOptions;
 }
 /**
- * Amazon OpenSearchServerless security config resource
+ * Resource Type definition for AWS::OpenSearchServerless::SecurityConfig
  */
 export function getSecurityConfigOutput(args: GetSecurityConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("eumsSms")]
+        public Input<Inputs.UserPoolRegionalConfigurationAttachmentEumsSmsConfigurationArgs>? EumsSms { get; set; }
+
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 

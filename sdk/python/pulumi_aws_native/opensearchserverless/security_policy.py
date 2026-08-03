@@ -100,7 +100,7 @@ class SecurityPolicy(pulumi.CustomResource):
                  type: pulumi.Input[Optional['SecurityPolicyType']] = None,
                  __props__=None):
         """
-        Amazon OpenSearchServerless security policy resource
+        Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
 
         ## Example Usage
         ### Example
@@ -171,7 +171,7 @@ class SecurityPolicy(pulumi.CustomResource):
                  args: SecurityPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Amazon OpenSearchServerless security policy resource
+        Resource Type definition for AWS::OpenSearchServerless::SecurityPolicy
 
         ## Example Usage
         ### Example

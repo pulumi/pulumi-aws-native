@@ -184,7 +184,7 @@
         "VolumeType" : {
           "description" : "Use to override the device's volume type.",
           "type" : "string",
-          "enum" : [ "standard", "io1", "io2", "gp2", "gp3", "sc1", "st1" ]
+          "enum" : [ "standard", "io1", "io2", "io2a", "gp2", "gp3", "gp3a", "sc1", "st1" ]
         }
       }
     },

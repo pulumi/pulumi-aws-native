@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon OpenSearchServerless access policy resource
+ * Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +40,7 @@ export interface GetAccessPolicyResult {
     readonly policy?: string;
 }
 /**
- * Amazon OpenSearchServerless access policy resource
+ * Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

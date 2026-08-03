@@ -364,6 +364,7 @@ __all__ = [
     'UserProfileDefaultEbsStorageSettings',
     'UserProfileDefaultSpaceStorageSettings',
     'UserProfileEfsFileSystemConfig',
+    'UserProfileEmrSettings',
     'UserProfileFSxLustreFileSystemConfig',
     'UserProfileHiddenSageMakerImage',
     'UserProfileIdleSettings',
@@ -21716,6 +21717,61 @@ class UserProfileEfsFileSystemConfig(dict):
 
 
 @pulumi.output_type
+class UserProfileEmrSettings(dict):
+    """
+    Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assumableRoleArns":
+            suggest = "assumable_role_arns"
+        elif key == "executionRoleArns":
+            suggest = "execution_role_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileEmrSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileEmrSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileEmrSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assumable_role_arns: Optional[Sequence[_builtins.str]] = None,
+                 execution_role_arns: Optional[Sequence[_builtins.str]] = None):
+        """
+        Configuration parameters specifying IAM roles assumed by SageMaker's execution role and cluster instances.
+
+        :param Sequence[_builtins.str] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+        :param Sequence[_builtins.str] execution_role_arns: An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+        """
+        if assumable_role_arns is not None:
+            pulumi.set(__self__, "assumable_role_arns", assumable_role_arns)
+        if execution_role_arns is not None:
+            pulumi.set(__self__, "execution_role_arns", execution_role_arns)
+
+    @_builtins.property
+    @pulumi.getter(name="assumableRoleArns")
+    def assumable_role_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume.
+        """
+        return pulumi.get(self, "assumable_role_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="executionRoleArns")
+    def execution_role_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An array of ARNs of IAM roles used by EMR cluster instances or job execution environments.
+        """
+        return pulumi.get(self, "execution_role_arns")
+
+
+@pulumi.output_type
 class UserProfileFSxLustreFileSystemConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21910,6 +21966,8 @@ class UserProfileJupyterLabAppSettings(dict):
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
+        elif key == "emrSettings":
+            suggest = "emr_settings"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
 
@@ -21930,6 +21988,7 @@ class UserProfileJupyterLabAppSettings(dict):
                  code_repositories: Optional[Sequence['outputs.UserProfileCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None,
+                 emr_settings: Optional['outputs.UserProfileEmrSettings'] = None,
                  lifecycle_config_arns: Optional[Sequence[_builtins.str]] = None):
         """
         The JupyterLab app settings.
@@ -21939,6 +21998,7 @@ class UserProfileJupyterLabAppSettings(dict):
         :param Sequence['UserProfileCodeRepository'] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
         :param Sequence['UserProfileCustomImage'] custom_images: A list of custom images available for use for JupyterLab apps
         :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+        :param 'UserProfileEmrSettings' emr_settings: The configuration parameters for EMR settings.
         :param Sequence[_builtins.str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterLab apps.
         """
         if app_lifecycle_management is not None:
@@ -21951,6 +22011,8 @@ class UserProfileJupyterLabAppSettings(dict):
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if emr_settings is not None:
+            pulumi.set(__self__, "emr_settings", emr_settings)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
 
@@ -21993,6 +22055,14 @@ class UserProfileJupyterLabAppSettings(dict):
         The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
         """
         return pulumi.get(self, "default_resource_spec")
+
+    @_builtins.property
+    @pulumi.getter(name="emrSettings")
+    def emr_settings(self) -> Optional['outputs.UserProfileEmrSettings']:
+        """
+        The configuration parameters for EMR settings.
+        """
+        return pulumi.get(self, "emr_settings")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleConfigArns")
@@ -22195,6 +22265,8 @@ class UserProfileResourceSpec(dict):
             suggest = "sage_maker_image_arn"
         elif key == "sageMakerImageVersionArn":
             suggest = "sage_maker_image_version_arn"
+        elif key == "trainingPlanArn":
+            suggest = "training_plan_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserProfileResourceSpec. Access the value via the '{suggest}' property getter instead.")
@@ -22211,7 +22283,8 @@ class UserProfileResourceSpec(dict):
                  instance_type: Optional['UserProfileAppInstanceType'] = None,
                  lifecycle_config_arn: Optional[_builtins.str] = None,
                  sage_maker_image_arn: Optional[_builtins.str] = None,
-                 sage_maker_image_version_arn: Optional[_builtins.str] = None):
+                 sage_maker_image_version_arn: Optional[_builtins.str] = None,
+                 training_plan_arn: Optional[_builtins.str] = None):
         """
         :param 'UserProfileAppInstanceType' instance_type: The instance type that the image version runs on.
                
@@ -22221,6 +22294,7 @@ class UserProfileResourceSpec(dict):
         :param _builtins.str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
         :param _builtins.str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param _builtins.str sage_maker_image_version_arn: The ARN of the image version created on the instance.
+        :param _builtins.str training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -22230,6 +22304,8 @@ class UserProfileResourceSpec(dict):
             pulumi.set(__self__, "sage_maker_image_arn", sage_maker_image_arn)
         if sage_maker_image_version_arn is not None:
             pulumi.set(__self__, "sage_maker_image_version_arn", sage_maker_image_version_arn)
+        if training_plan_arn is not None:
+            pulumi.set(__self__, "training_plan_arn", training_plan_arn)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
@@ -22266,6 +22342,14 @@ class UserProfileResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingPlanArn")
+    def training_plan_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+        """
+        return pulumi.get(self, "training_plan_arn")
 
 
 @pulumi.output_type

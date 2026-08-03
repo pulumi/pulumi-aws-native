@@ -20,6 +20,8 @@ type PlacementGroup struct {
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// The Group Name of Placement Group.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// The ID of a parent placement group. Valid for strategies that support parent group linking.
+	ParentGroupId pulumi.StringPtrOutput `pulumi:"parentGroupId"`
 	// The number of partitions. Valid only when **Strategy** is set to `partition`
 	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
 	// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
@@ -38,6 +40,7 @@ func NewPlacementGroup(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"parentGroupId",
 		"partitionCount",
 		"spreadLevel",
 		"strategy",
@@ -77,6 +80,8 @@ func (PlacementGroupState) ElementType() reflect.Type {
 }
 
 type placementGroupArgs struct {
+	// The ID of a parent placement group. Valid for strategies that support parent group linking.
+	ParentGroupId *string `pulumi:"parentGroupId"`
 	// The number of partitions. Valid only when **Strategy** is set to `partition`
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
@@ -89,6 +94,8 @@ type placementGroupArgs struct {
 
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
+	// The ID of a parent placement group. Valid for strategies that support parent group linking.
+	ParentGroupId pulumi.StringPtrInput
 	// The number of partitions. Valid only when **Strategy** is set to `partition`
 	PartitionCount pulumi.IntPtrInput
 	// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
@@ -144,6 +151,11 @@ func (o PlacementGroupOutput) GroupId() pulumi.StringOutput {
 // The Group Name of Placement Group.
 func (o PlacementGroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
+}
+
+// The ID of a parent placement group. Valid for strategies that support parent group linking.
+func (o PlacementGroupOutput) ParentGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.ParentGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The number of partitions. Valid only when **Strategy** is set to `partition`

@@ -181,6 +181,9 @@ class ChannelOutputHeaderConfiguration(dict):
 
 @pulumi.output_type
 class OriginEndpointDashAvailabilityStartTimeConfigurationProperties(dict):
+    """
+    <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -200,11 +203,19 @@ class OriginEndpointDashAvailabilityStartTimeConfigurationProperties(dict):
 
     def __init__(__self__, *,
                  fixed_availability_start_time: _builtins.str):
+        """
+        <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
+
+        :param _builtins.str fixed_availability_start_time: <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
+        """
         pulumi.set(__self__, "fixed_availability_start_time", fixed_availability_start_time)
 
     @_builtins.property
     @pulumi.getter(name="fixedAvailabilityStartTime")
     def fixed_availability_start_time(self) -> _builtins.str:
+        """
+        <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
+        """
         return pulumi.get(self, "fixed_availability_start_time")
 
 
@@ -2050,6 +2061,8 @@ class OriginEndpointSegment(dict):
         suggest = None
         if key == "includeIframeOnlyStreams":
             suggest = "include_iframe_only_streams"
+        elif key == "outputTimestampMode":
+            suggest = "output_timestamp_mode"
         elif key == "segmentDurationSeconds":
             suggest = "segment_duration_seconds"
         elif key == "segmentName":
@@ -2073,6 +2086,7 @@ class OriginEndpointSegment(dict):
     def __init__(__self__, *,
                  encryption: Optional['outputs.OriginEndpointEncryption'] = None,
                  include_iframe_only_streams: Optional[_builtins.bool] = None,
+                 output_timestamp_mode: Optional['OriginEndpointOutputTimestampMode'] = None,
                  scte: Optional['outputs.OriginEndpointScte'] = None,
                  segment_duration_seconds: Optional[_builtins.int] = None,
                  segment_name: Optional[_builtins.str] = None,
@@ -2093,6 +2107,8 @@ class OriginEndpointSegment(dict):
             pulumi.set(__self__, "encryption", encryption)
         if include_iframe_only_streams is not None:
             pulumi.set(__self__, "include_iframe_only_streams", include_iframe_only_streams)
+        if output_timestamp_mode is not None:
+            pulumi.set(__self__, "output_timestamp_mode", output_timestamp_mode)
         if scte is not None:
             pulumi.set(__self__, "scte", scte)
         if segment_duration_seconds is not None:
@@ -2119,6 +2135,11 @@ class OriginEndpointSegment(dict):
         <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
         """
         return pulumi.get(self, "include_iframe_only_streams")
+
+    @_builtins.property
+    @pulumi.getter(name="outputTimestampMode")
+    def output_timestamp_mode(self) -> Optional['OriginEndpointOutputTimestampMode']:
+        return pulumi.get(self, "output_timestamp_mode")
 
     @_builtins.property
     @pulumi.getter

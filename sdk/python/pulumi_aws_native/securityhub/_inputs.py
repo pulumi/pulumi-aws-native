@@ -685,7 +685,7 @@ class AutomationRuleStringFilterArgsDict(TypedDict):
       +   ``ResourceType NOT_EQUALS AwsIamPolicy``
       +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 
-     ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+     The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
     """
     value: pulumi.Input[_builtins.str]
     """
@@ -721,7 +721,7 @@ class AutomationRuleStringFilterArgs:
                  +   ``ResourceType NOT_EQUALS AwsIamPolicy``
                  +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
                
-                ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+                The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         :param pulumi.Input[_builtins.str] value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
@@ -752,7 +752,7 @@ class AutomationRuleStringFilterArgs:
           +   ``ResourceType NOT_EQUALS AwsIamPolicy``
           +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
 
-         ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules V1. ``CONTAINS_WORD`` operator is only supported in ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+         The ``CONTAINS`` operator works with automation rules V1 and V2. The ``NOT_CONTAINS`` operator works only with automation rules V1. The ``CONTAINS_WORD`` operator works only in the ``GetFindingsV2``, ``GetFindingStatisticsV2``, ``GetResourcesV2``, and ``GetResourcesStatisticsV2`` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
         """
         return pulumi.get(self, "comparison")
 
@@ -3408,17 +3408,20 @@ class ConfigurationPolicySecurityHubPolicyArgs:
 
 class ConnectorAzureProviderConfigurationArgsDict(TypedDict):
     """
-    The configuration settings for an Azure CSPM provider
+    The configuration for connecting to an Azure environment.
     """
     aws_config_connector_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the AWS Config connector used for the Azure integration
+    The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
     """
     azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    The list of Azure regions to include in the connector scope
+    The list of Azure regions to monitor.
     """
     scope_configuration: pulumi.Input['ConnectorAzureScopeConfigurationArgsDict']
+    """
+    The scope configuration that defines which Azure resources are monitored.
+    """
 
 @pulumi.input_type
 class ConnectorAzureProviderConfigurationArgs:
@@ -3427,10 +3430,11 @@ class ConnectorAzureProviderConfigurationArgs:
                  azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  scope_configuration: pulumi.Input['ConnectorAzureScopeConfigurationArgs']):
         """
-        The configuration settings for an Azure CSPM provider
+        The configuration for connecting to an Azure environment.
 
-        :param pulumi.Input[_builtins.str] aws_config_connector_arn: The ARN of the AWS Config connector used for the Azure integration
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] azure_regions: The list of Azure regions to include in the connector scope
+        :param pulumi.Input[_builtins.str] aws_config_connector_arn: The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] azure_regions: The list of Azure regions to monitor.
+        :param pulumi.Input['ConnectorAzureScopeConfigurationArgs'] scope_configuration: The scope configuration that defines which Azure resources are monitored.
         """
         pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
         pulumi.set(__self__, "azure_regions", azure_regions)
@@ -3440,7 +3444,7 @@ class ConnectorAzureProviderConfigurationArgs:
     @pulumi.getter(name="awsConfigConnectorArn")
     def aws_config_connector_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the AWS Config connector used for the Azure integration
+        The ARN of the multi-cloud configuration connector used to establish the connection to Azure.
         """
         return pulumi.get(self, "aws_config_connector_arn")
 
@@ -3452,7 +3456,7 @@ class ConnectorAzureProviderConfigurationArgs:
     @pulumi.getter(name="azureRegions")
     def azure_regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The list of Azure regions to include in the connector scope
+        The list of Azure regions to monitor.
         """
         return pulumi.get(self, "azure_regions")
 
@@ -3463,6 +3467,9 @@ class ConnectorAzureProviderConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="scopeConfiguration")
     def scope_configuration(self) -> pulumi.Input['ConnectorAzureScopeConfigurationArgs']:
+        """
+        The scope configuration that defines which Azure resources are monitored.
+        """
         return pulumi.get(self, "scope_configuration")
 
     @scope_configuration.setter
@@ -3472,15 +3479,15 @@ class ConnectorAzureProviderConfigurationArgs:
 
 class ConnectorAzureScopeConfigurationArgsDict(TypedDict):
     """
-    The scope configuration for an Azure connector
+    The scope configuration for an Azure connector, defining the tenant or subscription scope.
     """
     scope_type: pulumi.Input['ConnectorAzureScopeConfigurationScopeType']
     """
-    The scope type for the Azure connector
+    The type of scope. Valid values are ``tenant`` and ``subscription``.
     """
     scope_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The list of scope values for the Azure connector
+    The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
     """
 
 @pulumi.input_type
@@ -3489,10 +3496,10 @@ class ConnectorAzureScopeConfigurationArgs:
                  scope_type: pulumi.Input['ConnectorAzureScopeConfigurationScopeType'],
                  scope_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        The scope configuration for an Azure connector
+        The scope configuration for an Azure connector, defining the tenant or subscription scope.
 
-        :param pulumi.Input['ConnectorAzureScopeConfigurationScopeType'] scope_type: The scope type for the Azure connector
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: The list of scope values for the Azure connector
+        :param pulumi.Input['ConnectorAzureScopeConfigurationScopeType'] scope_type: The type of scope. Valid values are ``tenant`` and ``subscription``.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
         """
         pulumi.set(__self__, "scope_type", scope_type)
         if scope_values is not None:
@@ -3502,7 +3509,7 @@ class ConnectorAzureScopeConfigurationArgs:
     @pulumi.getter(name="scopeType")
     def scope_type(self) -> pulumi.Input['ConnectorAzureScopeConfigurationScopeType']:
         """
-        The scope type for the Azure connector
+        The type of scope. Valid values are ``tenant`` and ``subscription``.
         """
         return pulumi.get(self, "scope_type")
 
@@ -3514,7 +3521,7 @@ class ConnectorAzureScopeConfigurationArgs:
     @pulumi.getter(name="scopeValues")
     def scope_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of scope values for the Azure connector
+        The list of scope values, such as subscription IDs, when the scope type is ``subscription``.
         """
         return pulumi.get(self, "scope_values")
 
@@ -3524,18 +3531,12 @@ class ConnectorAzureScopeConfigurationArgs:
 
 
 class ConnectorProviderArgsDict(TypedDict):
-    """
-    The CSPM provider configuration for the connector
-    """
     azure: pulumi.Input['ConnectorAzureProviderConfigurationArgsDict']
 
 @pulumi.input_type
 class ConnectorProviderArgs:
     def __init__(__self__, *,
                  azure: pulumi.Input['ConnectorAzureProviderConfigurationArgs']):
-        """
-        The CSPM provider configuration for the connector
-        """
         pulumi.set(__self__, "azure", azure)
 
     @_builtins.property

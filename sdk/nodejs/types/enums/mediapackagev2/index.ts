@@ -9,6 +9,13 @@ export const ChannelInputType = {
 
 export type ChannelInputType = (typeof ChannelInputType)[keyof typeof ChannelInputType];
 
+export const ChannelOutputLockingMode = {
+    EpochLocked: "EPOCH_LOCKED",
+    NonEpochLocked: "NON_EPOCH_LOCKED",
+} as const;
+
+export type ChannelOutputLockingMode = (typeof ChannelOutputLockingMode)[keyof typeof ChannelOutputLockingMode];
+
 export const OriginEndpointAdMarkerDash = {
     Binary: "BINARY",
     Xml: "XML",
@@ -138,6 +145,13 @@ export const OriginEndpointMssManifestLayout = {
 } as const;
 
 export type OriginEndpointMssManifestLayout = (typeof OriginEndpointMssManifestLayout)[keyof typeof OriginEndpointMssManifestLayout];
+
+export const OriginEndpointOutputTimestampMode = {
+    Passthrough: "PASSTHROUGH",
+    RebasedToChannelStart: "REBASED_TO_CHANNEL_START",
+} as const;
+
+export type OriginEndpointOutputTimestampMode = (typeof OriginEndpointOutputTimestampMode)[keyof typeof OriginEndpointOutputTimestampMode];
 
 export const OriginEndpointPresetSpeke20Audio = {
     PresetAudio1: "PRESET_AUDIO_1",

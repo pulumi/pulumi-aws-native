@@ -14198,6 +14198,11 @@ func (o HarnessEfsAccessPointConfigurationPtrOutput) MountPath() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type HarnessEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type HarnessEnvironmentArtifact struct {
 	ContainerConfiguration *HarnessContainerConfiguration `pulumi:"containerConfiguration"`
 }

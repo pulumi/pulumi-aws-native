@@ -50,7 +50,7 @@ def get_collection_index(id: Optional[_builtins.str] = None,
                          index_name: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollectionIndexResult:
     """
-    Resource schema for AWS::OpenSearchServerless::CollectionIndex
+    Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
 
     :param _builtins.str id: The identifier of the collection
     :param _builtins.str index_name: The name of the collection index
@@ -67,7 +67,7 @@ def get_collection_index_output(id: pulumi.Input[Optional[_builtins.str]] = None
                                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectionIndexResult]:
     """
-    Resource schema for AWS::OpenSearchServerless::CollectionIndex
+    Resource Type definition for AWS::OpenSearchServerless::CollectionIndex
 
     :param _builtins.str id: The identifier of the collection
     :param _builtins.str index_name: The name of the collection index

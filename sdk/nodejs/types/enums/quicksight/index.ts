@@ -2675,6 +2675,19 @@ export const RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayProperties
 
 export type RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek = (typeof RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek)[keyof typeof RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek];
 
+export const SpaceResourceResourceType = {
+    Topic: "TOPIC",
+    Dashboard: "DASHBOARD",
+    KnowledgeBase: "KNOWLEDGE_BASE",
+    ActionConnector: "ACTION_CONNECTOR",
+    DataSet: "DATA_SET",
+} as const;
+
+/**
+ * The type of QuickSight resource.
+ */
+export type SpaceResourceResourceType = (typeof SpaceResourceResourceType)[keyof typeof SpaceResourceResourceType];
+
 export const TemplateAnchorOption = {
     Now: "NOW",
 } as const;

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchServerless
 {
     /// <summary>
-    /// Amazon OpenSearchServerless access policy resource
+    /// Resource Type definition for AWS::OpenSearchServerless::AccessPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:opensearchserverless:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

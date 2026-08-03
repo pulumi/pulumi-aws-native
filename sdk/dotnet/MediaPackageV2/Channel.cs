@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("outputHeaderConfiguration")]
         public Output<Outputs.ChannelOutputHeaderConfiguration?> OutputHeaderConfiguration { get; private set; } = null!;
 
+        [Output("outputLockingMode")]
+        public Output<Pulumi.AwsNative.MediaPackageV2.ChannelOutputLockingMode?> OutputLockingMode { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -117,6 +120,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
                     "channelGroupName",
                     "channelName",
                     "inputType",
+                    "outputLockingMode",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -180,6 +184,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("outputHeaderConfiguration")]
         public Input<Inputs.ChannelOutputHeaderConfigurationArgs>? OutputHeaderConfiguration { get; set; }
+
+        [Input("outputLockingMode")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.ChannelOutputLockingMode>? OutputLockingMode { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

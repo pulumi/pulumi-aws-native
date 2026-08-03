@@ -197,7 +197,7 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "outposts:TagResource", "outposts:UntagResource" ]
+    "permissions" : [ "outposts:TagResource", "outposts:UntagResource", "outposts:GetSite" ]
   },
   "handlers" : {
     "create" : {

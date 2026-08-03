@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.SecurityHub
     public static class GetConnector
     {
         /// <summary>
-        /// Resource schema for AWS::SecurityHub::Connector
+        /// Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws-native:securityhub:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::SecurityHub::Connector
+        /// Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:securityhub:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::SecurityHub::Connector
+        /// Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:securityhub:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the connector
-        /// </summary>
         [Input("connectorArn", required: true)]
         public string ConnectorArn { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the connector
-        /// </summary>
         [Input("connectorArn", required: true)]
         public Input<string> ConnectorArn { get; set; } = null!;
 
@@ -63,46 +57,19 @@ namespace Pulumi.AwsNative.SecurityHub
     [OutputType]
     public sealed class GetConnectorResult
     {
-        /// <summary>
-        /// The ARN of the connector
-        /// </summary>
         public readonly string? ConnectorArn;
-        /// <summary>
-        /// The ID of the connector
-        /// </summary>
         public readonly string? ConnectorId;
         public readonly string? ConnectorStatus;
-        /// <summary>
-        /// The date and time for createdAt in UTC and ISO 8601 format.
-        /// </summary>
         public readonly string? CreatedAt;
-        /// <summary>
-        /// The principal that created the connector
-        /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
-        /// A description of the connector
+        /// The description of the connector.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The enablement status of the connector
-        /// </summary>
         public readonly string? EnablementStatus;
-        /// <summary>
-        /// The list of health issues associated with the connector
-        /// </summary>
         public readonly ImmutableArray<Outputs.ConnectorHealthIssue> Issues;
-        /// <summary>
-        /// The date and time for lastCheckedAt in UTC and ISO 8601 format.
-        /// </summary>
         public readonly string? LastCheckedAt;
-        /// <summary>
-        /// The date and time for lastUpdatedAt in UTC and ISO 8601 format.
-        /// </summary>
         public readonly string? LastUpdatedAt;
-        /// <summary>
-        /// The message associated with the connector status change
-        /// </summary>
         public readonly string? Message;
         public readonly Outputs.ConnectorProvider? Provider;
         public readonly ImmutableDictionary<string, string>? Tags;
