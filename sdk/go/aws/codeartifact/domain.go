@@ -99,7 +99,7 @@ import (
 //								"codeartifact:ReadFromRepository",
 //							},
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string]string{
 //								"aws": "arn:aws:iam::123456789012:root",
 //							},
 //							"resource": "*",
@@ -149,7 +149,7 @@ import (
 //								"codeartifact:ReadFromRepository",
 //							},
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string]string{
 //								"aws": "arn:aws:iam::123456789012:root",
 //							},
 //							"resource": "*",

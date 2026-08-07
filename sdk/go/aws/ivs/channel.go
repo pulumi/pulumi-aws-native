@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
-//				ChannelArn: channel.ID(),
+//				ChannelArn: channel.ID().ToIDOutput().ToStringOutput(),
 //				Tags: aws.TagArray{
 //					&aws.TagArgs{
 //						Key:   pulumi.String("MyKey"),
@@ -93,7 +93,7 @@ import (
 //				return err
 //			}
 //			streamKey, err := ivs.NewStreamKey(ctx, "streamKey", &ivs.StreamKeyArgs{
-//				ChannelArn: channel.ID(),
+//				ChannelArn: channel.ID().ToIDOutput().ToStringOutput(),
 //				Tags: aws.TagArray{
 //					&aws.TagArgs{
 //						Key:   pulumi.String("MyKey"),

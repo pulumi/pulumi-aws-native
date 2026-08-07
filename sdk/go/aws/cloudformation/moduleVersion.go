@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewModuleDefaultVersion(ctx, "moduleDefaultVersion", &cloudformation.ModuleDefaultVersionArgs{
-//				Arn: moduleVersion2.ID(),
+//				Arn: moduleVersion2.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -87,7 +87,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewModuleDefaultVersion(ctx, "moduleDefaultVersion", &cloudformation.ModuleDefaultVersionArgs{
-//				Arn: moduleVersion2.ID(),
+//				Arn: moduleVersion2.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

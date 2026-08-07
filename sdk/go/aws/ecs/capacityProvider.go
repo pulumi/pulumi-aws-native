@@ -144,21 +144,21 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewClusterCapacityProviderAssociations(ctx, "clusterCPAssociation", &ecs.ClusterCapacityProviderAssociationsArgs{
-//				Cluster: cluster.ID(),
+//				Cluster: cluster.ID().ToIDOutput().ToStringOutput(),
 //				CapacityProviders: pulumi.StringArray{
-//					capacityProvider1.ID(),
-//					capacityProvider2.ID(),
+//					capacityProvider1.ID().ToIDOutput().ToStringOutput(),
+//					capacityProvider2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				DefaultCapacityProviderStrategy: ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArray{
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(2),
 //						Weight:           pulumi.Int(6),
-//						CapacityProvider: capacityProvider1.ID(),
+//						CapacityProvider: capacityProvider1.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(0),
 //						Weight:           pulumi.Int(10),
-//						CapacityProvider: capacityProvider2.ID(),
+//						CapacityProvider: capacityProvider2.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -217,21 +217,21 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewClusterCapacityProviderAssociations(ctx, "clusterCPAssociation", &ecs.ClusterCapacityProviderAssociationsArgs{
-//				Cluster: cluster.ID(),
+//				Cluster: cluster.ID().ToIDOutput().ToStringOutput(),
 //				CapacityProviders: pulumi.StringArray{
-//					capacityProvider1.ID(),
-//					capacityProvider2.ID(),
+//					capacityProvider1.ID().ToIDOutput().ToStringOutput(),
+//					capacityProvider2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				DefaultCapacityProviderStrategy: ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArray{
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(2),
 //						Weight:           pulumi.Int(6),
-//						CapacityProvider: capacityProvider1.ID(),
+//						CapacityProvider: capacityProvider1.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					&ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{
 //						Base:             pulumi.Int(0),
 //						Weight:           pulumi.Int(10),
-//						CapacityProvider: capacityProvider2.ID(),
+//						CapacityProvider: capacityProvider2.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

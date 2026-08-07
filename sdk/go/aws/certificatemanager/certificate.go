@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
-//				CertificateArn: myCertificate.ID(),
+//				CertificateArn: myCertificate.ID().ToIDOutput().ToStringOutput(),
 //				DomainName:     pulumi.String(domainName),
 //			})
 //			if err != nil {
@@ -66,8 +66,8 @@ import (
 //			}
 //			_, err = apigateway.NewBasePathMapping(ctx, "myMapping", &apigateway.BasePathMappingArgs{
 //				BasePath:   pulumi.String(basePath),
-//				DomainName: myDomainName.ID(),
-//				RestApiId:  myRestApi.ID(),
+//				DomainName: myDomainName.ID().ToIDOutput().ToStringOutput(),
+//				RestApiId:  myRestApi.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -114,7 +114,7 @@ import (
 //				return err
 //			}
 //			myDomainName, err := apigateway.NewDomainName(ctx, "myDomainName", &apigateway.DomainNameArgs{
-//				CertificateArn: myCertificate.ID(),
+//				CertificateArn: myCertificate.ID().ToIDOutput().ToStringOutput(),
 //				DomainName:     pulumi.String(domainName),
 //			})
 //			if err != nil {
@@ -128,8 +128,8 @@ import (
 //			}
 //			_, err = apigateway.NewBasePathMapping(ctx, "myMapping", &apigateway.BasePathMappingArgs{
 //				BasePath:   pulumi.String(basePath),
-//				DomainName: myDomainName.ID(),
-//				RestApiId:  myRestApi.ID(),
+//				DomainName: myDomainName.ID().ToIDOutput().ToStringOutput(),
+//				RestApiId:  myRestApi.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

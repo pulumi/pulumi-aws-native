@@ -50,7 +50,7 @@ import (
 //						},
 //					},
 //				},
-//				WindowId: maintenanceWindow.ID(),
+//				WindowId: maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -61,7 +61,7 @@ import (
 //				MaxErrors:      pulumi.String("1"),
 //				Priority:       pulumi.Int(0),
 //				TaskType:       pulumi.String("RUN_COMMAND"),
-//				WindowId:       maintenanceWindow.ID(),
+//				WindowId:       maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
 //				TaskArn:        pulumi.String("AWS-RunPatchBaseline"),
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					MaintenanceWindowRunCommandParameters: &ssm.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{
@@ -79,7 +79,7 @@ import (
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("WindowTargetIds"),
 //						Values: pulumi.StringArray{
-//							maintenanceWindowTarget.ID(),
+//							maintenanceWindowTarget.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},
@@ -127,7 +127,7 @@ import (
 //						},
 //					},
 //				},
-//				WindowId: maintenanceWindow.ID(),
+//				WindowId: maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -138,7 +138,7 @@ import (
 //				MaxErrors:      pulumi.String("1"),
 //				Priority:       pulumi.Int(0),
 //				TaskType:       pulumi.String("RUN_COMMAND"),
-//				WindowId:       maintenanceWindow.ID(),
+//				WindowId:       maintenanceWindow.ID().ToIDOutput().ToStringOutput(),
 //				TaskArn:        pulumi.String("AWS-RunPatchBaseline"),
 //				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 //					MaintenanceWindowRunCommandParameters: &ssm.MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{
@@ -156,7 +156,7 @@ import (
 //					&ssm.MaintenanceWindowTaskTargetArgs{
 //						Key: pulumi.String("WindowTargetIds"),
 //						Values: pulumi.StringArray{
-//							maintenanceWindowTarget.ID(),
+//							maintenanceWindowTarget.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},

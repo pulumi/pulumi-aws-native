@@ -39,7 +39,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"cloudformation.amazonaws.com",
 //									"gamelift.amazonaws.com",
@@ -114,7 +114,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"cloudformation.amazonaws.com",
 //									"gamelift.amazonaws.com",
@@ -189,7 +189,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"glue.amazonaws.com",
 //								},
@@ -206,8 +206,8 @@ import (
 //						PolicyName: pulumi.String("root"),
 //						PolicyDocument: pulumi.Any(map[string]interface{}{
 //							"version": "2012-10-17",
-//							"statement": []map[string]interface{}{
-//								map[string]interface{}{
+//							"statement": []map[string]string{
+//								{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -233,7 +233,7 @@ import (
 //				},
 //				MaxRetries: pulumi.Float64(0),
 //				Name:       pulumi.String("cf-job1"),
-//				Role:       myJobRole.ID(),
+//				Role:       myJobRole.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -264,7 +264,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"glue.amazonaws.com",
 //								},
@@ -281,8 +281,8 @@ import (
 //						PolicyName: pulumi.String("root"),
 //						PolicyDocument: pulumi.Any(map[string]interface{}{
 //							"version": "2012-10-17",
-//							"statement": []map[string]interface{}{
-//								map[string]interface{}{
+//							"statement": []map[string]string{
+//								{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -308,7 +308,7 @@ import (
 //				},
 //				MaxRetries: pulumi.Float64(0),
 //				Name:       pulumi.String("cf-job1"),
-//				Role:       myJobRole.ID(),
+//				Role:       myJobRole.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -339,7 +339,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"glue.amazonaws.com",
 //								},
@@ -356,8 +356,8 @@ import (
 //						PolicyName: pulumi.String("root"),
 //						PolicyDocument: pulumi.Any(map[string]interface{}{
 //							"version": "2012-10-17",
-//							"statement": []map[string]interface{}{
-//								map[string]interface{}{
+//							"statement": []map[string]string{
+//								{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -373,7 +373,7 @@ import (
 //			myJob, err := glue.NewJob(ctx, "myJob", &glue.JobArgs{
 //				Name:   pulumi.String("MyJobTriggerJob"),
 //				LogUri: pulumi.String("wikiData"),
-//				Role:   myJobTriggerRole.ID(),
+//				Role:   myJobTriggerRole.ID().ToIDOutput().ToStringOutput(),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("glueetl"),
 //					ScriptLocation: pulumi.String("s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py"),
@@ -392,7 +392,7 @@ import (
 //				Description: pulumi.String("Description for a conditional job trigger"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: myJob.ID(),
+//						JobName: myJob.ID().ToIDOutput().ToStringOutput(),
 //						Arguments: pulumi.Any(map[string]interface{}{
 //							"--job-bookmark-option": "job-bookmark-enable",
 //						}),
@@ -402,7 +402,7 @@ import (
 //					Conditions: glue.TriggerConditionArray{
 //						&glue.TriggerConditionArgs{
 //							LogicalOperator: pulumi.String("EQUALS"),
-//							JobName:         myJob.ID(),
+//							JobName:         myJob.ID().ToIDOutput().ToStringOutput(),
 //							State:           pulumi.String("SUCCEEDED"),
 //						},
 //					},
@@ -437,7 +437,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"glue.amazonaws.com",
 //								},
@@ -454,8 +454,8 @@ import (
 //						PolicyName: pulumi.String("root"),
 //						PolicyDocument: pulumi.Any(map[string]interface{}{
 //							"version": "2012-10-17",
-//							"statement": []map[string]interface{}{
-//								map[string]interface{}{
+//							"statement": []map[string]string{
+//								{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -471,7 +471,7 @@ import (
 //			myJob, err := glue.NewJob(ctx, "myJob", &glue.JobArgs{
 //				Name:   pulumi.String("MyJobTriggerJob"),
 //				LogUri: pulumi.String("wikiData"),
-//				Role:   myJobTriggerRole.ID(),
+//				Role:   myJobTriggerRole.ID().ToIDOutput().ToStringOutput(),
 //				Command: &glue.JobCommandArgs{
 //					Name:           pulumi.String("glueetl"),
 //					ScriptLocation: pulumi.String("s3://testdata-bucket/s3-target/create-delete-job-xtf-ETL-s3-json-to-csv.py"),
@@ -490,7 +490,7 @@ import (
 //				Description: pulumi.String("Description for a conditional job trigger"),
 //				Actions: glue.TriggerActionArray{
 //					&glue.TriggerActionArgs{
-//						JobName: myJob.ID(),
+//						JobName: myJob.ID().ToIDOutput().ToStringOutput(),
 //						Arguments: pulumi.Any(map[string]interface{}{
 //							"--job-bookmark-option": "job-bookmark-enable",
 //						}),
@@ -500,7 +500,7 @@ import (
 //					Conditions: glue.TriggerConditionArray{
 //						&glue.TriggerConditionArgs{
 //							LogicalOperator: pulumi.String("EQUALS"),
-//							JobName:         myJob.ID(),
+//							JobName:         myJob.ID().ToIDOutput().ToStringOutput(),
 //							State:           pulumi.String("SUCCEEDED"),
 //						},
 //					},
@@ -538,7 +538,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"grafana.amazonaws.com",
 //								},
@@ -625,7 +625,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"grafana.amazonaws.com",
 //								},
@@ -708,7 +708,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"ec2.amazonaws.com",
 //								},
@@ -725,8 +725,8 @@ import (
 //						PolicyName: pulumi.String("root"),
 //						PolicyDocument: pulumi.Any(map[string]interface{}{
 //							"version": "2012-10-17",
-//							"statement": []map[string]interface{}{
-//								map[string]interface{}{
+//							"statement": []map[string]string{
+//								{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -742,7 +742,7 @@ import (
 //			_, err = iam.NewInstanceProfile(ctx, "rootInstanceProfile", &iam.InstanceProfileArgs{
 //				Path: pulumi.String("/"),
 //				Roles: pulumi.StringArray{
-//					rootRole.ID(),
+//					rootRole.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -773,7 +773,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"ec2.amazonaws.com",
 //								},
@@ -790,8 +790,8 @@ import (
 //						PolicyName: pulumi.String("root"),
 //						PolicyDocument: pulumi.Any(map[string]interface{}{
 //							"version": "2012-10-17",
-//							"statement": []map[string]interface{}{
-//								map[string]interface{}{
+//							"statement": []map[string]string{
+//								{
 //									"effect":   "Allow",
 //									"action":   "*",
 //									"resource": "*",
@@ -807,7 +807,7 @@ import (
 //			_, err = iam.NewInstanceProfile(ctx, "rootInstanceProfile", &iam.InstanceProfileArgs{
 //				Path: pulumi.String("/"),
 //				Roles: pulumi.StringArray{
-//					rootRole.ID(),
+//					rootRole.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -839,7 +839,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string]string{
 //								"service": "ssm.amazonaws.com",
 //							},
 //							"action": []string{

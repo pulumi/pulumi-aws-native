@@ -52,10 +52,10 @@ import (
 //			}
 //			myRedshiftCluster, err := redshift.NewCluster(ctx, "myRedshiftCluster", &redshift.ClusterArgs{
 //				DbName: pulumi.String("myjsondb"),
-//				MasterUsername: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//				MasterUsername: myRedshiftSecret.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("{{resolve:secretsmanager:%v::username}}", id), nil
 //				}).(pulumi.StringOutput),
-//				MasterUserPassword: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//				MasterUserPassword: myRedshiftSecret.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("{{resolve:secretsmanager:%v::password}}", id), nil
 //				}).(pulumi.StringOutput),
 //				NodeType:    pulumi.String("ds2.xlarge"),
@@ -65,8 +65,8 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
-//				SecretId:   myRedshiftSecret.ID(),
-//				TargetId:   myRedshiftCluster.ID(),
+//				SecretId:   myRedshiftSecret.ID().ToIDOutput().ToStringOutput(),
+//				TargetId:   myRedshiftCluster.ID().ToIDOutput().ToStringOutput(),
 //				TargetType: pulumi.String("AWS::Redshift::Cluster"),
 //			})
 //			if err != nil {
@@ -108,10 +108,10 @@ import (
 //			}
 //			myRedshiftCluster, err := redshift.NewCluster(ctx, "myRedshiftCluster", &redshift.ClusterArgs{
 //				DbName: pulumi.String("myjsondb"),
-//				MasterUsername: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//				MasterUsername: myRedshiftSecret.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("{{resolve:secretsmanager:%v::username}}", id), nil
 //				}).(pulumi.StringOutput),
-//				MasterUserPassword: myRedshiftSecret.ID().ApplyT(func(id string) (string, error) {
+//				MasterUserPassword: myRedshiftSecret.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("{{resolve:secretsmanager:%v::password}}", id), nil
 //				}).(pulumi.StringOutput),
 //				NodeType:    pulumi.String("ds2.xlarge"),
@@ -121,8 +121,8 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretTargetAttachment(ctx, "secretRedshiftAttachment", &secretsmanager.SecretTargetAttachmentArgs{
-//				SecretId:   myRedshiftSecret.ID(),
-//				TargetId:   myRedshiftCluster.ID(),
+//				SecretId:   myRedshiftSecret.ID().ToIDOutput().ToStringOutput(),
+//				TargetId:   myRedshiftCluster.ID().ToIDOutput().ToStringOutput(),
 //				TargetType: pulumi.String("AWS::Redshift::Cluster"),
 //			})
 //			if err != nil {
