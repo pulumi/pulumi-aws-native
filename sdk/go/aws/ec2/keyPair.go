@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: newKeyPair.ID(),
+//				KeyName: newKeyPair.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -78,7 +78,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: newKeyPair.ID(),
+//				KeyName: newKeyPair.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -111,7 +111,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: importedKeyPair.ID(),
+//				KeyName: importedKeyPair.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -144,7 +144,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "ec2Instance", &ec2.InstanceArgs{
 //				ImageId: pulumi.String("ami-02b92c281a4d3dc79"),
-//				KeyName: importedKeyPair.ID(),
+//				KeyName: importedKeyPair.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

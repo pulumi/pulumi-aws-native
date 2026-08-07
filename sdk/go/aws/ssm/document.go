@@ -47,7 +47,7 @@ import (
 //						"runAsEnabled":                false,
 //						"runAsDefaultUser":            "MyDefaultRunAsUser",
 //						"idleSessionTimeout":          "20",
-//						"shellProfile": map[string]interface{}{
+//						"shellProfile": map[string]string{
 //							"windows": "example commands",
 //							"linux":   "example commands",
 //						},
@@ -95,7 +95,7 @@ import (
 //						"runAsEnabled":                false,
 //						"runAsDefaultUser":            "MyDefaultRunAsUser",
 //						"idleSessionTimeout":          "20",
-//						"shellProfile": map[string]interface{}{
+//						"shellProfile": map[string]string{
 //							"windows": "example commands",
 //							"linux":   "example commands",
 //						},

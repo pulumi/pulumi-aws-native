@@ -46,7 +46,7 @@ import (
 //				Description:              pulumi.String("A basic standalone matchmaking configuration"),
 //				FlexMatchMode:            gamelift.MatchmakingConfigurationFlexMatchModeStandalone,
 //				RequestTimeoutSeconds:    pulumi.Int(100),
-//				RuleSetName:              matchmakingRuleSetResource.ID(),
+//				RuleSetName:              matchmakingRuleSetResource.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				matchmakingRuleSetResource,
 //			}))

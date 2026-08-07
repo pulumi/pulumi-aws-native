@@ -79,10 +79,10 @@ import (
 //				Threshold:          pulumi.Float64(10),
 //				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
 //				AlarmActions: pulumi.StringArray{
-//					alarmTopic.ID(),
+//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				InsufficientDataActions: pulumi.StringArray{
-//					alarmTopic.ID(),
+//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -151,10 +151,10 @@ import (
 //				Threshold:          pulumi.Float64(10),
 //				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
 //				AlarmActions: pulumi.StringArray{
-//					alarmTopic.ID(),
+//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				InsufficientDataActions: pulumi.StringArray{
-//					alarmTopic.ID(),
+//					alarmTopic.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

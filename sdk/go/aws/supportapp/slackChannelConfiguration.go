@@ -36,7 +36,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"supportapp.amazonaws.com",
 //								},
@@ -93,7 +93,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"supportapp.amazonaws.com",
 //								},

@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			site, err := networkmanager.NewSite(ctx, "site", &networkmanager.SiteArgs{
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				Location: &networkmanager.SiteLocationArgs{
 //					Address:   pulumi.String("227 W Monroe St, Chicago, IL 60606"),
 //					Latitude:  pulumi.String("41.8"),
@@ -47,7 +47,7 @@ import (
 //			}
 //			link, err := networkmanager.NewLink(ctx, "link", &networkmanager.LinkArgs{
 //				Description:     pulumi.String("Broadband link"),
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				SiteId:          site.SiteId,
 //				Bandwidth: &networkmanager.LinkBandwidthArgs{
 //					DownloadSpeed: pulumi.Int(20),
@@ -67,7 +67,7 @@ import (
 //			}
 //			device, err := networkmanager.NewDevice(ctx, "device", &networkmanager.DeviceArgs{
 //				Description:     pulumi.String("Chicago office device"),
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				SiteId:          site.SiteId,
 //				Tags: aws.TagArray{
 //					&aws.TagArgs{
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = networkmanager.NewLinkAssociation(ctx, "linkAssociation", &networkmanager.LinkAssociationArgs{
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				LinkId:          link.LinkId,
 //				DeviceId:        device.DeviceId,
 //			})
@@ -112,7 +112,7 @@ import (
 //				return err
 //			}
 //			site, err := networkmanager.NewSite(ctx, "site", &networkmanager.SiteArgs{
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				Location: &networkmanager.SiteLocationArgs{
 //					Address:   pulumi.String("227 W Monroe St, Chicago, IL 60606"),
 //					Latitude:  pulumi.String("41.8"),
@@ -124,7 +124,7 @@ import (
 //			}
 //			link, err := networkmanager.NewLink(ctx, "link", &networkmanager.LinkArgs{
 //				Description:     pulumi.String("Broadband link"),
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				SiteId:          site.SiteId,
 //				Bandwidth: &networkmanager.LinkBandwidthArgs{
 //					DownloadSpeed: pulumi.Int(20),
@@ -144,7 +144,7 @@ import (
 //			}
 //			device, err := networkmanager.NewDevice(ctx, "device", &networkmanager.DeviceArgs{
 //				Description:     pulumi.String("Chicago office device"),
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				SiteId:          site.SiteId,
 //				Tags: aws.TagArray{
 //					&aws.TagArgs{
@@ -157,7 +157,7 @@ import (
 //				return err
 //			}
 //			_, err = networkmanager.NewLinkAssociation(ctx, "linkAssociation", &networkmanager.LinkAssociationArgs{
-//				GlobalNetworkId: globalNetwork.ID(),
+//				GlobalNetworkId: globalNetwork.ID().ToIDOutput().ToStringOutput(),
 //				LinkId:          link.LinkId,
 //				DeviceId:        device.DeviceId,
 //			})

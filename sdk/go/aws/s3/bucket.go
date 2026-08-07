@@ -41,7 +41,7 @@ import (
 //				Name: pulumi.String("MyRecordingConfiguration"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationS3DestinationConfigurationArgs{
-//						BucketName: s3Bucket.ID(),
+//						BucketName: s3Bucket.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				ThumbnailConfiguration: &ivs.RecordingConfigurationThumbnailConfigurationArgs{
@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 //				Name:                      pulumi.String("MyRecordedChannel"),
-//				RecordingConfigurationArn: recordingConfiguration.ID(),
+//				RecordingConfigurationArn: recordingConfiguration.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				recordingConfiguration,
 //			}))
@@ -103,7 +103,7 @@ import (
 //				Name: pulumi.String("MyRecordingConfiguration"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationS3DestinationConfigurationArgs{
-//						BucketName: s3Bucket.ID(),
+//						BucketName: s3Bucket.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				ThumbnailConfiguration: &ivs.RecordingConfigurationThumbnailConfigurationArgs{
@@ -130,7 +130,7 @@ import (
 //			}
 //			_, err = ivs.NewChannel(ctx, "channel", &ivs.ChannelArgs{
 //				Name:                      pulumi.String("MyRecordedChannel"),
-//				RecordingConfigurationArn: recordingConfiguration.ID(),
+//				RecordingConfigurationArn: recordingConfiguration.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				recordingConfiguration,
 //			}))
@@ -237,7 +237,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"ec2.amazonaws.com",
 //									"ssm.amazonaws.com",
@@ -409,7 +409,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"ec2.amazonaws.com",
 //									"ssm.amazonaws.com",
@@ -521,12 +521,12 @@ import (
 //					"schemaVersion": "0.3",
 //					"description":   "Updates AMI with Linux distribution packages and installs Nginx software",
 //					"assumeRole":    "{{AutomationAssumeRole}}",
-//					"parameters": map[string]interface{}{
-//						"instanceId": map[string]interface{}{
+//					"parameters": map[string]map[string]string{
+//						"instanceId": map[string]string{
 //							"description": "ID of the Instance.",
 //							"type":        "String",
 //						},
-//						"automationAssumeRole": map[string]interface{}{
+//						"automationAssumeRole": map[string]string{
 //							"default":     "",
 //							"description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf.",
 //							"type":        "String",
@@ -543,10 +543,10 @@ import (
 //								"instanceIds": []string{
 //									"{{InstanceId}}",
 //								},
-//								"cloudWatchOutputConfig": map[string]interface{}{
+//								"cloudWatchOutputConfig": map[string]string{
 //									"cloudWatchOutputEnabled": "true",
 //								},
-//								"parameters": map[string]interface{}{
+//								"parameters": map[string][]string{
 //									"commands": []string{
 //										`#!/bin/bash
 //
@@ -576,10 +576,10 @@ import (
 //								"instanceIds": []string{
 //									"{{InstanceId}}",
 //								},
-//								"cloudWatchOutputConfig": map[string]interface{}{
+//								"cloudWatchOutputConfig": map[string]string{
 //									"cloudWatchOutputEnabled": "true",
 //								},
-//								"parameters": map[string]interface{}{
+//								"parameters": map[string][]string{
 //									"commands": []string{
 //										"sudo amazon-linux-extras install nginx1 -y\nsudo service nginx start\n",
 //									},
@@ -597,7 +597,7 @@ import (
 //								"instanceIds": []string{
 //									"{{InstanceId}}",
 //								},
-//								"parameters": map[string]interface{}{
+//								"parameters": map[string][]string{
 //									"commands": []string{
 //										"curl localhost\n",
 //									},
@@ -640,7 +640,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"ec2.amazonaws.com",
 //									"ssm.amazonaws.com",
@@ -710,7 +710,7 @@ import (
 //					"statement": []map[string]interface{}{
 //						map[string]interface{}{
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"service": []string{
 //									"ec2.amazonaws.com",
 //									"ssm.amazonaws.com",
