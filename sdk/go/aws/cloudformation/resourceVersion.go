@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID(),
+//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID(),
+//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -153,7 +153,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID(),
+//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -185,7 +185,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudformation.NewResourceDefaultVersion(ctx, "resourceDefaultVersion", &cloudformation.ResourceDefaultVersionArgs{
-//				TypeVersionArn: resourceVersion.ID(),
+//				TypeVersionArn: resourceVersion.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

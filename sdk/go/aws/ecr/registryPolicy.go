@@ -38,7 +38,7 @@ import (
 //						map[string]interface{}{
 //							"sid":    "UpdatedRegistryPolicy",
 //							"effect": "Allow",
-//							"principal": map[string]interface{}{
+//							"principal": map[string]string{
 //								"aws": "arn:aws:iam::210987654321:root",
 //							},
 //							"action": []string{

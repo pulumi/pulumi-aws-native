@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Ecs
     ///     var clusterCPAssociation = new AwsNative.Ecs.ClusterCapacityProviderAssociations("clusterCPAssociation", new()
     ///     {
     ///         Cluster = cluster.Id,
-    ///         CapacityProviders = new[]
+    ///         CapacityProviders = 
     ///         {
     ///             capacityProvider1.Id,
     ///             capacityProvider2.Id,
@@ -199,7 +199,7 @@ namespace Pulumi.AwsNative.Ecs
     ///     var clusterCPAssociation = new AwsNative.Ecs.ClusterCapacityProviderAssociations("clusterCPAssociation", new()
     ///     {
     ///         Cluster = cluster.Id,
-    ///         CapacityProviders = new[]
+    ///         CapacityProviders = 
     ///         {
     ///             capacityProvider1.Id,
     ///             capacityProvider2.Id,

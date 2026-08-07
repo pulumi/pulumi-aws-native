@@ -62,14 +62,14 @@ import (
 //				return err
 //			}
 //			version, err := lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
-//				FunctionName: function.ID(),
+//				FunctionName: function.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("v1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lambda.NewAlias(ctx, "alias", &lambda.AliasArgs{
-//				FunctionName:    function.ID(),
+//				FunctionName:    function.ID().ToIDOutput().ToStringOutput(),
 //				FunctionVersion: version.Version,
 //				Name:            pulumi.String("BLUE"),
 //			})
@@ -120,21 +120,21 @@ import (
 //				return err
 //			}
 //			version, err := lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
-//				FunctionName: function.ID(),
+//				FunctionName: function.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("v1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			newVersion, err := lambda.NewVersion(ctx, "newVersion", &lambda.VersionArgs{
-//				FunctionName: function.ID(),
+//				FunctionName: function.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("v2"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lambda.NewAlias(ctx, "alias", &lambda.AliasArgs{
-//				FunctionName:    function.ID(),
+//				FunctionName:    function.ID().ToIDOutput().ToStringOutput(),
 //				FunctionVersion: newVersion.Version,
 //				Name:            pulumi.String("BLUE"),
 //				RoutingConfig: &lambda.AliasRoutingConfigurationArgs{
@@ -193,7 +193,7 @@ import (
 //				return err
 //			}
 //			version, err := lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
-//				FunctionName: function.ID(),
+//				FunctionName: function.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -207,7 +207,7 @@ import (
 //						Destination: pulumi.String("arn:aws:sqs:us-east-2:123456789012:dlq"),
 //					},
 //				},
-//				FunctionName:             function.ID(),
+//				FunctionName:             function.ID().ToIDOutput().ToStringOutput(),
 //				MaximumEventAgeInSeconds: pulumi.Int(300),
 //				MaximumRetryAttempts:     pulumi.Int(1),
 //				Qualifier:                version.Version,
@@ -348,7 +348,7 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewVersion(ctx, "version", &lambda.VersionArgs{
-//				FunctionName: function.ID(),
+//				FunctionName: function.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("v1"),
 //				ProvisionedConcurrencyConfig: &lambda.VersionProvisionedConcurrencyConfigurationArgs{
 //					ProvisionedConcurrentExecutions: pulumi.Int(20),

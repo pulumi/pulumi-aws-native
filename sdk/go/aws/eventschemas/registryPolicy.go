@@ -36,7 +36,7 @@ import (
 //					"statement": map[string]interface{}{
 //						"sid":    1,
 //						"effect": "Allow",
-//						"principal": map[string]interface{}{
+//						"principal": map[string]string{
 //							"aws": "arn:aws:iam::012345678901:user/TestAccountForRegistryPolicy",
 //						},
 //						"action": []string{
@@ -80,7 +80,7 @@ import (
 //							"action": []string{
 //								"schemas:*",
 //							},
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"aws": []string{
 //									"109876543210",
 //								},
@@ -126,7 +126,7 @@ import (
 //							"action": []string{
 //								"schemas:*",
 //							},
-//							"principal": map[string]interface{}{
+//							"principal": map[string][]string{
 //								"aws": []string{
 //									"109876543210",
 //								},

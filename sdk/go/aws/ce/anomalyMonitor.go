@@ -267,8 +267,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID(),
-//					anomalyServiceMonitor.ID(),
+//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
+//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{
@@ -320,8 +320,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID(),
-//					anomalyServiceMonitor.ID(),
+//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
+//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{
@@ -373,8 +373,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID(),
-//					anomalyServiceMonitor.ID(),
+//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
+//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{
@@ -426,8 +426,8 @@ import (
 //				Threshold:        pulumi.Float64(100),
 //				Frequency:        ce.AnomalySubscriptionFrequencyDaily,
 //				MonitorArnList: pulumi.StringArray{
-//					customAnomalyMonitorWithLinkedAccount.ID(),
-//					anomalyServiceMonitor.ID(),
+//					customAnomalyMonitorWithLinkedAccount.ID().ToIDOutput().ToStringOutput(),
+//					anomalyServiceMonitor.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Subscribers: ce.AnomalySubscriptionSubscriberArray{
 //					&ce.AnomalySubscriptionSubscriberArgs{

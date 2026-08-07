@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.DynamoDb
     ///                 AttributeType = "N",
     ///             },
     ///         },
-    ///         KeySchema = new[]
+    ///         KeySchema = 
     ///         {
     ///             new AwsNative.DynamoDb.Inputs.TableKeySchemaArgs
     ///             {
@@ -204,7 +204,7 @@ namespace Pulumi.AwsNative.DynamoDb
     ///                 AttributeType = "N",
     ///             },
     ///         },
-    ///         KeySchema = new[]
+    ///         KeySchema = 
     ///         {
     ///             new AwsNative.DynamoDb.Inputs.TableKeySchemaArgs
     ///             {

@@ -48,7 +48,7 @@ import (
 //				Location: &apigateway.DocumentationPartLocationArgs{
 //					Type: apigateway.DocumentationPartLocationType(_type),
 //				},
-//				RestApiId:  restApi.ID(),
+//				RestApiId:  restApi.ID().ToIDOutput().ToStringOutput(),
 //				Properties: pulumi.String(property),
 //			})
 //			if err != nil {
@@ -57,7 +57,7 @@ import (
 //			_, err = apigateway.NewDocumentationVersion(ctx, "documentationVersion", &apigateway.DocumentationVersionArgs{
 //				Description:          pulumi.String(description),
 //				DocumentationVersion: pulumi.String(version),
-//				RestApiId:            restApi.ID(),
+//				RestApiId:            restApi.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				documentationPart,
 //			}))
@@ -100,7 +100,7 @@ import (
 //				Location: &apigateway.DocumentationPartLocationArgs{
 //					Type: apigateway.DocumentationPartLocationType(_type),
 //				},
-//				RestApiId:  restApi.ID(),
+//				RestApiId:  restApi.ID().ToIDOutput().ToStringOutput(),
 //				Properties: pulumi.String(property),
 //			})
 //			if err != nil {
@@ -109,7 +109,7 @@ import (
 //			_, err = apigateway.NewDocumentationVersion(ctx, "documentationVersion", &apigateway.DocumentationVersionArgs{
 //				Description:          pulumi.String(description),
 //				DocumentationVersion: pulumi.String(version),
-//				RestApiId:            restApi.ID(),
+//				RestApiId:            restApi.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				documentationPart,
 //			}))
@@ -147,7 +147,7 @@ import (
 //					"gatewayresponse.header.Access-Control-Allow-Headers": pulumi.String("'*'"),
 //				},
 //				ResponseType: pulumi.String("MISSING_AUTHENTICATION_TOKEN"),
-//				RestApiId:    restApi.ID(),
+//				RestApiId:    restApi.ID().ToIDOutput().ToStringOutput(),
 //				StatusCode:   pulumi.String("404"),
 //			})
 //			if err != nil {
@@ -184,7 +184,7 @@ import (
 //					"gatewayresponse.header.Access-Control-Allow-Headers": pulumi.String("'*'"),
 //				},
 //				ResponseType: pulumi.String("MISSING_AUTHENTICATION_TOKEN"),
-//				RestApiId:    restApi.ID(),
+//				RestApiId:    restApi.ID().ToIDOutput().ToStringOutput(),
 //				StatusCode:   pulumi.String("404"),
 //			})
 //			if err != nil {
@@ -228,7 +228,7 @@ import (
 //					"gatewayresponse.header.k2": pulumi.String(responseParameter2),
 //				},
 //				ResponseType: pulumi.String(responseType),
-//				RestApiId:    restApi.ID(),
+//				RestApiId:    restApi.ID().ToIDOutput().ToStringOutput(),
 //				StatusCode:   pulumi.String(statusCode),
 //			})
 //			if err != nil {
@@ -272,7 +272,7 @@ import (
 //					"gatewayresponse.header.k2": pulumi.String(responseParameter2),
 //				},
 //				ResponseType: pulumi.String(responseType),
-//				RestApiId:    restApi.ID(),
+//				RestApiId:    restApi.ID().ToIDOutput().ToStringOutput(),
 //				StatusCode:   pulumi.String(statusCode),
 //			})
 //			if err != nil {
@@ -328,7 +328,7 @@ import (
 //			}
 //			requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
 //				Name:                      pulumi.String(validatorName),
-//				RestApiId:                 restApi.ID(),
+//				RestApiId:                 restApi.ID().ToIDOutput().ToStringOutput(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
 //			})
@@ -338,7 +338,7 @@ import (
 //			_, err = apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
 //				HttpMethod:        pulumi.String("POST"),
 //				ResourceId:        restApi.RootResourceId,
-//				RestApiId:         restApi.ID(),
+//				RestApiId:         restApi.ID().ToIDOutput().ToStringOutput(),
 //				AuthorizationType: pulumi.String("NONE"),
 //				Integration: &apigateway.MethodIntegrationArgs{
 //					Type:            apigateway.MethodIntegrationTypeMock,
@@ -350,7 +350,7 @@ import (
 //						},
 //					},
 //				},
-//				RequestValidatorId: requestValidator.ID(),
+//				RequestValidatorId: requestValidator.ID().ToIDOutput().ToStringOutput(),
 //				OperationName:      pulumi.String(operationName),
 //			})
 //			if err != nil {
@@ -407,7 +407,7 @@ import (
 //			}
 //			requestValidator, err := apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
 //				Name:                      pulumi.String(validatorName),
-//				RestApiId:                 restApi.ID(),
+//				RestApiId:                 restApi.ID().ToIDOutput().ToStringOutput(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
 //			})
@@ -417,7 +417,7 @@ import (
 //			_, err = apigateway.NewMethod(ctx, "method", &apigateway.MethodArgs{
 //				HttpMethod:        pulumi.String("POST"),
 //				ResourceId:        restApi.RootResourceId,
-//				RestApiId:         restApi.ID(),
+//				RestApiId:         restApi.ID().ToIDOutput().ToStringOutput(),
 //				AuthorizationType: pulumi.String("NONE"),
 //				Integration: &apigateway.MethodIntegrationArgs{
 //					Type:            apigateway.MethodIntegrationTypeMock,
@@ -429,7 +429,7 @@ import (
 //						},
 //					},
 //				},
-//				RequestValidatorId: requestValidator.ID(),
+//				RequestValidatorId: requestValidator.ID().ToIDOutput().ToStringOutput(),
 //				OperationName:      pulumi.String(operationName),
 //			})
 //			if err != nil {
@@ -469,7 +469,7 @@ import (
 //			}
 //			_, err = apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
 //				Name:                      pulumi.String(validatorName),
-//				RestApiId:                 restApi.ID(),
+//				RestApiId:                 restApi.ID().ToIDOutput().ToStringOutput(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
 //			})
@@ -509,7 +509,7 @@ import (
 //			}
 //			_, err = apigateway.NewRequestValidator(ctx, "requestValidator", &apigateway.RequestValidatorArgs{
 //				Name:                      pulumi.String(validatorName),
-//				RestApiId:                 restApi.ID(),
+//				RestApiId:                 restApi.ID().ToIDOutput().ToStringOutput(),
 //				ValidateRequestBody:       pulumi.String(validateRequestBody),
 //				ValidateRequestParameters: pulumi.String(validateRequestParameters),
 //			})
@@ -606,7 +606,7 @@ import (
 //			_, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
 //				Body: pulumi.Any(map[string]interface{}{
 //					"swagger": 2,
-//					"info": map[string]interface{}{
+//					"info": map[string]string{
 //						"version": "0.0.1",
 //						"title":   "test",
 //					},
@@ -614,8 +614,8 @@ import (
 //					"schemes": []string{
 //						"https",
 //					},
-//					"definitions": map[string]interface{}{
-//						"empty": map[string]interface{}{
+//					"definitions": map[string]map[string]string{
+//						"empty": map[string]string{
 //							"type": "object",
 //						},
 //					},
@@ -650,7 +650,7 @@ import (
 //			_, err := apigateway.NewRestApi(ctx, "restApi", &apigateway.RestApiArgs{
 //				Body: pulumi.Any(map[string]interface{}{
 //					"swagger": 2,
-//					"info": map[string]interface{}{
+//					"info": map[string]string{
 //						"version": "0.0.1",
 //						"title":   "test",
 //					},
@@ -658,8 +658,8 @@ import (
 //					"schemes": []string{
 //						"https",
 //					},
-//					"definitions": map[string]interface{}{
-//						"empty": map[string]interface{}{
+//					"definitions": map[string]map[string]string{
+//						"empty": map[string]string{
 //							"type": "object",
 //						},
 //					},

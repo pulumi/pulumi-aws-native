@@ -100,7 +100,7 @@ import (
 //			}
 //			_, err = organizations.NewOrganizationalUnit(ctx, "childOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("ChildOU"),
-//				ParentId: parentOU.ID(),
+//				ParentId: parentOU.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -136,7 +136,7 @@ import (
 //			}
 //			_, err = organizations.NewOrganizationalUnit(ctx, "childOU", &organizations.OrganizationalUnitArgs{
 //				Name:     pulumi.String("ChildOU"),
-//				ParentId: parentOU.ID(),
+//				ParentId: parentOU.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

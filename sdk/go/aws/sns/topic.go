@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = sns.NewSubscription(ctx, "erpSubscription", &sns.SubscriptionArgs{
-//				TopicArn:           carSalesTopic.ID(),
+//				TopicArn:           carSalesTopic.ID().ToIDOutput().ToStringOutput(),
 //				Endpoint:           erpIntegrationQueue.Arn,
 //				Protocol:           pulumi.String("sqs"),
 //				RawMessageDelivery: pulumi.Bool(true),
@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = sns.NewSubscription(ctx, "crmSubscription", &sns.SubscriptionArgs{
-//				TopicArn:           carSalesTopic.ID(),
+//				TopicArn:           carSalesTopic.ID().ToIDOutput().ToStringOutput(),
 //				Endpoint:           crmIntegrationQueue.Arn,
 //				Protocol:           pulumi.String("sqs"),
 //				RawMessageDelivery: pulumi.Bool(true),
@@ -72,7 +72,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			myHttpEndpoint := cfg.Require("myHttpEndpoint")
 //			_, err = sns.NewSubscription(ctx, "scmSubscription", &sns.SubscriptionArgs{
-//				TopicArn: carSalesTopic.ID(),
+//				TopicArn: carSalesTopic.ID().ToIDOutput().ToStringOutput(),
 //				Endpoint: pulumi.String(myHttpEndpoint),
 //				Protocol: pulumi.String("https"),
 //				DeliveryPolicy: pulumi.Any(map[string]interface{}{
@@ -120,7 +120,7 @@ import (
 //				return err
 //			}
 //			_, err = sns.NewSubscription(ctx, "erpSubscription", &sns.SubscriptionArgs{
-//				TopicArn:           carSalesTopic.ID(),
+//				TopicArn:           carSalesTopic.ID().ToIDOutput().ToStringOutput(),
 //				Endpoint:           erpIntegrationQueue.Arn,
 //				Protocol:           pulumi.String("sqs"),
 //				RawMessageDelivery: pulumi.Bool(true),
@@ -133,7 +133,7 @@ import (
 //				return err
 //			}
 //			_, err = sns.NewSubscription(ctx, "crmSubscription", &sns.SubscriptionArgs{
-//				TopicArn:           carSalesTopic.ID(),
+//				TopicArn:           carSalesTopic.ID().ToIDOutput().ToStringOutput(),
 //				Endpoint:           crmIntegrationQueue.Arn,
 //				Protocol:           pulumi.String("sqs"),
 //				RawMessageDelivery: pulumi.Bool(true),
@@ -149,7 +149,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			myHttpEndpoint := cfg.Require("myHttpEndpoint")
 //			_, err = sns.NewSubscription(ctx, "scmSubscription", &sns.SubscriptionArgs{
-//				TopicArn: carSalesTopic.ID(),
+//				TopicArn: carSalesTopic.ID().ToIDOutput().ToStringOutput(),
 //				Endpoint: pulumi.String(myHttpEndpoint),
 //				Protocol: pulumi.String("https"),
 //				DeliveryPolicy: pulumi.Any(map[string]interface{}{

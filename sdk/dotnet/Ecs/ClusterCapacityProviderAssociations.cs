@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Ecs
     ///     var clusterCPAssociation = new AwsNative.Ecs.ClusterCapacityProviderAssociations("clusterCPAssociation", new()
     ///     {
     ///         Cluster = clusterName,
-    ///         CapacityProviders = new[]
+    ///         CapacityProviders = 
     ///         {
     ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
     ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Ecs
     ///     var clusterCPAssociation = new AwsNative.Ecs.ClusterCapacityProviderAssociations("clusterCPAssociation", new()
     ///     {
     ///         Cluster = clusterName,
-    ///         CapacityProviders = new[]
+    ///         CapacityProviders = 
     ///         {
     ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.Fargate,
     ///             AwsNative.Ecs.ClusterCapacityProviderAssociationsCapacityProvider.FargateSpot,
