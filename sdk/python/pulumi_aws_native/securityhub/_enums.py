@@ -414,6 +414,7 @@ class PolicyAssociationAssociationStatus(_builtins.str, Enum):
     SUCCESS = "SUCCESS"
     PENDING = "PENDING"
     FAILED = "FAILED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:securityhub:PolicyAssociationAssociationType")

@@ -146,6 +146,8 @@ __all__ = [
     'BotKendraConfigurationArgsDict',
     'BotLocaleArgs',
     'BotLocaleArgsDict',
+    'BotMemberArgs',
+    'BotMemberArgsDict',
     'BotMessageArgs',
     'BotMessageArgsDict',
     'BotMessageGroupArgs',
@@ -3967,6 +3969,115 @@ class BotLocaleArgs:
     @voice_settings.setter
     def voice_settings(self, value: pulumi.Input[Optional['BotVoiceSettingsArgs']]):
         pulumi.set(self, "voice_settings", value)
+
+
+class BotMemberArgsDict(TypedDict):
+    """
+    A bot that is a member of a bot network.
+    """
+    bot_member_alias_id: pulumi.Input[_builtins.str]
+    """
+    The alias ID of a bot that is a member of this network of bots.
+    """
+    bot_member_alias_name: pulumi.Input[_builtins.str]
+    """
+    The alias name of a bot that is a member of this network of bots.
+    """
+    bot_member_id: pulumi.Input[_builtins.str]
+    """
+    The unique ID of a bot that is a member of this network of bots.
+    """
+    bot_member_name: pulumi.Input[_builtins.str]
+    """
+    The unique name of a bot that is a member of this network of bots.
+    """
+    bot_member_version: pulumi.Input[_builtins.str]
+    """
+    The version of a bot that is a member of this network of bots.
+    """
+
+@pulumi.input_type
+class BotMemberArgs:
+    def __init__(__self__, *,
+                 bot_member_alias_id: pulumi.Input[_builtins.str],
+                 bot_member_alias_name: pulumi.Input[_builtins.str],
+                 bot_member_id: pulumi.Input[_builtins.str],
+                 bot_member_name: pulumi.Input[_builtins.str],
+                 bot_member_version: pulumi.Input[_builtins.str]):
+        """
+        A bot that is a member of a bot network.
+
+        :param pulumi.Input[_builtins.str] bot_member_alias_id: The alias ID of a bot that is a member of this network of bots.
+        :param pulumi.Input[_builtins.str] bot_member_alias_name: The alias name of a bot that is a member of this network of bots.
+        :param pulumi.Input[_builtins.str] bot_member_id: The unique ID of a bot that is a member of this network of bots.
+        :param pulumi.Input[_builtins.str] bot_member_name: The unique name of a bot that is a member of this network of bots.
+        :param pulumi.Input[_builtins.str] bot_member_version: The version of a bot that is a member of this network of bots.
+        """
+        pulumi.set(__self__, "bot_member_alias_id", bot_member_alias_id)
+        pulumi.set(__self__, "bot_member_alias_name", bot_member_alias_name)
+        pulumi.set(__self__, "bot_member_id", bot_member_id)
+        pulumi.set(__self__, "bot_member_name", bot_member_name)
+        pulumi.set(__self__, "bot_member_version", bot_member_version)
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberAliasId")
+    def bot_member_alias_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The alias ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_alias_id")
+
+    @bot_member_alias_id.setter
+    def bot_member_alias_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bot_member_alias_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberAliasName")
+    def bot_member_alias_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The alias name of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_alias_name")
+
+    @bot_member_alias_name.setter
+    def bot_member_alias_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bot_member_alias_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberId")
+    def bot_member_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_id")
+
+    @bot_member_id.setter
+    def bot_member_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bot_member_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberName")
+    def bot_member_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique name of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_name")
+
+    @bot_member_name.setter
+    def bot_member_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bot_member_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberVersion")
+    def bot_member_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        The version of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_version")
+
+    @bot_member_version.setter
+    def bot_member_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bot_member_version", value)
 
 
 class BotMessageArgsDict(TypedDict):

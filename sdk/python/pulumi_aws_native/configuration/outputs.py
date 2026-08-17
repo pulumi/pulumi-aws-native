@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ComplianceProperties',
@@ -27,6 +28,7 @@ __all__ = [
     'ConformancePackInputParameter',
     'ConnectorAzureConnectorConfiguration',
     'ConnectorConfiguration',
+    'DeliveryChannelConfigSnapshotDeliveryProperties',
     'OrganizationConformancePackConformancePackInputParameter',
     'RemediationConfigurationExecutionControls',
     'RemediationConfigurationSsmControls',
@@ -660,6 +662,42 @@ class ConnectorConfiguration(dict):
         The configuration for connecting to Microsoft Azure.
         """
         return pulumi.get(self, "azure")
+
+
+@pulumi.output_type
+class DeliveryChannelConfigSnapshotDeliveryProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryFrequency":
+            suggest = "delivery_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryChannelConfigSnapshotDeliveryProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryChannelConfigSnapshotDeliveryProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryChannelConfigSnapshotDeliveryProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_frequency: Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency'] = None):
+        """
+        :param 'DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency' delivery_frequency: The frequency with which AWS Config delivers configuration snapshots.
+        """
+        if delivery_frequency is not None:
+            pulumi.set(__self__, "delivery_frequency", delivery_frequency)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryFrequency")
+    def delivery_frequency(self) -> Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency']:
+        """
+        The frequency with which AWS Config delivers configuration snapshots.
+        """
+        return pulumi.get(self, "delivery_frequency")
 
 
 @pulumi.output_type

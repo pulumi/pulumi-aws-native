@@ -16,11 +16,165 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'PrivateDnsNamespacePrivateDnsPropertiesMutable',
+    'PrivateDnsNamespaceProperties',
+    'PrivateDnsNamespaceSoa',
+    'PublicDnsNamespaceProperties',
+    'PublicDnsNamespacePublicDnsPropertiesMutable',
+    'PublicDnsNamespaceSoa',
     'ServiceDnsConfig',
     'ServiceDnsRecord',
     'ServiceHealthCheckConfig',
     'ServiceHealthCheckCustomConfig',
 ]
+
+@pulumi.output_type
+class PrivateDnsNamespacePrivateDnsPropertiesMutable(dict):
+    def __init__(__self__, *,
+                 soa: Optional['outputs.PrivateDnsNamespaceSoa'] = None):
+        """
+        :param 'PrivateDnsNamespaceSoa' soa: Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
+        """
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
+
+    @_builtins.property
+    @pulumi.getter
+    def soa(self) -> Optional['outputs.PrivateDnsNamespaceSoa']:
+        """
+        Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
+        """
+        return pulumi.get(self, "soa")
+
+
+@pulumi.output_type
+class PrivateDnsNamespaceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsProperties":
+            suggest = "dns_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateDnsNamespaceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateDnsNamespaceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateDnsNamespaceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_properties: Optional['outputs.PrivateDnsNamespacePrivateDnsPropertiesMutable'] = None):
+        """
+        :param 'PrivateDnsNamespacePrivateDnsPropertiesMutable' dns_properties: DNS properties for the private DNS namespace.
+        """
+        if dns_properties is not None:
+            pulumi.set(__self__, "dns_properties", dns_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsProperties")
+    def dns_properties(self) -> Optional['outputs.PrivateDnsNamespacePrivateDnsPropertiesMutable']:
+        """
+        DNS properties for the private DNS namespace.
+        """
+        return pulumi.get(self, "dns_properties")
+
+
+@pulumi.output_type
+class PrivateDnsNamespaceSoa(dict):
+    def __init__(__self__, *,
+                 ttl: Optional[_builtins.float] = None):
+        """
+        :param _builtins.float ttl: The time to live (TTL) for purposes of negative caching.
+        """
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @_builtins.property
+    @pulumi.getter
+    def ttl(self) -> Optional[_builtins.float]:
+        """
+        The time to live (TTL) for purposes of negative caching.
+        """
+        return pulumi.get(self, "ttl")
+
+
+@pulumi.output_type
+class PublicDnsNamespaceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsProperties":
+            suggest = "dns_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicDnsNamespaceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicDnsNamespaceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicDnsNamespaceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_properties: Optional['outputs.PublicDnsNamespacePublicDnsPropertiesMutable'] = None):
+        """
+        :param 'PublicDnsNamespacePublicDnsPropertiesMutable' dns_properties: DNS properties for the public DNS namespace.
+        """
+        if dns_properties is not None:
+            pulumi.set(__self__, "dns_properties", dns_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsProperties")
+    def dns_properties(self) -> Optional['outputs.PublicDnsNamespacePublicDnsPropertiesMutable']:
+        """
+        DNS properties for the public DNS namespace.
+        """
+        return pulumi.get(self, "dns_properties")
+
+
+@pulumi.output_type
+class PublicDnsNamespacePublicDnsPropertiesMutable(dict):
+    def __init__(__self__, *,
+                 soa: Optional['outputs.PublicDnsNamespaceSoa'] = None):
+        """
+        :param 'PublicDnsNamespaceSoa' soa: Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
+        """
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
+
+    @_builtins.property
+    @pulumi.getter
+    def soa(self) -> Optional['outputs.PublicDnsNamespaceSoa']:
+        """
+        Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
+        """
+        return pulumi.get(self, "soa")
+
+
+@pulumi.output_type
+class PublicDnsNamespaceSoa(dict):
+    def __init__(__self__, *,
+                 ttl: Optional[_builtins.float] = None):
+        """
+        :param _builtins.float ttl: The time to live (TTL) for purposes of negative caching.
+        """
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @_builtins.property
+    @pulumi.getter
+    def ttl(self) -> Optional[_builtins.float]:
+        """
+        The time to live (TTL) for purposes of negative caching.
+        """
+        return pulumi.get(self, "ttl")
+
 
 @pulumi.output_type
 class ServiceDnsConfig(dict):

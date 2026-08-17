@@ -2592,7 +2592,7 @@ type Ec2FleetEbsBlockDevice struct {
 	// - `standard` : 1 - 1024 GiB
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-	VolumeType *Ec2FleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // Ec2FleetEbsBlockDeviceInput is an input type that accepts Ec2FleetEbsBlockDeviceArgs and Ec2FleetEbsBlockDeviceOutput values.
@@ -2650,7 +2650,7 @@ type Ec2FleetEbsBlockDeviceArgs struct {
 	// - `standard` : 1 - 1024 GiB
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-	VolumeType Ec2FleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (Ec2FleetEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -2791,8 +2791,8 @@ func (o Ec2FleetEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-func (o Ec2FleetEbsBlockDeviceOutput) VolumeType() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *Ec2FleetEbsBlockDeviceVolumeType { return v.VolumeType }).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
+func (o Ec2FleetEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
 type Ec2FleetEbsBlockDevicePtrOutput struct{ *pulumi.OutputState }
@@ -2910,13 +2910,13 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeType() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *Ec2FleetEbsBlockDeviceVolumeType {
+func (o Ec2FleetEbsBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *string {
 		if v == nil {
 			return nil
 		}
 		return v.VolumeType
-	}).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type Ec2FleetFleetLaunchTemplateConfigRequest struct {
@@ -27466,7 +27466,7 @@ type SpotFleetEbsBlockDevice struct {
 	// - `standard` : 1 - 1024 GiB
 	VolumeSize *int `pulumi:"volumeSize"`
 	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-	VolumeType *SpotFleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
+	VolumeType *string `pulumi:"volumeType"`
 }
 
 // SpotFleetEbsBlockDeviceInput is an input type that accepts SpotFleetEbsBlockDeviceArgs and SpotFleetEbsBlockDeviceOutput values.
@@ -27517,7 +27517,7 @@ type SpotFleetEbsBlockDeviceArgs struct {
 	// - `standard` : 1 - 1024 GiB
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-	VolumeType SpotFleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
 func (SpotFleetEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -27648,8 +27648,8 @@ func (o SpotFleetEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-func (o SpotFleetEbsBlockDeviceOutput) VolumeType() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *SpotFleetEbsBlockDeviceVolumeType { return v.VolumeType }).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
+func (o SpotFleetEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
 type SpotFleetEbsBlockDevicePtrOutput struct{ *pulumi.OutputState }
@@ -27752,13 +27752,13 @@ func (o SpotFleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 // The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-func (o SpotFleetEbsBlockDevicePtrOutput) VolumeType() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *SpotFleetEbsBlockDeviceVolumeType {
+func (o SpotFleetEbsBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *string {
 		if v == nil {
 			return nil
 		}
 		return v.VolumeType
-	}).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpotFleetFleetLaunchTemplateSpecification struct {
@@ -37395,33 +37395,29 @@ type VpcBlockPublicAccessExclusionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes the configuration and state of VPC encryption controls.
+//
+//	For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 type VpcEncryptionControlType struct {
-	// The desired exclusion mode for Egress-Only Internet Gateways.
 	EgressOnlyInternetGatewayExclusion *VpcEncryptionControlEgressOnlyInternetGatewayExclusion `pulumi:"egressOnlyInternetGatewayExclusion"`
-	// The desired exclusion mode for Elastic File System.
-	ElasticFileSystemExclusion *VpcEncryptionControlElasticFileSystemExclusion `pulumi:"elasticFileSystemExclusion"`
-	// The desired exclusion mode for Internet Gateways.
-	InternetGatewayExclusion *VpcEncryptionControlInternetGatewayExclusion `pulumi:"internetGatewayExclusion"`
-	// The desired exclusion mode for Lambda.
-	LambdaExclusion *VpcEncryptionControlLambdaExclusion `pulumi:"lambdaExclusion"`
-	// The mode of the VPC encryption control.
-	Mode *VpcEncryptionControlMode `pulumi:"mode"`
-	// The desired exclusion mode for NAT Gateways.
+	ElasticFileSystemExclusion         *VpcEncryptionControlElasticFileSystemExclusion         `pulumi:"elasticFileSystemExclusion"`
+	InternetGatewayExclusion           *VpcEncryptionControlInternetGatewayExclusion           `pulumi:"internetGatewayExclusion"`
+	LambdaExclusion                    *VpcEncryptionControlLambdaExclusion                    `pulumi:"lambdaExclusion"`
+	// The encryption mode for the VPC Encryption Control configuration.
+	Mode                *VpcEncryptionControlMode                `pulumi:"mode"`
 	NatGatewayExclusion *VpcEncryptionControlNatGatewayExclusion `pulumi:"natGatewayExclusion"`
-	ResourceExclusions  *VpcEncryptionControlExclusions          `pulumi:"resourceExclusions"`
-	// The state of the VPC encryption control.
+	// Information about resource exclusions for the VPC Encryption Control configuration.
+	ResourceExclusions *VpcEncryptionControlExclusions `pulumi:"resourceExclusions"`
+	// The current state of the VPC Encryption Control configuration.
 	State *string `pulumi:"state"`
-	// A message describing the state of the VPC encryption control.
-	StateMessage *string `pulumi:"stateMessage"`
-	// The desired exclusion mode for Virtual Private Gateways.
+	// A message providing additional information about the encryption control state.
+	StateMessage                   *string                                             `pulumi:"stateMessage"`
 	VirtualPrivateGatewayExclusion *VpcEncryptionControlVirtualPrivateGatewayExclusion `pulumi:"virtualPrivateGatewayExclusion"`
-	// The ID of the VPC encryption control.
+	// The ID of the VPC Encryption Control configuration.
 	VpcEncryptionControlId *string `pulumi:"vpcEncryptionControlId"`
-	// The ID of the VPC.
-	VpcId *string `pulumi:"vpcId"`
-	// The desired exclusion mode for VPC Lattice.
+	// The ID of the VPC associated with the encryption control configuration.
+	VpcId               *string                                  `pulumi:"vpcId"`
 	VpcLatticeExclusion *VpcEncryptionControlVpcLatticeExclusion `pulumi:"vpcLatticeExclusion"`
-	// The desired exclusion mode for VPC Peering.
 	VpcPeeringExclusion *VpcEncryptionControlVpcPeeringExclusion `pulumi:"vpcPeeringExclusion"`
 }
 
@@ -37436,33 +37432,29 @@ type VpcEncryptionControlTypeInput interface {
 	ToVpcEncryptionControlTypeOutputWithContext(context.Context) VpcEncryptionControlTypeOutput
 }
 
+// Describes the configuration and state of VPC encryption controls.
+//
+//	For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 type VpcEncryptionControlTypeArgs struct {
-	// The desired exclusion mode for Egress-Only Internet Gateways.
 	EgressOnlyInternetGatewayExclusion VpcEncryptionControlEgressOnlyInternetGatewayExclusionPtrInput `pulumi:"egressOnlyInternetGatewayExclusion"`
-	// The desired exclusion mode for Elastic File System.
-	ElasticFileSystemExclusion VpcEncryptionControlElasticFileSystemExclusionPtrInput `pulumi:"elasticFileSystemExclusion"`
-	// The desired exclusion mode for Internet Gateways.
-	InternetGatewayExclusion VpcEncryptionControlInternetGatewayExclusionPtrInput `pulumi:"internetGatewayExclusion"`
-	// The desired exclusion mode for Lambda.
-	LambdaExclusion VpcEncryptionControlLambdaExclusionPtrInput `pulumi:"lambdaExclusion"`
-	// The mode of the VPC encryption control.
-	Mode VpcEncryptionControlModePtrInput `pulumi:"mode"`
-	// The desired exclusion mode for NAT Gateways.
+	ElasticFileSystemExclusion         VpcEncryptionControlElasticFileSystemExclusionPtrInput         `pulumi:"elasticFileSystemExclusion"`
+	InternetGatewayExclusion           VpcEncryptionControlInternetGatewayExclusionPtrInput           `pulumi:"internetGatewayExclusion"`
+	LambdaExclusion                    VpcEncryptionControlLambdaExclusionPtrInput                    `pulumi:"lambdaExclusion"`
+	// The encryption mode for the VPC Encryption Control configuration.
+	Mode                VpcEncryptionControlModePtrInput                `pulumi:"mode"`
 	NatGatewayExclusion VpcEncryptionControlNatGatewayExclusionPtrInput `pulumi:"natGatewayExclusion"`
-	ResourceExclusions  VpcEncryptionControlExclusionsPtrInput          `pulumi:"resourceExclusions"`
-	// The state of the VPC encryption control.
+	// Information about resource exclusions for the VPC Encryption Control configuration.
+	ResourceExclusions VpcEncryptionControlExclusionsPtrInput `pulumi:"resourceExclusions"`
+	// The current state of the VPC Encryption Control configuration.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// A message describing the state of the VPC encryption control.
-	StateMessage pulumi.StringPtrInput `pulumi:"stateMessage"`
-	// The desired exclusion mode for Virtual Private Gateways.
+	// A message providing additional information about the encryption control state.
+	StateMessage                   pulumi.StringPtrInput                                      `pulumi:"stateMessage"`
 	VirtualPrivateGatewayExclusion VpcEncryptionControlVirtualPrivateGatewayExclusionPtrInput `pulumi:"virtualPrivateGatewayExclusion"`
-	// The ID of the VPC encryption control.
+	// The ID of the VPC Encryption Control configuration.
 	VpcEncryptionControlId pulumi.StringPtrInput `pulumi:"vpcEncryptionControlId"`
-	// The ID of the VPC.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
-	// The desired exclusion mode for VPC Lattice.
+	// The ID of the VPC associated with the encryption control configuration.
+	VpcId               pulumi.StringPtrInput                           `pulumi:"vpcId"`
 	VpcLatticeExclusion VpcEncryptionControlVpcLatticeExclusionPtrInput `pulumi:"vpcLatticeExclusion"`
-	// The desired exclusion mode for VPC Peering.
 	VpcPeeringExclusion VpcEncryptionControlVpcPeeringExclusionPtrInput `pulumi:"vpcPeeringExclusion"`
 }
 
@@ -37519,6 +37511,9 @@ func (i *vpcEncryptionControlTypePtrType) ToVpcEncryptionControlTypePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEncryptionControlTypePtrOutput)
 }
 
+// Describes the configuration and state of VPC encryption controls.
+//
+//	For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 type VpcEncryptionControlTypeOutput struct{ *pulumi.OutputState }
 
 func (VpcEncryptionControlTypeOutput) ElementType() reflect.Type {
@@ -37543,83 +37538,76 @@ func (o VpcEncryptionControlTypeOutput) ToVpcEncryptionControlTypePtrOutputWithC
 	}).(VpcEncryptionControlTypePtrOutput)
 }
 
-// The desired exclusion mode for Egress-Only Internet Gateways.
 func (o VpcEncryptionControlTypeOutput) EgressOnlyInternetGatewayExclusion() VpcEncryptionControlEgressOnlyInternetGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlEgressOnlyInternetGatewayExclusion {
 		return v.EgressOnlyInternetGatewayExclusion
 	}).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionPtrOutput)
 }
 
-// The desired exclusion mode for Elastic File System.
 func (o VpcEncryptionControlTypeOutput) ElasticFileSystemExclusion() VpcEncryptionControlElasticFileSystemExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlElasticFileSystemExclusion {
 		return v.ElasticFileSystemExclusion
 	}).(VpcEncryptionControlElasticFileSystemExclusionPtrOutput)
 }
 
-// The desired exclusion mode for Internet Gateways.
 func (o VpcEncryptionControlTypeOutput) InternetGatewayExclusion() VpcEncryptionControlInternetGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlInternetGatewayExclusion {
 		return v.InternetGatewayExclusion
 	}).(VpcEncryptionControlInternetGatewayExclusionPtrOutput)
 }
 
-// The desired exclusion mode for Lambda.
 func (o VpcEncryptionControlTypeOutput) LambdaExclusion() VpcEncryptionControlLambdaExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlLambdaExclusion { return v.LambdaExclusion }).(VpcEncryptionControlLambdaExclusionPtrOutput)
 }
 
-// The mode of the VPC encryption control.
+// The encryption mode for the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypeOutput) Mode() VpcEncryptionControlModePtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlMode { return v.Mode }).(VpcEncryptionControlModePtrOutput)
 }
 
-// The desired exclusion mode for NAT Gateways.
 func (o VpcEncryptionControlTypeOutput) NatGatewayExclusion() VpcEncryptionControlNatGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlNatGatewayExclusion {
 		return v.NatGatewayExclusion
 	}).(VpcEncryptionControlNatGatewayExclusionPtrOutput)
 }
 
+// Information about resource exclusions for the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypeOutput) ResourceExclusions() VpcEncryptionControlExclusionsPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlExclusions { return v.ResourceExclusions }).(VpcEncryptionControlExclusionsPtrOutput)
 }
 
-// The state of the VPC encryption control.
+// The current state of the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypeOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// A message describing the state of the VPC encryption control.
+// A message providing additional information about the encryption control state.
 func (o VpcEncryptionControlTypeOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *string { return v.StateMessage }).(pulumi.StringPtrOutput)
 }
 
-// The desired exclusion mode for Virtual Private Gateways.
 func (o VpcEncryptionControlTypeOutput) VirtualPrivateGatewayExclusion() VpcEncryptionControlVirtualPrivateGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlVirtualPrivateGatewayExclusion {
 		return v.VirtualPrivateGatewayExclusion
 	}).(VpcEncryptionControlVirtualPrivateGatewayExclusionPtrOutput)
 }
 
-// The ID of the VPC encryption control.
+// The ID of the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypeOutput) VpcEncryptionControlId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *string { return v.VpcEncryptionControlId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC.
+// The ID of the VPC associated with the encryption control configuration.
 func (o VpcEncryptionControlTypeOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
-// The desired exclusion mode for VPC Lattice.
 func (o VpcEncryptionControlTypeOutput) VpcLatticeExclusion() VpcEncryptionControlVpcLatticeExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlVpcLatticeExclusion {
 		return v.VpcLatticeExclusion
 	}).(VpcEncryptionControlVpcLatticeExclusionPtrOutput)
 }
 
-// The desired exclusion mode for VPC Peering.
 func (o VpcEncryptionControlTypeOutput) VpcPeeringExclusion() VpcEncryptionControlVpcPeeringExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlType) *VpcEncryptionControlVpcPeeringExclusion {
 		return v.VpcPeeringExclusion
@@ -37650,7 +37638,6 @@ func (o VpcEncryptionControlTypePtrOutput) Elem() VpcEncryptionControlTypeOutput
 	}).(VpcEncryptionControlTypeOutput)
 }
 
-// The desired exclusion mode for Egress-Only Internet Gateways.
 func (o VpcEncryptionControlTypePtrOutput) EgressOnlyInternetGatewayExclusion() VpcEncryptionControlEgressOnlyInternetGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlEgressOnlyInternetGatewayExclusion {
 		if v == nil {
@@ -37660,7 +37647,6 @@ func (o VpcEncryptionControlTypePtrOutput) EgressOnlyInternetGatewayExclusion() 
 	}).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionPtrOutput)
 }
 
-// The desired exclusion mode for Elastic File System.
 func (o VpcEncryptionControlTypePtrOutput) ElasticFileSystemExclusion() VpcEncryptionControlElasticFileSystemExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlElasticFileSystemExclusion {
 		if v == nil {
@@ -37670,7 +37656,6 @@ func (o VpcEncryptionControlTypePtrOutput) ElasticFileSystemExclusion() VpcEncry
 	}).(VpcEncryptionControlElasticFileSystemExclusionPtrOutput)
 }
 
-// The desired exclusion mode for Internet Gateways.
 func (o VpcEncryptionControlTypePtrOutput) InternetGatewayExclusion() VpcEncryptionControlInternetGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlInternetGatewayExclusion {
 		if v == nil {
@@ -37680,7 +37665,6 @@ func (o VpcEncryptionControlTypePtrOutput) InternetGatewayExclusion() VpcEncrypt
 	}).(VpcEncryptionControlInternetGatewayExclusionPtrOutput)
 }
 
-// The desired exclusion mode for Lambda.
 func (o VpcEncryptionControlTypePtrOutput) LambdaExclusion() VpcEncryptionControlLambdaExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlLambdaExclusion {
 		if v == nil {
@@ -37690,7 +37674,7 @@ func (o VpcEncryptionControlTypePtrOutput) LambdaExclusion() VpcEncryptionContro
 	}).(VpcEncryptionControlLambdaExclusionPtrOutput)
 }
 
-// The mode of the VPC encryption control.
+// The encryption mode for the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypePtrOutput) Mode() VpcEncryptionControlModePtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlMode {
 		if v == nil {
@@ -37700,7 +37684,6 @@ func (o VpcEncryptionControlTypePtrOutput) Mode() VpcEncryptionControlModePtrOut
 	}).(VpcEncryptionControlModePtrOutput)
 }
 
-// The desired exclusion mode for NAT Gateways.
 func (o VpcEncryptionControlTypePtrOutput) NatGatewayExclusion() VpcEncryptionControlNatGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlNatGatewayExclusion {
 		if v == nil {
@@ -37710,6 +37693,7 @@ func (o VpcEncryptionControlTypePtrOutput) NatGatewayExclusion() VpcEncryptionCo
 	}).(VpcEncryptionControlNatGatewayExclusionPtrOutput)
 }
 
+// Information about resource exclusions for the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypePtrOutput) ResourceExclusions() VpcEncryptionControlExclusionsPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlExclusions {
 		if v == nil {
@@ -37719,7 +37703,7 @@ func (o VpcEncryptionControlTypePtrOutput) ResourceExclusions() VpcEncryptionCon
 	}).(VpcEncryptionControlExclusionsPtrOutput)
 }
 
-// The state of the VPC encryption control.
+// The current state of the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *string {
 		if v == nil {
@@ -37729,7 +37713,7 @@ func (o VpcEncryptionControlTypePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message describing the state of the VPC encryption control.
+// A message providing additional information about the encryption control state.
 func (o VpcEncryptionControlTypePtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *string {
 		if v == nil {
@@ -37739,7 +37723,6 @@ func (o VpcEncryptionControlTypePtrOutput) StateMessage() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired exclusion mode for Virtual Private Gateways.
 func (o VpcEncryptionControlTypePtrOutput) VirtualPrivateGatewayExclusion() VpcEncryptionControlVirtualPrivateGatewayExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlVirtualPrivateGatewayExclusion {
 		if v == nil {
@@ -37749,7 +37732,7 @@ func (o VpcEncryptionControlTypePtrOutput) VirtualPrivateGatewayExclusion() VpcE
 	}).(VpcEncryptionControlVirtualPrivateGatewayExclusionPtrOutput)
 }
 
-// The ID of the VPC encryption control.
+// The ID of the VPC Encryption Control configuration.
 func (o VpcEncryptionControlTypePtrOutput) VpcEncryptionControlId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *string {
 		if v == nil {
@@ -37759,7 +37742,7 @@ func (o VpcEncryptionControlTypePtrOutput) VpcEncryptionControlId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC.
+// The ID of the VPC associated with the encryption control configuration.
 func (o VpcEncryptionControlTypePtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *string {
 		if v == nil {
@@ -37769,7 +37752,6 @@ func (o VpcEncryptionControlTypePtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired exclusion mode for VPC Lattice.
 func (o VpcEncryptionControlTypePtrOutput) VpcLatticeExclusion() VpcEncryptionControlVpcLatticeExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlVpcLatticeExclusion {
 		if v == nil {
@@ -37779,7 +37761,6 @@ func (o VpcEncryptionControlTypePtrOutput) VpcLatticeExclusion() VpcEncryptionCo
 	}).(VpcEncryptionControlVpcLatticeExclusionPtrOutput)
 }
 
-// The desired exclusion mode for VPC Peering.
 func (o VpcEncryptionControlTypePtrOutput) VpcPeeringExclusion() VpcEncryptionControlVpcPeeringExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlType) *VpcEncryptionControlVpcPeeringExclusion {
 		if v == nil {
@@ -37945,15 +37926,26 @@ func (o VpcEncryptionControlExclusionPtrOutput) StateMessage() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the exclusion configurations for various resource types in VPC Encryption Control.
+//
+//	For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 type VpcEncryptionControlExclusions struct {
+	// The exclusion configuration for egress-only internet gateway traffic.
 	EgressOnlyInternetGateway *VpcEncryptionControlExclusion `pulumi:"egressOnlyInternetGateway"`
-	ElasticFileSystem         *VpcEncryptionControlExclusion `pulumi:"elasticFileSystem"`
-	InternetGateway           *VpcEncryptionControlExclusion `pulumi:"internetGateway"`
-	Lambda                    *VpcEncryptionControlExclusion `pulumi:"lambda"`
-	NatGateway                *VpcEncryptionControlExclusion `pulumi:"natGateway"`
-	VirtualPrivateGateway     *VpcEncryptionControlExclusion `pulumi:"virtualPrivateGateway"`
-	VpcLattice                *VpcEncryptionControlExclusion `pulumi:"vpcLattice"`
-	VpcPeering                *VpcEncryptionControlExclusion `pulumi:"vpcPeering"`
+	// The exclusion configuration for Elastic File System traffic.
+	ElasticFileSystem *VpcEncryptionControlExclusion `pulumi:"elasticFileSystem"`
+	// The exclusion configuration for internet gateway traffic.
+	InternetGateway *VpcEncryptionControlExclusion `pulumi:"internetGateway"`
+	// The exclusion configuration for Lambda function traffic.
+	Lambda *VpcEncryptionControlExclusion `pulumi:"lambda"`
+	// The exclusion configuration for NAT gateway traffic.
+	NatGateway *VpcEncryptionControlExclusion `pulumi:"natGateway"`
+	// The exclusion configuration for virtual private gateway traffic.
+	VirtualPrivateGateway *VpcEncryptionControlExclusion `pulumi:"virtualPrivateGateway"`
+	// The exclusion configuration for VPC Lattice traffic.
+	VpcLattice *VpcEncryptionControlExclusion `pulumi:"vpcLattice"`
+	// The exclusion configuration for VPC peering connection traffic.
+	VpcPeering *VpcEncryptionControlExclusion `pulumi:"vpcPeering"`
 }
 
 // VpcEncryptionControlExclusionsInput is an input type that accepts VpcEncryptionControlExclusionsArgs and VpcEncryptionControlExclusionsOutput values.
@@ -37967,15 +37959,26 @@ type VpcEncryptionControlExclusionsInput interface {
 	ToVpcEncryptionControlExclusionsOutputWithContext(context.Context) VpcEncryptionControlExclusionsOutput
 }
 
+// Describes the exclusion configurations for various resource types in VPC Encryption Control.
+//
+//	For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 type VpcEncryptionControlExclusionsArgs struct {
+	// The exclusion configuration for egress-only internet gateway traffic.
 	EgressOnlyInternetGateway VpcEncryptionControlExclusionPtrInput `pulumi:"egressOnlyInternetGateway"`
-	ElasticFileSystem         VpcEncryptionControlExclusionPtrInput `pulumi:"elasticFileSystem"`
-	InternetGateway           VpcEncryptionControlExclusionPtrInput `pulumi:"internetGateway"`
-	Lambda                    VpcEncryptionControlExclusionPtrInput `pulumi:"lambda"`
-	NatGateway                VpcEncryptionControlExclusionPtrInput `pulumi:"natGateway"`
-	VirtualPrivateGateway     VpcEncryptionControlExclusionPtrInput `pulumi:"virtualPrivateGateway"`
-	VpcLattice                VpcEncryptionControlExclusionPtrInput `pulumi:"vpcLattice"`
-	VpcPeering                VpcEncryptionControlExclusionPtrInput `pulumi:"vpcPeering"`
+	// The exclusion configuration for Elastic File System traffic.
+	ElasticFileSystem VpcEncryptionControlExclusionPtrInput `pulumi:"elasticFileSystem"`
+	// The exclusion configuration for internet gateway traffic.
+	InternetGateway VpcEncryptionControlExclusionPtrInput `pulumi:"internetGateway"`
+	// The exclusion configuration for Lambda function traffic.
+	Lambda VpcEncryptionControlExclusionPtrInput `pulumi:"lambda"`
+	// The exclusion configuration for NAT gateway traffic.
+	NatGateway VpcEncryptionControlExclusionPtrInput `pulumi:"natGateway"`
+	// The exclusion configuration for virtual private gateway traffic.
+	VirtualPrivateGateway VpcEncryptionControlExclusionPtrInput `pulumi:"virtualPrivateGateway"`
+	// The exclusion configuration for VPC Lattice traffic.
+	VpcLattice VpcEncryptionControlExclusionPtrInput `pulumi:"vpcLattice"`
+	// The exclusion configuration for VPC peering connection traffic.
+	VpcPeering VpcEncryptionControlExclusionPtrInput `pulumi:"vpcPeering"`
 }
 
 func (VpcEncryptionControlExclusionsArgs) ElementType() reflect.Type {
@@ -38031,6 +38034,9 @@ func (i *vpcEncryptionControlExclusionsPtrType) ToVpcEncryptionControlExclusions
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEncryptionControlExclusionsPtrOutput)
 }
 
+// Describes the exclusion configurations for various resource types in VPC Encryption Control.
+//
+//	For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 type VpcEncryptionControlExclusionsOutput struct{ *pulumi.OutputState }
 
 func (VpcEncryptionControlExclusionsOutput) ElementType() reflect.Type {
@@ -38055,36 +38061,44 @@ func (o VpcEncryptionControlExclusionsOutput) ToVpcEncryptionControlExclusionsPt
 	}).(VpcEncryptionControlExclusionsPtrOutput)
 }
 
+// The exclusion configuration for egress-only internet gateway traffic.
 func (o VpcEncryptionControlExclusionsOutput) EgressOnlyInternetGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		return v.EgressOnlyInternetGateway
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for Elastic File System traffic.
 func (o VpcEncryptionControlExclusionsOutput) ElasticFileSystem() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion { return v.ElasticFileSystem }).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for internet gateway traffic.
 func (o VpcEncryptionControlExclusionsOutput) InternetGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion { return v.InternetGateway }).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for Lambda function traffic.
 func (o VpcEncryptionControlExclusionsOutput) Lambda() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion { return v.Lambda }).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for NAT gateway traffic.
 func (o VpcEncryptionControlExclusionsOutput) NatGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion { return v.NatGateway }).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for virtual private gateway traffic.
 func (o VpcEncryptionControlExclusionsOutput) VirtualPrivateGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion { return v.VirtualPrivateGateway }).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for VPC Lattice traffic.
 func (o VpcEncryptionControlExclusionsOutput) VpcLattice() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion { return v.VpcLattice }).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for VPC peering connection traffic.
 func (o VpcEncryptionControlExclusionsOutput) VpcPeering() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion { return v.VpcPeering }).(VpcEncryptionControlExclusionPtrOutput)
 }
@@ -38113,6 +38127,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) Elem() VpcEncryptionControlExcl
 	}).(VpcEncryptionControlExclusionsOutput)
 }
 
+// The exclusion configuration for egress-only internet gateway traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) EgressOnlyInternetGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {
@@ -38122,6 +38137,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) EgressOnlyInternetGateway() Vpc
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for Elastic File System traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) ElasticFileSystem() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {
@@ -38131,6 +38147,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) ElasticFileSystem() VpcEncrypti
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for internet gateway traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) InternetGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {
@@ -38140,6 +38157,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) InternetGateway() VpcEncryption
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for Lambda function traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) Lambda() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {
@@ -38149,6 +38167,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) Lambda() VpcEncryptionControlEx
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for NAT gateway traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) NatGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {
@@ -38158,6 +38177,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) NatGateway() VpcEncryptionContr
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for virtual private gateway traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) VirtualPrivateGateway() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {
@@ -38167,6 +38187,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) VirtualPrivateGateway() VpcEncr
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for VPC Lattice traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) VpcLattice() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {
@@ -38176,6 +38197,7 @@ func (o VpcEncryptionControlExclusionsPtrOutput) VpcLattice() VpcEncryptionContr
 	}).(VpcEncryptionControlExclusionPtrOutput)
 }
 
+// The exclusion configuration for VPC peering connection traffic.
 func (o VpcEncryptionControlExclusionsPtrOutput) VpcPeering() VpcEncryptionControlExclusionPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlExclusions) *VpcEncryptionControlExclusion {
 		if v == nil {

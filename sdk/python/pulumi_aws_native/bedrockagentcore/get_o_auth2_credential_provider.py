@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetOAuth2CredentialProviderResult:
-    def __init__(__self__, callback_url=None, client_secret_arn=None, client_secret_json_key=None, client_secret_source=None, created_time=None, credential_provider_arn=None, last_updated_time=None, oauth2_provider_config_output=None, tags=None):
+    def __init__(__self__, callback_url=None, client_secret_arn=None, client_secret_json_key=None, client_secret_source=None, created_time=None, credential_provider_arn=None, last_updated_time=None, oauth2_provider_config_output=None, status=None, tags=None):
         if callback_url and not isinstance(callback_url, str):
             raise TypeError("Expected argument 'callback_url' to be a str")
         pulumi.set(__self__, "callback_url", callback_url)
@@ -51,6 +51,9 @@ class GetOAuth2CredentialProviderResult:
         if oauth2_provider_config_output and not isinstance(oauth2_provider_config_output, dict):
             raise TypeError("Expected argument 'oauth2_provider_config_output' to be a dict")
         pulumi.set(__self__, "oauth2_provider_config_output", oauth2_provider_config_output)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -121,6 +124,14 @@ class GetOAuth2CredentialProviderResult:
 
     @_builtins.property
     @pulumi.getter
+    def status(self) -> Optional['OAuth2CredentialProviderStatus']:
+        """
+        The current status of the OAuth2 credential provider
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         Tags to assign to the OAuth2 credential provider
@@ -142,6 +153,7 @@ class AwaitableGetOAuth2CredentialProviderResult(GetOAuth2CredentialProviderResu
             credential_provider_arn=self.credential_provider_arn,
             last_updated_time=self.last_updated_time,
             oauth2_provider_config_output=self.oauth2_provider_config_output,
+            status=self.status,
             tags=self.tags)
 
 
@@ -166,6 +178,7 @@ def get_o_auth2_credential_provider(credential_provider_arn: Optional[_builtins.
         credential_provider_arn=pulumi.get(__ret__, 'credential_provider_arn'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         oauth2_provider_config_output=pulumi.get(__ret__, 'oauth2_provider_config_output'),
+        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_o_auth2_credential_provider_output(credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOAuth2CredentialProviderResult]:
@@ -187,4 +200,5 @@ def get_o_auth2_credential_provider_output(credential_provider_arn: pulumi.Input
         credential_provider_arn=pulumi.get(__response__, 'credential_provider_arn'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         oauth2_provider_config_output=pulumi.get(__response__, 'oauth2_provider_config_output'),
+        status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

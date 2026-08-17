@@ -1172,6 +1172,8 @@ __all__ = [
     'AnalysisWordCloudVisualArgsDict',
     'AnalysisYAxisOptionsArgs',
     'AnalysisYAxisOptionsArgsDict',
+    'ApprovalPolicyApplicableToArgs',
+    'ApprovalPolicyApplicableToArgsDict',
     'CustomPermissionsCapabilitiesArgs',
     'CustomPermissionsCapabilitiesArgsDict',
     'DashboardAdHocFilteringOptionArgs',
@@ -2600,6 +2602,14 @@ __all__ = [
     'DataSourceTrinoParametersArgsDict',
     'DataSourceVpcConnectionPropertiesArgs',
     'DataSourceVpcConnectionPropertiesArgsDict',
+    'DlpSettingLabelActionMappingArgs',
+    'DlpSettingLabelActionMappingArgsDict',
+    'DlpSettingMicrosoftPurviewCredentialsArgs',
+    'DlpSettingMicrosoftPurviewCredentialsArgsDict',
+    'DlpSettingMicrosoftPurviewProviderConfigArgs',
+    'DlpSettingMicrosoftPurviewProviderConfigArgsDict',
+    'DlpSettingProviderConfigPropertiesArgs',
+    'DlpSettingProviderConfigPropertiesArgsDict',
     'FlowPermissionArgs',
     'FlowPermissionArgsDict',
     'FolderResourcePermissionArgs',
@@ -3744,6 +3754,16 @@ __all__ = [
     'TopicSemanticTypeArgsDict',
     'TopicSingularFilterConstantArgs',
     'TopicSingularFilterConstantArgsDict',
+    'TopicV2CustomInstructionsArgs',
+    'TopicV2CustomInstructionsArgsDict',
+    'TopicV2DataSetReferenceArgs',
+    'TopicV2DataSetReferenceArgsDict',
+    'TopicV2DataSetRelationArgs',
+    'TopicV2DataSetRelationArgsDict',
+    'TopicV2DataSetRelationEndpointArgs',
+    'TopicV2DataSetRelationEndpointArgsDict',
+    'TopicV2ResourcePermissionArgs',
+    'TopicV2ResourcePermissionArgsDict',
 ]
 
 class ActionConnectorApiKeyConnectionMetadataArgsDict(TypedDict):
@@ -46879,6 +46899,54 @@ class AnalysisYAxisOptionsArgs:
     @y_axis.setter
     def y_axis(self, value: pulumi.Input['AnalysisSingleYAxisOption']):
         pulumi.set(self, "y_axis", value)
+
+
+class ApprovalPolicyApplicableToArgsDict(TypedDict):
+    """
+    Scoping: who the policy applies to.
+    GROUP: `groupArns` required (one or more group ARNs).
+    """
+    type: Any
+    group_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Required when type = GROUP. One or more group ARNs.
+    """
+
+@pulumi.input_type
+class ApprovalPolicyApplicableToArgs:
+    def __init__(__self__, *,
+                 type: Any,
+                 group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Scoping: who the policy applies to.
+        GROUP: `groupArns` required (one or more group ARNs).
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_arns: Required when type = GROUP. One or more group ARNs.
+        """
+        pulumi.set(__self__, "type", type)
+        if group_arns is not None:
+            pulumi.set(__self__, "group_arns", group_arns)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Any):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupArns")
+    def group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Required when type = GROUP. One or more group ARNs.
+        """
+        return pulumi.get(self, "group_arns")
+
+    @group_arns.setter
+    def group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "group_arns", value)
 
 
 class CustomPermissionsCapabilitiesArgsDict(TypedDict):
@@ -102753,6 +102821,130 @@ class DataSourceVpcConnectionPropertiesArgs:
         pulumi.set(self, "vpc_connection_arn", value)
 
 
+class DlpSettingLabelActionMappingArgsDict(TypedDict):
+    action: pulumi.Input['DlpSettingDlpAction']
+    label_id: pulumi.Input[_builtins.str]
+    label_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class DlpSettingLabelActionMappingArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['DlpSettingDlpAction'],
+                 label_id: pulumi.Input[_builtins.str],
+                 label_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "label_id", label_id)
+        pulumi.set(__self__, "label_name", label_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['DlpSettingDlpAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['DlpSettingDlpAction']):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelId")
+    def label_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "label_id")
+
+    @label_id.setter
+    def label_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "label_name")
+
+    @label_name.setter
+    def label_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label_name", value)
+
+
+class DlpSettingMicrosoftPurviewCredentialsArgsDict(TypedDict):
+    secret_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class DlpSettingMicrosoftPurviewCredentialsArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class DlpSettingMicrosoftPurviewProviderConfigArgsDict(TypedDict):
+    credentials: pulumi.Input['DlpSettingMicrosoftPurviewCredentialsArgsDict']
+    label_action_mappings: pulumi.Input[Sequence[pulumi.Input['DlpSettingLabelActionMappingArgsDict']]]
+    unmapped_action: pulumi.Input['DlpSettingDlpAction']
+
+@pulumi.input_type
+class DlpSettingMicrosoftPurviewProviderConfigArgs:
+    def __init__(__self__, *,
+                 credentials: pulumi.Input['DlpSettingMicrosoftPurviewCredentialsArgs'],
+                 label_action_mappings: pulumi.Input[Sequence[pulumi.Input['DlpSettingLabelActionMappingArgs']]],
+                 unmapped_action: pulumi.Input['DlpSettingDlpAction']):
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "label_action_mappings", label_action_mappings)
+        pulumi.set(__self__, "unmapped_action", unmapped_action)
+
+    @_builtins.property
+    @pulumi.getter
+    def credentials(self) -> pulumi.Input['DlpSettingMicrosoftPurviewCredentialsArgs']:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: pulumi.Input['DlpSettingMicrosoftPurviewCredentialsArgs']):
+        pulumi.set(self, "credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelActionMappings")
+    def label_action_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['DlpSettingLabelActionMappingArgs']]]:
+        return pulumi.get(self, "label_action_mappings")
+
+    @label_action_mappings.setter
+    def label_action_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['DlpSettingLabelActionMappingArgs']]]):
+        pulumi.set(self, "label_action_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="unmappedAction")
+    def unmapped_action(self) -> pulumi.Input['DlpSettingDlpAction']:
+        return pulumi.get(self, "unmapped_action")
+
+    @unmapped_action.setter
+    def unmapped_action(self, value: pulumi.Input['DlpSettingDlpAction']):
+        pulumi.set(self, "unmapped_action", value)
+
+
+class DlpSettingProviderConfigPropertiesArgsDict(TypedDict):
+    microsoft_purview: pulumi.Input['DlpSettingMicrosoftPurviewProviderConfigArgsDict']
+
+@pulumi.input_type
+class DlpSettingProviderConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 microsoft_purview: pulumi.Input['DlpSettingMicrosoftPurviewProviderConfigArgs']):
+        pulumi.set(__self__, "microsoft_purview", microsoft_purview)
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftPurview")
+    def microsoft_purview(self) -> pulumi.Input['DlpSettingMicrosoftPurviewProviderConfigArgs']:
+        return pulumi.get(self, "microsoft_purview")
+
+    @microsoft_purview.setter
+    def microsoft_purview(self, value: pulumi.Input['DlpSettingMicrosoftPurviewProviderConfigArgs']):
+        pulumi.set(self, "microsoft_purview", value)
+
+
 class FlowPermissionArgsDict(TypedDict):
     actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     principal: pulumi.Input[_builtins.str]
@@ -145394,9 +145586,6 @@ class TopicComparativeOrderArgs:
 
 
 class TopicConfigOptionsArgsDict(TypedDict):
-    """
-    Model for configuration of a Topic
-    """
     q_business_insights_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables Amazon Q Business Insights for a `Topic` .
@@ -145407,8 +145596,6 @@ class TopicConfigOptionsArgs:
     def __init__(__self__, *,
                  q_business_insights_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        Model for configuration of a Topic
-
         :param pulumi.Input[_builtins.bool] q_business_insights_enabled: Enables Amazon Q Business Insights for a `Topic` .
         """
         if q_business_insights_enabled is not None:
@@ -145428,17 +145615,31 @@ class TopicConfigOptionsArgs:
 
 
 class TopicCustomInstructionsArgsDict(TypedDict):
+    """
+    <p>Instructions that provide additional guidance and context for response generation.</p>
+    """
     custom_instructions_string: pulumi.Input[_builtins.str]
+    """
+    <p>A text field for providing additional guidance or context for response generation.</p>
+    """
 
 @pulumi.input_type
 class TopicCustomInstructionsArgs:
     def __init__(__self__, *,
                  custom_instructions_string: pulumi.Input[_builtins.str]):
+        """
+        <p>Instructions that provide additional guidance and context for response generation.</p>
+
+        :param pulumi.Input[_builtins.str] custom_instructions_string: <p>A text field for providing additional guidance or context for response generation.</p>
+        """
         pulumi.set(__self__, "custom_instructions_string", custom_instructions_string)
 
     @_builtins.property
     @pulumi.getter(name="customInstructionsString")
     def custom_instructions_string(self) -> pulumi.Input[_builtins.str]:
+        """
+        <p>A text field for providing additional guidance or context for response generation.</p>
+        """
         return pulumi.get(self, "custom_instructions_string")
 
     @custom_instructions_string.setter
@@ -147102,5 +147303,161 @@ class TopicSingularFilterConstantArgs:
     @singular_constant.setter
     def singular_constant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "singular_constant", value)
+
+
+class TopicV2CustomInstructionsArgsDict(TypedDict):
+    custom_instructions_string: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TopicV2CustomInstructionsArgs:
+    def __init__(__self__, *,
+                 custom_instructions_string: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "custom_instructions_string", custom_instructions_string)
+
+    @_builtins.property
+    @pulumi.getter(name="customInstructionsString")
+    def custom_instructions_string(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "custom_instructions_string")
+
+    @custom_instructions_string.setter
+    def custom_instructions_string(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "custom_instructions_string", value)
+
+
+class TopicV2DataSetReferenceArgsDict(TypedDict):
+    """
+    A dataset reference used by a V2 (SEMANTIC_VIEW) topic.
+    """
+    data_set_arn: pulumi.Input[_builtins.str]
+    data_set_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class TopicV2DataSetReferenceArgs:
+    def __init__(__self__, *,
+                 data_set_arn: pulumi.Input[_builtins.str],
+                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A dataset reference used by a V2 (SEMANTIC_VIEW) topic.
+        """
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+        if data_set_name is not None:
+            pulumi.set(__self__, "data_set_name", data_set_name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "data_set_arn")
+
+    @data_set_arn.setter
+    def data_set_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetName")
+    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "data_set_name")
+
+    @data_set_name.setter
+    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_name", value)
+
+
+class TopicV2DataSetRelationArgsDict(TypedDict):
+    """
+    A relation between two datasets referenced by a V2 (SEMANTIC_VIEW) topic.
+    """
+    left: pulumi.Input['TopicV2DataSetRelationEndpointArgsDict']
+    right: pulumi.Input['TopicV2DataSetRelationEndpointArgsDict']
+
+@pulumi.input_type
+class TopicV2DataSetRelationArgs:
+    def __init__(__self__, *,
+                 left: pulumi.Input['TopicV2DataSetRelationEndpointArgs'],
+                 right: pulumi.Input['TopicV2DataSetRelationEndpointArgs']):
+        """
+        A relation between two datasets referenced by a V2 (SEMANTIC_VIEW) topic.
+        """
+        pulumi.set(__self__, "left", left)
+        pulumi.set(__self__, "right", right)
+
+    @_builtins.property
+    @pulumi.getter
+    def left(self) -> pulumi.Input['TopicV2DataSetRelationEndpointArgs']:
+        return pulumi.get(self, "left")
+
+    @left.setter
+    def left(self, value: pulumi.Input['TopicV2DataSetRelationEndpointArgs']):
+        pulumi.set(self, "left", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def right(self) -> pulumi.Input['TopicV2DataSetRelationEndpointArgs']:
+        return pulumi.get(self, "right")
+
+    @right.setter
+    def right(self, value: pulumi.Input['TopicV2DataSetRelationEndpointArgs']):
+        pulumi.set(self, "right", value)
+
+
+class TopicV2DataSetRelationEndpointArgsDict(TypedDict):
+    column_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    data_set_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TopicV2DataSetRelationEndpointArgs:
+    def __init__(__self__, *,
+                 column_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 data_set_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "column_names", column_names)
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "column_names")
+
+    @column_names.setter
+    def column_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "column_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "data_set_arn")
+
+    @data_set_arn.setter
+    def data_set_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_set_arn", value)
+
+
+class TopicV2ResourcePermissionArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    principal: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TopicV2ResourcePermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 principal: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "principal", value)
 
 

@@ -13,6 +13,9 @@ AWS::ARCZonalShift::AutoshiftObserverNotificationStatus
 AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AWSExternalAnthropic::Workspace
 AWS::AccessAnalyzer::Analyzer
+AWS::AccessAnalyzer::ArchiveRule
+AWS::AccountAccess::Application
+AWS::AccountAccess::Entitlement
 AWS::AmazonMQ::Broker
 AWS::AmazonMQ::Configuration
 AWS::Amplify::App
@@ -44,6 +47,7 @@ AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
 AWS::ApiGateway::VpcLink
 AWS::ApiGatewayV2::Api
+AWS::ApiGatewayV2::ApiGatewayManagedOverrides
 AWS::ApiGatewayV2::ApiMapping
 AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
@@ -51,6 +55,7 @@ AWS::ApiGatewayV2::DomainName
 AWS::ApiGatewayV2::Integration
 AWS::ApiGatewayV2::IntegrationResponse
 AWS::ApiGatewayV2::Model
+AWS::ApiGatewayV2::PortalProduct
 AWS::ApiGatewayV2::Route
 AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::RoutingRule
@@ -159,14 +164,18 @@ AWS::Bedrock::KnowledgeBase
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
 AWS::Bedrock::ResourcePolicy
+AWS::Bedrock::Session
 AWS::BedrockAgentCore::ApiKeyCredentialProvider
 AWS::BedrockAgentCore::BrowserCustom
 AWS::BedrockAgentCore::BrowserProfile
+AWS::BedrockAgentCore::CapacityProvider
 AWS::BedrockAgentCore::CodeInterpreterCustom
 AWS::BedrockAgentCore::ConfigurationBundle
 AWS::BedrockAgentCore::Dataset
 AWS::BedrockAgentCore::Evaluator
 AWS::BedrockAgentCore::Gateway
+AWS::BedrockAgentCore::GatewayRateLimit
+AWS::BedrockAgentCore::GatewayRule
 AWS::BedrockAgentCore::GatewayTarget
 AWS::BedrockAgentCore::Harness
 AWS::BedrockAgentCore::HarnessEndpoint
@@ -250,6 +259,7 @@ AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
 AWS::CloudFront::TrustStore
 AWS::CloudFront::VpcOrigin
+AWS::CloudHSM::Cluster
 AWS::CloudTrail::Channel
 AWS::CloudTrail::Dashboard
 AWS::CloudTrail::EventDataStore
@@ -306,6 +316,7 @@ AWS::Config::ConfigRule
 AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
 AWS::Config::Connector
+AWS::Config::DeliveryChannel
 AWS::Config::OrganizationConformancePack
 AWS::Config::RemediationConfiguration
 AWS::Config::StoredQuery
@@ -326,6 +337,7 @@ AWS::Connect::HoursOfOperation
 AWS::Connect::Instance
 AWS::Connect::InstanceStorageConfig
 AWS::Connect::IntegrationAssociation
+AWS::Connect::Metric
 AWS::Connect::Notification
 AWS::Connect::PhoneNumber
 AWS::Connect::PredefinedAttribute
@@ -364,9 +376,11 @@ AWS::DMS::Certificate
 AWS::DMS::DataMigration
 AWS::DMS::DataProvider
 AWS::DMS::Endpoint
+AWS::DMS::EventSubscription
 AWS::DMS::InstanceProfile
 AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
+AWS::DMS::ReplicationSubnetGroup
 AWS::DSQL::Cluster
 AWS::DataBrew::Dataset
 AWS::DataBrew::Job
@@ -374,6 +388,7 @@ AWS::DataBrew::Project
 AWS::DataBrew::Recipe
 AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
+AWS::DataExchange::DataSet
 AWS::DataPipeline::Pipeline
 AWS::DataSync::Agent
 AWS::DataSync::LocationAzureBlob
@@ -421,9 +436,11 @@ AWS::Detective::Graph
 AWS::Detective::MemberInvitation
 AWS::Detective::OrganizationAdmin
 AWS::DevOpsAgent::AgentSpace
+AWS::DevOpsAgent::Asset
 AWS::DevOpsAgent::Association
 AWS::DevOpsAgent::PrivateConnection
 AWS::DevOpsAgent::Service
+AWS::DevOpsAgent::Trigger
 AWS::DevOpsGuru::LogAnomalyDetectionIntegration
 AWS::DevOpsGuru::NotificationChannel
 AWS::DevOpsGuru::ResourceCollection
@@ -441,6 +458,8 @@ AWS::DirectConnect::PrivateVirtualInterface
 AWS::DirectConnect::PublicVirtualInterface
 AWS::DirectConnect::TransitVirtualInterface
 AWS::DirectoryService::SimpleAD
+AWS::DocDB::DBClusterParameterGroup
+AWS::DocDB::DBSubnetGroup
 AWS::DocDB::EventSubscription
 AWS::DocDB::GlobalCluster
 AWS::DocDBElastic::Cluster
@@ -599,6 +618,7 @@ AWS::ElastiCache::GlobalReplicationGroup
 AWS::ElastiCache::ParameterGroup
 AWS::ElastiCache::ReplicationGroup
 AWS::ElastiCache::ServerlessCache
+AWS::ElastiCache::ServerlessCacheSnapshot
 AWS::ElastiCache::SubnetGroup
 AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
@@ -674,20 +694,27 @@ AWS::GlobalAccelerator::EndpointGroup
 AWS::GlobalAccelerator::Listener
 AWS::Glue::Blueprint
 AWS::Glue::Catalog
+AWS::Glue::Classifier
 AWS::Glue::Crawler
+AWS::Glue::CustomEntityType
 AWS::Glue::DataCatalogEncryptionSettings
+AWS::Glue::DataQualityRuleset
 AWS::Glue::Database
 AWS::Glue::IdentityCenterConfiguration
 AWS::Glue::Integration
 AWS::Glue::IntegrationResourceProperty
 AWS::Glue::Job
+AWS::Glue::MLTransform
 AWS::Glue::Registry
 AWS::Glue::Schema
 AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
+AWS::Glue::SecurityConfiguration
+AWS::Glue::TableOptimizer
 AWS::Glue::Trigger
 AWS::Glue::UsageProfile
 AWS::Glue::UserDefinedFunction
+AWS::Glue::Workflow
 AWS::Grafana::Workspace
 AWS::GreengrassV2::ComponentVersion
 AWS::GreengrassV2::Deployment
@@ -750,6 +777,7 @@ AWS::Inspector::ResourceGroup
 AWS::InspectorV2::CisScanConfiguration
 AWS::InspectorV2::CodeSecurityIntegration
 AWS::InspectorV2::CodeSecurityScanConfiguration
+AWS::InspectorV2::Connector
 AWS::InspectorV2::Filter
 AWS::Interconnect::Connection
 AWS::InternetMonitor::Monitor
@@ -766,6 +794,7 @@ AWS::IoT::Dimension
 AWS::IoT::DomainConfiguration
 AWS::IoT::EncryptionConfiguration
 AWS::IoT::FleetMetric
+AWS::IoT::Job
 AWS::IoT::JobTemplate
 AWS::IoT::Logging
 AWS::IoT::MitigationAction
@@ -854,6 +883,7 @@ AWS::Lex::BotVersion
 AWS::Lex::ResourcePolicy
 AWS::LicenseManager::Grant
 AWS::LicenseManager::License
+AWS::LicenseManager::LicenseAssetRuleSet
 AWS::Lightsail::Alarm
 AWS::Lightsail::Bucket
 AWS::Lightsail::Certificate
@@ -887,6 +917,7 @@ AWS::Logs::MetricFilter
 AWS::Logs::QueryDefinition
 AWS::Logs::ResourcePolicy
 AWS::Logs::ScheduledQuery
+AWS::Logs::StorageTierPolicy
 AWS::Logs::SubscriptionFilter
 AWS::Logs::Transformer
 AWS::LookoutMetrics::Alert
@@ -947,6 +978,7 @@ AWS::MediaPackageV2::OriginEndpoint
 AWS::MediaPackageV2::OriginEndpointPolicy
 AWS::MediaTailor::Channel
 AWS::MediaTailor::ChannelPolicy
+AWS::MediaTailor::Function
 AWS::MediaTailor::LiveSource
 AWS::MediaTailor::PlaybackConfiguration
 AWS::MediaTailor::SourceLocation
@@ -1016,6 +1048,7 @@ AWS::Omics::SequenceStore
 AWS::Omics::VariantStore
 AWS::Omics::Workflow
 AWS::Omics::WorkflowVersion
+AWS::OpenSearch::DataSource
 AWS::OpenSearchServerless::AccessPolicy
 AWS::OpenSearchServerless::Collection
 AWS::OpenSearchServerless::CollectionGroup
@@ -1051,6 +1084,7 @@ AWS::PaymentCryptography::Alias
 AWS::PaymentCryptography::Key
 AWS::Personalize::Dataset
 AWS::Personalize::DatasetGroup
+AWS::Personalize::EventTracker
 AWS::Personalize::Schema
 AWS::Personalize::Solution
 AWS::Pinpoint::InAppTemplate
@@ -1070,7 +1104,9 @@ AWS::QLDB::Stream
 AWS::QuickSight::ActionConnector
 AWS::QuickSight::Agent
 AWS::QuickSight::Analysis
+AWS::QuickSight::ApprovalPolicy
 AWS::QuickSight::CustomPermissions
+AWS::QuickSight::DLPSetting
 AWS::QuickSight::Dashboard
 AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
@@ -1083,6 +1119,7 @@ AWS::QuickSight::Space
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
 AWS::QuickSight::Topic
+AWS::QuickSight::TopicV2
 AWS::QuickSight::VPCConnection
 AWS::RAM::Permission
 AWS::RAM::ResourceShare
@@ -1116,6 +1153,7 @@ AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription
 AWS::Redshift::Integration
 AWS::Redshift::ScheduledAction
+AWS::Redshift::SnapshotSchedule
 AWS::RedshiftServerless::Namespace
 AWS::RedshiftServerless::Snapshot
 AWS::RedshiftServerless::Workgroup
@@ -1124,6 +1162,7 @@ AWS::RefactorSpaces::Environment
 AWS::RefactorSpaces::Route
 AWS::RefactorSpaces::Service
 AWS::Rekognition::Collection
+AWS::Rekognition::Dataset
 AWS::Rekognition::Project
 AWS::Rekognition::StreamProcessor
 AWS::ResilienceHub::App
@@ -1227,6 +1266,8 @@ AWS::SES::MailManagerRelay
 AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
 AWS::SES::MultiRegionEndpoint
+AWS::SES::ReceiptRule
+AWS::SES::ReceiptRuleSet
 AWS::SES::Template
 AWS::SES::Tenant
 AWS::SES::VdmAttributes
@@ -1245,6 +1286,7 @@ AWS::SNS::TopicPolicy
 AWS::SQS::Queue
 AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
+AWS::SSM::CloudConnector
 AWS::SSM::Document
 AWS::SSM::MaintenanceWindow
 AWS::SSM::MaintenanceWindowTarget
@@ -1274,6 +1316,7 @@ AWS::SageMaker::Action
 AWS::SageMaker::Algorithm
 AWS::SageMaker::App
 AWS::SageMaker::AppImageConfig
+AWS::SageMaker::Artifact
 AWS::SageMaker::Cluster
 AWS::SageMaker::Context
 AWS::SageMaker::DataQualityJobDefinition
@@ -1285,6 +1328,7 @@ AWS::SageMaker::Experiment
 AWS::SageMaker::ExperimentTrialComponent
 AWS::SageMaker::FeatureGroup
 AWS::SageMaker::Hub
+AWS::SageMaker::HumanTaskUi
 AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
 AWS::SageMaker::InferenceComponent
@@ -1307,6 +1351,7 @@ AWS::SageMaker::Space
 AWS::SageMaker::StudioLifecycleConfig
 AWS::SageMaker::TrialComponent
 AWS::SageMaker::UserProfile
+AWS::SageMaker::Workforce
 AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::ResourcePolicy
@@ -1315,6 +1360,7 @@ AWS::SecretsManager::Secret
 AWS::SecretsManager::SecretTargetAttachment
 AWS::SecurityAgent::AgentSpace
 AWS::SecurityAgent::Application
+AWS::SecurityAgent::Artifact
 AWS::SecurityAgent::Pentest
 AWS::SecurityAgent::SecurityRequirementPack
 AWS::SecurityAgent::TargetDomain
@@ -1338,6 +1384,7 @@ AWS::SecurityLake::AwsLogSource
 AWS::SecurityLake::DataLake
 AWS::SecurityLake::Subscriber
 AWS::SecurityLake::SubscriberNotification
+AWS::ServerlessRepo::Application
 AWS::ServiceCatalog::CloudFormationProduct
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::LaunchNotificationConstraint
@@ -1357,6 +1404,8 @@ AWS::ServiceCatalogAppRegistry::Application
 AWS::ServiceCatalogAppRegistry::AttributeGroup
 AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation
 AWS::ServiceCatalogAppRegistry::ResourceAssociation
+AWS::ServiceDiscovery::PrivateDnsNamespace
+AWS::ServiceDiscovery::PublicDnsNamespace
 AWS::ServiceDiscovery::Service
 AWS::Shield::DRTAccess
 AWS::Shield::ProactiveEngagement
@@ -1385,11 +1434,13 @@ AWS::Transcribe::VocabularyFilter
 AWS::Transfer::Agreement
 AWS::Transfer::Certificate
 AWS::Transfer::Connector
+AWS::Transfer::HostKey
 AWS::Transfer::Profile
 AWS::Transfer::Server
 AWS::Transfer::User
 AWS::Transfer::WebApp
 AWS::Transfer::Workflow
+AWS::UXC::AccountCustomization
 AWS::VerifiedPermissions::IdentitySource
 AWS::VerifiedPermissions::Policy
 AWS::VerifiedPermissions::PolicyStore
@@ -1419,6 +1470,7 @@ AWS::WAFv2::WebACLAssociation
 AWS::WellArchitected::Lens
 AWS::WellArchitected::Profile
 AWS::WellArchitected::ReviewTemplate
+AWS::WellArchitected::Workload
 AWS::Wisdom::AIAgent
 AWS::Wisdom::AIAgentVersion
 AWS::Wisdom::AIGuardrail

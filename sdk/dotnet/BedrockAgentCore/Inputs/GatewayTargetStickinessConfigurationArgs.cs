@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         public Input<string> Identifier { get; set; } = null!;
 
         [Input("timeout")]
-        public Input<int>? Timeout { get; set; }
+        public Input<double>? Timeout { get; set; }
 
         public GatewayTargetStickinessConfigurationArgs()
         {

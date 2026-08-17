@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, additional_email_addresses=None, description=None, hours_of_operation_arn=None, instance_arn=None, max_contacts=None, name=None, outbound_caller_config=None, outbound_email_config=None, queue_arn=None, quick_connect_arns=None, status=None, tags=None, type=None):
+    def __init__(__self__, additional_email_addresses=None, description=None, hours_of_operation_arn=None, instance_arn=None, last_modified_region=None, last_modified_time=None, max_contacts=None, name=None, outbound_caller_config=None, outbound_email_config=None, queue_arn=None, quick_connect_arns=None, status=None, tags=None, type=None):
         if additional_email_addresses and not isinstance(additional_email_addresses, list):
             raise TypeError("Expected argument 'additional_email_addresses' to be a list")
         pulumi.set(__self__, "additional_email_addresses", additional_email_addresses)
@@ -39,6 +39,12 @@ class GetQueueResult:
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if last_modified_region and not isinstance(last_modified_region, str):
+            raise TypeError("Expected argument 'last_modified_region' to be a str")
+        pulumi.set(__self__, "last_modified_region", last_modified_region)
+        if last_modified_time and not isinstance(last_modified_time, float):
+            raise TypeError("Expected argument 'last_modified_time' to be a float")
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
         if max_contacts and not isinstance(max_contacts, int):
             raise TypeError("Expected argument 'max_contacts' to be a int")
         pulumi.set(__self__, "max_contacts", max_contacts)
@@ -98,6 +104,22 @@ class GetQueueResult:
         The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedRegion")
+    def last_modified_region(self) -> Optional[_builtins.str]:
+        """
+        The AWS Region where this resource was last modified.
+        """
+        return pulumi.get(self, "last_modified_region")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[_builtins.float]:
+        """
+        The timestamp when this resource was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter(name="maxContacts")
@@ -182,6 +204,8 @@ class AwaitableGetQueueResult(GetQueueResult):
             description=self.description,
             hours_of_operation_arn=self.hours_of_operation_arn,
             instance_arn=self.instance_arn,
+            last_modified_region=self.last_modified_region,
+            last_modified_time=self.last_modified_time,
             max_contacts=self.max_contacts,
             name=self.name,
             outbound_caller_config=self.outbound_caller_config,
@@ -210,6 +234,8 @@ def get_queue(queue_arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         hours_of_operation_arn=pulumi.get(__ret__, 'hours_of_operation_arn'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        last_modified_region=pulumi.get(__ret__, 'last_modified_region'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         max_contacts=pulumi.get(__ret__, 'max_contacts'),
         name=pulumi.get(__ret__, 'name'),
         outbound_caller_config=pulumi.get(__ret__, 'outbound_caller_config'),
@@ -235,6 +261,8 @@ def get_queue_output(queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         hours_of_operation_arn=pulumi.get(__response__, 'hours_of_operation_arn'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
+        last_modified_region=pulumi.get(__response__, 'last_modified_region'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         max_contacts=pulumi.get(__response__, 'max_contacts'),
         name=pulumi.get(__response__, 'name'),
         outbound_caller_config=pulumi.get(__response__, 'outbound_caller_config'),

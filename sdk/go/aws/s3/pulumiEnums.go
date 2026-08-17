@@ -1115,7 +1115,7 @@ func (in *bucketAccessControlPtr) ToBucketAccessControlPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(BucketAccessControlPtrOutput)
 }
 
-// Specifies whether annotation table configuration is enabled or disabled.
+// Specifies whether the annotation table configuration is enabled or disabled.
 type BucketAnnotationTableConfigurationConfigurationState string
 
 const (
@@ -2554,6 +2554,8 @@ const (
 	BucketInventoryConfigurationOptionalFieldsItemObjectLockRetainUntilDate    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockRetainUntilDate")
 	BucketInventoryConfigurationOptionalFieldsItemObjectLockMode               = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockMode")
 	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockLegalHoldStatus")
+	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldStatus    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldStatus")
+	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldDuration  = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldDuration")
 	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier = BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringAccessTier")
 	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus              = BucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus")
 	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm            = BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm")
@@ -2694,6 +2696,8 @@ func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutp
 //	BucketInventoryConfigurationOptionalFieldsItemObjectLockRetainUntilDate
 //	BucketInventoryConfigurationOptionalFieldsItemObjectLockMode
 //	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus
+//	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldStatus
+//	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldDuration
 //	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier
 //	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus
 //	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm

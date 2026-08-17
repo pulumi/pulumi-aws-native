@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ssm:Association":
 		r = &Association{}
+	case "aws-native:ssm:CloudConnector":
+		r = &CloudConnector{}
 	case "aws-native:ssm:Document":
 		r = &Document{}
 	case "aws-native:ssm:MaintenanceWindow":

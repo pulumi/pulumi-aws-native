@@ -33,6 +33,9 @@ class ClusterArgs:
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_config: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
                  force: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kube_api_server_config: pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']] = None,
+                 kube_scheduler_config: pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']] = None,
                  kubernetes_network_config: pulumi.Input[Optional['ClusterKubernetesNetworkConfigArgs']] = None,
                  logging: pulumi.Input[Optional['LoggingArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -85,6 +88,12 @@ class ClusterArgs:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if force is not None:
             pulumi.set(__self__, "force", force)
+        if kube_api_server_config is not None:
+            pulumi.set(__self__, "kube_api_server_config", kube_api_server_config)
+        if kube_controller_manager_config is not None:
+            pulumi.set(__self__, "kube_controller_manager_config", kube_controller_manager_config)
+        if kube_scheduler_config is not None:
+            pulumi.set(__self__, "kube_scheduler_config", kube_scheduler_config)
         if kubernetes_network_config is not None:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if logging is not None:
@@ -215,6 +224,33 @@ class ClusterArgs:
     @force.setter
     def force(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfig")
+    def kube_api_server_config(self) -> pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']]:
+        return pulumi.get(self, "kube_api_server_config")
+
+    @kube_api_server_config.setter
+    def kube_api_server_config(self, value: pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']]):
+        pulumi.set(self, "kube_api_server_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfig")
+    def kube_controller_manager_config(self) -> pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']]:
+        return pulumi.get(self, "kube_controller_manager_config")
+
+    @kube_controller_manager_config.setter
+    def kube_controller_manager_config(self, value: pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']]):
+        pulumi.set(self, "kube_controller_manager_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfig")
+    def kube_scheduler_config(self) -> pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']]:
+        return pulumi.get(self, "kube_scheduler_config")
+
+    @kube_scheduler_config.setter
+    def kube_scheduler_config(self, value: pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']]):
+        pulumi.set(self, "kube_scheduler_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfig")
@@ -361,6 +397,9 @@ class Cluster(pulumi.CustomResource):
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  force: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
+                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
                  kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: pulumi.Input[Optional[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -433,6 +472,9 @@ class Cluster(pulumi.CustomResource):
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  force: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
+                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
                  kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: pulumi.Input[Optional[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -462,6 +504,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["force"] = force
+            __props__.__dict__["kube_api_server_config"] = kube_api_server_config
+            __props__.__dict__["kube_controller_manager_config"] = kube_controller_manager_config
+            __props__.__dict__["kube_scheduler_config"] = kube_scheduler_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
@@ -523,6 +568,9 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["encryption_config_key_arn"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["force"] = None
+        __props__.__dict__["kube_api_server_config"] = None
+        __props__.__dict__["kube_controller_manager_config"] = None
+        __props__.__dict__["kube_scheduler_config"] = None
         __props__.__dict__["kubernetes_network_config"] = None
         __props__.__dict__["logging"] = None
         __props__.__dict__["name"] = None
@@ -642,6 +690,21 @@ class Cluster(pulumi.CustomResource):
         Force cluster version update
         """
         return pulumi.get(self, "force")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfig")
+    def kube_api_server_config(self) -> pulumi.Output[Optional['outputs.ClusterKubeApiServerConfig']]:
+        return pulumi.get(self, "kube_api_server_config")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfig")
+    def kube_controller_manager_config(self) -> pulumi.Output[Optional['outputs.ClusterKubeControllerManagerConfig']]:
+        return pulumi.get(self, "kube_controller_manager_config")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfig")
+    def kube_scheduler_config(self) -> pulumi.Output[Optional['outputs.ClusterKubeSchedulerConfig']]:
+        return pulumi.get(self, "kube_scheduler_config")
 
     @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfig")

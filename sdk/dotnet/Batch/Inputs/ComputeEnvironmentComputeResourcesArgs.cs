@@ -41,6 +41,18 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("bidPercentage")]
         public Input<int>? BidPercentage { get; set; }
 
+        [Input("capacityTags")]
+        private InputMap<string>? _capacityTags;
+
+        /// <summary>
+        /// Capacity-level tags for compute environments.
+        /// </summary>
+        public InputMap<string> CapacityTags
+        {
+            get => _capacityTags ?? (_capacityTags = new InputMap<string>());
+            set => _capacityTags = value;
+        }
+
         /// <summary>
         /// The desired number of vCPUS in the compute environment. AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
         /// 
@@ -133,6 +145,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("launchTemplate")]
         public Input<Inputs.ComputeEnvironmentLaunchTemplateSpecificationArgs>? LaunchTemplate { get; set; }
 
+        [Input("managedInstancesProvider")]
+        public Input<Inputs.ComputeEnvironmentManagedInstancesProviderArgs>? ManagedInstancesProvider { get; set; }
+
         /// <summary>
         /// The maximum number of Amazon EC2 vCPUs that an environment can reach.
         /// 
@@ -184,7 +199,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("spotIamFleetRole")]
         public Input<string>? SpotIamFleetRole { get; set; }
 
-        [Input("subnets", required: true)]
+        [Input("subnets")]
         private InputList<string>? _subnets;
 
         /// <summary>

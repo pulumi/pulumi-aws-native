@@ -2021,16 +2021,20 @@ class DomainSoftwareUpdateOptionsArgsDict(TypedDict):
     """
     Specifies whether automatic service software updates are enabled for the domain.
     """
+    use_latest_service_software_for_blue_green: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class DomainSoftwareUpdateOptionsArgs:
     def __init__(__self__, *,
-                 auto_software_update_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 auto_software_update_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_latest_service_software_for_blue_green: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] auto_software_update_enabled: Specifies whether automatic service software updates are enabled for the domain.
         """
         if auto_software_update_enabled is not None:
             pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+        if use_latest_service_software_for_blue_green is not None:
+            pulumi.set(__self__, "use_latest_service_software_for_blue_green", use_latest_service_software_for_blue_green)
 
     @_builtins.property
     @pulumi.getter(name="autoSoftwareUpdateEnabled")
@@ -2043,6 +2047,15 @@ class DomainSoftwareUpdateOptionsArgs:
     @auto_software_update_enabled.setter
     def auto_software_update_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_software_update_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useLatestServiceSoftwareForBlueGreen")
+    def use_latest_service_software_for_blue_green(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_latest_service_software_for_blue_green")
+
+    @use_latest_service_software_for_blue_green.setter
+    def use_latest_service_software_for_blue_green(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_latest_service_software_for_blue_green", value)
 
 
 class DomainVpcOptionsArgsDict(TypedDict):

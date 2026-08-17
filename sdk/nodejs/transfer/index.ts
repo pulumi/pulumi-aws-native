@@ -35,6 +35,11 @@ export const getConnector: typeof import("./getConnector").getConnector = null a
 export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
 
+export { GetHostKeyArgs, GetHostKeyResult, GetHostKeyOutputArgs } from "./getHostKey";
+export const getHostKey: typeof import("./getHostKey").getHostKey = null as any;
+export const getHostKeyOutput: typeof import("./getHostKey").getHostKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getHostKey","getHostKeyOutput"], () => require("./getHostKey"));
+
 export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
 export const getProfile: typeof import("./getProfile").getProfile = null as any;
 export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
@@ -59,6 +64,11 @@ export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./get
 export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+
+export { HostKeyArgs } from "./hostKey";
+export type HostKey = import("./hostKey").HostKey;
+export const HostKey: typeof import("./hostKey").HostKey = null as any;
+utilities.lazyLoad(exports, ["HostKey"], () => require("./hostKey"));
 
 export { ProfileArgs } from "./profile";
 export type Profile = import("./profile").Profile;
@@ -99,6 +109,8 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "aws-native:transfer:Connector":
                 return new Connector(name, <any>undefined, { urn })
+            case "aws-native:transfer:HostKey":
+                return new HostKey(name, <any>undefined, { urn })
             case "aws-native:transfer:Profile":
                 return new Profile(name, <any>undefined, { urn })
             case "aws-native:transfer:Server":

@@ -45,6 +45,8 @@ type LookupOAuth2CredentialProviderResult struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// The output configuration for the OAuth2 provider
 	Oauth2ProviderConfigOutput *OAuth2CredentialProviderOauth2ProviderConfigOutput `pulumi:"oauth2ProviderConfigOutput"`
+	// The current status of the OAuth2 credential provider
+	Status *OAuth2CredentialProviderStatus `pulumi:"status"`
 	// Tags to assign to the OAuth2 credential provider
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -125,6 +127,11 @@ func (o LookupOAuth2CredentialProviderResultOutput) Oauth2ProviderConfigOutput()
 	return o.ApplyT(func(v LookupOAuth2CredentialProviderResult) *OAuth2CredentialProviderOauth2ProviderConfigOutput {
 		return v.Oauth2ProviderConfigOutput
 	}).(OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput)
+}
+
+// The current status of the OAuth2 credential provider
+func (o LookupOAuth2CredentialProviderResultOutput) Status() OAuth2CredentialProviderStatusPtrOutput {
+	return o.ApplyT(func(v LookupOAuth2CredentialProviderResult) *OAuth2CredentialProviderStatus { return v.Status }).(OAuth2CredentialProviderStatusPtrOutput)
 }
 
 // Tags to assign to the OAuth2 credential provider

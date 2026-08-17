@@ -42,6 +42,8 @@ type LookupCodeSecurityIntegrationResult struct {
 	Status *CodeSecurityIntegrationIntegrationStatus `pulumi:"status"`
 	// Reason for the current status
 	StatusReason *string `pulumi:"statusReason"`
+	// The tags to apply to the code security integration.
+	Tags map[string]string `pulumi:"tags"`
 	// Integration Type
 	Type *CodeSecurityIntegrationIntegrationType `pulumi:"type"`
 }
@@ -111,6 +113,11 @@ func (o LookupCodeSecurityIntegrationResultOutput) Status() CodeSecurityIntegrat
 // Reason for the current status
 func (o LookupCodeSecurityIntegrationResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCodeSecurityIntegrationResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
+}
+
+// The tags to apply to the code security integration.
+func (o LookupCodeSecurityIntegrationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCodeSecurityIntegrationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Integration Type

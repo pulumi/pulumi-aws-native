@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.SageMaker
     public static class GetExperimentTrialComponent
     {
         /// <summary>
-        /// Resource type definition for AWS SageMaker Experiment Trial Component
+        /// Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
         /// </summary>
         public static Task<GetExperimentTrialComponentResult> InvokeAsync(GetExperimentTrialComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentTrialComponentResult>("aws-native:sagemaker:getExperimentTrialComponent", args ?? new GetExperimentTrialComponentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS SageMaker Experiment Trial Component
+        /// Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
         /// </summary>
         public static Output<GetExperimentTrialComponentResult> Invoke(GetExperimentTrialComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentTrialComponentResult>("aws-native:sagemaker:getExperimentTrialComponent", args ?? new GetExperimentTrialComponentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS SageMaker Experiment Trial Component
+        /// Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
         /// </summary>
         public static Output<GetExperimentTrialComponentResult> Invoke(GetExperimentTrialComponentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentTrialComponentResult>("aws-native:sagemaker:getExperimentTrialComponent", args ?? new GetExperimentTrialComponentInvokeArgs(), options.WithDefaults());
@@ -33,11 +33,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetExperimentTrialComponentArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the trial component.
-        /// </summary>
-        [Input("arn", required: true)]
-        public string Arn { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetExperimentTrialComponentArgs()
         {
@@ -47,11 +44,8 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class GetExperimentTrialComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the trial component.
-        /// </summary>
-        [Input("arn", required: true)]
-        public Input<string> Arn { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetExperimentTrialComponentInvokeArgs()
         {
@@ -63,41 +57,15 @@ namespace Pulumi.AwsNative.SageMaker
     [OutputType]
     public sealed class GetExperimentTrialComponentResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the trial component.
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// When the component was created.
-        /// </summary>
         public readonly string? CreationTime;
-        /// <summary>
-        /// The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        /// </summary>
         public readonly string? DisplayName;
-        /// <summary>
-        /// When the component ended.
-        /// </summary>
         public readonly string? EndTime;
-        /// <summary>
-        /// When the component was last modified.
-        /// </summary>
+        public readonly string? Id;
         public readonly string? LastModifiedTime;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the lineage group.
-        /// </summary>
         public readonly string? LineageGroupArn;
-        /// <summary>
-        /// When the component started.
-        /// </summary>
         public readonly string? StartTime;
-        /// <summary>
-        /// The status of the trial component.
-        /// </summary>
-        public readonly Outputs.StatusProperties? Status;
-        /// <summary>
-        /// A list of tags to associate with the component.
-        /// </summary>
+        public readonly Outputs.ExperimentTrialComponentStatus? Status;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
@@ -110,13 +78,15 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? endTime,
 
+            string? id,
+
             string? lastModifiedTime,
 
             string? lineageGroupArn,
 
             string? startTime,
 
-            Outputs.StatusProperties? status,
+            Outputs.ExperimentTrialComponentStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
@@ -124,6 +94,7 @@ namespace Pulumi.AwsNative.SageMaker
             CreationTime = creationTime;
             DisplayName = displayName;
             EndTime = endTime;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             LineageGroupArn = lineageGroupArn;
             StartTime = startTime;

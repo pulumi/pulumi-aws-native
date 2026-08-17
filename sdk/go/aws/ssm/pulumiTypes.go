@@ -445,6 +445,506 @@ func (o AssociationTargetArrayOutput) Index(i pulumi.IntInput) AssociationTarget
 	}).(AssociationTargetOutput)
 }
 
+// Configuration for connecting to Azure.
+type CloudConnectorAzureConfiguration struct {
+	// The display name of the Azure AD application.
+	ApplicationDisplayName *string `pulumi:"applicationDisplayName"`
+	// The Azure AD application ID.
+	ApplicationId string                              `pulumi:"applicationId"`
+	Targets       *CloudConnectorConfigurationTargets `pulumi:"targets"`
+	// The display name of the Azure AD tenant.
+	TenantDisplayName *string `pulumi:"tenantDisplayName"`
+	// The Azure AD tenant ID. Cannot be changed after creation.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// CloudConnectorAzureConfigurationInput is an input type that accepts CloudConnectorAzureConfigurationArgs and CloudConnectorAzureConfigurationOutput values.
+// You can construct a concrete instance of `CloudConnectorAzureConfigurationInput` via:
+//
+//	CloudConnectorAzureConfigurationArgs{...}
+type CloudConnectorAzureConfigurationInput interface {
+	pulumi.Input
+
+	ToCloudConnectorAzureConfigurationOutput() CloudConnectorAzureConfigurationOutput
+	ToCloudConnectorAzureConfigurationOutputWithContext(context.Context) CloudConnectorAzureConfigurationOutput
+}
+
+// Configuration for connecting to Azure.
+type CloudConnectorAzureConfigurationArgs struct {
+	// The display name of the Azure AD application.
+	ApplicationDisplayName pulumi.StringPtrInput `pulumi:"applicationDisplayName"`
+	// The Azure AD application ID.
+	ApplicationId pulumi.StringInput                         `pulumi:"applicationId"`
+	Targets       CloudConnectorConfigurationTargetsPtrInput `pulumi:"targets"`
+	// The display name of the Azure AD tenant.
+	TenantDisplayName pulumi.StringPtrInput `pulumi:"tenantDisplayName"`
+	// The Azure AD tenant ID. Cannot be changed after creation.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (CloudConnectorAzureConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorAzureConfiguration)(nil)).Elem()
+}
+
+func (i CloudConnectorAzureConfigurationArgs) ToCloudConnectorAzureConfigurationOutput() CloudConnectorAzureConfigurationOutput {
+	return i.ToCloudConnectorAzureConfigurationOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorAzureConfigurationArgs) ToCloudConnectorAzureConfigurationOutputWithContext(ctx context.Context) CloudConnectorAzureConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorAzureConfigurationOutput)
+}
+
+// Configuration for connecting to Azure.
+type CloudConnectorAzureConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorAzureConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorAzureConfiguration)(nil)).Elem()
+}
+
+func (o CloudConnectorAzureConfigurationOutput) ToCloudConnectorAzureConfigurationOutput() CloudConnectorAzureConfigurationOutput {
+	return o
+}
+
+func (o CloudConnectorAzureConfigurationOutput) ToCloudConnectorAzureConfigurationOutputWithContext(ctx context.Context) CloudConnectorAzureConfigurationOutput {
+	return o
+}
+
+// The display name of the Azure AD application.
+func (o CloudConnectorAzureConfigurationOutput) ApplicationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudConnectorAzureConfiguration) *string { return v.ApplicationDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure AD application ID.
+func (o CloudConnectorAzureConfigurationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudConnectorAzureConfiguration) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o CloudConnectorAzureConfigurationOutput) Targets() CloudConnectorConfigurationTargetsPtrOutput {
+	return o.ApplyT(func(v CloudConnectorAzureConfiguration) *CloudConnectorConfigurationTargets { return v.Targets }).(CloudConnectorConfigurationTargetsPtrOutput)
+}
+
+// The display name of the Azure AD tenant.
+func (o CloudConnectorAzureConfigurationOutput) TenantDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudConnectorAzureConfiguration) *string { return v.TenantDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure AD tenant ID. Cannot be changed after creation.
+func (o CloudConnectorAzureConfigurationOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudConnectorAzureConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type CloudConnectorAzureConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorAzureConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorAzureConfiguration)(nil)).Elem()
+}
+
+func (o CloudConnectorAzureConfigurationPtrOutput) ToCloudConnectorAzureConfigurationPtrOutput() CloudConnectorAzureConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudConnectorAzureConfigurationPtrOutput) ToCloudConnectorAzureConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorAzureConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudConnectorAzureConfigurationPtrOutput) Elem() CloudConnectorAzureConfigurationOutput {
+	return o.ApplyT(func(v *CloudConnectorAzureConfiguration) CloudConnectorAzureConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CloudConnectorAzureConfiguration
+		return ret
+	}).(CloudConnectorAzureConfigurationOutput)
+}
+
+// The display name of the Azure AD application.
+func (o CloudConnectorAzureConfigurationPtrOutput) ApplicationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorAzureConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure AD application ID.
+func (o CloudConnectorAzureConfigurationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorAzureConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudConnectorAzureConfigurationPtrOutput) Targets() CloudConnectorConfigurationTargetsPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorAzureConfiguration) *CloudConnectorConfigurationTargets {
+		if v == nil {
+			return nil
+		}
+		return v.Targets
+	}).(CloudConnectorConfigurationTargetsPtrOutput)
+}
+
+// The display name of the Azure AD tenant.
+func (o CloudConnectorAzureConfigurationPtrOutput) TenantDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorAzureConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure AD tenant ID. Cannot be changed after creation.
+func (o CloudConnectorAzureConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorAzureConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Azure subscription with its ID and optional display name.
+type CloudConnectorAzureSubscription struct {
+	// The display name of the Azure subscription.
+	DisplayName *string `pulumi:"displayName"`
+	// The Azure subscription ID.
+	Id string `pulumi:"id"`
+}
+
+// CloudConnectorAzureSubscriptionInput is an input type that accepts CloudConnectorAzureSubscriptionArgs and CloudConnectorAzureSubscriptionOutput values.
+// You can construct a concrete instance of `CloudConnectorAzureSubscriptionInput` via:
+//
+//	CloudConnectorAzureSubscriptionArgs{...}
+type CloudConnectorAzureSubscriptionInput interface {
+	pulumi.Input
+
+	ToCloudConnectorAzureSubscriptionOutput() CloudConnectorAzureSubscriptionOutput
+	ToCloudConnectorAzureSubscriptionOutputWithContext(context.Context) CloudConnectorAzureSubscriptionOutput
+}
+
+// An Azure subscription with its ID and optional display name.
+type CloudConnectorAzureSubscriptionArgs struct {
+	// The display name of the Azure subscription.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The Azure subscription ID.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CloudConnectorAzureSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorAzureSubscription)(nil)).Elem()
+}
+
+func (i CloudConnectorAzureSubscriptionArgs) ToCloudConnectorAzureSubscriptionOutput() CloudConnectorAzureSubscriptionOutput {
+	return i.ToCloudConnectorAzureSubscriptionOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorAzureSubscriptionArgs) ToCloudConnectorAzureSubscriptionOutputWithContext(ctx context.Context) CloudConnectorAzureSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorAzureSubscriptionOutput)
+}
+
+// CloudConnectorAzureSubscriptionArrayInput is an input type that accepts CloudConnectorAzureSubscriptionArray and CloudConnectorAzureSubscriptionArrayOutput values.
+// You can construct a concrete instance of `CloudConnectorAzureSubscriptionArrayInput` via:
+//
+//	CloudConnectorAzureSubscriptionArray{ CloudConnectorAzureSubscriptionArgs{...} }
+type CloudConnectorAzureSubscriptionArrayInput interface {
+	pulumi.Input
+
+	ToCloudConnectorAzureSubscriptionArrayOutput() CloudConnectorAzureSubscriptionArrayOutput
+	ToCloudConnectorAzureSubscriptionArrayOutputWithContext(context.Context) CloudConnectorAzureSubscriptionArrayOutput
+}
+
+type CloudConnectorAzureSubscriptionArray []CloudConnectorAzureSubscriptionInput
+
+func (CloudConnectorAzureSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudConnectorAzureSubscription)(nil)).Elem()
+}
+
+func (i CloudConnectorAzureSubscriptionArray) ToCloudConnectorAzureSubscriptionArrayOutput() CloudConnectorAzureSubscriptionArrayOutput {
+	return i.ToCloudConnectorAzureSubscriptionArrayOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorAzureSubscriptionArray) ToCloudConnectorAzureSubscriptionArrayOutputWithContext(ctx context.Context) CloudConnectorAzureSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorAzureSubscriptionArrayOutput)
+}
+
+// An Azure subscription with its ID and optional display name.
+type CloudConnectorAzureSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorAzureSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorAzureSubscription)(nil)).Elem()
+}
+
+func (o CloudConnectorAzureSubscriptionOutput) ToCloudConnectorAzureSubscriptionOutput() CloudConnectorAzureSubscriptionOutput {
+	return o
+}
+
+func (o CloudConnectorAzureSubscriptionOutput) ToCloudConnectorAzureSubscriptionOutputWithContext(ctx context.Context) CloudConnectorAzureSubscriptionOutput {
+	return o
+}
+
+// The display name of the Azure subscription.
+func (o CloudConnectorAzureSubscriptionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudConnectorAzureSubscription) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure subscription ID.
+func (o CloudConnectorAzureSubscriptionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudConnectorAzureSubscription) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CloudConnectorAzureSubscriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorAzureSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudConnectorAzureSubscription)(nil)).Elem()
+}
+
+func (o CloudConnectorAzureSubscriptionArrayOutput) ToCloudConnectorAzureSubscriptionArrayOutput() CloudConnectorAzureSubscriptionArrayOutput {
+	return o
+}
+
+func (o CloudConnectorAzureSubscriptionArrayOutput) ToCloudConnectorAzureSubscriptionArrayOutputWithContext(ctx context.Context) CloudConnectorAzureSubscriptionArrayOutput {
+	return o
+}
+
+func (o CloudConnectorAzureSubscriptionArrayOutput) Index(i pulumi.IntInput) CloudConnectorAzureSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudConnectorAzureSubscription {
+		return vs[0].([]CloudConnectorAzureSubscription)[vs[1].(int)]
+	}).(CloudConnectorAzureSubscriptionOutput)
+}
+
+// The configuration for the cloud connector. Currently supports Azure.
+type CloudConnectorConfiguration struct {
+	AzureConfiguration CloudConnectorAzureConfiguration `pulumi:"azureConfiguration"`
+}
+
+// CloudConnectorConfigurationInput is an input type that accepts CloudConnectorConfigurationArgs and CloudConnectorConfigurationOutput values.
+// You can construct a concrete instance of `CloudConnectorConfigurationInput` via:
+//
+//	CloudConnectorConfigurationArgs{...}
+type CloudConnectorConfigurationInput interface {
+	pulumi.Input
+
+	ToCloudConnectorConfigurationOutput() CloudConnectorConfigurationOutput
+	ToCloudConnectorConfigurationOutputWithContext(context.Context) CloudConnectorConfigurationOutput
+}
+
+// The configuration for the cloud connector. Currently supports Azure.
+type CloudConnectorConfigurationArgs struct {
+	AzureConfiguration CloudConnectorAzureConfigurationInput `pulumi:"azureConfiguration"`
+}
+
+func (CloudConnectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorConfiguration)(nil)).Elem()
+}
+
+func (i CloudConnectorConfigurationArgs) ToCloudConnectorConfigurationOutput() CloudConnectorConfigurationOutput {
+	return i.ToCloudConnectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorConfigurationArgs) ToCloudConnectorConfigurationOutputWithContext(ctx context.Context) CloudConnectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorConfigurationOutput)
+}
+
+// The configuration for the cloud connector. Currently supports Azure.
+type CloudConnectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorConfiguration)(nil)).Elem()
+}
+
+func (o CloudConnectorConfigurationOutput) ToCloudConnectorConfigurationOutput() CloudConnectorConfigurationOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationOutput) ToCloudConnectorConfigurationOutputWithContext(ctx context.Context) CloudConnectorConfigurationOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationOutput) AzureConfiguration() CloudConnectorAzureConfigurationOutput {
+	return o.ApplyT(func(v CloudConnectorConfiguration) CloudConnectorAzureConfiguration { return v.AzureConfiguration }).(CloudConnectorAzureConfigurationOutput)
+}
+
+type CloudConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorConfiguration)(nil)).Elem()
+}
+
+func (o CloudConnectorConfigurationPtrOutput) ToCloudConnectorConfigurationPtrOutput() CloudConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationPtrOutput) ToCloudConnectorConfigurationPtrOutputWithContext(ctx context.Context) CloudConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationPtrOutput) Elem() CloudConnectorConfigurationOutput {
+	return o.ApplyT(func(v *CloudConnectorConfiguration) CloudConnectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CloudConnectorConfiguration
+		return ret
+	}).(CloudConnectorConfigurationOutput)
+}
+
+func (o CloudConnectorConfigurationPtrOutput) AzureConfiguration() CloudConnectorAzureConfigurationPtrOutput {
+	return o.ApplyT(func(v *CloudConnectorConfiguration) *CloudConnectorAzureConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureConfiguration
+	}).(CloudConnectorAzureConfigurationPtrOutput)
+}
+
+// The targets for the cloud connector. If omitted, the entire tenant is targeted.
+type CloudConnectorConfigurationTargets struct {
+	// List of Azure subscriptions.
+	Subscriptions []CloudConnectorAzureSubscription `pulumi:"subscriptions"`
+}
+
+// CloudConnectorConfigurationTargetsInput is an input type that accepts CloudConnectorConfigurationTargetsArgs and CloudConnectorConfigurationTargetsOutput values.
+// You can construct a concrete instance of `CloudConnectorConfigurationTargetsInput` via:
+//
+//	CloudConnectorConfigurationTargetsArgs{...}
+type CloudConnectorConfigurationTargetsInput interface {
+	pulumi.Input
+
+	ToCloudConnectorConfigurationTargetsOutput() CloudConnectorConfigurationTargetsOutput
+	ToCloudConnectorConfigurationTargetsOutputWithContext(context.Context) CloudConnectorConfigurationTargetsOutput
+}
+
+// The targets for the cloud connector. If omitted, the entire tenant is targeted.
+type CloudConnectorConfigurationTargetsArgs struct {
+	// List of Azure subscriptions.
+	Subscriptions CloudConnectorAzureSubscriptionArrayInput `pulumi:"subscriptions"`
+}
+
+func (CloudConnectorConfigurationTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorConfigurationTargets)(nil)).Elem()
+}
+
+func (i CloudConnectorConfigurationTargetsArgs) ToCloudConnectorConfigurationTargetsOutput() CloudConnectorConfigurationTargetsOutput {
+	return i.ToCloudConnectorConfigurationTargetsOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorConfigurationTargetsArgs) ToCloudConnectorConfigurationTargetsOutputWithContext(ctx context.Context) CloudConnectorConfigurationTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorConfigurationTargetsOutput)
+}
+
+func (i CloudConnectorConfigurationTargetsArgs) ToCloudConnectorConfigurationTargetsPtrOutput() CloudConnectorConfigurationTargetsPtrOutput {
+	return i.ToCloudConnectorConfigurationTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i CloudConnectorConfigurationTargetsArgs) ToCloudConnectorConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorConfigurationTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorConfigurationTargetsOutput).ToCloudConnectorConfigurationTargetsPtrOutputWithContext(ctx)
+}
+
+// CloudConnectorConfigurationTargetsPtrInput is an input type that accepts CloudConnectorConfigurationTargetsArgs, CloudConnectorConfigurationTargetsPtr and CloudConnectorConfigurationTargetsPtrOutput values.
+// You can construct a concrete instance of `CloudConnectorConfigurationTargetsPtrInput` via:
+//
+//	        CloudConnectorConfigurationTargetsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudConnectorConfigurationTargetsPtrInput interface {
+	pulumi.Input
+
+	ToCloudConnectorConfigurationTargetsPtrOutput() CloudConnectorConfigurationTargetsPtrOutput
+	ToCloudConnectorConfigurationTargetsPtrOutputWithContext(context.Context) CloudConnectorConfigurationTargetsPtrOutput
+}
+
+type cloudConnectorConfigurationTargetsPtrType CloudConnectorConfigurationTargetsArgs
+
+func CloudConnectorConfigurationTargetsPtr(v *CloudConnectorConfigurationTargetsArgs) CloudConnectorConfigurationTargetsPtrInput {
+	return (*cloudConnectorConfigurationTargetsPtrType)(v)
+}
+
+func (*cloudConnectorConfigurationTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorConfigurationTargets)(nil)).Elem()
+}
+
+func (i *cloudConnectorConfigurationTargetsPtrType) ToCloudConnectorConfigurationTargetsPtrOutput() CloudConnectorConfigurationTargetsPtrOutput {
+	return i.ToCloudConnectorConfigurationTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudConnectorConfigurationTargetsPtrType) ToCloudConnectorConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorConfigurationTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudConnectorConfigurationTargetsPtrOutput)
+}
+
+// The targets for the cloud connector. If omitted, the entire tenant is targeted.
+type CloudConnectorConfigurationTargetsOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorConfigurationTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudConnectorConfigurationTargets)(nil)).Elem()
+}
+
+func (o CloudConnectorConfigurationTargetsOutput) ToCloudConnectorConfigurationTargetsOutput() CloudConnectorConfigurationTargetsOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationTargetsOutput) ToCloudConnectorConfigurationTargetsOutputWithContext(ctx context.Context) CloudConnectorConfigurationTargetsOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationTargetsOutput) ToCloudConnectorConfigurationTargetsPtrOutput() CloudConnectorConfigurationTargetsPtrOutput {
+	return o.ToCloudConnectorConfigurationTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o CloudConnectorConfigurationTargetsOutput) ToCloudConnectorConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorConfigurationTargetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudConnectorConfigurationTargets) *CloudConnectorConfigurationTargets {
+		return &v
+	}).(CloudConnectorConfigurationTargetsPtrOutput)
+}
+
+// List of Azure subscriptions.
+func (o CloudConnectorConfigurationTargetsOutput) Subscriptions() CloudConnectorAzureSubscriptionArrayOutput {
+	return o.ApplyT(func(v CloudConnectorConfigurationTargets) []CloudConnectorAzureSubscription { return v.Subscriptions }).(CloudConnectorAzureSubscriptionArrayOutput)
+}
+
+type CloudConnectorConfigurationTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudConnectorConfigurationTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudConnectorConfigurationTargets)(nil)).Elem()
+}
+
+func (o CloudConnectorConfigurationTargetsPtrOutput) ToCloudConnectorConfigurationTargetsPtrOutput() CloudConnectorConfigurationTargetsPtrOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationTargetsPtrOutput) ToCloudConnectorConfigurationTargetsPtrOutputWithContext(ctx context.Context) CloudConnectorConfigurationTargetsPtrOutput {
+	return o
+}
+
+func (o CloudConnectorConfigurationTargetsPtrOutput) Elem() CloudConnectorConfigurationTargetsOutput {
+	return o.ApplyT(func(v *CloudConnectorConfigurationTargets) CloudConnectorConfigurationTargets {
+		if v != nil {
+			return *v
+		}
+		var ret CloudConnectorConfigurationTargets
+		return ret
+	}).(CloudConnectorConfigurationTargetsOutput)
+}
+
+// List of Azure subscriptions.
+func (o CloudConnectorConfigurationTargetsPtrOutput) Subscriptions() CloudConnectorAzureSubscriptionArrayOutput {
+	return o.ApplyT(func(v *CloudConnectorConfigurationTargets) []CloudConnectorAzureSubscription {
+		if v == nil {
+			return nil
+		}
+		return v.Subscriptions
+	}).(CloudConnectorAzureSubscriptionArrayOutput)
+}
+
+type CloudConnectorTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type DocumentAttachmentsSource struct {
 	// The key of a key-value pair that identifies the location of an attachment to a document.
 	Key *DocumentAttachmentsSourceKey `pulumi:"key"`
@@ -3842,6 +4342,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationS3OutputLocationPtrInput)(nil)).Elem(), AssociationS3OutputLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTargetInput)(nil)).Elem(), AssociationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTargetArrayInput)(nil)).Elem(), AssociationTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorAzureConfigurationInput)(nil)).Elem(), CloudConnectorAzureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorAzureSubscriptionInput)(nil)).Elem(), CloudConnectorAzureSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorAzureSubscriptionArrayInput)(nil)).Elem(), CloudConnectorAzureSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorConfigurationInput)(nil)).Elem(), CloudConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorConfigurationTargetsInput)(nil)).Elem(), CloudConnectorConfigurationTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudConnectorConfigurationTargetsPtrInput)(nil)).Elem(), CloudConnectorConfigurationTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceInput)(nil)).Elem(), DocumentAttachmentsSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceArrayInput)(nil)).Elem(), DocumentAttachmentsSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentRequiresInput)(nil)).Elem(), DocumentRequiresArgs{})
@@ -3888,6 +4394,14 @@ func init() {
 	pulumi.RegisterOutputType(AssociationS3OutputLocationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationTargetOutput{})
 	pulumi.RegisterOutputType(AssociationTargetArrayOutput{})
+	pulumi.RegisterOutputType(CloudConnectorAzureConfigurationOutput{})
+	pulumi.RegisterOutputType(CloudConnectorAzureConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CloudConnectorAzureSubscriptionOutput{})
+	pulumi.RegisterOutputType(CloudConnectorAzureSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(CloudConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(CloudConnectorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CloudConnectorConfigurationTargetsOutput{})
+	pulumi.RegisterOutputType(CloudConnectorConfigurationTargetsPtrOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
 	pulumi.RegisterOutputType(DocumentRequiresOutput{})

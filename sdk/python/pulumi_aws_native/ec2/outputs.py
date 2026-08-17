@@ -1196,7 +1196,7 @@ class Ec2FleetEbsBlockDevice(dict):
                  kms_key_id: Optional[_builtins.str] = None,
                  snapshot_id: Optional[_builtins.str] = None,
                  volume_size: Optional[_builtins.int] = None,
-                 volume_type: Optional['Ec2FleetEbsBlockDeviceVolumeType'] = None):
+                 volume_type: Optional[_builtins.str] = None):
         """
         :param _builtins.bool delete_on_termination: Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
         :param _builtins.bool encrypted: Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters) in the *Amazon EBS User Guide* .
@@ -1234,7 +1234,7 @@ class Ec2FleetEbsBlockDevice(dict):
                - `io2` : 4 - 65,536 GiB
                - `st1` and `sc1` : 125 - 16,384 GiB
                - `standard` : 1 - 1024 GiB
-        :param 'Ec2FleetEbsBlockDeviceVolumeType' volume_type: The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+        :param _builtins.str volume_type: The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -1331,7 +1331,7 @@ class Ec2FleetEbsBlockDevice(dict):
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional['Ec2FleetEbsBlockDeviceVolumeType']:
+    def volume_type(self) -> Optional[_builtins.str]:
         """
         The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
         """
@@ -12828,7 +12828,7 @@ class SpotFleetEbsBlockDevice(dict):
                  iops: Optional[_builtins.int] = None,
                  snapshot_id: Optional[_builtins.str] = None,
                  volume_size: Optional[_builtins.int] = None,
-                 volume_type: Optional['SpotFleetEbsBlockDeviceVolumeType'] = None):
+                 volume_type: Optional[_builtins.str] = None):
         """
         :param _builtins.bool delete_on_termination: Indicates whether the EBS volume is deleted on instance termination. For more information, see [Preserving Amazon EBS volumes on instance termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) in the *Amazon EC2 User Guide* .
         :param _builtins.bool encrypted: Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to `true` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Amazon EBS Encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters) in the *Amazon EC2 User Guide* .
@@ -12860,7 +12860,7 @@ class SpotFleetEbsBlockDevice(dict):
                - `io2` : 4 - 65,536 GiB
                - `st1` and `sc1` : 125 - 16,384 GiB
                - `standard` : 1 - 1024 GiB
-        :param 'SpotFleetEbsBlockDeviceVolumeType' volume_type: The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
+        :param _builtins.str volume_type: The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -12942,7 +12942,7 @@ class SpotFleetEbsBlockDevice(dict):
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional['SpotFleetEbsBlockDeviceVolumeType']:
+    def volume_type(self) -> Optional[_builtins.str]:
         """
         The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
         """
@@ -17261,6 +17261,10 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
 
 @pulumi.output_type
 class VpcEncryptionControl(dict):
+    """
+    Describes the configuration and state of VPC encryption controls.
+     For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17316,19 +17320,15 @@ class VpcEncryptionControl(dict):
                  vpc_lattice_exclusion: Optional['VpcEncryptionControlVpcLatticeExclusion'] = None,
                  vpc_peering_exclusion: Optional['VpcEncryptionControlVpcPeeringExclusion'] = None):
         """
-        :param 'VpcEncryptionControlEgressOnlyInternetGatewayExclusion' egress_only_internet_gateway_exclusion: The desired exclusion mode for Egress-Only Internet Gateways.
-        :param 'VpcEncryptionControlElasticFileSystemExclusion' elastic_file_system_exclusion: The desired exclusion mode for Elastic File System.
-        :param 'VpcEncryptionControlInternetGatewayExclusion' internet_gateway_exclusion: The desired exclusion mode for Internet Gateways.
-        :param 'VpcEncryptionControlLambdaExclusion' lambda_exclusion: The desired exclusion mode for Lambda.
-        :param 'VpcEncryptionControlMode' mode: The mode of the VPC encryption control.
-        :param 'VpcEncryptionControlNatGatewayExclusion' nat_gateway_exclusion: The desired exclusion mode for NAT Gateways.
-        :param _builtins.str state: The state of the VPC encryption control.
-        :param _builtins.str state_message: A message describing the state of the VPC encryption control.
-        :param 'VpcEncryptionControlVirtualPrivateGatewayExclusion' virtual_private_gateway_exclusion: The desired exclusion mode for Virtual Private Gateways.
-        :param _builtins.str vpc_encryption_control_id: The ID of the VPC encryption control.
-        :param _builtins.str vpc_id: The ID of the VPC.
-        :param 'VpcEncryptionControlVpcLatticeExclusion' vpc_lattice_exclusion: The desired exclusion mode for VPC Lattice.
-        :param 'VpcEncryptionControlVpcPeeringExclusion' vpc_peering_exclusion: The desired exclusion mode for VPC Peering.
+        Describes the configuration and state of VPC encryption controls.
+         For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+
+        :param 'VpcEncryptionControlMode' mode: The encryption mode for the VPC Encryption Control configuration.
+        :param 'VpcEncryptionControlExclusions' resource_exclusions: Information about resource exclusions for the VPC Encryption Control configuration.
+        :param _builtins.str state: The current state of the VPC Encryption Control configuration.
+        :param _builtins.str state_message: A message providing additional information about the encryption control state.
+        :param _builtins.str vpc_encryption_control_id: The ID of the VPC Encryption Control configuration.
+        :param _builtins.str vpc_id: The ID of the VPC associated with the encryption control configuration.
         """
         if egress_only_internet_gateway_exclusion is not None:
             pulumi.set(__self__, "egress_only_internet_gateway_exclusion", egress_only_internet_gateway_exclusion)
@@ -17362,61 +17362,49 @@ class VpcEncryptionControl(dict):
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGatewayExclusion")
     def egress_only_internet_gateway_exclusion(self) -> Optional['VpcEncryptionControlEgressOnlyInternetGatewayExclusion']:
-        """
-        The desired exclusion mode for Egress-Only Internet Gateways.
-        """
         return pulumi.get(self, "egress_only_internet_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="elasticFileSystemExclusion")
     def elastic_file_system_exclusion(self) -> Optional['VpcEncryptionControlElasticFileSystemExclusion']:
-        """
-        The desired exclusion mode for Elastic File System.
-        """
         return pulumi.get(self, "elastic_file_system_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="internetGatewayExclusion")
     def internet_gateway_exclusion(self) -> Optional['VpcEncryptionControlInternetGatewayExclusion']:
-        """
-        The desired exclusion mode for Internet Gateways.
-        """
         return pulumi.get(self, "internet_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="lambdaExclusion")
     def lambda_exclusion(self) -> Optional['VpcEncryptionControlLambdaExclusion']:
-        """
-        The desired exclusion mode for Lambda.
-        """
         return pulumi.get(self, "lambda_exclusion")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional['VpcEncryptionControlMode']:
         """
-        The mode of the VPC encryption control.
+        The encryption mode for the VPC Encryption Control configuration.
         """
         return pulumi.get(self, "mode")
 
     @_builtins.property
     @pulumi.getter(name="natGatewayExclusion")
     def nat_gateway_exclusion(self) -> Optional['VpcEncryptionControlNatGatewayExclusion']:
-        """
-        The desired exclusion mode for NAT Gateways.
-        """
         return pulumi.get(self, "nat_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="resourceExclusions")
     def resource_exclusions(self) -> Optional['outputs.VpcEncryptionControlExclusions']:
+        """
+        Information about resource exclusions for the VPC Encryption Control configuration.
+        """
         return pulumi.get(self, "resource_exclusions")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
         """
-        The state of the VPC encryption control.
+        The current state of the VPC Encryption Control configuration.
         """
         return pulumi.get(self, "state")
 
@@ -17424,23 +17412,20 @@ class VpcEncryptionControl(dict):
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> Optional[_builtins.str]:
         """
-        A message describing the state of the VPC encryption control.
+        A message providing additional information about the encryption control state.
         """
         return pulumi.get(self, "state_message")
 
     @_builtins.property
     @pulumi.getter(name="virtualPrivateGatewayExclusion")
     def virtual_private_gateway_exclusion(self) -> Optional['VpcEncryptionControlVirtualPrivateGatewayExclusion']:
-        """
-        The desired exclusion mode for Virtual Private Gateways.
-        """
         return pulumi.get(self, "virtual_private_gateway_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="vpcEncryptionControlId")
     def vpc_encryption_control_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the VPC encryption control.
+        The ID of the VPC Encryption Control configuration.
         """
         return pulumi.get(self, "vpc_encryption_control_id")
 
@@ -17448,24 +17433,18 @@ class VpcEncryptionControl(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the VPC.
+        The ID of the VPC associated with the encryption control configuration.
         """
         return pulumi.get(self, "vpc_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcLatticeExclusion")
     def vpc_lattice_exclusion(self) -> Optional['VpcEncryptionControlVpcLatticeExclusion']:
-        """
-        The desired exclusion mode for VPC Lattice.
-        """
         return pulumi.get(self, "vpc_lattice_exclusion")
 
     @_builtins.property
     @pulumi.getter(name="vpcPeeringExclusion")
     def vpc_peering_exclusion(self) -> Optional['VpcEncryptionControlVpcPeeringExclusion']:
-        """
-        The desired exclusion mode for VPC Peering.
-        """
         return pulumi.get(self, "vpc_peering_exclusion")
 
 
@@ -17519,6 +17498,10 @@ class VpcEncryptionControlExclusion(dict):
 
 @pulumi.output_type
 class VpcEncryptionControlExclusions(dict):
+    """
+    Describes the exclusion configurations for various resource types in VPC Encryption Control.
+     For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17559,6 +17542,19 @@ class VpcEncryptionControlExclusions(dict):
                  virtual_private_gateway: Optional['outputs.VpcEncryptionControlExclusion'] = None,
                  vpc_lattice: Optional['outputs.VpcEncryptionControlExclusion'] = None,
                  vpc_peering: Optional['outputs.VpcEncryptionControlExclusion'] = None):
+        """
+        Describes the exclusion configurations for various resource types in VPC Encryption Control.
+         For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+
+        :param 'VpcEncryptionControlExclusion' egress_only_internet_gateway: The exclusion configuration for egress-only internet gateway traffic.
+        :param 'VpcEncryptionControlExclusion' elastic_file_system: The exclusion configuration for Elastic File System traffic.
+        :param 'VpcEncryptionControlExclusion' internet_gateway: The exclusion configuration for internet gateway traffic.
+        :param 'VpcEncryptionControlExclusion' lambda_: The exclusion configuration for Lambda function traffic.
+        :param 'VpcEncryptionControlExclusion' nat_gateway: The exclusion configuration for NAT gateway traffic.
+        :param 'VpcEncryptionControlExclusion' virtual_private_gateway: The exclusion configuration for virtual private gateway traffic.
+        :param 'VpcEncryptionControlExclusion' vpc_lattice: The exclusion configuration for VPC Lattice traffic.
+        :param 'VpcEncryptionControlExclusion' vpc_peering: The exclusion configuration for VPC peering connection traffic.
+        """
         if egress_only_internet_gateway is not None:
             pulumi.set(__self__, "egress_only_internet_gateway", egress_only_internet_gateway)
         if elastic_file_system is not None:
@@ -17579,41 +17575,65 @@ class VpcEncryptionControlExclusions(dict):
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGateway")
     def egress_only_internet_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for egress-only internet gateway traffic.
+        """
         return pulumi.get(self, "egress_only_internet_gateway")
 
     @_builtins.property
     @pulumi.getter(name="elasticFileSystem")
     def elastic_file_system(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for Elastic File System traffic.
+        """
         return pulumi.get(self, "elastic_file_system")
 
     @_builtins.property
     @pulumi.getter(name="internetGateway")
     def internet_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for internet gateway traffic.
+        """
         return pulumi.get(self, "internet_gateway")
 
     @_builtins.property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for Lambda function traffic.
+        """
         return pulumi.get(self, "lambda_")
 
     @_builtins.property
     @pulumi.getter(name="natGateway")
     def nat_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for NAT gateway traffic.
+        """
         return pulumi.get(self, "nat_gateway")
 
     @_builtins.property
     @pulumi.getter(name="virtualPrivateGateway")
     def virtual_private_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for virtual private gateway traffic.
+        """
         return pulumi.get(self, "virtual_private_gateway")
 
     @_builtins.property
     @pulumi.getter(name="vpcLattice")
     def vpc_lattice(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for VPC Lattice traffic.
+        """
         return pulumi.get(self, "vpc_lattice")
 
     @_builtins.property
     @pulumi.getter(name="vpcPeering")
     def vpc_peering(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        The exclusion configuration for VPC peering connection traffic.
+        """
         return pulumi.get(self, "vpc_peering")
 
 

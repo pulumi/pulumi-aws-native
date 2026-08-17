@@ -30,6 +30,7 @@ class PrivateVirtualInterfaceArgs:
                  direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_site_link: pulumi.Input[Optional[_builtins.bool]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  virtual_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
@@ -43,6 +44,7 @@ class PrivateVirtualInterfaceArgs:
         :param pulumi.Input[_builtins.str] direct_connect_gateway_id: The ID or ARN of the Direct Connect gateway.
         :param pulumi.Input[_builtins.bool] enable_site_link: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[_builtins.int] mtu: The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+        :param pulumi.Input[_builtins.str] rate_limit: The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the private virtual interface.
         :param pulumi.Input[_builtins.str] virtual_gateway_id: The ID or ARN of the virtual private gateway.
         :param pulumi.Input[_builtins.str] virtual_interface_name: The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
@@ -58,6 +60,8 @@ class PrivateVirtualInterfaceArgs:
             pulumi.set(__self__, "enable_site_link", enable_site_link)
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_gateway_id is not None:
@@ -150,6 +154,18 @@ class PrivateVirtualInterfaceArgs:
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rate_limit", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -198,6 +214,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_site_link: pulumi.Input[Optional[_builtins.bool]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  virtual_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -214,6 +231,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] direct_connect_gateway_id: The ID or ARN of the Direct Connect gateway.
         :param pulumi.Input[_builtins.bool] enable_site_link: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[_builtins.int] mtu: The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+        :param pulumi.Input[_builtins.str] rate_limit: The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the private virtual interface.
         :param pulumi.Input[_builtins.str] virtual_gateway_id: The ID or ARN of the virtual private gateway.
         :param pulumi.Input[_builtins.str] virtual_interface_name: The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
@@ -249,6 +267,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_site_link: pulumi.Input[Optional[_builtins.bool]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  virtual_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -272,6 +291,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["direct_connect_gateway_id"] = direct_connect_gateway_id
             __props__.__dict__["enable_site_link"] = enable_site_link
             __props__.__dict__["mtu"] = mtu
+            __props__.__dict__["rate_limit"] = rate_limit
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_gateway_id"] = virtual_gateway_id
             __props__.__dict__["virtual_interface_name"] = virtual_interface_name
@@ -310,6 +330,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["direct_connect_gateway_id"] = None
         __props__.__dict__["enable_site_link"] = None
         __props__.__dict__["mtu"] = None
+        __props__.__dict__["rate_limit"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["virtual_gateway_id"] = None
         __props__.__dict__["virtual_interface_arn"] = None
@@ -365,6 +386,14 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
         """
         return pulumi.get(self, "mtu")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        """
+        return pulumi.get(self, "rate_limit")
 
     @_builtins.property
     @pulumi.getter

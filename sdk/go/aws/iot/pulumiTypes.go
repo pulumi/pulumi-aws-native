@@ -4032,6 +4032,413 @@ type FleetMetricTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The criteria that determine when and how a job abort takes place.
+type JobAbortConfig struct {
+	// The list of criteria that determine when and how to abort the job.
+	CriteriaList []JobAbortCriteria `pulumi:"criteriaList"`
+}
+
+// JobAbortConfigInput is an input type that accepts JobAbortConfigArgs and JobAbortConfigOutput values.
+// You can construct a concrete instance of `JobAbortConfigInput` via:
+//
+//	JobAbortConfigArgs{...}
+type JobAbortConfigInput interface {
+	pulumi.Input
+
+	ToJobAbortConfigOutput() JobAbortConfigOutput
+	ToJobAbortConfigOutputWithContext(context.Context) JobAbortConfigOutput
+}
+
+// The criteria that determine when and how a job abort takes place.
+type JobAbortConfigArgs struct {
+	// The list of criteria that determine when and how to abort the job.
+	CriteriaList JobAbortCriteriaArrayInput `pulumi:"criteriaList"`
+}
+
+func (JobAbortConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortConfig)(nil)).Elem()
+}
+
+func (i JobAbortConfigArgs) ToJobAbortConfigOutput() JobAbortConfigOutput {
+	return i.ToJobAbortConfigOutputWithContext(context.Background())
+}
+
+func (i JobAbortConfigArgs) ToJobAbortConfigOutputWithContext(ctx context.Context) JobAbortConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAbortConfigOutput)
+}
+
+func (i JobAbortConfigArgs) ToJobAbortConfigPtrOutput() JobAbortConfigPtrOutput {
+	return i.ToJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobAbortConfigArgs) ToJobAbortConfigPtrOutputWithContext(ctx context.Context) JobAbortConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAbortConfigOutput).ToJobAbortConfigPtrOutputWithContext(ctx)
+}
+
+// JobAbortConfigPtrInput is an input type that accepts JobAbortConfigArgs, JobAbortConfigPtr and JobAbortConfigPtrOutput values.
+// You can construct a concrete instance of `JobAbortConfigPtrInput` via:
+//
+//	        JobAbortConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobAbortConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobAbortConfigPtrOutput() JobAbortConfigPtrOutput
+	ToJobAbortConfigPtrOutputWithContext(context.Context) JobAbortConfigPtrOutput
+}
+
+type jobAbortConfigPtrType JobAbortConfigArgs
+
+func JobAbortConfigPtr(v *JobAbortConfigArgs) JobAbortConfigPtrInput {
+	return (*jobAbortConfigPtrType)(v)
+}
+
+func (*jobAbortConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAbortConfig)(nil)).Elem()
+}
+
+func (i *jobAbortConfigPtrType) ToJobAbortConfigPtrOutput() JobAbortConfigPtrOutput {
+	return i.ToJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobAbortConfigPtrType) ToJobAbortConfigPtrOutputWithContext(ctx context.Context) JobAbortConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAbortConfigPtrOutput)
+}
+
+// The criteria that determine when and how a job abort takes place.
+type JobAbortConfigOutput struct{ *pulumi.OutputState }
+
+func (JobAbortConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortConfig)(nil)).Elem()
+}
+
+func (o JobAbortConfigOutput) ToJobAbortConfigOutput() JobAbortConfigOutput {
+	return o
+}
+
+func (o JobAbortConfigOutput) ToJobAbortConfigOutputWithContext(ctx context.Context) JobAbortConfigOutput {
+	return o
+}
+
+func (o JobAbortConfigOutput) ToJobAbortConfigPtrOutput() JobAbortConfigPtrOutput {
+	return o.ToJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobAbortConfigOutput) ToJobAbortConfigPtrOutputWithContext(ctx context.Context) JobAbortConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAbortConfig) *JobAbortConfig {
+		return &v
+	}).(JobAbortConfigPtrOutput)
+}
+
+// The list of criteria that determine when and how to abort the job.
+func (o JobAbortConfigOutput) CriteriaList() JobAbortCriteriaArrayOutput {
+	return o.ApplyT(func(v JobAbortConfig) []JobAbortCriteria { return v.CriteriaList }).(JobAbortCriteriaArrayOutput)
+}
+
+type JobAbortConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobAbortConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAbortConfig)(nil)).Elem()
+}
+
+func (o JobAbortConfigPtrOutput) ToJobAbortConfigPtrOutput() JobAbortConfigPtrOutput {
+	return o
+}
+
+func (o JobAbortConfigPtrOutput) ToJobAbortConfigPtrOutputWithContext(ctx context.Context) JobAbortConfigPtrOutput {
+	return o
+}
+
+func (o JobAbortConfigPtrOutput) Elem() JobAbortConfigOutput {
+	return o.ApplyT(func(v *JobAbortConfig) JobAbortConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobAbortConfig
+		return ret
+	}).(JobAbortConfigOutput)
+}
+
+// The list of criteria that determine when and how to abort the job.
+func (o JobAbortConfigPtrOutput) CriteriaList() JobAbortCriteriaArrayOutput {
+	return o.ApplyT(func(v *JobAbortConfig) []JobAbortCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.CriteriaList
+	}).(JobAbortCriteriaArrayOutput)
+}
+
+// The criteria that determine when and how a job abort takes place.
+type JobAbortCriteria struct {
+	// The type of job action to take to initiate the job abort.
+	Action JobAbortCriteriaAction `pulumi:"action"`
+	// The type of job execution failures that can initiate a job abort.
+	FailureType JobAbortCriteriaFailureType `pulumi:"failureType"`
+	// The minimum number of things which must receive job execution notifications before the job can be aborted.
+	MinNumberOfExecutedThings int `pulumi:"minNumberOfExecutedThings"`
+	// The minimum percentage of job execution failures that must occur to initiate the job abort.
+	ThresholdPercentage float64 `pulumi:"thresholdPercentage"`
+}
+
+// JobAbortCriteriaInput is an input type that accepts JobAbortCriteriaArgs and JobAbortCriteriaOutput values.
+// You can construct a concrete instance of `JobAbortCriteriaInput` via:
+//
+//	JobAbortCriteriaArgs{...}
+type JobAbortCriteriaInput interface {
+	pulumi.Input
+
+	ToJobAbortCriteriaOutput() JobAbortCriteriaOutput
+	ToJobAbortCriteriaOutputWithContext(context.Context) JobAbortCriteriaOutput
+}
+
+// The criteria that determine when and how a job abort takes place.
+type JobAbortCriteriaArgs struct {
+	// The type of job action to take to initiate the job abort.
+	Action JobAbortCriteriaActionInput `pulumi:"action"`
+	// The type of job execution failures that can initiate a job abort.
+	FailureType JobAbortCriteriaFailureTypeInput `pulumi:"failureType"`
+	// The minimum number of things which must receive job execution notifications before the job can be aborted.
+	MinNumberOfExecutedThings pulumi.IntInput `pulumi:"minNumberOfExecutedThings"`
+	// The minimum percentage of job execution failures that must occur to initiate the job abort.
+	ThresholdPercentage pulumi.Float64Input `pulumi:"thresholdPercentage"`
+}
+
+func (JobAbortCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortCriteria)(nil)).Elem()
+}
+
+func (i JobAbortCriteriaArgs) ToJobAbortCriteriaOutput() JobAbortCriteriaOutput {
+	return i.ToJobAbortCriteriaOutputWithContext(context.Background())
+}
+
+func (i JobAbortCriteriaArgs) ToJobAbortCriteriaOutputWithContext(ctx context.Context) JobAbortCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAbortCriteriaOutput)
+}
+
+// JobAbortCriteriaArrayInput is an input type that accepts JobAbortCriteriaArray and JobAbortCriteriaArrayOutput values.
+// You can construct a concrete instance of `JobAbortCriteriaArrayInput` via:
+//
+//	JobAbortCriteriaArray{ JobAbortCriteriaArgs{...} }
+type JobAbortCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToJobAbortCriteriaArrayOutput() JobAbortCriteriaArrayOutput
+	ToJobAbortCriteriaArrayOutputWithContext(context.Context) JobAbortCriteriaArrayOutput
+}
+
+type JobAbortCriteriaArray []JobAbortCriteriaInput
+
+func (JobAbortCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobAbortCriteria)(nil)).Elem()
+}
+
+func (i JobAbortCriteriaArray) ToJobAbortCriteriaArrayOutput() JobAbortCriteriaArrayOutput {
+	return i.ToJobAbortCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i JobAbortCriteriaArray) ToJobAbortCriteriaArrayOutputWithContext(ctx context.Context) JobAbortCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAbortCriteriaArrayOutput)
+}
+
+// The criteria that determine when and how a job abort takes place.
+type JobAbortCriteriaOutput struct{ *pulumi.OutputState }
+
+func (JobAbortCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortCriteria)(nil)).Elem()
+}
+
+func (o JobAbortCriteriaOutput) ToJobAbortCriteriaOutput() JobAbortCriteriaOutput {
+	return o
+}
+
+func (o JobAbortCriteriaOutput) ToJobAbortCriteriaOutputWithContext(ctx context.Context) JobAbortCriteriaOutput {
+	return o
+}
+
+// The type of job action to take to initiate the job abort.
+func (o JobAbortCriteriaOutput) Action() JobAbortCriteriaActionOutput {
+	return o.ApplyT(func(v JobAbortCriteria) JobAbortCriteriaAction { return v.Action }).(JobAbortCriteriaActionOutput)
+}
+
+// The type of job execution failures that can initiate a job abort.
+func (o JobAbortCriteriaOutput) FailureType() JobAbortCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v JobAbortCriteria) JobAbortCriteriaFailureType { return v.FailureType }).(JobAbortCriteriaFailureTypeOutput)
+}
+
+// The minimum number of things which must receive job execution notifications before the job can be aborted.
+func (o JobAbortCriteriaOutput) MinNumberOfExecutedThings() pulumi.IntOutput {
+	return o.ApplyT(func(v JobAbortCriteria) int { return v.MinNumberOfExecutedThings }).(pulumi.IntOutput)
+}
+
+// The minimum percentage of job execution failures that must occur to initiate the job abort.
+func (o JobAbortCriteriaOutput) ThresholdPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v JobAbortCriteria) float64 { return v.ThresholdPercentage }).(pulumi.Float64Output)
+}
+
+type JobAbortCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (JobAbortCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobAbortCriteria)(nil)).Elem()
+}
+
+func (o JobAbortCriteriaArrayOutput) ToJobAbortCriteriaArrayOutput() JobAbortCriteriaArrayOutput {
+	return o
+}
+
+func (o JobAbortCriteriaArrayOutput) ToJobAbortCriteriaArrayOutputWithContext(ctx context.Context) JobAbortCriteriaArrayOutput {
+	return o
+}
+
+func (o JobAbortCriteriaArrayOutput) Index(i pulumi.IntInput) JobAbortCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobAbortCriteria {
+		return vs[0].([]JobAbortCriteria)[vs[1].(int)]
+	}).(JobAbortCriteriaOutput)
+}
+
+// The configuration that determines how many retries are allowed for each failure type for a job.
+type JobExecutionsRetryConfig struct {
+	// The list of criteria that determines how many retries are allowed for each failure type for a job.
+	CriteriaList []JobRetryCriteria `pulumi:"criteriaList"`
+}
+
+// JobExecutionsRetryConfigInput is an input type that accepts JobExecutionsRetryConfigArgs and JobExecutionsRetryConfigOutput values.
+// You can construct a concrete instance of `JobExecutionsRetryConfigInput` via:
+//
+//	JobExecutionsRetryConfigArgs{...}
+type JobExecutionsRetryConfigInput interface {
+	pulumi.Input
+
+	ToJobExecutionsRetryConfigOutput() JobExecutionsRetryConfigOutput
+	ToJobExecutionsRetryConfigOutputWithContext(context.Context) JobExecutionsRetryConfigOutput
+}
+
+// The configuration that determines how many retries are allowed for each failure type for a job.
+type JobExecutionsRetryConfigArgs struct {
+	// The list of criteria that determines how many retries are allowed for each failure type for a job.
+	CriteriaList JobRetryCriteriaArrayInput `pulumi:"criteriaList"`
+}
+
+func (JobExecutionsRetryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionsRetryConfig)(nil)).Elem()
+}
+
+func (i JobExecutionsRetryConfigArgs) ToJobExecutionsRetryConfigOutput() JobExecutionsRetryConfigOutput {
+	return i.ToJobExecutionsRetryConfigOutputWithContext(context.Background())
+}
+
+func (i JobExecutionsRetryConfigArgs) ToJobExecutionsRetryConfigOutputWithContext(ctx context.Context) JobExecutionsRetryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRetryConfigOutput)
+}
+
+func (i JobExecutionsRetryConfigArgs) ToJobExecutionsRetryConfigPtrOutput() JobExecutionsRetryConfigPtrOutput {
+	return i.ToJobExecutionsRetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobExecutionsRetryConfigArgs) ToJobExecutionsRetryConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRetryConfigOutput).ToJobExecutionsRetryConfigPtrOutputWithContext(ctx)
+}
+
+// JobExecutionsRetryConfigPtrInput is an input type that accepts JobExecutionsRetryConfigArgs, JobExecutionsRetryConfigPtr and JobExecutionsRetryConfigPtrOutput values.
+// You can construct a concrete instance of `JobExecutionsRetryConfigPtrInput` via:
+//
+//	        JobExecutionsRetryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobExecutionsRetryConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobExecutionsRetryConfigPtrOutput() JobExecutionsRetryConfigPtrOutput
+	ToJobExecutionsRetryConfigPtrOutputWithContext(context.Context) JobExecutionsRetryConfigPtrOutput
+}
+
+type jobExecutionsRetryConfigPtrType JobExecutionsRetryConfigArgs
+
+func JobExecutionsRetryConfigPtr(v *JobExecutionsRetryConfigArgs) JobExecutionsRetryConfigPtrInput {
+	return (*jobExecutionsRetryConfigPtrType)(v)
+}
+
+func (*jobExecutionsRetryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionsRetryConfig)(nil)).Elem()
+}
+
+func (i *jobExecutionsRetryConfigPtrType) ToJobExecutionsRetryConfigPtrOutput() JobExecutionsRetryConfigPtrOutput {
+	return i.ToJobExecutionsRetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobExecutionsRetryConfigPtrType) ToJobExecutionsRetryConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRetryConfigPtrOutput)
+}
+
+// The configuration that determines how many retries are allowed for each failure type for a job.
+type JobExecutionsRetryConfigOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionsRetryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionsRetryConfig)(nil)).Elem()
+}
+
+func (o JobExecutionsRetryConfigOutput) ToJobExecutionsRetryConfigOutput() JobExecutionsRetryConfigOutput {
+	return o
+}
+
+func (o JobExecutionsRetryConfigOutput) ToJobExecutionsRetryConfigOutputWithContext(ctx context.Context) JobExecutionsRetryConfigOutput {
+	return o
+}
+
+func (o JobExecutionsRetryConfigOutput) ToJobExecutionsRetryConfigPtrOutput() JobExecutionsRetryConfigPtrOutput {
+	return o.ToJobExecutionsRetryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobExecutionsRetryConfigOutput) ToJobExecutionsRetryConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobExecutionsRetryConfig) *JobExecutionsRetryConfig {
+		return &v
+	}).(JobExecutionsRetryConfigPtrOutput)
+}
+
+// The list of criteria that determines how many retries are allowed for each failure type for a job.
+func (o JobExecutionsRetryConfigOutput) CriteriaList() JobRetryCriteriaArrayOutput {
+	return o.ApplyT(func(v JobExecutionsRetryConfig) []JobRetryCriteria { return v.CriteriaList }).(JobRetryCriteriaArrayOutput)
+}
+
+type JobExecutionsRetryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionsRetryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionsRetryConfig)(nil)).Elem()
+}
+
+func (o JobExecutionsRetryConfigPtrOutput) ToJobExecutionsRetryConfigPtrOutput() JobExecutionsRetryConfigPtrOutput {
+	return o
+}
+
+func (o JobExecutionsRetryConfigPtrOutput) ToJobExecutionsRetryConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPtrOutput {
+	return o
+}
+
+func (o JobExecutionsRetryConfigPtrOutput) Elem() JobExecutionsRetryConfigOutput {
+	return o.ApplyT(func(v *JobExecutionsRetryConfig) JobExecutionsRetryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobExecutionsRetryConfig
+		return ret
+	}).(JobExecutionsRetryConfigOutput)
+}
+
+// The list of criteria that determines how many retries are allowed for each failure type for a job.
+func (o JobExecutionsRetryConfigPtrOutput) CriteriaList() JobRetryCriteriaArrayOutput {
+	return o.ApplyT(func(v *JobExecutionsRetryConfig) []JobRetryCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.CriteriaList
+	}).(JobRetryCriteriaArrayOutput)
+}
+
 // Allows you to create the criteria to retry a job.
 type JobExecutionsRetryConfigProperties struct {
 	// The list of criteria that determines how many retries are allowed for each failure type for a job.
@@ -4170,6 +4577,161 @@ func (o JobExecutionsRetryConfigPropertiesPtrOutput) RetryCriteriaList() JobTemp
 		}
 		return v.RetryCriteriaList
 	}).(JobTemplateRetryCriteriaArrayOutput)
+}
+
+// Allows you to create a staged rollout of a job.
+type JobExecutionsRolloutConfig struct {
+	ExponentialRate *JobExponentialRolloutRate `pulumi:"exponentialRate"`
+	// The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+	MaximumPerMinute *int `pulumi:"maximumPerMinute"`
+}
+
+// JobExecutionsRolloutConfigInput is an input type that accepts JobExecutionsRolloutConfigArgs and JobExecutionsRolloutConfigOutput values.
+// You can construct a concrete instance of `JobExecutionsRolloutConfigInput` via:
+//
+//	JobExecutionsRolloutConfigArgs{...}
+type JobExecutionsRolloutConfigInput interface {
+	pulumi.Input
+
+	ToJobExecutionsRolloutConfigOutput() JobExecutionsRolloutConfigOutput
+	ToJobExecutionsRolloutConfigOutputWithContext(context.Context) JobExecutionsRolloutConfigOutput
+}
+
+// Allows you to create a staged rollout of a job.
+type JobExecutionsRolloutConfigArgs struct {
+	ExponentialRate JobExponentialRolloutRatePtrInput `pulumi:"exponentialRate"`
+	// The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+	MaximumPerMinute pulumi.IntPtrInput `pulumi:"maximumPerMinute"`
+}
+
+func (JobExecutionsRolloutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (i JobExecutionsRolloutConfigArgs) ToJobExecutionsRolloutConfigOutput() JobExecutionsRolloutConfigOutput {
+	return i.ToJobExecutionsRolloutConfigOutputWithContext(context.Background())
+}
+
+func (i JobExecutionsRolloutConfigArgs) ToJobExecutionsRolloutConfigOutputWithContext(ctx context.Context) JobExecutionsRolloutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRolloutConfigOutput)
+}
+
+func (i JobExecutionsRolloutConfigArgs) ToJobExecutionsRolloutConfigPtrOutput() JobExecutionsRolloutConfigPtrOutput {
+	return i.ToJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobExecutionsRolloutConfigArgs) ToJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRolloutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRolloutConfigOutput).ToJobExecutionsRolloutConfigPtrOutputWithContext(ctx)
+}
+
+// JobExecutionsRolloutConfigPtrInput is an input type that accepts JobExecutionsRolloutConfigArgs, JobExecutionsRolloutConfigPtr and JobExecutionsRolloutConfigPtrOutput values.
+// You can construct a concrete instance of `JobExecutionsRolloutConfigPtrInput` via:
+//
+//	        JobExecutionsRolloutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobExecutionsRolloutConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobExecutionsRolloutConfigPtrOutput() JobExecutionsRolloutConfigPtrOutput
+	ToJobExecutionsRolloutConfigPtrOutputWithContext(context.Context) JobExecutionsRolloutConfigPtrOutput
+}
+
+type jobExecutionsRolloutConfigPtrType JobExecutionsRolloutConfigArgs
+
+func JobExecutionsRolloutConfigPtr(v *JobExecutionsRolloutConfigArgs) JobExecutionsRolloutConfigPtrInput {
+	return (*jobExecutionsRolloutConfigPtrType)(v)
+}
+
+func (*jobExecutionsRolloutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (i *jobExecutionsRolloutConfigPtrType) ToJobExecutionsRolloutConfigPtrOutput() JobExecutionsRolloutConfigPtrOutput {
+	return i.ToJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobExecutionsRolloutConfigPtrType) ToJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRolloutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRolloutConfigPtrOutput)
+}
+
+// Allows you to create a staged rollout of a job.
+type JobExecutionsRolloutConfigOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionsRolloutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (o JobExecutionsRolloutConfigOutput) ToJobExecutionsRolloutConfigOutput() JobExecutionsRolloutConfigOutput {
+	return o
+}
+
+func (o JobExecutionsRolloutConfigOutput) ToJobExecutionsRolloutConfigOutputWithContext(ctx context.Context) JobExecutionsRolloutConfigOutput {
+	return o
+}
+
+func (o JobExecutionsRolloutConfigOutput) ToJobExecutionsRolloutConfigPtrOutput() JobExecutionsRolloutConfigPtrOutput {
+	return o.ToJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobExecutionsRolloutConfigOutput) ToJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRolloutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobExecutionsRolloutConfig) *JobExecutionsRolloutConfig {
+		return &v
+	}).(JobExecutionsRolloutConfigPtrOutput)
+}
+
+func (o JobExecutionsRolloutConfigOutput) ExponentialRate() JobExponentialRolloutRatePtrOutput {
+	return o.ApplyT(func(v JobExecutionsRolloutConfig) *JobExponentialRolloutRate { return v.ExponentialRate }).(JobExponentialRolloutRatePtrOutput)
+}
+
+// The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+func (o JobExecutionsRolloutConfigOutput) MaximumPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobExecutionsRolloutConfig) *int { return v.MaximumPerMinute }).(pulumi.IntPtrOutput)
+}
+
+type JobExecutionsRolloutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionsRolloutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (o JobExecutionsRolloutConfigPtrOutput) ToJobExecutionsRolloutConfigPtrOutput() JobExecutionsRolloutConfigPtrOutput {
+	return o
+}
+
+func (o JobExecutionsRolloutConfigPtrOutput) ToJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) JobExecutionsRolloutConfigPtrOutput {
+	return o
+}
+
+func (o JobExecutionsRolloutConfigPtrOutput) Elem() JobExecutionsRolloutConfigOutput {
+	return o.ApplyT(func(v *JobExecutionsRolloutConfig) JobExecutionsRolloutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobExecutionsRolloutConfig
+		return ret
+	}).(JobExecutionsRolloutConfigOutput)
+}
+
+func (o JobExecutionsRolloutConfigPtrOutput) ExponentialRate() JobExponentialRolloutRatePtrOutput {
+	return o.ApplyT(func(v *JobExecutionsRolloutConfig) *JobExponentialRolloutRate {
+		if v == nil {
+			return nil
+		}
+		return v.ExponentialRate
+	}).(JobExponentialRolloutRatePtrOutput)
+}
+
+// The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+func (o JobExecutionsRolloutConfigPtrOutput) MaximumPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobExecutionsRolloutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumPerMinute
+	}).(pulumi.IntPtrOutput)
 }
 
 // Allows you to create a staged rollout of a job.
@@ -4331,6 +4893,921 @@ func (o JobExecutionsRolloutConfigPropertiesPtrOutput) MaximumPerMinute() pulumi
 		}
 		return v.MaximumPerMinute
 	}).(pulumi.IntPtrOutput)
+}
+
+// Allows you to create an exponential rate of rollout for a job.
+type JobExponentialRolloutRate struct {
+	// The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+	BaseRatePerMinute int `pulumi:"baseRatePerMinute"`
+	// The exponential factor to increase the rate of rollout for a job.
+	IncrementFactor      float64                 `pulumi:"incrementFactor"`
+	RateIncreaseCriteria JobRateIncreaseCriteria `pulumi:"rateIncreaseCriteria"`
+}
+
+// JobExponentialRolloutRateInput is an input type that accepts JobExponentialRolloutRateArgs and JobExponentialRolloutRateOutput values.
+// You can construct a concrete instance of `JobExponentialRolloutRateInput` via:
+//
+//	JobExponentialRolloutRateArgs{...}
+type JobExponentialRolloutRateInput interface {
+	pulumi.Input
+
+	ToJobExponentialRolloutRateOutput() JobExponentialRolloutRateOutput
+	ToJobExponentialRolloutRateOutputWithContext(context.Context) JobExponentialRolloutRateOutput
+}
+
+// Allows you to create an exponential rate of rollout for a job.
+type JobExponentialRolloutRateArgs struct {
+	// The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+	BaseRatePerMinute pulumi.IntInput `pulumi:"baseRatePerMinute"`
+	// The exponential factor to increase the rate of rollout for a job.
+	IncrementFactor      pulumi.Float64Input          `pulumi:"incrementFactor"`
+	RateIncreaseCriteria JobRateIncreaseCriteriaInput `pulumi:"rateIncreaseCriteria"`
+}
+
+func (JobExponentialRolloutRateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (i JobExponentialRolloutRateArgs) ToJobExponentialRolloutRateOutput() JobExponentialRolloutRateOutput {
+	return i.ToJobExponentialRolloutRateOutputWithContext(context.Background())
+}
+
+func (i JobExponentialRolloutRateArgs) ToJobExponentialRolloutRateOutputWithContext(ctx context.Context) JobExponentialRolloutRateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExponentialRolloutRateOutput)
+}
+
+func (i JobExponentialRolloutRateArgs) ToJobExponentialRolloutRatePtrOutput() JobExponentialRolloutRatePtrOutput {
+	return i.ToJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (i JobExponentialRolloutRateArgs) ToJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) JobExponentialRolloutRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExponentialRolloutRateOutput).ToJobExponentialRolloutRatePtrOutputWithContext(ctx)
+}
+
+// JobExponentialRolloutRatePtrInput is an input type that accepts JobExponentialRolloutRateArgs, JobExponentialRolloutRatePtr and JobExponentialRolloutRatePtrOutput values.
+// You can construct a concrete instance of `JobExponentialRolloutRatePtrInput` via:
+//
+//	        JobExponentialRolloutRateArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobExponentialRolloutRatePtrInput interface {
+	pulumi.Input
+
+	ToJobExponentialRolloutRatePtrOutput() JobExponentialRolloutRatePtrOutput
+	ToJobExponentialRolloutRatePtrOutputWithContext(context.Context) JobExponentialRolloutRatePtrOutput
+}
+
+type jobExponentialRolloutRatePtrType JobExponentialRolloutRateArgs
+
+func JobExponentialRolloutRatePtr(v *JobExponentialRolloutRateArgs) JobExponentialRolloutRatePtrInput {
+	return (*jobExponentialRolloutRatePtrType)(v)
+}
+
+func (*jobExponentialRolloutRatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (i *jobExponentialRolloutRatePtrType) ToJobExponentialRolloutRatePtrOutput() JobExponentialRolloutRatePtrOutput {
+	return i.ToJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (i *jobExponentialRolloutRatePtrType) ToJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) JobExponentialRolloutRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExponentialRolloutRatePtrOutput)
+}
+
+// Allows you to create an exponential rate of rollout for a job.
+type JobExponentialRolloutRateOutput struct{ *pulumi.OutputState }
+
+func (JobExponentialRolloutRateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (o JobExponentialRolloutRateOutput) ToJobExponentialRolloutRateOutput() JobExponentialRolloutRateOutput {
+	return o
+}
+
+func (o JobExponentialRolloutRateOutput) ToJobExponentialRolloutRateOutputWithContext(ctx context.Context) JobExponentialRolloutRateOutput {
+	return o
+}
+
+func (o JobExponentialRolloutRateOutput) ToJobExponentialRolloutRatePtrOutput() JobExponentialRolloutRatePtrOutput {
+	return o.ToJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (o JobExponentialRolloutRateOutput) ToJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) JobExponentialRolloutRatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobExponentialRolloutRate) *JobExponentialRolloutRate {
+		return &v
+	}).(JobExponentialRolloutRatePtrOutput)
+}
+
+// The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+func (o JobExponentialRolloutRateOutput) BaseRatePerMinute() pulumi.IntOutput {
+	return o.ApplyT(func(v JobExponentialRolloutRate) int { return v.BaseRatePerMinute }).(pulumi.IntOutput)
+}
+
+// The exponential factor to increase the rate of rollout for a job.
+func (o JobExponentialRolloutRateOutput) IncrementFactor() pulumi.Float64Output {
+	return o.ApplyT(func(v JobExponentialRolloutRate) float64 { return v.IncrementFactor }).(pulumi.Float64Output)
+}
+
+func (o JobExponentialRolloutRateOutput) RateIncreaseCriteria() JobRateIncreaseCriteriaOutput {
+	return o.ApplyT(func(v JobExponentialRolloutRate) JobRateIncreaseCriteria { return v.RateIncreaseCriteria }).(JobRateIncreaseCriteriaOutput)
+}
+
+type JobExponentialRolloutRatePtrOutput struct{ *pulumi.OutputState }
+
+func (JobExponentialRolloutRatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (o JobExponentialRolloutRatePtrOutput) ToJobExponentialRolloutRatePtrOutput() JobExponentialRolloutRatePtrOutput {
+	return o
+}
+
+func (o JobExponentialRolloutRatePtrOutput) ToJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) JobExponentialRolloutRatePtrOutput {
+	return o
+}
+
+func (o JobExponentialRolloutRatePtrOutput) Elem() JobExponentialRolloutRateOutput {
+	return o.ApplyT(func(v *JobExponentialRolloutRate) JobExponentialRolloutRate {
+		if v != nil {
+			return *v
+		}
+		var ret JobExponentialRolloutRate
+		return ret
+	}).(JobExponentialRolloutRateOutput)
+}
+
+// The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+func (o JobExponentialRolloutRatePtrOutput) BaseRatePerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobExponentialRolloutRate) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseRatePerMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+// The exponential factor to increase the rate of rollout for a job.
+func (o JobExponentialRolloutRatePtrOutput) IncrementFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JobExponentialRolloutRate) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.IncrementFactor
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o JobExponentialRolloutRatePtrOutput) RateIncreaseCriteria() JobRateIncreaseCriteriaPtrOutput {
+	return o.ApplyT(func(v *JobExponentialRolloutRate) *JobRateIncreaseCriteria {
+		if v == nil {
+			return nil
+		}
+		return &v.RateIncreaseCriteria
+	}).(JobRateIncreaseCriteriaPtrOutput)
+}
+
+// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+type JobMaintenanceWindow struct {
+	// Displays the duration of the next maintenance window.
+	DurationInMinutes int `pulumi:"durationInMinutes"`
+	// Displays the start time of the next maintenance window.
+	StartTime string `pulumi:"startTime"`
+}
+
+// JobMaintenanceWindowInput is an input type that accepts JobMaintenanceWindowArgs and JobMaintenanceWindowOutput values.
+// You can construct a concrete instance of `JobMaintenanceWindowInput` via:
+//
+//	JobMaintenanceWindowArgs{...}
+type JobMaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToJobMaintenanceWindowOutput() JobMaintenanceWindowOutput
+	ToJobMaintenanceWindowOutputWithContext(context.Context) JobMaintenanceWindowOutput
+}
+
+// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+type JobMaintenanceWindowArgs struct {
+	// Displays the duration of the next maintenance window.
+	DurationInMinutes pulumi.IntInput `pulumi:"durationInMinutes"`
+	// Displays the start time of the next maintenance window.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (JobMaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobMaintenanceWindow)(nil)).Elem()
+}
+
+func (i JobMaintenanceWindowArgs) ToJobMaintenanceWindowOutput() JobMaintenanceWindowOutput {
+	return i.ToJobMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i JobMaintenanceWindowArgs) ToJobMaintenanceWindowOutputWithContext(ctx context.Context) JobMaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobMaintenanceWindowOutput)
+}
+
+// JobMaintenanceWindowArrayInput is an input type that accepts JobMaintenanceWindowArray and JobMaintenanceWindowArrayOutput values.
+// You can construct a concrete instance of `JobMaintenanceWindowArrayInput` via:
+//
+//	JobMaintenanceWindowArray{ JobMaintenanceWindowArgs{...} }
+type JobMaintenanceWindowArrayInput interface {
+	pulumi.Input
+
+	ToJobMaintenanceWindowArrayOutput() JobMaintenanceWindowArrayOutput
+	ToJobMaintenanceWindowArrayOutputWithContext(context.Context) JobMaintenanceWindowArrayOutput
+}
+
+type JobMaintenanceWindowArray []JobMaintenanceWindowInput
+
+func (JobMaintenanceWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobMaintenanceWindow)(nil)).Elem()
+}
+
+func (i JobMaintenanceWindowArray) ToJobMaintenanceWindowArrayOutput() JobMaintenanceWindowArrayOutput {
+	return i.ToJobMaintenanceWindowArrayOutputWithContext(context.Background())
+}
+
+func (i JobMaintenanceWindowArray) ToJobMaintenanceWindowArrayOutputWithContext(ctx context.Context) JobMaintenanceWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobMaintenanceWindowArrayOutput)
+}
+
+// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+type JobMaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (JobMaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobMaintenanceWindow)(nil)).Elem()
+}
+
+func (o JobMaintenanceWindowOutput) ToJobMaintenanceWindowOutput() JobMaintenanceWindowOutput {
+	return o
+}
+
+func (o JobMaintenanceWindowOutput) ToJobMaintenanceWindowOutputWithContext(ctx context.Context) JobMaintenanceWindowOutput {
+	return o
+}
+
+// Displays the duration of the next maintenance window.
+func (o JobMaintenanceWindowOutput) DurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v JobMaintenanceWindow) int { return v.DurationInMinutes }).(pulumi.IntOutput)
+}
+
+// Displays the start time of the next maintenance window.
+func (o JobMaintenanceWindowOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobMaintenanceWindow) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type JobMaintenanceWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (JobMaintenanceWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobMaintenanceWindow)(nil)).Elem()
+}
+
+func (o JobMaintenanceWindowArrayOutput) ToJobMaintenanceWindowArrayOutput() JobMaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o JobMaintenanceWindowArrayOutput) ToJobMaintenanceWindowArrayOutputWithContext(ctx context.Context) JobMaintenanceWindowArrayOutput {
+	return o
+}
+
+func (o JobMaintenanceWindowArrayOutput) Index(i pulumi.IntInput) JobMaintenanceWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobMaintenanceWindow {
+		return vs[0].([]JobMaintenanceWindow)[vs[1].(int)]
+	}).(JobMaintenanceWindowOutput)
+}
+
+// Configuration for pre-signed S3 URLs.
+type JobPresignedUrlConfig struct {
+	// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+	ExpiresInSec *int `pulumi:"expiresInSec"`
+	// The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// JobPresignedUrlConfigInput is an input type that accepts JobPresignedUrlConfigArgs and JobPresignedUrlConfigOutput values.
+// You can construct a concrete instance of `JobPresignedUrlConfigInput` via:
+//
+//	JobPresignedUrlConfigArgs{...}
+type JobPresignedUrlConfigInput interface {
+	pulumi.Input
+
+	ToJobPresignedUrlConfigOutput() JobPresignedUrlConfigOutput
+	ToJobPresignedUrlConfigOutputWithContext(context.Context) JobPresignedUrlConfigOutput
+}
+
+// Configuration for pre-signed S3 URLs.
+type JobPresignedUrlConfigArgs struct {
+	// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+	ExpiresInSec pulumi.IntPtrInput `pulumi:"expiresInSec"`
+	// The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (JobPresignedUrlConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (i JobPresignedUrlConfigArgs) ToJobPresignedUrlConfigOutput() JobPresignedUrlConfigOutput {
+	return i.ToJobPresignedUrlConfigOutputWithContext(context.Background())
+}
+
+func (i JobPresignedUrlConfigArgs) ToJobPresignedUrlConfigOutputWithContext(ctx context.Context) JobPresignedUrlConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPresignedUrlConfigOutput)
+}
+
+func (i JobPresignedUrlConfigArgs) ToJobPresignedUrlConfigPtrOutput() JobPresignedUrlConfigPtrOutput {
+	return i.ToJobPresignedUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobPresignedUrlConfigArgs) ToJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) JobPresignedUrlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPresignedUrlConfigOutput).ToJobPresignedUrlConfigPtrOutputWithContext(ctx)
+}
+
+// JobPresignedUrlConfigPtrInput is an input type that accepts JobPresignedUrlConfigArgs, JobPresignedUrlConfigPtr and JobPresignedUrlConfigPtrOutput values.
+// You can construct a concrete instance of `JobPresignedUrlConfigPtrInput` via:
+//
+//	        JobPresignedUrlConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobPresignedUrlConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobPresignedUrlConfigPtrOutput() JobPresignedUrlConfigPtrOutput
+	ToJobPresignedUrlConfigPtrOutputWithContext(context.Context) JobPresignedUrlConfigPtrOutput
+}
+
+type jobPresignedUrlConfigPtrType JobPresignedUrlConfigArgs
+
+func JobPresignedUrlConfigPtr(v *JobPresignedUrlConfigArgs) JobPresignedUrlConfigPtrInput {
+	return (*jobPresignedUrlConfigPtrType)(v)
+}
+
+func (*jobPresignedUrlConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (i *jobPresignedUrlConfigPtrType) ToJobPresignedUrlConfigPtrOutput() JobPresignedUrlConfigPtrOutput {
+	return i.ToJobPresignedUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobPresignedUrlConfigPtrType) ToJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) JobPresignedUrlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPresignedUrlConfigPtrOutput)
+}
+
+// Configuration for pre-signed S3 URLs.
+type JobPresignedUrlConfigOutput struct{ *pulumi.OutputState }
+
+func (JobPresignedUrlConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (o JobPresignedUrlConfigOutput) ToJobPresignedUrlConfigOutput() JobPresignedUrlConfigOutput {
+	return o
+}
+
+func (o JobPresignedUrlConfigOutput) ToJobPresignedUrlConfigOutputWithContext(ctx context.Context) JobPresignedUrlConfigOutput {
+	return o
+}
+
+func (o JobPresignedUrlConfigOutput) ToJobPresignedUrlConfigPtrOutput() JobPresignedUrlConfigPtrOutput {
+	return o.ToJobPresignedUrlConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobPresignedUrlConfigOutput) ToJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) JobPresignedUrlConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobPresignedUrlConfig) *JobPresignedUrlConfig {
+		return &v
+	}).(JobPresignedUrlConfigPtrOutput)
+}
+
+// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+func (o JobPresignedUrlConfigOutput) ExpiresInSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobPresignedUrlConfig) *int { return v.ExpiresInSec }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+func (o JobPresignedUrlConfigOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobPresignedUrlConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type JobPresignedUrlConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobPresignedUrlConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobPresignedUrlConfig)(nil)).Elem()
+}
+
+func (o JobPresignedUrlConfigPtrOutput) ToJobPresignedUrlConfigPtrOutput() JobPresignedUrlConfigPtrOutput {
+	return o
+}
+
+func (o JobPresignedUrlConfigPtrOutput) ToJobPresignedUrlConfigPtrOutputWithContext(ctx context.Context) JobPresignedUrlConfigPtrOutput {
+	return o
+}
+
+func (o JobPresignedUrlConfigPtrOutput) Elem() JobPresignedUrlConfigOutput {
+	return o.ApplyT(func(v *JobPresignedUrlConfig) JobPresignedUrlConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobPresignedUrlConfig
+		return ret
+	}).(JobPresignedUrlConfigOutput)
+}
+
+// How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+func (o JobPresignedUrlConfigPtrOutput) ExpiresInSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobPresignedUrlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiresInSec
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+func (o JobPresignedUrlConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobPresignedUrlConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+type JobRateIncreaseCriteria struct {
+	// The threshold for number of notified things that will initiate the increase in rate of rollout.
+	NumberOfNotifiedThings *int `pulumi:"numberOfNotifiedThings"`
+	// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+	NumberOfSucceededThings *int `pulumi:"numberOfSucceededThings"`
+}
+
+// JobRateIncreaseCriteriaInput is an input type that accepts JobRateIncreaseCriteriaArgs and JobRateIncreaseCriteriaOutput values.
+// You can construct a concrete instance of `JobRateIncreaseCriteriaInput` via:
+//
+//	JobRateIncreaseCriteriaArgs{...}
+type JobRateIncreaseCriteriaInput interface {
+	pulumi.Input
+
+	ToJobRateIncreaseCriteriaOutput() JobRateIncreaseCriteriaOutput
+	ToJobRateIncreaseCriteriaOutputWithContext(context.Context) JobRateIncreaseCriteriaOutput
+}
+
+// Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+type JobRateIncreaseCriteriaArgs struct {
+	// The threshold for number of notified things that will initiate the increase in rate of rollout.
+	NumberOfNotifiedThings pulumi.IntPtrInput `pulumi:"numberOfNotifiedThings"`
+	// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+	NumberOfSucceededThings pulumi.IntPtrInput `pulumi:"numberOfSucceededThings"`
+}
+
+func (JobRateIncreaseCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (i JobRateIncreaseCriteriaArgs) ToJobRateIncreaseCriteriaOutput() JobRateIncreaseCriteriaOutput {
+	return i.ToJobRateIncreaseCriteriaOutputWithContext(context.Background())
+}
+
+func (i JobRateIncreaseCriteriaArgs) ToJobRateIncreaseCriteriaOutputWithContext(ctx context.Context) JobRateIncreaseCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRateIncreaseCriteriaOutput)
+}
+
+func (i JobRateIncreaseCriteriaArgs) ToJobRateIncreaseCriteriaPtrOutput() JobRateIncreaseCriteriaPtrOutput {
+	return i.ToJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i JobRateIncreaseCriteriaArgs) ToJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) JobRateIncreaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRateIncreaseCriteriaOutput).ToJobRateIncreaseCriteriaPtrOutputWithContext(ctx)
+}
+
+// JobRateIncreaseCriteriaPtrInput is an input type that accepts JobRateIncreaseCriteriaArgs, JobRateIncreaseCriteriaPtr and JobRateIncreaseCriteriaPtrOutput values.
+// You can construct a concrete instance of `JobRateIncreaseCriteriaPtrInput` via:
+//
+//	        JobRateIncreaseCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobRateIncreaseCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToJobRateIncreaseCriteriaPtrOutput() JobRateIncreaseCriteriaPtrOutput
+	ToJobRateIncreaseCriteriaPtrOutputWithContext(context.Context) JobRateIncreaseCriteriaPtrOutput
+}
+
+type jobRateIncreaseCriteriaPtrType JobRateIncreaseCriteriaArgs
+
+func JobRateIncreaseCriteriaPtr(v *JobRateIncreaseCriteriaArgs) JobRateIncreaseCriteriaPtrInput {
+	return (*jobRateIncreaseCriteriaPtrType)(v)
+}
+
+func (*jobRateIncreaseCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (i *jobRateIncreaseCriteriaPtrType) ToJobRateIncreaseCriteriaPtrOutput() JobRateIncreaseCriteriaPtrOutput {
+	return i.ToJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *jobRateIncreaseCriteriaPtrType) ToJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) JobRateIncreaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRateIncreaseCriteriaPtrOutput)
+}
+
+// Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+type JobRateIncreaseCriteriaOutput struct{ *pulumi.OutputState }
+
+func (JobRateIncreaseCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (o JobRateIncreaseCriteriaOutput) ToJobRateIncreaseCriteriaOutput() JobRateIncreaseCriteriaOutput {
+	return o
+}
+
+func (o JobRateIncreaseCriteriaOutput) ToJobRateIncreaseCriteriaOutputWithContext(ctx context.Context) JobRateIncreaseCriteriaOutput {
+	return o
+}
+
+func (o JobRateIncreaseCriteriaOutput) ToJobRateIncreaseCriteriaPtrOutput() JobRateIncreaseCriteriaPtrOutput {
+	return o.ToJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o JobRateIncreaseCriteriaOutput) ToJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) JobRateIncreaseCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobRateIncreaseCriteria) *JobRateIncreaseCriteria {
+		return &v
+	}).(JobRateIncreaseCriteriaPtrOutput)
+}
+
+// The threshold for number of notified things that will initiate the increase in rate of rollout.
+func (o JobRateIncreaseCriteriaOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobRateIncreaseCriteria) *int { return v.NumberOfNotifiedThings }).(pulumi.IntPtrOutput)
+}
+
+// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+func (o JobRateIncreaseCriteriaOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobRateIncreaseCriteria) *int { return v.NumberOfSucceededThings }).(pulumi.IntPtrOutput)
+}
+
+type JobRateIncreaseCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (JobRateIncreaseCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (o JobRateIncreaseCriteriaPtrOutput) ToJobRateIncreaseCriteriaPtrOutput() JobRateIncreaseCriteriaPtrOutput {
+	return o
+}
+
+func (o JobRateIncreaseCriteriaPtrOutput) ToJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) JobRateIncreaseCriteriaPtrOutput {
+	return o
+}
+
+func (o JobRateIncreaseCriteriaPtrOutput) Elem() JobRateIncreaseCriteriaOutput {
+	return o.ApplyT(func(v *JobRateIncreaseCriteria) JobRateIncreaseCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret JobRateIncreaseCriteria
+		return ret
+	}).(JobRateIncreaseCriteriaOutput)
+}
+
+// The threshold for number of notified things that will initiate the increase in rate of rollout.
+func (o JobRateIncreaseCriteriaPtrOutput) NumberOfNotifiedThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobRateIncreaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfNotifiedThings
+	}).(pulumi.IntPtrOutput)
+}
+
+// The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+func (o JobRateIncreaseCriteriaPtrOutput) NumberOfSucceededThings() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobRateIncreaseCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfSucceededThings
+	}).(pulumi.IntPtrOutput)
+}
+
+// The criteria that determines how many retries are allowed for each failure type for a job.
+type JobRetryCriteria struct {
+	// The type of job execution failures that can initiate a job retry.
+	FailureType JobRetryCriteriaFailureType `pulumi:"failureType"`
+	// The number of retries allowed for a failure type for the job.
+	NumberOfRetries int `pulumi:"numberOfRetries"`
+}
+
+// JobRetryCriteriaInput is an input type that accepts JobRetryCriteriaArgs and JobRetryCriteriaOutput values.
+// You can construct a concrete instance of `JobRetryCriteriaInput` via:
+//
+//	JobRetryCriteriaArgs{...}
+type JobRetryCriteriaInput interface {
+	pulumi.Input
+
+	ToJobRetryCriteriaOutput() JobRetryCriteriaOutput
+	ToJobRetryCriteriaOutputWithContext(context.Context) JobRetryCriteriaOutput
+}
+
+// The criteria that determines how many retries are allowed for each failure type for a job.
+type JobRetryCriteriaArgs struct {
+	// The type of job execution failures that can initiate a job retry.
+	FailureType JobRetryCriteriaFailureTypeInput `pulumi:"failureType"`
+	// The number of retries allowed for a failure type for the job.
+	NumberOfRetries pulumi.IntInput `pulumi:"numberOfRetries"`
+}
+
+func (JobRetryCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRetryCriteria)(nil)).Elem()
+}
+
+func (i JobRetryCriteriaArgs) ToJobRetryCriteriaOutput() JobRetryCriteriaOutput {
+	return i.ToJobRetryCriteriaOutputWithContext(context.Background())
+}
+
+func (i JobRetryCriteriaArgs) ToJobRetryCriteriaOutputWithContext(ctx context.Context) JobRetryCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRetryCriteriaOutput)
+}
+
+// JobRetryCriteriaArrayInput is an input type that accepts JobRetryCriteriaArray and JobRetryCriteriaArrayOutput values.
+// You can construct a concrete instance of `JobRetryCriteriaArrayInput` via:
+//
+//	JobRetryCriteriaArray{ JobRetryCriteriaArgs{...} }
+type JobRetryCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToJobRetryCriteriaArrayOutput() JobRetryCriteriaArrayOutput
+	ToJobRetryCriteriaArrayOutputWithContext(context.Context) JobRetryCriteriaArrayOutput
+}
+
+type JobRetryCriteriaArray []JobRetryCriteriaInput
+
+func (JobRetryCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobRetryCriteria)(nil)).Elem()
+}
+
+func (i JobRetryCriteriaArray) ToJobRetryCriteriaArrayOutput() JobRetryCriteriaArrayOutput {
+	return i.ToJobRetryCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i JobRetryCriteriaArray) ToJobRetryCriteriaArrayOutputWithContext(ctx context.Context) JobRetryCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRetryCriteriaArrayOutput)
+}
+
+// The criteria that determines how many retries are allowed for each failure type for a job.
+type JobRetryCriteriaOutput struct{ *pulumi.OutputState }
+
+func (JobRetryCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRetryCriteria)(nil)).Elem()
+}
+
+func (o JobRetryCriteriaOutput) ToJobRetryCriteriaOutput() JobRetryCriteriaOutput {
+	return o
+}
+
+func (o JobRetryCriteriaOutput) ToJobRetryCriteriaOutputWithContext(ctx context.Context) JobRetryCriteriaOutput {
+	return o
+}
+
+// The type of job execution failures that can initiate a job retry.
+func (o JobRetryCriteriaOutput) FailureType() JobRetryCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v JobRetryCriteria) JobRetryCriteriaFailureType { return v.FailureType }).(JobRetryCriteriaFailureTypeOutput)
+}
+
+// The number of retries allowed for a failure type for the job.
+func (o JobRetryCriteriaOutput) NumberOfRetries() pulumi.IntOutput {
+	return o.ApplyT(func(v JobRetryCriteria) int { return v.NumberOfRetries }).(pulumi.IntOutput)
+}
+
+type JobRetryCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (JobRetryCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobRetryCriteria)(nil)).Elem()
+}
+
+func (o JobRetryCriteriaArrayOutput) ToJobRetryCriteriaArrayOutput() JobRetryCriteriaArrayOutput {
+	return o
+}
+
+func (o JobRetryCriteriaArrayOutput) ToJobRetryCriteriaArrayOutputWithContext(ctx context.Context) JobRetryCriteriaArrayOutput {
+	return o
+}
+
+func (o JobRetryCriteriaArrayOutput) Index(i pulumi.IntInput) JobRetryCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobRetryCriteria {
+		return vs[0].([]JobRetryCriteria)[vs[1].(int)]
+	}).(JobRetryCriteriaOutput)
+}
+
+// Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group.
+type JobSchedulingConfig struct {
+	// Specifies the end behavior for all job executions after a job reaches the selected endTime.
+	EndBehavior *JobSchedulingConfigEndBehavior `pulumi:"endBehavior"`
+	// The time a job will stop rollout of the job document to all devices in the target group for a job.
+	EndTime *string `pulumi:"endTime"`
+	// An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+	MaintenanceWindows []JobMaintenanceWindow `pulumi:"maintenanceWindows"`
+	// The time a job will begin rollout of the job document to all devices in the target group for a job.
+	StartTime *string `pulumi:"startTime"`
+}
+
+// JobSchedulingConfigInput is an input type that accepts JobSchedulingConfigArgs and JobSchedulingConfigOutput values.
+// You can construct a concrete instance of `JobSchedulingConfigInput` via:
+//
+//	JobSchedulingConfigArgs{...}
+type JobSchedulingConfigInput interface {
+	pulumi.Input
+
+	ToJobSchedulingConfigOutput() JobSchedulingConfigOutput
+	ToJobSchedulingConfigOutputWithContext(context.Context) JobSchedulingConfigOutput
+}
+
+// Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group.
+type JobSchedulingConfigArgs struct {
+	// Specifies the end behavior for all job executions after a job reaches the selected endTime.
+	EndBehavior JobSchedulingConfigEndBehaviorPtrInput `pulumi:"endBehavior"`
+	// The time a job will stop rollout of the job document to all devices in the target group for a job.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+	MaintenanceWindows JobMaintenanceWindowArrayInput `pulumi:"maintenanceWindows"`
+	// The time a job will begin rollout of the job document to all devices in the target group for a job.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (JobSchedulingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedulingConfig)(nil)).Elem()
+}
+
+func (i JobSchedulingConfigArgs) ToJobSchedulingConfigOutput() JobSchedulingConfigOutput {
+	return i.ToJobSchedulingConfigOutputWithContext(context.Background())
+}
+
+func (i JobSchedulingConfigArgs) ToJobSchedulingConfigOutputWithContext(ctx context.Context) JobSchedulingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulingConfigOutput)
+}
+
+func (i JobSchedulingConfigArgs) ToJobSchedulingConfigPtrOutput() JobSchedulingConfigPtrOutput {
+	return i.ToJobSchedulingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobSchedulingConfigArgs) ToJobSchedulingConfigPtrOutputWithContext(ctx context.Context) JobSchedulingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulingConfigOutput).ToJobSchedulingConfigPtrOutputWithContext(ctx)
+}
+
+// JobSchedulingConfigPtrInput is an input type that accepts JobSchedulingConfigArgs, JobSchedulingConfigPtr and JobSchedulingConfigPtrOutput values.
+// You can construct a concrete instance of `JobSchedulingConfigPtrInput` via:
+//
+//	        JobSchedulingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobSchedulingConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobSchedulingConfigPtrOutput() JobSchedulingConfigPtrOutput
+	ToJobSchedulingConfigPtrOutputWithContext(context.Context) JobSchedulingConfigPtrOutput
+}
+
+type jobSchedulingConfigPtrType JobSchedulingConfigArgs
+
+func JobSchedulingConfigPtr(v *JobSchedulingConfigArgs) JobSchedulingConfigPtrInput {
+	return (*jobSchedulingConfigPtrType)(v)
+}
+
+func (*jobSchedulingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSchedulingConfig)(nil)).Elem()
+}
+
+func (i *jobSchedulingConfigPtrType) ToJobSchedulingConfigPtrOutput() JobSchedulingConfigPtrOutput {
+	return i.ToJobSchedulingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobSchedulingConfigPtrType) ToJobSchedulingConfigPtrOutputWithContext(ctx context.Context) JobSchedulingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulingConfigPtrOutput)
+}
+
+// Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group.
+type JobSchedulingConfigOutput struct{ *pulumi.OutputState }
+
+func (JobSchedulingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedulingConfig)(nil)).Elem()
+}
+
+func (o JobSchedulingConfigOutput) ToJobSchedulingConfigOutput() JobSchedulingConfigOutput {
+	return o
+}
+
+func (o JobSchedulingConfigOutput) ToJobSchedulingConfigOutputWithContext(ctx context.Context) JobSchedulingConfigOutput {
+	return o
+}
+
+func (o JobSchedulingConfigOutput) ToJobSchedulingConfigPtrOutput() JobSchedulingConfigPtrOutput {
+	return o.ToJobSchedulingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobSchedulingConfigOutput) ToJobSchedulingConfigPtrOutputWithContext(ctx context.Context) JobSchedulingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSchedulingConfig) *JobSchedulingConfig {
+		return &v
+	}).(JobSchedulingConfigPtrOutput)
+}
+
+// Specifies the end behavior for all job executions after a job reaches the selected endTime.
+func (o JobSchedulingConfigOutput) EndBehavior() JobSchedulingConfigEndBehaviorPtrOutput {
+	return o.ApplyT(func(v JobSchedulingConfig) *JobSchedulingConfigEndBehavior { return v.EndBehavior }).(JobSchedulingConfigEndBehaviorPtrOutput)
+}
+
+// The time a job will stop rollout of the job document to all devices in the target group for a job.
+func (o JobSchedulingConfigOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSchedulingConfig) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+func (o JobSchedulingConfigOutput) MaintenanceWindows() JobMaintenanceWindowArrayOutput {
+	return o.ApplyT(func(v JobSchedulingConfig) []JobMaintenanceWindow { return v.MaintenanceWindows }).(JobMaintenanceWindowArrayOutput)
+}
+
+// The time a job will begin rollout of the job document to all devices in the target group for a job.
+func (o JobSchedulingConfigOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobSchedulingConfig) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type JobSchedulingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobSchedulingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSchedulingConfig)(nil)).Elem()
+}
+
+func (o JobSchedulingConfigPtrOutput) ToJobSchedulingConfigPtrOutput() JobSchedulingConfigPtrOutput {
+	return o
+}
+
+func (o JobSchedulingConfigPtrOutput) ToJobSchedulingConfigPtrOutputWithContext(ctx context.Context) JobSchedulingConfigPtrOutput {
+	return o
+}
+
+func (o JobSchedulingConfigPtrOutput) Elem() JobSchedulingConfigOutput {
+	return o.ApplyT(func(v *JobSchedulingConfig) JobSchedulingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobSchedulingConfig
+		return ret
+	}).(JobSchedulingConfigOutput)
+}
+
+// Specifies the end behavior for all job executions after a job reaches the selected endTime.
+func (o JobSchedulingConfigPtrOutput) EndBehavior() JobSchedulingConfigEndBehaviorPtrOutput {
+	return o.ApplyT(func(v *JobSchedulingConfig) *JobSchedulingConfigEndBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.EndBehavior
+	}).(JobSchedulingConfigEndBehaviorPtrOutput)
+}
+
+// The time a job will stop rollout of the job document to all devices in the target group for a job.
+func (o JobSchedulingConfigPtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedulingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+func (o JobSchedulingConfigPtrOutput) MaintenanceWindows() JobMaintenanceWindowArrayOutput {
+	return o.ApplyT(func(v *JobSchedulingConfig) []JobMaintenanceWindow {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindows
+	}).(JobMaintenanceWindowArrayOutput)
+}
+
+// The time a job will begin rollout of the job document to all devices in the target group for a job.
+func (o JobSchedulingConfigPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedulingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type JobTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
 }
 
 // The criteria that determine when and how a job abort takes place.
@@ -5020,6 +6497,146 @@ type JobTemplateTag struct {
 	Key string `pulumi:"key"`
 	// The tag's value.
 	Value string `pulumi:"value"`
+}
+
+// Specifies the amount of time each device has to finish its execution of the job.
+type JobTimeoutConfig struct {
+	// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+	InProgressTimeoutInMinutes *int `pulumi:"inProgressTimeoutInMinutes"`
+}
+
+// JobTimeoutConfigInput is an input type that accepts JobTimeoutConfigArgs and JobTimeoutConfigOutput values.
+// You can construct a concrete instance of `JobTimeoutConfigInput` via:
+//
+//	JobTimeoutConfigArgs{...}
+type JobTimeoutConfigInput interface {
+	pulumi.Input
+
+	ToJobTimeoutConfigOutput() JobTimeoutConfigOutput
+	ToJobTimeoutConfigOutputWithContext(context.Context) JobTimeoutConfigOutput
+}
+
+// Specifies the amount of time each device has to finish its execution of the job.
+type JobTimeoutConfigArgs struct {
+	// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+	InProgressTimeoutInMinutes pulumi.IntPtrInput `pulumi:"inProgressTimeoutInMinutes"`
+}
+
+func (JobTimeoutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTimeoutConfig)(nil)).Elem()
+}
+
+func (i JobTimeoutConfigArgs) ToJobTimeoutConfigOutput() JobTimeoutConfigOutput {
+	return i.ToJobTimeoutConfigOutputWithContext(context.Background())
+}
+
+func (i JobTimeoutConfigArgs) ToJobTimeoutConfigOutputWithContext(ctx context.Context) JobTimeoutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTimeoutConfigOutput)
+}
+
+func (i JobTimeoutConfigArgs) ToJobTimeoutConfigPtrOutput() JobTimeoutConfigPtrOutput {
+	return i.ToJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobTimeoutConfigArgs) ToJobTimeoutConfigPtrOutputWithContext(ctx context.Context) JobTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTimeoutConfigOutput).ToJobTimeoutConfigPtrOutputWithContext(ctx)
+}
+
+// JobTimeoutConfigPtrInput is an input type that accepts JobTimeoutConfigArgs, JobTimeoutConfigPtr and JobTimeoutConfigPtrOutput values.
+// You can construct a concrete instance of `JobTimeoutConfigPtrInput` via:
+//
+//	        JobTimeoutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTimeoutConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobTimeoutConfigPtrOutput() JobTimeoutConfigPtrOutput
+	ToJobTimeoutConfigPtrOutputWithContext(context.Context) JobTimeoutConfigPtrOutput
+}
+
+type jobTimeoutConfigPtrType JobTimeoutConfigArgs
+
+func JobTimeoutConfigPtr(v *JobTimeoutConfigArgs) JobTimeoutConfigPtrInput {
+	return (*jobTimeoutConfigPtrType)(v)
+}
+
+func (*jobTimeoutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTimeoutConfig)(nil)).Elem()
+}
+
+func (i *jobTimeoutConfigPtrType) ToJobTimeoutConfigPtrOutput() JobTimeoutConfigPtrOutput {
+	return i.ToJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTimeoutConfigPtrType) ToJobTimeoutConfigPtrOutputWithContext(ctx context.Context) JobTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTimeoutConfigPtrOutput)
+}
+
+// Specifies the amount of time each device has to finish its execution of the job.
+type JobTimeoutConfigOutput struct{ *pulumi.OutputState }
+
+func (JobTimeoutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTimeoutConfig)(nil)).Elem()
+}
+
+func (o JobTimeoutConfigOutput) ToJobTimeoutConfigOutput() JobTimeoutConfigOutput {
+	return o
+}
+
+func (o JobTimeoutConfigOutput) ToJobTimeoutConfigOutputWithContext(ctx context.Context) JobTimeoutConfigOutput {
+	return o
+}
+
+func (o JobTimeoutConfigOutput) ToJobTimeoutConfigPtrOutput() JobTimeoutConfigPtrOutput {
+	return o.ToJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobTimeoutConfigOutput) ToJobTimeoutConfigPtrOutputWithContext(ctx context.Context) JobTimeoutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTimeoutConfig) *JobTimeoutConfig {
+		return &v
+	}).(JobTimeoutConfigPtrOutput)
+}
+
+// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+func (o JobTimeoutConfigOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTimeoutConfig) *int { return v.InProgressTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type JobTimeoutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTimeoutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTimeoutConfig)(nil)).Elem()
+}
+
+func (o JobTimeoutConfigPtrOutput) ToJobTimeoutConfigPtrOutput() JobTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o JobTimeoutConfigPtrOutput) ToJobTimeoutConfigPtrOutputWithContext(ctx context.Context) JobTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o JobTimeoutConfigPtrOutput) Elem() JobTimeoutConfigOutput {
+	return o.ApplyT(func(v *JobTimeoutConfig) JobTimeoutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobTimeoutConfig
+		return ret
+	}).(JobTimeoutConfigOutput)
+}
+
+// Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+func (o JobTimeoutConfigPtrOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobTimeoutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InProgressTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Configuration for event-based logging that specifies which event types to log and their logging settings. Used for account-level logging overrides.
@@ -17179,10 +18796,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTlsConfigPtrInput)(nil)).Elem(), DomainConfigurationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricAggregationTypeInput)(nil)).Elem(), FleetMetricAggregationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricAggregationTypePtrInput)(nil)).Elem(), FleetMetricAggregationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortConfigInput)(nil)).Elem(), JobAbortConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortConfigPtrInput)(nil)).Elem(), JobAbortConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortCriteriaInput)(nil)).Elem(), JobAbortCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortCriteriaArrayInput)(nil)).Elem(), JobAbortCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRetryConfigInput)(nil)).Elem(), JobExecutionsRetryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRetryConfigPtrInput)(nil)).Elem(), JobExecutionsRetryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRetryConfigPropertiesInput)(nil)).Elem(), JobExecutionsRetryConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRetryConfigPropertiesPtrInput)(nil)).Elem(), JobExecutionsRetryConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRolloutConfigInput)(nil)).Elem(), JobExecutionsRolloutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRolloutConfigPtrInput)(nil)).Elem(), JobExecutionsRolloutConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRolloutConfigPropertiesInput)(nil)).Elem(), JobExecutionsRolloutConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRolloutConfigPropertiesPtrInput)(nil)).Elem(), JobExecutionsRolloutConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExponentialRolloutRateInput)(nil)).Elem(), JobExponentialRolloutRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobExponentialRolloutRatePtrInput)(nil)).Elem(), JobExponentialRolloutRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobMaintenanceWindowInput)(nil)).Elem(), JobMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobMaintenanceWindowArrayInput)(nil)).Elem(), JobMaintenanceWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobPresignedUrlConfigInput)(nil)).Elem(), JobPresignedUrlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobPresignedUrlConfigPtrInput)(nil)).Elem(), JobPresignedUrlConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRateIncreaseCriteriaInput)(nil)).Elem(), JobRateIncreaseCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRateIncreaseCriteriaPtrInput)(nil)).Elem(), JobRateIncreaseCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRetryCriteriaInput)(nil)).Elem(), JobRetryCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRetryCriteriaArrayInput)(nil)).Elem(), JobRetryCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSchedulingConfigInput)(nil)).Elem(), JobSchedulingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSchedulingConfigPtrInput)(nil)).Elem(), JobSchedulingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateAbortCriteriaInput)(nil)).Elem(), JobTemplateAbortCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateAbortCriteriaArrayInput)(nil)).Elem(), JobTemplateAbortCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateExponentialRolloutRateInput)(nil)).Elem(), JobTemplateExponentialRolloutRateArgs{})
@@ -17193,6 +18830,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRateIncreaseCriteriaPtrInput)(nil)).Elem(), JobTemplateRateIncreaseCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaInput)(nil)).Elem(), JobTemplateRetryCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaArrayInput)(nil)).Elem(), JobTemplateRetryCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTimeoutConfigInput)(nil)).Elem(), JobTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTimeoutConfigPtrInput)(nil)).Elem(), JobTimeoutConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationInput)(nil)).Elem(), LoggingEventConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingEventConfigurationArrayInput)(nil)).Elem(), LoggingEventConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricsExportConfigPropertiesInput)(nil)).Elem(), MetricsExportConfigPropertiesArgs{})
@@ -17381,10 +19020,30 @@ func init() {
 	pulumi.RegisterOutputType(DomainConfigurationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(FleetMetricAggregationTypeOutput{})
 	pulumi.RegisterOutputType(FleetMetricAggregationTypePtrOutput{})
+	pulumi.RegisterOutputType(JobAbortConfigOutput{})
+	pulumi.RegisterOutputType(JobAbortConfigPtrOutput{})
+	pulumi.RegisterOutputType(JobAbortCriteriaOutput{})
+	pulumi.RegisterOutputType(JobAbortCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(JobExecutionsRetryConfigOutput{})
+	pulumi.RegisterOutputType(JobExecutionsRetryConfigPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionsRetryConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(JobExecutionsRetryConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobExecutionsRolloutConfigOutput{})
+	pulumi.RegisterOutputType(JobExecutionsRolloutConfigPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionsRolloutConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(JobExecutionsRolloutConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobExponentialRolloutRateOutput{})
+	pulumi.RegisterOutputType(JobExponentialRolloutRatePtrOutput{})
+	pulumi.RegisterOutputType(JobMaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(JobMaintenanceWindowArrayOutput{})
+	pulumi.RegisterOutputType(JobPresignedUrlConfigOutput{})
+	pulumi.RegisterOutputType(JobPresignedUrlConfigPtrOutput{})
+	pulumi.RegisterOutputType(JobRateIncreaseCriteriaOutput{})
+	pulumi.RegisterOutputType(JobRateIncreaseCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(JobRetryCriteriaOutput{})
+	pulumi.RegisterOutputType(JobRetryCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(JobSchedulingConfigOutput{})
+	pulumi.RegisterOutputType(JobSchedulingConfigPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateAbortCriteriaOutput{})
 	pulumi.RegisterOutputType(JobTemplateAbortCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(JobTemplateExponentialRolloutRateOutput{})
@@ -17395,6 +19054,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateRateIncreaseCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaOutput{})
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(JobTimeoutConfigOutput{})
+	pulumi.RegisterOutputType(JobTimeoutConfigPtrOutput{})
 	pulumi.RegisterOutputType(LoggingEventConfigurationOutput{})
 	pulumi.RegisterOutputType(LoggingEventConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricsExportConfigPropertiesOutput{})

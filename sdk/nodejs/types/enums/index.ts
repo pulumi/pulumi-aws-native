@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as accountaccess from "./accountaccess";
 import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
 import * as amplifyuibuilder from "./amplifyuibuilder";
@@ -39,6 +40,7 @@ import * as cleanrooms from "./cleanrooms";
 import * as cleanroomsml from "./cleanroomsml";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
+import * as cloudhsm from "./cloudhsm";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
@@ -51,11 +53,13 @@ import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
 import * as computeoptimizer from "./computeoptimizer";
+import * as configuration from "./configuration";
 import * as connect from "./connect";
 import * as connectcampaignsv2 from "./connectcampaignsv2";
 import * as controltower from "./controltower";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
+import * as dataexchange from "./dataexchange";
 import * as datasync from "./datasync";
 import * as datazone from "./datazone";
 import * as deadline from "./deadline";
@@ -140,6 +144,7 @@ import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
 import * as omics from "./omics";
+import * as opensearch from "./opensearch";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
 import * as organizations from "./organizations";
@@ -162,6 +167,7 @@ import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftserverless from "./redshiftserverless";
 import * as refactorspaces from "./refactorspaces";
+import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
 import * as resiliencehubv2 from "./resiliencehubv2";
 import * as resourceexplorer2 from "./resourceexplorer2";
@@ -205,6 +211,7 @@ import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
+import * as uxc from "./uxc";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
@@ -216,6 +223,7 @@ import * as workspacesthinclient from "./workspacesthinclient";
 import * as workspacesweb from "./workspacesweb";
 
 export {
+    accountaccess,
     amazonmq,
     amplify,
     amplifyuibuilder,
@@ -253,6 +261,7 @@ export {
     cleanroomsml,
     cloudformation,
     cloudfront,
+    cloudhsm,
     cloudtrail,
     cloudwatch,
     codeartifact,
@@ -265,11 +274,13 @@ export {
     cognito,
     comprehend,
     computeoptimizer,
+    configuration,
     connect,
     connectcampaignsv2,
     controltower,
     customerprofiles,
     databrew,
+    dataexchange,
     datasync,
     datazone,
     deadline,
@@ -354,6 +365,7 @@ export {
     observabilityadmin,
     odb,
     omics,
+    opensearch,
     opensearchserverless,
     opensearchservice,
     organizations,
@@ -376,6 +388,7 @@ export {
     redshift,
     redshiftserverless,
     refactorspaces,
+    rekognition,
     resiliencehub,
     resiliencehubv2,
     resourceexplorer2,
@@ -419,6 +432,7 @@ export {
     systemsmanagersap,
     timestream,
     transfer,
+    uxc,
     verifiedpermissions,
     vpclattice,
     wafv2,

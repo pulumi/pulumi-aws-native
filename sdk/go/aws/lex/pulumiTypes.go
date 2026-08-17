@@ -9480,6 +9480,142 @@ func (o BotLocaleArrayOutput) Index(i pulumi.IntInput) BotLocaleOutput {
 	}).(BotLocaleOutput)
 }
 
+// A bot that is a member of a bot network.
+type BotMember struct {
+	// The alias ID of a bot that is a member of this network of bots.
+	BotMemberAliasId string `pulumi:"botMemberAliasId"`
+	// The alias name of a bot that is a member of this network of bots.
+	BotMemberAliasName string `pulumi:"botMemberAliasName"`
+	// The unique ID of a bot that is a member of this network of bots.
+	BotMemberId string `pulumi:"botMemberId"`
+	// The unique name of a bot that is a member of this network of bots.
+	BotMemberName string `pulumi:"botMemberName"`
+	// The version of a bot that is a member of this network of bots.
+	BotMemberVersion string `pulumi:"botMemberVersion"`
+}
+
+// BotMemberInput is an input type that accepts BotMemberArgs and BotMemberOutput values.
+// You can construct a concrete instance of `BotMemberInput` via:
+//
+//	BotMemberArgs{...}
+type BotMemberInput interface {
+	pulumi.Input
+
+	ToBotMemberOutput() BotMemberOutput
+	ToBotMemberOutputWithContext(context.Context) BotMemberOutput
+}
+
+// A bot that is a member of a bot network.
+type BotMemberArgs struct {
+	// The alias ID of a bot that is a member of this network of bots.
+	BotMemberAliasId pulumi.StringInput `pulumi:"botMemberAliasId"`
+	// The alias name of a bot that is a member of this network of bots.
+	BotMemberAliasName pulumi.StringInput `pulumi:"botMemberAliasName"`
+	// The unique ID of a bot that is a member of this network of bots.
+	BotMemberId pulumi.StringInput `pulumi:"botMemberId"`
+	// The unique name of a bot that is a member of this network of bots.
+	BotMemberName pulumi.StringInput `pulumi:"botMemberName"`
+	// The version of a bot that is a member of this network of bots.
+	BotMemberVersion pulumi.StringInput `pulumi:"botMemberVersion"`
+}
+
+func (BotMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotMember)(nil)).Elem()
+}
+
+func (i BotMemberArgs) ToBotMemberOutput() BotMemberOutput {
+	return i.ToBotMemberOutputWithContext(context.Background())
+}
+
+func (i BotMemberArgs) ToBotMemberOutputWithContext(ctx context.Context) BotMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotMemberOutput)
+}
+
+// BotMemberArrayInput is an input type that accepts BotMemberArray and BotMemberArrayOutput values.
+// You can construct a concrete instance of `BotMemberArrayInput` via:
+//
+//	BotMemberArray{ BotMemberArgs{...} }
+type BotMemberArrayInput interface {
+	pulumi.Input
+
+	ToBotMemberArrayOutput() BotMemberArrayOutput
+	ToBotMemberArrayOutputWithContext(context.Context) BotMemberArrayOutput
+}
+
+type BotMemberArray []BotMemberInput
+
+func (BotMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotMember)(nil)).Elem()
+}
+
+func (i BotMemberArray) ToBotMemberArrayOutput() BotMemberArrayOutput {
+	return i.ToBotMemberArrayOutputWithContext(context.Background())
+}
+
+func (i BotMemberArray) ToBotMemberArrayOutputWithContext(ctx context.Context) BotMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotMemberArrayOutput)
+}
+
+// A bot that is a member of a bot network.
+type BotMemberOutput struct{ *pulumi.OutputState }
+
+func (BotMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotMember)(nil)).Elem()
+}
+
+func (o BotMemberOutput) ToBotMemberOutput() BotMemberOutput {
+	return o
+}
+
+func (o BotMemberOutput) ToBotMemberOutputWithContext(ctx context.Context) BotMemberOutput {
+	return o
+}
+
+// The alias ID of a bot that is a member of this network of bots.
+func (o BotMemberOutput) BotMemberAliasId() pulumi.StringOutput {
+	return o.ApplyT(func(v BotMember) string { return v.BotMemberAliasId }).(pulumi.StringOutput)
+}
+
+// The alias name of a bot that is a member of this network of bots.
+func (o BotMemberOutput) BotMemberAliasName() pulumi.StringOutput {
+	return o.ApplyT(func(v BotMember) string { return v.BotMemberAliasName }).(pulumi.StringOutput)
+}
+
+// The unique ID of a bot that is a member of this network of bots.
+func (o BotMemberOutput) BotMemberId() pulumi.StringOutput {
+	return o.ApplyT(func(v BotMember) string { return v.BotMemberId }).(pulumi.StringOutput)
+}
+
+// The unique name of a bot that is a member of this network of bots.
+func (o BotMemberOutput) BotMemberName() pulumi.StringOutput {
+	return o.ApplyT(func(v BotMember) string { return v.BotMemberName }).(pulumi.StringOutput)
+}
+
+// The version of a bot that is a member of this network of bots.
+func (o BotMemberOutput) BotMemberVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v BotMember) string { return v.BotMemberVersion }).(pulumi.StringOutput)
+}
+
+type BotMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (BotMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BotMember)(nil)).Elem()
+}
+
+func (o BotMemberArrayOutput) ToBotMemberArrayOutput() BotMemberArrayOutput {
+	return o
+}
+
+func (o BotMemberArrayOutput) ToBotMemberArrayOutputWithContext(ctx context.Context) BotMemberArrayOutput {
+	return o
+}
+
+func (o BotMemberArrayOutput) Index(i pulumi.IntInput) BotMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotMember {
+		return vs[0].([]BotMember)[vs[1].(int)]
+	}).(BotMemberOutput)
+}
+
 type BotMessage struct {
 	CustomPayload     *BotCustomPayload     `pulumi:"customPayload"`
 	ImageResponseCard *BotImageResponseCard `pulumi:"imageResponseCard"`
@@ -18525,6 +18661,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotKendraConfigurationPtrInput)(nil)).Elem(), BotKendraConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotLocaleInput)(nil)).Elem(), BotLocaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotLocaleArrayInput)(nil)).Elem(), BotLocaleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotMemberInput)(nil)).Elem(), BotMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotMemberArrayInput)(nil)).Elem(), BotMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageInput)(nil)).Elem(), BotMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageArrayInput)(nil)).Elem(), BotMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageGroupInput)(nil)).Elem(), BotMessageGroupArgs{})
@@ -18766,6 +18904,8 @@ func init() {
 	pulumi.RegisterOutputType(BotKendraConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BotLocaleOutput{})
 	pulumi.RegisterOutputType(BotLocaleArrayOutput{})
+	pulumi.RegisterOutputType(BotMemberOutput{})
+	pulumi.RegisterOutputType(BotMemberArrayOutput{})
 	pulumi.RegisterOutputType(BotMessageOutput{})
 	pulumi.RegisterOutputType(BotMessageArrayOutput{})
 	pulumi.RegisterOutputType(BotMessageGroupOutput{})

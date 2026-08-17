@@ -58,9 +58,17 @@ export class Bot extends pulumi.CustomResource {
      */
     declare public readonly botLocales: pulumi.Output<outputs.lex.BotLocale[] | undefined>;
     /**
+     * The list of bot members in a network to be created.
+     */
+    declare public readonly botMembers: pulumi.Output<outputs.lex.BotMember[] | undefined>;
+    /**
      * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
     declare public readonly botTags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of a bot to create.
+     */
+    declare public readonly botType: pulumi.Output<enums.lex.BotType | undefined>;
     /**
      * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */
@@ -119,7 +127,9 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["autoBuildBotLocales"] = args?.autoBuildBotLocales;
             resourceInputs["botFileS3Location"] = args?.botFileS3Location;
             resourceInputs["botLocales"] = args?.botLocales;
+            resourceInputs["botMembers"] = args?.botMembers;
             resourceInputs["botTags"] = args?.botTags;
+            resourceInputs["botType"] = args?.botType;
             resourceInputs["dataPrivacy"] = args?.dataPrivacy;
             resourceInputs["description"] = args?.description;
             resourceInputs["errorLogSettings"] = args?.errorLogSettings;
@@ -137,7 +147,9 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["botFileS3Location"] = undefined /*out*/;
             resourceInputs["botLocales"] = undefined /*out*/;
+            resourceInputs["botMembers"] = undefined /*out*/;
             resourceInputs["botTags"] = undefined /*out*/;
+            resourceInputs["botType"] = undefined /*out*/;
             resourceInputs["dataPrivacy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["errorLogSettings"] = undefined /*out*/;
@@ -149,6 +161,8 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["testBotAliasTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["botType"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Bot.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -170,9 +184,17 @@ export interface BotArgs {
      */
     botLocales?: pulumi.Input<pulumi.Input<inputs.lex.BotLocaleArgs>[] | undefined>;
     /**
+     * The list of bot members in a network to be created.
+     */
+    botMembers?: pulumi.Input<pulumi.Input<inputs.lex.BotMemberArgs>[] | undefined>;
+    /**
      * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
     botTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    /**
+     * The type of a bot to create.
+     */
+    botType?: pulumi.Input<enums.lex.BotType | undefined>;
     /**
      * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */

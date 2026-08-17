@@ -10,6 +10,11 @@ export type AgentSpace = import("./agentSpace").AgentSpace;
 export const AgentSpace: typeof import("./agentSpace").AgentSpace = null as any;
 utilities.lazyLoad(exports, ["AgentSpace"], () => require("./agentSpace"));
 
+export { AssetArgs } from "./asset";
+export type Asset = import("./asset").Asset;
+export const Asset: typeof import("./asset").Asset = null as any;
+utilities.lazyLoad(exports, ["Asset"], () => require("./asset"));
+
 export { AssociationArgs } from "./association";
 export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
@@ -19,6 +24,11 @@ export { GetAgentSpaceArgs, GetAgentSpaceResult, GetAgentSpaceOutputArgs } from 
 export const getAgentSpace: typeof import("./getAgentSpace").getAgentSpace = null as any;
 export const getAgentSpaceOutput: typeof import("./getAgentSpace").getAgentSpaceOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentSpace","getAgentSpaceOutput"], () => require("./getAgentSpace"));
+
+export { GetAssetArgs, GetAssetResult, GetAssetOutputArgs } from "./getAsset";
+export const getAsset: typeof import("./getAsset").getAsset = null as any;
+export const getAssetOutput: typeof import("./getAsset").getAssetOutput = null as any;
+utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
 
 export { GetAssociationArgs, GetAssociationResult, GetAssociationOutputArgs } from "./getAssociation";
 export const getAssociation: typeof import("./getAssociation").getAssociation = null as any;
@@ -35,6 +45,11 @@ export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
+export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
+export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
+export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
+utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
+
 export { PrivateConnectionArgs } from "./privateConnection";
 export type PrivateConnection = import("./privateConnection").PrivateConnection;
 export const PrivateConnection: typeof import("./privateConnection").PrivateConnection = null as any;
@@ -44,6 +59,11 @@ export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+
+export { TriggerArgs } from "./trigger";
+export type Trigger = import("./trigger").Trigger;
+export const Trigger: typeof import("./trigger").Trigger = null as any;
+utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
 
 
 // Export enums:
@@ -55,12 +75,16 @@ const _module = {
         switch (type) {
             case "aws-native:devopsagent:AgentSpace":
                 return new AgentSpace(name, <any>undefined, { urn })
+            case "aws-native:devopsagent:Asset":
+                return new Asset(name, <any>undefined, { urn })
             case "aws-native:devopsagent:Association":
                 return new Association(name, <any>undefined, { urn })
             case "aws-native:devopsagent:PrivateConnection":
                 return new PrivateConnection(name, <any>undefined, { urn })
             case "aws-native:devopsagent:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "aws-native:devopsagent:Trigger":
+                return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

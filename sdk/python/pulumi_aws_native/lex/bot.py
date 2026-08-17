@@ -30,7 +30,9 @@ class BotArgs:
                  auto_build_bot_locales: pulumi.Input[Optional[_builtins.bool]] = None,
                  bot_file_s3_location: pulumi.Input[Optional['BotS3LocationArgs']] = None,
                  bot_locales: pulumi.Input[Optional[Sequence[pulumi.Input['BotLocaleArgs']]]] = None,
+                 bot_members: pulumi.Input[Optional[Sequence[pulumi.Input['BotMemberArgs']]]] = None,
                  bot_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 bot_type: pulumi.Input[Optional['BotType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  error_log_settings: pulumi.Input[Optional['ErrorLogSettingsPropertiesArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -50,7 +52,9 @@ class BotArgs:
         :param pulumi.Input[_builtins.bool] auto_build_bot_locales: Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         :param pulumi.Input['BotS3LocationArgs'] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         :param pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]] bot_locales: A list of locales for the bot.
+        :param pulumi.Input[Sequence[pulumi.Input['BotMemberArgs']]] bot_members: The list of bot members in a network to be created.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+        :param pulumi.Input['BotType'] bot_type: The type of a bot to create.
         :param pulumi.Input[_builtins.str] description: The description of the version.
         :param pulumi.Input[_builtins.str] name: The name of the bot locale.
         :param pulumi.Input['BotTestBotAliasSettingsArgs'] test_bot_alias_settings: Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
@@ -65,8 +69,12 @@ class BotArgs:
             pulumi.set(__self__, "bot_file_s3_location", bot_file_s3_location)
         if bot_locales is not None:
             pulumi.set(__self__, "bot_locales", bot_locales)
+        if bot_members is not None:
+            pulumi.set(__self__, "bot_members", bot_members)
         if bot_tags is not None:
             pulumi.set(__self__, "bot_tags", bot_tags)
+        if bot_type is not None:
+            pulumi.set(__self__, "bot_type", bot_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if error_log_settings is not None:
@@ -157,6 +165,18 @@ class BotArgs:
         pulumi.set(self, "bot_locales", value)
 
     @_builtins.property
+    @pulumi.getter(name="botMembers")
+    def bot_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BotMemberArgs']]]]:
+        """
+        The list of bot members in a network to be created.
+        """
+        return pulumi.get(self, "bot_members")
+
+    @bot_members.setter
+    def bot_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BotMemberArgs']]]]):
+        pulumi.set(self, "bot_members", value)
+
+    @_builtins.property
     @pulumi.getter(name="botTags")
     def bot_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -167,6 +187,18 @@ class BotArgs:
     @bot_tags.setter
     def bot_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "bot_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="botType")
+    def bot_type(self) -> pulumi.Input[Optional['BotType']]:
+        """
+        The type of a bot to create.
+        """
+        return pulumi.get(self, "bot_type")
+
+    @bot_type.setter
+    def bot_type(self, value: pulumi.Input[Optional['BotType']]):
+        pulumi.set(self, "bot_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -244,7 +276,9 @@ class Bot(pulumi.CustomResource):
                  auto_build_bot_locales: pulumi.Input[Optional[_builtins.bool]] = None,
                  bot_file_s3_location: pulumi.Input[Optional[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
                  bot_locales: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
+                 bot_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotMemberArgs', 'BotMemberArgsDict']]]]] = None,
                  bot_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 bot_type: pulumi.Input[Optional['BotType']] = None,
                  data_privacy: pulumi.Input[Optional[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  error_log_settings: pulumi.Input[Optional[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
@@ -263,7 +297,9 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] auto_build_bot_locales: Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         :param pulumi.Input[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         :param pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]] bot_locales: A list of locales for the bot.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BotMemberArgs', 'BotMemberArgsDict']]]] bot_members: The list of bot members in a network to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+        :param pulumi.Input['BotType'] bot_type: The type of a bot to create.
         :param pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']] data_privacy: By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         :param pulumi.Input[_builtins.str] description: The description of the version.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
@@ -303,7 +339,9 @@ class Bot(pulumi.CustomResource):
                  auto_build_bot_locales: pulumi.Input[Optional[_builtins.bool]] = None,
                  bot_file_s3_location: pulumi.Input[Optional[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
                  bot_locales: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
+                 bot_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BotMemberArgs', 'BotMemberArgsDict']]]]] = None,
                  bot_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 bot_type: pulumi.Input[Optional['BotType']] = None,
                  data_privacy: pulumi.Input[Optional[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  error_log_settings: pulumi.Input[Optional[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
@@ -325,7 +363,9 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["auto_build_bot_locales"] = auto_build_bot_locales
             __props__.__dict__["bot_file_s3_location"] = bot_file_s3_location
             __props__.__dict__["bot_locales"] = bot_locales
+            __props__.__dict__["bot_members"] = bot_members
             __props__.__dict__["bot_tags"] = bot_tags
+            __props__.__dict__["bot_type"] = bot_type
             if data_privacy is None and not opts.urn:
                 raise TypeError("Missing required property 'data_privacy'")
             __props__.__dict__["data_privacy"] = data_privacy
@@ -343,6 +383,8 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["test_bot_alias_tags"] = test_bot_alias_tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["botType"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Bot, __self__).__init__(
             'aws-native:lex:Bot',
             resource_name,
@@ -370,7 +412,9 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["bot_file_s3_location"] = None
         __props__.__dict__["bot_locales"] = None
+        __props__.__dict__["bot_members"] = None
         __props__.__dict__["bot_tags"] = None
+        __props__.__dict__["bot_type"] = None
         __props__.__dict__["data_privacy"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["error_log_settings"] = None
@@ -423,12 +467,28 @@ class Bot(pulumi.CustomResource):
         return pulumi.get(self, "bot_locales")
 
     @_builtins.property
+    @pulumi.getter(name="botMembers")
+    def bot_members(self) -> pulumi.Output[Optional[Sequence['outputs.BotMember']]]:
+        """
+        The list of bot members in a network to be created.
+        """
+        return pulumi.get(self, "bot_members")
+
+    @_builtins.property
     @pulumi.getter(name="botTags")
     def bot_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         """
         return pulumi.get(self, "bot_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="botType")
+    def bot_type(self) -> pulumi.Output[Optional['BotType']]:
+        """
+        The type of a bot to create.
+        """
+        return pulumi.get(self, "bot_type")
 
     @_builtins.property
     @pulumi.getter(name="dataPrivacy")

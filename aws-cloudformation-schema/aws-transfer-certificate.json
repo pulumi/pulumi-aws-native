@@ -145,5 +145,9 @@
     "list" : {
       "permissions" : [ "transfer:ListCertificates" ]
     }
+  },
+  "propertyTransform" : {
+    "/properties/Certificate" : "$replace(Certificate, /\\s+$/, '')",
+    "/properties/CertificateChain" : "$replace(CertificateChain, /\\s+$/, '')"
   }
 }

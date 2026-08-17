@@ -231,6 +231,18 @@ export const AppType = {
  */
 export type AppType = (typeof AppType)[keyof typeof AppType];
 
+export const ArtifactSourceTypeSourceIdType = {
+    Md5Hash: "MD5Hash",
+    S3eTag: "S3ETag",
+    S3Version: "S3Version",
+    Custom: "Custom",
+} as const;
+
+/**
+ * The type of ID.
+ */
+export type ArtifactSourceTypeSourceIdType = (typeof ArtifactSourceTypeSourceIdType)[keyof typeof ArtifactSourceTypeSourceIdType];
+
 export const ClusterAutoPatchConfigPatchingStrategy = {
     WhenIdle: "WhenIdle",
     WhenAllIdle: "WhenAllIdle",
@@ -797,19 +809,6 @@ export const DomainUserSettingsStudioWebPortal = {
  * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
  */
 export type DomainUserSettingsStudioWebPortal = (typeof DomainUserSettingsStudioWebPortal)[keyof typeof DomainUserSettingsStudioWebPortal];
-
-export const ExperimentTrialComponentStatusPropertiesPrimaryStatus = {
-    InProgress: "InProgress",
-    Completed: "Completed",
-    Failed: "Failed",
-    Stopping: "Stopping",
-    Stopped: "Stopped",
-} as const;
-
-/**
- * The status of the trial component.
- */
-export type ExperimentTrialComponentStatusPropertiesPrimaryStatus = (typeof ExperimentTrialComponentStatusPropertiesPrimaryStatus)[keyof typeof ExperimentTrialComponentStatusPropertiesPrimaryStatus];
 
 export const FeatureGroupFeatureDefinitionFeatureType = {
     Integral: "Integral",
@@ -2408,3 +2407,13 @@ export const UserProfileUserSettingsStudioWebPortal = {
  * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
  */
 export type UserProfileUserSettingsStudioWebPortal = (typeof UserProfileUserSettingsStudioWebPortal)[keyof typeof UserProfileUserSettingsStudioWebPortal];
+
+export const WorkforceIpAddressType = {
+    Ipv4: "ipv4",
+    Dualstack: "dualstack",
+} as const;
+
+/**
+ * The IP address type for the workforce. IPv4 only or dualstack (IPv4 and IPv6).
+ */
+export type WorkforceIpAddressType = (typeof WorkforceIpAddressType)[keyof typeof WorkforceIpAddressType];

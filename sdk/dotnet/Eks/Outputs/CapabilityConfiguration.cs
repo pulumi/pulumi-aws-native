@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.Eks.Outputs
     [OutputType]
     public sealed class CapabilityConfiguration
     {
+        public readonly object? Ack;
         public readonly Outputs.CapabilityArgoCd? ArgoCd;
 
         [OutputConstructor]
-        private CapabilityConfiguration(Outputs.CapabilityArgoCd? argoCd)
+        private CapabilityConfiguration(
+            object? ack,
+
+            Outputs.CapabilityArgoCd? argoCd)
         {
+            Ack = ack;
             ArgoCd = argoCd;
         }
     }

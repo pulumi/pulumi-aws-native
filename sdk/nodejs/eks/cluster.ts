@@ -89,6 +89,9 @@ export class Cluster extends pulumi.CustomResource {
      * Force cluster version update
      */
     declare public readonly force: pulumi.Output<boolean | undefined>;
+    declare public readonly kubeApiServerConfig: pulumi.Output<outputs.eks.ClusterKubeApiServerConfig | undefined>;
+    declare public readonly kubeControllerManagerConfig: pulumi.Output<outputs.eks.ClusterKubeControllerManagerConfig | undefined>;
+    declare public readonly kubeSchedulerConfig: pulumi.Output<outputs.eks.ClusterKubeSchedulerConfig | undefined>;
     /**
      * The Kubernetes network configuration for the cluster.
      */
@@ -169,6 +172,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["encryptionConfig"] = args?.encryptionConfig;
             resourceInputs["force"] = args?.force;
+            resourceInputs["kubeApiServerConfig"] = args?.kubeApiServerConfig;
+            resourceInputs["kubeControllerManagerConfig"] = args?.kubeControllerManagerConfig;
+            resourceInputs["kubeSchedulerConfig"] = args?.kubeSchedulerConfig;
             resourceInputs["kubernetesNetworkConfig"] = args?.kubernetesNetworkConfig;
             resourceInputs["logging"] = args?.logging;
             resourceInputs["name"] = args?.name;
@@ -203,6 +209,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["force"] = undefined /*out*/;
+            resourceInputs["kubeApiServerConfig"] = undefined /*out*/;
+            resourceInputs["kubeControllerManagerConfig"] = undefined /*out*/;
+            resourceInputs["kubeSchedulerConfig"] = undefined /*out*/;
             resourceInputs["kubernetesNetworkConfig"] = undefined /*out*/;
             resourceInputs["logging"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -257,6 +266,9 @@ export interface ClusterArgs {
      * Force cluster version update
      */
     force?: pulumi.Input<boolean | undefined>;
+    kubeApiServerConfig?: pulumi.Input<inputs.eks.ClusterKubeApiServerConfigArgs | undefined>;
+    kubeControllerManagerConfig?: pulumi.Input<inputs.eks.ClusterKubeControllerManagerConfigArgs | undefined>;
+    kubeSchedulerConfig?: pulumi.Input<inputs.eks.ClusterKubeSchedulerConfigArgs | undefined>;
     /**
      * The Kubernetes network configuration for the cluster.
      */

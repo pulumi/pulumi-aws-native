@@ -298,6 +298,8 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["quick_connect_arns"] = quick_connect_arns
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["last_modified_region"] = None
+            __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["queue_arn"] = None
             __props__.__dict__["type"] = None
         super(Queue, __self__).__init__(
@@ -326,6 +328,8 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["hours_of_operation_arn"] = None
         __props__.__dict__["instance_arn"] = None
+        __props__.__dict__["last_modified_region"] = None
+        __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["max_contacts"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["outbound_caller_config"] = None
@@ -368,6 +372,22 @@ class Queue(pulumi.CustomResource):
         The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedRegion")
+    def last_modified_region(self) -> pulumi.Output[_builtins.str]:
+        """
+        The AWS Region where this resource was last modified.
+        """
+        return pulumi.get(self, "last_modified_region")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> pulumi.Output[_builtins.float]:
+        """
+        The timestamp when this resource was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter(name="maxContacts")

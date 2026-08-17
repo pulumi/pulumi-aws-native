@@ -37,6 +37,7 @@ __all__ = [
     'ServerlessCacheDataStorage',
     'ServerlessCacheEcpuPerSecond',
     'ServerlessCacheEndpoint',
+    'ServerlessCacheSnapshotServerlessCacheConfiguration',
 ]
 
 @pulumi.output_type
@@ -1051,5 +1052,67 @@ class ServerlessCacheEndpoint(dict):
         Endpoint port.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class ServerlessCacheSnapshotServerlessCacheConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "majorEngineVersion":
+            suggest = "major_engine_version"
+        elif key == "serverlessCacheName":
+            suggest = "serverless_cache_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessCacheSnapshotServerlessCacheConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessCacheSnapshotServerlessCacheConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessCacheSnapshotServerlessCacheConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 engine: Optional[_builtins.str] = None,
+                 major_engine_version: Optional[_builtins.str] = None,
+                 serverless_cache_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str engine: The engine that the serverless cache is configured with.
+        :param _builtins.str major_engine_version: The engine version number that the serverless cache is configured with.
+        :param _builtins.str serverless_cache_name: The identifier of the serverless cache.
+        """
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
+        if major_engine_version is not None:
+            pulumi.set(__self__, "major_engine_version", major_engine_version)
+        if serverless_cache_name is not None:
+            pulumi.set(__self__, "serverless_cache_name", serverless_cache_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def engine(self) -> Optional[_builtins.str]:
+        """
+        The engine that the serverless cache is configured with.
+        """
+        return pulumi.get(self, "engine")
+
+    @_builtins.property
+    @pulumi.getter(name="majorEngineVersion")
+    def major_engine_version(self) -> Optional[_builtins.str]:
+        """
+        The engine version number that the serverless cache is configured with.
+        """
+        return pulumi.get(self, "major_engine_version")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessCacheName")
+    def serverless_cache_name(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the serverless cache.
+        """
+        return pulumi.get(self, "serverless_cache_name")
 
 

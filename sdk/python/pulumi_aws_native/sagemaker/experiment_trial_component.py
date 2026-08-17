@@ -16,7 +16,6 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['ExperimentTrialComponentArgs', 'ExperimentTrialComponent']
@@ -26,21 +25,13 @@ class ExperimentTrialComponentArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional['MetadataPropertiesPropertiesArgs']] = None,
+                 metadata_properties: pulumi.Input[Optional['ExperimentTrialComponentMetadataPropertiesArgs']] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional['StatusPropertiesArgs']] = None,
+                 status: pulumi.Input[Optional['ExperimentTrialComponentStatusArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  trial_component_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExperimentTrialComponent resource.
-
-        :param pulumi.Input[_builtins.str] display_name: The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        :param pulumi.Input[_builtins.str] end_time: When the component ended.
-        :param pulumi.Input['MetadataPropertiesPropertiesArgs'] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
-        :param pulumi.Input[_builtins.str] start_time: When the component started.
-        :param pulumi.Input['StatusPropertiesArgs'] status: The status of the trial component.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to associate with the component.
-        :param pulumi.Input[_builtins.str] trial_component_name: The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -60,9 +51,6 @@ class ExperimentTrialComponentArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -72,9 +60,6 @@ class ExperimentTrialComponentArgs:
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        When the component ended.
-        """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
@@ -83,22 +68,16 @@ class ExperimentTrialComponentArgs:
 
     @_builtins.property
     @pulumi.getter(name="metadataProperties")
-    def metadata_properties(self) -> pulumi.Input[Optional['MetadataPropertiesPropertiesArgs']]:
-        """
-        Metadata properties of the tracking entity, trial, or trial component.
-        """
+    def metadata_properties(self) -> pulumi.Input[Optional['ExperimentTrialComponentMetadataPropertiesArgs']]:
         return pulumi.get(self, "metadata_properties")
 
     @metadata_properties.setter
-    def metadata_properties(self, value: pulumi.Input[Optional['MetadataPropertiesPropertiesArgs']]):
+    def metadata_properties(self, value: pulumi.Input[Optional['ExperimentTrialComponentMetadataPropertiesArgs']]):
         pulumi.set(self, "metadata_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        When the component started.
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -107,22 +86,16 @@ class ExperimentTrialComponentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional['StatusPropertiesArgs']]:
-        """
-        The status of the trial component.
-        """
+    def status(self) -> pulumi.Input[Optional['ExperimentTrialComponentStatusArgs']]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Optional['StatusPropertiesArgs']]):
+    def status(self, value: pulumi.Input[Optional['ExperimentTrialComponentStatusArgs']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        A list of tags to associate with the component.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -132,9 +105,6 @@ class ExperimentTrialComponentArgs:
     @_builtins.property
     @pulumi.getter(name="trialComponentName")
     def trial_component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
-        """
         return pulumi.get(self, "trial_component_name")
 
     @trial_component_name.setter
@@ -150,24 +120,17 @@ class ExperimentTrialComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['MetadataPropertiesPropertiesArgs', 'MetadataPropertiesPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ExperimentTrialComponentMetadataPropertiesArgs', 'ExperimentTrialComponentMetadataPropertiesArgsDict']]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['StatusPropertiesArgs', 'StatusPropertiesArgsDict']]] = None,
+                 status: pulumi.Input[Optional[Union['ExperimentTrialComponentStatusArgs', 'ExperimentTrialComponentStatusArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trial_component_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource type definition for AWS SageMaker Experiment Trial Component
+        Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] display_name: The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        :param pulumi.Input[_builtins.str] end_time: When the component ended.
-        :param pulumi.Input[Union['MetadataPropertiesPropertiesArgs', 'MetadataPropertiesPropertiesArgsDict']] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
-        :param pulumi.Input[_builtins.str] start_time: When the component started.
-        :param pulumi.Input[Union['StatusPropertiesArgs', 'StatusPropertiesArgsDict']] status: The status of the trial component.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to associate with the component.
-        :param pulumi.Input[_builtins.str] trial_component_name: The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
         """
         ...
     @overload
@@ -176,7 +139,7 @@ class ExperimentTrialComponent(pulumi.CustomResource):
                  args: Optional[ExperimentTrialComponentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource type definition for AWS SageMaker Experiment Trial Component
+        Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
 
         :param str resource_name: The name of the resource.
         :param ExperimentTrialComponentArgs args: The arguments to use to populate this resource's properties.
@@ -195,9 +158,9 @@ class ExperimentTrialComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['MetadataPropertiesPropertiesArgs', 'MetadataPropertiesPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ExperimentTrialComponentMetadataPropertiesArgs', 'ExperimentTrialComponentMetadataPropertiesArgsDict']]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['StatusPropertiesArgs', 'StatusPropertiesArgsDict']]] = None,
+                 status: pulumi.Input[Optional[Union['ExperimentTrialComponentStatusArgs', 'ExperimentTrialComponentStatusArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  trial_component_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -217,6 +180,7 @@ class ExperimentTrialComponent(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trial_component_name"] = trial_component_name
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["lineage_group_arn"] = None
@@ -245,6 +209,7 @@ class ExperimentTrialComponent(pulumi.CustomResource):
         __props__ = ExperimentTrialComponentArgs.__new__(ExperimentTrialComponentArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["end_time"] = None
@@ -260,88 +225,60 @@ class ExperimentTrialComponent(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the trial component.
-        """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "aws_id")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        When the component was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        When the component ended.
-        """
         return pulumi.get(self, "end_time")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[_builtins.str]:
-        """
-        When the component was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter(name="lineageGroupArn")
     def lineage_group_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the lineage group.
-        """
         return pulumi.get(self, "lineage_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="metadataProperties")
-    def metadata_properties(self) -> pulumi.Output[Optional['outputs.MetadataPropertiesProperties']]:
-        """
-        Metadata properties of the tracking entity, trial, or trial component.
-        """
+    def metadata_properties(self) -> pulumi.Output[Optional['outputs.ExperimentTrialComponentMetadataProperties']]:
         return pulumi.get(self, "metadata_properties")
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        When the component started.
-        """
         return pulumi.get(self, "start_time")
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['outputs.StatusProperties']]:
-        """
-        The status of the trial component.
-        """
+    def status(self) -> pulumi.Output[Optional['outputs.ExperimentTrialComponentStatus']]:
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        A list of tags to associate with the component.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="trialComponentName")
     def trial_component_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
-        """
         return pulumi.get(self, "trial_component_name")
 

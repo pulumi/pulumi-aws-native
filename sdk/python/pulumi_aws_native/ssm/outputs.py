@@ -20,6 +20,10 @@ __all__ = [
     'AssociationInstanceAssociationOutputLocation',
     'AssociationS3OutputLocation',
     'AssociationTarget',
+    'CloudConnectorAzureConfiguration',
+    'CloudConnectorAzureSubscription',
+    'CloudConnectorConfiguration',
+    'CloudConnectorConfigurationTargets',
     'DocumentAttachmentsSource',
     'DocumentRequires',
     'MaintenanceWindowTargetTargets',
@@ -173,6 +177,205 @@ class AssociationTarget(dict):
         Depending on the type of target, the maximum number of values for a key might be lower than the global maximum of 50.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class CloudConnectorAzureConfiguration(dict):
+    """
+    Configuration for connecting to Azure.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "applicationDisplayName":
+            suggest = "application_display_name"
+        elif key == "tenantDisplayName":
+            suggest = "tenant_display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudConnectorAzureConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudConnectorAzureConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudConnectorAzureConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 application_display_name: Optional[_builtins.str] = None,
+                 targets: Optional['outputs.CloudConnectorConfigurationTargets'] = None,
+                 tenant_display_name: Optional[_builtins.str] = None):
+        """
+        Configuration for connecting to Azure.
+
+        :param _builtins.str application_id: The Azure AD application ID.
+        :param _builtins.str tenant_id: The Azure AD tenant ID. Cannot be changed after creation.
+        :param _builtins.str application_display_name: The display name of the Azure AD application.
+        :param _builtins.str tenant_display_name: The display name of the Azure AD tenant.
+        """
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if application_display_name is not None:
+            pulumi.set(__self__, "application_display_name", application_display_name)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+        if tenant_display_name is not None:
+            pulumi.set(__self__, "tenant_display_name", tenant_display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> _builtins.str:
+        """
+        The Azure AD application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The Azure AD tenant ID. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationDisplayName")
+    def application_display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of the Azure AD application.
+        """
+        return pulumi.get(self, "application_display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> Optional['outputs.CloudConnectorConfigurationTargets']:
+        return pulumi.get(self, "targets")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantDisplayName")
+    def tenant_display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of the Azure AD tenant.
+        """
+        return pulumi.get(self, "tenant_display_name")
+
+
+@pulumi.output_type
+class CloudConnectorAzureSubscription(dict):
+    """
+    An Azure subscription with its ID and optional display name.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudConnectorAzureSubscription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudConnectorAzureSubscription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudConnectorAzureSubscription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 display_name: Optional[_builtins.str] = None):
+        """
+        An Azure subscription with its ID and optional display name.
+
+        :param _builtins.str id: The Azure subscription ID.
+        :param _builtins.str display_name: The display name of the Azure subscription.
+        """
+        pulumi.set(__self__, "id", id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The Azure subscription ID.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The display name of the Azure subscription.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class CloudConnectorConfiguration(dict):
+    """
+    The configuration for the cloud connector. Currently supports Azure.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureConfiguration":
+            suggest = "azure_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudConnectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudConnectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_configuration: 'outputs.CloudConnectorAzureConfiguration'):
+        """
+        The configuration for the cloud connector. Currently supports Azure.
+        """
+        pulumi.set(__self__, "azure_configuration", azure_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="azureConfiguration")
+    def azure_configuration(self) -> 'outputs.CloudConnectorAzureConfiguration':
+        return pulumi.get(self, "azure_configuration")
+
+
+@pulumi.output_type
+class CloudConnectorConfigurationTargets(dict):
+    """
+    The targets for the cloud connector. If omitted, the entire tenant is targeted.
+    """
+    def __init__(__self__, *,
+                 subscriptions: Sequence['outputs.CloudConnectorAzureSubscription']):
+        """
+        The targets for the cloud connector. If omitted, the entire tenant is targeted.
+
+        :param Sequence['CloudConnectorAzureSubscription'] subscriptions: List of Azure subscriptions.
+        """
+        pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @_builtins.property
+    @pulumi.getter
+    def subscriptions(self) -> Sequence['outputs.CloudConnectorAzureSubscription']:
+        """
+        List of Azure subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
 
 
 @pulumi.output_type

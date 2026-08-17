@@ -29,12 +29,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataProvider{}
 	case "aws-native:dms:Endpoint":
 		r = &Endpoint{}
+	case "aws-native:dms:EventSubscription":
+		r = &EventSubscription{}
 	case "aws-native:dms:InstanceProfile":
 		r = &InstanceProfile{}
 	case "aws-native:dms:MigrationProject":
 		r = &MigrationProject{}
 	case "aws-native:dms:ReplicationConfig":
 		r = &ReplicationConfig{}
+	case "aws-native:dms:ReplicationSubnetGroup":
+		r = &ReplicationSubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

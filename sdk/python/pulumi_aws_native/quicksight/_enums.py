@@ -303,6 +303,9 @@ __all__ = [
     'DataSourceResourceStatus',
     'DataSourceStarburstProductType',
     'DataSourceType',
+    'DlpSettingDlpAction',
+    'DlpSettingDlpProviderType',
+    'DlpSettingStatus',
     'FlowPublishState',
     'FolderSharingModel',
     'FolderType',
@@ -2701,6 +2704,24 @@ class DataSourceType(_builtins.str, Enum):
     ATLAN = "ATLAN"
 
 
+@pulumi.type_token("aws-native:quicksight:DlpSettingDlpAction")
+class DlpSettingDlpAction(_builtins.str, Enum):
+    ALLOW = "ALLOW"
+    WARN = "WARN"
+    BLOCK = "BLOCK"
+
+
+@pulumi.type_token("aws-native:quicksight:DlpSettingDlpProviderType")
+class DlpSettingDlpProviderType(_builtins.str, Enum):
+    MICROSOFT_PURVIEW = "MICROSOFT_PURVIEW"
+
+
+@pulumi.type_token("aws-native:quicksight:DlpSettingStatus")
+class DlpSettingStatus(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
 @pulumi.type_token("aws-native:quicksight:FlowPublishState")
 class FlowPublishState(_builtins.str, Enum):
     PUBLISHED = "PUBLISHED"
@@ -3838,6 +3859,7 @@ class TopicFilterClass(_builtins.str, Enum):
     ENFORCED_VALUE_FILTER = "ENFORCED_VALUE_FILTER"
     CONDITIONAL_VALUE_FILTER = "CONDITIONAL_VALUE_FILTER"
     NAMED_VALUE_FILTER = "NAMED_VALUE_FILTER"
+    DASHBOARD_DEFAULT_FILTER = "DASHBOARD_DEFAULT_FILTER"
 
 
 @pulumi.type_token("aws-native:quicksight:TopicNamedEntityAggType")
@@ -3880,6 +3902,7 @@ class TopicNamedFilterType(_builtins.str, Enum):
     NUMERIC_RANGE_FILTER = "NUMERIC_RANGE_FILTER"
     DATE_RANGE_FILTER = "DATE_RANGE_FILTER"
     RELATIVE_DATE_FILTER = "RELATIVE_DATE_FILTER"
+    NULL_FILTER = "NULL_FILTER"
 
 
 @pulumi.type_token("aws-native:quicksight:TopicNumberScale")

@@ -26,7 +26,7 @@
       "properties" : {
         "Name" : {
           "type" : "string",
-          "pattern" : "^[a-zA-Z0-9_-]+$",
+          "pattern" : "^[a-zA-Z0-9_.-]+$",
           "minLength" : 1,
           "maxLength" : 64
         },
@@ -98,7 +98,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "enum" : [ "PROFILE", "UNIQUE", "SECONDARY", "LOOKUP_ONLY", "NEW_ONLY", "ASSET", "CASE", "ORDER", "AIR_PREFERENCE", "AIR_BOOKING", "AIR_SEGMENT", "HOTEL_PREFERENCE", "HOTEL_STAY_REVENUE", "HOTEL_RESERVATION", "LOYALTY", "LOYALTY_TRANSACTION", "LOYALTY_PROMOTION", "WEB_ANALYTICS", "DEVICE" ]
+            "enum" : [ "PROFILE", "UNIQUE", "SECONDARY", "LOOKUP_ONLY", "NEW_ONLY", "ASSET", "CASE", "ORDER", "AIR_PREFERENCE", "AIR_BOOKING", "AIR_SEGMENT", "HOTEL_PREFERENCE", "HOTEL_STAY_REVENUE", "HOTEL_RESERVATION", "LOYALTY", "LOYALTY_TRANSACTION", "LOYALTY_PROMOTION", "WEB_ANALYTICS", "DEVICE", "COMMUNICATION_RECORD" ]
           }
         }
       },

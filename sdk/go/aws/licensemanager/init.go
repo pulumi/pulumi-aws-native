@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Grant{}
 	case "aws-native:licensemanager:License":
 		r = &License{}
+	case "aws-native:licensemanager:LicenseAssetRuleSet":
+		r = &LicenseAssetRuleSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

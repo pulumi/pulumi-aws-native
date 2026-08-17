@@ -2308,6 +2308,623 @@ func (o CodeSecurityScanConfigurationScopeSettingsPtrOutput) ProjectSelectionSco
 	}).(CodeSecurityScanConfigurationProjectSelectionScopePtrOutput)
 }
 
+type ConnectorAzureProviderConfiguration struct {
+	// Whether to automatically install the VM scanner. Defaults to true.
+	AutoInstallVmScanner *bool `pulumi:"autoInstallVmScanner"`
+	// The ARN of the AWS Config connector used for Azure resource discovery.
+	AwsConfigConnectorArn string `pulumi:"awsConfigConnectorArn"`
+	// List of Azure regions to scan.
+	AzureRegions       []string                            `pulumi:"azureRegions"`
+	ScopeConfiguration ConnectorAzureScopeConfigurationMap `pulumi:"scopeConfiguration"`
+}
+
+// ConnectorAzureProviderConfigurationInput is an input type that accepts ConnectorAzureProviderConfigurationArgs and ConnectorAzureProviderConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorAzureProviderConfigurationInput` via:
+//
+//	ConnectorAzureProviderConfigurationArgs{...}
+type ConnectorAzureProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorAzureProviderConfigurationOutput() ConnectorAzureProviderConfigurationOutput
+	ToConnectorAzureProviderConfigurationOutputWithContext(context.Context) ConnectorAzureProviderConfigurationOutput
+}
+
+type ConnectorAzureProviderConfigurationArgs struct {
+	// Whether to automatically install the VM scanner. Defaults to true.
+	AutoInstallVmScanner pulumi.BoolPtrInput `pulumi:"autoInstallVmScanner"`
+	// The ARN of the AWS Config connector used for Azure resource discovery.
+	AwsConfigConnectorArn pulumi.StringInput `pulumi:"awsConfigConnectorArn"`
+	// List of Azure regions to scan.
+	AzureRegions       pulumi.StringArrayInput                  `pulumi:"azureRegions"`
+	ScopeConfiguration ConnectorAzureScopeConfigurationMapInput `pulumi:"scopeConfiguration"`
+}
+
+func (ConnectorAzureProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureProviderConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigurationOutput() ConnectorAzureProviderConfigurationOutput {
+	return i.ToConnectorAzureProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigurationOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureProviderConfigurationOutput)
+}
+
+type ConnectorAzureProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfigurationOutput() ConnectorAzureProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfigurationOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationOutput {
+	return o
+}
+
+// Whether to automatically install the VM scanner. Defaults to true.
+func (o ConnectorAzureProviderConfigurationOutput) AutoInstallVmScanner() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) *bool { return v.AutoInstallVmScanner }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the AWS Config connector used for Azure resource discovery.
+func (o ConnectorAzureProviderConfigurationOutput) AwsConfigConnectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) string { return v.AwsConfigConnectorArn }).(pulumi.StringOutput)
+}
+
+// List of Azure regions to scan.
+func (o ConnectorAzureProviderConfigurationOutput) AzureRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) []string { return v.AzureRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ScopeConfiguration() ConnectorAzureScopeConfigurationMapOutput {
+	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) ConnectorAzureScopeConfigurationMap {
+		return v.ScopeConfiguration
+	}).(ConnectorAzureScopeConfigurationMapOutput)
+}
+
+type ConnectorAzureProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) ToConnectorAzureProviderConfigurationPtrOutput() ConnectorAzureProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) ToConnectorAzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) Elem() ConnectorAzureProviderConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) ConnectorAzureProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAzureProviderConfiguration
+		return ret
+	}).(ConnectorAzureProviderConfigurationOutput)
+}
+
+// Whether to automatically install the VM scanner. Defaults to true.
+func (o ConnectorAzureProviderConfigurationPtrOutput) AutoInstallVmScanner() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoInstallVmScanner
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the AWS Config connector used for Azure resource discovery.
+func (o ConnectorAzureProviderConfigurationPtrOutput) AwsConfigConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsConfigConnectorArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of Azure regions to scan.
+func (o ConnectorAzureProviderConfigurationPtrOutput) AzureRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) ScopeConfiguration() ConnectorAzureScopeConfigurationMapPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) *ConnectorAzureScopeConfigurationMap {
+		if v == nil {
+			return nil
+		}
+		return &v.ScopeConfiguration
+	}).(ConnectorAzureScopeConfigurationMapPtrOutput)
+}
+
+// Defines which resource types to scan and at what scope level.
+type ConnectorAzureScopeConfigurationMap struct {
+	ContainerImageScanning *ConnectorScopeConfiguration `pulumi:"containerImageScanning"`
+	ServerlessScanning     *ConnectorScopeConfiguration `pulumi:"serverlessScanning"`
+	VmScanning             *ConnectorScopeConfiguration `pulumi:"vmScanning"`
+}
+
+// ConnectorAzureScopeConfigurationMapInput is an input type that accepts ConnectorAzureScopeConfigurationMap and ConnectorAzureScopeConfigurationMapOutput values.
+// You can construct a concrete instance of `ConnectorAzureScopeConfigurationMapInput` via:
+//
+//	ConnectorAzureScopeConfigurationMap{ "key": ConnectorAzureScopeConfigurationArgs{...} }
+type ConnectorAzureScopeConfigurationMapInput interface {
+	pulumi.Input
+
+	ToConnectorAzureScopeConfigurationMapOutput() ConnectorAzureScopeConfigurationMapOutput
+	ToConnectorAzureScopeConfigurationMapOutputWithContext(context.Context) ConnectorAzureScopeConfigurationMapOutput
+}
+
+// Defines which resource types to scan and at what scope level.
+type ConnectorAzureScopeConfigurationMapArgs struct {
+	ContainerImageScanning ConnectorScopeConfigurationPtrInput `pulumi:"containerImageScanning"`
+	ServerlessScanning     ConnectorScopeConfigurationPtrInput `pulumi:"serverlessScanning"`
+	VmScanning             ConnectorScopeConfigurationPtrInput `pulumi:"vmScanning"`
+}
+
+func (ConnectorAzureScopeConfigurationMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureScopeConfigurationMap)(nil)).Elem()
+}
+
+func (i ConnectorAzureScopeConfigurationMapArgs) ToConnectorAzureScopeConfigurationMapOutput() ConnectorAzureScopeConfigurationMapOutput {
+	return i.ToConnectorAzureScopeConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureScopeConfigurationMapArgs) ToConnectorAzureScopeConfigurationMapOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureScopeConfigurationMapOutput)
+}
+
+// Defines which resource types to scan and at what scope level.
+type ConnectorAzureScopeConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureScopeConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureScopeConfigurationMap)(nil)).Elem()
+}
+
+func (o ConnectorAzureScopeConfigurationMapOutput) ToConnectorAzureScopeConfigurationMapOutput() ConnectorAzureScopeConfigurationMapOutput {
+	return o
+}
+
+func (o ConnectorAzureScopeConfigurationMapOutput) ToConnectorAzureScopeConfigurationMapOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationMapOutput {
+	return o
+}
+
+func (o ConnectorAzureScopeConfigurationMapOutput) ContainerImageScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorAzureScopeConfigurationMap) *ConnectorScopeConfiguration {
+		return v.ContainerImageScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorAzureScopeConfigurationMapOutput) ServerlessScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorAzureScopeConfigurationMap) *ConnectorScopeConfiguration { return v.ServerlessScanning }).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorAzureScopeConfigurationMapOutput) VmScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorAzureScopeConfigurationMap) *ConnectorScopeConfiguration { return v.VmScanning }).(ConnectorScopeConfigurationPtrOutput)
+}
+
+type ConnectorAzureScopeConfigurationMapPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureScopeConfigurationMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureScopeConfigurationMap)(nil)).Elem()
+}
+
+func (o ConnectorAzureScopeConfigurationMapPtrOutput) ToConnectorAzureScopeConfigurationMapPtrOutput() ConnectorAzureScopeConfigurationMapPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureScopeConfigurationMapPtrOutput) ToConnectorAzureScopeConfigurationMapPtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationMapPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureScopeConfigurationMapPtrOutput) Elem() ConnectorAzureScopeConfigurationMapOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfigurationMap) ConnectorAzureScopeConfigurationMap {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAzureScopeConfigurationMap
+		return ret
+	}).(ConnectorAzureScopeConfigurationMapOutput)
+}
+
+func (o ConnectorAzureScopeConfigurationMapPtrOutput) ContainerImageScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfigurationMap) *ConnectorScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerImageScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorAzureScopeConfigurationMapPtrOutput) ServerlessScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfigurationMap) *ConnectorScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerlessScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorAzureScopeConfigurationMapPtrOutput) VmScanning() ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfigurationMap) *ConnectorScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VmScanning
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+type ConnectorHealth struct {
+	ConnectorStatus *ConnectorHealthStatus `pulumi:"connectorStatus"`
+	LastCheckedAt   *string                `pulumi:"lastCheckedAt"`
+	Message         *string                `pulumi:"message"`
+}
+
+type ConnectorHealthOutput struct{ *pulumi.OutputState }
+
+func (ConnectorHealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorHealth)(nil)).Elem()
+}
+
+func (o ConnectorHealthOutput) ToConnectorHealthOutput() ConnectorHealthOutput {
+	return o
+}
+
+func (o ConnectorHealthOutput) ToConnectorHealthOutputWithContext(ctx context.Context) ConnectorHealthOutput {
+	return o
+}
+
+func (o ConnectorHealthOutput) ConnectorStatus() ConnectorHealthStatusPtrOutput {
+	return o.ApplyT(func(v ConnectorHealth) *ConnectorHealthStatus { return v.ConnectorStatus }).(ConnectorHealthStatusPtrOutput)
+}
+
+func (o ConnectorHealthOutput) LastCheckedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorHealth) *string { return v.LastCheckedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorHealthOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorHealth) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+type ConnectorHealthPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorHealthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorHealth)(nil)).Elem()
+}
+
+func (o ConnectorHealthPtrOutput) ToConnectorHealthPtrOutput() ConnectorHealthPtrOutput {
+	return o
+}
+
+func (o ConnectorHealthPtrOutput) ToConnectorHealthPtrOutputWithContext(ctx context.Context) ConnectorHealthPtrOutput {
+	return o
+}
+
+func (o ConnectorHealthPtrOutput) Elem() ConnectorHealthOutput {
+	return o.ApplyT(func(v *ConnectorHealth) ConnectorHealth {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorHealth
+		return ret
+	}).(ConnectorHealthOutput)
+}
+
+func (o ConnectorHealthPtrOutput) ConnectorStatus() ConnectorHealthStatusPtrOutput {
+	return o.ApplyT(func(v *ConnectorHealth) *ConnectorHealthStatus {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorStatus
+	}).(ConnectorHealthStatusPtrOutput)
+}
+
+func (o ConnectorHealthPtrOutput) LastCheckedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorHealth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastCheckedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectorHealthPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorHealth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProviderConfiguration struct {
+	Azure ConnectorAzureProviderConfiguration `pulumi:"azure"`
+}
+
+// ConnectorProviderConfigurationInput is an input type that accepts ConnectorProviderConfigurationArgs and ConnectorProviderConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorProviderConfigurationInput` via:
+//
+//	ConnectorProviderConfigurationArgs{...}
+type ConnectorProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorProviderConfigurationOutput() ConnectorProviderConfigurationOutput
+	ToConnectorProviderConfigurationOutputWithContext(context.Context) ConnectorProviderConfigurationOutput
+}
+
+type ConnectorProviderConfigurationArgs struct {
+	Azure ConnectorAzureProviderConfigurationInput `pulumi:"azure"`
+}
+
+func (ConnectorProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProviderConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorProviderConfigurationArgs) ToConnectorProviderConfigurationOutput() ConnectorProviderConfigurationOutput {
+	return i.ToConnectorProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorProviderConfigurationArgs) ToConnectorProviderConfigurationOutputWithContext(ctx context.Context) ConnectorProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProviderConfigurationOutput)
+}
+
+type ConnectorProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorProviderConfigurationOutput) ToConnectorProviderConfigurationOutput() ConnectorProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorProviderConfigurationOutput) ToConnectorProviderConfigurationOutputWithContext(ctx context.Context) ConnectorProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorProviderConfigurationOutput) Azure() ConnectorAzureProviderConfigurationOutput {
+	return o.ApplyT(func(v ConnectorProviderConfiguration) ConnectorAzureProviderConfiguration { return v.Azure }).(ConnectorAzureProviderConfigurationOutput)
+}
+
+type ConnectorProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorProviderConfigurationPtrOutput) ToConnectorProviderConfigurationPtrOutput() ConnectorProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorProviderConfigurationPtrOutput) ToConnectorProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorProviderConfigurationPtrOutput) Elem() ConnectorProviderConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorProviderConfiguration) ConnectorProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProviderConfiguration
+		return ret
+	}).(ConnectorProviderConfigurationOutput)
+}
+
+func (o ConnectorProviderConfigurationPtrOutput) Azure() ConnectorAzureProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorProviderConfiguration) *ConnectorAzureProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Azure
+	}).(ConnectorAzureProviderConfigurationPtrOutput)
+}
+
+// Defines the scope of Azure resources to monitor for a specific resource type.
+type ConnectorScopeConfiguration struct {
+	ScopeType ConnectorScopeType `pulumi:"scopeType"`
+	// List of subscription IDs. Empty for TENANT scope.
+	ScopeValues []string             `pulumi:"scopeValues"`
+	State       *ConnectorScopeState `pulumi:"state"`
+	// Reason for the current scope state.
+	StateReason *string `pulumi:"stateReason"`
+}
+
+// ConnectorScopeConfigurationInput is an input type that accepts ConnectorScopeConfigurationArgs and ConnectorScopeConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorScopeConfigurationInput` via:
+//
+//	ConnectorScopeConfigurationArgs{...}
+type ConnectorScopeConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorScopeConfigurationOutput() ConnectorScopeConfigurationOutput
+	ToConnectorScopeConfigurationOutputWithContext(context.Context) ConnectorScopeConfigurationOutput
+}
+
+// Defines the scope of Azure resources to monitor for a specific resource type.
+type ConnectorScopeConfigurationArgs struct {
+	ScopeType ConnectorScopeTypeInput `pulumi:"scopeType"`
+	// List of subscription IDs. Empty for TENANT scope.
+	ScopeValues pulumi.StringArrayInput     `pulumi:"scopeValues"`
+	State       ConnectorScopeStatePtrInput `pulumi:"state"`
+	// Reason for the current scope state.
+	StateReason pulumi.StringPtrInput `pulumi:"stateReason"`
+}
+
+func (ConnectorScopeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorScopeConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorScopeConfigurationArgs) ToConnectorScopeConfigurationOutput() ConnectorScopeConfigurationOutput {
+	return i.ToConnectorScopeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorScopeConfigurationArgs) ToConnectorScopeConfigurationOutputWithContext(ctx context.Context) ConnectorScopeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScopeConfigurationOutput)
+}
+
+func (i ConnectorScopeConfigurationArgs) ToConnectorScopeConfigurationPtrOutput() ConnectorScopeConfigurationPtrOutput {
+	return i.ToConnectorScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorScopeConfigurationArgs) ToConnectorScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScopeConfigurationOutput).ToConnectorScopeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorScopeConfigurationPtrInput is an input type that accepts ConnectorScopeConfigurationArgs, ConnectorScopeConfigurationPtr and ConnectorScopeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorScopeConfigurationPtrInput` via:
+//
+//	        ConnectorScopeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorScopeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorScopeConfigurationPtrOutput() ConnectorScopeConfigurationPtrOutput
+	ToConnectorScopeConfigurationPtrOutputWithContext(context.Context) ConnectorScopeConfigurationPtrOutput
+}
+
+type connectorScopeConfigurationPtrType ConnectorScopeConfigurationArgs
+
+func ConnectorScopeConfigurationPtr(v *ConnectorScopeConfigurationArgs) ConnectorScopeConfigurationPtrInput {
+	return (*connectorScopeConfigurationPtrType)(v)
+}
+
+func (*connectorScopeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorScopeConfiguration)(nil)).Elem()
+}
+
+func (i *connectorScopeConfigurationPtrType) ToConnectorScopeConfigurationPtrOutput() ConnectorScopeConfigurationPtrOutput {
+	return i.ToConnectorScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorScopeConfigurationPtrType) ToConnectorScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScopeConfigurationPtrOutput)
+}
+
+// Defines the scope of Azure resources to monitor for a specific resource type.
+type ConnectorScopeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorScopeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorScopeConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorScopeConfigurationOutput) ToConnectorScopeConfigurationOutput() ConnectorScopeConfigurationOutput {
+	return o
+}
+
+func (o ConnectorScopeConfigurationOutput) ToConnectorScopeConfigurationOutputWithContext(ctx context.Context) ConnectorScopeConfigurationOutput {
+	return o
+}
+
+func (o ConnectorScopeConfigurationOutput) ToConnectorScopeConfigurationPtrOutput() ConnectorScopeConfigurationPtrOutput {
+	return o.ToConnectorScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeConfigurationOutput) ToConnectorScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorScopeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorScopeConfiguration) *ConnectorScopeConfiguration {
+		return &v
+	}).(ConnectorScopeConfigurationPtrOutput)
+}
+
+func (o ConnectorScopeConfigurationOutput) ScopeType() ConnectorScopeTypeOutput {
+	return o.ApplyT(func(v ConnectorScopeConfiguration) ConnectorScopeType { return v.ScopeType }).(ConnectorScopeTypeOutput)
+}
+
+// List of subscription IDs. Empty for TENANT scope.
+func (o ConnectorScopeConfigurationOutput) ScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorScopeConfiguration) []string { return v.ScopeValues }).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorScopeConfigurationOutput) State() ConnectorScopeStatePtrOutput {
+	return o.ApplyT(func(v ConnectorScopeConfiguration) *ConnectorScopeState { return v.State }).(ConnectorScopeStatePtrOutput)
+}
+
+// Reason for the current scope state.
+func (o ConnectorScopeConfigurationOutput) StateReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorScopeConfiguration) *string { return v.StateReason }).(pulumi.StringPtrOutput)
+}
+
+type ConnectorScopeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorScopeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorScopeConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorScopeConfigurationPtrOutput) ToConnectorScopeConfigurationPtrOutput() ConnectorScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorScopeConfigurationPtrOutput) ToConnectorScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorScopeConfigurationPtrOutput) Elem() ConnectorScopeConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorScopeConfiguration) ConnectorScopeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorScopeConfiguration
+		return ret
+	}).(ConnectorScopeConfigurationOutput)
+}
+
+func (o ConnectorScopeConfigurationPtrOutput) ScopeType() ConnectorScopeTypePtrOutput {
+	return o.ApplyT(func(v *ConnectorScopeConfiguration) *ConnectorScopeType {
+		if v == nil {
+			return nil
+		}
+		return &v.ScopeType
+	}).(ConnectorScopeTypePtrOutput)
+}
+
+// List of subscription IDs. Empty for TENANT scope.
+func (o ConnectorScopeConfigurationPtrOutput) ScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorScopeConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorScopeConfigurationPtrOutput) State() ConnectorScopeStatePtrOutput {
+	return o.ApplyT(func(v *ConnectorScopeConfiguration) *ConnectorScopeState {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(ConnectorScopeStatePtrOutput)
+}
+
+// Reason for the current scope state.
+func (o ConnectorScopeConfigurationPtrOutput) StateReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorScopeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StateReason
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type FilterCriteria struct {
 	// Details of the AWS account IDs used to filter findings.
 	AwsAccountId                  []FilterStringFilter `pulumi:"awsAccountId"`
@@ -3988,6 +4605,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationPeriodicScanConfigurationPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationPeriodicScanConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettingsInput)(nil)).Elem(), CodeSecurityScanConfigurationScopeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationScopeSettingsPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureProviderConfigurationInput)(nil)).Elem(), ConnectorAzureProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationMapInput)(nil)).Elem(), ConnectorAzureScopeConfigurationMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProviderConfigurationInput)(nil)).Elem(), ConnectorProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeConfigurationInput)(nil)).Elem(), ConnectorScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeConfigurationPtrInput)(nil)).Elem(), ConnectorScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterCriteriaInput)(nil)).Elem(), FilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterDateFilterInput)(nil)).Elem(), FilterDateFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterDateFilterArrayInput)(nil)).Elem(), FilterDateFilterArray{})
@@ -4035,6 +4657,16 @@ func init() {
 	pulumi.RegisterOutputType(CodeSecurityScanConfigurationPeriodicScanConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CodeSecurityScanConfigurationScopeSettingsOutput{})
 	pulumi.RegisterOutputType(CodeSecurityScanConfigurationScopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationMapOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationMapPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorHealthOutput{})
+	pulumi.RegisterOutputType(ConnectorHealthPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorScopeConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorScopeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FilterCriteriaOutput{})
 	pulumi.RegisterOutputType(FilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FilterDateFilterOutput{})

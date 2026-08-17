@@ -10,15 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// The annotation table configuration for an S3 Metadata configuration. The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+    ///   If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
+    /// </summary>
     [OutputType]
     public sealed class BucketAnnotationTableConfiguration
     {
         /// <summary>
-        /// Specifies whether annotation table configuration is enabled or disabled.
+        /// Specifies whether the annotation table configuration is enabled or disabled.
         /// </summary>
         public readonly Pulumi.AwsNative.S3.BucketAnnotationTableConfigurationConfigurationState ConfigurationState;
         /// <summary>
-        /// The encryption configuration for the annotation table.
+        /// The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set ``SseAlgorithm`` to ``aws:kms``. You must also set ``KmsKeyArn`` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
         /// </summary>
         public readonly Outputs.BucketMetadataTableEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
@@ -26,7 +30,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly string? Role;
         /// <summary>
-        /// The ARN of the annotation table.
+        /// The Amazon Resource Name (ARN) for the annotation table.
         /// </summary>
         public readonly string? TableArn;
         /// <summary>

@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("networkConfiguration")]
         public Input<Inputs.JobDefinitionNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
+        [Input("networkMode")]
+        public Input<string>? NetworkMode { get; set; }
+
         /// <summary>
         /// The process namespace to use for the containers in the task. The valid values are `host` or `task` . For example, monitoring sidecars might need `pidMode` to access information about other containers running in the same task.
         /// 

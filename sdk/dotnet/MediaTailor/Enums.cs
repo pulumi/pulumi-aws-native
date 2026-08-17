@@ -119,6 +119,90 @@ namespace Pulumi.AwsNative.MediaTailor
     }
 
     [EnumType]
+    public readonly struct FunctionMethodType : IEquatable<FunctionMethodType>
+    {
+        private readonly string _value;
+
+        private FunctionMethodType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionMethodType Get { get; } = new FunctionMethodType("GET");
+        public static FunctionMethodType Post { get; } = new FunctionMethodType("POST");
+
+        public static bool operator ==(FunctionMethodType left, FunctionMethodType right) => left.Equals(right);
+        public static bool operator !=(FunctionMethodType left, FunctionMethodType right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionMethodType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionMethodType other && Equals(other);
+        public bool Equals(FunctionMethodType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FunctionRuntimeType : IEquatable<FunctionRuntimeType>
+    {
+        private readonly string _value;
+
+        private FunctionRuntimeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionRuntimeType Jsonata { get; } = new FunctionRuntimeType("JSONATA");
+
+        public static bool operator ==(FunctionRuntimeType left, FunctionRuntimeType right) => left.Equals(right);
+        public static bool operator !=(FunctionRuntimeType left, FunctionRuntimeType right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionRuntimeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionRuntimeType other && Equals(other);
+        public bool Equals(FunctionRuntimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FunctionType : IEquatable<FunctionType>
+    {
+        private readonly string _value;
+
+        private FunctionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionType HttpRequest { get; } = new FunctionType("HTTP_REQUEST");
+        public static FunctionType CustomOutput { get; } = new FunctionType("CUSTOM_OUTPUT");
+        public static FunctionType SequentialExecutor { get; } = new FunctionType("SEQUENTIAL_EXECUTOR");
+
+        public static bool operator ==(FunctionType left, FunctionType right) => left.Equals(right);
+        public static bool operator !=(FunctionType left, FunctionType right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionType other && Equals(other);
+        public bool Equals(FunctionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LiveSourceType : IEquatable<LiveSourceType>
     {
         private readonly string _value;

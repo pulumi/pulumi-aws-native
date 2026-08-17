@@ -31,6 +31,18 @@ namespace Pulumi.AwsNative.MediaTailor
         public Output<string> AdDecisionServerUrl { get; private set; } = null!;
 
         /// <summary>
+        /// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        /// </summary>
+        [Output("adsPersonalizationConcurrency")]
+        public Output<Outputs.PlaybackConfigurationAdsPersonalizationConcurrency?> AdsPersonalizationConcurrency { get; private set; } = null!;
+
+        /// <summary>
+        /// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+        /// </summary>
+        [Output("adsPersonalizationTimeouts")]
+        public Output<Outputs.PlaybackConfigurationAdsPersonalizationTimeouts?> AdsPersonalizationTimeouts { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         /// </summary>
         [Output("availSuppression")]
@@ -213,6 +225,18 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         [Input("adDecisionServerUrl", required: true)]
         public Input<string> AdDecisionServerUrl { get; set; } = null!;
+
+        /// <summary>
+        /// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        /// </summary>
+        [Input("adsPersonalizationConcurrency")]
+        public Input<Inputs.PlaybackConfigurationAdsPersonalizationConcurrencyArgs>? AdsPersonalizationConcurrency { get; set; }
+
+        /// <summary>
+        /// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+        /// </summary>
+        [Input("adsPersonalizationTimeouts")]
+        public Input<Inputs.PlaybackConfigurationAdsPersonalizationTimeoutsArgs>? AdsPersonalizationTimeouts { get; set; }
 
         /// <summary>
         /// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).

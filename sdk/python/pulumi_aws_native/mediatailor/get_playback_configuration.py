@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlaybackConfigurationResult:
-    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_configuration=None, ad_decision_server_url=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, function_mapping=None, hls_configuration=None, insertion_mode=None, live_pre_roll_configuration=None, log_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
+    def __init__(__self__, ad_conditioning_configuration=None, ad_decision_server_configuration=None, ad_decision_server_url=None, ads_personalization_concurrency=None, ads_personalization_timeouts=None, avail_suppression=None, bumper=None, cdn_configuration=None, configuration_aliases=None, dash_configuration=None, function_mapping=None, hls_configuration=None, insertion_mode=None, live_pre_roll_configuration=None, log_configuration=None, manifest_processing_rules=None, personalization_threshold_seconds=None, playback_configuration_arn=None, playback_endpoint_prefix=None, session_initialization_endpoint_prefix=None, slate_ad_url=None, tags=None, transcode_profile_name=None, video_content_source_url=None):
         if ad_conditioning_configuration and not isinstance(ad_conditioning_configuration, dict):
             raise TypeError("Expected argument 'ad_conditioning_configuration' to be a dict")
         pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
@@ -36,6 +36,12 @@ class GetPlaybackConfigurationResult:
         if ad_decision_server_url and not isinstance(ad_decision_server_url, str):
             raise TypeError("Expected argument 'ad_decision_server_url' to be a str")
         pulumi.set(__self__, "ad_decision_server_url", ad_decision_server_url)
+        if ads_personalization_concurrency and not isinstance(ads_personalization_concurrency, dict):
+            raise TypeError("Expected argument 'ads_personalization_concurrency' to be a dict")
+        pulumi.set(__self__, "ads_personalization_concurrency", ads_personalization_concurrency)
+        if ads_personalization_timeouts and not isinstance(ads_personalization_timeouts, dict):
+            raise TypeError("Expected argument 'ads_personalization_timeouts' to be a dict")
+        pulumi.set(__self__, "ads_personalization_timeouts", ads_personalization_timeouts)
         if avail_suppression and not isinstance(avail_suppression, dict):
             raise TypeError("Expected argument 'avail_suppression' to be a dict")
         pulumi.set(__self__, "avail_suppression", avail_suppression)
@@ -114,6 +120,22 @@ class GetPlaybackConfigurationResult:
         The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         """
         return pulumi.get(self, "ad_decision_server_url")
+
+    @_builtins.property
+    @pulumi.getter(name="adsPersonalizationConcurrency")
+    def ads_personalization_concurrency(self) -> Optional['outputs.PlaybackConfigurationAdsPersonalizationConcurrency']:
+        """
+        The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        """
+        return pulumi.get(self, "ads_personalization_concurrency")
+
+    @_builtins.property
+    @pulumi.getter(name="adsPersonalizationTimeouts")
+    def ads_personalization_timeouts(self) -> Optional['outputs.PlaybackConfigurationAdsPersonalizationTimeouts']:
+        """
+        The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+        """
+        return pulumi.get(self, "ads_personalization_timeouts")
 
     @_builtins.property
     @pulumi.getter(name="availSuppression")
@@ -277,6 +299,8 @@ class AwaitableGetPlaybackConfigurationResult(GetPlaybackConfigurationResult):
             ad_conditioning_configuration=self.ad_conditioning_configuration,
             ad_decision_server_configuration=self.ad_decision_server_configuration,
             ad_decision_server_url=self.ad_decision_server_url,
+            ads_personalization_concurrency=self.ads_personalization_concurrency,
+            ads_personalization_timeouts=self.ads_personalization_timeouts,
             avail_suppression=self.avail_suppression,
             bumper=self.bumper,
             cdn_configuration=self.cdn_configuration,
@@ -314,6 +338,8 @@ def get_playback_configuration(name: Optional[_builtins.str] = None,
         ad_conditioning_configuration=pulumi.get(__ret__, 'ad_conditioning_configuration'),
         ad_decision_server_configuration=pulumi.get(__ret__, 'ad_decision_server_configuration'),
         ad_decision_server_url=pulumi.get(__ret__, 'ad_decision_server_url'),
+        ads_personalization_concurrency=pulumi.get(__ret__, 'ads_personalization_concurrency'),
+        ads_personalization_timeouts=pulumi.get(__ret__, 'ads_personalization_timeouts'),
         avail_suppression=pulumi.get(__ret__, 'avail_suppression'),
         bumper=pulumi.get(__ret__, 'bumper'),
         cdn_configuration=pulumi.get(__ret__, 'cdn_configuration'),
@@ -348,6 +374,8 @@ def get_playback_configuration_output(name: pulumi.Input[Optional[_builtins.str]
         ad_conditioning_configuration=pulumi.get(__response__, 'ad_conditioning_configuration'),
         ad_decision_server_configuration=pulumi.get(__response__, 'ad_decision_server_configuration'),
         ad_decision_server_url=pulumi.get(__response__, 'ad_decision_server_url'),
+        ads_personalization_concurrency=pulumi.get(__response__, 'ads_personalization_concurrency'),
+        ads_personalization_timeouts=pulumi.get(__response__, 'ads_personalization_timeouts'),
         avail_suppression=pulumi.get(__response__, 'avail_suppression'),
         bumper=pulumi.get(__response__, 'bumper'),
         cdn_configuration=pulumi.get(__response__, 'cdn_configuration'),

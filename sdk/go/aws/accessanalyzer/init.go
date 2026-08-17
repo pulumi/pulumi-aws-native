@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:accessanalyzer:Analyzer":
 		r = &Analyzer{}
+	case "aws-native:accessanalyzer:ArchiveRule":
+		r = &ArchiveRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

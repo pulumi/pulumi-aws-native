@@ -110,6 +110,11 @@ export const getMultiRegionEndpoint: typeof import("./getMultiRegionEndpoint").g
 export const getMultiRegionEndpointOutput: typeof import("./getMultiRegionEndpoint").getMultiRegionEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getMultiRegionEndpoint","getMultiRegionEndpointOutput"], () => require("./getMultiRegionEndpoint"));
 
+export { GetReceiptRuleArgs, GetReceiptRuleResult, GetReceiptRuleOutputArgs } from "./getReceiptRule";
+export const getReceiptRule: typeof import("./getReceiptRule").getReceiptRule = null as any;
+export const getReceiptRuleOutput: typeof import("./getReceiptRule").getReceiptRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getReceiptRule","getReceiptRuleOutput"], () => require("./getReceiptRule"));
+
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
@@ -170,6 +175,16 @@ export type MultiRegionEndpoint = import("./multiRegionEndpoint").MultiRegionEnd
 export const MultiRegionEndpoint: typeof import("./multiRegionEndpoint").MultiRegionEndpoint = null as any;
 utilities.lazyLoad(exports, ["MultiRegionEndpoint"], () => require("./multiRegionEndpoint"));
 
+export { ReceiptRuleArgs } from "./receiptRule";
+export type ReceiptRule = import("./receiptRule").ReceiptRule;
+export const ReceiptRule: typeof import("./receiptRule").ReceiptRule = null as any;
+utilities.lazyLoad(exports, ["ReceiptRule"], () => require("./receiptRule"));
+
+export { ReceiptRuleSetArgs } from "./receiptRuleSet";
+export type ReceiptRuleSet = import("./receiptRuleSet").ReceiptRuleSet;
+export const ReceiptRuleSet: typeof import("./receiptRuleSet").ReceiptRuleSet = null as any;
+utilities.lazyLoad(exports, ["ReceiptRuleSet"], () => require("./receiptRuleSet"));
+
 export { TemplateArgs } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
@@ -223,6 +238,10 @@ const _module = {
                 return new MailManagerTrafficPolicy(name, <any>undefined, { urn })
             case "aws-native:ses:MultiRegionEndpoint":
                 return new MultiRegionEndpoint(name, <any>undefined, { urn })
+            case "aws-native:ses:ReceiptRule":
+                return new ReceiptRule(name, <any>undefined, { urn })
+            case "aws-native:ses:ReceiptRuleSet":
+                return new ReceiptRuleSet(name, <any>undefined, { urn })
             case "aws-native:ses:Template":
                 return new Template(name, <any>undefined, { urn })
             case "aws-native:ses:Tenant":

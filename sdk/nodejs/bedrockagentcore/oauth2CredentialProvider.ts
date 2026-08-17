@@ -82,6 +82,10 @@ export class OAuth2CredentialProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly oauth2ProviderConfigOutput: pulumi.Output<outputs.bedrockagentcore.OAuth2CredentialProviderOauth2ProviderConfigOutput>;
     /**
+     * The current status of the OAuth2 credential provider
+     */
+    declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.OAuth2CredentialProviderStatus>;
+    /**
      * Tags to assign to the OAuth2 credential provider
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -112,6 +116,7 @@ export class OAuth2CredentialProvider extends pulumi.CustomResource {
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["oauth2ProviderConfigOutput"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["callbackUrl"] = undefined /*out*/;
             resourceInputs["clientSecretArn"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class OAuth2CredentialProvider extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["oauth2ProviderConfigInput"] = undefined /*out*/;
             resourceInputs["oauth2ProviderConfigOutput"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

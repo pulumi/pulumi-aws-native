@@ -19,6 +19,11 @@ from ._enums import *
 __all__ = [
     'ApiBodyS3Location',
     'ApiCors',
+    'ApiGatewayManagedOverridesAccessLogSettings',
+    'ApiGatewayManagedOverridesIntegrationOverrides',
+    'ApiGatewayManagedOverridesRouteOverrides',
+    'ApiGatewayManagedOverridesRouteSettings',
+    'ApiGatewayManagedOverridesStageOverrides',
     'AuthorizerJwtConfiguration',
     'DomainNameConfiguration',
     'DomainNameMutualTlsAuthentication',
@@ -206,6 +211,388 @@ class ApiCors(dict):
         The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
         """
         return pulumi.get(self, "max_age")
+
+
+@pulumi.output_type
+class ApiGatewayManagedOverridesAccessLogSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiGatewayManagedOverridesAccessLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiGatewayManagedOverridesAccessLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiGatewayManagedOverridesAccessLogSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_arn: Optional[_builtins.str] = None,
+                 format: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str destination_arn: The ARN of the CloudWatch Logs log group to receive access logs.
+        :param _builtins.str format: A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+        """
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the CloudWatch Logs log group to receive access logs.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> Optional[_builtins.str]:
+        """
+        A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+        """
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class ApiGatewayManagedOverridesIntegrationOverrides(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "integrationMethod":
+            suggest = "integration_method"
+        elif key == "payloadFormatVersion":
+            suggest = "payload_format_version"
+        elif key == "timeoutInMillis":
+            suggest = "timeout_in_millis"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiGatewayManagedOverridesIntegrationOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiGatewayManagedOverridesIntegrationOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiGatewayManagedOverridesIntegrationOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 integration_method: Optional[_builtins.str] = None,
+                 payload_format_version: Optional[_builtins.str] = None,
+                 timeout_in_millis: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str description: The description of the integration.
+        :param _builtins.str integration_method: Specifies the integration's HTTP method type. For WebSocket APIs, if you use a Lambda integration, you must set the integration method to POST.
+        :param _builtins.str payload_format_version: Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value
+        :param _builtins.int timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if integration_method is not None:
+            pulumi.set(__self__, "integration_method", integration_method)
+        if payload_format_version is not None:
+            pulumi.set(__self__, "payload_format_version", payload_format_version)
+        if timeout_in_millis is not None:
+            pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the integration.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="integrationMethod")
+    def integration_method(self) -> Optional[_builtins.str]:
+        """
+        Specifies the integration's HTTP method type. For WebSocket APIs, if you use a Lambda integration, you must set the integration method to POST.
+        """
+        return pulumi.get(self, "integration_method")
+
+    @_builtins.property
+    @pulumi.getter(name="payloadFormatVersion")
+    def payload_format_version(self) -> Optional[_builtins.str]:
+        """
+        Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value
+        """
+        return pulumi.get(self, "payload_format_version")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutInMillis")
+    def timeout_in_millis(self) -> Optional[_builtins.int]:
+        """
+        Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+        """
+        return pulumi.get(self, "timeout_in_millis")
+
+
+@pulumi.output_type
+class ApiGatewayManagedOverridesRouteOverrides(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationScopes":
+            suggest = "authorization_scopes"
+        elif key == "authorizationType":
+            suggest = "authorization_type"
+        elif key == "authorizerId":
+            suggest = "authorizer_id"
+        elif key == "operationName":
+            suggest = "operation_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiGatewayManagedOverridesRouteOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiGatewayManagedOverridesRouteOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiGatewayManagedOverridesRouteOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_scopes: Optional[Sequence[_builtins.str]] = None,
+                 authorization_type: Optional[_builtins.str] = None,
+                 authorizer_id: Optional[_builtins.str] = None,
+                 operation_name: Optional[_builtins.str] = None,
+                 target: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] authorization_scopes: The authorization scopes supported by this route.
+        :param _builtins.str authorization_type: The authorization type for the route. To learn more, see AuthorizationType.
+        :param _builtins.str authorizer_id: The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.
+        :param _builtins.str operation_name: The operation name for the route.
+        :param _builtins.str target: For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
+        """
+        if authorization_scopes is not None:
+            pulumi.set(__self__, "authorization_scopes", authorization_scopes)
+        if authorization_type is not None:
+            pulumi.set(__self__, "authorization_type", authorization_type)
+        if authorizer_id is not None:
+            pulumi.set(__self__, "authorizer_id", authorizer_id)
+        if operation_name is not None:
+            pulumi.set(__self__, "operation_name", operation_name)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationScopes")
+    def authorization_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The authorization scopes supported by this route.
+        """
+        return pulumi.get(self, "authorization_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> Optional[_builtins.str]:
+        """
+        The authorization type for the route. To learn more, see AuthorizationType.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizerId")
+    def authorizer_id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.
+        """
+        return pulumi.get(self, "authorizer_id")
+
+    @_builtins.property
+    @pulumi.getter(name="operationName")
+    def operation_name(self) -> Optional[_builtins.str]:
+        """
+        The operation name for the route.
+        """
+        return pulumi.get(self, "operation_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> Optional[_builtins.str]:
+        """
+        For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ApiGatewayManagedOverridesRouteSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailedMetricsEnabled":
+            suggest = "detailed_metrics_enabled"
+        elif key == "throttlingBurstLimit":
+            suggest = "throttling_burst_limit"
+        elif key == "throttlingRateLimit":
+            suggest = "throttling_rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiGatewayManagedOverridesRouteSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiGatewayManagedOverridesRouteSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiGatewayManagedOverridesRouteSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 detailed_metrics_enabled: Optional[_builtins.bool] = None,
+                 throttling_burst_limit: Optional[_builtins.int] = None,
+                 throttling_rate_limit: Optional[_builtins.float] = None):
+        """
+        :param _builtins.bool detailed_metrics_enabled: Specifies whether detailed metrics are enabled.
+        :param _builtins.int throttling_burst_limit: Specifies the throttling burst limit.
+        :param _builtins.float throttling_rate_limit: Specifies the throttling rate limit.
+        """
+        if detailed_metrics_enabled is not None:
+            pulumi.set(__self__, "detailed_metrics_enabled", detailed_metrics_enabled)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="detailedMetricsEnabled")
+    def detailed_metrics_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether detailed metrics are enabled.
+        """
+        return pulumi.get(self, "detailed_metrics_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[_builtins.int]:
+        """
+        Specifies the throttling burst limit.
+        """
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[_builtins.float]:
+        """
+        Specifies the throttling rate limit.
+        """
+        return pulumi.get(self, "throttling_rate_limit")
+
+
+@pulumi.output_type
+class ApiGatewayManagedOverridesStageOverrides(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLogSettings":
+            suggest = "access_log_settings"
+        elif key == "autoDeploy":
+            suggest = "auto_deploy"
+        elif key == "defaultRouteSettings":
+            suggest = "default_route_settings"
+        elif key == "routeSettings":
+            suggest = "route_settings"
+        elif key == "stageVariables":
+            suggest = "stage_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiGatewayManagedOverridesStageOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiGatewayManagedOverridesStageOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiGatewayManagedOverridesStageOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_log_settings: Optional['outputs.ApiGatewayManagedOverridesAccessLogSettings'] = None,
+                 auto_deploy: Optional[_builtins.bool] = None,
+                 default_route_settings: Optional['outputs.ApiGatewayManagedOverridesRouteSettings'] = None,
+                 description: Optional[_builtins.str] = None,
+                 route_settings: Optional[Mapping[str, 'outputs.ApiGatewayManagedOverridesRouteSettings']] = None,
+                 stage_variables: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param 'ApiGatewayManagedOverridesAccessLogSettings' access_log_settings: Settings for logging access in a stage.
+        :param _builtins.bool auto_deploy: Specifies whether updates to an API automatically trigger a new deployment. The default value is true.
+        :param 'ApiGatewayManagedOverridesRouteSettings' default_route_settings: The default route settings for the stage.
+        :param _builtins.str description: The description for the API stage.
+        :param Mapping[str, 'ApiGatewayManagedOverridesRouteSettings'] route_settings: Route settings for the stage.
+        :param Mapping[str, _builtins.str] stage_variables: A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+        """
+        if access_log_settings is not None:
+            pulumi.set(__self__, "access_log_settings", access_log_settings)
+        if auto_deploy is not None:
+            pulumi.set(__self__, "auto_deploy", auto_deploy)
+        if default_route_settings is not None:
+            pulumi.set(__self__, "default_route_settings", default_route_settings)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if route_settings is not None:
+            pulumi.set(__self__, "route_settings", route_settings)
+        if stage_variables is not None:
+            pulumi.set(__self__, "stage_variables", stage_variables)
+
+    @_builtins.property
+    @pulumi.getter(name="accessLogSettings")
+    def access_log_settings(self) -> Optional['outputs.ApiGatewayManagedOverridesAccessLogSettings']:
+        """
+        Settings for logging access in a stage.
+        """
+        return pulumi.get(self, "access_log_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDeploy")
+    def auto_deploy(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether updates to an API automatically trigger a new deployment. The default value is true.
+        """
+        return pulumi.get(self, "auto_deploy")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultRouteSettings")
+    def default_route_settings(self) -> Optional['outputs.ApiGatewayManagedOverridesRouteSettings']:
+        """
+        The default route settings for the stage.
+        """
+        return pulumi.get(self, "default_route_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description for the API stage.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="routeSettings")
+    def route_settings(self) -> Optional[Mapping[str, 'outputs.ApiGatewayManagedOverridesRouteSettings']]:
+        """
+        Route settings for the stage.
+        """
+        return pulumi.get(self, "route_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="stageVariables")
+    def stage_variables(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+        """
+        return pulumi.get(self, "stage_variables")
 
 
 @pulumi.output_type

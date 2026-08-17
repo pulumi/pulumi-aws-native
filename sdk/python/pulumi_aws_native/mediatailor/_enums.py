@@ -11,6 +11,9 @@ __all__ = [
     'ChannelLogType',
     'ChannelPlaybackMode',
     'ChannelTier',
+    'FunctionMethodType',
+    'FunctionRuntimeType',
+    'FunctionType',
     'LiveSourceType',
     'PlaybackConfigurationAvailSuppressionFillPolicy',
     'PlaybackConfigurationAvailSuppressionMode',
@@ -45,6 +48,24 @@ class ChannelPlaybackMode(_builtins.str, Enum):
 class ChannelTier(_builtins.str, Enum):
     BASIC = "BASIC"
     STANDARD = "STANDARD"
+
+
+@pulumi.type_token("aws-native:mediatailor:FunctionMethodType")
+class FunctionMethodType(_builtins.str, Enum):
+    GET = "GET"
+    POST = "POST"
+
+
+@pulumi.type_token("aws-native:mediatailor:FunctionRuntimeType")
+class FunctionRuntimeType(_builtins.str, Enum):
+    JSONATA = "JSONATA"
+
+
+@pulumi.type_token("aws-native:mediatailor:FunctionType")
+class FunctionType(_builtins.str, Enum):
+    HTTP_REQUEST = "HTTP_REQUEST"
+    CUSTOM_OUTPUT = "CUSTOM_OUTPUT"
+    SEQUENTIAL_EXECUTOR = "SEQUENTIAL_EXECUTOR"
 
 
 @pulumi.type_token("aws-native:mediatailor:LiveSourceType")

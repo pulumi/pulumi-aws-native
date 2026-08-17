@@ -1047,9 +1047,17 @@ class PentestActorArgsDict(TypedDict):
     """
     Description of the actor
     """
+    enable_email_mfa: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether email-based MFA is enabled for this actor
+    """
     identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier for the actor
+    """
+    mfa_forwarding_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Server-generated email forwarding address for receiving MFA codes
     """
     uris: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -1061,22 +1069,30 @@ class PentestActorArgs:
     def __init__(__self__, *,
                  authentication: pulumi.Input[Optional['PentestAuthenticationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_email_mfa: pulumi.Input[Optional[_builtins.bool]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_forwarding_address: pulumi.Input[Optional[_builtins.str]] = None,
                  uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An authenticated actor to be used during pentest execution
 
         :param pulumi.Input['PentestAuthenticationArgs'] authentication: Authentication credentials for this actor
         :param pulumi.Input[_builtins.str] description: Description of the actor
+        :param pulumi.Input[_builtins.bool] enable_email_mfa: Whether email-based MFA is enabled for this actor
         :param pulumi.Input[_builtins.str] identifier: Identifier for the actor
+        :param pulumi.Input[_builtins.str] mfa_forwarding_address: Server-generated email forwarding address for receiving MFA codes
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] uris: List of URIs this actor is authorized to access
         """
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_email_mfa is not None:
+            pulumi.set(__self__, "enable_email_mfa", enable_email_mfa)
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
+        if mfa_forwarding_address is not None:
+            pulumi.set(__self__, "mfa_forwarding_address", mfa_forwarding_address)
         if uris is not None:
             pulumi.set(__self__, "uris", uris)
 
@@ -1105,6 +1121,18 @@ class PentestActorArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="enableEmailMfa")
+    def enable_email_mfa(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether email-based MFA is enabled for this actor
+        """
+        return pulumi.get(self, "enable_email_mfa")
+
+    @enable_email_mfa.setter
+    def enable_email_mfa(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_email_mfa", value)
+
+    @_builtins.property
     @pulumi.getter
     def identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1115,6 +1143,18 @@ class PentestActorArgs:
     @identifier.setter
     def identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mfaForwardingAddress")
+    def mfa_forwarding_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Server-generated email forwarding address for receiving MFA codes
+        """
+        return pulumi.get(self, "mfa_forwarding_address")
+
+    @mfa_forwarding_address.setter
+    def mfa_forwarding_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mfa_forwarding_address", value)
 
     @_builtins.property
     @pulumi.getter

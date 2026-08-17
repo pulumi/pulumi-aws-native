@@ -10,6 +10,11 @@ export type Api = import("./api").Api;
 export const Api: typeof import("./api").Api = null as any;
 utilities.lazyLoad(exports, ["Api"], () => require("./api"));
 
+export { ApiGatewayManagedOverridesArgs } from "./apiGatewayManagedOverrides";
+export type ApiGatewayManagedOverrides = import("./apiGatewayManagedOverrides").ApiGatewayManagedOverrides;
+export const ApiGatewayManagedOverrides: typeof import("./apiGatewayManagedOverrides").ApiGatewayManagedOverrides = null as any;
+utilities.lazyLoad(exports, ["ApiGatewayManagedOverrides"], () => require("./apiGatewayManagedOverrides"));
+
 export { ApiMappingArgs } from "./apiMapping";
 export type ApiMapping = import("./apiMapping").ApiMapping;
 export const ApiMapping: typeof import("./apiMapping").ApiMapping = null as any;
@@ -34,6 +39,11 @@ export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
 export const getApi: typeof import("./getApi").getApi = null as any;
 export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
 utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+
+export { GetApiGatewayManagedOverridesArgs, GetApiGatewayManagedOverridesResult, GetApiGatewayManagedOverridesOutputArgs } from "./getApiGatewayManagedOverrides";
+export const getApiGatewayManagedOverrides: typeof import("./getApiGatewayManagedOverrides").getApiGatewayManagedOverrides = null as any;
+export const getApiGatewayManagedOverridesOutput: typeof import("./getApiGatewayManagedOverrides").getApiGatewayManagedOverridesOutput = null as any;
+utilities.lazyLoad(exports, ["getApiGatewayManagedOverrides","getApiGatewayManagedOverridesOutput"], () => require("./getApiGatewayManagedOverrides"));
 
 export { GetApiMappingArgs, GetApiMappingResult, GetApiMappingOutputArgs } from "./getApiMapping";
 export const getApiMapping: typeof import("./getApiMapping").getApiMapping = null as any;
@@ -69,6 +79,11 @@ export { GetModelArgs, GetModelResult, GetModelOutputArgs } from "./getModel";
 export const getModel: typeof import("./getModel").getModel = null as any;
 export const getModelOutput: typeof import("./getModel").getModelOutput = null as any;
 utilities.lazyLoad(exports, ["getModel","getModelOutput"], () => require("./getModel"));
+
+export { GetPortalProductArgs, GetPortalProductResult, GetPortalProductOutputArgs } from "./getPortalProduct";
+export const getPortalProduct: typeof import("./getPortalProduct").getPortalProduct = null as any;
+export const getPortalProductOutput: typeof import("./getPortalProduct").getPortalProductOutput = null as any;
+utilities.lazyLoad(exports, ["getPortalProduct","getPortalProductOutput"], () => require("./getPortalProduct"));
 
 export { GetRouteArgs, GetRouteResult, GetRouteOutputArgs } from "./getRoute";
 export const getRoute: typeof import("./getRoute").getRoute = null as any;
@@ -110,6 +125,11 @@ export type Model = import("./model").Model;
 export const Model: typeof import("./model").Model = null as any;
 utilities.lazyLoad(exports, ["Model"], () => require("./model"));
 
+export { PortalProductArgs } from "./portalProduct";
+export type PortalProduct = import("./portalProduct").PortalProduct;
+export const PortalProduct: typeof import("./portalProduct").PortalProduct = null as any;
+utilities.lazyLoad(exports, ["PortalProduct"], () => require("./portalProduct"));
+
 export { RouteArgs } from "./route";
 export type Route = import("./route").Route;
 export const Route: typeof import("./route").Route = null as any;
@@ -145,6 +165,8 @@ const _module = {
         switch (type) {
             case "aws-native:apigatewayv2:Api":
                 return new Api(name, <any>undefined, { urn })
+            case "aws-native:apigatewayv2:ApiGatewayManagedOverrides":
+                return new ApiGatewayManagedOverrides(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:ApiMapping":
                 return new ApiMapping(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:Authorizer":
@@ -159,6 +181,8 @@ const _module = {
                 return new IntegrationResponse(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:Model":
                 return new Model(name, <any>undefined, { urn })
+            case "aws-native:apigatewayv2:PortalProduct":
+                return new PortalProduct(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:Route":
                 return new Route(name, <any>undefined, { urn })
             case "aws-native:apigatewayv2:RouteResponse":

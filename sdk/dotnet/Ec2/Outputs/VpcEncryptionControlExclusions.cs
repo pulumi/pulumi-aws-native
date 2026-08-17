@@ -10,16 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Describes the exclusion configurations for various resource types in VPC Encryption Control.
+    ///  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+    /// </summary>
     [OutputType]
     public sealed class VpcEncryptionControlExclusions
     {
+        /// <summary>
+        /// The exclusion configuration for egress-only internet gateway traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? EgressOnlyInternetGateway;
+        /// <summary>
+        /// The exclusion configuration for Elastic File System traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? ElasticFileSystem;
+        /// <summary>
+        /// The exclusion configuration for internet gateway traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? InternetGateway;
+        /// <summary>
+        /// The exclusion configuration for Lambda function traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? Lambda;
+        /// <summary>
+        /// The exclusion configuration for NAT gateway traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? NatGateway;
+        /// <summary>
+        /// The exclusion configuration for virtual private gateway traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? VirtualPrivateGateway;
+        /// <summary>
+        /// The exclusion configuration for VPC Lattice traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? VpcLattice;
+        /// <summary>
+        /// The exclusion configuration for VPC peering connection traffic.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusion? VpcPeering;
 
         [OutputConstructor]

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BrowserCustom{}
 	case "aws-native:bedrockagentcore:BrowserProfile":
 		r = &BrowserProfile{}
+	case "aws-native:bedrockagentcore:CapacityProvider":
+		r = &CapacityProvider{}
 	case "aws-native:bedrockagentcore:CodeInterpreterCustom":
 		r = &CodeInterpreterCustom{}
 	case "aws-native:bedrockagentcore:ConfigurationBundle":
@@ -37,6 +39,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Evaluator{}
 	case "aws-native:bedrockagentcore:Gateway":
 		r = &Gateway{}
+	case "aws-native:bedrockagentcore:GatewayRateLimit":
+		r = &GatewayRateLimit{}
+	case "aws-native:bedrockagentcore:GatewayRule":
+		r = &GatewayRule{}
 	case "aws-native:bedrockagentcore:GatewayTarget":
 		r = &GatewayTarget{}
 	case "aws-native:bedrockagentcore:Harness":

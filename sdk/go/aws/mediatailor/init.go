@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Channel{}
 	case "aws-native:mediatailor:ChannelPolicy":
 		r = &ChannelPolicy{}
+	case "aws-native:mediatailor:Function":
+		r = &Function{}
 	case "aws-native:mediatailor:LiveSource":
 		r = &LiveSource{}
 	case "aws-native:mediatailor:PlaybackConfiguration":

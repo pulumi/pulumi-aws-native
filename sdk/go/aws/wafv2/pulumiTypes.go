@@ -1785,7 +1785,8 @@ type RuleGroupByteMatchStatement struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint RuleGroupPositionalConstraint `pulumi:"positionalConstraint"`
+	PositionalConstraint        RuleGroupPositionalConstraint         `pulumi:"positionalConstraint"`
+	PreParseTextTransformations []RuleGroupPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 	//
 	// Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
@@ -1841,7 +1842,8 @@ type RuleGroupByteMatchStatementArgs struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint RuleGroupPositionalConstraintInput `pulumi:"positionalConstraint"`
+	PositionalConstraint        RuleGroupPositionalConstraintInput            `pulumi:"positionalConstraint"`
+	PreParseTextTransformations RuleGroupPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 	//
 	// Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
@@ -1969,6 +1971,12 @@ func (o RuleGroupByteMatchStatementOutput) PositionalConstraint() RuleGroupPosit
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) RuleGroupPositionalConstraint { return v.PositionalConstraint }).(RuleGroupPositionalConstraintOutput)
 }
 
+func (o RuleGroupByteMatchStatementOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupByteMatchStatement) []RuleGroupPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 //
 // Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
@@ -2057,6 +2065,15 @@ func (o RuleGroupByteMatchStatementPtrOutput) PositionalConstraint() RuleGroupPo
 		}
 		return &v.PositionalConstraint
 	}).(RuleGroupPositionalConstraintPtrOutput)
+}
+
+func (o RuleGroupByteMatchStatementPtrOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupByteMatchStatement) []RuleGroupPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
 }
 
 // A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
@@ -8038,6 +8055,109 @@ func (o RuleGroupPaymentNetworkArrayOutput) Index(i pulumi.IntInput) RuleGroupPa
 	}).(RuleGroupPaymentNetworkOutput)
 }
 
+// Text Transformation applied before parsing the query string.
+type RuleGroupPreParseTextTransformation struct {
+	Priority int                                     `pulumi:"priority"`
+	Type     RuleGroupPreParseTextTransformationType `pulumi:"type"`
+}
+
+// RuleGroupPreParseTextTransformationInput is an input type that accepts RuleGroupPreParseTextTransformationArgs and RuleGroupPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `RuleGroupPreParseTextTransformationInput` via:
+//
+//	RuleGroupPreParseTextTransformationArgs{...}
+type RuleGroupPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToRuleGroupPreParseTextTransformationOutput() RuleGroupPreParseTextTransformationOutput
+	ToRuleGroupPreParseTextTransformationOutputWithContext(context.Context) RuleGroupPreParseTextTransformationOutput
+}
+
+// Text Transformation applied before parsing the query string.
+type RuleGroupPreParseTextTransformationArgs struct {
+	Priority pulumi.IntInput                              `pulumi:"priority"`
+	Type     RuleGroupPreParseTextTransformationTypeInput `pulumi:"type"`
+}
+
+func (RuleGroupPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i RuleGroupPreParseTextTransformationArgs) ToRuleGroupPreParseTextTransformationOutput() RuleGroupPreParseTextTransformationOutput {
+	return i.ToRuleGroupPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPreParseTextTransformationArgs) ToRuleGroupPreParseTextTransformationOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPreParseTextTransformationOutput)
+}
+
+// RuleGroupPreParseTextTransformationArrayInput is an input type that accepts RuleGroupPreParseTextTransformationArray and RuleGroupPreParseTextTransformationArrayOutput values.
+// You can construct a concrete instance of `RuleGroupPreParseTextTransformationArrayInput` via:
+//
+//	RuleGroupPreParseTextTransformationArray{ RuleGroupPreParseTextTransformationArgs{...} }
+type RuleGroupPreParseTextTransformationArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupPreParseTextTransformationArrayOutput() RuleGroupPreParseTextTransformationArrayOutput
+	ToRuleGroupPreParseTextTransformationArrayOutputWithContext(context.Context) RuleGroupPreParseTextTransformationArrayOutput
+}
+
+type RuleGroupPreParseTextTransformationArray []RuleGroupPreParseTextTransformationInput
+
+func (RuleGroupPreParseTextTransformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i RuleGroupPreParseTextTransformationArray) ToRuleGroupPreParseTextTransformationArrayOutput() RuleGroupPreParseTextTransformationArrayOutput {
+	return i.ToRuleGroupPreParseTextTransformationArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupPreParseTextTransformationArray) ToRuleGroupPreParseTextTransformationArrayOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
+// Text Transformation applied before parsing the query string.
+type RuleGroupPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o RuleGroupPreParseTextTransformationOutput) ToRuleGroupPreParseTextTransformationOutput() RuleGroupPreParseTextTransformationOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationOutput) ToRuleGroupPreParseTextTransformationOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v RuleGroupPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o RuleGroupPreParseTextTransformationOutput) Type() RuleGroupPreParseTextTransformationTypeOutput {
+	return o.ApplyT(func(v RuleGroupPreParseTextTransformation) RuleGroupPreParseTextTransformationType { return v.Type }).(RuleGroupPreParseTextTransformationTypeOutput)
+}
+
+type RuleGroupPreParseTextTransformationArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPreParseTextTransformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o RuleGroupPreParseTextTransformationArrayOutput) ToRuleGroupPreParseTextTransformationArrayOutput() RuleGroupPreParseTextTransformationArrayOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationArrayOutput) ToRuleGroupPreParseTextTransformationArrayOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationArrayOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationArrayOutput) Index(i pulumi.IntInput) RuleGroupPreParseTextTransformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupPreParseTextTransformation {
+		return vs[0].([]RuleGroupPreParseTextTransformation)[vs[1].(int)]
+	}).(RuleGroupPreParseTextTransformationOutput)
+}
+
 // A price configuration.
 type RuleGroupPrice struct {
 	Amount   string                  `pulumi:"amount"`
@@ -10445,7 +10565,8 @@ func (o RuleGroupRateLimitUriPathPtrOutput) TextTransformations() RuleGroupTextT
 
 type RuleGroupRegexMatchStatement struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []RuleGroupPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// The string representing the regular expression.
 	RegexString string `pulumi:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -10465,7 +10586,8 @@ type RuleGroupRegexMatchStatementInput interface {
 
 type RuleGroupRegexMatchStatementArgs struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations RuleGroupPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// The string representing the regular expression.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -10554,6 +10676,12 @@ func (o RuleGroupRegexMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatch
 	return o.ApplyT(func(v RuleGroupRegexMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
+func (o RuleGroupRegexMatchStatementOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupRegexMatchStatement) []RuleGroupPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // The string representing the regular expression.
 func (o RuleGroupRegexMatchStatementOutput) RegexString() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRegexMatchStatement) string { return v.RegexString }).(pulumi.StringOutput)
@@ -10598,6 +10726,15 @@ func (o RuleGroupRegexMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMa
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
+func (o RuleGroupRegexMatchStatementPtrOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRegexMatchStatement) []RuleGroupPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // The string representing the regular expression.
 func (o RuleGroupRegexMatchStatementPtrOutput) RegexString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRegexMatchStatement) *string {
@@ -10622,7 +10759,8 @@ type RuleGroupRegexPatternSetReferenceStatement struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn string `pulumi:"arn"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []RuleGroupPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
@@ -10642,7 +10780,8 @@ type RuleGroupRegexPatternSetReferenceStatementArgs struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations RuleGroupPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
@@ -10734,6 +10873,12 @@ func (o RuleGroupRegexPatternSetReferenceStatementOutput) FieldToMatch() RuleGro
 	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
+func (o RuleGroupRegexPatternSetReferenceStatementOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) []RuleGroupPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o RuleGroupRegexPatternSetReferenceStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) []RuleGroupTextTransformation {
@@ -10783,6 +10928,15 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() Rule
 		}
 		return &v.FieldToMatch
 	}).(RuleGroupFieldToMatchPtrOutput)
+}
+
+func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRegexPatternSetReferenceStatement) []RuleGroupPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -11258,7 +11412,8 @@ type RuleGroupSizeConstraintStatement struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator RuleGroupSizeConstraintStatementComparisonOperator `pulumi:"comparisonOperator"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []RuleGroupPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size float64 `pulumi:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -11281,7 +11436,8 @@ type RuleGroupSizeConstraintStatementArgs struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator RuleGroupSizeConstraintStatementComparisonOperatorInput `pulumi:"comparisonOperator"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations RuleGroupPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size pulumi.Float64Input `pulumi:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -11378,6 +11534,12 @@ func (o RuleGroupSizeConstraintStatementOutput) FieldToMatch() RuleGroupFieldToM
 	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
+func (o RuleGroupSizeConstraintStatementOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) []RuleGroupPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // The size, in byte, to compare to the request part, after any transformations.
 func (o RuleGroupSizeConstraintStatementOutput) Size() pulumi.Float64Output {
 	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) float64 { return v.Size }).(pulumi.Float64Output)
@@ -11432,6 +11594,15 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupField
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
+func (o RuleGroupSizeConstraintStatementPtrOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) []RuleGroupPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // The size, in byte, to compare to the request part, after any transformations.
 func (o RuleGroupSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *float64 {
@@ -11455,7 +11626,8 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) TextTransformations() RuleGro
 // Sqli Match Statement.
 type RuleGroupSqliMatchStatement struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []RuleGroupPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
 	// `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
@@ -11482,7 +11654,8 @@ type RuleGroupSqliMatchStatementInput interface {
 // Sqli Match Statement.
 type RuleGroupSqliMatchStatementArgs struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations RuleGroupPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
 	// `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
@@ -11578,6 +11751,12 @@ func (o RuleGroupSqliMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchO
 	return o.ApplyT(func(v RuleGroupSqliMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
+func (o RuleGroupSqliMatchStatementOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupSqliMatchStatement) []RuleGroupPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 //
 // `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
@@ -11626,6 +11805,15 @@ func (o RuleGroupSqliMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMat
 		}
 		return &v.FieldToMatch
 	}).(RuleGroupFieldToMatchPtrOutput)
+}
+
+func (o RuleGroupSqliMatchStatementPtrOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupSqliMatchStatement) []RuleGroupPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
 }
 
 // The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
@@ -12798,7 +12986,8 @@ func (o RuleGroupVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.Bool
 // Xss Match Statement.
 type RuleGroupXssMatchStatement struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []RuleGroupPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
@@ -12817,7 +13006,8 @@ type RuleGroupXssMatchStatementInput interface {
 // Xss Match Statement.
 type RuleGroupXssMatchStatementArgs struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                RuleGroupFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations RuleGroupPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
@@ -12905,6 +13095,12 @@ func (o RuleGroupXssMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOu
 	return o.ApplyT(func(v RuleGroupXssMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
+func (o RuleGroupXssMatchStatementOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupXssMatchStatement) []RuleGroupPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
+}
+
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o RuleGroupXssMatchStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupXssMatchStatement) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
@@ -12942,6 +13138,15 @@ func (o RuleGroupXssMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatc
 		}
 		return &v.FieldToMatch
 	}).(RuleGroupFieldToMatchPtrOutput)
+}
+
+func (o RuleGroupXssMatchStatementPtrOutput) PreParseTextTransformations() RuleGroupPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupXssMatchStatement) []RuleGroupPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(RuleGroupPreParseTextTransformationArrayOutput)
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -15043,7 +15248,8 @@ type WebAclByteMatchStatement struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint WebAclPositionalConstraint `pulumi:"positionalConstraint"`
+	PositionalConstraint        WebAclPositionalConstraint         `pulumi:"positionalConstraint"`
+	PreParseTextTransformations []WebAclPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 	//
 	// Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
@@ -15099,7 +15305,8 @@ type WebAclByteMatchStatementArgs struct {
 	// *ENDS_WITH*
 	//
 	// The value of `SearchString` must appear at the end of the specified part of the web request.
-	PositionalConstraint WebAclPositionalConstraintInput `pulumi:"positionalConstraint"`
+	PositionalConstraint        WebAclPositionalConstraintInput            `pulumi:"positionalConstraint"`
+	PreParseTextTransformations WebAclPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 	//
 	// Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
@@ -15227,6 +15434,12 @@ func (o WebAclByteMatchStatementOutput) PositionalConstraint() WebAclPositionalC
 	return o.ApplyT(func(v WebAclByteMatchStatement) WebAclPositionalConstraint { return v.PositionalConstraint }).(WebAclPositionalConstraintOutput)
 }
 
+func (o WebAclByteMatchStatementOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebAclByteMatchStatement) []WebAclPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
 //
 // Don't encode this string. Provide the value that you want AWS WAF to search for. AWS CloudFormation automatically base64 encodes the value for you.
@@ -15315,6 +15528,15 @@ func (o WebAclByteMatchStatementPtrOutput) PositionalConstraint() WebAclPosition
 		}
 		return &v.PositionalConstraint
 	}).(WebAclPositionalConstraintPtrOutput)
+}
+
+func (o WebAclByteMatchStatementPtrOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebAclByteMatchStatement) []WebAclPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
 }
 
 // A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
@@ -23145,6 +23367,109 @@ func (o WebAclPaymentNetworkArrayOutput) Index(i pulumi.IntInput) WebAclPaymentN
 	}).(WebAclPaymentNetworkOutput)
 }
 
+// Text Transformation applied before parsing the query string.
+type WebAclPreParseTextTransformation struct {
+	Priority int                                  `pulumi:"priority"`
+	Type     WebAclPreParseTextTransformationType `pulumi:"type"`
+}
+
+// WebAclPreParseTextTransformationInput is an input type that accepts WebAclPreParseTextTransformationArgs and WebAclPreParseTextTransformationOutput values.
+// You can construct a concrete instance of `WebAclPreParseTextTransformationInput` via:
+//
+//	WebAclPreParseTextTransformationArgs{...}
+type WebAclPreParseTextTransformationInput interface {
+	pulumi.Input
+
+	ToWebAclPreParseTextTransformationOutput() WebAclPreParseTextTransformationOutput
+	ToWebAclPreParseTextTransformationOutputWithContext(context.Context) WebAclPreParseTextTransformationOutput
+}
+
+// Text Transformation applied before parsing the query string.
+type WebAclPreParseTextTransformationArgs struct {
+	Priority pulumi.IntInput                           `pulumi:"priority"`
+	Type     WebAclPreParseTextTransformationTypeInput `pulumi:"type"`
+}
+
+func (WebAclPreParseTextTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclPreParseTextTransformationArgs) ToWebAclPreParseTextTransformationOutput() WebAclPreParseTextTransformationOutput {
+	return i.ToWebAclPreParseTextTransformationOutputWithContext(context.Background())
+}
+
+func (i WebAclPreParseTextTransformationArgs) ToWebAclPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclPreParseTextTransformationOutput)
+}
+
+// WebAclPreParseTextTransformationArrayInput is an input type that accepts WebAclPreParseTextTransformationArray and WebAclPreParseTextTransformationArrayOutput values.
+// You can construct a concrete instance of `WebAclPreParseTextTransformationArrayInput` via:
+//
+//	WebAclPreParseTextTransformationArray{ WebAclPreParseTextTransformationArgs{...} }
+type WebAclPreParseTextTransformationArrayInput interface {
+	pulumi.Input
+
+	ToWebAclPreParseTextTransformationArrayOutput() WebAclPreParseTextTransformationArrayOutput
+	ToWebAclPreParseTextTransformationArrayOutputWithContext(context.Context) WebAclPreParseTextTransformationArrayOutput
+}
+
+type WebAclPreParseTextTransformationArray []WebAclPreParseTextTransformationInput
+
+func (WebAclPreParseTextTransformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclPreParseTextTransformation)(nil)).Elem()
+}
+
+func (i WebAclPreParseTextTransformationArray) ToWebAclPreParseTextTransformationArrayOutput() WebAclPreParseTextTransformationArrayOutput {
+	return i.ToWebAclPreParseTextTransformationArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclPreParseTextTransformationArray) ToWebAclPreParseTextTransformationArrayOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclPreParseTextTransformationArrayOutput)
+}
+
+// Text Transformation applied before parsing the query string.
+type WebAclPreParseTextTransformationOutput struct{ *pulumi.OutputState }
+
+func (WebAclPreParseTextTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclPreParseTextTransformationOutput) ToWebAclPreParseTextTransformationOutput() WebAclPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationOutput) ToWebAclPreParseTextTransformationOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o WebAclPreParseTextTransformationOutput) Type() WebAclPreParseTextTransformationTypeOutput {
+	return o.ApplyT(func(v WebAclPreParseTextTransformation) WebAclPreParseTextTransformationType { return v.Type }).(WebAclPreParseTextTransformationTypeOutput)
+}
+
+type WebAclPreParseTextTransformationArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclPreParseTextTransformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclPreParseTextTransformation)(nil)).Elem()
+}
+
+func (o WebAclPreParseTextTransformationArrayOutput) ToWebAclPreParseTextTransformationArrayOutput() WebAclPreParseTextTransformationArrayOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationArrayOutput) ToWebAclPreParseTextTransformationArrayOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationArrayOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationArrayOutput) Index(i pulumi.IntInput) WebAclPreParseTextTransformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclPreParseTextTransformation {
+		return vs[0].([]WebAclPreParseTextTransformation)[vs[1].(int)]
+	}).(WebAclPreParseTextTransformationOutput)
+}
+
 // A price configuration.
 type WebAclPrice struct {
 	Amount   string               `pulumi:"amount"`
@@ -25641,7 +25966,8 @@ func (o WebAclRegexArrayOutput) Index(i pulumi.IntInput) WebAclRegexOutput {
 
 type WebAclRegexMatchStatement struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []WebAclPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// The string representing the regular expression.
 	RegexString string `pulumi:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -25661,7 +25987,8 @@ type WebAclRegexMatchStatementInput interface {
 
 type WebAclRegexMatchStatementArgs struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations WebAclPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// The string representing the regular expression.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -25750,6 +26077,12 @@ func (o WebAclRegexMatchStatementOutput) FieldToMatch() WebAclFieldToMatchOutput
 	return o.ApplyT(func(v WebAclRegexMatchStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
 
+func (o WebAclRegexMatchStatementOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebAclRegexMatchStatement) []WebAclPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // The string representing the regular expression.
 func (o WebAclRegexMatchStatementOutput) RegexString() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRegexMatchStatement) string { return v.RegexString }).(pulumi.StringOutput)
@@ -25794,6 +26127,15 @@ func (o WebAclRegexMatchStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtr
 	}).(WebAclFieldToMatchPtrOutput)
 }
 
+func (o WebAclRegexMatchStatementPtrOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebAclRegexMatchStatement) []WebAclPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // The string representing the regular expression.
 func (o WebAclRegexMatchStatementPtrOutput) RegexString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRegexMatchStatement) *string {
@@ -25818,7 +26160,8 @@ type WebAclRegexPatternSetReferenceStatement struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn string `pulumi:"arn"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []WebAclPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []WebAclTextTransformation `pulumi:"textTransformations"`
 }
@@ -25838,7 +26181,8 @@ type WebAclRegexPatternSetReferenceStatementArgs struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations WebAclPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations WebAclTextTransformationArrayInput `pulumi:"textTransformations"`
 }
@@ -25930,6 +26274,12 @@ func (o WebAclRegexPatternSetReferenceStatementOutput) FieldToMatch() WebAclFiel
 	return o.ApplyT(func(v WebAclRegexPatternSetReferenceStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
 
+func (o WebAclRegexPatternSetReferenceStatementOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebAclRegexPatternSetReferenceStatement) []WebAclPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o WebAclRegexPatternSetReferenceStatementOutput) TextTransformations() WebAclTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRegexPatternSetReferenceStatement) []WebAclTextTransformation {
@@ -25979,6 +26329,15 @@ func (o WebAclRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() WebAclF
 		}
 		return &v.FieldToMatch
 	}).(WebAclFieldToMatchPtrOutput)
+}
+
+func (o WebAclRegexPatternSetReferenceStatementPtrOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebAclRegexPatternSetReferenceStatement) []WebAclPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -28537,7 +28896,8 @@ type WebAclSizeConstraintStatement struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator WebAclSizeConstraintStatementComparisonOperator `pulumi:"comparisonOperator"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []WebAclPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size float64 `pulumi:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -28560,7 +28920,8 @@ type WebAclSizeConstraintStatementArgs struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator WebAclSizeConstraintStatementComparisonOperatorInput `pulumi:"comparisonOperator"`
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations WebAclPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size pulumi.Float64Input `pulumi:"size"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -28657,6 +29018,12 @@ func (o WebAclSizeConstraintStatementOutput) FieldToMatch() WebAclFieldToMatchOu
 	return o.ApplyT(func(v WebAclSizeConstraintStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
 
+func (o WebAclSizeConstraintStatementOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebAclSizeConstraintStatement) []WebAclPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // The size, in byte, to compare to the request part, after any transformations.
 func (o WebAclSizeConstraintStatementOutput) Size() pulumi.Float64Output {
 	return o.ApplyT(func(v WebAclSizeConstraintStatement) float64 { return v.Size }).(pulumi.Float64Output)
@@ -28711,6 +29078,15 @@ func (o WebAclSizeConstraintStatementPtrOutput) FieldToMatch() WebAclFieldToMatc
 	}).(WebAclFieldToMatchPtrOutput)
 }
 
+func (o WebAclSizeConstraintStatementPtrOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebAclSizeConstraintStatement) []WebAclPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // The size, in byte, to compare to the request part, after any transformations.
 func (o WebAclSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *WebAclSizeConstraintStatement) *float64 {
@@ -28734,7 +29110,8 @@ func (o WebAclSizeConstraintStatementPtrOutput) TextTransformations() WebAclText
 // Sqli Match Statement.
 type WebAclSqliMatchStatement struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []WebAclPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
 	// `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
@@ -28761,7 +29138,8 @@ type WebAclSqliMatchStatementInput interface {
 // Sqli Match Statement.
 type WebAclSqliMatchStatementArgs struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations WebAclPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
 	// `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
@@ -28857,6 +29235,12 @@ func (o WebAclSqliMatchStatementOutput) FieldToMatch() WebAclFieldToMatchOutput 
 	return o.ApplyT(func(v WebAclSqliMatchStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
 
+func (o WebAclSqliMatchStatementOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebAclSqliMatchStatement) []WebAclPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 //
 // `HIGH` detects more attacks, but might generate more false positives, especially if your web requests frequently contain unusual strings. For information about identifying and mitigating false positives, see [Testing and tuning](https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-testing.html) in the *AWS WAF Developer Guide* .
@@ -28905,6 +29289,15 @@ func (o WebAclSqliMatchStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrO
 		}
 		return &v.FieldToMatch
 	}).(WebAclFieldToMatchPtrOutput)
+}
+
+func (o WebAclSqliMatchStatementPtrOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebAclSqliMatchStatement) []WebAclPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
 }
 
 // The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
@@ -30139,7 +30532,8 @@ func (o WebAclVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtr
 // Xss Match Statement.
 type WebAclXssMatchStatement struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatch                 `pulumi:"fieldToMatch"`
+	PreParseTextTransformations []WebAclPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []WebAclTextTransformation `pulumi:"textTransformations"`
 }
@@ -30158,7 +30552,8 @@ type WebAclXssMatchStatementInput interface {
 // Xss Match Statement.
 type WebAclXssMatchStatementArgs struct {
 	// The part of the web request that you want AWS WAF to inspect.
-	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
+	FieldToMatch                WebAclFieldToMatchInput                    `pulumi:"fieldToMatch"`
+	PreParseTextTransformations WebAclPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations WebAclTextTransformationArrayInput `pulumi:"textTransformations"`
 }
@@ -30246,6 +30641,12 @@ func (o WebAclXssMatchStatementOutput) FieldToMatch() WebAclFieldToMatchOutput {
 	return o.ApplyT(func(v WebAclXssMatchStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
 
+func (o WebAclXssMatchStatementOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebAclXssMatchStatement) []WebAclPreParseTextTransformation {
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
+}
+
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o WebAclXssMatchStatementOutput) TextTransformations() WebAclTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclXssMatchStatement) []WebAclTextTransformation { return v.TextTransformations }).(WebAclTextTransformationArrayOutput)
@@ -30283,6 +30684,15 @@ func (o WebAclXssMatchStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrOu
 		}
 		return &v.FieldToMatch
 	}).(WebAclFieldToMatchPtrOutput)
+}
+
+func (o WebAclXssMatchStatementPtrOutput) PreParseTextTransformations() WebAclPreParseTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebAclXssMatchStatement) []WebAclPreParseTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.PreParseTextTransformations
+	}).(WebAclPreParseTextTransformationArrayOutput)
 }
 
 // Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
@@ -30392,6 +30802,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOrStatementPtrInput)(nil)).Elem(), RuleGroupOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPaymentNetworkInput)(nil)).Elem(), RuleGroupPaymentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPaymentNetworkArrayInput)(nil)).Elem(), RuleGroupPaymentNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPreParseTextTransformationInput)(nil)).Elem(), RuleGroupPreParseTextTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPreParseTextTransformationArrayInput)(nil)).Elem(), RuleGroupPreParseTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPriceInput)(nil)).Elem(), RuleGroupPriceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPriceArrayInput)(nil)).Elem(), RuleGroupPriceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementInput)(nil)).Elem(), RuleGroupRateBasedStatementArgs{})
@@ -30561,6 +30973,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOverrideActionPtrInput)(nil)).Elem(), WebAclOverrideActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPaymentNetworkInput)(nil)).Elem(), WebAclPaymentNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPaymentNetworkArrayInput)(nil)).Elem(), WebAclPaymentNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPreParseTextTransformationInput)(nil)).Elem(), WebAclPreParseTextTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPreParseTextTransformationArrayInput)(nil)).Elem(), WebAclPreParseTextTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPriceInput)(nil)).Elem(), WebAclPriceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPriceArrayInput)(nil)).Elem(), WebAclPriceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementInput)(nil)).Elem(), WebAclRateBasedStatementArgs{})
@@ -30731,6 +31145,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupOrStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupPaymentNetworkOutput{})
 	pulumi.RegisterOutputType(RuleGroupPaymentNetworkArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupPreParseTextTransformationOutput{})
+	pulumi.RegisterOutputType(RuleGroupPreParseTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupPriceOutput{})
 	pulumi.RegisterOutputType(RuleGroupPriceArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementOutput{})
@@ -30902,6 +31318,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclOverrideActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclPaymentNetworkOutput{})
 	pulumi.RegisterOutputType(WebAclPaymentNetworkArrayOutput{})
+	pulumi.RegisterOutputType(WebAclPreParseTextTransformationOutput{})
+	pulumi.RegisterOutputType(WebAclPreParseTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebAclPriceOutput{})
 	pulumi.RegisterOutputType(WebAclPriceArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementOutput{})

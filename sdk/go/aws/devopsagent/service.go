@@ -23,8 +23,12 @@ type Service struct {
 	AdditionalServiceDetails ServiceAdditionalServiceDetailsOutput `pulumi:"additionalServiceDetails"`
 	// The Amazon Resource Name (ARN) of the Service.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+	ExchangeUrlPrivateConnectionName pulumi.StringPtrOutput `pulumi:"exchangeUrlPrivateConnectionName"`
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The name of the private connection to use for VPC connectivity.
+	PrivateConnectionName pulumi.StringPtrOutput `pulumi:"privateConnectionName"`
 	// Service-specific configuration details for create operation
 	ServiceDetails ServiceDetailsPtrOutput `pulumi:"serviceDetails"`
 	// The unique identifier of the service
@@ -33,6 +37,8 @@ type Service struct {
 	ServiceType ServiceTypeOutput `pulumi:"serviceType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+	TargetUrlPrivateConnectionName pulumi.StringPtrOutput `pulumi:"targetUrlPrivateConnectionName"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -46,13 +52,16 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceType'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"exchangeUrlPrivateConnectionName",
 		"kmsKeyArn",
+		"privateConnectionName",
 		"serviceDetails.azureIdentity",
 		"serviceDetails.dynatrace",
 		"serviceDetails.mcpServerSplunk",
 		"serviceDetails.pagerDuty",
 		"serviceDetails.serviceNow",
 		"serviceType",
+		"targetUrlPrivateConnectionName",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -88,26 +97,38 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+	ExchangeUrlPrivateConnectionName *string `pulumi:"exchangeUrlPrivateConnectionName"`
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The name of the private connection to use for VPC connectivity.
+	PrivateConnectionName *string `pulumi:"privateConnectionName"`
 	// Service-specific configuration details for create operation
 	ServiceDetails *ServiceDetails `pulumi:"serviceDetails"`
 	// The type of service being registered
 	ServiceType ServiceType `pulumi:"serviceType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+	TargetUrlPrivateConnectionName *string `pulumi:"targetUrlPrivateConnectionName"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+	ExchangeUrlPrivateConnectionName pulumi.StringPtrInput
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn pulumi.StringPtrInput
+	// The name of the private connection to use for VPC connectivity.
+	PrivateConnectionName pulumi.StringPtrInput
 	// Service-specific configuration details for create operation
 	ServiceDetails ServiceDetailsPtrInput
 	// The type of service being registered
 	ServiceType ServiceTypeInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+	TargetUrlPrivateConnectionName pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -162,9 +183,19 @@ func (o ServiceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+func (o ServiceOutput) ExchangeUrlPrivateConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ExchangeUrlPrivateConnectionName }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the KMS key to use for encryption.
 func (o ServiceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the private connection to use for VPC connectivity.
+func (o ServiceOutput) PrivateConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.PrivateConnectionName }).(pulumi.StringPtrOutput)
 }
 
 // Service-specific configuration details for create operation
@@ -185,6 +216,11 @@ func (o ServiceOutput) ServiceType() ServiceTypeOutput {
 // An array of key-value pairs to apply to this resource.
 func (o ServiceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+func (o ServiceOutput) TargetUrlPrivateConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.TargetUrlPrivateConnectionName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

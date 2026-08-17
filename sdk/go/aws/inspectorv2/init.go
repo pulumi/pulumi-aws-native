@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CodeSecurityIntegration{}
 	case "aws-native:inspectorv2:CodeSecurityScanConfiguration":
 		r = &CodeSecurityScanConfiguration{}
+	case "aws-native:inspectorv2:Connector":
+		r = &Connector{}
 	case "aws-native:inspectorv2:Filter":
 		r = &Filter{}
 	default:

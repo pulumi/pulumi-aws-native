@@ -28,6 +28,11 @@ __all__ = [
     'DomainConfigurationStatus',
     'EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus',
     'EncryptionConfigurationEncryptionType',
+    'JobAbortCriteriaAction',
+    'JobAbortCriteriaFailureType',
+    'JobRetryCriteriaFailureType',
+    'JobSchedulingConfigEndBehavior',
+    'JobTargetSelection',
     'JobTemplateAction',
     'JobTemplateFailureType',
     'JobTemplateJobRetryFailureType',
@@ -272,6 +277,54 @@ class EncryptionConfigurationEncryptionType(_builtins.str, Enum):
     """
     CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY"
     AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY"
+
+
+@pulumi.type_token("aws-native:iot:JobAbortCriteriaAction")
+class JobAbortCriteriaAction(_builtins.str, Enum):
+    """
+    The type of job action to take to initiate the job abort.
+    """
+    CANCEL = "CANCEL"
+
+
+@pulumi.type_token("aws-native:iot:JobAbortCriteriaFailureType")
+class JobAbortCriteriaFailureType(_builtins.str, Enum):
+    """
+    The type of job execution failures that can initiate a job abort.
+    """
+    FAILED = "FAILED"
+    REJECTED = "REJECTED"
+    TIMED_OUT = "TIMED_OUT"
+    ALL = "ALL"
+
+
+@pulumi.type_token("aws-native:iot:JobRetryCriteriaFailureType")
+class JobRetryCriteriaFailureType(_builtins.str, Enum):
+    """
+    The type of job execution failures that can initiate a job retry.
+    """
+    FAILED = "FAILED"
+    TIMED_OUT = "TIMED_OUT"
+    ALL = "ALL"
+
+
+@pulumi.type_token("aws-native:iot:JobSchedulingConfigEndBehavior")
+class JobSchedulingConfigEndBehavior(_builtins.str, Enum):
+    """
+    Specifies the end behavior for all job executions after a job reaches the selected endTime.
+    """
+    STOP_ROLLOUT = "STOP_ROLLOUT"
+    CANCEL = "CANCEL"
+    FORCE_CANCEL = "FORCE_CANCEL"
+
+
+@pulumi.type_token("aws-native:iot:JobTargetSelection")
+class JobTargetSelection(_builtins.str, Enum):
+    """
+    Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT).
+    """
+    CONTINUOUS = "CONTINUOUS"
+    SNAPSHOT = "SNAPSHOT"
 
 
 @pulumi.type_token("aws-native:iot:JobTemplateAction")

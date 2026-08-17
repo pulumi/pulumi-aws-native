@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// The part of the web request that you want AWS WAF to inspect.
         /// </summary>
         public readonly Outputs.WebAclFieldToMatch FieldToMatch;
+        public readonly ImmutableArray<Outputs.WebAclPreParseTextTransformation> PreParseTextTransformations;
         /// <summary>
         /// The size, in byte, to compare to the request part, after any transformations.
         /// </summary>
@@ -39,12 +40,15 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Outputs.WebAclFieldToMatch fieldToMatch,
 
+            ImmutableArray<Outputs.WebAclPreParseTextTransformation> preParseTextTransformations,
+
             double size,
 
             ImmutableArray<Outputs.WebAclTextTransformation> textTransformations)
         {
             ComparisonOperator = comparisonOperator;
             FieldToMatch = fieldToMatch;
+            PreParseTextTransformations = preParseTextTransformations;
             Size = size;
             TextTransformations = textTransformations;
         }

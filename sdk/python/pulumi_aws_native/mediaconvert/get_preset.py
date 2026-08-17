@@ -23,7 +23,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPresetResult:
-    def __init__(__self__, arn=None, category=None, description=None, id=None, settings_json=None, tags=None):
+    def __init__(__self__, arn=None, category=None, description=None, settings_json=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,9 +33,6 @@ class GetPresetResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if settings_json and not isinstance(settings_json, dict):
             raise TypeError("Expected argument 'settings_json' to be a dict")
         pulumi.set(__self__, "settings_json", settings_json)
@@ -47,7 +44,7 @@ class GetPresetResult:
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+        The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
         """
         return pulumi.get(self, "arn")
 
@@ -68,17 +65,10 @@ class GetPresetResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="settingsJson")
     def settings_json(self) -> Optional[Any]:
         """
         Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-
-        For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         """
@@ -106,18 +96,19 @@ class AwaitableGetPresetResult(GetPresetResult):
             arn=self.arn,
             category=self.category,
             description=self.description,
-            id=self.id,
             settings_json=self.settings_json,
             tags=self.tags)
 
 
-def get_preset(id: Optional[_builtins.str] = None,
+def get_preset(name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPresetResult:
     """
     Resource Type definition for AWS::MediaConvert::Preset
+
+    :param _builtins.str name: The name of the preset that you are modifying.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconvert:getPreset', __args__, opts=opts, typ=GetPresetResult).value
 
@@ -125,22 +116,22 @@ def get_preset(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         category=pulumi.get(__ret__, 'category'),
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
         settings_json=pulumi.get(__ret__, 'settings_json'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_preset_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_preset_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPresetResult]:
     """
     Resource Type definition for AWS::MediaConvert::Preset
+
+    :param _builtins.str name: The name of the preset that you are modifying.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconvert:getPreset', __args__, opts=opts, typ=GetPresetResult)
     return __ret__.apply(lambda __response__: GetPresetResult(
         arn=pulumi.get(__response__, 'arn'),
         category=pulumi.get(__response__, 'category'),
         description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
         settings_json=pulumi.get(__response__, 'settings_json'),
         tags=pulumi.get(__response__, 'tags')))

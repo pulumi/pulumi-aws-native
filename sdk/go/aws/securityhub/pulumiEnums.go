@@ -5144,9 +5144,10 @@ func (o OrganizationConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(c
 type PolicyAssociationAssociationStatus string
 
 const (
-	PolicyAssociationAssociationStatusSuccess = PolicyAssociationAssociationStatus("SUCCESS")
-	PolicyAssociationAssociationStatusPending = PolicyAssociationAssociationStatus("PENDING")
-	PolicyAssociationAssociationStatusFailed  = PolicyAssociationAssociationStatus("FAILED")
+	PolicyAssociationAssociationStatusSuccess  = PolicyAssociationAssociationStatus("SUCCESS")
+	PolicyAssociationAssociationStatusPending  = PolicyAssociationAssociationStatus("PENDING")
+	PolicyAssociationAssociationStatusFailed   = PolicyAssociationAssociationStatus("FAILED")
+	PolicyAssociationAssociationStatusDisabled = PolicyAssociationAssociationStatus("DISABLED")
 )
 
 type PolicyAssociationAssociationStatusOutput struct{ *pulumi.OutputState }

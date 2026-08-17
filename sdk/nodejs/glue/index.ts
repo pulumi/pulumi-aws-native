@@ -15,15 +15,30 @@ export type Catalog = import("./catalog").Catalog;
 export const Catalog: typeof import("./catalog").Catalog = null as any;
 utilities.lazyLoad(exports, ["Catalog"], () => require("./catalog"));
 
+export { ClassifierArgs } from "./classifier";
+export type Classifier = import("./classifier").Classifier;
+export const Classifier: typeof import("./classifier").Classifier = null as any;
+utilities.lazyLoad(exports, ["Classifier"], () => require("./classifier"));
+
 export { CrawlerArgs } from "./crawler";
 export type Crawler = import("./crawler").Crawler;
 export const Crawler: typeof import("./crawler").Crawler = null as any;
 utilities.lazyLoad(exports, ["Crawler"], () => require("./crawler"));
 
+export { CustomEntityTypeArgs } from "./customEntityType";
+export type CustomEntityType = import("./customEntityType").CustomEntityType;
+export const CustomEntityType: typeof import("./customEntityType").CustomEntityType = null as any;
+utilities.lazyLoad(exports, ["CustomEntityType"], () => require("./customEntityType"));
+
 export { DataCatalogEncryptionSettingsArgs } from "./dataCatalogEncryptionSettings";
 export type DataCatalogEncryptionSettings = import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings;
 export const DataCatalogEncryptionSettings: typeof import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings = null as any;
 utilities.lazyLoad(exports, ["DataCatalogEncryptionSettings"], () => require("./dataCatalogEncryptionSettings"));
+
+export { DataQualityRulesetArgs } from "./dataQualityRuleset";
+export type DataQualityRuleset = import("./dataQualityRuleset").DataQualityRuleset;
+export const DataQualityRuleset: typeof import("./dataQualityRuleset").DataQualityRuleset = null as any;
+utilities.lazyLoad(exports, ["DataQualityRuleset"], () => require("./dataQualityRuleset"));
 
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
@@ -40,15 +55,30 @@ export const getCatalog: typeof import("./getCatalog").getCatalog = null as any;
 export const getCatalogOutput: typeof import("./getCatalog").getCatalogOutput = null as any;
 utilities.lazyLoad(exports, ["getCatalog","getCatalogOutput"], () => require("./getCatalog"));
 
+export { GetClassifierArgs, GetClassifierResult, GetClassifierOutputArgs } from "./getClassifier";
+export const getClassifier: typeof import("./getClassifier").getClassifier = null as any;
+export const getClassifierOutput: typeof import("./getClassifier").getClassifierOutput = null as any;
+utilities.lazyLoad(exports, ["getClassifier","getClassifierOutput"], () => require("./getClassifier"));
+
 export { GetCrawlerArgs, GetCrawlerResult, GetCrawlerOutputArgs } from "./getCrawler";
 export const getCrawler: typeof import("./getCrawler").getCrawler = null as any;
 export const getCrawlerOutput: typeof import("./getCrawler").getCrawlerOutput = null as any;
 utilities.lazyLoad(exports, ["getCrawler","getCrawlerOutput"], () => require("./getCrawler"));
 
+export { GetCustomEntityTypeArgs, GetCustomEntityTypeResult, GetCustomEntityTypeOutputArgs } from "./getCustomEntityType";
+export const getCustomEntityType: typeof import("./getCustomEntityType").getCustomEntityType = null as any;
+export const getCustomEntityTypeOutput: typeof import("./getCustomEntityType").getCustomEntityTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomEntityType","getCustomEntityTypeOutput"], () => require("./getCustomEntityType"));
+
 export { GetDataCatalogEncryptionSettingsArgs, GetDataCatalogEncryptionSettingsResult, GetDataCatalogEncryptionSettingsOutputArgs } from "./getDataCatalogEncryptionSettings";
 export const getDataCatalogEncryptionSettings: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettings = null as any;
 export const getDataCatalogEncryptionSettingsOutput: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettingsOutput = null as any;
 utilities.lazyLoad(exports, ["getDataCatalogEncryptionSettings","getDataCatalogEncryptionSettingsOutput"], () => require("./getDataCatalogEncryptionSettings"));
+
+export { GetDataQualityRulesetArgs, GetDataQualityRulesetResult, GetDataQualityRulesetOutputArgs } from "./getDataQualityRuleset";
+export const getDataQualityRuleset: typeof import("./getDataQualityRuleset").getDataQualityRuleset = null as any;
+export const getDataQualityRulesetOutput: typeof import("./getDataQualityRuleset").getDataQualityRulesetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataQualityRuleset","getDataQualityRulesetOutput"], () => require("./getDataQualityRuleset"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -75,6 +105,11 @@ export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
 utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
 
+export { GetMlTransformArgs, GetMlTransformResult, GetMlTransformOutputArgs } from "./getMlTransform";
+export const getMlTransform: typeof import("./getMlTransform").getMlTransform = null as any;
+export const getMlTransformOutput: typeof import("./getMlTransform").getMlTransformOutput = null as any;
+utilities.lazyLoad(exports, ["getMlTransform","getMlTransformOutput"], () => require("./getMlTransform"));
+
 export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
 export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
@@ -90,6 +125,16 @@ export const getSchemaVersion: typeof import("./getSchemaVersion").getSchemaVers
 export const getSchemaVersionOutput: typeof import("./getSchemaVersion").getSchemaVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaVersion","getSchemaVersionOutput"], () => require("./getSchemaVersion"));
 
+export { GetSecurityConfigurationArgs, GetSecurityConfigurationResult, GetSecurityConfigurationOutputArgs } from "./getSecurityConfiguration";
+export const getSecurityConfiguration: typeof import("./getSecurityConfiguration").getSecurityConfiguration = null as any;
+export const getSecurityConfigurationOutput: typeof import("./getSecurityConfiguration").getSecurityConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityConfiguration","getSecurityConfigurationOutput"], () => require("./getSecurityConfiguration"));
+
+export { GetTableOptimizerArgs, GetTableOptimizerResult, GetTableOptimizerOutputArgs } from "./getTableOptimizer";
+export const getTableOptimizer: typeof import("./getTableOptimizer").getTableOptimizer = null as any;
+export const getTableOptimizerOutput: typeof import("./getTableOptimizer").getTableOptimizerOutput = null as any;
+utilities.lazyLoad(exports, ["getTableOptimizer","getTableOptimizerOutput"], () => require("./getTableOptimizer"));
+
 export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
 export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
 export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
@@ -104,6 +149,11 @@ export { GetUserDefinedFunctionArgs, GetUserDefinedFunctionResult, GetUserDefine
 export const getUserDefinedFunction: typeof import("./getUserDefinedFunction").getUserDefinedFunction = null as any;
 export const getUserDefinedFunctionOutput: typeof import("./getUserDefinedFunction").getUserDefinedFunctionOutput = null as any;
 utilities.lazyLoad(exports, ["getUserDefinedFunction","getUserDefinedFunctionOutput"], () => require("./getUserDefinedFunction"));
+
+export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
+export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
+export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
 
 export { IdentityCenterConfigurationArgs } from "./identityCenterConfiguration";
 export type IdentityCenterConfiguration = import("./identityCenterConfiguration").IdentityCenterConfiguration;
@@ -125,6 +175,11 @@ export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
 utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
+export { MlTransformArgs } from "./mlTransform";
+export type MlTransform = import("./mlTransform").MlTransform;
+export const MlTransform: typeof import("./mlTransform").MlTransform = null as any;
+utilities.lazyLoad(exports, ["MlTransform"], () => require("./mlTransform"));
+
 export { RegistryArgs } from "./registry";
 export type Registry = import("./registry").Registry;
 export const Registry: typeof import("./registry").Registry = null as any;
@@ -145,6 +200,16 @@ export type SchemaVersionMetadata = import("./schemaVersionMetadata").SchemaVers
 export const SchemaVersionMetadata: typeof import("./schemaVersionMetadata").SchemaVersionMetadata = null as any;
 utilities.lazyLoad(exports, ["SchemaVersionMetadata"], () => require("./schemaVersionMetadata"));
 
+export { SecurityConfigurationArgs } from "./securityConfiguration";
+export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
+export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
+utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
+
+export { TableOptimizerArgs } from "./tableOptimizer";
+export type TableOptimizer = import("./tableOptimizer").TableOptimizer;
+export const TableOptimizer: typeof import("./tableOptimizer").TableOptimizer = null as any;
+utilities.lazyLoad(exports, ["TableOptimizer"], () => require("./tableOptimizer"));
+
 export { TriggerArgs } from "./trigger";
 export type Trigger = import("./trigger").Trigger;
 export const Trigger: typeof import("./trigger").Trigger = null as any;
@@ -160,6 +225,11 @@ export type UserDefinedFunction = import("./userDefinedFunction").UserDefinedFun
 export const UserDefinedFunction: typeof import("./userDefinedFunction").UserDefinedFunction = null as any;
 utilities.lazyLoad(exports, ["UserDefinedFunction"], () => require("./userDefinedFunction"));
 
+export { WorkflowArgs } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
 
 // Export enums:
 export * from "../types/enums/glue";
@@ -172,10 +242,16 @@ const _module = {
                 return new Blueprint(name, <any>undefined, { urn })
             case "aws-native:glue:Catalog":
                 return new Catalog(name, <any>undefined, { urn })
+            case "aws-native:glue:Classifier":
+                return new Classifier(name, <any>undefined, { urn })
             case "aws-native:glue:Crawler":
                 return new Crawler(name, <any>undefined, { urn })
+            case "aws-native:glue:CustomEntityType":
+                return new CustomEntityType(name, <any>undefined, { urn })
             case "aws-native:glue:DataCatalogEncryptionSettings":
                 return new DataCatalogEncryptionSettings(name, <any>undefined, { urn })
+            case "aws-native:glue:DataQualityRuleset":
+                return new DataQualityRuleset(name, <any>undefined, { urn })
             case "aws-native:glue:Database":
                 return new Database(name, <any>undefined, { urn })
             case "aws-native:glue:IdentityCenterConfiguration":
@@ -186,6 +262,8 @@ const _module = {
                 return new IntegrationResourceProperty(name, <any>undefined, { urn })
             case "aws-native:glue:Job":
                 return new Job(name, <any>undefined, { urn })
+            case "aws-native:glue:MlTransform":
+                return new MlTransform(name, <any>undefined, { urn })
             case "aws-native:glue:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "aws-native:glue:Schema":
@@ -194,12 +272,18 @@ const _module = {
                 return new SchemaVersion(name, <any>undefined, { urn })
             case "aws-native:glue:SchemaVersionMetadata":
                 return new SchemaVersionMetadata(name, <any>undefined, { urn })
+            case "aws-native:glue:SecurityConfiguration":
+                return new SecurityConfiguration(name, <any>undefined, { urn })
+            case "aws-native:glue:TableOptimizer":
+                return new TableOptimizer(name, <any>undefined, { urn })
             case "aws-native:glue:Trigger":
                 return new Trigger(name, <any>undefined, { urn })
             case "aws-native:glue:UsageProfile":
                 return new UsageProfile(name, <any>undefined, { urn })
             case "aws-native:glue:UserDefinedFunction":
                 return new UserDefinedFunction(name, <any>undefined, { urn })
+            case "aws-native:glue:Workflow":
+                return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

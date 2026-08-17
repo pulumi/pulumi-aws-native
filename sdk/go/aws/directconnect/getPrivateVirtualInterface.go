@@ -37,6 +37,8 @@ type LookupPrivateVirtualInterfaceResult struct {
 	EnableSiteLink *bool `pulumi:"enableSiteLink"`
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 	Mtu *int `pulumi:"mtu"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit *string `pulumi:"rateLimit"`
 	// The tags associated with the private virtual interface.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the virtual interface.
@@ -97,6 +99,11 @@ func (o LookupPrivateVirtualInterfaceResultOutput) EnableSiteLink() pulumi.BoolP
 // The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 func (o LookupPrivateVirtualInterfaceResultOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupPrivateVirtualInterfaceResult) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+func (o LookupPrivateVirtualInterfaceResultOutput) RateLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPrivateVirtualInterfaceResult) *string { return v.RateLimit }).(pulumi.StringPtrOutput)
 }
 
 // The tags associated with the private virtual interface.

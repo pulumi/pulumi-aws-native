@@ -113,6 +113,16 @@ export const BotSpeechModelPreference = {
 
 export type BotSpeechModelPreference = (typeof BotSpeechModelPreference)[keyof typeof BotSpeechModelPreference];
 
+export const BotType = {
+    Bot: "Bot",
+    BotNetwork: "BotNetwork",
+} as const;
+
+/**
+ * The type of a bot to create.
+ */
+export type BotType = (typeof BotType)[keyof typeof BotType];
+
 export const BotVoiceSettingsEngine = {
     Standard: "standard",
     Neural: "neural",

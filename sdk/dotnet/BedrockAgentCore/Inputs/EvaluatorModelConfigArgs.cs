@@ -15,8 +15,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class EvaluatorModelConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("bedrockEvaluatorModelConfig", required: true)]
-        public Input<Inputs.EvaluatorBedrockEvaluatorModelConfigArgs> BedrockEvaluatorModelConfig { get; set; } = null!;
+        [Input("bedrockEvaluatorModelConfig")]
+        public Input<Inputs.EvaluatorBedrockEvaluatorModelConfigArgs>? BedrockEvaluatorModelConfig { get; set; }
+
+        [Input("responsesEvaluatorModelConfig")]
+        public Input<Inputs.EvaluatorOpenResponsesEvaluatorModelConfigArgs>? ResponsesEvaluatorModelConfig { get; set; }
 
         public EvaluatorModelConfigArgs()
         {

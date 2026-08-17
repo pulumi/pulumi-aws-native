@@ -10,17 +10,20 @@ import * as utilities from "../utilities";
 export function getPreset(args: GetPresetArgs, opts?: pulumi.InvokeOptions): Promise<GetPresetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconvert:getPreset", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetPresetArgs {
-    id: string;
+    /**
+     * The name of the preset that you are modifying.
+     */
+    name: string;
 }
 
 export interface GetPresetResult {
     /**
-     * The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+     * The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
      */
     readonly arn?: string;
     /**
@@ -31,11 +34,8 @@ export interface GetPresetResult {
      * The new description for the preset, if you are changing it.
      */
     readonly description?: string;
-    readonly id?: string;
     /**
      * Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-     *
-     * For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
      */
@@ -55,10 +55,13 @@ export interface GetPresetResult {
 export function getPresetOutput(args: GetPresetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPresetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediaconvert:getPreset", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetPresetOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the preset that you are modifying.
+     */
+    name: pulumi.Input<string>;
 }

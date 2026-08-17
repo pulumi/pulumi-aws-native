@@ -27,8 +27,12 @@ type Bot struct {
 	BotFileS3Location BotS3LocationPtrOutput `pulumi:"botFileS3Location"`
 	// A list of locales for the bot.
 	BotLocales BotLocaleArrayOutput `pulumi:"botLocales"`
+	// The list of bot members in a network to be created.
+	BotMembers BotMemberArrayOutput `pulumi:"botMembers"`
 	// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 	BotTags aws.TagArrayOutput `pulumi:"botTags"`
+	// The type of a bot to create.
+	BotType BotTypePtrOutput `pulumi:"botType"`
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyPropertiesOutput `pulumi:"dataPrivacy"`
 	// The description of the version.
@@ -67,6 +71,10 @@ func NewBot(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"botType",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bot
 	err := ctx.RegisterResource("aws-native:lex:Bot", name, args, &resource, opts...)
@@ -106,8 +114,12 @@ type botArgs struct {
 	BotFileS3Location *BotS3Location `pulumi:"botFileS3Location"`
 	// A list of locales for the bot.
 	BotLocales []BotLocale `pulumi:"botLocales"`
+	// The list of bot members in a network to be created.
+	BotMembers []BotMember `pulumi:"botMembers"`
 	// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 	BotTags []aws.Tag `pulumi:"botTags"`
+	// The type of a bot to create.
+	BotType *BotType `pulumi:"botType"`
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyProperties `pulumi:"dataPrivacy"`
 	// The description of the version.
@@ -138,8 +150,12 @@ type BotArgs struct {
 	BotFileS3Location BotS3LocationPtrInput
 	// A list of locales for the bot.
 	BotLocales BotLocaleArrayInput
+	// The list of bot members in a network to be created.
+	BotMembers BotMemberArrayInput
 	// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 	BotTags aws.TagArrayInput
+	// The type of a bot to create.
+	BotType BotTypePtrInput
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyPropertiesInput
 	// The description of the version.
@@ -224,9 +240,19 @@ func (o BotOutput) BotLocales() BotLocaleArrayOutput {
 	return o.ApplyT(func(v *Bot) BotLocaleArrayOutput { return v.BotLocales }).(BotLocaleArrayOutput)
 }
 
+// The list of bot members in a network to be created.
+func (o BotOutput) BotMembers() BotMemberArrayOutput {
+	return o.ApplyT(func(v *Bot) BotMemberArrayOutput { return v.BotMembers }).(BotMemberArrayOutput)
+}
+
 // A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
 func (o BotOutput) BotTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Bot) aws.TagArrayOutput { return v.BotTags }).(aws.TagArrayOutput)
+}
+
+// The type of a bot to create.
+func (o BotOutput) BotType() BotTypePtrOutput {
+	return o.ApplyT(func(v *Bot) BotTypePtrOutput { return v.BotType }).(BotTypePtrOutput)
 }
 
 // By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.

@@ -10,86 +10,69 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
+    /// <summary>
+    /// Describes the configuration and state of VPC encryption controls.
+    ///  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+    /// </summary>
     public sealed class VpcEncryptionControlArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The desired exclusion mode for Egress-Only Internet Gateways.
-        /// </summary>
         [Input("egressOnlyInternetGatewayExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlEgressOnlyInternetGatewayExclusion>? EgressOnlyInternetGatewayExclusion { get; set; }
 
-        /// <summary>
-        /// The desired exclusion mode for Elastic File System.
-        /// </summary>
         [Input("elasticFileSystemExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlElasticFileSystemExclusion>? ElasticFileSystemExclusion { get; set; }
 
-        /// <summary>
-        /// The desired exclusion mode for Internet Gateways.
-        /// </summary>
         [Input("internetGatewayExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlInternetGatewayExclusion>? InternetGatewayExclusion { get; set; }
 
-        /// <summary>
-        /// The desired exclusion mode for Lambda.
-        /// </summary>
         [Input("lambdaExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlLambdaExclusion>? LambdaExclusion { get; set; }
 
         /// <summary>
-        /// The mode of the VPC encryption control.
+        /// The encryption mode for the VPC Encryption Control configuration.
         /// </summary>
         [Input("mode")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlMode>? Mode { get; set; }
 
-        /// <summary>
-        /// The desired exclusion mode for NAT Gateways.
-        /// </summary>
         [Input("natGatewayExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlNatGatewayExclusion>? NatGatewayExclusion { get; set; }
 
+        /// <summary>
+        /// Information about resource exclusions for the VPC Encryption Control configuration.
+        /// </summary>
         [Input("resourceExclusions")]
         public Input<Inputs.VpcEncryptionControlExclusionsArgs>? ResourceExclusions { get; set; }
 
         /// <summary>
-        /// The state of the VPC encryption control.
+        /// The current state of the VPC Encryption Control configuration.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// A message describing the state of the VPC encryption control.
+        /// A message providing additional information about the encryption control state.
         /// </summary>
         [Input("stateMessage")]
         public Input<string>? StateMessage { get; set; }
 
-        /// <summary>
-        /// The desired exclusion mode for Virtual Private Gateways.
-        /// </summary>
         [Input("virtualPrivateGatewayExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlVirtualPrivateGatewayExclusion>? VirtualPrivateGatewayExclusion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC encryption control.
+        /// The ID of the VPC Encryption Control configuration.
         /// </summary>
         [Input("vpcEncryptionControlId")]
         public Input<string>? VpcEncryptionControlId { get; set; }
 
         /// <summary>
-        /// The ID of the VPC.
+        /// The ID of the VPC associated with the encryption control configuration.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
-        /// <summary>
-        /// The desired exclusion mode for VPC Lattice.
-        /// </summary>
         [Input("vpcLatticeExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlVpcLatticeExclusion>? VpcLatticeExclusion { get; set; }
 
-        /// <summary>
-        /// The desired exclusion mode for VPC Peering.
-        /// </summary>
         [Input("vpcPeeringExclusion")]
         public Input<Pulumi.AwsNative.Ec2.VpcEncryptionControlVpcPeeringExclusion>? VpcPeeringExclusion { get; set; }
 

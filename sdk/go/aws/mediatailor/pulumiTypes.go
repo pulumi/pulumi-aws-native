@@ -940,6 +940,730 @@ func (o ChannelTimeShiftConfigurationPtrOutput) MaxTimeDelaySeconds() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Configuration for custom output functions.
+type FunctionCustomOutputConfiguration struct {
+	// A map of output key-value pairs that define the custom output.
+	Output map[string]string `pulumi:"output"`
+	// The runtime environment for the function expression language.
+	Runtime FunctionRuntimeType `pulumi:"runtime"`
+}
+
+// FunctionCustomOutputConfigurationInput is an input type that accepts FunctionCustomOutputConfigurationArgs and FunctionCustomOutputConfigurationOutput values.
+// You can construct a concrete instance of `FunctionCustomOutputConfigurationInput` via:
+//
+//	FunctionCustomOutputConfigurationArgs{...}
+type FunctionCustomOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionCustomOutputConfigurationOutput() FunctionCustomOutputConfigurationOutput
+	ToFunctionCustomOutputConfigurationOutputWithContext(context.Context) FunctionCustomOutputConfigurationOutput
+}
+
+// Configuration for custom output functions.
+type FunctionCustomOutputConfigurationArgs struct {
+	// A map of output key-value pairs that define the custom output.
+	Output pulumi.StringMapInput `pulumi:"output"`
+	// The runtime environment for the function expression language.
+	Runtime FunctionRuntimeTypeInput `pulumi:"runtime"`
+}
+
+func (FunctionCustomOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCustomOutputConfiguration)(nil)).Elem()
+}
+
+func (i FunctionCustomOutputConfigurationArgs) ToFunctionCustomOutputConfigurationOutput() FunctionCustomOutputConfigurationOutput {
+	return i.ToFunctionCustomOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i FunctionCustomOutputConfigurationArgs) ToFunctionCustomOutputConfigurationOutputWithContext(ctx context.Context) FunctionCustomOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCustomOutputConfigurationOutput)
+}
+
+func (i FunctionCustomOutputConfigurationArgs) ToFunctionCustomOutputConfigurationPtrOutput() FunctionCustomOutputConfigurationPtrOutput {
+	return i.ToFunctionCustomOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionCustomOutputConfigurationArgs) ToFunctionCustomOutputConfigurationPtrOutputWithContext(ctx context.Context) FunctionCustomOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCustomOutputConfigurationOutput).ToFunctionCustomOutputConfigurationPtrOutputWithContext(ctx)
+}
+
+// FunctionCustomOutputConfigurationPtrInput is an input type that accepts FunctionCustomOutputConfigurationArgs, FunctionCustomOutputConfigurationPtr and FunctionCustomOutputConfigurationPtrOutput values.
+// You can construct a concrete instance of `FunctionCustomOutputConfigurationPtrInput` via:
+//
+//	        FunctionCustomOutputConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionCustomOutputConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFunctionCustomOutputConfigurationPtrOutput() FunctionCustomOutputConfigurationPtrOutput
+	ToFunctionCustomOutputConfigurationPtrOutputWithContext(context.Context) FunctionCustomOutputConfigurationPtrOutput
+}
+
+type functionCustomOutputConfigurationPtrType FunctionCustomOutputConfigurationArgs
+
+func FunctionCustomOutputConfigurationPtr(v *FunctionCustomOutputConfigurationArgs) FunctionCustomOutputConfigurationPtrInput {
+	return (*functionCustomOutputConfigurationPtrType)(v)
+}
+
+func (*functionCustomOutputConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCustomOutputConfiguration)(nil)).Elem()
+}
+
+func (i *functionCustomOutputConfigurationPtrType) ToFunctionCustomOutputConfigurationPtrOutput() FunctionCustomOutputConfigurationPtrOutput {
+	return i.ToFunctionCustomOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *functionCustomOutputConfigurationPtrType) ToFunctionCustomOutputConfigurationPtrOutputWithContext(ctx context.Context) FunctionCustomOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCustomOutputConfigurationPtrOutput)
+}
+
+// Configuration for custom output functions.
+type FunctionCustomOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FunctionCustomOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCustomOutputConfiguration)(nil)).Elem()
+}
+
+func (o FunctionCustomOutputConfigurationOutput) ToFunctionCustomOutputConfigurationOutput() FunctionCustomOutputConfigurationOutput {
+	return o
+}
+
+func (o FunctionCustomOutputConfigurationOutput) ToFunctionCustomOutputConfigurationOutputWithContext(ctx context.Context) FunctionCustomOutputConfigurationOutput {
+	return o
+}
+
+func (o FunctionCustomOutputConfigurationOutput) ToFunctionCustomOutputConfigurationPtrOutput() FunctionCustomOutputConfigurationPtrOutput {
+	return o.ToFunctionCustomOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionCustomOutputConfigurationOutput) ToFunctionCustomOutputConfigurationPtrOutputWithContext(ctx context.Context) FunctionCustomOutputConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionCustomOutputConfiguration) *FunctionCustomOutputConfiguration {
+		return &v
+	}).(FunctionCustomOutputConfigurationPtrOutput)
+}
+
+// A map of output key-value pairs that define the custom output.
+func (o FunctionCustomOutputConfigurationOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionCustomOutputConfiguration) map[string]string { return v.Output }).(pulumi.StringMapOutput)
+}
+
+// The runtime environment for the function expression language.
+func (o FunctionCustomOutputConfigurationOutput) Runtime() FunctionRuntimeTypeOutput {
+	return o.ApplyT(func(v FunctionCustomOutputConfiguration) FunctionRuntimeType { return v.Runtime }).(FunctionRuntimeTypeOutput)
+}
+
+type FunctionCustomOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionCustomOutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCustomOutputConfiguration)(nil)).Elem()
+}
+
+func (o FunctionCustomOutputConfigurationPtrOutput) ToFunctionCustomOutputConfigurationPtrOutput() FunctionCustomOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionCustomOutputConfigurationPtrOutput) ToFunctionCustomOutputConfigurationPtrOutputWithContext(ctx context.Context) FunctionCustomOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionCustomOutputConfigurationPtrOutput) Elem() FunctionCustomOutputConfigurationOutput {
+	return o.ApplyT(func(v *FunctionCustomOutputConfiguration) FunctionCustomOutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionCustomOutputConfiguration
+		return ret
+	}).(FunctionCustomOutputConfigurationOutput)
+}
+
+// A map of output key-value pairs that define the custom output.
+func (o FunctionCustomOutputConfigurationPtrOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionCustomOutputConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(pulumi.StringMapOutput)
+}
+
+// The runtime environment for the function expression language.
+func (o FunctionCustomOutputConfigurationPtrOutput) Runtime() FunctionRuntimeTypePtrOutput {
+	return o.ApplyT(func(v *FunctionCustomOutputConfiguration) *FunctionRuntimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(FunctionRuntimeTypePtrOutput)
+}
+
+// Configuration for HTTP request functions.
+type FunctionHttpRequestConfiguration struct {
+	// The body of the HTTP request.
+	Body *string `pulumi:"body"`
+	// A map of HTTP headers to include in the request.
+	Headers map[string]string `pulumi:"headers"`
+	// The HTTP method type for the request.
+	MethodType FunctionMethodType `pulumi:"methodType"`
+	// A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
+	Output map[string]string `pulumi:"output"`
+	// The timeout in milliseconds for the HTTP request. Maximum value is 2000.
+	RequestTimeoutMilliseconds int `pulumi:"requestTimeoutMilliseconds"`
+	// The runtime environment for the function expression language.
+	Runtime FunctionRuntimeType `pulumi:"runtime"`
+	// The URL endpoint for the HTTP request.
+	Url string `pulumi:"url"`
+}
+
+// FunctionHttpRequestConfigurationInput is an input type that accepts FunctionHttpRequestConfigurationArgs and FunctionHttpRequestConfigurationOutput values.
+// You can construct a concrete instance of `FunctionHttpRequestConfigurationInput` via:
+//
+//	FunctionHttpRequestConfigurationArgs{...}
+type FunctionHttpRequestConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionHttpRequestConfigurationOutput() FunctionHttpRequestConfigurationOutput
+	ToFunctionHttpRequestConfigurationOutputWithContext(context.Context) FunctionHttpRequestConfigurationOutput
+}
+
+// Configuration for HTTP request functions.
+type FunctionHttpRequestConfigurationArgs struct {
+	// The body of the HTTP request.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// A map of HTTP headers to include in the request.
+	Headers pulumi.StringMapInput `pulumi:"headers"`
+	// The HTTP method type for the request.
+	MethodType FunctionMethodTypeInput `pulumi:"methodType"`
+	// A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
+	Output pulumi.StringMapInput `pulumi:"output"`
+	// The timeout in milliseconds for the HTTP request. Maximum value is 2000.
+	RequestTimeoutMilliseconds pulumi.IntInput `pulumi:"requestTimeoutMilliseconds"`
+	// The runtime environment for the function expression language.
+	Runtime FunctionRuntimeTypeInput `pulumi:"runtime"`
+	// The URL endpoint for the HTTP request.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FunctionHttpRequestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionHttpRequestConfiguration)(nil)).Elem()
+}
+
+func (i FunctionHttpRequestConfigurationArgs) ToFunctionHttpRequestConfigurationOutput() FunctionHttpRequestConfigurationOutput {
+	return i.ToFunctionHttpRequestConfigurationOutputWithContext(context.Background())
+}
+
+func (i FunctionHttpRequestConfigurationArgs) ToFunctionHttpRequestConfigurationOutputWithContext(ctx context.Context) FunctionHttpRequestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionHttpRequestConfigurationOutput)
+}
+
+func (i FunctionHttpRequestConfigurationArgs) ToFunctionHttpRequestConfigurationPtrOutput() FunctionHttpRequestConfigurationPtrOutput {
+	return i.ToFunctionHttpRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionHttpRequestConfigurationArgs) ToFunctionHttpRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionHttpRequestConfigurationOutput).ToFunctionHttpRequestConfigurationPtrOutputWithContext(ctx)
+}
+
+// FunctionHttpRequestConfigurationPtrInput is an input type that accepts FunctionHttpRequestConfigurationArgs, FunctionHttpRequestConfigurationPtr and FunctionHttpRequestConfigurationPtrOutput values.
+// You can construct a concrete instance of `FunctionHttpRequestConfigurationPtrInput` via:
+//
+//	        FunctionHttpRequestConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionHttpRequestConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFunctionHttpRequestConfigurationPtrOutput() FunctionHttpRequestConfigurationPtrOutput
+	ToFunctionHttpRequestConfigurationPtrOutputWithContext(context.Context) FunctionHttpRequestConfigurationPtrOutput
+}
+
+type functionHttpRequestConfigurationPtrType FunctionHttpRequestConfigurationArgs
+
+func FunctionHttpRequestConfigurationPtr(v *FunctionHttpRequestConfigurationArgs) FunctionHttpRequestConfigurationPtrInput {
+	return (*functionHttpRequestConfigurationPtrType)(v)
+}
+
+func (*functionHttpRequestConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionHttpRequestConfiguration)(nil)).Elem()
+}
+
+func (i *functionHttpRequestConfigurationPtrType) ToFunctionHttpRequestConfigurationPtrOutput() FunctionHttpRequestConfigurationPtrOutput {
+	return i.ToFunctionHttpRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *functionHttpRequestConfigurationPtrType) ToFunctionHttpRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionHttpRequestConfigurationPtrOutput)
+}
+
+// Configuration for HTTP request functions.
+type FunctionHttpRequestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FunctionHttpRequestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionHttpRequestConfiguration)(nil)).Elem()
+}
+
+func (o FunctionHttpRequestConfigurationOutput) ToFunctionHttpRequestConfigurationOutput() FunctionHttpRequestConfigurationOutput {
+	return o
+}
+
+func (o FunctionHttpRequestConfigurationOutput) ToFunctionHttpRequestConfigurationOutputWithContext(ctx context.Context) FunctionHttpRequestConfigurationOutput {
+	return o
+}
+
+func (o FunctionHttpRequestConfigurationOutput) ToFunctionHttpRequestConfigurationPtrOutput() FunctionHttpRequestConfigurationPtrOutput {
+	return o.ToFunctionHttpRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionHttpRequestConfigurationOutput) ToFunctionHttpRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionHttpRequestConfiguration) *FunctionHttpRequestConfiguration {
+		return &v
+	}).(FunctionHttpRequestConfigurationPtrOutput)
+}
+
+// The body of the HTTP request.
+func (o FunctionHttpRequestConfigurationOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// A map of HTTP headers to include in the request.
+func (o FunctionHttpRequestConfigurationOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+// The HTTP method type for the request.
+func (o FunctionHttpRequestConfigurationOutput) MethodType() FunctionMethodTypeOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) FunctionMethodType { return v.MethodType }).(FunctionMethodTypeOutput)
+}
+
+// A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
+func (o FunctionHttpRequestConfigurationOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) map[string]string { return v.Output }).(pulumi.StringMapOutput)
+}
+
+// The timeout in milliseconds for the HTTP request. Maximum value is 2000.
+func (o FunctionHttpRequestConfigurationOutput) RequestTimeoutMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) int { return v.RequestTimeoutMilliseconds }).(pulumi.IntOutput)
+}
+
+// The runtime environment for the function expression language.
+func (o FunctionHttpRequestConfigurationOutput) Runtime() FunctionRuntimeTypeOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) FunctionRuntimeType { return v.Runtime }).(FunctionRuntimeTypeOutput)
+}
+
+// The URL endpoint for the HTTP request.
+func (o FunctionHttpRequestConfigurationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionHttpRequestConfiguration) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FunctionHttpRequestConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionHttpRequestConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionHttpRequestConfiguration)(nil)).Elem()
+}
+
+func (o FunctionHttpRequestConfigurationPtrOutput) ToFunctionHttpRequestConfigurationPtrOutput() FunctionHttpRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionHttpRequestConfigurationPtrOutput) ToFunctionHttpRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionHttpRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionHttpRequestConfigurationPtrOutput) Elem() FunctionHttpRequestConfigurationOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) FunctionHttpRequestConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionHttpRequestConfiguration
+		return ret
+	}).(FunctionHttpRequestConfigurationOutput)
+}
+
+// The body of the HTTP request.
+func (o FunctionHttpRequestConfigurationPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of HTTP headers to include in the request.
+func (o FunctionHttpRequestConfigurationPtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+// The HTTP method type for the request.
+func (o FunctionHttpRequestConfigurationPtrOutput) MethodType() FunctionMethodTypePtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) *FunctionMethodType {
+		if v == nil {
+			return nil
+		}
+		return &v.MethodType
+	}).(FunctionMethodTypePtrOutput)
+}
+
+// A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
+func (o FunctionHttpRequestConfigurationPtrOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(pulumi.StringMapOutput)
+}
+
+// The timeout in milliseconds for the HTTP request. Maximum value is 2000.
+func (o FunctionHttpRequestConfigurationPtrOutput) RequestTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RequestTimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The runtime environment for the function expression language.
+func (o FunctionHttpRequestConfigurationPtrOutput) Runtime() FunctionRuntimeTypePtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) *FunctionRuntimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(FunctionRuntimeTypePtrOutput)
+}
+
+// The URL endpoint for the HTTP request.
+func (o FunctionHttpRequestConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionHttpRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// A reference to a function with an optional run condition.
+type FunctionRef struct {
+	// The identifier of the function to execute.
+	FunctionId *string `pulumi:"functionId"`
+	// A conditional expression that determines whether this function should execute.
+	RunCondition *string `pulumi:"runCondition"`
+}
+
+// FunctionRefInput is an input type that accepts FunctionRefArgs and FunctionRefOutput values.
+// You can construct a concrete instance of `FunctionRefInput` via:
+//
+//	FunctionRefArgs{...}
+type FunctionRefInput interface {
+	pulumi.Input
+
+	ToFunctionRefOutput() FunctionRefOutput
+	ToFunctionRefOutputWithContext(context.Context) FunctionRefOutput
+}
+
+// A reference to a function with an optional run condition.
+type FunctionRefArgs struct {
+	// The identifier of the function to execute.
+	FunctionId pulumi.StringPtrInput `pulumi:"functionId"`
+	// A conditional expression that determines whether this function should execute.
+	RunCondition pulumi.StringPtrInput `pulumi:"runCondition"`
+}
+
+func (FunctionRefArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRef)(nil)).Elem()
+}
+
+func (i FunctionRefArgs) ToFunctionRefOutput() FunctionRefOutput {
+	return i.ToFunctionRefOutputWithContext(context.Background())
+}
+
+func (i FunctionRefArgs) ToFunctionRefOutputWithContext(ctx context.Context) FunctionRefOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRefOutput)
+}
+
+// FunctionRefArrayInput is an input type that accepts FunctionRefArray and FunctionRefArrayOutput values.
+// You can construct a concrete instance of `FunctionRefArrayInput` via:
+//
+//	FunctionRefArray{ FunctionRefArgs{...} }
+type FunctionRefArrayInput interface {
+	pulumi.Input
+
+	ToFunctionRefArrayOutput() FunctionRefArrayOutput
+	ToFunctionRefArrayOutputWithContext(context.Context) FunctionRefArrayOutput
+}
+
+type FunctionRefArray []FunctionRefInput
+
+func (FunctionRefArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionRef)(nil)).Elem()
+}
+
+func (i FunctionRefArray) ToFunctionRefArrayOutput() FunctionRefArrayOutput {
+	return i.ToFunctionRefArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionRefArray) ToFunctionRefArrayOutputWithContext(ctx context.Context) FunctionRefArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRefArrayOutput)
+}
+
+// A reference to a function with an optional run condition.
+type FunctionRefOutput struct{ *pulumi.OutputState }
+
+func (FunctionRefOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRef)(nil)).Elem()
+}
+
+func (o FunctionRefOutput) ToFunctionRefOutput() FunctionRefOutput {
+	return o
+}
+
+func (o FunctionRefOutput) ToFunctionRefOutputWithContext(ctx context.Context) FunctionRefOutput {
+	return o
+}
+
+// The identifier of the function to execute.
+func (o FunctionRefOutput) FunctionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionRef) *string { return v.FunctionId }).(pulumi.StringPtrOutput)
+}
+
+// A conditional expression that determines whether this function should execute.
+func (o FunctionRefOutput) RunCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionRef) *string { return v.RunCondition }).(pulumi.StringPtrOutput)
+}
+
+type FunctionRefArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionRefArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionRef)(nil)).Elem()
+}
+
+func (o FunctionRefArrayOutput) ToFunctionRefArrayOutput() FunctionRefArrayOutput {
+	return o
+}
+
+func (o FunctionRefArrayOutput) ToFunctionRefArrayOutputWithContext(ctx context.Context) FunctionRefArrayOutput {
+	return o
+}
+
+func (o FunctionRefArrayOutput) Index(i pulumi.IntInput) FunctionRefOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionRef {
+		return vs[0].([]FunctionRef)[vs[1].(int)]
+	}).(FunctionRefOutput)
+}
+
+// Configuration for sequential executor functions.
+type FunctionSequentialExecutorConfiguration struct {
+	// The list of functions to execute sequentially.
+	FunctionList []FunctionRef `pulumi:"functionList"`
+	// A map of output key-value pairs that define the final output from sequential execution.
+	Output map[string]string `pulumi:"output"`
+	// The runtime environment for the function expression language.
+	Runtime FunctionRuntimeType `pulumi:"runtime"`
+	// The timeout in milliseconds for the entire sequential execution chain.
+	TimeoutMilliseconds int `pulumi:"timeoutMilliseconds"`
+}
+
+// FunctionSequentialExecutorConfigurationInput is an input type that accepts FunctionSequentialExecutorConfigurationArgs and FunctionSequentialExecutorConfigurationOutput values.
+// You can construct a concrete instance of `FunctionSequentialExecutorConfigurationInput` via:
+//
+//	FunctionSequentialExecutorConfigurationArgs{...}
+type FunctionSequentialExecutorConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionSequentialExecutorConfigurationOutput() FunctionSequentialExecutorConfigurationOutput
+	ToFunctionSequentialExecutorConfigurationOutputWithContext(context.Context) FunctionSequentialExecutorConfigurationOutput
+}
+
+// Configuration for sequential executor functions.
+type FunctionSequentialExecutorConfigurationArgs struct {
+	// The list of functions to execute sequentially.
+	FunctionList FunctionRefArrayInput `pulumi:"functionList"`
+	// A map of output key-value pairs that define the final output from sequential execution.
+	Output pulumi.StringMapInput `pulumi:"output"`
+	// The runtime environment for the function expression language.
+	Runtime FunctionRuntimeTypeInput `pulumi:"runtime"`
+	// The timeout in milliseconds for the entire sequential execution chain.
+	TimeoutMilliseconds pulumi.IntInput `pulumi:"timeoutMilliseconds"`
+}
+
+func (FunctionSequentialExecutorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSequentialExecutorConfiguration)(nil)).Elem()
+}
+
+func (i FunctionSequentialExecutorConfigurationArgs) ToFunctionSequentialExecutorConfigurationOutput() FunctionSequentialExecutorConfigurationOutput {
+	return i.ToFunctionSequentialExecutorConfigurationOutputWithContext(context.Background())
+}
+
+func (i FunctionSequentialExecutorConfigurationArgs) ToFunctionSequentialExecutorConfigurationOutputWithContext(ctx context.Context) FunctionSequentialExecutorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSequentialExecutorConfigurationOutput)
+}
+
+func (i FunctionSequentialExecutorConfigurationArgs) ToFunctionSequentialExecutorConfigurationPtrOutput() FunctionSequentialExecutorConfigurationPtrOutput {
+	return i.ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionSequentialExecutorConfigurationArgs) ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionSequentialExecutorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSequentialExecutorConfigurationOutput).ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(ctx)
+}
+
+// FunctionSequentialExecutorConfigurationPtrInput is an input type that accepts FunctionSequentialExecutorConfigurationArgs, FunctionSequentialExecutorConfigurationPtr and FunctionSequentialExecutorConfigurationPtrOutput values.
+// You can construct a concrete instance of `FunctionSequentialExecutorConfigurationPtrInput` via:
+//
+//	        FunctionSequentialExecutorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionSequentialExecutorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFunctionSequentialExecutorConfigurationPtrOutput() FunctionSequentialExecutorConfigurationPtrOutput
+	ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(context.Context) FunctionSequentialExecutorConfigurationPtrOutput
+}
+
+type functionSequentialExecutorConfigurationPtrType FunctionSequentialExecutorConfigurationArgs
+
+func FunctionSequentialExecutorConfigurationPtr(v *FunctionSequentialExecutorConfigurationArgs) FunctionSequentialExecutorConfigurationPtrInput {
+	return (*functionSequentialExecutorConfigurationPtrType)(v)
+}
+
+func (*functionSequentialExecutorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionSequentialExecutorConfiguration)(nil)).Elem()
+}
+
+func (i *functionSequentialExecutorConfigurationPtrType) ToFunctionSequentialExecutorConfigurationPtrOutput() FunctionSequentialExecutorConfigurationPtrOutput {
+	return i.ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *functionSequentialExecutorConfigurationPtrType) ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionSequentialExecutorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSequentialExecutorConfigurationPtrOutput)
+}
+
+// Configuration for sequential executor functions.
+type FunctionSequentialExecutorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FunctionSequentialExecutorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSequentialExecutorConfiguration)(nil)).Elem()
+}
+
+func (o FunctionSequentialExecutorConfigurationOutput) ToFunctionSequentialExecutorConfigurationOutput() FunctionSequentialExecutorConfigurationOutput {
+	return o
+}
+
+func (o FunctionSequentialExecutorConfigurationOutput) ToFunctionSequentialExecutorConfigurationOutputWithContext(ctx context.Context) FunctionSequentialExecutorConfigurationOutput {
+	return o
+}
+
+func (o FunctionSequentialExecutorConfigurationOutput) ToFunctionSequentialExecutorConfigurationPtrOutput() FunctionSequentialExecutorConfigurationPtrOutput {
+	return o.ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionSequentialExecutorConfigurationOutput) ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionSequentialExecutorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionSequentialExecutorConfiguration) *FunctionSequentialExecutorConfiguration {
+		return &v
+	}).(FunctionSequentialExecutorConfigurationPtrOutput)
+}
+
+// The list of functions to execute sequentially.
+func (o FunctionSequentialExecutorConfigurationOutput) FunctionList() FunctionRefArrayOutput {
+	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) []FunctionRef { return v.FunctionList }).(FunctionRefArrayOutput)
+}
+
+// A map of output key-value pairs that define the final output from sequential execution.
+func (o FunctionSequentialExecutorConfigurationOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) map[string]string { return v.Output }).(pulumi.StringMapOutput)
+}
+
+// The runtime environment for the function expression language.
+func (o FunctionSequentialExecutorConfigurationOutput) Runtime() FunctionRuntimeTypeOutput {
+	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) FunctionRuntimeType { return v.Runtime }).(FunctionRuntimeTypeOutput)
+}
+
+// The timeout in milliseconds for the entire sequential execution chain.
+func (o FunctionSequentialExecutorConfigurationOutput) TimeoutMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) int { return v.TimeoutMilliseconds }).(pulumi.IntOutput)
+}
+
+type FunctionSequentialExecutorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionSequentialExecutorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionSequentialExecutorConfiguration)(nil)).Elem()
+}
+
+func (o FunctionSequentialExecutorConfigurationPtrOutput) ToFunctionSequentialExecutorConfigurationPtrOutput() FunctionSequentialExecutorConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionSequentialExecutorConfigurationPtrOutput) ToFunctionSequentialExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionSequentialExecutorConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionSequentialExecutorConfigurationPtrOutput) Elem() FunctionSequentialExecutorConfigurationOutput {
+	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) FunctionSequentialExecutorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionSequentialExecutorConfiguration
+		return ret
+	}).(FunctionSequentialExecutorConfigurationOutput)
+}
+
+// The list of functions to execute sequentially.
+func (o FunctionSequentialExecutorConfigurationPtrOutput) FunctionList() FunctionRefArrayOutput {
+	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) []FunctionRef {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionList
+	}).(FunctionRefArrayOutput)
+}
+
+// A map of output key-value pairs that define the final output from sequential execution.
+func (o FunctionSequentialExecutorConfigurationPtrOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(pulumi.StringMapOutput)
+}
+
+// The runtime environment for the function expression language.
+func (o FunctionSequentialExecutorConfigurationPtrOutput) Runtime() FunctionRuntimeTypePtrOutput {
+	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) *FunctionRuntimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(FunctionRuntimeTypePtrOutput)
+}
+
+// The timeout in milliseconds for the entire sequential execution chain.
+func (o FunctionSequentialExecutorConfigurationPtrOutput) TimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type FunctionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // <p>The HTTP package configuration properties for the requested VOD source.</p>
 type LiveSourceHttpPackageConfiguration struct {
 	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
@@ -1637,6 +2361,391 @@ func (o PlaybackConfigurationAdsInteractionLogPtrOutput) PublishOptInEventTypes(
 		}
 		return v.PublishOptInEventTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+type PlaybackConfigurationAdsPersonalizationConcurrency struct {
+	// Enables parallel processing of ADS requests in VOD workflows when the ADS returns VAST responses. The default is false.
+	EnableVodVastParallelization *bool `pulumi:"enableVodVastParallelization"`
+	// The maximum number of simultaneous requests that MediaTailor makes to the ADS for each manifest request. The default is 1.
+	MaxConcurrentAdsRequests *int `pulumi:"maxConcurrentAdsRequests"`
+}
+
+// PlaybackConfigurationAdsPersonalizationConcurrencyInput is an input type that accepts PlaybackConfigurationAdsPersonalizationConcurrencyArgs and PlaybackConfigurationAdsPersonalizationConcurrencyOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdsPersonalizationConcurrencyInput` via:
+//
+//	PlaybackConfigurationAdsPersonalizationConcurrencyArgs{...}
+type PlaybackConfigurationAdsPersonalizationConcurrencyInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdsPersonalizationConcurrencyOutput() PlaybackConfigurationAdsPersonalizationConcurrencyOutput
+	ToPlaybackConfigurationAdsPersonalizationConcurrencyOutputWithContext(context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyOutput
+}
+
+// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+type PlaybackConfigurationAdsPersonalizationConcurrencyArgs struct {
+	// Enables parallel processing of ADS requests in VOD workflows when the ADS returns VAST responses. The default is false.
+	EnableVodVastParallelization pulumi.BoolPtrInput `pulumi:"enableVodVastParallelization"`
+	// The maximum number of simultaneous requests that MediaTailor makes to the ADS for each manifest request. The default is 1.
+	MaxConcurrentAdsRequests pulumi.IntPtrInput `pulumi:"maxConcurrentAdsRequests"`
+}
+
+func (PlaybackConfigurationAdsPersonalizationConcurrencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationConcurrency)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationAdsPersonalizationConcurrencyArgs) ToPlaybackConfigurationAdsPersonalizationConcurrencyOutput() PlaybackConfigurationAdsPersonalizationConcurrencyOutput {
+	return i.ToPlaybackConfigurationAdsPersonalizationConcurrencyOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdsPersonalizationConcurrencyArgs) ToPlaybackConfigurationAdsPersonalizationConcurrencyOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsPersonalizationConcurrencyOutput)
+}
+
+func (i PlaybackConfigurationAdsPersonalizationConcurrencyArgs) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput() PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return i.ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdsPersonalizationConcurrencyArgs) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsPersonalizationConcurrencyOutput).ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationAdsPersonalizationConcurrencyPtrInput is an input type that accepts PlaybackConfigurationAdsPersonalizationConcurrencyArgs, PlaybackConfigurationAdsPersonalizationConcurrencyPtr and PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdsPersonalizationConcurrencyPtrInput` via:
+//
+//	        PlaybackConfigurationAdsPersonalizationConcurrencyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationAdsPersonalizationConcurrencyPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput() PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput
+	ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput
+}
+
+type playbackConfigurationAdsPersonalizationConcurrencyPtrType PlaybackConfigurationAdsPersonalizationConcurrencyArgs
+
+func PlaybackConfigurationAdsPersonalizationConcurrencyPtr(v *PlaybackConfigurationAdsPersonalizationConcurrencyArgs) PlaybackConfigurationAdsPersonalizationConcurrencyPtrInput {
+	return (*playbackConfigurationAdsPersonalizationConcurrencyPtrType)(v)
+}
+
+func (*playbackConfigurationAdsPersonalizationConcurrencyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdsPersonalizationConcurrency)(nil)).Elem()
+}
+
+func (i *playbackConfigurationAdsPersonalizationConcurrencyPtrType) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput() PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return i.ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationAdsPersonalizationConcurrencyPtrType) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput)
+}
+
+// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+type PlaybackConfigurationAdsPersonalizationConcurrencyOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdsPersonalizationConcurrencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationConcurrency)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyOutput) ToPlaybackConfigurationAdsPersonalizationConcurrencyOutput() PlaybackConfigurationAdsPersonalizationConcurrencyOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyOutput) ToPlaybackConfigurationAdsPersonalizationConcurrencyOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyOutput) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput() PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return o.ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyOutput) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAdsPersonalizationConcurrency) *PlaybackConfigurationAdsPersonalizationConcurrency {
+		return &v
+	}).(PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput)
+}
+
+// Enables parallel processing of ADS requests in VOD workflows when the ADS returns VAST responses. The default is false.
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyOutput) EnableVodVastParallelization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsPersonalizationConcurrency) *bool {
+		return v.EnableVodVastParallelization
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of simultaneous requests that MediaTailor makes to the ADS for each manifest request. The default is 1.
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyOutput) MaxConcurrentAdsRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsPersonalizationConcurrency) *int { return v.MaxConcurrentAdsRequests }).(pulumi.IntPtrOutput)
+}
+
+type PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdsPersonalizationConcurrency)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput() PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput) ToPlaybackConfigurationAdsPersonalizationConcurrencyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput) Elem() PlaybackConfigurationAdsPersonalizationConcurrencyOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationConcurrency) PlaybackConfigurationAdsPersonalizationConcurrency {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationAdsPersonalizationConcurrency
+		return ret
+	}).(PlaybackConfigurationAdsPersonalizationConcurrencyOutput)
+}
+
+// Enables parallel processing of ADS requests in VOD workflows when the ADS returns VAST responses. The default is false.
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput) EnableVodVastParallelization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationConcurrency) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableVodVastParallelization
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum number of simultaneous requests that MediaTailor makes to the ADS for each manifest request. The default is 1.
+func (o PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput) MaxConcurrentAdsRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationConcurrency) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentAdsRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+type PlaybackConfigurationAdsPersonalizationTimeouts struct {
+	// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during live or VOD playback. The default is 3000.
+	AdsRequestTimeoutMilliseconds *int `pulumi:"adsRequestTimeoutMilliseconds"`
+	// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for live manifests. The default is 10000.
+	LiveMaximumAdsPersonalizationTimeMilliseconds *int `pulumi:"liveMaximumAdsPersonalizationTimeMilliseconds"`
+	// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during prefetch retrieval. If not set, MediaTailor uses the AdsRequestTimeoutMilliseconds value.
+	PrefetchAdsRequestTimeoutMilliseconds *int `pulumi:"prefetchAdsRequestTimeoutMilliseconds"`
+	// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity during prefetch retrieval.
+	PrefetchMaximumAdsPersonalizationTimeMilliseconds *int `pulumi:"prefetchMaximumAdsPersonalizationTimeMilliseconds"`
+	// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for VOD manifests. The default is 10000.
+	VodMaximumAdsPersonalizationTimeMilliseconds *int `pulumi:"vodMaximumAdsPersonalizationTimeMilliseconds"`
+}
+
+// PlaybackConfigurationAdsPersonalizationTimeoutsInput is an input type that accepts PlaybackConfigurationAdsPersonalizationTimeoutsArgs and PlaybackConfigurationAdsPersonalizationTimeoutsOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdsPersonalizationTimeoutsInput` via:
+//
+//	PlaybackConfigurationAdsPersonalizationTimeoutsArgs{...}
+type PlaybackConfigurationAdsPersonalizationTimeoutsInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdsPersonalizationTimeoutsOutput() PlaybackConfigurationAdsPersonalizationTimeoutsOutput
+	ToPlaybackConfigurationAdsPersonalizationTimeoutsOutputWithContext(context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsOutput
+}
+
+// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+type PlaybackConfigurationAdsPersonalizationTimeoutsArgs struct {
+	// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during live or VOD playback. The default is 3000.
+	AdsRequestTimeoutMilliseconds pulumi.IntPtrInput `pulumi:"adsRequestTimeoutMilliseconds"`
+	// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for live manifests. The default is 10000.
+	LiveMaximumAdsPersonalizationTimeMilliseconds pulumi.IntPtrInput `pulumi:"liveMaximumAdsPersonalizationTimeMilliseconds"`
+	// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during prefetch retrieval. If not set, MediaTailor uses the AdsRequestTimeoutMilliseconds value.
+	PrefetchAdsRequestTimeoutMilliseconds pulumi.IntPtrInput `pulumi:"prefetchAdsRequestTimeoutMilliseconds"`
+	// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity during prefetch retrieval.
+	PrefetchMaximumAdsPersonalizationTimeMilliseconds pulumi.IntPtrInput `pulumi:"prefetchMaximumAdsPersonalizationTimeMilliseconds"`
+	// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for VOD manifests. The default is 10000.
+	VodMaximumAdsPersonalizationTimeMilliseconds pulumi.IntPtrInput `pulumi:"vodMaximumAdsPersonalizationTimeMilliseconds"`
+}
+
+func (PlaybackConfigurationAdsPersonalizationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationTimeouts)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationAdsPersonalizationTimeoutsArgs) ToPlaybackConfigurationAdsPersonalizationTimeoutsOutput() PlaybackConfigurationAdsPersonalizationTimeoutsOutput {
+	return i.ToPlaybackConfigurationAdsPersonalizationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdsPersonalizationTimeoutsArgs) ToPlaybackConfigurationAdsPersonalizationTimeoutsOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsPersonalizationTimeoutsOutput)
+}
+
+func (i PlaybackConfigurationAdsPersonalizationTimeoutsArgs) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput() PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return i.ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdsPersonalizationTimeoutsArgs) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsPersonalizationTimeoutsOutput).ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput is an input type that accepts PlaybackConfigurationAdsPersonalizationTimeoutsArgs, PlaybackConfigurationAdsPersonalizationTimeoutsPtr and PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput` via:
+//
+//	        PlaybackConfigurationAdsPersonalizationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput() PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput
+	ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput
+}
+
+type playbackConfigurationAdsPersonalizationTimeoutsPtrType PlaybackConfigurationAdsPersonalizationTimeoutsArgs
+
+func PlaybackConfigurationAdsPersonalizationTimeoutsPtr(v *PlaybackConfigurationAdsPersonalizationTimeoutsArgs) PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput {
+	return (*playbackConfigurationAdsPersonalizationTimeoutsPtrType)(v)
+}
+
+func (*playbackConfigurationAdsPersonalizationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdsPersonalizationTimeouts)(nil)).Elem()
+}
+
+func (i *playbackConfigurationAdsPersonalizationTimeoutsPtrType) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput() PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return i.ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationAdsPersonalizationTimeoutsPtrType) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput)
+}
+
+// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+type PlaybackConfigurationAdsPersonalizationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdsPersonalizationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationTimeouts)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) ToPlaybackConfigurationAdsPersonalizationTimeoutsOutput() PlaybackConfigurationAdsPersonalizationTimeoutsOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) ToPlaybackConfigurationAdsPersonalizationTimeoutsOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput() PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return o.ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAdsPersonalizationTimeouts) *PlaybackConfigurationAdsPersonalizationTimeouts {
+		return &v
+	}).(PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during live or VOD playback. The default is 3000.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) AdsRequestTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsPersonalizationTimeouts) *int { return v.AdsRequestTimeoutMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for live manifests. The default is 10000.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) LiveMaximumAdsPersonalizationTimeMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		return v.LiveMaximumAdsPersonalizationTimeMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during prefetch retrieval. If not set, MediaTailor uses the AdsRequestTimeoutMilliseconds value.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) PrefetchAdsRequestTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		return v.PrefetchAdsRequestTimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity during prefetch retrieval.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) PrefetchMaximumAdsPersonalizationTimeMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		return v.PrefetchMaximumAdsPersonalizationTimeMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for VOD manifests. The default is 10000.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsOutput) VodMaximumAdsPersonalizationTimeMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		return v.VodMaximumAdsPersonalizationTimeMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdsPersonalizationTimeouts)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput() PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) ToPlaybackConfigurationAdsPersonalizationTimeoutsPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) Elem() PlaybackConfigurationAdsPersonalizationTimeoutsOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationTimeouts) PlaybackConfigurationAdsPersonalizationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationAdsPersonalizationTimeouts
+		return ret
+	}).(PlaybackConfigurationAdsPersonalizationTimeoutsOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during live or VOD playback. The default is 3000.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) AdsRequestTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AdsRequestTimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for live manifests. The default is 10000.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) LiveMaximumAdsPersonalizationTimeMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LiveMaximumAdsPersonalizationTimeMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during prefetch retrieval. If not set, MediaTailor uses the AdsRequestTimeoutMilliseconds value.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) PrefetchAdsRequestTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PrefetchAdsRequestTimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity during prefetch retrieval.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) PrefetchMaximumAdsPersonalizationTimeMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PrefetchMaximumAdsPersonalizationTimeMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for VOD manifests. The default is 10000.
+func (o PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput) VodMaximumAdsPersonalizationTimeMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdsPersonalizationTimeouts) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VodMaximumAdsPersonalizationTimeMilliseconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
@@ -4152,6 +5261,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourcePtrInput)(nil)).Elem(), ChannelSlateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationPtrInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCustomOutputConfigurationInput)(nil)).Elem(), FunctionCustomOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCustomOutputConfigurationPtrInput)(nil)).Elem(), FunctionCustomOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionHttpRequestConfigurationInput)(nil)).Elem(), FunctionHttpRequestConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionHttpRequestConfigurationPtrInput)(nil)).Elem(), FunctionHttpRequestConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRefInput)(nil)).Elem(), FunctionRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRefArrayInput)(nil)).Elem(), FunctionRefArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSequentialExecutorConfigurationInput)(nil)).Elem(), FunctionSequentialExecutorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSequentialExecutorConfigurationPtrInput)(nil)).Elem(), FunctionSequentialExecutorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdConditioningConfigurationInput)(nil)).Elem(), PlaybackConfigurationAdConditioningConfigurationArgs{})
@@ -4162,6 +5279,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughPtrInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsInteractionLogInput)(nil)).Elem(), PlaybackConfigurationAdsInteractionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsInteractionLogPtrInput)(nil)).Elem(), PlaybackConfigurationAdsInteractionLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationConcurrencyInput)(nil)).Elem(), PlaybackConfigurationAdsPersonalizationConcurrencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationConcurrencyPtrInput)(nil)).Elem(), PlaybackConfigurationAdsPersonalizationConcurrencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationTimeoutsInput)(nil)).Elem(), PlaybackConfigurationAdsPersonalizationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput)(nil)).Elem(), PlaybackConfigurationAdsPersonalizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionPtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationBumperInput)(nil)).Elem(), PlaybackConfigurationBumperArgs{})
@@ -4205,6 +5326,14 @@ func init() {
 	pulumi.RegisterOutputType(ChannelSlateSourcePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FunctionCustomOutputConfigurationOutput{})
+	pulumi.RegisterOutputType(FunctionCustomOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FunctionHttpRequestConfigurationOutput{})
+	pulumi.RegisterOutputType(FunctionHttpRequestConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FunctionRefOutput{})
+	pulumi.RegisterOutputType(FunctionRefArrayOutput{})
+	pulumi.RegisterOutputType(FunctionSequentialExecutorConfigurationOutput{})
+	pulumi.RegisterOutputType(FunctionSequentialExecutorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdConditioningConfigurationOutput{})
@@ -4215,6 +5344,10 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdsInteractionLogOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdsInteractionLogPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdsPersonalizationConcurrencyOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdsPersonalizationTimeoutsOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationBumperOutput{})

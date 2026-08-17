@@ -4872,7 +4872,8 @@ func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntP
 
 type DomainSoftwareUpdateOptions struct {
 	// Specifies whether automatic service software updates are enabled for the domain.
-	AutoSoftwareUpdateEnabled *bool `pulumi:"autoSoftwareUpdateEnabled"`
+	AutoSoftwareUpdateEnabled            *bool `pulumi:"autoSoftwareUpdateEnabled"`
+	UseLatestServiceSoftwareForBlueGreen *bool `pulumi:"useLatestServiceSoftwareForBlueGreen"`
 }
 
 // DomainSoftwareUpdateOptionsInput is an input type that accepts DomainSoftwareUpdateOptionsArgs and DomainSoftwareUpdateOptionsOutput values.
@@ -4888,7 +4889,8 @@ type DomainSoftwareUpdateOptionsInput interface {
 
 type DomainSoftwareUpdateOptionsArgs struct {
 	// Specifies whether automatic service software updates are enabled for the domain.
-	AutoSoftwareUpdateEnabled pulumi.BoolPtrInput `pulumi:"autoSoftwareUpdateEnabled"`
+	AutoSoftwareUpdateEnabled            pulumi.BoolPtrInput `pulumi:"autoSoftwareUpdateEnabled"`
+	UseLatestServiceSoftwareForBlueGreen pulumi.BoolPtrInput `pulumi:"useLatestServiceSoftwareForBlueGreen"`
 }
 
 func (DomainSoftwareUpdateOptionsArgs) ElementType() reflect.Type {
@@ -4973,6 +4975,10 @@ func (o DomainSoftwareUpdateOptionsOutput) AutoSoftwareUpdateEnabled() pulumi.Bo
 	return o.ApplyT(func(v DomainSoftwareUpdateOptions) *bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolPtrOutput)
 }
 
+func (o DomainSoftwareUpdateOptionsOutput) UseLatestServiceSoftwareForBlueGreen() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainSoftwareUpdateOptions) *bool { return v.UseLatestServiceSoftwareForBlueGreen }).(pulumi.BoolPtrOutput)
+}
+
 type DomainSoftwareUpdateOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainSoftwareUpdateOptionsPtrOutput) ElementType() reflect.Type {
@@ -5004,6 +5010,15 @@ func (o DomainSoftwareUpdateOptionsPtrOutput) AutoSoftwareUpdateEnabled() pulumi
 			return nil
 		}
 		return v.AutoSoftwareUpdateEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) UseLatestServiceSoftwareForBlueGreen() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLatestServiceSoftwareForBlueGreen
 	}).(pulumi.BoolPtrOutput)
 }
 

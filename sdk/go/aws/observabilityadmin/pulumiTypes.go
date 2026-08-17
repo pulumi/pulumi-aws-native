@@ -1012,6 +1012,7 @@ func (o OrganizationCentralizationRuleLogsBackupConfigurationPtrOutput) Region()
 type OrganizationCentralizationRuleLogsEncryptionConfiguration struct {
 	// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
 	EncryptionConflictResolutionStrategy *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy `pulumi:"encryptionConflictResolutionStrategy"`
+	EncryptionScope                      *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope                      `pulumi:"encryptionScope"`
 	// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
 	EncryptionStrategy OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy `pulumi:"encryptionStrategy"`
 	// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
@@ -1032,6 +1033,7 @@ type OrganizationCentralizationRuleLogsEncryptionConfigurationInput interface {
 type OrganizationCentralizationRuleLogsEncryptionConfigurationArgs struct {
 	// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
 	EncryptionConflictResolutionStrategy OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrInput `pulumi:"encryptionConflictResolutionStrategy"`
+	EncryptionScope                      OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrInput                      `pulumi:"encryptionScope"`
 	// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
 	EncryptionStrategy OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyInput `pulumi:"encryptionStrategy"`
 	// KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
@@ -1122,6 +1124,12 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationOutput) Encrypt
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput)
 }
 
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationOutput) EncryptionScope() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleLogsEncryptionConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope {
+		return v.EncryptionScope
+	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput)
+}
+
 // Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
 func (o OrganizationCentralizationRuleLogsEncryptionConfigurationOutput) EncryptionStrategy() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyOutput {
 	return o.ApplyT(func(v OrganizationCentralizationRuleLogsEncryptionConfiguration) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy {
@@ -1166,6 +1174,15 @@ func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) Encr
 		}
 		return v.EncryptionConflictResolutionStrategy
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput)
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput) EncryptionScope() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleLogsEncryptionConfiguration) *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionScope
+	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput)
 }
 
 // Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
@@ -3208,6 +3225,7 @@ type OrganizationTelemetryRuleTelemetryDestinationConfiguration struct {
 	DestinationType *OrganizationTelemetryRuleDestinationType `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
+	KmsKeyArn                        *string                                                    `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
 	LogDeliveryParameters *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
@@ -3239,6 +3257,7 @@ type OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	DestinationType OrganizationTelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
+	KmsKeyArn                        pulumi.StringPtrInput                                             `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
 	LogDeliveryParameters OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
@@ -3355,6 +3374,10 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoa
 	}).(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // Parameters for log delivery configuration
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) LogDeliveryParameters() OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
@@ -3443,6 +3466,15 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Elb
 		}
 		return v.ElbLoadBalancerLoggingParameters
 	}).(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Parameters for log delivery configuration
@@ -6583,6 +6615,7 @@ type TelemetryRuleTelemetryDestinationConfiguration struct {
 	DestinationType *TelemetryRuleDestinationType `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *TelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
+	KmsKeyArn                        *string                                        `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
 	LogDeliveryParameters *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
@@ -6614,6 +6647,7 @@ type TelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	DestinationType TelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
 	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters TelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
+	KmsKeyArn                        pulumi.StringPtrInput                                 `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
 	LogDeliveryParameters TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
 	// The number of days to retain the telemetry data in the destination.
@@ -6728,6 +6762,10 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoadBalancerLog
 	}).(TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
 }
 
+func (o TelemetryRuleTelemetryDestinationConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // Parameters for log delivery configuration
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) LogDeliveryParameters() TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties {
@@ -6816,6 +6854,15 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) ElbLoadBalancer
 		}
 		return v.ElbLoadBalancerLoggingParameters
 	}).(TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Parameters for log delivery configuration

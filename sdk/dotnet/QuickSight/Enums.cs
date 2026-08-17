@@ -8750,6 +8750,90 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DlpSettingDlpAction : IEquatable<DlpSettingDlpAction>
+    {
+        private readonly string _value;
+
+        private DlpSettingDlpAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DlpSettingDlpAction Allow { get; } = new DlpSettingDlpAction("ALLOW");
+        public static DlpSettingDlpAction Warn { get; } = new DlpSettingDlpAction("WARN");
+        public static DlpSettingDlpAction Block { get; } = new DlpSettingDlpAction("BLOCK");
+
+        public static bool operator ==(DlpSettingDlpAction left, DlpSettingDlpAction right) => left.Equals(right);
+        public static bool operator !=(DlpSettingDlpAction left, DlpSettingDlpAction right) => !left.Equals(right);
+
+        public static explicit operator string(DlpSettingDlpAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DlpSettingDlpAction other && Equals(other);
+        public bool Equals(DlpSettingDlpAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DlpSettingDlpProviderType : IEquatable<DlpSettingDlpProviderType>
+    {
+        private readonly string _value;
+
+        private DlpSettingDlpProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DlpSettingDlpProviderType MicrosoftPurview { get; } = new DlpSettingDlpProviderType("MICROSOFT_PURVIEW");
+
+        public static bool operator ==(DlpSettingDlpProviderType left, DlpSettingDlpProviderType right) => left.Equals(right);
+        public static bool operator !=(DlpSettingDlpProviderType left, DlpSettingDlpProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(DlpSettingDlpProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DlpSettingDlpProviderType other && Equals(other);
+        public bool Equals(DlpSettingDlpProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DlpSettingStatus : IEquatable<DlpSettingStatus>
+    {
+        private readonly string _value;
+
+        private DlpSettingStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DlpSettingStatus Active { get; } = new DlpSettingStatus("ACTIVE");
+        public static DlpSettingStatus Inactive { get; } = new DlpSettingStatus("INACTIVE");
+
+        public static bool operator ==(DlpSettingStatus left, DlpSettingStatus right) => left.Equals(right);
+        public static bool operator !=(DlpSettingStatus left, DlpSettingStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DlpSettingStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DlpSettingStatus other && Equals(other);
+        public bool Equals(DlpSettingStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FlowPublishState : IEquatable<FlowPublishState>
     {
         private readonly string _value;
@@ -13194,6 +13278,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static TopicFilterClass EnforcedValueFilter { get; } = new TopicFilterClass("ENFORCED_VALUE_FILTER");
         public static TopicFilterClass ConditionalValueFilter { get; } = new TopicFilterClass("CONDITIONAL_VALUE_FILTER");
         public static TopicFilterClass NamedValueFilter { get; } = new TopicFilterClass("NAMED_VALUE_FILTER");
+        public static TopicFilterClass DashboardDefaultFilter { get; } = new TopicFilterClass("DASHBOARD_DEFAULT_FILTER");
 
         public static bool operator ==(TopicFilterClass left, TopicFilterClass right) => left.Equals(right);
         public static bool operator !=(TopicFilterClass left, TopicFilterClass right) => !left.Equals(right);
@@ -13302,6 +13387,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static TopicNamedFilterType NumericRangeFilter { get; } = new TopicNamedFilterType("NUMERIC_RANGE_FILTER");
         public static TopicNamedFilterType DateRangeFilter { get; } = new TopicNamedFilterType("DATE_RANGE_FILTER");
         public static TopicNamedFilterType RelativeDateFilter { get; } = new TopicNamedFilterType("RELATIVE_DATE_FILTER");
+        public static TopicNamedFilterType NullFilter { get; } = new TopicNamedFilterType("NULL_FILTER");
 
         public static bool operator ==(TopicNamedFilterType left, TopicNamedFilterType right) => left.Equals(right);
         public static bool operator !=(TopicNamedFilterType left, TopicNamedFilterType right) => !left.Equals(right);

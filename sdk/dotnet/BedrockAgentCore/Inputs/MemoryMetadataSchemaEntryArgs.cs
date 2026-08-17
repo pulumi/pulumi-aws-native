@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("extractionConfig")]
         public Input<Inputs.MemoryExtractionConfigArgs>? ExtractionConfig { get; set; }
 
+        [Input("extractionType")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.MemoryExtractionType>? ExtractionType { get; set; }
+
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

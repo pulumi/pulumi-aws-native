@@ -403,6 +403,7 @@ export const ObjectTypeKeyStandardIdentifiersItem = {
     LoyaltyPromotion: "LOYALTY_PROMOTION",
     WebAnalytics: "WEB_ANALYTICS",
     Device: "DEVICE",
+    CommunicationRecord: "COMMUNICATION_RECORD",
 } as const;
 
 export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];

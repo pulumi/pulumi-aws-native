@@ -29,6 +29,27 @@ export const ChannelTier = {
 
 export type ChannelTier = (typeof ChannelTier)[keyof typeof ChannelTier];
 
+export const FunctionMethodType = {
+    Get: "GET",
+    Post: "POST",
+} as const;
+
+export type FunctionMethodType = (typeof FunctionMethodType)[keyof typeof FunctionMethodType];
+
+export const FunctionRuntimeType = {
+    Jsonata: "JSONATA",
+} as const;
+
+export type FunctionRuntimeType = (typeof FunctionRuntimeType)[keyof typeof FunctionRuntimeType];
+
+export const FunctionType = {
+    HttpRequest: "HTTP_REQUEST",
+    CustomOutput: "CUSTOM_OUTPUT",
+    SequentialExecutor: "SEQUENTIAL_EXECUTOR",
+} as const;
+
+export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
+
 export const LiveSourceType = {
     Dash: "DASH",
     Hls: "HLS",

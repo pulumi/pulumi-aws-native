@@ -71,15 +71,22 @@ namespace Pulumi.AwsNative.InspectorV2
         /// Code Security Scan Configuration
         /// </summary>
         public readonly Outputs.CodeSecurityScanConfiguration? Configuration;
+        /// <summary>
+        /// The tags to apply to the scan configuration.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetCodeSecurityScanConfigurationResult(
             string? arn,
 
-            Outputs.CodeSecurityScanConfiguration? configuration)
+            Outputs.CodeSecurityScanConfiguration? configuration,
+
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Configuration = configuration;
+            Tags = tags;
         }
     }
 }

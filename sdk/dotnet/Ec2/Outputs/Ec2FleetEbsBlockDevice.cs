@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// <summary>
         /// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
         /// </summary>
-        public readonly Pulumi.AwsNative.Ec2.Ec2FleetEbsBlockDeviceVolumeType? VolumeType;
+        public readonly string? VolumeType;
 
         [OutputConstructor]
         private Ec2FleetEbsBlockDevice(
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             int? volumeSize,
 
-            Pulumi.AwsNative.Ec2.Ec2FleetEbsBlockDeviceVolumeType? volumeType)
+            string? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
             Encrypted = encrypted;

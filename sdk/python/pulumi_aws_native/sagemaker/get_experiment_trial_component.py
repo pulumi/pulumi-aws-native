@@ -15,7 +15,6 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
-from ._enums import *
 
 __all__ = [
     'GetExperimentTrialComponentResult',
@@ -26,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExperimentTrialComponentResult:
-    def __init__(__self__, arn=None, creation_time=None, display_name=None, end_time=None, last_modified_time=None, lineage_group_arn=None, start_time=None, status=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, display_name=None, end_time=None, id=None, last_modified_time=None, lineage_group_arn=None, start_time=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +38,9 @@ class GetExperimentTrialComponentResult:
         if end_time and not isinstance(end_time, str):
             raise TypeError("Expected argument 'end_time' to be a str")
         pulumi.set(__self__, "end_time", end_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -58,73 +60,51 @@ class GetExperimentTrialComponentResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the trial component.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[_builtins.str]:
-        """
-        When the component was created.
-        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[_builtins.str]:
-        """
-        The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[_builtins.str]:
-        """
-        When the component ended.
-        """
         return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[_builtins.str]:
-        """
-        When the component was last modified.
-        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter(name="lineageGroupArn")
     def lineage_group_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the lineage group.
-        """
         return pulumi.get(self, "lineage_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[_builtins.str]:
-        """
-        When the component started.
-        """
         return pulumi.get(self, "start_time")
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional['outputs.StatusProperties']:
-        """
-        The status of the trial component.
-        """
+    def status(self) -> Optional['outputs.ExperimentTrialComponentStatus']:
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        A list of tags to associate with the component.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -138,6 +118,7 @@ class AwaitableGetExperimentTrialComponentResult(GetExperimentTrialComponentResu
             creation_time=self.creation_time,
             display_name=self.display_name,
             end_time=self.end_time,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             lineage_group_arn=self.lineage_group_arn,
             start_time=self.start_time,
@@ -145,15 +126,13 @@ class AwaitableGetExperimentTrialComponentResult(GetExperimentTrialComponentResu
             tags=self.tags)
 
 
-def get_experiment_trial_component(arn: Optional[_builtins.str] = None,
+def get_experiment_trial_component(id: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentTrialComponentResult:
     """
-    Resource type definition for AWS SageMaker Experiment Trial Component
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the trial component.
+    Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
     """
     __args__ = dict()
-    __args__['arn'] = arn
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getExperimentTrialComponent', __args__, opts=opts, typ=GetExperimentTrialComponentResult).value
 
@@ -162,20 +141,19 @@ def get_experiment_trial_component(arn: Optional[_builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         display_name=pulumi.get(__ret__, 'display_name'),
         end_time=pulumi.get(__ret__, 'end_time'),
+        id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         lineage_group_arn=pulumi.get(__ret__, 'lineage_group_arn'),
         start_time=pulumi.get(__ret__, 'start_time'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_experiment_trial_component_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+def get_experiment_trial_component_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentTrialComponentResult]:
     """
-    Resource type definition for AWS SageMaker Experiment Trial Component
-
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the trial component.
+    Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
     """
     __args__ = dict()
-    __args__['arn'] = arn
+    __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getExperimentTrialComponent', __args__, opts=opts, typ=GetExperimentTrialComponentResult)
     return __ret__.apply(lambda __response__: GetExperimentTrialComponentResult(
@@ -183,6 +161,7 @@ def get_experiment_trial_component_output(arn: pulumi.Input[Optional[_builtins.s
         creation_time=pulumi.get(__response__, 'creation_time'),
         display_name=pulumi.get(__response__, 'display_name'),
         end_time=pulumi.get(__response__, 'end_time'),
+        id=pulumi.get(__response__, 'id'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         lineage_group_arn=pulumi.get(__response__, 'lineage_group_arn'),
         start_time=pulumi.get(__response__, 'start_time'),

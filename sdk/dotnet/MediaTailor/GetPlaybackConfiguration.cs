@@ -73,6 +73,14 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly string? AdDecisionServerUrl;
         /// <summary>
+        /// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        /// </summary>
+        public readonly Outputs.PlaybackConfigurationAdsPersonalizationConcurrency? AdsPersonalizationConcurrency;
+        /// <summary>
+        /// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+        /// </summary>
+        public readonly Outputs.PlaybackConfigurationAdsPersonalizationTimeouts? AdsPersonalizationTimeouts;
+        /// <summary>
         /// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         /// </summary>
         public readonly Outputs.PlaybackConfigurationAvailSuppression? AvailSuppression;
@@ -157,6 +165,10 @@ namespace Pulumi.AwsNative.MediaTailor
 
             string? adDecisionServerUrl,
 
+            Outputs.PlaybackConfigurationAdsPersonalizationConcurrency? adsPersonalizationConcurrency,
+
+            Outputs.PlaybackConfigurationAdsPersonalizationTimeouts? adsPersonalizationTimeouts,
+
             Outputs.PlaybackConfigurationAvailSuppression? availSuppression,
 
             Outputs.PlaybackConfigurationBumper? bumper,
@@ -198,6 +210,8 @@ namespace Pulumi.AwsNative.MediaTailor
             AdConditioningConfiguration = adConditioningConfiguration;
             AdDecisionServerConfiguration = adDecisionServerConfiguration;
             AdDecisionServerUrl = adDecisionServerUrl;
+            AdsPersonalizationConcurrency = adsPersonalizationConcurrency;
+            AdsPersonalizationTimeouts = adsPersonalizationTimeouts;
             AvailSuppression = availSuppression;
             Bumper = bumper;
             CdnConfiguration = cdnConfiguration;

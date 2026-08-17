@@ -963,6 +963,27 @@
       "minLength" : 1,
       "maxLength" : 2048
     },
+    "PrivateConnectionName" : {
+      "description" : "The name of the private connection to use for VPC connectivity.",
+      "type" : "string",
+      "minLength" : 3,
+      "maxLength" : 30,
+      "pattern" : "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$"
+    },
+    "TargetUrlPrivateConnectionName" : {
+      "description" : "The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.",
+      "type" : "string",
+      "minLength" : 3,
+      "maxLength" : 30,
+      "pattern" : "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$"
+    },
+    "ExchangeUrlPrivateConnectionName" : {
+      "description" : "The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.",
+      "type" : "string",
+      "minLength" : 3,
+      "maxLength" : 30,
+      "pattern" : "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$"
+    },
     "Arn" : {
       "description" : "The Amazon Resource Name (ARN) of the Service.",
       "type" : "string"
@@ -988,8 +1009,8 @@
   },
   "required" : [ "ServiceType" ],
   "readOnlyProperties" : [ "/properties/ServiceId", "/properties/AccessibleResources", "/properties/AdditionalServiceDetails", "/properties/Arn" ],
-  "writeOnlyProperties" : [ "/properties/ServiceDetails" ],
-  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails/Dynatrace", "/properties/ServiceDetails/MCPServerSplunk", "/properties/ServiceDetails/ServiceNow", "/properties/ServiceDetails/PagerDuty", "/properties/ServiceDetails/AzureIdentity", "/properties/KmsKeyArn" ],
+  "writeOnlyProperties" : [ "/properties/ServiceDetails", "/properties/TargetUrlPrivateConnectionName", "/properties/ExchangeUrlPrivateConnectionName" ],
+  "createOnlyProperties" : [ "/properties/ServiceType", "/properties/ServiceDetails/Dynatrace", "/properties/ServiceDetails/MCPServerSplunk", "/properties/ServiceDetails/ServiceNow", "/properties/ServiceDetails/PagerDuty", "/properties/ServiceDetails/AzureIdentity", "/properties/KmsKeyArn", "/properties/PrivateConnectionName", "/properties/TargetUrlPrivateConnectionName", "/properties/ExchangeUrlPrivateConnectionName" ],
   "primaryIdentifier" : [ "/properties/ServiceId" ],
   "handlers" : {
     "create" : {

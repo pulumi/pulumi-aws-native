@@ -18,6 +18,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebAclFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
+        [Input("preParseTextTransformations")]
+        private InputList<Inputs.WebAclPreParseTextTransformationArgs>? _preParseTextTransformations;
+        public InputList<Inputs.WebAclPreParseTextTransformationArgs> PreParseTextTransformations
+        {
+            get => _preParseTextTransformations ?? (_preParseTextTransformations = new InputList<Inputs.WebAclPreParseTextTransformationArgs>());
+            set => _preParseTextTransformations = value;
+        }
+
         /// <summary>
         /// The string representing the regular expression.
         /// </summary>

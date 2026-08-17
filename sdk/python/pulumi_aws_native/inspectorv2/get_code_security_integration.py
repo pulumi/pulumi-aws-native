@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCodeSecurityIntegrationResult:
-    def __init__(__self__, arn=None, authorization_url=None, created_at=None, last_updated_at=None, name=None, status=None, status_reason=None, type=None):
+    def __init__(__self__, arn=None, authorization_url=None, created_at=None, last_updated_at=None, name=None, status=None, status_reason=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetCodeSecurityIntegrationResult:
         if status_reason and not isinstance(status_reason, str):
             raise TypeError("Expected argument 'status_reason' to be a str")
         pulumi.set(__self__, "status_reason", status_reason)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -108,6 +111,14 @@ class GetCodeSecurityIntegrationResult:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The tags to apply to the code security integration.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
     def type(self) -> Optional['CodeSecurityIntegrationIntegrationType']:
         """
         Integration Type
@@ -128,6 +139,7 @@ class AwaitableGetCodeSecurityIntegrationResult(GetCodeSecurityIntegrationResult
             name=self.name,
             status=self.status,
             status_reason=self.status_reason,
+            tags=self.tags,
             type=self.type)
 
 
@@ -151,6 +163,7 @@ def get_code_security_integration(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_code_security_integration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSecurityIntegrationResult]:
@@ -171,4 +184,5 @@ def get_code_security_integration_output(arn: pulumi.Input[Optional[_builtins.st
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),
         status_reason=pulumi.get(__response__, 'status_reason'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

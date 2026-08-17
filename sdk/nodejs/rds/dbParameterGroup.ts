@@ -41,6 +41,7 @@ export class DbParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DbParameterGroup.__pulumiType;
     }
 
+    declare public /*out*/ readonly dbParameterGroupArn: pulumi.Output<string>;
     /**
      * The name of the DB parameter group.
      *  Constraints:
@@ -116,7 +117,9 @@ export class DbParameterGroup extends pulumi.CustomResource {
             resourceInputs["family"] = args?.family;
             resourceInputs["parameters"] = args?.parameters;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["dbParameterGroupArn"] = undefined /*out*/;
         } else {
+            resourceInputs["dbParameterGroupArn"] = undefined /*out*/;
             resourceInputs["dbParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;

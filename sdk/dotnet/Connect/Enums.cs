@@ -476,6 +476,7 @@ namespace Pulumi.AwsNative.Connect
         public static EvaluationFormLanguageConfigurationFormLanguage JaJp { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ja-JP");
         public static EvaluationFormLanguageConfigurationFormLanguage KoKr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ko-KR");
         public static EvaluationFormLanguageConfigurationFormLanguage ZhCn { get; } = new EvaluationFormLanguageConfigurationFormLanguage("zh-CN");
+        public static EvaluationFormLanguageConfigurationFormLanguage MsMy { get; } = new EvaluationFormLanguageConfigurationFormLanguage("ms-MY");
 
         public static bool operator ==(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => left.Equals(right);
         public static bool operator !=(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => !left.Equals(right);

@@ -20,6 +20,11 @@ export const getReviewTemplate: typeof import("./getReviewTemplate").getReviewTe
 export const getReviewTemplateOutput: typeof import("./getReviewTemplate").getReviewTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getReviewTemplate","getReviewTemplateOutput"], () => require("./getReviewTemplate"));
 
+export { GetWorkloadArgs, GetWorkloadResult, GetWorkloadOutputArgs } from "./getWorkload";
+export const getWorkload: typeof import("./getWorkload").getWorkload = null as any;
+export const getWorkloadOutput: typeof import("./getWorkload").getWorkloadOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkload","getWorkloadOutput"], () => require("./getWorkload"));
+
 export { LensArgs } from "./lens";
 export type Lens = import("./lens").Lens;
 export const Lens: typeof import("./lens").Lens = null as any;
@@ -35,6 +40,11 @@ export type ReviewTemplate = import("./reviewTemplate").ReviewTemplate;
 export const ReviewTemplate: typeof import("./reviewTemplate").ReviewTemplate = null as any;
 utilities.lazyLoad(exports, ["ReviewTemplate"], () => require("./reviewTemplate"));
 
+export { WorkloadArgs } from "./workload";
+export type Workload = import("./workload").Workload;
+export const Workload: typeof import("./workload").Workload = null as any;
+utilities.lazyLoad(exports, ["Workload"], () => require("./workload"));
+
 
 // Export enums:
 export * from "../types/enums/wellarchitected";
@@ -49,6 +59,8 @@ const _module = {
                 return new Profile(name, <any>undefined, { urn })
             case "aws-native:wellarchitected:ReviewTemplate":
                 return new ReviewTemplate(name, <any>undefined, { urn })
+            case "aws-native:wellarchitected:Workload":
+                return new Workload(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

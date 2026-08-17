@@ -39,6 +39,8 @@ type OAuth2CredentialProvider struct {
 	Oauth2ProviderConfigInput OAuth2CredentialProviderOauth2ProviderConfigInputPtrOutput `pulumi:"oauth2ProviderConfigInput"`
 	// The output configuration for the OAuth2 provider
 	Oauth2ProviderConfigOutput OAuth2CredentialProviderOauth2ProviderConfigOutputOutput `pulumi:"oauth2ProviderConfigOutput"`
+	// The current status of the OAuth2 credential provider
+	Status OAuth2CredentialProviderStatusOutput `pulumi:"status"`
 	// Tags to assign to the OAuth2 credential provider
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -213,6 +215,11 @@ func (o OAuth2CredentialProviderOutput) Oauth2ProviderConfigOutput() OAuth2Crede
 	return o.ApplyT(func(v *OAuth2CredentialProvider) OAuth2CredentialProviderOauth2ProviderConfigOutputOutput {
 		return v.Oauth2ProviderConfigOutput
 	}).(OAuth2CredentialProviderOauth2ProviderConfigOutputOutput)
+}
+
+// The current status of the OAuth2 credential provider
+func (o OAuth2CredentialProviderOutput) Status() OAuth2CredentialProviderStatusOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProvider) OAuth2CredentialProviderStatusOutput { return v.Status }).(OAuth2CredentialProviderStatusOutput)
 }
 
 // Tags to assign to the OAuth2 credential provider

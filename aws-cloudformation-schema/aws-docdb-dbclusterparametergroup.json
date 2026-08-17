@@ -1,48 +1,85 @@
 {
+  "tagging" : {
+    "permissions" : [ "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ListTagsForResource" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : true
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:ListTagsForResource" ]
+    },
+    "create" : {
+      "permissions" : [ "rds:CreateDBClusterParameterGroup", "rds:ModifyDBClusterParameterGroup", "rds:AddTagsToResource", "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "rds:ModifyDBClusterParameterGroup", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:DescribeDBClusterParameterGroups", "rds:DescribeDBClusterParameters", "rds:ListTagsForResource" ]
+    },
+    "list" : {
+      "permissions" : [ "rds:DescribeDBClusterParameterGroups" ]
+    },
+    "delete" : {
+      "permissions" : [ "rds:DeleteDBClusterParameterGroup" ]
+    }
+  },
   "typeName" : "AWS::DocDB::DBClusterParameterGroup",
   "description" : "Resource Type definition for AWS::DocDB::DBClusterParameterGroup",
+  "createOnlyProperties" : [ "/properties/Family", "/properties/Description", "/properties/Name" ],
   "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/Name" ],
+  "definitions" : {
+    "Tag" : {
+      "description" : "A key-value pair to associate with a resource.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "description" : "The value for the tag.",
+          "type" : "string"
+        },
+        "Key" : {
+          "description" : "The key name of the tag.",
+          "type" : "string"
+        }
+      },
+      "required" : [ "Key", "Value" ]
+    }
+  },
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "Description" : {
-      "type" : "string"
+      "minLength" : 1,
+      "description" : "The description for the DB cluster parameter group.",
+      "type" : "string",
+      "maxLength" : 255
     },
     "Parameters" : {
+      "description" : "An object containing key-value pairs of parameters to set for the DB cluster parameter group.",
       "type" : "object"
     },
     "Family" : {
-      "type" : "string"
+      "minLength" : 1,
+      "description" : "The DB cluster parameter group family name (e.g. docdb5.0).",
+      "type" : "string",
+      "maxLength" : 255
     },
     "Tags" : {
-      "type" : "array",
       "uniqueItems" : false,
+      "description" : "An array of key-value pairs to apply to this resource.",
+      "insertionOrder" : false,
+      "type" : "array",
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
     },
     "Name" : {
-      "type" : "string"
+      "minLength" : 1,
+      "pattern" : "[a-zA-Z0-9-]*",
+      "description" : "The name of the DB cluster parameter group. If omitted, CloudFormation generates a unique name. The name is stored as lowercase.",
+      "type" : "string",
+      "maxLength" : 255
     }
   },
-  "definitions" : {
-    "Tag" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Key" : {
-          "type" : "string"
-        },
-        "Value" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Value", "Key" ]
-    }
-  },
-  "required" : [ "Family", "Description", "Parameters" ],
-  "createOnlyProperties" : [ "/properties/Family", "/properties/Description", "/properties/Name" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "required" : [ "Family", "Description", "Parameters" ]
 }

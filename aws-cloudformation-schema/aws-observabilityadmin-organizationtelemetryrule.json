@@ -47,6 +47,13 @@
       "description" : "Number of days to retain the telemetry data in the specified destination",
       "type" : "integer"
     },
+    "KmsKeyArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the destination log groups specified in the Telemetry Rule.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 2048,
+      "pattern" : "^arn:aws[a-zA-Z-]*:kms:[a-z0-9-]+:\\d{12}:key/(mrk-)?[a-f0-9-]+$"
+    },
     "VPCFlowLogParameters" : {
       "description" : "Telemetry parameters for VPC Flow logs",
       "type" : "object",
@@ -147,6 +154,9 @@
         },
         "RetentionInDays" : {
           "$ref" : "#/definitions/RetentionInDays"
+        },
+        "KmsKeyArn" : {
+          "$ref" : "#/definitions/KmsKeyArn"
         },
         "VPCFlowLogParameters" : {
           "$ref" : "#/definitions/VPCFlowLogParameters"
@@ -533,13 +543,13 @@
   "primaryIdentifier" : [ "/properties/RuleArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "observabilityadmin:CreateTelemetryRuleForOrganization", "observabilityadmin:GetTelemetryRuleForOrganization", "observabilityadmin:TagResource", "observabilityadmin:ListTagsForResource", "observabilityadmin:GetTelemetryEvaluationStatusForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "observabilityadmin:CreateTelemetryRuleForOrganization", "observabilityadmin:GetTelemetryRuleForOrganization", "observabilityadmin:TagResource", "observabilityadmin:ListTagsForResource", "observabilityadmin:GetTelemetryEvaluationStatusForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "observabilityadmin:GetTelemetryRuleForOrganization", "observabilityadmin:ListTagsForResource", "observabilityadmin:GetTelemetryEvaluationStatusForOrganization", "organizations:ListDelegatedAdministrators" ]
     },
     "update" : {
-      "permissions" : [ "observabilityadmin:UpdateTelemetryRuleForOrganization", "observabilityadmin:GetTelemetryRuleForOrganization", "observabilityadmin:TagResource", "observabilityadmin:UntagResource", "observabilityadmin:ListTagsForResource", "observabilityadmin:GetTelemetryEvaluationStatusForOrganization", "organizations:ListDelegatedAdministrators" ]
+      "permissions" : [ "observabilityadmin:UpdateTelemetryRuleForOrganization", "observabilityadmin:GetTelemetryRuleForOrganization", "observabilityadmin:TagResource", "observabilityadmin:UntagResource", "observabilityadmin:ListTagsForResource", "observabilityadmin:GetTelemetryEvaluationStatusForOrganization", "organizations:ListDelegatedAdministrators", "kms:DescribeKey" ]
     },
     "delete" : {
       "permissions" : [ "observabilityadmin:DeleteTelemetryRuleForOrganization", "observabilityadmin:GetTelemetryEvaluationStatusForOrganization", "organizations:ListDelegatedAdministrators" ]

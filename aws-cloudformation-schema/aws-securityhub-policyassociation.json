@@ -11,7 +11,7 @@
     "AssociationStatus" : {
       "description" : "The current status of the association between the specified target and the configuration",
       "type" : "string",
-      "enum" : [ "SUCCESS", "PENDING", "FAILED" ]
+      "enum" : [ "SUCCESS", "PENDING", "FAILED", "DISABLED" ]
     },
     "AssociationType" : {
       "description" : "Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent",

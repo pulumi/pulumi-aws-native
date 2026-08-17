@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
         /// </summary>
         public readonly Outputs.TelemetryRuleElbLoadBalancerLoggingParameters? ElbLoadBalancerLoggingParameters;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// Parameters for log delivery configuration
         /// </summary>
@@ -59,6 +60,8 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
             Outputs.TelemetryRuleElbLoadBalancerLoggingParameters? elbLoadBalancerLoggingParameters,
 
+            string? kmsKeyArn,
+
             Outputs.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties? logDeliveryParameters,
 
             int? retentionInDays,
@@ -71,6 +74,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
             DestinationPattern = destinationPattern;
             DestinationType = destinationType;
             ElbLoadBalancerLoggingParameters = elbLoadBalancerLoggingParameters;
+            KmsKeyArn = kmsKeyArn;
             LogDeliveryParameters = logDeliveryParameters;
             RetentionInDays = retentionInDays;
             VpcFlowLogParameters = vpcFlowLogParameters;

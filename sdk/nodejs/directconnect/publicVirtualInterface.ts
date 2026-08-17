@@ -50,6 +50,10 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
      */
     declare public readonly connectionId: pulumi.Output<string>;
     /**
+     * The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+     */
+    declare public readonly rateLimit: pulumi.Output<string | undefined>;
+    /**
      * The routes to be advertised to the AWS network in this region.
      */
     declare public readonly routeFilterPrefixes: pulumi.Output<string[] | undefined>;
@@ -97,6 +101,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
             resourceInputs["allocatePublicVirtualInterfaceRoleArn"] = args?.allocatePublicVirtualInterfaceRoleArn;
             resourceInputs["bgpPeers"] = args?.bgpPeers;
             resourceInputs["connectionId"] = args?.connectionId;
+            resourceInputs["rateLimit"] = args?.rateLimit;
             resourceInputs["routeFilterPrefixes"] = args?.routeFilterPrefixes;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualInterfaceName"] = args?.virtualInterfaceName;
@@ -107,6 +112,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
             resourceInputs["allocatePublicVirtualInterfaceRoleArn"] = undefined /*out*/;
             resourceInputs["bgpPeers"] = undefined /*out*/;
             resourceInputs["connectionId"] = undefined /*out*/;
+            resourceInputs["rateLimit"] = undefined /*out*/;
             resourceInputs["routeFilterPrefixes"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["virtualInterfaceArn"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export interface PublicVirtualInterfaceArgs {
      * The ID or ARN of the connection or LAG.
      */
     connectionId: pulumi.Input<string>;
+    /**
+     * The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * The routes to be advertised to the AWS network in this region.
      */

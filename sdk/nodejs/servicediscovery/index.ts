@@ -5,10 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetPrivateDnsNamespaceArgs, GetPrivateDnsNamespaceResult, GetPrivateDnsNamespaceOutputArgs } from "./getPrivateDnsNamespace";
+export const getPrivateDnsNamespace: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespace = null as any;
+export const getPrivateDnsNamespaceOutput: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateDnsNamespace","getPrivateDnsNamespaceOutput"], () => require("./getPrivateDnsNamespace"));
+
+export { GetPublicDnsNamespaceArgs, GetPublicDnsNamespaceResult, GetPublicDnsNamespaceOutputArgs } from "./getPublicDnsNamespace";
+export const getPublicDnsNamespace: typeof import("./getPublicDnsNamespace").getPublicDnsNamespace = null as any;
+export const getPublicDnsNamespaceOutput: typeof import("./getPublicDnsNamespace").getPublicDnsNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicDnsNamespace","getPublicDnsNamespaceOutput"], () => require("./getPublicDnsNamespace"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
+export { PrivateDnsNamespaceArgs } from "./privateDnsNamespace";
+export type PrivateDnsNamespace = import("./privateDnsNamespace").PrivateDnsNamespace;
+export const PrivateDnsNamespace: typeof import("./privateDnsNamespace").PrivateDnsNamespace = null as any;
+utilities.lazyLoad(exports, ["PrivateDnsNamespace"], () => require("./privateDnsNamespace"));
+
+export { PublicDnsNamespaceArgs } from "./publicDnsNamespace";
+export type PublicDnsNamespace = import("./publicDnsNamespace").PublicDnsNamespace;
+export const PublicDnsNamespace: typeof import("./publicDnsNamespace").PublicDnsNamespace = null as any;
+utilities.lazyLoad(exports, ["PublicDnsNamespace"], () => require("./publicDnsNamespace"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
@@ -20,6 +40,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:servicediscovery:PrivateDnsNamespace":
+                return new PrivateDnsNamespace(name, <any>undefined, { urn })
+            case "aws-native:servicediscovery:PublicDnsNamespace":
+                return new PublicDnsNamespace(name, <any>undefined, { urn })
             case "aws-native:servicediscovery:Service":
                 return new Service(name, <any>undefined, { urn })
             default:

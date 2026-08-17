@@ -8,6 +8,10 @@ from enum import Enum
 
 __all__ = [
     'ReviewTemplateUpdateStatus',
+    'WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus',
+    'WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem',
+    'WorkloadEnvironment',
+    'WorkloadImprovementStatus',
 ]
 
 
@@ -18,3 +22,39 @@ class ReviewTemplateUpdateStatus(_builtins.str, Enum):
     """
     CURRENT = "CURRENT"
     LENS_NOT_CURRENT = "LENS_NOT_CURRENT"
+
+
+@pulumi.type_token("aws-native:wellarchitected:WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus")
+class WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus(_builtins.str, Enum):
+    """
+    Discovery integration status in respect to Trusted Advisor for the workload.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:wellarchitected:WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem")
+class WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem(_builtins.str, Enum):
+    WORKLOAD_METADATA = "WORKLOAD_METADATA"
+    APP_REGISTRY = "APP_REGISTRY"
+
+
+@pulumi.type_token("aws-native:wellarchitected:WorkloadEnvironment")
+class WorkloadEnvironment(_builtins.str, Enum):
+    """
+    The environment for the workload.
+    """
+    PRODUCTION = "PRODUCTION"
+    PREPRODUCTION = "PREPRODUCTION"
+
+
+@pulumi.type_token("aws-native:wellarchitected:WorkloadImprovementStatus")
+class WorkloadImprovementStatus(_builtins.str, Enum):
+    """
+    The improvement status for a workload.
+    """
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+    NOT_STARTED = "NOT_STARTED"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETE = "COMPLETE"
+    RISK_ACKNOWLEDGED = "RISK_ACKNOWLEDGED"

@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ArtifactType',
     'PentestAuthenticationProviderType',
     'PentestCleanUpStrategy',
     'PentestCodeRemediationStrategy',
@@ -20,6 +21,22 @@ __all__ = [
     'TargetDomainVerificationMethod',
     'TargetDomainVerificationStatus',
 ]
+
+
+@pulumi.type_token("aws-native:securityagent:ArtifactType")
+class ArtifactType(_builtins.str, Enum):
+    """
+    The file type of the artifact.
+    """
+    TXT = "TXT"
+    PNG = "PNG"
+    JPEG = "JPEG"
+    MD = "MD"
+    PDF = "PDF"
+    DOCX = "DOCX"
+    DOC = "DOC"
+    JSON = "JSON"
+    YAML = "YAML"
 
 
 @pulumi.type_token("aws-native:securityagent:PentestAuthenticationProviderType")

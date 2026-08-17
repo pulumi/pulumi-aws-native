@@ -29,6 +29,8 @@ type TransitVirtualInterface struct {
 	EnableSiteLink pulumi.BoolPtrOutput `pulumi:"enableSiteLink"`
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit pulumi.StringPtrOutput `pulumi:"rateLimit"`
 	// The tags associated with the private virtual interface.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the virtual interface.
@@ -111,6 +113,8 @@ type transitVirtualInterfaceArgs struct {
 	EnableSiteLink *bool `pulumi:"enableSiteLink"`
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 	Mtu *int `pulumi:"mtu"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit *string `pulumi:"rateLimit"`
 	// The tags associated with the private virtual interface.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
@@ -133,6 +137,8 @@ type TransitVirtualInterfaceArgs struct {
 	EnableSiteLink pulumi.BoolPtrInput
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 	Mtu pulumi.IntPtrInput
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit pulumi.StringPtrInput
 	// The tags associated with the private virtual interface.
 	Tags aws.TagArrayInput
 	// The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
@@ -208,6 +214,11 @@ func (o TransitVirtualInterfaceOutput) EnableSiteLink() pulumi.BoolPtrOutput {
 // The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 func (o TransitVirtualInterfaceOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.IntPtrOutput { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+func (o TransitVirtualInterfaceOutput) RateLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringPtrOutput { return v.RateLimit }).(pulumi.StringPtrOutput)
 }
 
 // The tags associated with the private virtual interface.

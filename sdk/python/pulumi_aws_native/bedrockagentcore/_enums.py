@@ -12,6 +12,13 @@ __all__ = [
     'BrowserCustomBrowserNetworkMode',
     'BrowserCustomBrowserStatus',
     'BrowserProfileStatus',
+    'CapacityProviderCapacityReservationSpecificationCapacityReservationPreference',
+    'CapacityProviderEbsVolumeConfigurationVolumeType',
+    'CapacityProviderEphemeralEbsVolumeConfigurationVolumeType',
+    'CapacityProviderLaunchParametersMonitoring',
+    'CapacityProviderLaunchParametersOperatingSystem',
+    'CapacityProviderRootVolumeConfigurationVolumeType',
+    'CapacityProviderStatus',
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
     'DatasetSchemaType',
@@ -19,18 +26,23 @@ __all__ = [
     'EvaluatorLevel',
     'EvaluatorStatus',
     'GatewayAuthorizerType',
-    'GatewayClaimMatchOperator',
+    'GatewayClaimMatchOperatorType',
+    'GatewayEndpointIpAddressType',
     'GatewayExceptionLevel',
     'GatewayInboundTokenClaimValueType',
     'GatewayInterceptionPoint',
+    'GatewayInterceptorPayloadExclusion',
     'GatewayPolicyEngineMode',
+    'GatewayRateLimitPeriod',
+    'GatewayRateLimitStatus',
+    'GatewayRulePrincipalMatchOperator',
+    'GatewayRuleStatus',
     'GatewaySearchType',
     'GatewayStatus',
     'GatewayTargetApiKeyCredentialLocation',
     'GatewayTargetCredentialProviderType',
     'GatewayTargetEndpointIpAddressType',
-    'GatewayTargetMcpServerListingMode',
-    'GatewayTargetOAuthGrantType',
+    'GatewayTargetListingMode',
     'GatewayTargetPassthroughProtocolType',
     'GatewayTargetRestApiMethod',
     'GatewayTargetSchemaType',
@@ -54,6 +66,7 @@ __all__ = [
     'MemoryCustomMemoryStrategyType',
     'MemoryEpisodicMemoryStrategyStatus',
     'MemoryEpisodicMemoryStrategyType',
+    'MemoryExtractionType',
     'MemoryMetadataValueType',
     'MemorySemanticMemoryStrategyStatus',
     'MemorySemanticMemoryStrategyType',
@@ -71,11 +84,14 @@ __all__ = [
     'OAuth2CredentialProviderGoogleOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType',
     'OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod',
     'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType',
+    'OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource',
+    'OAuth2CredentialProviderStatus',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
     'OnlineEvaluationConfigClusteringFrequency',
     'OnlineEvaluationConfigExecutionStatus',
@@ -155,6 +171,91 @@ class BrowserProfileStatus(_builtins.str, Enum):
     SAVING = "SAVING"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderCapacityReservationSpecificationCapacityReservationPreference")
+class CapacityProviderCapacityReservationSpecificationCapacityReservationPreference(_builtins.str, Enum):
+    """
+    Indicates the instance's Capacity Reservation preferences.
+    """
+    CAPACITY_RESERVATIONS_ONLY = "capacity-reservations-only"
+    OPEN = "open"
+    NONE = "none"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderEbsVolumeConfigurationVolumeType")
+class CapacityProviderEbsVolumeConfigurationVolumeType(_builtins.str, Enum):
+    """
+    The EBS volume type. Defaults to gp3 if not specified.
+    """
+    STANDARD = "standard"
+    IO1 = "io1"
+    IO2 = "io2"
+    GP2 = "gp2"
+    SC1 = "sc1"
+    ST1 = "st1"
+    GP3 = "gp3"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderEphemeralEbsVolumeConfigurationVolumeType")
+class CapacityProviderEphemeralEbsVolumeConfigurationVolumeType(_builtins.str, Enum):
+    """
+    The volume type. Defaults to gp3 if not specified.
+    """
+    STANDARD = "standard"
+    IO1 = "io1"
+    IO2 = "io2"
+    GP2 = "gp2"
+    SC1 = "sc1"
+    ST1 = "st1"
+    GP3 = "gp3"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderLaunchParametersMonitoring")
+class CapacityProviderLaunchParametersMonitoring(_builtins.str, Enum):
+    """
+    The monitoring level for the instance.
+    """
+    BASIC = "BASIC"
+    DETAILED = "DETAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderLaunchParametersOperatingSystem")
+class CapacityProviderLaunchParametersOperatingSystem(_builtins.str, Enum):
+    """
+    The operating system and CPU architecture for the instances.
+    """
+    LINUX_X8664 = "LINUX_X86_64"
+    LINUX_ARM64 = "LINUX_ARM64"
+    MAC_ARM64 = "MAC_ARM64"
+    WINDOWS_X8664 = "WINDOWS_X86_64"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderRootVolumeConfigurationVolumeType")
+class CapacityProviderRootVolumeConfigurationVolumeType(_builtins.str, Enum):
+    """
+    The EBS volume type. Defaults to gp3 if not specified.
+    """
+    STANDARD = "standard"
+    IO1 = "io1"
+    IO2 = "io2"
+    GP2 = "gp2"
+    SC1 = "sc1"
+    ST1 = "st1"
+    GP3 = "gp3"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderStatus")
+class CapacityProviderStatus(_builtins.str, Enum):
+    """
+    The current status of the capacity provider.
+    """
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    READY = "READY"
+    DELETING = "DELETING"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:CodeInterpreterCustomCodeInterpreterNetworkMode")
 class CodeInterpreterCustomCodeInterpreterNetworkMode(_builtins.str, Enum):
     """
@@ -226,14 +327,17 @@ class GatewayAuthorizerType(_builtins.str, Enum):
     AUTHENTICATE_ONLY = "AUTHENTICATE_ONLY"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:GatewayClaimMatchOperator")
-class GatewayClaimMatchOperator(_builtins.str, Enum):
-    """
-    The relationship between the claim field value and the value or values being matched
-    """
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayClaimMatchOperatorType")
+class GatewayClaimMatchOperatorType(_builtins.str, Enum):
     EQUALS = "EQUALS"
     CONTAINS = "CONTAINS"
     CONTAINS_ANY = "CONTAINS_ANY"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayEndpointIpAddressType")
+class GatewayEndpointIpAddressType(_builtins.str, Enum):
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayExceptionLevel")
@@ -243,9 +347,6 @@ class GatewayExceptionLevel(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayInboundTokenClaimValueType")
 class GatewayInboundTokenClaimValueType(_builtins.str, Enum):
-    """
-    Token claim data type
-    """
     STRING = "STRING"
     STRING_ARRAY = "STRING_ARRAY"
 
@@ -256,13 +357,49 @@ class GatewayInterceptionPoint(_builtins.str, Enum):
     RESPONSE = "RESPONSE"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayInterceptorPayloadExclusion")
+class GatewayInterceptorPayloadExclusion(_builtins.str, Enum):
+    RESPONSE_BODY = "RESPONSE_BODY"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayPolicyEngineMode")
 class GatewayPolicyEngineMode(_builtins.str, Enum):
-    """
-    The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
-    """
     LOG_ONLY = "LOG_ONLY"
     ENFORCE = "ENFORCE"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayRateLimitPeriod")
+class GatewayRateLimitPeriod(_builtins.str, Enum):
+    """
+    Time period for rate limiting
+    """
+    SECOND = "second"
+    MINUTE = "minute"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayRateLimitStatus")
+class GatewayRateLimitStatus(_builtins.str, Enum):
+    """
+    Status of a gateway limit
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayRulePrincipalMatchOperator")
+class GatewayRulePrincipalMatchOperator(_builtins.str, Enum):
+    STRING_EQUALS = "StringEquals"
+    STRING_LIKE = "StringLike"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayRuleStatus")
+class GatewayRuleStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewaySearchType")
@@ -301,17 +438,10 @@ class GatewayTargetEndpointIpAddressType(_builtins.str, Enum):
     IPV6 = "IPV6"
 
 
-@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetMcpServerListingMode")
-class GatewayTargetMcpServerListingMode(_builtins.str, Enum):
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetListingMode")
+class GatewayTargetListingMode(_builtins.str, Enum):
     DEFAULT = "DEFAULT"
     DYNAMIC = "DYNAMIC"
-
-
-@pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetOAuthGrantType")
-class GatewayTargetOAuthGrantType(_builtins.str, Enum):
-    AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
-    CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
-    TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetPassthroughProtocolType")
@@ -347,7 +477,6 @@ class GatewayTargetSchemaType(_builtins.str, Enum):
 class GatewayTargetTargetProtocolType(_builtins.str, Enum):
     MCP = "MCP"
     HTTP = "HTTP"
-    INFERENCE = "INFERENCE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetTargetStatus")
@@ -518,6 +647,15 @@ class MemoryEpisodicMemoryStrategyType(_builtins.str, Enum):
     EPISODIC = "EPISODIC"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryExtractionType")
+class MemoryExtractionType(_builtins.str, Enum):
+    """
+    Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event
+    """
+    LLM_INFERRED = "LLM_INFERRED"
+    STRICTLY_CONSISTENT = "STRICTLY_CONSISTENT"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:MemoryMetadataValueType")
 class MemoryMetadataValueType(_builtins.str, Enum):
     """
@@ -663,6 +801,7 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticatio
     CLIENT_SECRET_BASIC = "CLIENT_SECRET_BASIC"
     CLIENT_SECRET_POST = "CLIENT_SECRET_POST"
     AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
+    PRIVATE_KEY_JWT = "PRIVATE_KEY_JWT"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource")
@@ -698,6 +837,15 @@ class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourc
     EXTERNAL = "EXTERNAL"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType")
+class OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType(_builtins.str, Enum):
+    """
+    The IP address type for the resource configuration endpoint
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource")
 class OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
     MANAGED = "MANAGED"
@@ -712,6 +860,7 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMeth
     CLIENT_SECRET_BASIC = "CLIENT_SECRET_BASIC"
     CLIENT_SECRET_POST = "CLIENT_SECRET_POST"
     AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
+    PRIVATE_KEY_JWT = "PRIVATE_KEY_JWT"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType")
@@ -721,6 +870,16 @@ class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType(_builtins.s
     """
     TOKEN_EXCHANGE = "TOKEN_EXCHANGE"
     JWT_AUTHORIZATION_GRANT = "JWT_AUTHORIZATION_GRANT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm")
+class OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm(_builtins.str, Enum):
+    """
+    The algorithm used to sign the JWT client assertion
+    """
+    RS256 = "RS256"
+    PS256 = "PS256"
+    ES256 = "ES256"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource")
@@ -733,6 +892,20 @@ class OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSou
 class OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource(_builtins.str, Enum):
     MANAGED = "MANAGED"
     EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderStatus")
+class OAuth2CredentialProviderStatus(_builtins.str, Enum):
+    """
+    The current status of the OAuth2 credential provider
+    """
+    CREATING = "CREATING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    READY = "READY"
+    DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent")

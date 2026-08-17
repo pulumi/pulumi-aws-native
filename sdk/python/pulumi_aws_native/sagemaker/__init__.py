@@ -11,6 +11,7 @@ from .action import *
 from .algorithm import *
 from .app import *
 from .app_image_config import *
+from .artifact import *
 from .cluster import *
 from .context import *
 from .data_quality_job_definition import *
@@ -25,6 +26,7 @@ from .get_action import *
 from .get_algorithm import *
 from .get_app import *
 from .get_app_image_config import *
+from .get_artifact import *
 from .get_cluster import *
 from .get_context import *
 from .get_data_quality_job_definition import *
@@ -35,6 +37,7 @@ from .get_experiment import *
 from .get_experiment_trial_component import *
 from .get_feature_group import *
 from .get_hub import *
+from .get_human_task_ui import *
 from .get_image import *
 from .get_image_version import *
 from .get_inference_component import *
@@ -57,7 +60,9 @@ from .get_space import *
 from .get_studio_lifecycle_config import *
 from .get_trial_component import *
 from .get_user_profile import *
+from .get_workforce import *
 from .hub import *
+from .human_task_ui import *
 from .image import *
 from .image_version import *
 from .inference_component import *
@@ -80,5 +85,6 @@ from .space import *
 from .studio_lifecycle_config import *
 from .trial_component import *
 from .user_profile import *
+from .workforce import *
 from ._inputs import *
 from . import outputs

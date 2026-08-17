@@ -7,8 +7,10 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType',
     'ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType',
     'ComputeEnvironmentLaunchTemplateSpecificationUserdataType',
+    'ComputeEnvironmentManagedInstancesProviderPropagateTags',
     'ConsumableResourceResourceType',
     'JobQueueJobStateTimeLimitActionAction',
     'JobQueueJobStateTimeLimitActionState',
@@ -18,6 +20,13 @@ __all__ = [
     'QuotaShareState',
     'SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy',
 ]
+
+
+@pulumi.type_token("aws-native:batch:ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType")
+class ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType(_builtins.str, Enum):
+    ON_DEMAND = "ON_DEMAND"
+    SPOT = "SPOT"
+    RESERVED = "RESERVED"
 
 
 @pulumi.type_token("aws-native:batch:ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType")
@@ -36,6 +45,12 @@ class ComputeEnvironmentLaunchTemplateSpecificationUserdataType(_builtins.str, E
     """
     EKS_BOOTSTRAP_SH = "EKS_BOOTSTRAP_SH"
     EKS_NODEADM = "EKS_NODEADM"
+
+
+@pulumi.type_token("aws-native:batch:ComputeEnvironmentManagedInstancesProviderPropagateTags")
+class ComputeEnvironmentManagedInstancesProviderPropagateTags(_builtins.str, Enum):
+    CAPACITY_PROVIDER = "CAPACITY_PROVIDER"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:batch:ConsumableResourceResourceType")

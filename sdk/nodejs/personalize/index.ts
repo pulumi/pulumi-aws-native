@@ -15,6 +15,11 @@ export type DatasetGroup = import("./datasetGroup").DatasetGroup;
 export const DatasetGroup: typeof import("./datasetGroup").DatasetGroup = null as any;
 utilities.lazyLoad(exports, ["DatasetGroup"], () => require("./datasetGroup"));
 
+export { EventTrackerArgs } from "./eventTracker";
+export type EventTracker = import("./eventTracker").EventTracker;
+export const EventTracker: typeof import("./eventTracker").EventTracker = null as any;
+utilities.lazyLoad(exports, ["EventTracker"], () => require("./eventTracker"));
+
 export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
 export const getDataset: typeof import("./getDataset").getDataset = null as any;
 export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
@@ -24,6 +29,11 @@ export { GetDatasetGroupArgs, GetDatasetGroupResult, GetDatasetGroupOutputArgs }
 export const getDatasetGroup: typeof import("./getDatasetGroup").getDatasetGroup = null as any;
 export const getDatasetGroupOutput: typeof import("./getDatasetGroup").getDatasetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDatasetGroup","getDatasetGroupOutput"], () => require("./getDatasetGroup"));
+
+export { GetEventTrackerArgs, GetEventTrackerResult, GetEventTrackerOutputArgs } from "./getEventTracker";
+export const getEventTracker: typeof import("./getEventTracker").getEventTracker = null as any;
+export const getEventTrackerOutput: typeof import("./getEventTracker").getEventTrackerOutput = null as any;
+utilities.lazyLoad(exports, ["getEventTracker","getEventTrackerOutput"], () => require("./getEventTracker"));
 
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
@@ -57,6 +67,8 @@ const _module = {
                 return new Dataset(name, <any>undefined, { urn })
             case "aws-native:personalize:DatasetGroup":
                 return new DatasetGroup(name, <any>undefined, { urn })
+            case "aws-native:personalize:EventTracker":
+                return new EventTracker(name, <any>undefined, { urn })
             case "aws-native:personalize:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "aws-native:personalize:Solution":

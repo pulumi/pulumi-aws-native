@@ -34,6 +34,10 @@ export interface GetPublicVirtualInterfaceResult {
      */
     readonly connectionId?: string;
     /**
+     * The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+     */
+    readonly rateLimit?: string;
+    /**
      * The tags associated with the public virtual interface.
      */
     readonly tags?: outputs.Tag[];

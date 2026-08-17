@@ -14,6 +14,7 @@ __all__ = [
     'AlgorithmHyperParameterTuningJobObjectiveType',
     'AppResourceSpecInstanceType',
     'AppType',
+    'ArtifactSourceTypeSourceIdType',
     'ClusterAutoPatchConfigPatchingStrategy',
     'ClusterAutoScalingConfigAutoScalerType',
     'ClusterAutoScalingConfigMode',
@@ -51,7 +52,6 @@ __all__ = [
     'DomainUnifiedStudioSettingsStudioWebPortalAccess',
     'DomainUserSettingsAutoMountHomeEfs',
     'DomainUserSettingsStudioWebPortal',
-    'ExperimentTrialComponentStatusPropertiesPrimaryStatus',
     'FeatureGroupFeatureDefinitionFeatureType',
     'FeatureGroupStorageType',
     'FeatureGroupTableFormat',
@@ -157,6 +157,7 @@ __all__ = [
     'UserProfileSharingSettingsNotebookOutputOption',
     'UserProfileUserSettingsAutoMountHomeEfs',
     'UserProfileUserSettingsStudioWebPortal',
+    'WorkforceIpAddressType',
 ]
 
 
@@ -380,6 +381,17 @@ class AppType(_builtins.str, Enum):
     R_STUDIO_SERVER_PRO = "RStudioServerPro"
     R_SESSION_GATEWAY = "RSessionGateway"
     CANVAS = "Canvas"
+
+
+@pulumi.type_token("aws-native:sagemaker:ArtifactSourceTypeSourceIdType")
+class ArtifactSourceTypeSourceIdType(_builtins.str, Enum):
+    """
+    The type of ID.
+    """
+    MD5_HASH = "MD5Hash"
+    S3E_TAG = "S3ETag"
+    S3_VERSION = "S3Version"
+    CUSTOM = "Custom"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterAutoPatchConfigPatchingStrategy")
@@ -910,18 +922,6 @@ class DomainUserSettingsStudioWebPortal(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
-
-
-@pulumi.type_token("aws-native:sagemaker:ExperimentTrialComponentStatusPropertiesPrimaryStatus")
-class ExperimentTrialComponentStatusPropertiesPrimaryStatus(_builtins.str, Enum):
-    """
-    The status of the trial component.
-    """
-    IN_PROGRESS = "InProgress"
-    COMPLETED = "Completed"
-    FAILED = "Failed"
-    STOPPING = "Stopping"
-    STOPPED = "Stopped"
 
 
 @pulumi.type_token("aws-native:sagemaker:FeatureGroupFeatureDefinitionFeatureType")
@@ -2415,3 +2415,12 @@ class UserProfileUserSettingsStudioWebPortal(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:sagemaker:WorkforceIpAddressType")
+class WorkforceIpAddressType(_builtins.str, Enum):
+    """
+    The IP address type for the workforce. IPv4 only or dualstack (IPv4 and IPv6).
+    """
+    IPV4 = "ipv4"
+    DUALSTACK = "dualstack"

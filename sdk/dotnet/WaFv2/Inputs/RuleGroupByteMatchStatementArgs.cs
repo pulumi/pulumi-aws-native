@@ -50,6 +50,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("positionalConstraint", required: true)]
         public Input<Pulumi.AwsNative.WaFv2.RuleGroupPositionalConstraint> PositionalConstraint { get; set; } = null!;
 
+        [Input("preParseTextTransformations")]
+        private InputList<Inputs.RuleGroupPreParseTextTransformationArgs>? _preParseTextTransformations;
+        public InputList<Inputs.RuleGroupPreParseTextTransformationArgs> PreParseTextTransformations
+        {
+            get => _preParseTextTransformations ?? (_preParseTextTransformations = new InputList<Inputs.RuleGroupPreParseTextTransformationArgs>());
+            set => _preParseTextTransformations = value;
+        }
+
         /// <summary>
         /// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
         /// 

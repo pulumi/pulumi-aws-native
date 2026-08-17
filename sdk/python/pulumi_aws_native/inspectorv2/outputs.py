@@ -33,6 +33,11 @@ __all__ = [
     'CodeSecurityScanConfigurationContinuousIntegrationScanConfiguration',
     'CodeSecurityScanConfigurationPeriodicScanConfiguration',
     'CodeSecurityScanConfigurationScopeSettings',
+    'ConnectorAzureProviderConfiguration',
+    'ConnectorAzureScopeConfigurationMap',
+    'ConnectorHealth',
+    'ConnectorProviderConfiguration',
+    'ConnectorScopeConfiguration',
     'FilterCriteria',
     'FilterDateFilter',
     'FilterMapFilter',
@@ -681,6 +686,265 @@ class CodeSecurityScanConfigurationScopeSettings(dict):
         The scope of projects to be selected for scanning within the integrated repositories.
         """
         return pulumi.get(self, "project_selection_scope")
+
+
+@pulumi.output_type
+class ConnectorAzureProviderConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsConfigConnectorArn":
+            suggest = "aws_config_connector_arn"
+        elif key == "azureRegions":
+            suggest = "azure_regions"
+        elif key == "scopeConfiguration":
+            suggest = "scope_configuration"
+        elif key == "autoInstallVmScanner":
+            suggest = "auto_install_vm_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorAzureProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorAzureProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorAzureProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_config_connector_arn: _builtins.str,
+                 azure_regions: Sequence[_builtins.str],
+                 scope_configuration: 'outputs.ConnectorAzureScopeConfigurationMap',
+                 auto_install_vm_scanner: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str aws_config_connector_arn: The ARN of the AWS Config connector used for Azure resource discovery.
+        :param Sequence[_builtins.str] azure_regions: List of Azure regions to scan.
+        :param _builtins.bool auto_install_vm_scanner: Whether to automatically install the VM scanner. Defaults to true.
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "azure_regions", azure_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+        if auto_install_vm_scanner is not None:
+            pulumi.set(__self__, "auto_install_vm_scanner", auto_install_vm_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Config connector used for Azure resource discovery.
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="azureRegions")
+    def azure_regions(self) -> Sequence[_builtins.str]:
+        """
+        List of Azure regions to scan.
+        """
+        return pulumi.get(self, "azure_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> 'outputs.ConnectorAzureScopeConfigurationMap':
+        return pulumi.get(self, "scope_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="autoInstallVmScanner")
+    def auto_install_vm_scanner(self) -> Optional[_builtins.bool]:
+        """
+        Whether to automatically install the VM scanner. Defaults to true.
+        """
+        return pulumi.get(self, "auto_install_vm_scanner")
+
+
+@pulumi.output_type
+class ConnectorAzureScopeConfigurationMap(dict):
+    """
+    Defines which resource types to scan and at what scope level.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerImageScanning":
+            suggest = "container_image_scanning"
+        elif key == "serverlessScanning":
+            suggest = "serverless_scanning"
+        elif key == "vmScanning":
+            suggest = "vm_scanning"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorAzureScopeConfigurationMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorAzureScopeConfigurationMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorAzureScopeConfigurationMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_image_scanning: Optional['outputs.ConnectorScopeConfiguration'] = None,
+                 serverless_scanning: Optional['outputs.ConnectorScopeConfiguration'] = None,
+                 vm_scanning: Optional['outputs.ConnectorScopeConfiguration'] = None):
+        """
+        Defines which resource types to scan and at what scope level.
+        """
+        if container_image_scanning is not None:
+            pulumi.set(__self__, "container_image_scanning", container_image_scanning)
+        if serverless_scanning is not None:
+            pulumi.set(__self__, "serverless_scanning", serverless_scanning)
+        if vm_scanning is not None:
+            pulumi.set(__self__, "vm_scanning", vm_scanning)
+
+    @_builtins.property
+    @pulumi.getter(name="containerImageScanning")
+    def container_image_scanning(self) -> Optional['outputs.ConnectorScopeConfiguration']:
+        return pulumi.get(self, "container_image_scanning")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessScanning")
+    def serverless_scanning(self) -> Optional['outputs.ConnectorScopeConfiguration']:
+        return pulumi.get(self, "serverless_scanning")
+
+    @_builtins.property
+    @pulumi.getter(name="vmScanning")
+    def vm_scanning(self) -> Optional['outputs.ConnectorScopeConfiguration']:
+        return pulumi.get(self, "vm_scanning")
+
+
+@pulumi.output_type
+class ConnectorHealth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorStatus":
+            suggest = "connector_status"
+        elif key == "lastCheckedAt":
+            suggest = "last_checked_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorHealth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorHealth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorHealth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_status: Optional['ConnectorHealthStatus'] = None,
+                 last_checked_at: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None):
+        if connector_status is not None:
+            pulumi.set(__self__, "connector_status", connector_status)
+        if last_checked_at is not None:
+            pulumi.set(__self__, "last_checked_at", last_checked_at)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorStatus")
+    def connector_status(self) -> Optional['ConnectorHealthStatus']:
+        return pulumi.get(self, "connector_status")
+
+    @_builtins.property
+    @pulumi.getter(name="lastCheckedAt")
+    def last_checked_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_checked_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class ConnectorProviderConfiguration(dict):
+    def __init__(__self__, *,
+                 azure: 'outputs.ConnectorAzureProviderConfiguration'):
+        pulumi.set(__self__, "azure", azure)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> 'outputs.ConnectorAzureProviderConfiguration':
+        return pulumi.get(self, "azure")
+
+
+@pulumi.output_type
+class ConnectorScopeConfiguration(dict):
+    """
+    Defines the scope of Azure resources to monitor for a specific resource type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scopeType":
+            suggest = "scope_type"
+        elif key == "scopeValues":
+            suggest = "scope_values"
+        elif key == "stateReason":
+            suggest = "state_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorScopeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorScopeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorScopeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scope_type: 'ConnectorScopeType',
+                 scope_values: Optional[Sequence[_builtins.str]] = None,
+                 state: Optional['ConnectorScopeState'] = None,
+                 state_reason: Optional[_builtins.str] = None):
+        """
+        Defines the scope of Azure resources to monitor for a specific resource type.
+
+        :param Sequence[_builtins.str] scope_values: List of subscription IDs. Empty for TENANT scope.
+        :param _builtins.str state_reason: Reason for the current scope state.
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if state_reason is not None:
+            pulumi.set(__self__, "state_reason", state_reason)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> 'ConnectorScopeType':
+        return pulumi.get(self, "scope_type")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of subscription IDs. Empty for TENANT scope.
+        """
+        return pulumi.get(self, "scope_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional['ConnectorScopeState']:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="stateReason")
+    def state_reason(self) -> Optional[_builtins.str]:
+        """
+        Reason for the current scope state.
+        """
+        return pulumi.get(self, "state_reason")
 
 
 @pulumi.output_type

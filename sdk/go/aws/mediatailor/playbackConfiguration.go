@@ -22,6 +22,10 @@ type PlaybackConfiguration struct {
 	AdDecisionServerConfiguration PlaybackConfigurationAdDecisionServerConfigurationPtrOutput `pulumi:"adDecisionServerConfiguration"`
 	// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl pulumi.StringOutput `pulumi:"adDecisionServerUrl"`
+	// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+	AdsPersonalizationConcurrency PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput `pulumi:"adsPersonalizationConcurrency"`
+	// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+	AdsPersonalizationTimeouts PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput `pulumi:"adsPersonalizationTimeouts"`
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	AvailSuppression PlaybackConfigurationAvailSuppressionPtrOutput `pulumi:"availSuppression"`
 	// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
@@ -119,6 +123,10 @@ type playbackConfigurationArgs struct {
 	AdDecisionServerConfiguration *PlaybackConfigurationAdDecisionServerConfiguration `pulumi:"adDecisionServerConfiguration"`
 	// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl string `pulumi:"adDecisionServerUrl"`
+	// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+	AdsPersonalizationConcurrency *PlaybackConfigurationAdsPersonalizationConcurrency `pulumi:"adsPersonalizationConcurrency"`
+	// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+	AdsPersonalizationTimeouts *PlaybackConfigurationAdsPersonalizationTimeouts `pulumi:"adsPersonalizationTimeouts"`
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	AvailSuppression *PlaybackConfigurationAvailSuppression `pulumi:"availSuppression"`
 	// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
@@ -162,6 +170,10 @@ type PlaybackConfigurationArgs struct {
 	AdDecisionServerConfiguration PlaybackConfigurationAdDecisionServerConfigurationPtrInput
 	// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl pulumi.StringInput
+	// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+	AdsPersonalizationConcurrency PlaybackConfigurationAdsPersonalizationConcurrencyPtrInput
+	// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+	AdsPersonalizationTimeouts PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput
 	// The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 	AvailSuppression PlaybackConfigurationAvailSuppressionPtrInput
 	// The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
@@ -251,6 +263,20 @@ func (o PlaybackConfigurationOutput) AdDecisionServerConfiguration() PlaybackCon
 // The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
 func (o PlaybackConfigurationOutput) AdDecisionServerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackConfiguration) pulumi.StringOutput { return v.AdDecisionServerUrl }).(pulumi.StringOutput)
+}
+
+// The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+func (o PlaybackConfigurationOutput) AdsPersonalizationConcurrency() PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput {
+		return v.AdsPersonalizationConcurrency
+	}).(PlaybackConfigurationAdsPersonalizationConcurrencyPtrOutput)
+}
+
+// The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+func (o PlaybackConfigurationOutput) AdsPersonalizationTimeouts() PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfiguration) PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput {
+		return v.AdsPersonalizationTimeouts
+	}).(PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput)
 }
 
 // The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).

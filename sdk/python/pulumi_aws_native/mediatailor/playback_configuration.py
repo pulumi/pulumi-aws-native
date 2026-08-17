@@ -28,6 +28,8 @@ class PlaybackConfigurationArgs:
                  video_content_source_url: pulumi.Input[_builtins.str],
                  ad_conditioning_configuration: pulumi.Input[Optional['PlaybackConfigurationAdConditioningConfigurationArgs']] = None,
                  ad_decision_server_configuration: pulumi.Input[Optional['PlaybackConfigurationAdDecisionServerConfigurationArgs']] = None,
+                 ads_personalization_concurrency: pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationConcurrencyArgs']] = None,
+                 ads_personalization_timeouts: pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationTimeoutsArgs']] = None,
                  avail_suppression: pulumi.Input[Optional['PlaybackConfigurationAvailSuppressionArgs']] = None,
                  bumper: pulumi.Input[Optional['PlaybackConfigurationBumperArgs']] = None,
                  cdn_configuration: pulumi.Input[Optional['PlaybackConfigurationCdnConfigurationArgs']] = None,
@@ -50,6 +52,8 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input[_builtins.str] ad_decision_server_url: The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         :param pulumi.Input[_builtins.str] video_content_source_url: The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.
         :param pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs'] ad_conditioning_configuration: The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
+        :param pulumi.Input['PlaybackConfigurationAdsPersonalizationConcurrencyArgs'] ads_personalization_concurrency: The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        :param pulumi.Input['PlaybackConfigurationAdsPersonalizationTimeoutsArgs'] ads_personalization_timeouts: The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
         :param pulumi.Input['PlaybackConfigurationAvailSuppressionArgs'] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input['PlaybackConfigurationBumperArgs'] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
@@ -73,6 +77,10 @@ class PlaybackConfigurationArgs:
             pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
         if ad_decision_server_configuration is not None:
             pulumi.set(__self__, "ad_decision_server_configuration", ad_decision_server_configuration)
+        if ads_personalization_concurrency is not None:
+            pulumi.set(__self__, "ads_personalization_concurrency", ads_personalization_concurrency)
+        if ads_personalization_timeouts is not None:
+            pulumi.set(__self__, "ads_personalization_timeouts", ads_personalization_timeouts)
         if avail_suppression is not None:
             pulumi.set(__self__, "avail_suppression", avail_suppression)
         if bumper is not None:
@@ -150,6 +158,30 @@ class PlaybackConfigurationArgs:
     @ad_decision_server_configuration.setter
     def ad_decision_server_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationAdDecisionServerConfigurationArgs']]):
         pulumi.set(self, "ad_decision_server_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adsPersonalizationConcurrency")
+    def ads_personalization_concurrency(self) -> pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationConcurrencyArgs']]:
+        """
+        The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        """
+        return pulumi.get(self, "ads_personalization_concurrency")
+
+    @ads_personalization_concurrency.setter
+    def ads_personalization_concurrency(self, value: pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationConcurrencyArgs']]):
+        pulumi.set(self, "ads_personalization_concurrency", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adsPersonalizationTimeouts")
+    def ads_personalization_timeouts(self) -> pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationTimeoutsArgs']]:
+        """
+        The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+        """
+        return pulumi.get(self, "ads_personalization_timeouts")
+
+    @ads_personalization_timeouts.setter
+    def ads_personalization_timeouts(self, value: pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationTimeoutsArgs']]):
+        pulumi.set(self, "ads_personalization_timeouts", value)
 
     @_builtins.property
     @pulumi.getter(name="availSuppression")
@@ -353,6 +385,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  ad_conditioning_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
                  ad_decision_server_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
                  ad_decision_server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 ads_personalization_concurrency: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationConcurrencyArgs', 'PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict']]] = None,
+                 ads_personalization_timeouts: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationTimeoutsArgs', 'PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict']]] = None,
                  avail_suppression: pulumi.Input[Optional[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
                  bumper: pulumi.Input[Optional[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
                  cdn_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
@@ -378,6 +412,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']] ad_conditioning_configuration: The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
         :param pulumi.Input[_builtins.str] ad_decision_server_url: The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
+        :param pulumi.Input[Union['PlaybackConfigurationAdsPersonalizationConcurrencyArgs', 'PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict']] ads_personalization_concurrency: The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        :param pulumi.Input[Union['PlaybackConfigurationAdsPersonalizationTimeoutsArgs', 'PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict']] ads_personalization_timeouts: The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
         :param pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
@@ -423,6 +459,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  ad_conditioning_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
                  ad_decision_server_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
                  ad_decision_server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 ads_personalization_concurrency: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationConcurrencyArgs', 'PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict']]] = None,
+                 ads_personalization_timeouts: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationTimeoutsArgs', 'PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict']]] = None,
                  avail_suppression: pulumi.Input[Optional[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
                  bumper: pulumi.Input[Optional[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
                  cdn_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
@@ -454,6 +492,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
             if ad_decision_server_url is None and not opts.urn:
                 raise TypeError("Missing required property 'ad_decision_server_url'")
             __props__.__dict__["ad_decision_server_url"] = ad_decision_server_url
+            __props__.__dict__["ads_personalization_concurrency"] = ads_personalization_concurrency
+            __props__.__dict__["ads_personalization_timeouts"] = ads_personalization_timeouts
             __props__.__dict__["avail_suppression"] = avail_suppression
             __props__.__dict__["bumper"] = bumper
             __props__.__dict__["cdn_configuration"] = cdn_configuration
@@ -503,6 +543,8 @@ class PlaybackConfiguration(pulumi.CustomResource):
         __props__.__dict__["ad_conditioning_configuration"] = None
         __props__.__dict__["ad_decision_server_configuration"] = None
         __props__.__dict__["ad_decision_server_url"] = None
+        __props__.__dict__["ads_personalization_concurrency"] = None
+        __props__.__dict__["ads_personalization_timeouts"] = None
         __props__.__dict__["avail_suppression"] = None
         __props__.__dict__["bumper"] = None
         __props__.__dict__["cdn_configuration"] = None
@@ -545,6 +587,22 @@ class PlaybackConfiguration(pulumi.CustomResource):
         The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         """
         return pulumi.get(self, "ad_decision_server_url")
+
+    @_builtins.property
+    @pulumi.getter(name="adsPersonalizationConcurrency")
+    def ads_personalization_concurrency(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationAdsPersonalizationConcurrency']]:
+        """
+        The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+        """
+        return pulumi.get(self, "ads_personalization_concurrency")
+
+    @_builtins.property
+    @pulumi.getter(name="adsPersonalizationTimeouts")
+    def ads_personalization_timeouts(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationAdsPersonalizationTimeouts']]:
+        """
+        The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+        """
+        return pulumi.get(self, "ads_personalization_timeouts")
 
     @_builtins.property
     @pulumi.getter(name="availSuppression")

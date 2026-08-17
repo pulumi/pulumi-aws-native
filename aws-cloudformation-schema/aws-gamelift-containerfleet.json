@@ -391,7 +391,7 @@
     "Status" : {
       "description" : "The current status of the container fleet.",
       "type" : "string",
-      "enum" : [ "PENDING", "CREATING", "CREATED", "ACTIVATING", "ACTIVE", "UPDATING", "DELETING" ]
+      "enum" : [ "PENDING", "CREATING", "CREATED", "ACTIVATING", "ACTIVE", "UPDATING", "DELETING", "EXPIRED" ]
     },
     "DeploymentDetails" : {
       "$ref" : "#/definitions/DeploymentDetails"

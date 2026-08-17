@@ -808,6 +808,7 @@ func (o CapabilityAwsIdcPtrOutput) IdcRegion() pulumi.StringPtrOutput {
 
 // Configuration settings for a capability. The structure of this object varies depending on the capability type.
 type CapabilityConfiguration struct {
+	Ack    interface{}       `pulumi:"ack"`
 	ArgoCd *CapabilityArgoCd `pulumi:"argoCd"`
 }
 
@@ -824,6 +825,7 @@ type CapabilityConfigurationInput interface {
 
 // Configuration settings for a capability. The structure of this object varies depending on the capability type.
 type CapabilityConfigurationArgs struct {
+	Ack    pulumi.Input             `pulumi:"ack"`
 	ArgoCd CapabilityArgoCdPtrInput `pulumi:"argoCd"`
 }
 
@@ -905,6 +907,10 @@ func (o CapabilityConfigurationOutput) ToCapabilityConfigurationPtrOutputWithCon
 	}).(CapabilityConfigurationPtrOutput)
 }
 
+func (o CapabilityConfigurationOutput) Ack() pulumi.AnyOutput {
+	return o.ApplyT(func(v CapabilityConfiguration) interface{} { return v.Ack }).(pulumi.AnyOutput)
+}
+
 func (o CapabilityConfigurationOutput) ArgoCd() CapabilityArgoCdPtrOutput {
 	return o.ApplyT(func(v CapabilityConfiguration) *CapabilityArgoCd { return v.ArgoCd }).(CapabilityArgoCdPtrOutput)
 }
@@ -931,6 +937,15 @@ func (o CapabilityConfigurationPtrOutput) Elem() CapabilityConfigurationOutput {
 		var ret CapabilityConfiguration
 		return ret
 	}).(CapabilityConfigurationOutput)
+}
+
+func (o CapabilityConfigurationPtrOutput) Ack() pulumi.AnyOutput {
+	return o.ApplyT(func(v *CapabilityConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ack
+	}).(pulumi.AnyOutput)
 }
 
 func (o CapabilityConfigurationPtrOutput) ArgoCd() CapabilityArgoCdPtrOutput {
@@ -2364,6 +2379,577 @@ func (o ClusterEtcdPlacementPtrOutput) SpreadLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The horizontal pod autoscaler controller configuration.
+type ClusterHorizontalPodAutoscalerControllerConfig struct {
+	// The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+	HorizontalPodAutoscalerSyncPeriod *string `pulumi:"horizontalPodAutoscalerSyncPeriod"`
+}
+
+// ClusterHorizontalPodAutoscalerControllerConfigInput is an input type that accepts ClusterHorizontalPodAutoscalerControllerConfigArgs and ClusterHorizontalPodAutoscalerControllerConfigOutput values.
+// You can construct a concrete instance of `ClusterHorizontalPodAutoscalerControllerConfigInput` via:
+//
+//	ClusterHorizontalPodAutoscalerControllerConfigArgs{...}
+type ClusterHorizontalPodAutoscalerControllerConfigInput interface {
+	pulumi.Input
+
+	ToClusterHorizontalPodAutoscalerControllerConfigOutput() ClusterHorizontalPodAutoscalerControllerConfigOutput
+	ToClusterHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Context) ClusterHorizontalPodAutoscalerControllerConfigOutput
+}
+
+// The horizontal pod autoscaler controller configuration.
+type ClusterHorizontalPodAutoscalerControllerConfigArgs struct {
+	// The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+	HorizontalPodAutoscalerSyncPeriod pulumi.StringPtrInput `pulumi:"horizontalPodAutoscalerSyncPeriod"`
+}
+
+func (ClusterHorizontalPodAutoscalerControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i ClusterHorizontalPodAutoscalerControllerConfigArgs) ToClusterHorizontalPodAutoscalerControllerConfigOutput() ClusterHorizontalPodAutoscalerControllerConfigOutput {
+	return i.ToClusterHorizontalPodAutoscalerControllerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterHorizontalPodAutoscalerControllerConfigArgs) ToClusterHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) ClusterHorizontalPodAutoscalerControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+func (i ClusterHorizontalPodAutoscalerControllerConfigArgs) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return i.ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterHorizontalPodAutoscalerControllerConfigArgs) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterHorizontalPodAutoscalerControllerConfigOutput).ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterHorizontalPodAutoscalerControllerConfigPtrInput is an input type that accepts ClusterHorizontalPodAutoscalerControllerConfigArgs, ClusterHorizontalPodAutoscalerControllerConfigPtr and ClusterHorizontalPodAutoscalerControllerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterHorizontalPodAutoscalerControllerConfigPtrInput` via:
+//
+//	        ClusterHorizontalPodAutoscalerControllerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterHorizontalPodAutoscalerControllerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterHorizontalPodAutoscalerControllerConfigPtrOutput
+	ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Context) ClusterHorizontalPodAutoscalerControllerConfigPtrOutput
+}
+
+type clusterHorizontalPodAutoscalerControllerConfigPtrType ClusterHorizontalPodAutoscalerControllerConfigArgs
+
+func ClusterHorizontalPodAutoscalerControllerConfigPtr(v *ClusterHorizontalPodAutoscalerControllerConfigArgs) ClusterHorizontalPodAutoscalerControllerConfigPtrInput {
+	return (*clusterHorizontalPodAutoscalerControllerConfigPtrType)(v)
+}
+
+func (*clusterHorizontalPodAutoscalerControllerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (i *clusterHorizontalPodAutoscalerControllerConfigPtrType) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return i.ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterHorizontalPodAutoscalerControllerConfigPtrType) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+// The horizontal pod autoscaler controller configuration.
+type ClusterHorizontalPodAutoscalerControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterHorizontalPodAutoscalerControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterHorizontalPodAutoscalerControllerConfigOutput) ToClusterHorizontalPodAutoscalerControllerConfigOutput() ClusterHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+func (o ClusterHorizontalPodAutoscalerControllerConfigOutput) ToClusterHorizontalPodAutoscalerControllerConfigOutputWithContext(ctx context.Context) ClusterHorizontalPodAutoscalerControllerConfigOutput {
+	return o
+}
+
+func (o ClusterHorizontalPodAutoscalerControllerConfigOutput) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterHorizontalPodAutoscalerControllerConfigOutput) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterHorizontalPodAutoscalerControllerConfig) *ClusterHorizontalPodAutoscalerControllerConfig {
+		return &v
+	}).(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+// The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+func (o ClusterHorizontalPodAutoscalerControllerConfigOutput) HorizontalPodAutoscalerSyncPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterHorizontalPodAutoscalerControllerConfig) *string {
+		return v.HorizontalPodAutoscalerSyncPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterHorizontalPodAutoscalerControllerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterHorizontalPodAutoscalerControllerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterHorizontalPodAutoscalerControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterHorizontalPodAutoscalerControllerConfigPtrOutput) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutput() ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterHorizontalPodAutoscalerControllerConfigPtrOutput) ToClusterHorizontalPodAutoscalerControllerConfigPtrOutputWithContext(ctx context.Context) ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterHorizontalPodAutoscalerControllerConfigPtrOutput) Elem() ClusterHorizontalPodAutoscalerControllerConfigOutput {
+	return o.ApplyT(func(v *ClusterHorizontalPodAutoscalerControllerConfig) ClusterHorizontalPodAutoscalerControllerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterHorizontalPodAutoscalerControllerConfig
+		return ret
+	}).(ClusterHorizontalPodAutoscalerControllerConfigOutput)
+}
+
+// The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+func (o ClusterHorizontalPodAutoscalerControllerConfigPtrOutput) HorizontalPodAutoscalerSyncPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterHorizontalPodAutoscalerControllerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HorizontalPodAutoscalerSyncPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for the Kubernetes API server on an Amazon EKS cluster.
+type ClusterKubeApiServerConfig struct {
+	// The duration that Kubernetes events are retained (e.g., 30m, 1h).
+	EventTtl             *string                      `pulumi:"eventTtl"`
+	ServiceNodePortRange *ClusterServiceNodePortRange `pulumi:"serviceNodePortRange"`
+}
+
+// ClusterKubeApiServerConfigInput is an input type that accepts ClusterKubeApiServerConfigArgs and ClusterKubeApiServerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeApiServerConfigInput` via:
+//
+//	ClusterKubeApiServerConfigArgs{...}
+type ClusterKubeApiServerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeApiServerConfigOutput() ClusterKubeApiServerConfigOutput
+	ToClusterKubeApiServerConfigOutputWithContext(context.Context) ClusterKubeApiServerConfigOutput
+}
+
+// The configuration for the Kubernetes API server on an Amazon EKS cluster.
+type ClusterKubeApiServerConfigArgs struct {
+	// The duration that Kubernetes events are retained (e.g., 30m, 1h).
+	EventTtl             pulumi.StringPtrInput               `pulumi:"eventTtl"`
+	ServiceNodePortRange ClusterServiceNodePortRangePtrInput `pulumi:"serviceNodePortRange"`
+}
+
+func (ClusterKubeApiServerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigOutput() ClusterKubeApiServerConfigOutput {
+	return i.ToClusterKubeApiServerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigOutput)
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return i.ToClusterKubeApiServerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeApiServerConfigArgs) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigOutput).ToClusterKubeApiServerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeApiServerConfigPtrInput is an input type that accepts ClusterKubeApiServerConfigArgs, ClusterKubeApiServerConfigPtr and ClusterKubeApiServerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeApiServerConfigPtrInput` via:
+//
+//	        ClusterKubeApiServerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeApiServerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput
+	ToClusterKubeApiServerConfigPtrOutputWithContext(context.Context) ClusterKubeApiServerConfigPtrOutput
+}
+
+type clusterKubeApiServerConfigPtrType ClusterKubeApiServerConfigArgs
+
+func ClusterKubeApiServerConfigPtr(v *ClusterKubeApiServerConfigArgs) ClusterKubeApiServerConfigPtrInput {
+	return (*clusterKubeApiServerConfigPtrType)(v)
+}
+
+func (*clusterKubeApiServerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeApiServerConfigPtrType) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return i.ToClusterKubeApiServerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeApiServerConfigPtrType) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeApiServerConfigPtrOutput)
+}
+
+// The configuration for the Kubernetes API server on an Amazon EKS cluster.
+type ClusterKubeApiServerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeApiServerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigOutput() ClusterKubeApiServerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return o.ToClusterKubeApiServerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeApiServerConfigOutput) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeApiServerConfig) *ClusterKubeApiServerConfig {
+		return &v
+	}).(ClusterKubeApiServerConfigPtrOutput)
+}
+
+// The duration that Kubernetes events are retained (e.g., 30m, 1h).
+func (o ClusterKubeApiServerConfigOutput) EventTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubeApiServerConfig) *string { return v.EventTtl }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterKubeApiServerConfigOutput) ServiceNodePortRange() ClusterServiceNodePortRangePtrOutput {
+	return o.ApplyT(func(v ClusterKubeApiServerConfig) *ClusterServiceNodePortRange { return v.ServiceNodePortRange }).(ClusterServiceNodePortRangePtrOutput)
+}
+
+type ClusterKubeApiServerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeApiServerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeApiServerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeApiServerConfigPtrOutput) ToClusterKubeApiServerConfigPtrOutput() ClusterKubeApiServerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigPtrOutput) ToClusterKubeApiServerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeApiServerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeApiServerConfigPtrOutput) Elem() ClusterKubeApiServerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfig) ClusterKubeApiServerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeApiServerConfig
+		return ret
+	}).(ClusterKubeApiServerConfigOutput)
+}
+
+// The duration that Kubernetes events are retained (e.g., 30m, 1h).
+func (o ClusterKubeApiServerConfigPtrOutput) EventTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventTtl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterKubeApiServerConfigPtrOutput) ServiceNodePortRange() ClusterServiceNodePortRangePtrOutput {
+	return o.ApplyT(func(v *ClusterKubeApiServerConfig) *ClusterServiceNodePortRange {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNodePortRange
+	}).(ClusterServiceNodePortRangePtrOutput)
+}
+
+// The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+type ClusterKubeControllerManagerConfig struct {
+	HorizontalPodAutoscalerControllerConfig *ClusterHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfig"`
+}
+
+// ClusterKubeControllerManagerConfigInput is an input type that accepts ClusterKubeControllerManagerConfigArgs and ClusterKubeControllerManagerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigInput` via:
+//
+//	ClusterKubeControllerManagerConfigArgs{...}
+type ClusterKubeControllerManagerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigOutput() ClusterKubeControllerManagerConfigOutput
+	ToClusterKubeControllerManagerConfigOutputWithContext(context.Context) ClusterKubeControllerManagerConfigOutput
+}
+
+// The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+type ClusterKubeControllerManagerConfigArgs struct {
+	HorizontalPodAutoscalerControllerConfig ClusterHorizontalPodAutoscalerControllerConfigPtrInput `pulumi:"horizontalPodAutoscalerControllerConfig"`
+}
+
+func (ClusterKubeControllerManagerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigOutput() ClusterKubeControllerManagerConfigOutput {
+	return i.ToClusterKubeControllerManagerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigOutput)
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeControllerManagerConfigArgs) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigOutput).ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeControllerManagerConfigPtrInput is an input type that accepts ClusterKubeControllerManagerConfigArgs, ClusterKubeControllerManagerConfigPtr and ClusterKubeControllerManagerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeControllerManagerConfigPtrInput` via:
+//
+//	        ClusterKubeControllerManagerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeControllerManagerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput
+	ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Context) ClusterKubeControllerManagerConfigPtrOutput
+}
+
+type clusterKubeControllerManagerConfigPtrType ClusterKubeControllerManagerConfigArgs
+
+func ClusterKubeControllerManagerConfigPtr(v *ClusterKubeControllerManagerConfigArgs) ClusterKubeControllerManagerConfigPtrInput {
+	return (*clusterKubeControllerManagerConfigPtrType)(v)
+}
+
+func (*clusterKubeControllerManagerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeControllerManagerConfigPtrType) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return i.ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeControllerManagerConfigPtrType) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeControllerManagerConfigPtrOutput)
+}
+
+// The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+type ClusterKubeControllerManagerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigOutput() ClusterKubeControllerManagerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return o.ToClusterKubeControllerManagerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeControllerManagerConfig) *ClusterKubeControllerManagerConfig {
+		return &v
+	}).(ClusterKubeControllerManagerConfigPtrOutput)
+}
+
+func (o ClusterKubeControllerManagerConfigOutput) HorizontalPodAutoscalerControllerConfig() ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ApplyT(func(v ClusterKubeControllerManagerConfig) *ClusterHorizontalPodAutoscalerControllerConfig {
+		return v.HorizontalPodAutoscalerControllerConfig
+	}).(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+type ClusterKubeControllerManagerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeControllerManagerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeControllerManagerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) ToClusterKubeControllerManagerConfigPtrOutput() ClusterKubeControllerManagerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) ToClusterKubeControllerManagerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeControllerManagerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) Elem() ClusterKubeControllerManagerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfig) ClusterKubeControllerManagerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeControllerManagerConfig
+		return ret
+	}).(ClusterKubeControllerManagerConfigOutput)
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) HorizontalPodAutoscalerControllerConfig() ClusterHorizontalPodAutoscalerControllerConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfig) *ClusterHorizontalPodAutoscalerControllerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HorizontalPodAutoscalerControllerConfig
+	}).(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+// The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+type ClusterKubeSchedulerConfig struct {
+	NodeResourcesFit *ClusterNodeResourcesFitConfig `pulumi:"nodeResourcesFit"`
+}
+
+// ClusterKubeSchedulerConfigInput is an input type that accepts ClusterKubeSchedulerConfigArgs and ClusterKubeSchedulerConfigOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigInput` via:
+//
+//	ClusterKubeSchedulerConfigArgs{...}
+type ClusterKubeSchedulerConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigOutput() ClusterKubeSchedulerConfigOutput
+	ToClusterKubeSchedulerConfigOutputWithContext(context.Context) ClusterKubeSchedulerConfigOutput
+}
+
+// The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+type ClusterKubeSchedulerConfigArgs struct {
+	NodeResourcesFit ClusterNodeResourcesFitConfigPtrInput `pulumi:"nodeResourcesFit"`
+}
+
+func (ClusterKubeSchedulerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigOutput() ClusterKubeSchedulerConfigOutput {
+	return i.ToClusterKubeSchedulerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigOutput)
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return i.ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubeSchedulerConfigArgs) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigOutput).ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubeSchedulerConfigPtrInput is an input type that accepts ClusterKubeSchedulerConfigArgs, ClusterKubeSchedulerConfigPtr and ClusterKubeSchedulerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubeSchedulerConfigPtrInput` via:
+//
+//	        ClusterKubeSchedulerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubeSchedulerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput
+	ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Context) ClusterKubeSchedulerConfigPtrOutput
+}
+
+type clusterKubeSchedulerConfigPtrType ClusterKubeSchedulerConfigArgs
+
+func ClusterKubeSchedulerConfigPtr(v *ClusterKubeSchedulerConfigArgs) ClusterKubeSchedulerConfigPtrInput {
+	return (*clusterKubeSchedulerConfigPtrType)(v)
+}
+
+func (*clusterKubeSchedulerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (i *clusterKubeSchedulerConfigPtrType) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return i.ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubeSchedulerConfigPtrType) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubeSchedulerConfigPtrOutput)
+}
+
+// The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+type ClusterKubeSchedulerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigOutput() ClusterKubeSchedulerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return o.ToClusterKubeSchedulerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubeSchedulerConfigOutput) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubeSchedulerConfig) *ClusterKubeSchedulerConfig {
+		return &v
+	}).(ClusterKubeSchedulerConfigPtrOutput)
+}
+
+func (o ClusterKubeSchedulerConfigOutput) NodeResourcesFit() ClusterNodeResourcesFitConfigPtrOutput {
+	return o.ApplyT(func(v ClusterKubeSchedulerConfig) *ClusterNodeResourcesFitConfig { return v.NodeResourcesFit }).(ClusterNodeResourcesFitConfigPtrOutput)
+}
+
+type ClusterKubeSchedulerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubeSchedulerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubeSchedulerConfig)(nil)).Elem()
+}
+
+func (o ClusterKubeSchedulerConfigPtrOutput) ToClusterKubeSchedulerConfigPtrOutput() ClusterKubeSchedulerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigPtrOutput) ToClusterKubeSchedulerConfigPtrOutputWithContext(ctx context.Context) ClusterKubeSchedulerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubeSchedulerConfigPtrOutput) Elem() ClusterKubeSchedulerConfigOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfig) ClusterKubeSchedulerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubeSchedulerConfig
+		return ret
+	}).(ClusterKubeSchedulerConfigOutput)
+}
+
+func (o ClusterKubeSchedulerConfigPtrOutput) NodeResourcesFit() ClusterNodeResourcesFitConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeSchedulerConfig) *ClusterNodeResourcesFitConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NodeResourcesFit
+	}).(ClusterNodeResourcesFitConfigPtrOutput)
+}
+
 // The Kubernetes network configuration for the cluster.
 type ClusterKubernetesNetworkConfig struct {
 	// Todo: add description
@@ -2807,6 +3393,142 @@ func (o ClusterLoggingTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterLog
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLoggingTypeConfig {
 		return vs[0].([]ClusterLoggingTypeConfig)[vs[1].(int)]
 	}).(ClusterLoggingTypeConfigOutput)
+}
+
+// The NodeResourcesFit plugin configuration for the Kubernetes scheduler.
+type ClusterNodeResourcesFitConfig struct {
+	ScoringStrategy *ClusterScoringStrategy `pulumi:"scoringStrategy"`
+}
+
+// ClusterNodeResourcesFitConfigInput is an input type that accepts ClusterNodeResourcesFitConfigArgs and ClusterNodeResourcesFitConfigOutput values.
+// You can construct a concrete instance of `ClusterNodeResourcesFitConfigInput` via:
+//
+//	ClusterNodeResourcesFitConfigArgs{...}
+type ClusterNodeResourcesFitConfigInput interface {
+	pulumi.Input
+
+	ToClusterNodeResourcesFitConfigOutput() ClusterNodeResourcesFitConfigOutput
+	ToClusterNodeResourcesFitConfigOutputWithContext(context.Context) ClusterNodeResourcesFitConfigOutput
+}
+
+// The NodeResourcesFit plugin configuration for the Kubernetes scheduler.
+type ClusterNodeResourcesFitConfigArgs struct {
+	ScoringStrategy ClusterScoringStrategyPtrInput `pulumi:"scoringStrategy"`
+}
+
+func (ClusterNodeResourcesFitConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeResourcesFitConfig)(nil)).Elem()
+}
+
+func (i ClusterNodeResourcesFitConfigArgs) ToClusterNodeResourcesFitConfigOutput() ClusterNodeResourcesFitConfigOutput {
+	return i.ToClusterNodeResourcesFitConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterNodeResourcesFitConfigArgs) ToClusterNodeResourcesFitConfigOutputWithContext(ctx context.Context) ClusterNodeResourcesFitConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeResourcesFitConfigOutput)
+}
+
+func (i ClusterNodeResourcesFitConfigArgs) ToClusterNodeResourcesFitConfigPtrOutput() ClusterNodeResourcesFitConfigPtrOutput {
+	return i.ToClusterNodeResourcesFitConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterNodeResourcesFitConfigArgs) ToClusterNodeResourcesFitConfigPtrOutputWithContext(ctx context.Context) ClusterNodeResourcesFitConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeResourcesFitConfigOutput).ToClusterNodeResourcesFitConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterNodeResourcesFitConfigPtrInput is an input type that accepts ClusterNodeResourcesFitConfigArgs, ClusterNodeResourcesFitConfigPtr and ClusterNodeResourcesFitConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterNodeResourcesFitConfigPtrInput` via:
+//
+//	        ClusterNodeResourcesFitConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterNodeResourcesFitConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterNodeResourcesFitConfigPtrOutput() ClusterNodeResourcesFitConfigPtrOutput
+	ToClusterNodeResourcesFitConfigPtrOutputWithContext(context.Context) ClusterNodeResourcesFitConfigPtrOutput
+}
+
+type clusterNodeResourcesFitConfigPtrType ClusterNodeResourcesFitConfigArgs
+
+func ClusterNodeResourcesFitConfigPtr(v *ClusterNodeResourcesFitConfigArgs) ClusterNodeResourcesFitConfigPtrInput {
+	return (*clusterNodeResourcesFitConfigPtrType)(v)
+}
+
+func (*clusterNodeResourcesFitConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNodeResourcesFitConfig)(nil)).Elem()
+}
+
+func (i *clusterNodeResourcesFitConfigPtrType) ToClusterNodeResourcesFitConfigPtrOutput() ClusterNodeResourcesFitConfigPtrOutput {
+	return i.ToClusterNodeResourcesFitConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterNodeResourcesFitConfigPtrType) ToClusterNodeResourcesFitConfigPtrOutputWithContext(ctx context.Context) ClusterNodeResourcesFitConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeResourcesFitConfigPtrOutput)
+}
+
+// The NodeResourcesFit plugin configuration for the Kubernetes scheduler.
+type ClusterNodeResourcesFitConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeResourcesFitConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeResourcesFitConfig)(nil)).Elem()
+}
+
+func (o ClusterNodeResourcesFitConfigOutput) ToClusterNodeResourcesFitConfigOutput() ClusterNodeResourcesFitConfigOutput {
+	return o
+}
+
+func (o ClusterNodeResourcesFitConfigOutput) ToClusterNodeResourcesFitConfigOutputWithContext(ctx context.Context) ClusterNodeResourcesFitConfigOutput {
+	return o
+}
+
+func (o ClusterNodeResourcesFitConfigOutput) ToClusterNodeResourcesFitConfigPtrOutput() ClusterNodeResourcesFitConfigPtrOutput {
+	return o.ToClusterNodeResourcesFitConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNodeResourcesFitConfigOutput) ToClusterNodeResourcesFitConfigPtrOutputWithContext(ctx context.Context) ClusterNodeResourcesFitConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNodeResourcesFitConfig) *ClusterNodeResourcesFitConfig {
+		return &v
+	}).(ClusterNodeResourcesFitConfigPtrOutput)
+}
+
+func (o ClusterNodeResourcesFitConfigOutput) ScoringStrategy() ClusterScoringStrategyPtrOutput {
+	return o.ApplyT(func(v ClusterNodeResourcesFitConfig) *ClusterScoringStrategy { return v.ScoringStrategy }).(ClusterScoringStrategyPtrOutput)
+}
+
+type ClusterNodeResourcesFitConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeResourcesFitConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNodeResourcesFitConfig)(nil)).Elem()
+}
+
+func (o ClusterNodeResourcesFitConfigPtrOutput) ToClusterNodeResourcesFitConfigPtrOutput() ClusterNodeResourcesFitConfigPtrOutput {
+	return o
+}
+
+func (o ClusterNodeResourcesFitConfigPtrOutput) ToClusterNodeResourcesFitConfigPtrOutputWithContext(ctx context.Context) ClusterNodeResourcesFitConfigPtrOutput {
+	return o
+}
+
+func (o ClusterNodeResourcesFitConfigPtrOutput) Elem() ClusterNodeResourcesFitConfigOutput {
+	return o.ApplyT(func(v *ClusterNodeResourcesFitConfig) ClusterNodeResourcesFitConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNodeResourcesFitConfig
+		return ret
+	}).(ClusterNodeResourcesFitConfigOutput)
+}
+
+func (o ClusterNodeResourcesFitConfigPtrOutput) ScoringStrategy() ClusterScoringStrategyPtrOutput {
+	return o.ApplyT(func(v *ClusterNodeResourcesFitConfig) *ClusterScoringStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.ScoringStrategy
+	}).(ClusterScoringStrategyPtrOutput)
 }
 
 // An object representing the Outpost configuration to use for AWS EKS outpost cluster.
@@ -3521,6 +4243,115 @@ func (o ClusterRemotePodNetworkArrayOutput) Index(i pulumi.IntInput) ClusterRemo
 	}).(ClusterRemotePodNetworkOutput)
 }
 
+// A resource weight entry for the scheduler scoring strategy.
+type ClusterResourceWeight struct {
+	// The name of the resource (for example, cpu or memory).
+	Name *string `pulumi:"name"`
+	// The weight assigned to the resource for scoring. Must be between 1 and 100.
+	Weight *int `pulumi:"weight"`
+}
+
+// ClusterResourceWeightInput is an input type that accepts ClusterResourceWeightArgs and ClusterResourceWeightOutput values.
+// You can construct a concrete instance of `ClusterResourceWeightInput` via:
+//
+//	ClusterResourceWeightArgs{...}
+type ClusterResourceWeightInput interface {
+	pulumi.Input
+
+	ToClusterResourceWeightOutput() ClusterResourceWeightOutput
+	ToClusterResourceWeightOutputWithContext(context.Context) ClusterResourceWeightOutput
+}
+
+// A resource weight entry for the scheduler scoring strategy.
+type ClusterResourceWeightArgs struct {
+	// The name of the resource (for example, cpu or memory).
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The weight assigned to the resource for scoring. Must be between 1 and 100.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ClusterResourceWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourceWeight)(nil)).Elem()
+}
+
+func (i ClusterResourceWeightArgs) ToClusterResourceWeightOutput() ClusterResourceWeightOutput {
+	return i.ToClusterResourceWeightOutputWithContext(context.Background())
+}
+
+func (i ClusterResourceWeightArgs) ToClusterResourceWeightOutputWithContext(ctx context.Context) ClusterResourceWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourceWeightOutput)
+}
+
+// ClusterResourceWeightArrayInput is an input type that accepts ClusterResourceWeightArray and ClusterResourceWeightArrayOutput values.
+// You can construct a concrete instance of `ClusterResourceWeightArrayInput` via:
+//
+//	ClusterResourceWeightArray{ ClusterResourceWeightArgs{...} }
+type ClusterResourceWeightArrayInput interface {
+	pulumi.Input
+
+	ToClusterResourceWeightArrayOutput() ClusterResourceWeightArrayOutput
+	ToClusterResourceWeightArrayOutputWithContext(context.Context) ClusterResourceWeightArrayOutput
+}
+
+type ClusterResourceWeightArray []ClusterResourceWeightInput
+
+func (ClusterResourceWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterResourceWeight)(nil)).Elem()
+}
+
+func (i ClusterResourceWeightArray) ToClusterResourceWeightArrayOutput() ClusterResourceWeightArrayOutput {
+	return i.ToClusterResourceWeightArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterResourceWeightArray) ToClusterResourceWeightArrayOutputWithContext(ctx context.Context) ClusterResourceWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourceWeightArrayOutput)
+}
+
+// A resource weight entry for the scheduler scoring strategy.
+type ClusterResourceWeightOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourceWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourceWeight)(nil)).Elem()
+}
+
+func (o ClusterResourceWeightOutput) ToClusterResourceWeightOutput() ClusterResourceWeightOutput {
+	return o
+}
+
+func (o ClusterResourceWeightOutput) ToClusterResourceWeightOutputWithContext(ctx context.Context) ClusterResourceWeightOutput {
+	return o
+}
+
+// The name of the resource (for example, cpu or memory).
+func (o ClusterResourceWeightOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterResourceWeight) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The weight assigned to the resource for scoring. Must be between 1 and 100.
+func (o ClusterResourceWeightOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterResourceWeight) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ClusterResourceWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourceWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterResourceWeight)(nil)).Elem()
+}
+
+func (o ClusterResourceWeightArrayOutput) ToClusterResourceWeightArrayOutput() ClusterResourceWeightArrayOutput {
+	return o
+}
+
+func (o ClusterResourceWeightArrayOutput) ToClusterResourceWeightArrayOutputWithContext(ctx context.Context) ClusterResourceWeightArrayOutput {
+	return o
+}
+
+func (o ClusterResourceWeightArrayOutput) Index(i pulumi.IntInput) ClusterResourceWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterResourceWeight {
+		return vs[0].([]ClusterResourceWeight)[vs[1].(int)]
+	}).(ClusterResourceWeightOutput)
+}
+
 // An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfig struct {
 	// Specify the egress mode for the cluster control plane. If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.
@@ -3842,6 +4673,324 @@ func (o ClusterRollbackConfigPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The scoring strategy configuration for the NodeResourcesFit scheduler plugin.
+type ClusterScoringStrategy struct {
+	// The resource weights used for scoring nodes.
+	Resources []ClusterResourceWeight `pulumi:"resources"`
+	// The scoring strategy type (LeastAllocated or MostAllocated).
+	Type *string `pulumi:"type"`
+}
+
+// ClusterScoringStrategyInput is an input type that accepts ClusterScoringStrategyArgs and ClusterScoringStrategyOutput values.
+// You can construct a concrete instance of `ClusterScoringStrategyInput` via:
+//
+//	ClusterScoringStrategyArgs{...}
+type ClusterScoringStrategyInput interface {
+	pulumi.Input
+
+	ToClusterScoringStrategyOutput() ClusterScoringStrategyOutput
+	ToClusterScoringStrategyOutputWithContext(context.Context) ClusterScoringStrategyOutput
+}
+
+// The scoring strategy configuration for the NodeResourcesFit scheduler plugin.
+type ClusterScoringStrategyArgs struct {
+	// The resource weights used for scoring nodes.
+	Resources ClusterResourceWeightArrayInput `pulumi:"resources"`
+	// The scoring strategy type (LeastAllocated or MostAllocated).
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ClusterScoringStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScoringStrategy)(nil)).Elem()
+}
+
+func (i ClusterScoringStrategyArgs) ToClusterScoringStrategyOutput() ClusterScoringStrategyOutput {
+	return i.ToClusterScoringStrategyOutputWithContext(context.Background())
+}
+
+func (i ClusterScoringStrategyArgs) ToClusterScoringStrategyOutputWithContext(ctx context.Context) ClusterScoringStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScoringStrategyOutput)
+}
+
+func (i ClusterScoringStrategyArgs) ToClusterScoringStrategyPtrOutput() ClusterScoringStrategyPtrOutput {
+	return i.ToClusterScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterScoringStrategyArgs) ToClusterScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterScoringStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScoringStrategyOutput).ToClusterScoringStrategyPtrOutputWithContext(ctx)
+}
+
+// ClusterScoringStrategyPtrInput is an input type that accepts ClusterScoringStrategyArgs, ClusterScoringStrategyPtr and ClusterScoringStrategyPtrOutput values.
+// You can construct a concrete instance of `ClusterScoringStrategyPtrInput` via:
+//
+//	        ClusterScoringStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterScoringStrategyPtrInput interface {
+	pulumi.Input
+
+	ToClusterScoringStrategyPtrOutput() ClusterScoringStrategyPtrOutput
+	ToClusterScoringStrategyPtrOutputWithContext(context.Context) ClusterScoringStrategyPtrOutput
+}
+
+type clusterScoringStrategyPtrType ClusterScoringStrategyArgs
+
+func ClusterScoringStrategyPtr(v *ClusterScoringStrategyArgs) ClusterScoringStrategyPtrInput {
+	return (*clusterScoringStrategyPtrType)(v)
+}
+
+func (*clusterScoringStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScoringStrategy)(nil)).Elem()
+}
+
+func (i *clusterScoringStrategyPtrType) ToClusterScoringStrategyPtrOutput() ClusterScoringStrategyPtrOutput {
+	return i.ToClusterScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterScoringStrategyPtrType) ToClusterScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterScoringStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterScoringStrategyPtrOutput)
+}
+
+// The scoring strategy configuration for the NodeResourcesFit scheduler plugin.
+type ClusterScoringStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterScoringStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterScoringStrategy)(nil)).Elem()
+}
+
+func (o ClusterScoringStrategyOutput) ToClusterScoringStrategyOutput() ClusterScoringStrategyOutput {
+	return o
+}
+
+func (o ClusterScoringStrategyOutput) ToClusterScoringStrategyOutputWithContext(ctx context.Context) ClusterScoringStrategyOutput {
+	return o
+}
+
+func (o ClusterScoringStrategyOutput) ToClusterScoringStrategyPtrOutput() ClusterScoringStrategyPtrOutput {
+	return o.ToClusterScoringStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterScoringStrategyOutput) ToClusterScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterScoringStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterScoringStrategy) *ClusterScoringStrategy {
+		return &v
+	}).(ClusterScoringStrategyPtrOutput)
+}
+
+// The resource weights used for scoring nodes.
+func (o ClusterScoringStrategyOutput) Resources() ClusterResourceWeightArrayOutput {
+	return o.ApplyT(func(v ClusterScoringStrategy) []ClusterResourceWeight { return v.Resources }).(ClusterResourceWeightArrayOutput)
+}
+
+// The scoring strategy type (LeastAllocated or MostAllocated).
+func (o ClusterScoringStrategyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterScoringStrategy) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ClusterScoringStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterScoringStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterScoringStrategy)(nil)).Elem()
+}
+
+func (o ClusterScoringStrategyPtrOutput) ToClusterScoringStrategyPtrOutput() ClusterScoringStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterScoringStrategyPtrOutput) ToClusterScoringStrategyPtrOutputWithContext(ctx context.Context) ClusterScoringStrategyPtrOutput {
+	return o
+}
+
+func (o ClusterScoringStrategyPtrOutput) Elem() ClusterScoringStrategyOutput {
+	return o.ApplyT(func(v *ClusterScoringStrategy) ClusterScoringStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterScoringStrategy
+		return ret
+	}).(ClusterScoringStrategyOutput)
+}
+
+// The resource weights used for scoring nodes.
+func (o ClusterScoringStrategyPtrOutput) Resources() ClusterResourceWeightArrayOutput {
+	return o.ApplyT(func(v *ClusterScoringStrategy) []ClusterResourceWeight {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(ClusterResourceWeightArrayOutput)
+}
+
+// The scoring strategy type (LeastAllocated or MostAllocated).
+func (o ClusterScoringStrategyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterScoringStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port range for Kubernetes NodePort services.
+type ClusterServiceNodePortRange struct {
+	// The maximum port number in the range.
+	MaxPort *int `pulumi:"maxPort"`
+	// The minimum port number in the range.
+	MinPort *int `pulumi:"minPort"`
+}
+
+// ClusterServiceNodePortRangeInput is an input type that accepts ClusterServiceNodePortRangeArgs and ClusterServiceNodePortRangeOutput values.
+// You can construct a concrete instance of `ClusterServiceNodePortRangeInput` via:
+//
+//	ClusterServiceNodePortRangeArgs{...}
+type ClusterServiceNodePortRangeInput interface {
+	pulumi.Input
+
+	ToClusterServiceNodePortRangeOutput() ClusterServiceNodePortRangeOutput
+	ToClusterServiceNodePortRangeOutputWithContext(context.Context) ClusterServiceNodePortRangeOutput
+}
+
+// The port range for Kubernetes NodePort services.
+type ClusterServiceNodePortRangeArgs struct {
+	// The maximum port number in the range.
+	MaxPort pulumi.IntPtrInput `pulumi:"maxPort"`
+	// The minimum port number in the range.
+	MinPort pulumi.IntPtrInput `pulumi:"minPort"`
+}
+
+func (ClusterServiceNodePortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServiceNodePortRange)(nil)).Elem()
+}
+
+func (i ClusterServiceNodePortRangeArgs) ToClusterServiceNodePortRangeOutput() ClusterServiceNodePortRangeOutput {
+	return i.ToClusterServiceNodePortRangeOutputWithContext(context.Background())
+}
+
+func (i ClusterServiceNodePortRangeArgs) ToClusterServiceNodePortRangeOutputWithContext(ctx context.Context) ClusterServiceNodePortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServiceNodePortRangeOutput)
+}
+
+func (i ClusterServiceNodePortRangeArgs) ToClusterServiceNodePortRangePtrOutput() ClusterServiceNodePortRangePtrOutput {
+	return i.ToClusterServiceNodePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServiceNodePortRangeArgs) ToClusterServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterServiceNodePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServiceNodePortRangeOutput).ToClusterServiceNodePortRangePtrOutputWithContext(ctx)
+}
+
+// ClusterServiceNodePortRangePtrInput is an input type that accepts ClusterServiceNodePortRangeArgs, ClusterServiceNodePortRangePtr and ClusterServiceNodePortRangePtrOutput values.
+// You can construct a concrete instance of `ClusterServiceNodePortRangePtrInput` via:
+//
+//	        ClusterServiceNodePortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterServiceNodePortRangePtrInput interface {
+	pulumi.Input
+
+	ToClusterServiceNodePortRangePtrOutput() ClusterServiceNodePortRangePtrOutput
+	ToClusterServiceNodePortRangePtrOutputWithContext(context.Context) ClusterServiceNodePortRangePtrOutput
+}
+
+type clusterServiceNodePortRangePtrType ClusterServiceNodePortRangeArgs
+
+func ClusterServiceNodePortRangePtr(v *ClusterServiceNodePortRangeArgs) ClusterServiceNodePortRangePtrInput {
+	return (*clusterServiceNodePortRangePtrType)(v)
+}
+
+func (*clusterServiceNodePortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServiceNodePortRange)(nil)).Elem()
+}
+
+func (i *clusterServiceNodePortRangePtrType) ToClusterServiceNodePortRangePtrOutput() ClusterServiceNodePortRangePtrOutput {
+	return i.ToClusterServiceNodePortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServiceNodePortRangePtrType) ToClusterServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterServiceNodePortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServiceNodePortRangePtrOutput)
+}
+
+// The port range for Kubernetes NodePort services.
+type ClusterServiceNodePortRangeOutput struct{ *pulumi.OutputState }
+
+func (ClusterServiceNodePortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServiceNodePortRange)(nil)).Elem()
+}
+
+func (o ClusterServiceNodePortRangeOutput) ToClusterServiceNodePortRangeOutput() ClusterServiceNodePortRangeOutput {
+	return o
+}
+
+func (o ClusterServiceNodePortRangeOutput) ToClusterServiceNodePortRangeOutputWithContext(ctx context.Context) ClusterServiceNodePortRangeOutput {
+	return o
+}
+
+func (o ClusterServiceNodePortRangeOutput) ToClusterServiceNodePortRangePtrOutput() ClusterServiceNodePortRangePtrOutput {
+	return o.ToClusterServiceNodePortRangePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServiceNodePortRangeOutput) ToClusterServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterServiceNodePortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServiceNodePortRange) *ClusterServiceNodePortRange {
+		return &v
+	}).(ClusterServiceNodePortRangePtrOutput)
+}
+
+// The maximum port number in the range.
+func (o ClusterServiceNodePortRangeOutput) MaxPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterServiceNodePortRange) *int { return v.MaxPort }).(pulumi.IntPtrOutput)
+}
+
+// The minimum port number in the range.
+func (o ClusterServiceNodePortRangeOutput) MinPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterServiceNodePortRange) *int { return v.MinPort }).(pulumi.IntPtrOutput)
+}
+
+type ClusterServiceNodePortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterServiceNodePortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServiceNodePortRange)(nil)).Elem()
+}
+
+func (o ClusterServiceNodePortRangePtrOutput) ToClusterServiceNodePortRangePtrOutput() ClusterServiceNodePortRangePtrOutput {
+	return o
+}
+
+func (o ClusterServiceNodePortRangePtrOutput) ToClusterServiceNodePortRangePtrOutputWithContext(ctx context.Context) ClusterServiceNodePortRangePtrOutput {
+	return o
+}
+
+func (o ClusterServiceNodePortRangePtrOutput) Elem() ClusterServiceNodePortRangeOutput {
+	return o.ApplyT(func(v *ClusterServiceNodePortRange) ClusterServiceNodePortRange {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServiceNodePortRange
+		return ret
+	}).(ClusterServiceNodePortRangeOutput)
+}
+
+// The maximum port number in the range.
+func (o ClusterServiceNodePortRangePtrOutput) MaxPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterServiceNodePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum port number in the range.
+func (o ClusterServiceNodePortRangePtrOutput) MinPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterServiceNodePortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinPort
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -6624,12 +7773,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigArrayInput)(nil)).Elem(), ClusterEncryptionConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdPlacementInput)(nil)).Elem(), ClusterEtcdPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEtcdPlacementPtrInput)(nil)).Elem(), ClusterEtcdPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterHorizontalPodAutoscalerControllerConfigInput)(nil)).Elem(), ClusterHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterHorizontalPodAutoscalerControllerConfigPtrInput)(nil)).Elem(), ClusterHorizontalPodAutoscalerControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeApiServerConfigInput)(nil)).Elem(), ClusterKubeApiServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeApiServerConfigPtrInput)(nil)).Elem(), ClusterKubeApiServerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigInput)(nil)).Elem(), ClusterKubeControllerManagerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeControllerManagerConfigPtrInput)(nil)).Elem(), ClusterKubeControllerManagerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigInput)(nil)).Elem(), ClusterKubeSchedulerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubeSchedulerConfigPtrInput)(nil)).Elem(), ClusterKubeSchedulerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingEnabledTypesInput)(nil)).Elem(), ClusterLoggingEnabledTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingEnabledTypesPtrInput)(nil)).Elem(), ClusterLoggingEnabledTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingTypeConfigInput)(nil)).Elem(), ClusterLoggingTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingTypeConfigArrayInput)(nil)).Elem(), ClusterLoggingTypeConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeResourcesFitConfigInput)(nil)).Elem(), ClusterNodeResourcesFitConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeResourcesFitConfigPtrInput)(nil)).Elem(), ClusterNodeResourcesFitConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProviderInput)(nil)).Elem(), ClusterProviderArgs{})
@@ -6640,9 +7799,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNodeNetworkArrayInput)(nil)).Elem(), ClusterRemoteNodeNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemotePodNetworkInput)(nil)).Elem(), ClusterRemotePodNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemotePodNetworkArrayInput)(nil)).Elem(), ClusterRemotePodNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourceWeightInput)(nil)).Elem(), ClusterResourceWeightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourceWeightArrayInput)(nil)).Elem(), ClusterResourceWeightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourcesVpcConfigInput)(nil)).Elem(), ClusterResourcesVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollbackConfigInput)(nil)).Elem(), ClusterRollbackConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollbackConfigPtrInput)(nil)).Elem(), ClusterRollbackConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScoringStrategyInput)(nil)).Elem(), ClusterScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScoringStrategyPtrInput)(nil)).Elem(), ClusterScoringStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceNodePortRangeInput)(nil)).Elem(), ClusterServiceNodePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceNodePortRangePtrInput)(nil)).Elem(), ClusterServiceNodePortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigInput)(nil)).Elem(), ClusterStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigPtrInput)(nil)).Elem(), ClusterStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
@@ -6710,12 +7875,22 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterEtcdPlacementOutput{})
 	pulumi.RegisterOutputType(ClusterEtcdPlacementPtrOutput{})
+	pulumi.RegisterOutputType(ClusterHorizontalPodAutoscalerControllerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeApiServerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeApiServerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeControllerManagerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubeSchedulerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingEnabledTypesOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingEnabledTypesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingTypeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingTypeConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterNodeResourcesFitConfigOutput{})
+	pulumi.RegisterOutputType(ClusterNodeResourcesFitConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterProviderOutput{})
@@ -6726,10 +7901,16 @@ func init() {
 	pulumi.RegisterOutputType(ClusterRemoteNodeNetworkArrayOutput{})
 	pulumi.RegisterOutputType(ClusterRemotePodNetworkOutput{})
 	pulumi.RegisterOutputType(ClusterRemotePodNetworkArrayOutput{})
+	pulumi.RegisterOutputType(ClusterResourceWeightOutput{})
+	pulumi.RegisterOutputType(ClusterResourceWeightArrayOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRollbackConfigOutput{})
 	pulumi.RegisterOutputType(ClusterRollbackConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterScoringStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterScoringStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServiceNodePortRangeOutput{})
+	pulumi.RegisterOutputType(ClusterServiceNodePortRangePtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageConfigOutput{})
 	pulumi.RegisterOutputType(ClusterStorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})

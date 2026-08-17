@@ -45,6 +45,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         /// </summary>
         public readonly Outputs.JobDefinitionNetworkConfiguration? NetworkConfiguration;
+        public readonly string? NetworkMode;
         /// <summary>
         /// The process namespace to use for the containers in the task. The valid values are `host` or `task` . For example, monitoring sidecars might need `pidMode` to access information about other containers running in the same task.
         /// 
@@ -88,6 +89,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             Outputs.JobDefinitionNetworkConfiguration? networkConfiguration,
 
+            string? networkMode,
+
             string? pidMode,
 
             string? platformVersion,
@@ -104,6 +107,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ExecutionRoleArn = executionRoleArn;
             IpcMode = ipcMode;
             NetworkConfiguration = networkConfiguration;
+            NetworkMode = networkMode;
             PidMode = pidMode;
             PlatformVersion = platformVersion;
             RuntimePlatform = runtimePlatform;

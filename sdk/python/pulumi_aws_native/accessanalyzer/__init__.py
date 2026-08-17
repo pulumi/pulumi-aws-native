@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .analyzer import *
+from .archive_rule import *
 from .get_analyzer import *
+from .get_archive_rule import *
 from ._inputs import *
 from . import outputs

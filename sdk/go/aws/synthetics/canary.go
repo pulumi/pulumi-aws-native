@@ -162,10 +162,14 @@ type Canary struct {
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
 	FailureRetentionPeriod pulumi.IntPtrOutput `pulumi:"failureRetentionPeriod"`
+	// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the canary.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
 	ProvisionedResourceCleanup CanaryProvisionedResourceCleanupPtrOutput `pulumi:"provisionedResourceCleanup"`
+	// List of replica locations for multi-location canary execution
+	Replicas CanaryReplicaArrayOutput `pulumi:"replicas"`
 	// List of resources which canary tags should be replicated to.
 	ResourcesToReplicateTags CanaryResourceToTagArrayOutput `pulumi:"resourcesToReplicateTags"`
 	// Provide canary run configuration
@@ -265,10 +269,14 @@ type canaryArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Retention period of failed canary runs represented in number of days
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
+	// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the canary.
 	Name *string `pulumi:"name"`
 	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
 	ProvisionedResourceCleanup *CanaryProvisionedResourceCleanup `pulumi:"provisionedResourceCleanup"`
+	// List of replica locations for multi-location canary execution
+	Replicas []CanaryReplica `pulumi:"replicas"`
 	// List of resources which canary tags should be replicated to.
 	ResourcesToReplicateTags []CanaryResourceToTag `pulumi:"resourcesToReplicateTags"`
 	// Provide canary run configuration
@@ -309,10 +317,14 @@ type CanaryArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// Retention period of failed canary runs represented in number of days
 	FailureRetentionPeriod pulumi.IntPtrInput
+	// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+	KmsKeyArn pulumi.StringPtrInput
 	// Name of the canary.
 	Name pulumi.StringPtrInput
 	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
 	ProvisionedResourceCleanup CanaryProvisionedResourceCleanupPtrInput
+	// List of replica locations for multi-location canary execution
+	Replicas CanaryReplicaArrayInput
 	// List of resources which canary tags should be replicated to.
 	ResourcesToReplicateTags CanaryResourceToTagArrayInput
 	// Provide canary run configuration
@@ -417,6 +429,11 @@ func (o CanaryOutput) FailureRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Canary) pulumi.IntPtrOutput { return v.FailureRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+func (o CanaryOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // Name of the canary.
 func (o CanaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -425,6 +442,11 @@ func (o CanaryOutput) Name() pulumi.StringOutput {
 // Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
 func (o CanaryOutput) ProvisionedResourceCleanup() CanaryProvisionedResourceCleanupPtrOutput {
 	return o.ApplyT(func(v *Canary) CanaryProvisionedResourceCleanupPtrOutput { return v.ProvisionedResourceCleanup }).(CanaryProvisionedResourceCleanupPtrOutput)
+}
+
+// List of replica locations for multi-location canary execution
+func (o CanaryOutput) Replicas() CanaryReplicaArrayOutput {
+	return o.ApplyT(func(v *Canary) CanaryReplicaArrayOutput { return v.Replicas }).(CanaryReplicaArrayOutput)
 }
 
 // List of resources which canary tags should be replicated to.

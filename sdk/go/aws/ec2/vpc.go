@@ -47,7 +47,9 @@ type Vpc struct {
 	// The IPv6 CIDR blocks for the VPC. For example, [ 2001:db8:1234:1a00::/56 ].
 	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
 	// The tags for the VPC.
-	Tags                 aws.TagArrayOutput                `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Describes the configuration and state of VPC encryption controls.
+	//  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	VpcEncryptionControl VpcEncryptionControlTypePtrOutput `pulumi:"vpcEncryptionControl"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -120,7 +122,9 @@ type vpcArgs struct {
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The tags for the VPC.
-	Tags                 []aws.Tag                 `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Describes the configuration and state of VPC encryption controls.
+	//  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	VpcEncryptionControl *VpcEncryptionControlType `pulumi:"vpcEncryptionControl"`
 }
 
@@ -146,7 +150,9 @@ type VpcArgs struct {
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The tags for the VPC.
-	Tags                 aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// Describes the configuration and state of VPC encryption controls.
+	//  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 	VpcEncryptionControl VpcEncryptionControlTypePtrInput
 }
 
@@ -254,6 +260,9 @@ func (o VpcOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Vpc) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Describes the configuration and state of VPC encryption controls.
+//
+//	For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
 func (o VpcOutput) VpcEncryptionControl() VpcEncryptionControlTypePtrOutput {
 	return o.ApplyT(func(v *Vpc) VpcEncryptionControlTypePtrOutput { return v.VpcEncryptionControl }).(VpcEncryptionControlTypePtrOutput)
 }

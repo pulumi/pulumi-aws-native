@@ -27,6 +27,14 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.RuleGroupFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
+        [Input("preParseTextTransformations")]
+        private InputList<Inputs.RuleGroupPreParseTextTransformationArgs>? _preParseTextTransformations;
+        public InputList<Inputs.RuleGroupPreParseTextTransformationArgs> PreParseTextTransformations
+        {
+            get => _preParseTextTransformations ?? (_preParseTextTransformations = new InputList<Inputs.RuleGroupPreParseTextTransformationArgs>());
+            set => _preParseTextTransformations = value;
+        }
+
         /// <summary>
         /// The size, in byte, to compare to the request part, after any transformations.
         /// </summary>

@@ -163,6 +163,10 @@ export class Canary extends pulumi.CustomResource {
      */
     declare public readonly failureRetentionPeriod: pulumi.Output<number | undefined>;
     /**
+     * KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+     */
+    declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    /**
      * Name of the canary.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -170,6 +174,10 @@ export class Canary extends pulumi.CustomResource {
      * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
      */
     declare public readonly provisionedResourceCleanup: pulumi.Output<enums.synthetics.CanaryProvisionedResourceCleanup | undefined>;
+    /**
+     * List of replica locations for multi-location canary execution
+     */
+    declare public readonly replicas: pulumi.Output<outputs.synthetics.CanaryReplica[] | undefined>;
     /**
      * List of resources which canary tags should be replicated to.
      */
@@ -249,8 +257,10 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["dryRunAndUpdate"] = args?.dryRunAndUpdate;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["failureRetentionPeriod"] = args?.failureRetentionPeriod;
+            resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["provisionedResourceCleanup"] = args?.provisionedResourceCleanup;
+            resourceInputs["replicas"] = args?.replicas;
             resourceInputs["resourcesToReplicateTags"] = args?.resourcesToReplicateTags;
             resourceInputs["runConfig"] = args?.runConfig;
             resourceInputs["runtimeVersion"] = args?.runtimeVersion;
@@ -273,8 +283,10 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["dryRunAndUpdate"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["failureRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisionedResourceCleanup"] = undefined /*out*/;
+            resourceInputs["replicas"] = undefined /*out*/;
             resourceInputs["resourcesToReplicateTags"] = undefined /*out*/;
             resourceInputs["runConfig"] = undefined /*out*/;
             resourceInputs["runtimeVersion"] = undefined /*out*/;
@@ -331,6 +343,10 @@ export interface CanaryArgs {
      */
     failureRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
+     * KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+     */
+    kmsKeyArn?: pulumi.Input<string | undefined>;
+    /**
      * Name of the canary.
      */
     name?: pulumi.Input<string | undefined>;
@@ -338,6 +354,10 @@ export interface CanaryArgs {
      * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
      */
     provisionedResourceCleanup?: pulumi.Input<enums.synthetics.CanaryProvisionedResourceCleanup | undefined>;
+    /**
+     * List of replica locations for multi-location canary execution
+     */
+    replicas?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryReplicaArgs>[] | undefined>;
     /**
      * List of resources which canary tags should be replicated to.
      */

@@ -165,6 +165,7 @@ export const EvaluationFormLanguageConfigurationFormLanguage = {
     JaJp: "ja-JP",
     KoKr: "ko-KR",
     ZhCn: "zh-CN",
+    MsMy: "ms-MY",
 } as const;
 
 /**

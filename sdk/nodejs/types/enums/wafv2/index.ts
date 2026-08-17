@@ -253,6 +253,19 @@ export const RuleGroupPositionalConstraint = {
  */
 export type RuleGroupPositionalConstraint = (typeof RuleGroupPositionalConstraint)[keyof typeof RuleGroupPositionalConstraint];
 
+export const RuleGroupPreParseTextTransformationType = {
+    None: "NONE",
+    UrlDecode: "URL_DECODE",
+    UrlDecodeUni: "URL_DECODE_UNI",
+    CombineDuplicateQueryArgsByComma: "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA",
+    ReplaceSemicolonsWithAmpersands: "REPLACE_SEMICOLONS_WITH_AMPERSANDS",
+} as const;
+
+/**
+ * Type of pre-parse text transformation.
+ */
+export type RuleGroupPreParseTextTransformationType = (typeof RuleGroupPreParseTextTransformationType)[keyof typeof RuleGroupPreParseTextTransformationType];
+
 export const RuleGroupRateBasedStatementAggregateKeyType = {
     Ip: "IP",
     ForwardedIp: "FORWARDED_IP",
@@ -381,6 +394,16 @@ export const RuleGroupTextTransformationType = {
     Base64DecodeExt: "BASE64_DECODE_EXT",
     UrlDecodeUni: "URL_DECODE_UNI",
     Utf8ToUnicode: "UTF8_TO_UNICODE",
+    RemoveWhitespace: "REMOVE_WHITESPACE",
+    Trim: "TRIM",
+    TrimLeft: "TRIM_LEFT",
+    TrimRight: "TRIM_RIGHT",
+    RemoveCommentsChar: "REMOVE_COMMENTS_CHAR",
+    Uppercase: "UPPERCASE",
+    CmdLineWin: "CMD_LINE_WIN",
+    CmdLineUnix: "CMD_LINE_UNIX",
+    JsDecodeExt: "JS_DECODE_EXT",
+    Sha256: "SHA256",
 } as const;
 
 /**
@@ -634,6 +657,19 @@ export const WebAclPositionalConstraint = {
  */
 export type WebAclPositionalConstraint = (typeof WebAclPositionalConstraint)[keyof typeof WebAclPositionalConstraint];
 
+export const WebAclPreParseTextTransformationType = {
+    None: "NONE",
+    UrlDecode: "URL_DECODE",
+    UrlDecodeUni: "URL_DECODE_UNI",
+    CombineDuplicateQueryArgsByComma: "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA",
+    ReplaceSemicolonsWithAmpersands: "REPLACE_SEMICOLONS_WITH_AMPERSANDS",
+} as const;
+
+/**
+ * Type of pre-parse text transformation.
+ */
+export type WebAclPreParseTextTransformationType = (typeof WebAclPreParseTextTransformationType)[keyof typeof WebAclPreParseTextTransformationType];
+
 export const WebAclRateBasedStatementAggregateKeyType = {
     Constant: "CONSTANT",
     Ip: "IP",
@@ -799,6 +835,16 @@ export const WebAclTextTransformationType = {
     Base64DecodeExt: "BASE64_DECODE_EXT",
     UrlDecodeUni: "URL_DECODE_UNI",
     Utf8ToUnicode: "UTF8_TO_UNICODE",
+    RemoveWhitespace: "REMOVE_WHITESPACE",
+    Trim: "TRIM",
+    TrimLeft: "TRIM_LEFT",
+    TrimRight: "TRIM_RIGHT",
+    RemoveCommentsChar: "REMOVE_COMMENTS_CHAR",
+    Uppercase: "UPPERCASE",
+    CmdLineWin: "CMD_LINE_WIN",
+    CmdLineUnix: "CMD_LINE_UNIX",
+    JsDecodeExt: "JS_DECODE_EXT",
+    Sha256: "SHA256",
 } as const;
 
 /**

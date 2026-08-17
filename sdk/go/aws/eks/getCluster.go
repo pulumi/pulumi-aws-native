@@ -48,7 +48,10 @@ type LookupClusterResult struct {
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 	Endpoint *string `pulumi:"endpoint"`
 	// The unique ID given to your cluster.
-	Id *string `pulumi:"id"`
+	Id                          *string                             `pulumi:"id"`
+	KubeApiServerConfig         *ClusterKubeApiServerConfig         `pulumi:"kubeApiServerConfig"`
+	KubeControllerManagerConfig *ClusterKubeControllerManagerConfig `pulumi:"kubeControllerManagerConfig"`
+	KubeSchedulerConfig         *ClusterKubeSchedulerConfig         `pulumi:"kubeSchedulerConfig"`
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
@@ -153,6 +156,18 @@ func (o LookupClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 // The unique ID given to your cluster.
 func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) KubeApiServerConfig() ClusterKubeApiServerConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterKubeApiServerConfig { return v.KubeApiServerConfig }).(ClusterKubeApiServerConfigPtrOutput)
+}
+
+func (o LookupClusterResultOutput) KubeControllerManagerConfig() ClusterKubeControllerManagerConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterKubeControllerManagerConfig { return v.KubeControllerManagerConfig }).(ClusterKubeControllerManagerConfigPtrOutput)
+}
+
+func (o LookupClusterResultOutput) KubeSchedulerConfig() ClusterKubeSchedulerConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterKubeSchedulerConfig { return v.KubeSchedulerConfig }).(ClusterKubeSchedulerConfigPtrOutput)
 }
 
 // The Kubernetes network configuration for the cluster.

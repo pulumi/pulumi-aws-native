@@ -25,24 +25,36 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  service_type: pulumi.Input['ServiceType'],
+                 exchange_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_details: pulumi.Input[Optional['ServiceDetailsArgs']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input['ServiceType'] service_type: The type of service being registered
+        :param pulumi.Input[_builtins.str] exchange_url_private_connection_name: The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to use for encryption.
+        :param pulumi.Input[_builtins.str] private_connection_name: The name of the private connection to use for VPC connectivity.
         :param pulumi.Input['ServiceDetailsArgs'] service_details: Service-specific configuration details for create operation
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.str] target_url_private_connection_name: The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
         """
         pulumi.set(__self__, "service_type", service_type)
+        if exchange_url_private_connection_name is not None:
+            pulumi.set(__self__, "exchange_url_private_connection_name", exchange_url_private_connection_name)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if private_connection_name is not None:
+            pulumi.set(__self__, "private_connection_name", private_connection_name)
         if service_details is not None:
             pulumi.set(__self__, "service_details", service_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_url_private_connection_name is not None:
+            pulumi.set(__self__, "target_url_private_connection_name", target_url_private_connection_name)
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
@@ -57,6 +69,18 @@ class ServiceArgs:
         pulumi.set(self, "service_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="exchangeUrlPrivateConnectionName")
+    def exchange_url_private_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+        """
+        return pulumi.get(self, "exchange_url_private_connection_name")
+
+    @exchange_url_private_connection_name.setter
+    def exchange_url_private_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "exchange_url_private_connection_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -67,6 +91,18 @@ class ServiceArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateConnectionName")
+    def private_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the private connection to use for VPC connectivity.
+        """
+        return pulumi.get(self, "private_connection_name")
+
+    @private_connection_name.setter
+    def private_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDetails")
@@ -92,6 +128,18 @@ class ServiceArgs:
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="targetUrlPrivateConnectionName")
+    def target_url_private_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+        """
+        return pulumi.get(self, "target_url_private_connection_name")
+
+    @target_url_private_connection_name.setter
+    def target_url_private_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_url_private_connection_name", value)
+
 
 @pulumi.type_token("aws-native:devopsagent:Service")
 class Service(pulumi.CustomResource):
@@ -99,20 +147,26 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 exchange_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
                  service_type: pulumi.Input[Optional['ServiceType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::DevOpsAgent::Service resource registers external services (like Dynatrace, MCP servers, GitLab) for integration with DevOpsAgent.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] exchange_url_private_connection_name: The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to use for encryption.
+        :param pulumi.Input[_builtins.str] private_connection_name: The name of the private connection to use for VPC connectivity.
         :param pulumi.Input[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']] service_details: Service-specific configuration details for create operation
         :param pulumi.Input['ServiceType'] service_type: The type of service being registered
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.str] target_url_private_connection_name: The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
         """
         ...
     @overload
@@ -138,10 +192,13 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 exchange_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
                  service_type: pulumi.Input[Optional['ServiceType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -151,17 +208,20 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            __props__.__dict__["exchange_url_private_connection_name"] = exchange_url_private_connection_name
             __props__.__dict__["kms_key_arn"] = kms_key_arn
+            __props__.__dict__["private_connection_name"] = private_connection_name
             __props__.__dict__["service_details"] = service_details
             if service_type is None and not opts.urn:
                 raise TypeError("Missing required property 'service_type'")
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_url_private_connection_name"] = target_url_private_connection_name
             __props__.__dict__["accessible_resources"] = None
             __props__.__dict__["additional_service_details"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["service_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyArn", "serviceDetails.azureIdentity", "serviceDetails.dynatrace", "serviceDetails.mcpServerSplunk", "serviceDetails.pagerDuty", "serviceDetails.serviceNow", "serviceType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["exchangeUrlPrivateConnectionName", "kmsKeyArn", "privateConnectionName", "serviceDetails.azureIdentity", "serviceDetails.dynatrace", "serviceDetails.mcpServerSplunk", "serviceDetails.pagerDuty", "serviceDetails.serviceNow", "serviceType", "targetUrlPrivateConnectionName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Service, __self__).__init__(
             'aws-native:devopsagent:Service',
@@ -188,11 +248,14 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["accessible_resources"] = None
         __props__.__dict__["additional_service_details"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["exchange_url_private_connection_name"] = None
         __props__.__dict__["kms_key_arn"] = None
+        __props__.__dict__["private_connection_name"] = None
         __props__.__dict__["service_details"] = None
         __props__.__dict__["service_id"] = None
         __props__.__dict__["service_type"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_url_private_connection_name"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -220,12 +283,28 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="exchangeUrlPrivateConnectionName")
+    def exchange_url_private_connection_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+        """
+        return pulumi.get(self, "exchange_url_private_connection_name")
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The ARN of the KMS key to use for encryption.
         """
         return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="privateConnectionName")
+    def private_connection_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the private connection to use for VPC connectivity.
+        """
+        return pulumi.get(self, "private_connection_name")
 
     @_builtins.property
     @pulumi.getter(name="serviceDetails")
@@ -258,4 +337,12 @@ class Service(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrlPrivateConnectionName")
+    def target_url_private_connection_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+        """
+        return pulumi.get(self, "target_url_private_connection_name")
 

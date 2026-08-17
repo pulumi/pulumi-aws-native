@@ -26,6 +26,7 @@ __all__ = [
     'AnalyzerTag',
     'AnalyzerUnusedAccessConfiguration',
     'AnalyzerUnusedAccessConfigurationAnalysisRuleProperties',
+    'FilterValueProperties',
 ]
 
 @pulumi.output_type
@@ -509,5 +510,42 @@ class AnalyzerUnusedAccessConfigurationAnalysisRuleProperties(dict):
         A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
         """
         return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
+class FilterValueProperties(dict):
+    def __init__(__self__, *,
+                 contains: Optional[Sequence[_builtins.str]] = None,
+                 eq: Optional[Sequence[_builtins.str]] = None,
+                 exists: Optional[_builtins.bool] = None,
+                 neq: Optional[Sequence[_builtins.str]] = None):
+        if contains is not None:
+            pulumi.set(__self__, "contains", contains)
+        if eq is not None:
+            pulumi.set(__self__, "eq", eq)
+        if exists is not None:
+            pulumi.set(__self__, "exists", exists)
+        if neq is not None:
+            pulumi.set(__self__, "neq", neq)
+
+    @_builtins.property
+    @pulumi.getter
+    def contains(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "contains")
+
+    @_builtins.property
+    @pulumi.getter
+    def eq(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "eq")
+
+    @_builtins.property
+    @pulumi.getter
+    def exists(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "exists")
+
+    @_builtins.property
+    @pulumi.getter
+    def neq(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "neq")
 
 

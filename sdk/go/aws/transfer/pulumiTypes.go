@@ -1034,6 +1034,13 @@ func (o CustomDirectoriesPropertiesPtrOutput) TemporaryFilesDirectory() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type HostKeyTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
 // Creates a key-value pair for a specific resource.
 type ProfileTag struct {
 	// The name assigned to the tag that you create.

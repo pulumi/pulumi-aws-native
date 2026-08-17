@@ -21,6 +21,1193 @@ type GrantTag struct {
 	Value string `pulumi:"value"`
 }
 
+// AND rule statement.
+type LicenseAssetRuleSetAndRuleStatement struct {
+	MatchingRuleStatements []LicenseAssetRuleSetMatchingRuleStatement `pulumi:"matchingRuleStatements"`
+}
+
+// LicenseAssetRuleSetAndRuleStatementInput is an input type that accepts LicenseAssetRuleSetAndRuleStatementArgs and LicenseAssetRuleSetAndRuleStatementOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetAndRuleStatementInput` via:
+//
+//	LicenseAssetRuleSetAndRuleStatementArgs{...}
+type LicenseAssetRuleSetAndRuleStatementInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetAndRuleStatementOutput() LicenseAssetRuleSetAndRuleStatementOutput
+	ToLicenseAssetRuleSetAndRuleStatementOutputWithContext(context.Context) LicenseAssetRuleSetAndRuleStatementOutput
+}
+
+// AND rule statement.
+type LicenseAssetRuleSetAndRuleStatementArgs struct {
+	MatchingRuleStatements LicenseAssetRuleSetMatchingRuleStatementArrayInput `pulumi:"matchingRuleStatements"`
+}
+
+func (LicenseAssetRuleSetAndRuleStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetAndRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetAndRuleStatementArgs) ToLicenseAssetRuleSetAndRuleStatementOutput() LicenseAssetRuleSetAndRuleStatementOutput {
+	return i.ToLicenseAssetRuleSetAndRuleStatementOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetAndRuleStatementArgs) ToLicenseAssetRuleSetAndRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetAndRuleStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetAndRuleStatementOutput)
+}
+
+func (i LicenseAssetRuleSetAndRuleStatementArgs) ToLicenseAssetRuleSetAndRuleStatementPtrOutput() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetAndRuleStatementArgs) ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetAndRuleStatementOutput).ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(ctx)
+}
+
+// LicenseAssetRuleSetAndRuleStatementPtrInput is an input type that accepts LicenseAssetRuleSetAndRuleStatementArgs, LicenseAssetRuleSetAndRuleStatementPtr and LicenseAssetRuleSetAndRuleStatementPtrOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetAndRuleStatementPtrInput` via:
+//
+//	        LicenseAssetRuleSetAndRuleStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type LicenseAssetRuleSetAndRuleStatementPtrInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetAndRuleStatementPtrOutput() LicenseAssetRuleSetAndRuleStatementPtrOutput
+	ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(context.Context) LicenseAssetRuleSetAndRuleStatementPtrOutput
+}
+
+type licenseAssetRuleSetAndRuleStatementPtrType LicenseAssetRuleSetAndRuleStatementArgs
+
+func LicenseAssetRuleSetAndRuleStatementPtr(v *LicenseAssetRuleSetAndRuleStatementArgs) LicenseAssetRuleSetAndRuleStatementPtrInput {
+	return (*licenseAssetRuleSetAndRuleStatementPtrType)(v)
+}
+
+func (*licenseAssetRuleSetAndRuleStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetAndRuleStatement)(nil)).Elem()
+}
+
+func (i *licenseAssetRuleSetAndRuleStatementPtrType) ToLicenseAssetRuleSetAndRuleStatementPtrOutput() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseAssetRuleSetAndRuleStatementPtrType) ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+// AND rule statement.
+type LicenseAssetRuleSetAndRuleStatementOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetAndRuleStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetAndRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementOutput) ToLicenseAssetRuleSetAndRuleStatementOutput() LicenseAssetRuleSetAndRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementOutput) ToLicenseAssetRuleSetAndRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetAndRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementOutput) ToLicenseAssetRuleSetAndRuleStatementPtrOutput() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementOutput) ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseAssetRuleSetAndRuleStatement) *LicenseAssetRuleSetAndRuleStatement {
+		return &v
+	}).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementOutput) MatchingRuleStatements() LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetAndRuleStatement) []LicenseAssetRuleSetMatchingRuleStatement {
+		return v.MatchingRuleStatements
+	}).(LicenseAssetRuleSetMatchingRuleStatementArrayOutput)
+}
+
+type LicenseAssetRuleSetAndRuleStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetAndRuleStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetAndRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementPtrOutput) ToLicenseAssetRuleSetAndRuleStatementPtrOutput() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementPtrOutput) ToLicenseAssetRuleSetAndRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementPtrOutput) Elem() LicenseAssetRuleSetAndRuleStatementOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetAndRuleStatement) LicenseAssetRuleSetAndRuleStatement {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseAssetRuleSetAndRuleStatement
+		return ret
+	}).(LicenseAssetRuleSetAndRuleStatementOutput)
+}
+
+func (o LicenseAssetRuleSetAndRuleStatementPtrOutput) MatchingRuleStatements() LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetAndRuleStatement) []LicenseAssetRuleSetMatchingRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingRuleStatements
+	}).(LicenseAssetRuleSetMatchingRuleStatementArrayOutput)
+}
+
+// Instance rule statement.
+type LicenseAssetRuleSetInstanceRuleStatement struct {
+	AndRuleStatement      *LicenseAssetRuleSetAndRuleStatement      `pulumi:"andRuleStatement"`
+	MatchingRuleStatement *LicenseAssetRuleSetMatchingRuleStatement `pulumi:"matchingRuleStatement"`
+	OrRuleStatement       *LicenseAssetRuleSetOrRuleStatement       `pulumi:"orRuleStatement"`
+}
+
+// LicenseAssetRuleSetInstanceRuleStatementInput is an input type that accepts LicenseAssetRuleSetInstanceRuleStatementArgs and LicenseAssetRuleSetInstanceRuleStatementOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetInstanceRuleStatementInput` via:
+//
+//	LicenseAssetRuleSetInstanceRuleStatementArgs{...}
+type LicenseAssetRuleSetInstanceRuleStatementInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetInstanceRuleStatementOutput() LicenseAssetRuleSetInstanceRuleStatementOutput
+	ToLicenseAssetRuleSetInstanceRuleStatementOutputWithContext(context.Context) LicenseAssetRuleSetInstanceRuleStatementOutput
+}
+
+// Instance rule statement.
+type LicenseAssetRuleSetInstanceRuleStatementArgs struct {
+	AndRuleStatement      LicenseAssetRuleSetAndRuleStatementPtrInput      `pulumi:"andRuleStatement"`
+	MatchingRuleStatement LicenseAssetRuleSetMatchingRuleStatementPtrInput `pulumi:"matchingRuleStatement"`
+	OrRuleStatement       LicenseAssetRuleSetOrRuleStatementPtrInput       `pulumi:"orRuleStatement"`
+}
+
+func (LicenseAssetRuleSetInstanceRuleStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetInstanceRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetInstanceRuleStatementArgs) ToLicenseAssetRuleSetInstanceRuleStatementOutput() LicenseAssetRuleSetInstanceRuleStatementOutput {
+	return i.ToLicenseAssetRuleSetInstanceRuleStatementOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetInstanceRuleStatementArgs) ToLicenseAssetRuleSetInstanceRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetInstanceRuleStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetInstanceRuleStatementOutput)
+}
+
+func (i LicenseAssetRuleSetInstanceRuleStatementArgs) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutput() LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetInstanceRuleStatementArgs) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetInstanceRuleStatementOutput).ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(ctx)
+}
+
+// LicenseAssetRuleSetInstanceRuleStatementPtrInput is an input type that accepts LicenseAssetRuleSetInstanceRuleStatementArgs, LicenseAssetRuleSetInstanceRuleStatementPtr and LicenseAssetRuleSetInstanceRuleStatementPtrOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetInstanceRuleStatementPtrInput` via:
+//
+//	        LicenseAssetRuleSetInstanceRuleStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type LicenseAssetRuleSetInstanceRuleStatementPtrInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetInstanceRuleStatementPtrOutput() LicenseAssetRuleSetInstanceRuleStatementPtrOutput
+	ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(context.Context) LicenseAssetRuleSetInstanceRuleStatementPtrOutput
+}
+
+type licenseAssetRuleSetInstanceRuleStatementPtrType LicenseAssetRuleSetInstanceRuleStatementArgs
+
+func LicenseAssetRuleSetInstanceRuleStatementPtr(v *LicenseAssetRuleSetInstanceRuleStatementArgs) LicenseAssetRuleSetInstanceRuleStatementPtrInput {
+	return (*licenseAssetRuleSetInstanceRuleStatementPtrType)(v)
+}
+
+func (*licenseAssetRuleSetInstanceRuleStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetInstanceRuleStatement)(nil)).Elem()
+}
+
+func (i *licenseAssetRuleSetInstanceRuleStatementPtrType) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutput() LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseAssetRuleSetInstanceRuleStatementPtrType) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetInstanceRuleStatementPtrOutput)
+}
+
+// Instance rule statement.
+type LicenseAssetRuleSetInstanceRuleStatementOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetInstanceRuleStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetInstanceRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementOutput) ToLicenseAssetRuleSetInstanceRuleStatementOutput() LicenseAssetRuleSetInstanceRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementOutput) ToLicenseAssetRuleSetInstanceRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetInstanceRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementOutput) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutput() LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return o.ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementOutput) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseAssetRuleSetInstanceRuleStatement) *LicenseAssetRuleSetInstanceRuleStatement {
+		return &v
+	}).(LicenseAssetRuleSetInstanceRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementOutput) AndRuleStatement() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetInstanceRuleStatement) *LicenseAssetRuleSetAndRuleStatement {
+		return v.AndRuleStatement
+	}).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementOutput) MatchingRuleStatement() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetInstanceRuleStatement) *LicenseAssetRuleSetMatchingRuleStatement {
+		return v.MatchingRuleStatement
+	}).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementOutput) OrRuleStatement() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetInstanceRuleStatement) *LicenseAssetRuleSetOrRuleStatement {
+		return v.OrRuleStatement
+	}).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+type LicenseAssetRuleSetInstanceRuleStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetInstanceRuleStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetInstanceRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementPtrOutput) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutput() LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementPtrOutput) ToLicenseAssetRuleSetInstanceRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementPtrOutput) Elem() LicenseAssetRuleSetInstanceRuleStatementOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetInstanceRuleStatement) LicenseAssetRuleSetInstanceRuleStatement {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseAssetRuleSetInstanceRuleStatement
+		return ret
+	}).(LicenseAssetRuleSetInstanceRuleStatementOutput)
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementPtrOutput) AndRuleStatement() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetInstanceRuleStatement) *LicenseAssetRuleSetAndRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.AndRuleStatement
+	}).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementPtrOutput) MatchingRuleStatement() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetInstanceRuleStatement) *LicenseAssetRuleSetMatchingRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingRuleStatement
+	}).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetInstanceRuleStatementPtrOutput) OrRuleStatement() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetInstanceRuleStatement) *LicenseAssetRuleSetOrRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.OrRuleStatement
+	}).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+// License asset rule.
+type LicenseAssetRuleSetLicenseAssetRule struct {
+	RuleStatement LicenseAssetRuleSetRuleStatement `pulumi:"ruleStatement"`
+}
+
+// LicenseAssetRuleSetLicenseAssetRuleInput is an input type that accepts LicenseAssetRuleSetLicenseAssetRuleArgs and LicenseAssetRuleSetLicenseAssetRuleOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetLicenseAssetRuleInput` via:
+//
+//	LicenseAssetRuleSetLicenseAssetRuleArgs{...}
+type LicenseAssetRuleSetLicenseAssetRuleInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetLicenseAssetRuleOutput() LicenseAssetRuleSetLicenseAssetRuleOutput
+	ToLicenseAssetRuleSetLicenseAssetRuleOutputWithContext(context.Context) LicenseAssetRuleSetLicenseAssetRuleOutput
+}
+
+// License asset rule.
+type LicenseAssetRuleSetLicenseAssetRuleArgs struct {
+	RuleStatement LicenseAssetRuleSetRuleStatementInput `pulumi:"ruleStatement"`
+}
+
+func (LicenseAssetRuleSetLicenseAssetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetLicenseAssetRule)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetLicenseAssetRuleArgs) ToLicenseAssetRuleSetLicenseAssetRuleOutput() LicenseAssetRuleSetLicenseAssetRuleOutput {
+	return i.ToLicenseAssetRuleSetLicenseAssetRuleOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetLicenseAssetRuleArgs) ToLicenseAssetRuleSetLicenseAssetRuleOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseAssetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseAssetRuleOutput)
+}
+
+// LicenseAssetRuleSetLicenseAssetRuleArrayInput is an input type that accepts LicenseAssetRuleSetLicenseAssetRuleArray and LicenseAssetRuleSetLicenseAssetRuleArrayOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetLicenseAssetRuleArrayInput` via:
+//
+//	LicenseAssetRuleSetLicenseAssetRuleArray{ LicenseAssetRuleSetLicenseAssetRuleArgs{...} }
+type LicenseAssetRuleSetLicenseAssetRuleArrayInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetLicenseAssetRuleArrayOutput() LicenseAssetRuleSetLicenseAssetRuleArrayOutput
+	ToLicenseAssetRuleSetLicenseAssetRuleArrayOutputWithContext(context.Context) LicenseAssetRuleSetLicenseAssetRuleArrayOutput
+}
+
+type LicenseAssetRuleSetLicenseAssetRuleArray []LicenseAssetRuleSetLicenseAssetRuleInput
+
+func (LicenseAssetRuleSetLicenseAssetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetRuleSetLicenseAssetRule)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetLicenseAssetRuleArray) ToLicenseAssetRuleSetLicenseAssetRuleArrayOutput() LicenseAssetRuleSetLicenseAssetRuleArrayOutput {
+	return i.ToLicenseAssetRuleSetLicenseAssetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetLicenseAssetRuleArray) ToLicenseAssetRuleSetLicenseAssetRuleArrayOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseAssetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseAssetRuleArrayOutput)
+}
+
+// License asset rule.
+type LicenseAssetRuleSetLicenseAssetRuleOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetLicenseAssetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetLicenseAssetRule)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetLicenseAssetRuleOutput) ToLicenseAssetRuleSetLicenseAssetRuleOutput() LicenseAssetRuleSetLicenseAssetRuleOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseAssetRuleOutput) ToLicenseAssetRuleSetLicenseAssetRuleOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseAssetRuleOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseAssetRuleOutput) RuleStatement() LicenseAssetRuleSetRuleStatementOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetLicenseAssetRule) LicenseAssetRuleSetRuleStatement { return v.RuleStatement }).(LicenseAssetRuleSetRuleStatementOutput)
+}
+
+type LicenseAssetRuleSetLicenseAssetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetLicenseAssetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetRuleSetLicenseAssetRule)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetLicenseAssetRuleArrayOutput) ToLicenseAssetRuleSetLicenseAssetRuleArrayOutput() LicenseAssetRuleSetLicenseAssetRuleArrayOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseAssetRuleArrayOutput) ToLicenseAssetRuleSetLicenseAssetRuleArrayOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseAssetRuleArrayOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseAssetRuleArrayOutput) Index(i pulumi.IntInput) LicenseAssetRuleSetLicenseAssetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LicenseAssetRuleSetLicenseAssetRule {
+		return vs[0].([]LicenseAssetRuleSetLicenseAssetRule)[vs[1].(int)]
+	}).(LicenseAssetRuleSetLicenseAssetRuleOutput)
+}
+
+// License configuration rule statement.
+type LicenseAssetRuleSetLicenseConfigurationRuleStatement struct {
+	AndRuleStatement      *LicenseAssetRuleSetAndRuleStatement      `pulumi:"andRuleStatement"`
+	MatchingRuleStatement *LicenseAssetRuleSetMatchingRuleStatement `pulumi:"matchingRuleStatement"`
+	OrRuleStatement       *LicenseAssetRuleSetOrRuleStatement       `pulumi:"orRuleStatement"`
+}
+
+// LicenseAssetRuleSetLicenseConfigurationRuleStatementInput is an input type that accepts LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs and LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetLicenseConfigurationRuleStatementInput` via:
+//
+//	LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs{...}
+type LicenseAssetRuleSetLicenseConfigurationRuleStatementInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetLicenseConfigurationRuleStatementOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput
+	ToLicenseAssetRuleSetLicenseConfigurationRuleStatementOutputWithContext(context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput
+}
+
+// License configuration rule statement.
+type LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs struct {
+	AndRuleStatement      LicenseAssetRuleSetAndRuleStatementPtrInput      `pulumi:"andRuleStatement"`
+	MatchingRuleStatement LicenseAssetRuleSetMatchingRuleStatementPtrInput `pulumi:"matchingRuleStatement"`
+	OrRuleStatement       LicenseAssetRuleSetOrRuleStatementPtrInput       `pulumi:"orRuleStatement"`
+}
+
+func (LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetLicenseConfigurationRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput {
+	return i.ToLicenseAssetRuleSetLicenseConfigurationRuleStatementOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput)
+}
+
+func (i LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput).ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(ctx)
+}
+
+// LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrInput is an input type that accepts LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs, LicenseAssetRuleSetLicenseConfigurationRuleStatementPtr and LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrInput` via:
+//
+//	        LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput
+	ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput
+}
+
+type licenseAssetRuleSetLicenseConfigurationRuleStatementPtrType LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs
+
+func LicenseAssetRuleSetLicenseConfigurationRuleStatementPtr(v *LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs) LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrInput {
+	return (*licenseAssetRuleSetLicenseConfigurationRuleStatementPtrType)(v)
+}
+
+func (*licenseAssetRuleSetLicenseConfigurationRuleStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetLicenseConfigurationRuleStatement)(nil)).Elem()
+}
+
+func (i *licenseAssetRuleSetLicenseConfigurationRuleStatementPtrType) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseAssetRuleSetLicenseConfigurationRuleStatementPtrType) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput)
+}
+
+// License configuration rule statement.
+type LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetLicenseConfigurationRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return o.ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseAssetRuleSetLicenseConfigurationRuleStatement) *LicenseAssetRuleSetLicenseConfigurationRuleStatement {
+		return &v
+	}).(LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) AndRuleStatement() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetLicenseConfigurationRuleStatement) *LicenseAssetRuleSetAndRuleStatement {
+		return v.AndRuleStatement
+	}).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) MatchingRuleStatement() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetLicenseConfigurationRuleStatement) *LicenseAssetRuleSetMatchingRuleStatement {
+		return v.MatchingRuleStatement
+	}).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput) OrRuleStatement() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetLicenseConfigurationRuleStatement) *LicenseAssetRuleSetOrRuleStatement {
+		return v.OrRuleStatement
+	}).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+type LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetLicenseConfigurationRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput() LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput) ToLicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput) Elem() LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseConfigurationRuleStatement) LicenseAssetRuleSetLicenseConfigurationRuleStatement {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseAssetRuleSetLicenseConfigurationRuleStatement
+		return ret
+	}).(LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput) AndRuleStatement() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseConfigurationRuleStatement) *LicenseAssetRuleSetAndRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.AndRuleStatement
+	}).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput) MatchingRuleStatement() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseConfigurationRuleStatement) *LicenseAssetRuleSetMatchingRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingRuleStatement
+	}).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput) OrRuleStatement() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseConfigurationRuleStatement) *LicenseAssetRuleSetOrRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.OrRuleStatement
+	}).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+// License rule statement.
+type LicenseAssetRuleSetLicenseRuleStatement struct {
+	AndRuleStatement      *LicenseAssetRuleSetAndRuleStatement      `pulumi:"andRuleStatement"`
+	MatchingRuleStatement *LicenseAssetRuleSetMatchingRuleStatement `pulumi:"matchingRuleStatement"`
+	OrRuleStatement       *LicenseAssetRuleSetOrRuleStatement       `pulumi:"orRuleStatement"`
+}
+
+// LicenseAssetRuleSetLicenseRuleStatementInput is an input type that accepts LicenseAssetRuleSetLicenseRuleStatementArgs and LicenseAssetRuleSetLicenseRuleStatementOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetLicenseRuleStatementInput` via:
+//
+//	LicenseAssetRuleSetLicenseRuleStatementArgs{...}
+type LicenseAssetRuleSetLicenseRuleStatementInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetLicenseRuleStatementOutput() LicenseAssetRuleSetLicenseRuleStatementOutput
+	ToLicenseAssetRuleSetLicenseRuleStatementOutputWithContext(context.Context) LicenseAssetRuleSetLicenseRuleStatementOutput
+}
+
+// License rule statement.
+type LicenseAssetRuleSetLicenseRuleStatementArgs struct {
+	AndRuleStatement      LicenseAssetRuleSetAndRuleStatementPtrInput      `pulumi:"andRuleStatement"`
+	MatchingRuleStatement LicenseAssetRuleSetMatchingRuleStatementPtrInput `pulumi:"matchingRuleStatement"`
+	OrRuleStatement       LicenseAssetRuleSetOrRuleStatementPtrInput       `pulumi:"orRuleStatement"`
+}
+
+func (LicenseAssetRuleSetLicenseRuleStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetLicenseRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetLicenseRuleStatementArgs) ToLicenseAssetRuleSetLicenseRuleStatementOutput() LicenseAssetRuleSetLicenseRuleStatementOutput {
+	return i.ToLicenseAssetRuleSetLicenseRuleStatementOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetLicenseRuleStatementArgs) ToLicenseAssetRuleSetLicenseRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseRuleStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseRuleStatementOutput)
+}
+
+func (i LicenseAssetRuleSetLicenseRuleStatementArgs) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutput() LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetLicenseRuleStatementArgs) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseRuleStatementOutput).ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(ctx)
+}
+
+// LicenseAssetRuleSetLicenseRuleStatementPtrInput is an input type that accepts LicenseAssetRuleSetLicenseRuleStatementArgs, LicenseAssetRuleSetLicenseRuleStatementPtr and LicenseAssetRuleSetLicenseRuleStatementPtrOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetLicenseRuleStatementPtrInput` via:
+//
+//	        LicenseAssetRuleSetLicenseRuleStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type LicenseAssetRuleSetLicenseRuleStatementPtrInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetLicenseRuleStatementPtrOutput() LicenseAssetRuleSetLicenseRuleStatementPtrOutput
+	ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(context.Context) LicenseAssetRuleSetLicenseRuleStatementPtrOutput
+}
+
+type licenseAssetRuleSetLicenseRuleStatementPtrType LicenseAssetRuleSetLicenseRuleStatementArgs
+
+func LicenseAssetRuleSetLicenseRuleStatementPtr(v *LicenseAssetRuleSetLicenseRuleStatementArgs) LicenseAssetRuleSetLicenseRuleStatementPtrInput {
+	return (*licenseAssetRuleSetLicenseRuleStatementPtrType)(v)
+}
+
+func (*licenseAssetRuleSetLicenseRuleStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetLicenseRuleStatement)(nil)).Elem()
+}
+
+func (i *licenseAssetRuleSetLicenseRuleStatementPtrType) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutput() LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseAssetRuleSetLicenseRuleStatementPtrType) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetLicenseRuleStatementPtrOutput)
+}
+
+// License rule statement.
+type LicenseAssetRuleSetLicenseRuleStatementOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetLicenseRuleStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetLicenseRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementOutput) ToLicenseAssetRuleSetLicenseRuleStatementOutput() LicenseAssetRuleSetLicenseRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementOutput) ToLicenseAssetRuleSetLicenseRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementOutput) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutput() LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return o.ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementOutput) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseAssetRuleSetLicenseRuleStatement) *LicenseAssetRuleSetLicenseRuleStatement {
+		return &v
+	}).(LicenseAssetRuleSetLicenseRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementOutput) AndRuleStatement() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetLicenseRuleStatement) *LicenseAssetRuleSetAndRuleStatement {
+		return v.AndRuleStatement
+	}).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementOutput) MatchingRuleStatement() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetLicenseRuleStatement) *LicenseAssetRuleSetMatchingRuleStatement {
+		return v.MatchingRuleStatement
+	}).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementOutput) OrRuleStatement() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetLicenseRuleStatement) *LicenseAssetRuleSetOrRuleStatement {
+		return v.OrRuleStatement
+	}).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+type LicenseAssetRuleSetLicenseRuleStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetLicenseRuleStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetLicenseRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementPtrOutput) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutput() LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementPtrOutput) ToLicenseAssetRuleSetLicenseRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementPtrOutput) Elem() LicenseAssetRuleSetLicenseRuleStatementOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseRuleStatement) LicenseAssetRuleSetLicenseRuleStatement {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseAssetRuleSetLicenseRuleStatement
+		return ret
+	}).(LicenseAssetRuleSetLicenseRuleStatementOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementPtrOutput) AndRuleStatement() LicenseAssetRuleSetAndRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseRuleStatement) *LicenseAssetRuleSetAndRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.AndRuleStatement
+	}).(LicenseAssetRuleSetAndRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementPtrOutput) MatchingRuleStatement() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseRuleStatement) *LicenseAssetRuleSetMatchingRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingRuleStatement
+	}).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetLicenseRuleStatementPtrOutput) OrRuleStatement() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetLicenseRuleStatement) *LicenseAssetRuleSetOrRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.OrRuleStatement
+	}).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+// Matching rule statement.
+type LicenseAssetRuleSetMatchingRuleStatement struct {
+	// Constraint (e.g. Equals, Not_Equals).
+	Constraint string `pulumi:"constraint"`
+	// Key to match.
+	KeyToMatch string `pulumi:"keyToMatch"`
+	// Values to match.
+	ValueToMatch []string `pulumi:"valueToMatch"`
+}
+
+// LicenseAssetRuleSetMatchingRuleStatementInput is an input type that accepts LicenseAssetRuleSetMatchingRuleStatementArgs and LicenseAssetRuleSetMatchingRuleStatementOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetMatchingRuleStatementInput` via:
+//
+//	LicenseAssetRuleSetMatchingRuleStatementArgs{...}
+type LicenseAssetRuleSetMatchingRuleStatementInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetMatchingRuleStatementOutput() LicenseAssetRuleSetMatchingRuleStatementOutput
+	ToLicenseAssetRuleSetMatchingRuleStatementOutputWithContext(context.Context) LicenseAssetRuleSetMatchingRuleStatementOutput
+}
+
+// Matching rule statement.
+type LicenseAssetRuleSetMatchingRuleStatementArgs struct {
+	// Constraint (e.g. Equals, Not_Equals).
+	Constraint pulumi.StringInput `pulumi:"constraint"`
+	// Key to match.
+	KeyToMatch pulumi.StringInput `pulumi:"keyToMatch"`
+	// Values to match.
+	ValueToMatch pulumi.StringArrayInput `pulumi:"valueToMatch"`
+}
+
+func (LicenseAssetRuleSetMatchingRuleStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetMatchingRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetMatchingRuleStatementArgs) ToLicenseAssetRuleSetMatchingRuleStatementOutput() LicenseAssetRuleSetMatchingRuleStatementOutput {
+	return i.ToLicenseAssetRuleSetMatchingRuleStatementOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetMatchingRuleStatementArgs) ToLicenseAssetRuleSetMatchingRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetMatchingRuleStatementOutput)
+}
+
+func (i LicenseAssetRuleSetMatchingRuleStatementArgs) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutput() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetMatchingRuleStatementArgs) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetMatchingRuleStatementOutput).ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(ctx)
+}
+
+// LicenseAssetRuleSetMatchingRuleStatementPtrInput is an input type that accepts LicenseAssetRuleSetMatchingRuleStatementArgs, LicenseAssetRuleSetMatchingRuleStatementPtr and LicenseAssetRuleSetMatchingRuleStatementPtrOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetMatchingRuleStatementPtrInput` via:
+//
+//	        LicenseAssetRuleSetMatchingRuleStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type LicenseAssetRuleSetMatchingRuleStatementPtrInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetMatchingRuleStatementPtrOutput() LicenseAssetRuleSetMatchingRuleStatementPtrOutput
+	ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(context.Context) LicenseAssetRuleSetMatchingRuleStatementPtrOutput
+}
+
+type licenseAssetRuleSetMatchingRuleStatementPtrType LicenseAssetRuleSetMatchingRuleStatementArgs
+
+func LicenseAssetRuleSetMatchingRuleStatementPtr(v *LicenseAssetRuleSetMatchingRuleStatementArgs) LicenseAssetRuleSetMatchingRuleStatementPtrInput {
+	return (*licenseAssetRuleSetMatchingRuleStatementPtrType)(v)
+}
+
+func (*licenseAssetRuleSetMatchingRuleStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetMatchingRuleStatement)(nil)).Elem()
+}
+
+func (i *licenseAssetRuleSetMatchingRuleStatementPtrType) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutput() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseAssetRuleSetMatchingRuleStatementPtrType) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+// LicenseAssetRuleSetMatchingRuleStatementArrayInput is an input type that accepts LicenseAssetRuleSetMatchingRuleStatementArray and LicenseAssetRuleSetMatchingRuleStatementArrayOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetMatchingRuleStatementArrayInput` via:
+//
+//	LicenseAssetRuleSetMatchingRuleStatementArray{ LicenseAssetRuleSetMatchingRuleStatementArgs{...} }
+type LicenseAssetRuleSetMatchingRuleStatementArrayInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetMatchingRuleStatementArrayOutput() LicenseAssetRuleSetMatchingRuleStatementArrayOutput
+	ToLicenseAssetRuleSetMatchingRuleStatementArrayOutputWithContext(context.Context) LicenseAssetRuleSetMatchingRuleStatementArrayOutput
+}
+
+type LicenseAssetRuleSetMatchingRuleStatementArray []LicenseAssetRuleSetMatchingRuleStatementInput
+
+func (LicenseAssetRuleSetMatchingRuleStatementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetRuleSetMatchingRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetMatchingRuleStatementArray) ToLicenseAssetRuleSetMatchingRuleStatementArrayOutput() LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return i.ToLicenseAssetRuleSetMatchingRuleStatementArrayOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetMatchingRuleStatementArray) ToLicenseAssetRuleSetMatchingRuleStatementArrayOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetMatchingRuleStatementArrayOutput)
+}
+
+// Matching rule statement.
+type LicenseAssetRuleSetMatchingRuleStatementOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetMatchingRuleStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetMatchingRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementOutput) ToLicenseAssetRuleSetMatchingRuleStatementOutput() LicenseAssetRuleSetMatchingRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementOutput) ToLicenseAssetRuleSetMatchingRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementOutput) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutput() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementOutput) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseAssetRuleSetMatchingRuleStatement) *LicenseAssetRuleSetMatchingRuleStatement {
+		return &v
+	}).(LicenseAssetRuleSetMatchingRuleStatementPtrOutput)
+}
+
+// Constraint (e.g. Equals, Not_Equals).
+func (o LicenseAssetRuleSetMatchingRuleStatementOutput) Constraint() pulumi.StringOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetMatchingRuleStatement) string { return v.Constraint }).(pulumi.StringOutput)
+}
+
+// Key to match.
+func (o LicenseAssetRuleSetMatchingRuleStatementOutput) KeyToMatch() pulumi.StringOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetMatchingRuleStatement) string { return v.KeyToMatch }).(pulumi.StringOutput)
+}
+
+// Values to match.
+func (o LicenseAssetRuleSetMatchingRuleStatementOutput) ValueToMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetMatchingRuleStatement) []string { return v.ValueToMatch }).(pulumi.StringArrayOutput)
+}
+
+type LicenseAssetRuleSetMatchingRuleStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetMatchingRuleStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetMatchingRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementPtrOutput) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutput() LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementPtrOutput) ToLicenseAssetRuleSetMatchingRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementPtrOutput) Elem() LicenseAssetRuleSetMatchingRuleStatementOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetMatchingRuleStatement) LicenseAssetRuleSetMatchingRuleStatement {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseAssetRuleSetMatchingRuleStatement
+		return ret
+	}).(LicenseAssetRuleSetMatchingRuleStatementOutput)
+}
+
+// Constraint (e.g. Equals, Not_Equals).
+func (o LicenseAssetRuleSetMatchingRuleStatementPtrOutput) Constraint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetMatchingRuleStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Constraint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key to match.
+func (o LicenseAssetRuleSetMatchingRuleStatementPtrOutput) KeyToMatch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetMatchingRuleStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyToMatch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Values to match.
+func (o LicenseAssetRuleSetMatchingRuleStatementPtrOutput) ValueToMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetMatchingRuleStatement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueToMatch
+	}).(pulumi.StringArrayOutput)
+}
+
+type LicenseAssetRuleSetMatchingRuleStatementArrayOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetMatchingRuleStatementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetRuleSetMatchingRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementArrayOutput) ToLicenseAssetRuleSetMatchingRuleStatementArrayOutput() LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementArrayOutput) ToLicenseAssetRuleSetMatchingRuleStatementArrayOutputWithContext(ctx context.Context) LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetMatchingRuleStatementArrayOutput) Index(i pulumi.IntInput) LicenseAssetRuleSetMatchingRuleStatementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LicenseAssetRuleSetMatchingRuleStatement {
+		return vs[0].([]LicenseAssetRuleSetMatchingRuleStatement)[vs[1].(int)]
+	}).(LicenseAssetRuleSetMatchingRuleStatementOutput)
+}
+
+// OR rule statement.
+type LicenseAssetRuleSetOrRuleStatement struct {
+	MatchingRuleStatements []LicenseAssetRuleSetMatchingRuleStatement `pulumi:"matchingRuleStatements"`
+}
+
+// LicenseAssetRuleSetOrRuleStatementInput is an input type that accepts LicenseAssetRuleSetOrRuleStatementArgs and LicenseAssetRuleSetOrRuleStatementOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetOrRuleStatementInput` via:
+//
+//	LicenseAssetRuleSetOrRuleStatementArgs{...}
+type LicenseAssetRuleSetOrRuleStatementInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetOrRuleStatementOutput() LicenseAssetRuleSetOrRuleStatementOutput
+	ToLicenseAssetRuleSetOrRuleStatementOutputWithContext(context.Context) LicenseAssetRuleSetOrRuleStatementOutput
+}
+
+// OR rule statement.
+type LicenseAssetRuleSetOrRuleStatementArgs struct {
+	MatchingRuleStatements LicenseAssetRuleSetMatchingRuleStatementArrayInput `pulumi:"matchingRuleStatements"`
+}
+
+func (LicenseAssetRuleSetOrRuleStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetOrRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetOrRuleStatementArgs) ToLicenseAssetRuleSetOrRuleStatementOutput() LicenseAssetRuleSetOrRuleStatementOutput {
+	return i.ToLicenseAssetRuleSetOrRuleStatementOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetOrRuleStatementArgs) ToLicenseAssetRuleSetOrRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetOrRuleStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetOrRuleStatementOutput)
+}
+
+func (i LicenseAssetRuleSetOrRuleStatementArgs) ToLicenseAssetRuleSetOrRuleStatementPtrOutput() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetOrRuleStatementArgs) ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetOrRuleStatementOutput).ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(ctx)
+}
+
+// LicenseAssetRuleSetOrRuleStatementPtrInput is an input type that accepts LicenseAssetRuleSetOrRuleStatementArgs, LicenseAssetRuleSetOrRuleStatementPtr and LicenseAssetRuleSetOrRuleStatementPtrOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetOrRuleStatementPtrInput` via:
+//
+//	        LicenseAssetRuleSetOrRuleStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type LicenseAssetRuleSetOrRuleStatementPtrInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetOrRuleStatementPtrOutput() LicenseAssetRuleSetOrRuleStatementPtrOutput
+	ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(context.Context) LicenseAssetRuleSetOrRuleStatementPtrOutput
+}
+
+type licenseAssetRuleSetOrRuleStatementPtrType LicenseAssetRuleSetOrRuleStatementArgs
+
+func LicenseAssetRuleSetOrRuleStatementPtr(v *LicenseAssetRuleSetOrRuleStatementArgs) LicenseAssetRuleSetOrRuleStatementPtrInput {
+	return (*licenseAssetRuleSetOrRuleStatementPtrType)(v)
+}
+
+func (*licenseAssetRuleSetOrRuleStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetOrRuleStatement)(nil)).Elem()
+}
+
+func (i *licenseAssetRuleSetOrRuleStatementPtrType) ToLicenseAssetRuleSetOrRuleStatementPtrOutput() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return i.ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseAssetRuleSetOrRuleStatementPtrType) ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+// OR rule statement.
+type LicenseAssetRuleSetOrRuleStatementOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetOrRuleStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetOrRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementOutput) ToLicenseAssetRuleSetOrRuleStatementOutput() LicenseAssetRuleSetOrRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementOutput) ToLicenseAssetRuleSetOrRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetOrRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementOutput) ToLicenseAssetRuleSetOrRuleStatementPtrOutput() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementOutput) ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseAssetRuleSetOrRuleStatement) *LicenseAssetRuleSetOrRuleStatement {
+		return &v
+	}).(LicenseAssetRuleSetOrRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementOutput) MatchingRuleStatements() LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetOrRuleStatement) []LicenseAssetRuleSetMatchingRuleStatement {
+		return v.MatchingRuleStatements
+	}).(LicenseAssetRuleSetMatchingRuleStatementArrayOutput)
+}
+
+type LicenseAssetRuleSetOrRuleStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetOrRuleStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseAssetRuleSetOrRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementPtrOutput) ToLicenseAssetRuleSetOrRuleStatementPtrOutput() LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementPtrOutput) ToLicenseAssetRuleSetOrRuleStatementPtrOutputWithContext(ctx context.Context) LicenseAssetRuleSetOrRuleStatementPtrOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementPtrOutput) Elem() LicenseAssetRuleSetOrRuleStatementOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetOrRuleStatement) LicenseAssetRuleSetOrRuleStatement {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseAssetRuleSetOrRuleStatement
+		return ret
+	}).(LicenseAssetRuleSetOrRuleStatementOutput)
+}
+
+func (o LicenseAssetRuleSetOrRuleStatementPtrOutput) MatchingRuleStatements() LicenseAssetRuleSetMatchingRuleStatementArrayOutput {
+	return o.ApplyT(func(v *LicenseAssetRuleSetOrRuleStatement) []LicenseAssetRuleSetMatchingRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingRuleStatements
+	}).(LicenseAssetRuleSetMatchingRuleStatementArrayOutput)
+}
+
+// Rule statement. Specify exactly one of InstanceRuleStatement, LicenseRuleStatement, or LicenseConfigurationRuleStatement.
+type LicenseAssetRuleSetRuleStatement struct {
+	InstanceRuleStatement             *LicenseAssetRuleSetInstanceRuleStatement             `pulumi:"instanceRuleStatement"`
+	LicenseConfigurationRuleStatement *LicenseAssetRuleSetLicenseConfigurationRuleStatement `pulumi:"licenseConfigurationRuleStatement"`
+	LicenseRuleStatement              *LicenseAssetRuleSetLicenseRuleStatement              `pulumi:"licenseRuleStatement"`
+}
+
+// LicenseAssetRuleSetRuleStatementInput is an input type that accepts LicenseAssetRuleSetRuleStatementArgs and LicenseAssetRuleSetRuleStatementOutput values.
+// You can construct a concrete instance of `LicenseAssetRuleSetRuleStatementInput` via:
+//
+//	LicenseAssetRuleSetRuleStatementArgs{...}
+type LicenseAssetRuleSetRuleStatementInput interface {
+	pulumi.Input
+
+	ToLicenseAssetRuleSetRuleStatementOutput() LicenseAssetRuleSetRuleStatementOutput
+	ToLicenseAssetRuleSetRuleStatementOutputWithContext(context.Context) LicenseAssetRuleSetRuleStatementOutput
+}
+
+// Rule statement. Specify exactly one of InstanceRuleStatement, LicenseRuleStatement, or LicenseConfigurationRuleStatement.
+type LicenseAssetRuleSetRuleStatementArgs struct {
+	InstanceRuleStatement             LicenseAssetRuleSetInstanceRuleStatementPtrInput             `pulumi:"instanceRuleStatement"`
+	LicenseConfigurationRuleStatement LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrInput `pulumi:"licenseConfigurationRuleStatement"`
+	LicenseRuleStatement              LicenseAssetRuleSetLicenseRuleStatementPtrInput              `pulumi:"licenseRuleStatement"`
+}
+
+func (LicenseAssetRuleSetRuleStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetRuleStatement)(nil)).Elem()
+}
+
+func (i LicenseAssetRuleSetRuleStatementArgs) ToLicenseAssetRuleSetRuleStatementOutput() LicenseAssetRuleSetRuleStatementOutput {
+	return i.ToLicenseAssetRuleSetRuleStatementOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetRuleSetRuleStatementArgs) ToLicenseAssetRuleSetRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetRuleStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetRuleSetRuleStatementOutput)
+}
+
+// Rule statement. Specify exactly one of InstanceRuleStatement, LicenseRuleStatement, or LicenseConfigurationRuleStatement.
+type LicenseAssetRuleSetRuleStatementOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetRuleSetRuleStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetRuleSetRuleStatement)(nil)).Elem()
+}
+
+func (o LicenseAssetRuleSetRuleStatementOutput) ToLicenseAssetRuleSetRuleStatementOutput() LicenseAssetRuleSetRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetRuleStatementOutput) ToLicenseAssetRuleSetRuleStatementOutputWithContext(ctx context.Context) LicenseAssetRuleSetRuleStatementOutput {
+	return o
+}
+
+func (o LicenseAssetRuleSetRuleStatementOutput) InstanceRuleStatement() LicenseAssetRuleSetInstanceRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetRuleStatement) *LicenseAssetRuleSetInstanceRuleStatement {
+		return v.InstanceRuleStatement
+	}).(LicenseAssetRuleSetInstanceRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetRuleStatementOutput) LicenseConfigurationRuleStatement() LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetRuleStatement) *LicenseAssetRuleSetLicenseConfigurationRuleStatement {
+		return v.LicenseConfigurationRuleStatement
+	}).(LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput)
+}
+
+func (o LicenseAssetRuleSetRuleStatementOutput) LicenseRuleStatement() LicenseAssetRuleSetLicenseRuleStatementPtrOutput {
+	return o.ApplyT(func(v LicenseAssetRuleSetRuleStatement) *LicenseAssetRuleSetLicenseRuleStatement {
+		return v.LicenseRuleStatement
+	}).(LicenseAssetRuleSetLicenseRuleStatementPtrOutput)
+}
+
+type LicenseAssetRuleSetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type LicenseBorrowConfiguration struct {
 	// Indicates whether early check-ins are allowed.
 	AllowEarlyCheckIn bool `pulumi:"allowEarlyCheckIn"`
@@ -907,6 +2094,22 @@ func (o LicenseValidityDateFormatPtrOutput) End() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetAndRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetAndRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetAndRuleStatementPtrInput)(nil)).Elem(), LicenseAssetRuleSetAndRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetInstanceRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetInstanceRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetInstanceRuleStatementPtrInput)(nil)).Elem(), LicenseAssetRuleSetInstanceRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetLicenseAssetRuleInput)(nil)).Elem(), LicenseAssetRuleSetLicenseAssetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetLicenseAssetRuleArrayInput)(nil)).Elem(), LicenseAssetRuleSetLicenseAssetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetLicenseConfigurationRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrInput)(nil)).Elem(), LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetLicenseRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetLicenseRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetLicenseRuleStatementPtrInput)(nil)).Elem(), LicenseAssetRuleSetLicenseRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetMatchingRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetMatchingRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetMatchingRuleStatementPtrInput)(nil)).Elem(), LicenseAssetRuleSetMatchingRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetMatchingRuleStatementArrayInput)(nil)).Elem(), LicenseAssetRuleSetMatchingRuleStatementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetOrRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetOrRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetOrRuleStatementPtrInput)(nil)).Elem(), LicenseAssetRuleSetOrRuleStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetRuleStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseBorrowConfigurationPtrInput)(nil)).Elem(), LicenseBorrowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConsumptionConfigurationInput)(nil)).Elem(), LicenseConsumptionConfigurationArgs{})
@@ -918,6 +2121,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationPtrInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseValidityDateFormatInput)(nil)).Elem(), LicenseValidityDateFormatArgs{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetAndRuleStatementOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetAndRuleStatementPtrOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetInstanceRuleStatementOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetInstanceRuleStatementPtrOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetLicenseAssetRuleOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetLicenseAssetRuleArrayOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetLicenseConfigurationRuleStatementOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetLicenseConfigurationRuleStatementPtrOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetLicenseRuleStatementOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetLicenseRuleStatementPtrOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetMatchingRuleStatementOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetMatchingRuleStatementPtrOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetMatchingRuleStatementArrayOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetOrRuleStatementOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetOrRuleStatementPtrOutput{})
+	pulumi.RegisterOutputType(LicenseAssetRuleSetRuleStatementOutput{})
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseBorrowConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseConsumptionConfigurationOutput{})

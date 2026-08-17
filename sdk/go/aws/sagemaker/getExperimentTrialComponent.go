@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS SageMaker Experiment Trial Component
+// Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
 func LookupExperimentTrialComponent(ctx *pulumi.Context, args *LookupExperimentTrialComponentArgs, opts ...pulumi.InvokeOption) (*LookupExperimentTrialComponentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExperimentTrialComponentResult
@@ -24,29 +24,20 @@ func LookupExperimentTrialComponent(ctx *pulumi.Context, args *LookupExperimentT
 }
 
 type LookupExperimentTrialComponentArgs struct {
-	// The Amazon Resource Name (ARN) of the trial component.
-	Arn string `pulumi:"arn"`
+	Id string `pulumi:"id"`
 }
 
 type LookupExperimentTrialComponentResult struct {
-	// The Amazon Resource Name (ARN) of the trial component.
-	Arn *string `pulumi:"arn"`
-	// When the component was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-	DisplayName *string `pulumi:"displayName"`
-	// When the component ended.
-	EndTime *string `pulumi:"endTime"`
-	// When the component was last modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The Amazon Resource Name (ARN) of the lineage group.
-	LineageGroupArn *string `pulumi:"lineageGroupArn"`
-	// When the component started.
-	StartTime *string `pulumi:"startTime"`
-	// The status of the trial component.
-	Status *StatusProperties `pulumi:"status"`
-	// A list of tags to associate with the component.
-	Tags []aws.Tag `pulumi:"tags"`
+	Arn              *string                         `pulumi:"arn"`
+	CreationTime     *string                         `pulumi:"creationTime"`
+	DisplayName      *string                         `pulumi:"displayName"`
+	EndTime          *string                         `pulumi:"endTime"`
+	Id               *string                         `pulumi:"id"`
+	LastModifiedTime *string                         `pulumi:"lastModifiedTime"`
+	LineageGroupArn  *string                         `pulumi:"lineageGroupArn"`
+	StartTime        *string                         `pulumi:"startTime"`
+	Status           *ExperimentTrialComponentStatus `pulumi:"status"`
+	Tags             []aws.Tag                       `pulumi:"tags"`
 }
 
 func LookupExperimentTrialComponentOutput(ctx *pulumi.Context, args LookupExperimentTrialComponentOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentTrialComponentResultOutput {
@@ -59,8 +50,7 @@ func LookupExperimentTrialComponentOutput(ctx *pulumi.Context, args LookupExperi
 }
 
 type LookupExperimentTrialComponentOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the trial component.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupExperimentTrialComponentOutputArgs) ElementType() reflect.Type {
@@ -81,47 +71,42 @@ func (o LookupExperimentTrialComponentResultOutput) ToLookupExperimentTrialCompo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the trial component.
 func (o LookupExperimentTrialComponentResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// When the component was created.
 func (o LookupExperimentTrialComponentResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
-// The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
 func (o LookupExperimentTrialComponentResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// When the component ended.
 func (o LookupExperimentTrialComponentResultOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// When the component was last modified.
+func (o LookupExperimentTrialComponentResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupExperimentTrialComponentResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the lineage group.
 func (o LookupExperimentTrialComponentResultOutput) LineageGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.LineageGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// When the component started.
 func (o LookupExperimentTrialComponentResultOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// The status of the trial component.
-func (o LookupExperimentTrialComponentResultOutput) Status() StatusPropertiesPtrOutput {
-	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *StatusProperties { return v.Status }).(StatusPropertiesPtrOutput)
+func (o LookupExperimentTrialComponentResultOutput) Status() ExperimentTrialComponentStatusPtrOutput {
+	return o.ApplyT(func(v LookupExperimentTrialComponentResult) *ExperimentTrialComponentStatus { return v.Status }).(ExperimentTrialComponentStatusPtrOutput)
 }
 
-// A list of tags to associate with the component.
 func (o LookupExperimentTrialComponentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupExperimentTrialComponentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -177,3 +177,22 @@ export const ServiceType = {
  * The type of service being registered
  */
 export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
+
+export const TriggerStatus = {
+    Active: "Active",
+    Inactive: "Inactive",
+} as const;
+
+/**
+ * The status of the trigger. Active triggers fire on schedule; Inactive triggers are paused.
+ */
+export type TriggerStatus = (typeof TriggerStatus)[keyof typeof TriggerStatus];
+
+export const TriggerType = {
+    TimeBased: "TIME_BASED",
+} as const;
+
+/**
+ * The type of trigger.
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];

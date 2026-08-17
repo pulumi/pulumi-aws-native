@@ -47030,6 +47030,14 @@ func (o PromptVersionToolSpecificationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PromptVersionToolSpecification) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A tag associated with a resource.
+type SessionTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupInput)(nil)).Elem(), AgentActionGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupArrayInput)(nil)).Elem(), AgentActionGroupArray{})

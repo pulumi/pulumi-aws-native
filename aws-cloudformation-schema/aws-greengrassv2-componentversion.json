@@ -264,7 +264,7 @@
       "permissions" : [ "greengrass:DescribeComponent", "greengrass:ListTagsForResource", "greengrass:TagResource", "greengrass:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "greengrass:DeleteComponent" ]
+      "permissions" : [ "greengrass:DeleteComponent", "greengrass:DescribeComponent" ]
     },
     "list" : {
       "handlerSchema" : {

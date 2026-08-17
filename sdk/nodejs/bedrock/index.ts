@@ -170,6 +170,11 @@ export const getResourcePolicy: typeof import("./getResourcePolicy").getResource
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
+export { GetSessionArgs, GetSessionResult, GetSessionOutputArgs } from "./getSession";
+export const getSession: typeof import("./getSession").getSession = null as any;
+export const getSessionOutput: typeof import("./getSession").getSessionOutput = null as any;
+utilities.lazyLoad(exports, ["getSession","getSessionOutput"], () => require("./getSession"));
+
 export { GuardrailArgs } from "./guardrail";
 export type Guardrail = import("./guardrail").Guardrail;
 export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
@@ -204,6 +209,11 @@ export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
+export { SessionArgs } from "./session";
+export type Session = import("./session").Session;
+export const Session: typeof import("./session").Session = null as any;
+utilities.lazyLoad(exports, ["Session"], () => require("./session"));
 
 
 // Export enums:
@@ -253,6 +263,8 @@ const _module = {
                 return new PromptVersion(name, <any>undefined, { urn })
             case "aws-native:bedrock:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws-native:bedrock:Session":
+                return new Session(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

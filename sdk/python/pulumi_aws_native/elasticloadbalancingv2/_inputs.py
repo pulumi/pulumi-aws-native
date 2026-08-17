@@ -2810,13 +2810,13 @@ class ListenerRuleRuleConditionArgsDict(TypedDict):
     """
     field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The field in the HTTP request. The following are the possible values:
-      +   ``http-header``
-      +   ``http-request-method``
-      +   ``host-header``
-      +   ``path-pattern``
-      +   ``query-string``
-      +   ``source-ip``
+    The name of the field. The possible values are:
+      +  ``http-header`` – [ALB] Matches on an HTTP header field.
+      +  ``http-request-method`` – [ALB] Matches on the HTTP request method.
+      +  ``host-header`` – [ALB] Matches on the host header.
+      +  ``path-pattern`` – [ALB] Matches on the URL path of the request.
+      +  ``query-string`` – [ALB] Matches on a query string parameter.
+      +  ``source-ip`` – [ALB, NLB] Matches on the source IP address. For ALB, use ``SourceIpConfig`` with ``Values`` to specify CIDR ranges. For NLB, use ``SourceIpConfig`` with ``IpAddressType`` to match the IP address type (``ipv4`` or ``ipv6``).
     """
     host_header_config: NotRequired[pulumi.Input[Optional['ListenerRuleHostHeaderConfigArgsDict']]]
     """
@@ -2878,13 +2878,13 @@ class ListenerRuleRuleConditionArgs:
         """
         Specifies a condition for a listener rule.
 
-        :param pulumi.Input[_builtins.str] field: The field in the HTTP request. The following are the possible values:
-                 +   ``http-header``
-                 +   ``http-request-method``
-                 +   ``host-header``
-                 +   ``path-pattern``
-                 +   ``query-string``
-                 +   ``source-ip``
+        :param pulumi.Input[_builtins.str] field: The name of the field. The possible values are:
+                 +  ``http-header`` – [ALB] Matches on an HTTP header field.
+                 +  ``http-request-method`` – [ALB] Matches on the HTTP request method.
+                 +  ``host-header`` – [ALB] Matches on the host header.
+                 +  ``path-pattern`` – [ALB] Matches on the URL path of the request.
+                 +  ``query-string`` – [ALB] Matches on a query string parameter.
+                 +  ``source-ip`` – [ALB, NLB] Matches on the source IP address. For ALB, use ``SourceIpConfig`` with ``Values`` to specify CIDR ranges. For NLB, use ``SourceIpConfig`` with ``IpAddressType`` to match the IP address type (``ipv4`` or ``ipv6``).
         :param pulumi.Input['ListenerRuleHostHeaderConfigArgs'] host_header_config: Information for a host header condition. Specify only when ``Field`` is ``host-header``.
         :param pulumi.Input['ListenerRuleHttpHeaderConfigArgs'] http_header_config: Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
         :param pulumi.Input['ListenerRuleHttpRequestMethodConfigArgs'] http_request_method_config: Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
@@ -2929,13 +2929,13 @@ class ListenerRuleRuleConditionArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The field in the HTTP request. The following are the possible values:
-          +   ``http-header``
-          +   ``http-request-method``
-          +   ``host-header``
-          +   ``path-pattern``
-          +   ``query-string``
-          +   ``source-ip``
+        The name of the field. The possible values are:
+          +  ``http-header`` – [ALB] Matches on an HTTP header field.
+          +  ``http-request-method`` – [ALB] Matches on the HTTP request method.
+          +  ``host-header`` – [ALB] Matches on the host header.
+          +  ``path-pattern`` – [ALB] Matches on the URL path of the request.
+          +  ``query-string`` – [ALB] Matches on a query string parameter.
+          +  ``source-ip`` – [ALB, NLB] Matches on the source IP address. For ALB, use ``SourceIpConfig`` with ``Values`` to specify CIDR ranges. For NLB, use ``SourceIpConfig`` with ``IpAddressType`` to match the IP address type (``ipv4`` or ``ipv6``).
         """
         return pulumi.get(self, "field")
 
@@ -3056,6 +3056,7 @@ class ListenerRuleSourceIpConfigArgsDict(TypedDict):
     """
     Information about a source IP condition.
      You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+     For Application Load Balancers, use ``Values`` to specify CIDR ranges. For Network Load Balancers, use ``IpAddressType`` to match on the IP address type of the source traffic.
     """
     ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
@@ -3072,6 +3073,7 @@ class ListenerRuleSourceIpConfigArgs:
         """
         Information about a source IP condition.
          You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+         For Application Load Balancers, use ``Values`` to specify CIDR ranges. For Network Load Balancers, use ``IpAddressType`` to match on the IP address type of the source traffic.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
                 If you specify multiple addresses, the condition is satisfied if the source IP address of the request matches one of the CIDR blocks. This condition is not satisfied by the addresses in the X-Forwarded-For header.

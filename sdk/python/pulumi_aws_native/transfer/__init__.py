@@ -13,11 +13,13 @@ from .connector import *
 from .get_agreement import *
 from .get_certificate import *
 from .get_connector import *
+from .get_host_key import *
 from .get_profile import *
 from .get_server import *
 from .get_user import *
 from .get_web_app import *
 from .get_workflow import *
+from .host_key import *
 from .profile import *
 from .server import *
 from .user import *

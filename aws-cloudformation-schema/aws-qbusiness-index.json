@@ -163,6 +163,7 @@
   "primaryIdentifier" : [ "/properties/ApplicationId", "/properties/IndexId" ],
   "handlers" : {
     "create" : {
+      "timeoutInMinutes" : 180,
       "permissions" : [ "qbusiness:CreateIndex", "qbusiness:GetIndex", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "qbusiness:UpdateIndex" ]
     },
     "read" : {

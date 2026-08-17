@@ -398,6 +398,7 @@ export const PolicyAssociationAssociationStatus = {
     Success: "SUCCESS",
     Pending: "PENDING",
     Failed: "FAILED",
+    Disabled: "DISABLED",
 } as const;
 
 /**

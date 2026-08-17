@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
         /// </summary>
         [Input("volumeType")]
-        public Input<Pulumi.AwsNative.Ec2.Ec2FleetEbsBlockDeviceVolumeType>? VolumeType { get; set; }
+        public Input<string>? VolumeType { get; set; }
 
         public Ec2FleetEbsBlockDeviceArgs()
         {

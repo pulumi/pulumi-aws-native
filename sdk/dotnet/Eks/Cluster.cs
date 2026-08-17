@@ -93,6 +93,15 @@ namespace Pulumi.AwsNative.Eks
         [Output("force")]
         public Output<bool?> Force { get; private set; } = null!;
 
+        [Output("kubeApiServerConfig")]
+        public Output<Outputs.ClusterKubeApiServerConfig?> KubeApiServerConfig { get; private set; } = null!;
+
+        [Output("kubeControllerManagerConfig")]
+        public Output<Outputs.ClusterKubeControllerManagerConfig?> KubeControllerManagerConfig { get; private set; } = null!;
+
+        [Output("kubeSchedulerConfig")]
+        public Output<Outputs.ClusterKubeSchedulerConfig?> KubeSchedulerConfig { get; private set; } = null!;
+
         /// <summary>
         /// The Kubernetes network configuration for the cluster.
         /// </summary>
@@ -279,6 +288,15 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
+
+        [Input("kubeApiServerConfig")]
+        public Input<Inputs.ClusterKubeApiServerConfigArgs>? KubeApiServerConfig { get; set; }
+
+        [Input("kubeControllerManagerConfig")]
+        public Input<Inputs.ClusterKubeControllerManagerConfigArgs>? KubeControllerManagerConfig { get; set; }
+
+        [Input("kubeSchedulerConfig")]
+        public Input<Inputs.ClusterKubeSchedulerConfigArgs>? KubeSchedulerConfig { get; set; }
 
         /// <summary>
         /// The Kubernetes network configuration for the cluster.

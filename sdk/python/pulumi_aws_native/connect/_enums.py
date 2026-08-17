@@ -228,6 +228,7 @@ class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
     JA_JP = "ja-JP"
     KO_KR = "ko-KR"
     ZH_CN = "zh-CN"
+    MS_MY = "ms-MY"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionPropertiesDisplayAs")

@@ -2224,6 +2224,336 @@ func (in *serviceTypePtr) ToServiceTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceTypePtrOutput)
 }
 
+// The status of the trigger. Active triggers fire on schedule; Inactive triggers are paused.
+type TriggerStatus string
+
+const (
+	TriggerStatusActive   = TriggerStatus("Active")
+	TriggerStatusInactive = TriggerStatus("Inactive")
+)
+
+func (TriggerStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerStatus)(nil)).Elem()
+}
+
+func (e TriggerStatus) ToTriggerStatusOutput() TriggerStatusOutput {
+	return pulumi.ToOutput(e).(TriggerStatusOutput)
+}
+
+func (e TriggerStatus) ToTriggerStatusOutputWithContext(ctx context.Context) TriggerStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TriggerStatusOutput)
+}
+
+func (e TriggerStatus) ToTriggerStatusPtrOutput() TriggerStatusPtrOutput {
+	return e.ToTriggerStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TriggerStatus) ToTriggerStatusPtrOutputWithContext(ctx context.Context) TriggerStatusPtrOutput {
+	return TriggerStatus(e).ToTriggerStatusOutputWithContext(ctx).ToTriggerStatusPtrOutputWithContext(ctx)
+}
+
+func (e TriggerStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TriggerStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TriggerStatusOutput struct{ *pulumi.OutputState }
+
+func (TriggerStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerStatus)(nil)).Elem()
+}
+
+func (o TriggerStatusOutput) ToTriggerStatusOutput() TriggerStatusOutput {
+	return o
+}
+
+func (o TriggerStatusOutput) ToTriggerStatusOutputWithContext(ctx context.Context) TriggerStatusOutput {
+	return o
+}
+
+func (o TriggerStatusOutput) ToTriggerStatusPtrOutput() TriggerStatusPtrOutput {
+	return o.ToTriggerStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerStatusOutput) ToTriggerStatusPtrOutputWithContext(ctx context.Context) TriggerStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerStatus) *TriggerStatus {
+		return &v
+	}).(TriggerStatusPtrOutput)
+}
+
+func (o TriggerStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TriggerStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TriggerStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TriggerStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TriggerStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TriggerStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerStatus)(nil)).Elem()
+}
+
+func (o TriggerStatusPtrOutput) ToTriggerStatusPtrOutput() TriggerStatusPtrOutput {
+	return o
+}
+
+func (o TriggerStatusPtrOutput) ToTriggerStatusPtrOutputWithContext(ctx context.Context) TriggerStatusPtrOutput {
+	return o
+}
+
+func (o TriggerStatusPtrOutput) Elem() TriggerStatusOutput {
+	return o.ApplyT(func(v *TriggerStatus) TriggerStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerStatus
+		return ret
+	}).(TriggerStatusOutput)
+}
+
+func (o TriggerStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TriggerStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TriggerStatusInput is an input type that accepts values of the TriggerStatus enum
+// A concrete instance of `TriggerStatusInput` can be one of the following:
+//
+//	TriggerStatusActive
+//	TriggerStatusInactive
+type TriggerStatusInput interface {
+	pulumi.Input
+
+	ToTriggerStatusOutput() TriggerStatusOutput
+	ToTriggerStatusOutputWithContext(context.Context) TriggerStatusOutput
+}
+
+var triggerStatusPtrType = reflect.TypeOf((**TriggerStatus)(nil)).Elem()
+
+type TriggerStatusPtrInput interface {
+	pulumi.Input
+
+	ToTriggerStatusPtrOutput() TriggerStatusPtrOutput
+	ToTriggerStatusPtrOutputWithContext(context.Context) TriggerStatusPtrOutput
+}
+
+type triggerStatusPtr string
+
+func TriggerStatusPtr(v string) TriggerStatusPtrInput {
+	return (*triggerStatusPtr)(&v)
+}
+
+func (*triggerStatusPtr) ElementType() reflect.Type {
+	return triggerStatusPtrType
+}
+
+func (in *triggerStatusPtr) ToTriggerStatusPtrOutput() TriggerStatusPtrOutput {
+	return pulumi.ToOutput(in).(TriggerStatusPtrOutput)
+}
+
+func (in *triggerStatusPtr) ToTriggerStatusPtrOutputWithContext(ctx context.Context) TriggerStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TriggerStatusPtrOutput)
+}
+
+// The type of trigger.
+type TriggerType string
+
+const (
+	TriggerTypeTimeBased = TriggerType("TIME_BASED")
+)
+
+func (TriggerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (e TriggerType) ToTriggerTypeOutput() TriggerTypeOutput {
+	return pulumi.ToOutput(e).(TriggerTypeOutput)
+}
+
+func (e TriggerType) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TriggerTypeOutput)
+}
+
+func (e TriggerType) ToTriggerTypePtrOutput() TriggerTypePtrOutput {
+	return e.ToTriggerTypePtrOutputWithContext(context.Background())
+}
+
+func (e TriggerType) ToTriggerTypePtrOutputWithContext(ctx context.Context) TriggerTypePtrOutput {
+	return TriggerType(e).ToTriggerTypeOutputWithContext(ctx).ToTriggerTypePtrOutputWithContext(ctx)
+}
+
+func (e TriggerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TriggerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TriggerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TriggerTypeOutput struct{ *pulumi.OutputState }
+
+func (TriggerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerType)(nil)).Elem()
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutput() TriggerTypeOutput {
+	return o
+}
+
+func (o TriggerTypeOutput) ToTriggerTypeOutputWithContext(ctx context.Context) TriggerTypeOutput {
+	return o
+}
+
+func (o TriggerTypeOutput) ToTriggerTypePtrOutput() TriggerTypePtrOutput {
+	return o.ToTriggerTypePtrOutputWithContext(context.Background())
+}
+
+func (o TriggerTypeOutput) ToTriggerTypePtrOutputWithContext(ctx context.Context) TriggerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerType) *TriggerType {
+		return &v
+	}).(TriggerTypePtrOutput)
+}
+
+func (o TriggerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TriggerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TriggerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TriggerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TriggerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TriggerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerType)(nil)).Elem()
+}
+
+func (o TriggerTypePtrOutput) ToTriggerTypePtrOutput() TriggerTypePtrOutput {
+	return o
+}
+
+func (o TriggerTypePtrOutput) ToTriggerTypePtrOutputWithContext(ctx context.Context) TriggerTypePtrOutput {
+	return o
+}
+
+func (o TriggerTypePtrOutput) Elem() TriggerTypeOutput {
+	return o.ApplyT(func(v *TriggerType) TriggerType {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerType
+		return ret
+	}).(TriggerTypeOutput)
+}
+
+func (o TriggerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TriggerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TriggerTypeInput is an input type that accepts values of the TriggerType enum
+// A concrete instance of `TriggerTypeInput` can be one of the following:
+//
+//	TriggerTypeTimeBased
+type TriggerTypeInput interface {
+	pulumi.Input
+
+	ToTriggerTypeOutput() TriggerTypeOutput
+	ToTriggerTypeOutputWithContext(context.Context) TriggerTypeOutput
+}
+
+var triggerTypePtrType = reflect.TypeOf((**TriggerType)(nil)).Elem()
+
+type TriggerTypePtrInput interface {
+	pulumi.Input
+
+	ToTriggerTypePtrOutput() TriggerTypePtrOutput
+	ToTriggerTypePtrOutputWithContext(context.Context) TriggerTypePtrOutput
+}
+
+type triggerTypePtr string
+
+func TriggerTypePtr(v string) TriggerTypePtrInput {
+	return (*triggerTypePtr)(&v)
+}
+
+func (*triggerTypePtr) ElementType() reflect.Type {
+	return triggerTypePtrType
+}
+
+func (in *triggerTypePtr) ToTriggerTypePtrOutput() TriggerTypePtrOutput {
+	return pulumi.ToOutput(in).(TriggerTypePtrOutput)
+}
+
+func (in *triggerTypePtr) ToTriggerTypePtrOutputWithContext(ctx context.Context) TriggerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TriggerTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationAccountTypeInput)(nil)).Elem(), AssociationAwsConfigurationAccountType("monitor"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationAccountTypePtrInput)(nil)).Elem(), AssociationAwsConfigurationAccountType("monitor"))
@@ -2246,6 +2576,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicApiKeyConfigRegionPtrInput)(nil)).Elem(), ServiceNewRelicApiKeyConfigRegion("US"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTypeInput)(nil)).Elem(), ServiceType("dynatrace"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTypePtrInput)(nil)).Elem(), ServiceType("dynatrace"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerStatusInput)(nil)).Elem(), TriggerStatus("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerStatusPtrInput)(nil)).Elem(), TriggerStatus("Active"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTypeInput)(nil)).Elem(), TriggerType("TIME_BASED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTypePtrInput)(nil)).Elem(), TriggerType("TIME_BASED"))
 	pulumi.RegisterOutputType(AssociationAwsConfigurationAccountTypeOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationAccountTypePtrOutput{})
 	pulumi.RegisterOutputType(AssociationAwsResourceResourceTypeOutput{})
@@ -2277,4 +2611,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceRegisteredNewRelicDetailsRegionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTypeOutput{})
 	pulumi.RegisterOutputType(ServiceTypePtrOutput{})
+	pulumi.RegisterOutputType(TriggerStatusOutput{})
+	pulumi.RegisterOutputType(TriggerStatusPtrOutput{})
+	pulumi.RegisterOutputType(TriggerTypeOutput{})
+	pulumi.RegisterOutputType(TriggerTypePtrOutput{})
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore
 {
     /// <summary>
-    /// Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
+    /// Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:bedrockagentcore:GatewayTarget")]
     public partial class GatewayTarget : global::Pulumi.CustomResource

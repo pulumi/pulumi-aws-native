@@ -10,6 +10,186 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The file type of the artifact.
+type ArtifactType string
+
+const (
+	ArtifactTypeTxt  = ArtifactType("TXT")
+	ArtifactTypePng  = ArtifactType("PNG")
+	ArtifactTypeJpeg = ArtifactType("JPEG")
+	ArtifactTypeMd   = ArtifactType("MD")
+	ArtifactTypePdf  = ArtifactType("PDF")
+	ArtifactTypeDocx = ArtifactType("DOCX")
+	ArtifactTypeDoc  = ArtifactType("DOC")
+	ArtifactTypeJson = ArtifactType("JSON")
+	ArtifactTypeYaml = ArtifactType("YAML")
+)
+
+func (ArtifactType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactType)(nil)).Elem()
+}
+
+func (e ArtifactType) ToArtifactTypeOutput() ArtifactTypeOutput {
+	return pulumi.ToOutput(e).(ArtifactTypeOutput)
+}
+
+func (e ArtifactType) ToArtifactTypeOutputWithContext(ctx context.Context) ArtifactTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ArtifactTypeOutput)
+}
+
+func (e ArtifactType) ToArtifactTypePtrOutput() ArtifactTypePtrOutput {
+	return e.ToArtifactTypePtrOutputWithContext(context.Background())
+}
+
+func (e ArtifactType) ToArtifactTypePtrOutputWithContext(ctx context.Context) ArtifactTypePtrOutput {
+	return ArtifactType(e).ToArtifactTypeOutputWithContext(ctx).ToArtifactTypePtrOutputWithContext(ctx)
+}
+
+func (e ArtifactType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ArtifactType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ArtifactType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ArtifactType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ArtifactTypeOutput struct{ *pulumi.OutputState }
+
+func (ArtifactTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactType)(nil)).Elem()
+}
+
+func (o ArtifactTypeOutput) ToArtifactTypeOutput() ArtifactTypeOutput {
+	return o
+}
+
+func (o ArtifactTypeOutput) ToArtifactTypeOutputWithContext(ctx context.Context) ArtifactTypeOutput {
+	return o
+}
+
+func (o ArtifactTypeOutput) ToArtifactTypePtrOutput() ArtifactTypePtrOutput {
+	return o.ToArtifactTypePtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactTypeOutput) ToArtifactTypePtrOutputWithContext(ctx context.Context) ArtifactTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactType) *ArtifactType {
+		return &v
+	}).(ArtifactTypePtrOutput)
+}
+
+func (o ArtifactTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ArtifactTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ArtifactType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ArtifactTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ArtifactType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ArtifactTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ArtifactTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactType)(nil)).Elem()
+}
+
+func (o ArtifactTypePtrOutput) ToArtifactTypePtrOutput() ArtifactTypePtrOutput {
+	return o
+}
+
+func (o ArtifactTypePtrOutput) ToArtifactTypePtrOutputWithContext(ctx context.Context) ArtifactTypePtrOutput {
+	return o
+}
+
+func (o ArtifactTypePtrOutput) Elem() ArtifactTypeOutput {
+	return o.ApplyT(func(v *ArtifactType) ArtifactType {
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactType
+		return ret
+	}).(ArtifactTypeOutput)
+}
+
+func (o ArtifactTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ArtifactType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ArtifactTypeInput is an input type that accepts values of the ArtifactType enum
+// A concrete instance of `ArtifactTypeInput` can be one of the following:
+//
+//	ArtifactTypeTxt
+//	ArtifactTypePng
+//	ArtifactTypeJpeg
+//	ArtifactTypeMd
+//	ArtifactTypePdf
+//	ArtifactTypeDocx
+//	ArtifactTypeDoc
+//	ArtifactTypeJson
+//	ArtifactTypeYaml
+type ArtifactTypeInput interface {
+	pulumi.Input
+
+	ToArtifactTypeOutput() ArtifactTypeOutput
+	ToArtifactTypeOutputWithContext(context.Context) ArtifactTypeOutput
+}
+
+var artifactTypePtrType = reflect.TypeOf((**ArtifactType)(nil)).Elem()
+
+type ArtifactTypePtrInput interface {
+	pulumi.Input
+
+	ToArtifactTypePtrOutput() ArtifactTypePtrOutput
+	ToArtifactTypePtrOutputWithContext(context.Context) ArtifactTypePtrOutput
+}
+
+type artifactTypePtr string
+
+func ArtifactTypePtr(v string) ArtifactTypePtrInput {
+	return (*artifactTypePtr)(&v)
+}
+
+func (*artifactTypePtr) ElementType() reflect.Type {
+	return artifactTypePtrType
+}
+
+func (in *artifactTypePtr) ToArtifactTypePtrOutput() ArtifactTypePtrOutput {
+	return pulumi.ToOutput(in).(ArtifactTypePtrOutput)
+}
+
+func (in *artifactTypePtr) ToArtifactTypePtrOutputWithContext(ctx context.Context) ArtifactTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ArtifactTypePtrOutput)
+}
+
 // Type of authentication provider
 type PentestAuthenticationProviderType string
 
@@ -1926,6 +2106,8 @@ func (o TargetDomainVerificationStatusPtrOutput) ToStringPtrOutputWithContext(ct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactTypeInput)(nil)).Elem(), ArtifactType("TXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactTypePtrInput)(nil)).Elem(), ArtifactType("TXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypeInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypePtrInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCleanUpStrategyInput)(nil)).Elem(), PentestCleanUpStrategy("BEST_EFFORT_DELETE"))
@@ -1946,6 +2128,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackStatusPtrInput)(nil)).Elem(), SecurityRequirementPackStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetDomainVerificationMethodInput)(nil)).Elem(), TargetDomainVerificationMethod("DNS_TXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetDomainVerificationMethodPtrInput)(nil)).Elem(), TargetDomainVerificationMethod("DNS_TXT"))
+	pulumi.RegisterOutputType(ArtifactTypeOutput{})
+	pulumi.RegisterOutputType(ArtifactTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypeOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestCleanUpStrategyOutput{})

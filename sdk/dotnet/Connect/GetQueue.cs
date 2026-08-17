@@ -80,6 +80,14 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? InstanceArn;
         /// <summary>
+        /// The AWS Region where this resource was last modified.
+        /// </summary>
+        public readonly string? LastModifiedRegion;
+        /// <summary>
+        /// The timestamp when this resource was last modified.
+        /// </summary>
+        public readonly double? LastModifiedTime;
+        /// <summary>
         /// The maximum number of contacts that can be in the queue before it is considered full.
         /// </summary>
         public readonly int? MaxContacts;
@@ -126,6 +134,10 @@ namespace Pulumi.AwsNative.Connect
 
             string? instanceArn,
 
+            string? lastModifiedRegion,
+
+            double? lastModifiedTime,
+
             int? maxContacts,
 
             string? name,
@@ -148,6 +160,8 @@ namespace Pulumi.AwsNative.Connect
             Description = description;
             HoursOfOperationArn = hoursOfOperationArn;
             InstanceArn = instanceArn;
+            LastModifiedRegion = lastModifiedRegion;
+            LastModifiedTime = lastModifiedTime;
             MaxContacts = maxContacts;
             Name = name;
             OutboundCallerConfig = outboundCallerConfig;

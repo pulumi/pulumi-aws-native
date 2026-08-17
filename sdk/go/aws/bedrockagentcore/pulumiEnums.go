@@ -696,6 +696,1133 @@ func (o BrowserProfileStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates the instance's Capacity Reservation preferences.
+type CapacityProviderCapacityReservationSpecificationCapacityReservationPreference string
+
+const (
+	CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceCapacityReservationsOnly = CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("capacity-reservations-only")
+	CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOpen                     = CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("open")
+	CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceNone                     = CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("none")
+)
+
+func (CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationCapacityReservationPreference)(nil)).Elem()
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput {
+	return pulumi.ToOutput(e).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput)
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput)
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return e.ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return CapacityProviderCapacityReservationSpecificationCapacityReservationPreference(e).ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutputWithContext(ctx).ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationCapacityReservationPreference)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o.ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) *CapacityProviderCapacityReservationSpecificationCapacityReservationPreference {
+		return &v
+	}).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationSpecificationCapacityReservationPreference)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput) Elem() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) CapacityProviderCapacityReservationSpecificationCapacityReservationPreference {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderCapacityReservationSpecificationCapacityReservationPreference
+		return ret
+	}).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput)
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderCapacityReservationSpecificationCapacityReservationPreference) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceInput is an input type that accepts values of the CapacityProviderCapacityReservationSpecificationCapacityReservationPreference enum
+// A concrete instance of `CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceInput` can be one of the following:
+//
+//	CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceCapacityReservationsOnly
+//	CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOpen
+//	CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceNone
+type CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput
+	ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutputWithContext(context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput
+}
+
+var capacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrType = reflect.TypeOf((**CapacityProviderCapacityReservationSpecificationCapacityReservationPreference)(nil)).Elem()
+
+type CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput
+	ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput
+}
+
+type capacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtr string
+
+func CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtr(v string) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrInput {
+	return (*capacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtr)(&v)
+}
+
+func (*capacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtr) ElementType() reflect.Type {
+	return capacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrType
+}
+
+func (in *capacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtr) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
+}
+
+func (in *capacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtr) ToCapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
+}
+
+// The EBS volume type. Defaults to gp3 if not specified.
+type CapacityProviderEbsVolumeConfigurationVolumeType string
+
+const (
+	CapacityProviderEbsVolumeConfigurationVolumeTypeStandard = CapacityProviderEbsVolumeConfigurationVolumeType("standard")
+	CapacityProviderEbsVolumeConfigurationVolumeTypeIo1      = CapacityProviderEbsVolumeConfigurationVolumeType("io1")
+	CapacityProviderEbsVolumeConfigurationVolumeTypeIo2      = CapacityProviderEbsVolumeConfigurationVolumeType("io2")
+	CapacityProviderEbsVolumeConfigurationVolumeTypeGp2      = CapacityProviderEbsVolumeConfigurationVolumeType("gp2")
+	CapacityProviderEbsVolumeConfigurationVolumeTypeSc1      = CapacityProviderEbsVolumeConfigurationVolumeType("sc1")
+	CapacityProviderEbsVolumeConfigurationVolumeTypeSt1      = CapacityProviderEbsVolumeConfigurationVolumeType("st1")
+	CapacityProviderEbsVolumeConfigurationVolumeTypeGp3      = CapacityProviderEbsVolumeConfigurationVolumeType("gp3")
+)
+
+func (CapacityProviderEbsVolumeConfigurationVolumeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEbsVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToCapacityProviderEbsVolumeConfigurationVolumeTypeOutput() CapacityProviderEbsVolumeConfigurationVolumeTypeOutput {
+	return pulumi.ToOutput(e).(CapacityProviderEbsVolumeConfigurationVolumeTypeOutput)
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToCapacityProviderEbsVolumeConfigurationVolumeTypeOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderEbsVolumeConfigurationVolumeTypeOutput)
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return e.ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return CapacityProviderEbsVolumeConfigurationVolumeType(e).ToCapacityProviderEbsVolumeConfigurationVolumeTypeOutputWithContext(ctx).ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderEbsVolumeConfigurationVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderEbsVolumeConfigurationVolumeTypeOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEbsVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEbsVolumeConfigurationVolumeTypeOutput() CapacityProviderEbsVolumeConfigurationVolumeTypeOutput {
+	return o
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEbsVolumeConfigurationVolumeTypeOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypeOutput {
+	return o
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o.ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderEbsVolumeConfigurationVolumeType) *CapacityProviderEbsVolumeConfigurationVolumeType {
+		return &v
+	}).(CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderEbsVolumeConfigurationVolumeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderEbsVolumeConfigurationVolumeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderEbsVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput) Elem() CapacityProviderEbsVolumeConfigurationVolumeTypeOutput {
+	return o.ApplyT(func(v *CapacityProviderEbsVolumeConfigurationVolumeType) CapacityProviderEbsVolumeConfigurationVolumeType {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderEbsVolumeConfigurationVolumeType
+		return ret
+	}).(CapacityProviderEbsVolumeConfigurationVolumeTypeOutput)
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderEbsVolumeConfigurationVolumeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderEbsVolumeConfigurationVolumeTypeInput is an input type that accepts values of the CapacityProviderEbsVolumeConfigurationVolumeType enum
+// A concrete instance of `CapacityProviderEbsVolumeConfigurationVolumeTypeInput` can be one of the following:
+//
+//	CapacityProviderEbsVolumeConfigurationVolumeTypeStandard
+//	CapacityProviderEbsVolumeConfigurationVolumeTypeIo1
+//	CapacityProviderEbsVolumeConfigurationVolumeTypeIo2
+//	CapacityProviderEbsVolumeConfigurationVolumeTypeGp2
+//	CapacityProviderEbsVolumeConfigurationVolumeTypeSc1
+//	CapacityProviderEbsVolumeConfigurationVolumeTypeSt1
+//	CapacityProviderEbsVolumeConfigurationVolumeTypeGp3
+type CapacityProviderEbsVolumeConfigurationVolumeTypeInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEbsVolumeConfigurationVolumeTypeOutput() CapacityProviderEbsVolumeConfigurationVolumeTypeOutput
+	ToCapacityProviderEbsVolumeConfigurationVolumeTypeOutputWithContext(context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypeOutput
+}
+
+var capacityProviderEbsVolumeConfigurationVolumeTypePtrType = reflect.TypeOf((**CapacityProviderEbsVolumeConfigurationVolumeType)(nil)).Elem()
+
+type CapacityProviderEbsVolumeConfigurationVolumeTypePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput
+	ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput
+}
+
+type capacityProviderEbsVolumeConfigurationVolumeTypePtr string
+
+func CapacityProviderEbsVolumeConfigurationVolumeTypePtr(v string) CapacityProviderEbsVolumeConfigurationVolumeTypePtrInput {
+	return (*capacityProviderEbsVolumeConfigurationVolumeTypePtr)(&v)
+}
+
+func (*capacityProviderEbsVolumeConfigurationVolumeTypePtr) ElementType() reflect.Type {
+	return capacityProviderEbsVolumeConfigurationVolumeTypePtrType
+}
+
+func (in *capacityProviderEbsVolumeConfigurationVolumeTypePtr) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+func (in *capacityProviderEbsVolumeConfigurationVolumeTypePtr) ToCapacityProviderEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+// The volume type. Defaults to gp3 if not specified.
+type CapacityProviderEphemeralEbsVolumeConfigurationVolumeType string
+
+const (
+	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeStandard = CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("standard")
+	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeIo1      = CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("io1")
+	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeIo2      = CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("io2")
+	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeGp2      = CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("gp2")
+	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeSc1      = CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("sc1")
+	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeSt1      = CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("st1")
+	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeGp3      = CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("gp3")
+)
+
+func (CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput {
+	return pulumi.ToOutput(e).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput)
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput)
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return e.ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return CapacityProviderEphemeralEbsVolumeConfigurationVolumeType(e).ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutputWithContext(ctx).ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o.ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) *CapacityProviderEphemeralEbsVolumeConfigurationVolumeType {
+		return &v
+	}).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderEphemeralEbsVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput) Elem() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) CapacityProviderEphemeralEbsVolumeConfigurationVolumeType {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderEphemeralEbsVolumeConfigurationVolumeType
+		return ret
+	}).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput)
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderEphemeralEbsVolumeConfigurationVolumeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeInput is an input type that accepts values of the CapacityProviderEphemeralEbsVolumeConfigurationVolumeType enum
+// A concrete instance of `CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeInput` can be one of the following:
+//
+//	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeStandard
+//	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeIo1
+//	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeIo2
+//	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeGp2
+//	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeSc1
+//	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeSt1
+//	CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeGp3
+type CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput
+	ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutputWithContext(context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput
+}
+
+var capacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrType = reflect.TypeOf((**CapacityProviderEphemeralEbsVolumeConfigurationVolumeType)(nil)).Elem()
+
+type CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput
+	ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput
+}
+
+type capacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtr string
+
+func CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtr(v string) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrInput {
+	return (*capacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtr)(&v)
+}
+
+func (*capacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtr) ElementType() reflect.Type {
+	return capacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrType
+}
+
+func (in *capacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtr) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+func (in *capacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtr) ToCapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+// The monitoring level for the instance.
+type CapacityProviderLaunchParametersMonitoring string
+
+const (
+	CapacityProviderLaunchParametersMonitoringBasic    = CapacityProviderLaunchParametersMonitoring("BASIC")
+	CapacityProviderLaunchParametersMonitoringDetailed = CapacityProviderLaunchParametersMonitoring("DETAILED")
+)
+
+func (CapacityProviderLaunchParametersMonitoring) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchParametersMonitoring)(nil)).Elem()
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToCapacityProviderLaunchParametersMonitoringOutput() CapacityProviderLaunchParametersMonitoringOutput {
+	return pulumi.ToOutput(e).(CapacityProviderLaunchParametersMonitoringOutput)
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToCapacityProviderLaunchParametersMonitoringOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderLaunchParametersMonitoringOutput)
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToCapacityProviderLaunchParametersMonitoringPtrOutput() CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return e.ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return CapacityProviderLaunchParametersMonitoring(e).ToCapacityProviderLaunchParametersMonitoringOutputWithContext(ctx).ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderLaunchParametersMonitoring) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderLaunchParametersMonitoringOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLaunchParametersMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchParametersMonitoring)(nil)).Elem()
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToCapacityProviderLaunchParametersMonitoringOutput() CapacityProviderLaunchParametersMonitoringOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToCapacityProviderLaunchParametersMonitoringOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersMonitoringOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToCapacityProviderLaunchParametersMonitoringPtrOutput() CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return o.ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderLaunchParametersMonitoring) *CapacityProviderLaunchParametersMonitoring {
+		return &v
+	}).(CapacityProviderLaunchParametersMonitoringPtrOutput)
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderLaunchParametersMonitoring) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersMonitoringOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderLaunchParametersMonitoring) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderLaunchParametersMonitoringPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLaunchParametersMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderLaunchParametersMonitoring)(nil)).Elem()
+}
+
+func (o CapacityProviderLaunchParametersMonitoringPtrOutput) ToCapacityProviderLaunchParametersMonitoringPtrOutput() CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersMonitoringPtrOutput) ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersMonitoringPtrOutput) Elem() CapacityProviderLaunchParametersMonitoringOutput {
+	return o.ApplyT(func(v *CapacityProviderLaunchParametersMonitoring) CapacityProviderLaunchParametersMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderLaunchParametersMonitoring
+		return ret
+	}).(CapacityProviderLaunchParametersMonitoringOutput)
+}
+
+func (o CapacityProviderLaunchParametersMonitoringPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersMonitoringPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderLaunchParametersMonitoring) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderLaunchParametersMonitoringInput is an input type that accepts values of the CapacityProviderLaunchParametersMonitoring enum
+// A concrete instance of `CapacityProviderLaunchParametersMonitoringInput` can be one of the following:
+//
+//	CapacityProviderLaunchParametersMonitoringBasic
+//	CapacityProviderLaunchParametersMonitoringDetailed
+type CapacityProviderLaunchParametersMonitoringInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLaunchParametersMonitoringOutput() CapacityProviderLaunchParametersMonitoringOutput
+	ToCapacityProviderLaunchParametersMonitoringOutputWithContext(context.Context) CapacityProviderLaunchParametersMonitoringOutput
+}
+
+var capacityProviderLaunchParametersMonitoringPtrType = reflect.TypeOf((**CapacityProviderLaunchParametersMonitoring)(nil)).Elem()
+
+type CapacityProviderLaunchParametersMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLaunchParametersMonitoringPtrOutput() CapacityProviderLaunchParametersMonitoringPtrOutput
+	ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(context.Context) CapacityProviderLaunchParametersMonitoringPtrOutput
+}
+
+type capacityProviderLaunchParametersMonitoringPtr string
+
+func CapacityProviderLaunchParametersMonitoringPtr(v string) CapacityProviderLaunchParametersMonitoringPtrInput {
+	return (*capacityProviderLaunchParametersMonitoringPtr)(&v)
+}
+
+func (*capacityProviderLaunchParametersMonitoringPtr) ElementType() reflect.Type {
+	return capacityProviderLaunchParametersMonitoringPtrType
+}
+
+func (in *capacityProviderLaunchParametersMonitoringPtr) ToCapacityProviderLaunchParametersMonitoringPtrOutput() CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderLaunchParametersMonitoringPtrOutput)
+}
+
+func (in *capacityProviderLaunchParametersMonitoringPtr) ToCapacityProviderLaunchParametersMonitoringPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderLaunchParametersMonitoringPtrOutput)
+}
+
+// The operating system and CPU architecture for the instances.
+type CapacityProviderLaunchParametersOperatingSystem string
+
+const (
+	CapacityProviderLaunchParametersOperatingSystemLinuxX8664   = CapacityProviderLaunchParametersOperatingSystem("LINUX_X86_64")
+	CapacityProviderLaunchParametersOperatingSystemLinuxArm64   = CapacityProviderLaunchParametersOperatingSystem("LINUX_ARM64")
+	CapacityProviderLaunchParametersOperatingSystemMacArm64     = CapacityProviderLaunchParametersOperatingSystem("MAC_ARM64")
+	CapacityProviderLaunchParametersOperatingSystemWindowsX8664 = CapacityProviderLaunchParametersOperatingSystem("WINDOWS_X86_64")
+)
+
+func (CapacityProviderLaunchParametersOperatingSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchParametersOperatingSystem)(nil)).Elem()
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToCapacityProviderLaunchParametersOperatingSystemOutput() CapacityProviderLaunchParametersOperatingSystemOutput {
+	return pulumi.ToOutput(e).(CapacityProviderLaunchParametersOperatingSystemOutput)
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToCapacityProviderLaunchParametersOperatingSystemOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOperatingSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderLaunchParametersOperatingSystemOutput)
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToCapacityProviderLaunchParametersOperatingSystemPtrOutput() CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return e.ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return CapacityProviderLaunchParametersOperatingSystem(e).ToCapacityProviderLaunchParametersOperatingSystemOutputWithContext(ctx).ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderLaunchParametersOperatingSystem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderLaunchParametersOperatingSystemOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLaunchParametersOperatingSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchParametersOperatingSystem)(nil)).Elem()
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToCapacityProviderLaunchParametersOperatingSystemOutput() CapacityProviderLaunchParametersOperatingSystemOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToCapacityProviderLaunchParametersOperatingSystemOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOperatingSystemOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToCapacityProviderLaunchParametersOperatingSystemPtrOutput() CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return o.ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderLaunchParametersOperatingSystem) *CapacityProviderLaunchParametersOperatingSystem {
+		return &v
+	}).(CapacityProviderLaunchParametersOperatingSystemPtrOutput)
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderLaunchParametersOperatingSystem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderLaunchParametersOperatingSystem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderLaunchParametersOperatingSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLaunchParametersOperatingSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderLaunchParametersOperatingSystem)(nil)).Elem()
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemPtrOutput) ToCapacityProviderLaunchParametersOperatingSystemPtrOutput() CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemPtrOutput) ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemPtrOutput) Elem() CapacityProviderLaunchParametersOperatingSystemOutput {
+	return o.ApplyT(func(v *CapacityProviderLaunchParametersOperatingSystem) CapacityProviderLaunchParametersOperatingSystem {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderLaunchParametersOperatingSystem
+		return ret
+	}).(CapacityProviderLaunchParametersOperatingSystemOutput)
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderLaunchParametersOperatingSystemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderLaunchParametersOperatingSystem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderLaunchParametersOperatingSystemInput is an input type that accepts values of the CapacityProviderLaunchParametersOperatingSystem enum
+// A concrete instance of `CapacityProviderLaunchParametersOperatingSystemInput` can be one of the following:
+//
+//	CapacityProviderLaunchParametersOperatingSystemLinuxX8664
+//	CapacityProviderLaunchParametersOperatingSystemLinuxArm64
+//	CapacityProviderLaunchParametersOperatingSystemMacArm64
+//	CapacityProviderLaunchParametersOperatingSystemWindowsX8664
+type CapacityProviderLaunchParametersOperatingSystemInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLaunchParametersOperatingSystemOutput() CapacityProviderLaunchParametersOperatingSystemOutput
+	ToCapacityProviderLaunchParametersOperatingSystemOutputWithContext(context.Context) CapacityProviderLaunchParametersOperatingSystemOutput
+}
+
+var capacityProviderLaunchParametersOperatingSystemPtrType = reflect.TypeOf((**CapacityProviderLaunchParametersOperatingSystem)(nil)).Elem()
+
+type CapacityProviderLaunchParametersOperatingSystemPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLaunchParametersOperatingSystemPtrOutput() CapacityProviderLaunchParametersOperatingSystemPtrOutput
+	ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(context.Context) CapacityProviderLaunchParametersOperatingSystemPtrOutput
+}
+
+type capacityProviderLaunchParametersOperatingSystemPtr string
+
+func CapacityProviderLaunchParametersOperatingSystemPtr(v string) CapacityProviderLaunchParametersOperatingSystemPtrInput {
+	return (*capacityProviderLaunchParametersOperatingSystemPtr)(&v)
+}
+
+func (*capacityProviderLaunchParametersOperatingSystemPtr) ElementType() reflect.Type {
+	return capacityProviderLaunchParametersOperatingSystemPtrType
+}
+
+func (in *capacityProviderLaunchParametersOperatingSystemPtr) ToCapacityProviderLaunchParametersOperatingSystemPtrOutput() CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderLaunchParametersOperatingSystemPtrOutput)
+}
+
+func (in *capacityProviderLaunchParametersOperatingSystemPtr) ToCapacityProviderLaunchParametersOperatingSystemPtrOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOperatingSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderLaunchParametersOperatingSystemPtrOutput)
+}
+
+// The EBS volume type. Defaults to gp3 if not specified.
+type CapacityProviderRootVolumeConfigurationVolumeType string
+
+const (
+	CapacityProviderRootVolumeConfigurationVolumeTypeStandard = CapacityProviderRootVolumeConfigurationVolumeType("standard")
+	CapacityProviderRootVolumeConfigurationVolumeTypeIo1      = CapacityProviderRootVolumeConfigurationVolumeType("io1")
+	CapacityProviderRootVolumeConfigurationVolumeTypeIo2      = CapacityProviderRootVolumeConfigurationVolumeType("io2")
+	CapacityProviderRootVolumeConfigurationVolumeTypeGp2      = CapacityProviderRootVolumeConfigurationVolumeType("gp2")
+	CapacityProviderRootVolumeConfigurationVolumeTypeSc1      = CapacityProviderRootVolumeConfigurationVolumeType("sc1")
+	CapacityProviderRootVolumeConfigurationVolumeTypeSt1      = CapacityProviderRootVolumeConfigurationVolumeType("st1")
+	CapacityProviderRootVolumeConfigurationVolumeTypeGp3      = CapacityProviderRootVolumeConfigurationVolumeType("gp3")
+)
+
+func (CapacityProviderRootVolumeConfigurationVolumeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderRootVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToCapacityProviderRootVolumeConfigurationVolumeTypeOutput() CapacityProviderRootVolumeConfigurationVolumeTypeOutput {
+	return pulumi.ToOutput(e).(CapacityProviderRootVolumeConfigurationVolumeTypeOutput)
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToCapacityProviderRootVolumeConfigurationVolumeTypeOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationVolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderRootVolumeConfigurationVolumeTypeOutput)
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutput() CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return e.ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return CapacityProviderRootVolumeConfigurationVolumeType(e).ToCapacityProviderRootVolumeConfigurationVolumeTypeOutputWithContext(ctx).ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderRootVolumeConfigurationVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderRootVolumeConfigurationVolumeTypeOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderRootVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToCapacityProviderRootVolumeConfigurationVolumeTypeOutput() CapacityProviderRootVolumeConfigurationVolumeTypeOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToCapacityProviderRootVolumeConfigurationVolumeTypeOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationVolumeTypeOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutput() CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return o.ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderRootVolumeConfigurationVolumeType) *CapacityProviderRootVolumeConfigurationVolumeType {
+		return &v
+	}).(CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput)
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderRootVolumeConfigurationVolumeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderRootVolumeConfigurationVolumeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderRootVolumeConfigurationVolumeType)(nil)).Elem()
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutput() CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput) Elem() CapacityProviderRootVolumeConfigurationVolumeTypeOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfigurationVolumeType) CapacityProviderRootVolumeConfigurationVolumeType {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderRootVolumeConfigurationVolumeType
+		return ret
+	}).(CapacityProviderRootVolumeConfigurationVolumeTypeOutput)
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderRootVolumeConfigurationVolumeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderRootVolumeConfigurationVolumeTypeInput is an input type that accepts values of the CapacityProviderRootVolumeConfigurationVolumeType enum
+// A concrete instance of `CapacityProviderRootVolumeConfigurationVolumeTypeInput` can be one of the following:
+//
+//	CapacityProviderRootVolumeConfigurationVolumeTypeStandard
+//	CapacityProviderRootVolumeConfigurationVolumeTypeIo1
+//	CapacityProviderRootVolumeConfigurationVolumeTypeIo2
+//	CapacityProviderRootVolumeConfigurationVolumeTypeGp2
+//	CapacityProviderRootVolumeConfigurationVolumeTypeSc1
+//	CapacityProviderRootVolumeConfigurationVolumeTypeSt1
+//	CapacityProviderRootVolumeConfigurationVolumeTypeGp3
+type CapacityProviderRootVolumeConfigurationVolumeTypeInput interface {
+	pulumi.Input
+
+	ToCapacityProviderRootVolumeConfigurationVolumeTypeOutput() CapacityProviderRootVolumeConfigurationVolumeTypeOutput
+	ToCapacityProviderRootVolumeConfigurationVolumeTypeOutputWithContext(context.Context) CapacityProviderRootVolumeConfigurationVolumeTypeOutput
+}
+
+var capacityProviderRootVolumeConfigurationVolumeTypePtrType = reflect.TypeOf((**CapacityProviderRootVolumeConfigurationVolumeType)(nil)).Elem()
+
+type CapacityProviderRootVolumeConfigurationVolumeTypePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutput() CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput
+	ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(context.Context) CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput
+}
+
+type capacityProviderRootVolumeConfigurationVolumeTypePtr string
+
+func CapacityProviderRootVolumeConfigurationVolumeTypePtr(v string) CapacityProviderRootVolumeConfigurationVolumeTypePtrInput {
+	return (*capacityProviderRootVolumeConfigurationVolumeTypePtr)(&v)
+}
+
+func (*capacityProviderRootVolumeConfigurationVolumeTypePtr) ElementType() reflect.Type {
+	return capacityProviderRootVolumeConfigurationVolumeTypePtrType
+}
+
+func (in *capacityProviderRootVolumeConfigurationVolumeTypePtr) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutput() CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput)
+}
+
+func (in *capacityProviderRootVolumeConfigurationVolumeTypePtr) ToCapacityProviderRootVolumeConfigurationVolumeTypePtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput)
+}
+
+// The current status of the capacity provider.
+type CapacityProviderStatus string
+
+const (
+	CapacityProviderStatusCreating     = CapacityProviderStatus("CREATING")
+	CapacityProviderStatusCreateFailed = CapacityProviderStatus("CREATE_FAILED")
+	CapacityProviderStatusUpdating     = CapacityProviderStatus("UPDATING")
+	CapacityProviderStatusUpdateFailed = CapacityProviderStatus("UPDATE_FAILED")
+	CapacityProviderStatusReady        = CapacityProviderStatus("READY")
+	CapacityProviderStatusDeleting     = CapacityProviderStatus("DELETING")
+)
+
+type CapacityProviderStatusOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderStatus)(nil)).Elem()
+}
+
+func (o CapacityProviderStatusOutput) ToCapacityProviderStatusOutput() CapacityProviderStatusOutput {
+	return o
+}
+
+func (o CapacityProviderStatusOutput) ToCapacityProviderStatusOutputWithContext(ctx context.Context) CapacityProviderStatusOutput {
+	return o
+}
+
+func (o CapacityProviderStatusOutput) ToCapacityProviderStatusPtrOutput() CapacityProviderStatusPtrOutput {
+	return o.ToCapacityProviderStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStatusOutput) ToCapacityProviderStatusPtrOutputWithContext(ctx context.Context) CapacityProviderStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderStatus) *CapacityProviderStatus {
+		return &v
+	}).(CapacityProviderStatusPtrOutput)
+}
+
+func (o CapacityProviderStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderStatus)(nil)).Elem()
+}
+
+func (o CapacityProviderStatusPtrOutput) ToCapacityProviderStatusPtrOutput() CapacityProviderStatusPtrOutput {
+	return o
+}
+
+func (o CapacityProviderStatusPtrOutput) ToCapacityProviderStatusPtrOutputWithContext(ctx context.Context) CapacityProviderStatusPtrOutput {
+	return o
+}
+
+func (o CapacityProviderStatusPtrOutput) Elem() CapacityProviderStatusOutput {
+	return o.ApplyT(func(v *CapacityProviderStatus) CapacityProviderStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderStatus
+		return ret
+	}).(CapacityProviderStatusOutput)
+}
+
+func (o CapacityProviderStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Network modes supported by code interpreter
 type CodeInterpreterCustomCodeInterpreterNetworkMode string
 
@@ -1651,126 +2778,125 @@ func (in *gatewayAuthorizerTypePtr) ToGatewayAuthorizerTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayAuthorizerTypePtrOutput)
 }
 
-// The relationship between the claim field value and the value or values being matched
-type GatewayClaimMatchOperator string
+type GatewayClaimMatchOperatorType string
 
 const (
-	GatewayClaimMatchOperatorEquals      = GatewayClaimMatchOperator("EQUALS")
-	GatewayClaimMatchOperatorContains    = GatewayClaimMatchOperator("CONTAINS")
-	GatewayClaimMatchOperatorContainsAny = GatewayClaimMatchOperator("CONTAINS_ANY")
+	GatewayClaimMatchOperatorTypeEquals      = GatewayClaimMatchOperatorType("EQUALS")
+	GatewayClaimMatchOperatorTypeContains    = GatewayClaimMatchOperatorType("CONTAINS")
+	GatewayClaimMatchOperatorTypeContainsAny = GatewayClaimMatchOperatorType("CONTAINS_ANY")
 )
 
-func (GatewayClaimMatchOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayClaimMatchOperator)(nil)).Elem()
+func (GatewayClaimMatchOperatorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchOperatorType)(nil)).Elem()
 }
 
-func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorOutput() GatewayClaimMatchOperatorOutput {
-	return pulumi.ToOutput(e).(GatewayClaimMatchOperatorOutput)
+func (e GatewayClaimMatchOperatorType) ToGatewayClaimMatchOperatorTypeOutput() GatewayClaimMatchOperatorTypeOutput {
+	return pulumi.ToOutput(e).(GatewayClaimMatchOperatorTypeOutput)
 }
 
-func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(GatewayClaimMatchOperatorOutput)
+func (e GatewayClaimMatchOperatorType) ToGatewayClaimMatchOperatorTypeOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayClaimMatchOperatorTypeOutput)
 }
 
-func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
-	return e.ToGatewayClaimMatchOperatorPtrOutputWithContext(context.Background())
+func (e GatewayClaimMatchOperatorType) ToGatewayClaimMatchOperatorTypePtrOutput() GatewayClaimMatchOperatorTypePtrOutput {
+	return e.ToGatewayClaimMatchOperatorTypePtrOutputWithContext(context.Background())
 }
 
-func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
-	return GatewayClaimMatchOperator(e).ToGatewayClaimMatchOperatorOutputWithContext(ctx).ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx)
+func (e GatewayClaimMatchOperatorType) ToGatewayClaimMatchOperatorTypePtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorTypePtrOutput {
+	return GatewayClaimMatchOperatorType(e).ToGatewayClaimMatchOperatorTypeOutputWithContext(ctx).ToGatewayClaimMatchOperatorTypePtrOutputWithContext(ctx)
 }
 
-func (e GatewayClaimMatchOperator) ToStringOutput() pulumi.StringOutput {
+func (e GatewayClaimMatchOperatorType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GatewayClaimMatchOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e GatewayClaimMatchOperatorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GatewayClaimMatchOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e GatewayClaimMatchOperatorType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e GatewayClaimMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e GatewayClaimMatchOperatorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type GatewayClaimMatchOperatorOutput struct{ *pulumi.OutputState }
+type GatewayClaimMatchOperatorTypeOutput struct{ *pulumi.OutputState }
 
-func (GatewayClaimMatchOperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayClaimMatchOperator)(nil)).Elem()
+func (GatewayClaimMatchOperatorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchOperatorType)(nil)).Elem()
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorOutput() GatewayClaimMatchOperatorOutput {
+func (o GatewayClaimMatchOperatorTypeOutput) ToGatewayClaimMatchOperatorTypeOutput() GatewayClaimMatchOperatorTypeOutput {
 	return o
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorOutput {
+func (o GatewayClaimMatchOperatorTypeOutput) ToGatewayClaimMatchOperatorTypeOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorTypeOutput {
 	return o
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
-	return o.ToGatewayClaimMatchOperatorPtrOutputWithContext(context.Background())
+func (o GatewayClaimMatchOperatorTypeOutput) ToGatewayClaimMatchOperatorTypePtrOutput() GatewayClaimMatchOperatorTypePtrOutput {
+	return o.ToGatewayClaimMatchOperatorTypePtrOutputWithContext(context.Background())
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayClaimMatchOperator) *GatewayClaimMatchOperator {
+func (o GatewayClaimMatchOperatorTypeOutput) ToGatewayClaimMatchOperatorTypePtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayClaimMatchOperatorType) *GatewayClaimMatchOperatorType {
 		return &v
-	}).(GatewayClaimMatchOperatorPtrOutput)
+	}).(GatewayClaimMatchOperatorTypePtrOutput)
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
+func (o GatewayClaimMatchOperatorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayClaimMatchOperator) string {
+func (o GatewayClaimMatchOperatorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayClaimMatchOperatorType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o GatewayClaimMatchOperatorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o GatewayClaimMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayClaimMatchOperator) *string {
+func (o GatewayClaimMatchOperatorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayClaimMatchOperatorType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type GatewayClaimMatchOperatorPtrOutput struct{ *pulumi.OutputState }
+type GatewayClaimMatchOperatorTypePtrOutput struct{ *pulumi.OutputState }
 
-func (GatewayClaimMatchOperatorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayClaimMatchOperator)(nil)).Elem()
+func (GatewayClaimMatchOperatorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayClaimMatchOperatorType)(nil)).Elem()
 }
 
-func (o GatewayClaimMatchOperatorPtrOutput) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
+func (o GatewayClaimMatchOperatorTypePtrOutput) ToGatewayClaimMatchOperatorTypePtrOutput() GatewayClaimMatchOperatorTypePtrOutput {
 	return o
 }
 
-func (o GatewayClaimMatchOperatorPtrOutput) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
+func (o GatewayClaimMatchOperatorTypePtrOutput) ToGatewayClaimMatchOperatorTypePtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorTypePtrOutput {
 	return o
 }
 
-func (o GatewayClaimMatchOperatorPtrOutput) Elem() GatewayClaimMatchOperatorOutput {
-	return o.ApplyT(func(v *GatewayClaimMatchOperator) GatewayClaimMatchOperator {
+func (o GatewayClaimMatchOperatorTypePtrOutput) Elem() GatewayClaimMatchOperatorTypeOutput {
+	return o.ApplyT(func(v *GatewayClaimMatchOperatorType) GatewayClaimMatchOperatorType {
 		if v != nil {
 			return *v
 		}
-		var ret GatewayClaimMatchOperator
+		var ret GatewayClaimMatchOperatorType
 		return ret
-	}).(GatewayClaimMatchOperatorOutput)
+	}).(GatewayClaimMatchOperatorTypeOutput)
 }
 
-func (o GatewayClaimMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o GatewayClaimMatchOperatorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o GatewayClaimMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayClaimMatchOperator) *string {
+func (o GatewayClaimMatchOperatorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayClaimMatchOperatorType) *string {
 		if e == nil {
 			return nil
 		}
@@ -1779,44 +2905,209 @@ func (o GatewayClaimMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// GatewayClaimMatchOperatorInput is an input type that accepts values of the GatewayClaimMatchOperator enum
-// A concrete instance of `GatewayClaimMatchOperatorInput` can be one of the following:
+// GatewayClaimMatchOperatorTypeInput is an input type that accepts values of the GatewayClaimMatchOperatorType enum
+// A concrete instance of `GatewayClaimMatchOperatorTypeInput` can be one of the following:
 //
-//	GatewayClaimMatchOperatorEquals
-//	GatewayClaimMatchOperatorContains
-//	GatewayClaimMatchOperatorContainsAny
-type GatewayClaimMatchOperatorInput interface {
+//	GatewayClaimMatchOperatorTypeEquals
+//	GatewayClaimMatchOperatorTypeContains
+//	GatewayClaimMatchOperatorTypeContainsAny
+type GatewayClaimMatchOperatorTypeInput interface {
 	pulumi.Input
 
-	ToGatewayClaimMatchOperatorOutput() GatewayClaimMatchOperatorOutput
-	ToGatewayClaimMatchOperatorOutputWithContext(context.Context) GatewayClaimMatchOperatorOutput
+	ToGatewayClaimMatchOperatorTypeOutput() GatewayClaimMatchOperatorTypeOutput
+	ToGatewayClaimMatchOperatorTypeOutputWithContext(context.Context) GatewayClaimMatchOperatorTypeOutput
 }
 
-var gatewayClaimMatchOperatorPtrType = reflect.TypeOf((**GatewayClaimMatchOperator)(nil)).Elem()
+var gatewayClaimMatchOperatorTypePtrType = reflect.TypeOf((**GatewayClaimMatchOperatorType)(nil)).Elem()
 
-type GatewayClaimMatchOperatorPtrInput interface {
+type GatewayClaimMatchOperatorTypePtrInput interface {
 	pulumi.Input
 
-	ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput
-	ToGatewayClaimMatchOperatorPtrOutputWithContext(context.Context) GatewayClaimMatchOperatorPtrOutput
+	ToGatewayClaimMatchOperatorTypePtrOutput() GatewayClaimMatchOperatorTypePtrOutput
+	ToGatewayClaimMatchOperatorTypePtrOutputWithContext(context.Context) GatewayClaimMatchOperatorTypePtrOutput
 }
 
-type gatewayClaimMatchOperatorPtr string
+type gatewayClaimMatchOperatorTypePtr string
 
-func GatewayClaimMatchOperatorPtr(v string) GatewayClaimMatchOperatorPtrInput {
-	return (*gatewayClaimMatchOperatorPtr)(&v)
+func GatewayClaimMatchOperatorTypePtr(v string) GatewayClaimMatchOperatorTypePtrInput {
+	return (*gatewayClaimMatchOperatorTypePtr)(&v)
 }
 
-func (*gatewayClaimMatchOperatorPtr) ElementType() reflect.Type {
-	return gatewayClaimMatchOperatorPtrType
+func (*gatewayClaimMatchOperatorTypePtr) ElementType() reflect.Type {
+	return gatewayClaimMatchOperatorTypePtrType
 }
 
-func (in *gatewayClaimMatchOperatorPtr) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
-	return pulumi.ToOutput(in).(GatewayClaimMatchOperatorPtrOutput)
+func (in *gatewayClaimMatchOperatorTypePtr) ToGatewayClaimMatchOperatorTypePtrOutput() GatewayClaimMatchOperatorTypePtrOutput {
+	return pulumi.ToOutput(in).(GatewayClaimMatchOperatorTypePtrOutput)
 }
 
-func (in *gatewayClaimMatchOperatorPtr) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(GatewayClaimMatchOperatorPtrOutput)
+func (in *gatewayClaimMatchOperatorTypePtr) ToGatewayClaimMatchOperatorTypePtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayClaimMatchOperatorTypePtrOutput)
+}
+
+type GatewayEndpointIpAddressType string
+
+const (
+	GatewayEndpointIpAddressTypeIpv4 = GatewayEndpointIpAddressType("IPV4")
+	GatewayEndpointIpAddressTypeIpv6 = GatewayEndpointIpAddressType("IPV6")
+)
+
+func (GatewayEndpointIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayEndpointIpAddressType)(nil)).Elem()
+}
+
+func (e GatewayEndpointIpAddressType) ToGatewayEndpointIpAddressTypeOutput() GatewayEndpointIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(GatewayEndpointIpAddressTypeOutput)
+}
+
+func (e GatewayEndpointIpAddressType) ToGatewayEndpointIpAddressTypeOutputWithContext(ctx context.Context) GatewayEndpointIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayEndpointIpAddressTypeOutput)
+}
+
+func (e GatewayEndpointIpAddressType) ToGatewayEndpointIpAddressTypePtrOutput() GatewayEndpointIpAddressTypePtrOutput {
+	return e.ToGatewayEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e GatewayEndpointIpAddressType) ToGatewayEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) GatewayEndpointIpAddressTypePtrOutput {
+	return GatewayEndpointIpAddressType(e).ToGatewayEndpointIpAddressTypeOutputWithContext(ctx).ToGatewayEndpointIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e GatewayEndpointIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayEndpointIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayEndpointIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayEndpointIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayEndpointIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayEndpointIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToGatewayEndpointIpAddressTypeOutput() GatewayEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToGatewayEndpointIpAddressTypeOutputWithContext(ctx context.Context) GatewayEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToGatewayEndpointIpAddressTypePtrOutput() GatewayEndpointIpAddressTypePtrOutput {
+	return o.ToGatewayEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToGatewayEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) GatewayEndpointIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayEndpointIpAddressType) *GatewayEndpointIpAddressType {
+		return &v
+	}).(GatewayEndpointIpAddressTypePtrOutput)
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayEndpointIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayEndpointIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayEndpointIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayEndpointIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayEndpointIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o GatewayEndpointIpAddressTypePtrOutput) ToGatewayEndpointIpAddressTypePtrOutput() GatewayEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o GatewayEndpointIpAddressTypePtrOutput) ToGatewayEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) GatewayEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o GatewayEndpointIpAddressTypePtrOutput) Elem() GatewayEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v *GatewayEndpointIpAddressType) GatewayEndpointIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayEndpointIpAddressType
+		return ret
+	}).(GatewayEndpointIpAddressTypeOutput)
+}
+
+func (o GatewayEndpointIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayEndpointIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayEndpointIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayEndpointIpAddressTypeInput is an input type that accepts values of the GatewayEndpointIpAddressType enum
+// A concrete instance of `GatewayEndpointIpAddressTypeInput` can be one of the following:
+//
+//	GatewayEndpointIpAddressTypeIpv4
+//	GatewayEndpointIpAddressTypeIpv6
+type GatewayEndpointIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToGatewayEndpointIpAddressTypeOutput() GatewayEndpointIpAddressTypeOutput
+	ToGatewayEndpointIpAddressTypeOutputWithContext(context.Context) GatewayEndpointIpAddressTypeOutput
+}
+
+var gatewayEndpointIpAddressTypePtrType = reflect.TypeOf((**GatewayEndpointIpAddressType)(nil)).Elem()
+
+type GatewayEndpointIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToGatewayEndpointIpAddressTypePtrOutput() GatewayEndpointIpAddressTypePtrOutput
+	ToGatewayEndpointIpAddressTypePtrOutputWithContext(context.Context) GatewayEndpointIpAddressTypePtrOutput
+}
+
+type gatewayEndpointIpAddressTypePtr string
+
+func GatewayEndpointIpAddressTypePtr(v string) GatewayEndpointIpAddressTypePtrInput {
+	return (*gatewayEndpointIpAddressTypePtr)(&v)
+}
+
+func (*gatewayEndpointIpAddressTypePtr) ElementType() reflect.Type {
+	return gatewayEndpointIpAddressTypePtrType
+}
+
+func (in *gatewayEndpointIpAddressTypePtr) ToGatewayEndpointIpAddressTypePtrOutput() GatewayEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(GatewayEndpointIpAddressTypePtrOutput)
+}
+
+func (in *gatewayEndpointIpAddressTypePtr) ToGatewayEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) GatewayEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayEndpointIpAddressTypePtrOutput)
 }
 
 type GatewayExceptionLevel string
@@ -1982,7 +3273,6 @@ func (in *gatewayExceptionLevelPtr) ToGatewayExceptionLevelPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayExceptionLevelPtrOutput)
 }
 
-// Token claim data type
 type GatewayInboundTokenClaimValueType string
 
 const (
@@ -2358,7 +3648,169 @@ func (o GatewayInterceptionPointArrayOutput) Index(i pulumi.IntInput) GatewayInt
 	}).(GatewayInterceptionPointOutput)
 }
 
-// The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+type GatewayInterceptorPayloadExclusion string
+
+const (
+	GatewayInterceptorPayloadExclusionResponseBody = GatewayInterceptorPayloadExclusion("RESPONSE_BODY")
+)
+
+func (GatewayInterceptorPayloadExclusion) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorPayloadExclusion)(nil)).Elem()
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToGatewayInterceptorPayloadExclusionOutput() GatewayInterceptorPayloadExclusionOutput {
+	return pulumi.ToOutput(e).(GatewayInterceptorPayloadExclusionOutput)
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToGatewayInterceptorPayloadExclusionOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayInterceptorPayloadExclusionOutput)
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToGatewayInterceptorPayloadExclusionPtrOutput() GatewayInterceptorPayloadExclusionPtrOutput {
+	return e.ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionPtrOutput {
+	return GatewayInterceptorPayloadExclusion(e).ToGatewayInterceptorPayloadExclusionOutputWithContext(ctx).ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(ctx)
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayInterceptorPayloadExclusion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayInterceptorPayloadExclusionOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorPayloadExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorPayloadExclusion)(nil)).Elem()
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToGatewayInterceptorPayloadExclusionOutput() GatewayInterceptorPayloadExclusionOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToGatewayInterceptorPayloadExclusionOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToGatewayInterceptorPayloadExclusionPtrOutput() GatewayInterceptorPayloadExclusionPtrOutput {
+	return o.ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayInterceptorPayloadExclusion) *GatewayInterceptorPayloadExclusion {
+		return &v
+	}).(GatewayInterceptorPayloadExclusionPtrOutput)
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayInterceptorPayloadExclusion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptorPayloadExclusionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayInterceptorPayloadExclusion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayInterceptorPayloadExclusionPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorPayloadExclusionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayInterceptorPayloadExclusion)(nil)).Elem()
+}
+
+func (o GatewayInterceptorPayloadExclusionPtrOutput) ToGatewayInterceptorPayloadExclusionPtrOutput() GatewayInterceptorPayloadExclusionPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionPtrOutput) ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionPtrOutput) Elem() GatewayInterceptorPayloadExclusionOutput {
+	return o.ApplyT(func(v *GatewayInterceptorPayloadExclusion) GatewayInterceptorPayloadExclusion {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayInterceptorPayloadExclusion
+		return ret
+	}).(GatewayInterceptorPayloadExclusionOutput)
+}
+
+func (o GatewayInterceptorPayloadExclusionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptorPayloadExclusionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayInterceptorPayloadExclusion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayInterceptorPayloadExclusionInput is an input type that accepts values of the GatewayInterceptorPayloadExclusion enum
+// A concrete instance of `GatewayInterceptorPayloadExclusionInput` can be one of the following:
+//
+//	GatewayInterceptorPayloadExclusionResponseBody
+type GatewayInterceptorPayloadExclusionInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorPayloadExclusionOutput() GatewayInterceptorPayloadExclusionOutput
+	ToGatewayInterceptorPayloadExclusionOutputWithContext(context.Context) GatewayInterceptorPayloadExclusionOutput
+}
+
+var gatewayInterceptorPayloadExclusionPtrType = reflect.TypeOf((**GatewayInterceptorPayloadExclusion)(nil)).Elem()
+
+type GatewayInterceptorPayloadExclusionPtrInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorPayloadExclusionPtrOutput() GatewayInterceptorPayloadExclusionPtrOutput
+	ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(context.Context) GatewayInterceptorPayloadExclusionPtrOutput
+}
+
+type gatewayInterceptorPayloadExclusionPtr string
+
+func GatewayInterceptorPayloadExclusionPtr(v string) GatewayInterceptorPayloadExclusionPtrInput {
+	return (*gatewayInterceptorPayloadExclusionPtr)(&v)
+}
+
+func (*gatewayInterceptorPayloadExclusionPtr) ElementType() reflect.Type {
+	return gatewayInterceptorPayloadExclusionPtrType
+}
+
+func (in *gatewayInterceptorPayloadExclusionPtr) ToGatewayInterceptorPayloadExclusionPtrOutput() GatewayInterceptorPayloadExclusionPtrOutput {
+	return pulumi.ToOutput(in).(GatewayInterceptorPayloadExclusionPtrOutput)
+}
+
+func (in *gatewayInterceptorPayloadExclusionPtr) ToGatewayInterceptorPayloadExclusionPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayInterceptorPayloadExclusionPtrOutput)
+}
+
 type GatewayPolicyEngineMode string
 
 const (
@@ -2522,6 +3974,522 @@ func (in *gatewayPolicyEngineModePtr) ToGatewayPolicyEngineModePtrOutput() Gatew
 
 func (in *gatewayPolicyEngineModePtr) ToGatewayPolicyEngineModePtrOutputWithContext(ctx context.Context) GatewayPolicyEngineModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayPolicyEngineModePtrOutput)
+}
+
+// Time period for rate limiting
+type GatewayRateLimitPeriod string
+
+const (
+	GatewayRateLimitPeriodSecond = GatewayRateLimitPeriod("second")
+	GatewayRateLimitPeriodMinute = GatewayRateLimitPeriod("minute")
+)
+
+func (GatewayRateLimitPeriod) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRateLimitPeriod)(nil)).Elem()
+}
+
+func (e GatewayRateLimitPeriod) ToGatewayRateLimitPeriodOutput() GatewayRateLimitPeriodOutput {
+	return pulumi.ToOutput(e).(GatewayRateLimitPeriodOutput)
+}
+
+func (e GatewayRateLimitPeriod) ToGatewayRateLimitPeriodOutputWithContext(ctx context.Context) GatewayRateLimitPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayRateLimitPeriodOutput)
+}
+
+func (e GatewayRateLimitPeriod) ToGatewayRateLimitPeriodPtrOutput() GatewayRateLimitPeriodPtrOutput {
+	return e.ToGatewayRateLimitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayRateLimitPeriod) ToGatewayRateLimitPeriodPtrOutputWithContext(ctx context.Context) GatewayRateLimitPeriodPtrOutput {
+	return GatewayRateLimitPeriod(e).ToGatewayRateLimitPeriodOutputWithContext(ctx).ToGatewayRateLimitPeriodPtrOutputWithContext(ctx)
+}
+
+func (e GatewayRateLimitPeriod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayRateLimitPeriod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayRateLimitPeriod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayRateLimitPeriod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayRateLimitPeriodOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRateLimitPeriod)(nil)).Elem()
+}
+
+func (o GatewayRateLimitPeriodOutput) ToGatewayRateLimitPeriodOutput() GatewayRateLimitPeriodOutput {
+	return o
+}
+
+func (o GatewayRateLimitPeriodOutput) ToGatewayRateLimitPeriodOutputWithContext(ctx context.Context) GatewayRateLimitPeriodOutput {
+	return o
+}
+
+func (o GatewayRateLimitPeriodOutput) ToGatewayRateLimitPeriodPtrOutput() GatewayRateLimitPeriodPtrOutput {
+	return o.ToGatewayRateLimitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitPeriodOutput) ToGatewayRateLimitPeriodPtrOutputWithContext(ctx context.Context) GatewayRateLimitPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRateLimitPeriod) *GatewayRateLimitPeriod {
+		return &v
+	}).(GatewayRateLimitPeriodPtrOutput)
+}
+
+func (o GatewayRateLimitPeriodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitPeriodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRateLimitPeriod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayRateLimitPeriodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitPeriodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRateLimitPeriod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRateLimitPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRateLimitPeriod)(nil)).Elem()
+}
+
+func (o GatewayRateLimitPeriodPtrOutput) ToGatewayRateLimitPeriodPtrOutput() GatewayRateLimitPeriodPtrOutput {
+	return o
+}
+
+func (o GatewayRateLimitPeriodPtrOutput) ToGatewayRateLimitPeriodPtrOutputWithContext(ctx context.Context) GatewayRateLimitPeriodPtrOutput {
+	return o
+}
+
+func (o GatewayRateLimitPeriodPtrOutput) Elem() GatewayRateLimitPeriodOutput {
+	return o.ApplyT(func(v *GatewayRateLimitPeriod) GatewayRateLimitPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRateLimitPeriod
+		return ret
+	}).(GatewayRateLimitPeriodOutput)
+}
+
+func (o GatewayRateLimitPeriodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitPeriodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayRateLimitPeriod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayRateLimitPeriodInput is an input type that accepts values of the GatewayRateLimitPeriod enum
+// A concrete instance of `GatewayRateLimitPeriodInput` can be one of the following:
+//
+//	GatewayRateLimitPeriodSecond
+//	GatewayRateLimitPeriodMinute
+type GatewayRateLimitPeriodInput interface {
+	pulumi.Input
+
+	ToGatewayRateLimitPeriodOutput() GatewayRateLimitPeriodOutput
+	ToGatewayRateLimitPeriodOutputWithContext(context.Context) GatewayRateLimitPeriodOutput
+}
+
+var gatewayRateLimitPeriodPtrType = reflect.TypeOf((**GatewayRateLimitPeriod)(nil)).Elem()
+
+type GatewayRateLimitPeriodPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRateLimitPeriodPtrOutput() GatewayRateLimitPeriodPtrOutput
+	ToGatewayRateLimitPeriodPtrOutputWithContext(context.Context) GatewayRateLimitPeriodPtrOutput
+}
+
+type gatewayRateLimitPeriodPtr string
+
+func GatewayRateLimitPeriodPtr(v string) GatewayRateLimitPeriodPtrInput {
+	return (*gatewayRateLimitPeriodPtr)(&v)
+}
+
+func (*gatewayRateLimitPeriodPtr) ElementType() reflect.Type {
+	return gatewayRateLimitPeriodPtrType
+}
+
+func (in *gatewayRateLimitPeriodPtr) ToGatewayRateLimitPeriodPtrOutput() GatewayRateLimitPeriodPtrOutput {
+	return pulumi.ToOutput(in).(GatewayRateLimitPeriodPtrOutput)
+}
+
+func (in *gatewayRateLimitPeriodPtr) ToGatewayRateLimitPeriodPtrOutputWithContext(ctx context.Context) GatewayRateLimitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayRateLimitPeriodPtrOutput)
+}
+
+// Status of a gateway limit
+type GatewayRateLimitStatus string
+
+const (
+	GatewayRateLimitStatusCreating = GatewayRateLimitStatus("CREATING")
+	GatewayRateLimitStatusActive   = GatewayRateLimitStatus("ACTIVE")
+	GatewayRateLimitStatusUpdating = GatewayRateLimitStatus("UPDATING")
+	GatewayRateLimitStatusDeleting = GatewayRateLimitStatus("DELETING")
+)
+
+type GatewayRateLimitStatusOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRateLimitStatus)(nil)).Elem()
+}
+
+func (o GatewayRateLimitStatusOutput) ToGatewayRateLimitStatusOutput() GatewayRateLimitStatusOutput {
+	return o
+}
+
+func (o GatewayRateLimitStatusOutput) ToGatewayRateLimitStatusOutputWithContext(ctx context.Context) GatewayRateLimitStatusOutput {
+	return o
+}
+
+func (o GatewayRateLimitStatusOutput) ToGatewayRateLimitStatusPtrOutput() GatewayRateLimitStatusPtrOutput {
+	return o.ToGatewayRateLimitStatusPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitStatusOutput) ToGatewayRateLimitStatusPtrOutputWithContext(ctx context.Context) GatewayRateLimitStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRateLimitStatus) *GatewayRateLimitStatus {
+		return &v
+	}).(GatewayRateLimitStatusPtrOutput)
+}
+
+func (o GatewayRateLimitStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRateLimitStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayRateLimitStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRateLimitStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRateLimitStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRateLimitStatus)(nil)).Elem()
+}
+
+func (o GatewayRateLimitStatusPtrOutput) ToGatewayRateLimitStatusPtrOutput() GatewayRateLimitStatusPtrOutput {
+	return o
+}
+
+func (o GatewayRateLimitStatusPtrOutput) ToGatewayRateLimitStatusPtrOutputWithContext(ctx context.Context) GatewayRateLimitStatusPtrOutput {
+	return o
+}
+
+func (o GatewayRateLimitStatusPtrOutput) Elem() GatewayRateLimitStatusOutput {
+	return o.ApplyT(func(v *GatewayRateLimitStatus) GatewayRateLimitStatus {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRateLimitStatus
+		return ret
+	}).(GatewayRateLimitStatusOutput)
+}
+
+func (o GatewayRateLimitStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRateLimitStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayRateLimitStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRulePrincipalMatchOperator string
+
+const (
+	GatewayRulePrincipalMatchOperatorStringEquals = GatewayRulePrincipalMatchOperator("StringEquals")
+	GatewayRulePrincipalMatchOperatorStringLike   = GatewayRulePrincipalMatchOperator("StringLike")
+)
+
+func (GatewayRulePrincipalMatchOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRulePrincipalMatchOperator)(nil)).Elem()
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToGatewayRulePrincipalMatchOperatorOutput() GatewayRulePrincipalMatchOperatorOutput {
+	return pulumi.ToOutput(e).(GatewayRulePrincipalMatchOperatorOutput)
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToGatewayRulePrincipalMatchOperatorOutputWithContext(ctx context.Context) GatewayRulePrincipalMatchOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayRulePrincipalMatchOperatorOutput)
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToGatewayRulePrincipalMatchOperatorPtrOutput() GatewayRulePrincipalMatchOperatorPtrOutput {
+	return e.ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayRulePrincipalMatchOperatorPtrOutput {
+	return GatewayRulePrincipalMatchOperator(e).ToGatewayRulePrincipalMatchOperatorOutputWithContext(ctx).ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(ctx)
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayRulePrincipalMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayRulePrincipalMatchOperatorOutput struct{ *pulumi.OutputState }
+
+func (GatewayRulePrincipalMatchOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRulePrincipalMatchOperator)(nil)).Elem()
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToGatewayRulePrincipalMatchOperatorOutput() GatewayRulePrincipalMatchOperatorOutput {
+	return o
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToGatewayRulePrincipalMatchOperatorOutputWithContext(ctx context.Context) GatewayRulePrincipalMatchOperatorOutput {
+	return o
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToGatewayRulePrincipalMatchOperatorPtrOutput() GatewayRulePrincipalMatchOperatorPtrOutput {
+	return o.ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayRulePrincipalMatchOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRulePrincipalMatchOperator) *GatewayRulePrincipalMatchOperator {
+		return &v
+	}).(GatewayRulePrincipalMatchOperatorPtrOutput)
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRulePrincipalMatchOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRulePrincipalMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRulePrincipalMatchOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRulePrincipalMatchOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRulePrincipalMatchOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRulePrincipalMatchOperator)(nil)).Elem()
+}
+
+func (o GatewayRulePrincipalMatchOperatorPtrOutput) ToGatewayRulePrincipalMatchOperatorPtrOutput() GatewayRulePrincipalMatchOperatorPtrOutput {
+	return o
+}
+
+func (o GatewayRulePrincipalMatchOperatorPtrOutput) ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayRulePrincipalMatchOperatorPtrOutput {
+	return o
+}
+
+func (o GatewayRulePrincipalMatchOperatorPtrOutput) Elem() GatewayRulePrincipalMatchOperatorOutput {
+	return o.ApplyT(func(v *GatewayRulePrincipalMatchOperator) GatewayRulePrincipalMatchOperator {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRulePrincipalMatchOperator
+		return ret
+	}).(GatewayRulePrincipalMatchOperatorOutput)
+}
+
+func (o GatewayRulePrincipalMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRulePrincipalMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayRulePrincipalMatchOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayRulePrincipalMatchOperatorInput is an input type that accepts values of the GatewayRulePrincipalMatchOperator enum
+// A concrete instance of `GatewayRulePrincipalMatchOperatorInput` can be one of the following:
+//
+//	GatewayRulePrincipalMatchOperatorStringEquals
+//	GatewayRulePrincipalMatchOperatorStringLike
+type GatewayRulePrincipalMatchOperatorInput interface {
+	pulumi.Input
+
+	ToGatewayRulePrincipalMatchOperatorOutput() GatewayRulePrincipalMatchOperatorOutput
+	ToGatewayRulePrincipalMatchOperatorOutputWithContext(context.Context) GatewayRulePrincipalMatchOperatorOutput
+}
+
+var gatewayRulePrincipalMatchOperatorPtrType = reflect.TypeOf((**GatewayRulePrincipalMatchOperator)(nil)).Elem()
+
+type GatewayRulePrincipalMatchOperatorPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRulePrincipalMatchOperatorPtrOutput() GatewayRulePrincipalMatchOperatorPtrOutput
+	ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(context.Context) GatewayRulePrincipalMatchOperatorPtrOutput
+}
+
+type gatewayRulePrincipalMatchOperatorPtr string
+
+func GatewayRulePrincipalMatchOperatorPtr(v string) GatewayRulePrincipalMatchOperatorPtrInput {
+	return (*gatewayRulePrincipalMatchOperatorPtr)(&v)
+}
+
+func (*gatewayRulePrincipalMatchOperatorPtr) ElementType() reflect.Type {
+	return gatewayRulePrincipalMatchOperatorPtrType
+}
+
+func (in *gatewayRulePrincipalMatchOperatorPtr) ToGatewayRulePrincipalMatchOperatorPtrOutput() GatewayRulePrincipalMatchOperatorPtrOutput {
+	return pulumi.ToOutput(in).(GatewayRulePrincipalMatchOperatorPtrOutput)
+}
+
+func (in *gatewayRulePrincipalMatchOperatorPtr) ToGatewayRulePrincipalMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayRulePrincipalMatchOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayRulePrincipalMatchOperatorPtrOutput)
+}
+
+type GatewayRuleStatus string
+
+const (
+	GatewayRuleStatusCreating = GatewayRuleStatus("CREATING")
+	GatewayRuleStatusActive   = GatewayRuleStatus("ACTIVE")
+	GatewayRuleStatusUpdating = GatewayRuleStatus("UPDATING")
+	GatewayRuleStatusDeleting = GatewayRuleStatus("DELETING")
+)
+
+type GatewayRuleStatusOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleStatus)(nil)).Elem()
+}
+
+func (o GatewayRuleStatusOutput) ToGatewayRuleStatusOutput() GatewayRuleStatusOutput {
+	return o
+}
+
+func (o GatewayRuleStatusOutput) ToGatewayRuleStatusOutputWithContext(ctx context.Context) GatewayRuleStatusOutput {
+	return o
+}
+
+func (o GatewayRuleStatusOutput) ToGatewayRuleStatusPtrOutput() GatewayRuleStatusPtrOutput {
+	return o.ToGatewayRuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleStatusOutput) ToGatewayRuleStatusPtrOutputWithContext(ctx context.Context) GatewayRuleStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRuleStatus) *GatewayRuleStatus {
+		return &v
+	}).(GatewayRuleStatusPtrOutput)
+}
+
+func (o GatewayRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRuleStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayRuleStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRuleStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRuleStatus)(nil)).Elem()
+}
+
+func (o GatewayRuleStatusPtrOutput) ToGatewayRuleStatusPtrOutput() GatewayRuleStatusPtrOutput {
+	return o
+}
+
+func (o GatewayRuleStatusPtrOutput) ToGatewayRuleStatusPtrOutputWithContext(ctx context.Context) GatewayRuleStatusPtrOutput {
+	return o
+}
+
+func (o GatewayRuleStatusPtrOutput) Elem() GatewayRuleStatusOutput {
+	return o.ApplyT(func(v *GatewayRuleStatus) GatewayRuleStatus {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRuleStatus
+		return ret
+	}).(GatewayRuleStatusOutput)
+}
+
+func (o GatewayRuleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayRuleStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 type GatewaySearchType string
@@ -3282,124 +5250,124 @@ func (in *gatewayTargetEndpointIpAddressTypePtr) ToGatewayTargetEndpointIpAddres
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetEndpointIpAddressTypePtrOutput)
 }
 
-type GatewayTargetMcpServerListingMode string
+type GatewayTargetListingMode string
 
 const (
-	GatewayTargetMcpServerListingModeDefault = GatewayTargetMcpServerListingMode("DEFAULT")
-	GatewayTargetMcpServerListingModeDynamic = GatewayTargetMcpServerListingMode("DYNAMIC")
+	GatewayTargetListingModeDefault = GatewayTargetListingMode("DEFAULT")
+	GatewayTargetListingModeDynamic = GatewayTargetListingMode("DYNAMIC")
 )
 
-func (GatewayTargetMcpServerListingMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetMcpServerListingMode)(nil)).Elem()
+func (GatewayTargetListingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetListingMode)(nil)).Elem()
 }
 
-func (e GatewayTargetMcpServerListingMode) ToGatewayTargetMcpServerListingModeOutput() GatewayTargetMcpServerListingModeOutput {
-	return pulumi.ToOutput(e).(GatewayTargetMcpServerListingModeOutput)
+func (e GatewayTargetListingMode) ToGatewayTargetListingModeOutput() GatewayTargetListingModeOutput {
+	return pulumi.ToOutput(e).(GatewayTargetListingModeOutput)
 }
 
-func (e GatewayTargetMcpServerListingMode) ToGatewayTargetMcpServerListingModeOutputWithContext(ctx context.Context) GatewayTargetMcpServerListingModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(GatewayTargetMcpServerListingModeOutput)
+func (e GatewayTargetListingMode) ToGatewayTargetListingModeOutputWithContext(ctx context.Context) GatewayTargetListingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayTargetListingModeOutput)
 }
 
-func (e GatewayTargetMcpServerListingMode) ToGatewayTargetMcpServerListingModePtrOutput() GatewayTargetMcpServerListingModePtrOutput {
-	return e.ToGatewayTargetMcpServerListingModePtrOutputWithContext(context.Background())
+func (e GatewayTargetListingMode) ToGatewayTargetListingModePtrOutput() GatewayTargetListingModePtrOutput {
+	return e.ToGatewayTargetListingModePtrOutputWithContext(context.Background())
 }
 
-func (e GatewayTargetMcpServerListingMode) ToGatewayTargetMcpServerListingModePtrOutputWithContext(ctx context.Context) GatewayTargetMcpServerListingModePtrOutput {
-	return GatewayTargetMcpServerListingMode(e).ToGatewayTargetMcpServerListingModeOutputWithContext(ctx).ToGatewayTargetMcpServerListingModePtrOutputWithContext(ctx)
+func (e GatewayTargetListingMode) ToGatewayTargetListingModePtrOutputWithContext(ctx context.Context) GatewayTargetListingModePtrOutput {
+	return GatewayTargetListingMode(e).ToGatewayTargetListingModeOutputWithContext(ctx).ToGatewayTargetListingModePtrOutputWithContext(ctx)
 }
 
-func (e GatewayTargetMcpServerListingMode) ToStringOutput() pulumi.StringOutput {
+func (e GatewayTargetListingMode) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GatewayTargetMcpServerListingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e GatewayTargetListingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GatewayTargetMcpServerListingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e GatewayTargetListingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e GatewayTargetMcpServerListingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e GatewayTargetListingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type GatewayTargetMcpServerListingModeOutput struct{ *pulumi.OutputState }
+type GatewayTargetListingModeOutput struct{ *pulumi.OutputState }
 
-func (GatewayTargetMcpServerListingModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetMcpServerListingMode)(nil)).Elem()
+func (GatewayTargetListingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetListingMode)(nil)).Elem()
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToGatewayTargetMcpServerListingModeOutput() GatewayTargetMcpServerListingModeOutput {
+func (o GatewayTargetListingModeOutput) ToGatewayTargetListingModeOutput() GatewayTargetListingModeOutput {
 	return o
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToGatewayTargetMcpServerListingModeOutputWithContext(ctx context.Context) GatewayTargetMcpServerListingModeOutput {
+func (o GatewayTargetListingModeOutput) ToGatewayTargetListingModeOutputWithContext(ctx context.Context) GatewayTargetListingModeOutput {
 	return o
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToGatewayTargetMcpServerListingModePtrOutput() GatewayTargetMcpServerListingModePtrOutput {
-	return o.ToGatewayTargetMcpServerListingModePtrOutputWithContext(context.Background())
+func (o GatewayTargetListingModeOutput) ToGatewayTargetListingModePtrOutput() GatewayTargetListingModePtrOutput {
+	return o.ToGatewayTargetListingModePtrOutputWithContext(context.Background())
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToGatewayTargetMcpServerListingModePtrOutputWithContext(ctx context.Context) GatewayTargetMcpServerListingModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetMcpServerListingMode) *GatewayTargetMcpServerListingMode {
+func (o GatewayTargetListingModeOutput) ToGatewayTargetListingModePtrOutputWithContext(ctx context.Context) GatewayTargetListingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetListingMode) *GatewayTargetListingMode {
 		return &v
-	}).(GatewayTargetMcpServerListingModePtrOutput)
+	}).(GatewayTargetListingModePtrOutput)
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToStringOutput() pulumi.StringOutput {
+func (o GatewayTargetListingModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetMcpServerListingMode) string {
+func (o GatewayTargetListingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetListingMode) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o GatewayTargetListingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o GatewayTargetMcpServerListingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetMcpServerListingMode) *string {
+func (o GatewayTargetListingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetListingMode) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type GatewayTargetMcpServerListingModePtrOutput struct{ *pulumi.OutputState }
+type GatewayTargetListingModePtrOutput struct{ *pulumi.OutputState }
 
-func (GatewayTargetMcpServerListingModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayTargetMcpServerListingMode)(nil)).Elem()
+func (GatewayTargetListingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetListingMode)(nil)).Elem()
 }
 
-func (o GatewayTargetMcpServerListingModePtrOutput) ToGatewayTargetMcpServerListingModePtrOutput() GatewayTargetMcpServerListingModePtrOutput {
+func (o GatewayTargetListingModePtrOutput) ToGatewayTargetListingModePtrOutput() GatewayTargetListingModePtrOutput {
 	return o
 }
 
-func (o GatewayTargetMcpServerListingModePtrOutput) ToGatewayTargetMcpServerListingModePtrOutputWithContext(ctx context.Context) GatewayTargetMcpServerListingModePtrOutput {
+func (o GatewayTargetListingModePtrOutput) ToGatewayTargetListingModePtrOutputWithContext(ctx context.Context) GatewayTargetListingModePtrOutput {
 	return o
 }
 
-func (o GatewayTargetMcpServerListingModePtrOutput) Elem() GatewayTargetMcpServerListingModeOutput {
-	return o.ApplyT(func(v *GatewayTargetMcpServerListingMode) GatewayTargetMcpServerListingMode {
+func (o GatewayTargetListingModePtrOutput) Elem() GatewayTargetListingModeOutput {
+	return o.ApplyT(func(v *GatewayTargetListingMode) GatewayTargetListingMode {
 		if v != nil {
 			return *v
 		}
-		var ret GatewayTargetMcpServerListingMode
+		var ret GatewayTargetListingMode
 		return ret
-	}).(GatewayTargetMcpServerListingModeOutput)
+	}).(GatewayTargetListingModeOutput)
 }
 
-func (o GatewayTargetMcpServerListingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o GatewayTargetListingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o GatewayTargetMcpServerListingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayTargetMcpServerListingMode) *string {
+func (o GatewayTargetListingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayTargetListingMode) *string {
 		if e == nil {
 			return nil
 		}
@@ -3408,210 +5376,43 @@ func (o GatewayTargetMcpServerListingModePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// GatewayTargetMcpServerListingModeInput is an input type that accepts values of the GatewayTargetMcpServerListingMode enum
-// A concrete instance of `GatewayTargetMcpServerListingModeInput` can be one of the following:
+// GatewayTargetListingModeInput is an input type that accepts values of the GatewayTargetListingMode enum
+// A concrete instance of `GatewayTargetListingModeInput` can be one of the following:
 //
-//	GatewayTargetMcpServerListingModeDefault
-//	GatewayTargetMcpServerListingModeDynamic
-type GatewayTargetMcpServerListingModeInput interface {
+//	GatewayTargetListingModeDefault
+//	GatewayTargetListingModeDynamic
+type GatewayTargetListingModeInput interface {
 	pulumi.Input
 
-	ToGatewayTargetMcpServerListingModeOutput() GatewayTargetMcpServerListingModeOutput
-	ToGatewayTargetMcpServerListingModeOutputWithContext(context.Context) GatewayTargetMcpServerListingModeOutput
+	ToGatewayTargetListingModeOutput() GatewayTargetListingModeOutput
+	ToGatewayTargetListingModeOutputWithContext(context.Context) GatewayTargetListingModeOutput
 }
 
-var gatewayTargetMcpServerListingModePtrType = reflect.TypeOf((**GatewayTargetMcpServerListingMode)(nil)).Elem()
+var gatewayTargetListingModePtrType = reflect.TypeOf((**GatewayTargetListingMode)(nil)).Elem()
 
-type GatewayTargetMcpServerListingModePtrInput interface {
+type GatewayTargetListingModePtrInput interface {
 	pulumi.Input
 
-	ToGatewayTargetMcpServerListingModePtrOutput() GatewayTargetMcpServerListingModePtrOutput
-	ToGatewayTargetMcpServerListingModePtrOutputWithContext(context.Context) GatewayTargetMcpServerListingModePtrOutput
+	ToGatewayTargetListingModePtrOutput() GatewayTargetListingModePtrOutput
+	ToGatewayTargetListingModePtrOutputWithContext(context.Context) GatewayTargetListingModePtrOutput
 }
 
-type gatewayTargetMcpServerListingModePtr string
+type gatewayTargetListingModePtr string
 
-func GatewayTargetMcpServerListingModePtr(v string) GatewayTargetMcpServerListingModePtrInput {
-	return (*gatewayTargetMcpServerListingModePtr)(&v)
+func GatewayTargetListingModePtr(v string) GatewayTargetListingModePtrInput {
+	return (*gatewayTargetListingModePtr)(&v)
 }
 
-func (*gatewayTargetMcpServerListingModePtr) ElementType() reflect.Type {
-	return gatewayTargetMcpServerListingModePtrType
+func (*gatewayTargetListingModePtr) ElementType() reflect.Type {
+	return gatewayTargetListingModePtrType
 }
 
-func (in *gatewayTargetMcpServerListingModePtr) ToGatewayTargetMcpServerListingModePtrOutput() GatewayTargetMcpServerListingModePtrOutput {
-	return pulumi.ToOutput(in).(GatewayTargetMcpServerListingModePtrOutput)
+func (in *gatewayTargetListingModePtr) ToGatewayTargetListingModePtrOutput() GatewayTargetListingModePtrOutput {
+	return pulumi.ToOutput(in).(GatewayTargetListingModePtrOutput)
 }
 
-func (in *gatewayTargetMcpServerListingModePtr) ToGatewayTargetMcpServerListingModePtrOutputWithContext(ctx context.Context) GatewayTargetMcpServerListingModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetMcpServerListingModePtrOutput)
-}
-
-type GatewayTargetOAuthGrantType string
-
-const (
-	GatewayTargetOAuthGrantTypeAuthorizationCode = GatewayTargetOAuthGrantType("AUTHORIZATION_CODE")
-	GatewayTargetOAuthGrantTypeClientCredentials = GatewayTargetOAuthGrantType("CLIENT_CREDENTIALS")
-	GatewayTargetOAuthGrantTypeTokenExchange     = GatewayTargetOAuthGrantType("TOKEN_EXCHANGE")
-)
-
-func (GatewayTargetOAuthGrantType) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetOAuthGrantType)(nil)).Elem()
-}
-
-func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypeOutput() GatewayTargetOAuthGrantTypeOutput {
-	return pulumi.ToOutput(e).(GatewayTargetOAuthGrantTypeOutput)
-}
-
-func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypeOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(GatewayTargetOAuthGrantTypeOutput)
-}
-
-func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
-	return e.ToGatewayTargetOAuthGrantTypePtrOutputWithContext(context.Background())
-}
-
-func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
-	return GatewayTargetOAuthGrantType(e).ToGatewayTargetOAuthGrantTypeOutputWithContext(ctx).ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx)
-}
-
-func (e GatewayTargetOAuthGrantType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e GatewayTargetOAuthGrantType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e GatewayTargetOAuthGrantType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e GatewayTargetOAuthGrantType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type GatewayTargetOAuthGrantTypeOutput struct{ *pulumi.OutputState }
-
-func (GatewayTargetOAuthGrantTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayTargetOAuthGrantType)(nil)).Elem()
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypeOutput() GatewayTargetOAuthGrantTypeOutput {
-	return o
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypeOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypeOutput {
-	return o
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
-	return o.ToGatewayTargetOAuthGrantTypePtrOutputWithContext(context.Background())
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetOAuthGrantType) *GatewayTargetOAuthGrantType {
-		return &v
-	}).(GatewayTargetOAuthGrantTypePtrOutput)
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetOAuthGrantType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayTargetOAuthGrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetOAuthGrantType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type GatewayTargetOAuthGrantTypePtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayTargetOAuthGrantTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayTargetOAuthGrantType)(nil)).Elem()
-}
-
-func (o GatewayTargetOAuthGrantTypePtrOutput) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
-	return o
-}
-
-func (o GatewayTargetOAuthGrantTypePtrOutput) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
-	return o
-}
-
-func (o GatewayTargetOAuthGrantTypePtrOutput) Elem() GatewayTargetOAuthGrantTypeOutput {
-	return o.ApplyT(func(v *GatewayTargetOAuthGrantType) GatewayTargetOAuthGrantType {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayTargetOAuthGrantType
-		return ret
-	}).(GatewayTargetOAuthGrantTypeOutput)
-}
-
-func (o GatewayTargetOAuthGrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayTargetOAuthGrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayTargetOAuthGrantType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// GatewayTargetOAuthGrantTypeInput is an input type that accepts values of the GatewayTargetOAuthGrantType enum
-// A concrete instance of `GatewayTargetOAuthGrantTypeInput` can be one of the following:
-//
-//	GatewayTargetOAuthGrantTypeAuthorizationCode
-//	GatewayTargetOAuthGrantTypeClientCredentials
-//	GatewayTargetOAuthGrantTypeTokenExchange
-type GatewayTargetOAuthGrantTypeInput interface {
-	pulumi.Input
-
-	ToGatewayTargetOAuthGrantTypeOutput() GatewayTargetOAuthGrantTypeOutput
-	ToGatewayTargetOAuthGrantTypeOutputWithContext(context.Context) GatewayTargetOAuthGrantTypeOutput
-}
-
-var gatewayTargetOAuthGrantTypePtrType = reflect.TypeOf((**GatewayTargetOAuthGrantType)(nil)).Elem()
-
-type GatewayTargetOAuthGrantTypePtrInput interface {
-	pulumi.Input
-
-	ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput
-	ToGatewayTargetOAuthGrantTypePtrOutputWithContext(context.Context) GatewayTargetOAuthGrantTypePtrOutput
-}
-
-type gatewayTargetOAuthGrantTypePtr string
-
-func GatewayTargetOAuthGrantTypePtr(v string) GatewayTargetOAuthGrantTypePtrInput {
-	return (*gatewayTargetOAuthGrantTypePtr)(&v)
-}
-
-func (*gatewayTargetOAuthGrantTypePtr) ElementType() reflect.Type {
-	return gatewayTargetOAuthGrantTypePtrType
-}
-
-func (in *gatewayTargetOAuthGrantTypePtr) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
-	return pulumi.ToOutput(in).(GatewayTargetOAuthGrantTypePtrOutput)
-}
-
-func (in *gatewayTargetOAuthGrantTypePtr) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetOAuthGrantTypePtrOutput)
+func (in *gatewayTargetListingModePtr) ToGatewayTargetListingModePtrOutputWithContext(ctx context.Context) GatewayTargetListingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetListingModePtrOutput)
 }
 
 type GatewayTargetPassthroughProtocolType string
@@ -4179,9 +5980,8 @@ func (in *gatewayTargetSchemaTypePtr) ToGatewayTargetSchemaTypePtrOutputWithCont
 type GatewayTargetTargetProtocolType string
 
 const (
-	GatewayTargetTargetProtocolTypeMcp       = GatewayTargetTargetProtocolType("MCP")
-	GatewayTargetTargetProtocolTypeHttp      = GatewayTargetTargetProtocolType("HTTP")
-	GatewayTargetTargetProtocolTypeInference = GatewayTargetTargetProtocolType("INFERENCE")
+	GatewayTargetTargetProtocolTypeMcp  = GatewayTargetTargetProtocolType("MCP")
+	GatewayTargetTargetProtocolTypeHttp = GatewayTargetTargetProtocolType("HTTP")
 )
 
 type GatewayTargetTargetProtocolTypeOutput struct{ *pulumi.OutputState }
@@ -7281,6 +9081,172 @@ func (in *memoryEpisodicMemoryStrategyTypePtr) ToMemoryEpisodicMemoryStrategyTyp
 	return pulumi.ToOutputWithContext(ctx, in).(MemoryEpisodicMemoryStrategyTypePtrOutput)
 }
 
+// Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event
+type MemoryExtractionType string
+
+const (
+	MemoryExtractionTypeLlmInferred        = MemoryExtractionType("LLM_INFERRED")
+	MemoryExtractionTypeStrictlyConsistent = MemoryExtractionType("STRICTLY_CONSISTENT")
+)
+
+func (MemoryExtractionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryExtractionType)(nil)).Elem()
+}
+
+func (e MemoryExtractionType) ToMemoryExtractionTypeOutput() MemoryExtractionTypeOutput {
+	return pulumi.ToOutput(e).(MemoryExtractionTypeOutput)
+}
+
+func (e MemoryExtractionType) ToMemoryExtractionTypeOutputWithContext(ctx context.Context) MemoryExtractionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryExtractionTypeOutput)
+}
+
+func (e MemoryExtractionType) ToMemoryExtractionTypePtrOutput() MemoryExtractionTypePtrOutput {
+	return e.ToMemoryExtractionTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemoryExtractionType) ToMemoryExtractionTypePtrOutputWithContext(ctx context.Context) MemoryExtractionTypePtrOutput {
+	return MemoryExtractionType(e).ToMemoryExtractionTypeOutputWithContext(ctx).ToMemoryExtractionTypePtrOutputWithContext(ctx)
+}
+
+func (e MemoryExtractionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryExtractionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryExtractionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryExtractionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryExtractionTypeOutput struct{ *pulumi.OutputState }
+
+func (MemoryExtractionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryExtractionType)(nil)).Elem()
+}
+
+func (o MemoryExtractionTypeOutput) ToMemoryExtractionTypeOutput() MemoryExtractionTypeOutput {
+	return o
+}
+
+func (o MemoryExtractionTypeOutput) ToMemoryExtractionTypeOutputWithContext(ctx context.Context) MemoryExtractionTypeOutput {
+	return o
+}
+
+func (o MemoryExtractionTypeOutput) ToMemoryExtractionTypePtrOutput() MemoryExtractionTypePtrOutput {
+	return o.ToMemoryExtractionTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryExtractionTypeOutput) ToMemoryExtractionTypePtrOutputWithContext(ctx context.Context) MemoryExtractionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryExtractionType) *MemoryExtractionType {
+		return &v
+	}).(MemoryExtractionTypePtrOutput)
+}
+
+func (o MemoryExtractionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryExtractionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryExtractionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryExtractionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryExtractionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryExtractionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryExtractionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryExtractionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryExtractionType)(nil)).Elem()
+}
+
+func (o MemoryExtractionTypePtrOutput) ToMemoryExtractionTypePtrOutput() MemoryExtractionTypePtrOutput {
+	return o
+}
+
+func (o MemoryExtractionTypePtrOutput) ToMemoryExtractionTypePtrOutputWithContext(ctx context.Context) MemoryExtractionTypePtrOutput {
+	return o
+}
+
+func (o MemoryExtractionTypePtrOutput) Elem() MemoryExtractionTypeOutput {
+	return o.ApplyT(func(v *MemoryExtractionType) MemoryExtractionType {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryExtractionType
+		return ret
+	}).(MemoryExtractionTypeOutput)
+}
+
+func (o MemoryExtractionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryExtractionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryExtractionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryExtractionTypeInput is an input type that accepts values of the MemoryExtractionType enum
+// A concrete instance of `MemoryExtractionTypeInput` can be one of the following:
+//
+//	MemoryExtractionTypeLlmInferred
+//	MemoryExtractionTypeStrictlyConsistent
+type MemoryExtractionTypeInput interface {
+	pulumi.Input
+
+	ToMemoryExtractionTypeOutput() MemoryExtractionTypeOutput
+	ToMemoryExtractionTypeOutputWithContext(context.Context) MemoryExtractionTypeOutput
+}
+
+var memoryExtractionTypePtrType = reflect.TypeOf((**MemoryExtractionType)(nil)).Elem()
+
+type MemoryExtractionTypePtrInput interface {
+	pulumi.Input
+
+	ToMemoryExtractionTypePtrOutput() MemoryExtractionTypePtrOutput
+	ToMemoryExtractionTypePtrOutputWithContext(context.Context) MemoryExtractionTypePtrOutput
+}
+
+type memoryExtractionTypePtr string
+
+func MemoryExtractionTypePtr(v string) MemoryExtractionTypePtrInput {
+	return (*memoryExtractionTypePtr)(&v)
+}
+
+func (*memoryExtractionTypePtr) ElementType() reflect.Type {
+	return memoryExtractionTypePtrType
+}
+
+func (in *memoryExtractionTypePtr) ToMemoryExtractionTypePtrOutput() MemoryExtractionTypePtrOutput {
+	return pulumi.ToOutput(in).(MemoryExtractionTypePtrOutput)
+}
+
+func (in *memoryExtractionTypePtr) ToMemoryExtractionTypePtrOutputWithContext(ctx context.Context) MemoryExtractionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryExtractionTypePtrOutput)
+}
+
 // Supported data types for metadata values
 type MemoryMetadataValueType string
 
@@ -9043,6 +11009,7 @@ const (
 	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodClientSecretBasic = OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("CLIENT_SECRET_BASIC")
 	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodClientSecretPost  = OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("CLIENT_SECRET_POST")
 	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodAwsIamIdTokenJwt  = OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("AWS_IAM_ID_TOKEN_JWT")
+	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodPrivateKeyJwt     = OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("PRIVATE_KEY_JWT")
 )
 
 func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod) ElementType() reflect.Type {
@@ -9170,6 +11137,7 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticat
 //	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodClientSecretBasic
 //	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodClientSecretPost
 //	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodAwsIamIdTokenJwt
+//	OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodPrivateKeyJwt
 type OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethodInput interface {
 	pulumi.Input
 
@@ -10030,6 +11998,172 @@ func (in *oauth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretS
 	return pulumi.ToOutputWithContext(ctx, in).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrOutput)
 }
 
+// The IP address type for the resource configuration endpoint
+type OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType string
+
+const (
+	OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeIpv4 = OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType("IPV4")
+	OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeIpv6 = OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType("IPV6")
+)
+
+func (OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return e.ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType(e).ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx).ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) *OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType {
+		return &v
+	}).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput) Elem() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType
+		return ret
+	}).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeInput is an input type that accepts values of the OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType enum
+// A concrete instance of `OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeInput` can be one of the following:
+//
+//	OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeIpv4
+//	OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeIpv6
+type OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput
+	ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutputWithContext(context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput
+}
+
+var oauth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrType = reflect.TypeOf((**OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType)(nil)).Elem()
+
+type OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput
+	ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput
+}
+
+type oauth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtr string
+
+func OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtr(v string) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrInput {
+	return (*oauth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtr)(&v)
+}
+
+func (*oauth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtr) ElementType() reflect.Type {
+	return oauth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrType
+}
+
+func (in *oauth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtr) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+func (in *oauth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtr) ToOAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
 type OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource string
 
 const (
@@ -10202,6 +12336,7 @@ const (
 	OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodClientSecretBasic = OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("CLIENT_SECRET_BASIC")
 	OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodClientSecretPost  = OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("CLIENT_SECRET_POST")
 	OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodAwsIamIdTokenJwt  = OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("AWS_IAM_ID_TOKEN_JWT")
+	OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodPrivateKeyJwt     = OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("PRIVATE_KEY_JWT")
 )
 
 type OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodOutput struct{ *pulumi.OutputState }
@@ -10451,6 +12586,174 @@ func (in *oauth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtr) ToO
 
 func (in *oauth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtr) ToOAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtrOutput)
+}
+
+// The algorithm used to sign the JWT client assertion
+type OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm string
+
+const (
+	OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmRs256 = OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("RS256")
+	OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPs256 = OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("PS256")
+	OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmEs256 = OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("ES256")
+)
+
+func (OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm)(nil)).Elem()
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput {
+	return pulumi.ToOutput(e).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput)
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput)
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return e.ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm(e).ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutputWithContext(ctx).ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return o.ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) *OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm {
+		return &v
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput) Elem() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm
+		return ret
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmInput is an input type that accepts values of the OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm enum
+// A concrete instance of `OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmInput` can be one of the following:
+//
+//	OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmRs256
+//	OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPs256
+//	OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmEs256
+type OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutputWithContext(context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput
+}
+
+var oauth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrType = reflect.TypeOf((**OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm)(nil)).Elem()
+
+type OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput
+}
+
+type oauth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtr string
+
+func OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtr(v string) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrInput {
+	return (*oauth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtr)(&v)
+}
+
+func (*oauth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtr) ElementType() reflect.Type {
+	return oauth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrType
+}
+
+func (in *oauth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtr) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput)
+}
+
+func (in *oauth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtr) ToOAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput)
 }
 
 type OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource string
@@ -10781,6 +13084,102 @@ func (in *oauth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSour
 
 func (in *oauth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtr) ToOAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput)
+}
+
+// The current status of the OAuth2 credential provider
+type OAuth2CredentialProviderStatus string
+
+const (
+	OAuth2CredentialProviderStatusCreating     = OAuth2CredentialProviderStatus("CREATING")
+	OAuth2CredentialProviderStatusCreateFailed = OAuth2CredentialProviderStatus("CREATE_FAILED")
+	OAuth2CredentialProviderStatusUpdating     = OAuth2CredentialProviderStatus("UPDATING")
+	OAuth2CredentialProviderStatusUpdateFailed = OAuth2CredentialProviderStatus("UPDATE_FAILED")
+	OAuth2CredentialProviderStatusReady        = OAuth2CredentialProviderStatus("READY")
+	OAuth2CredentialProviderStatusDeleting     = OAuth2CredentialProviderStatus("DELETING")
+	OAuth2CredentialProviderStatusDeleteFailed = OAuth2CredentialProviderStatus("DELETE_FAILED")
+)
+
+type OAuth2CredentialProviderStatusOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderStatus)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToOAuth2CredentialProviderStatusOutput() OAuth2CredentialProviderStatusOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToOAuth2CredentialProviderStatusOutputWithContext(ctx context.Context) OAuth2CredentialProviderStatusOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToOAuth2CredentialProviderStatusPtrOutput() OAuth2CredentialProviderStatusPtrOutput {
+	return o.ToOAuth2CredentialProviderStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToOAuth2CredentialProviderStatusPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderStatus) *OAuth2CredentialProviderStatus {
+		return &v
+	}).(OAuth2CredentialProviderStatusPtrOutput)
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuth2CredentialProviderStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuth2CredentialProviderStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OAuth2CredentialProviderStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderStatus)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderStatusPtrOutput) ToOAuth2CredentialProviderStatusPtrOutput() OAuth2CredentialProviderStatusPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderStatusPtrOutput) ToOAuth2CredentialProviderStatusPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderStatusPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderStatusPtrOutput) Elem() OAuth2CredentialProviderStatusOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderStatus) OAuth2CredentialProviderStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderStatus
+		return ret
+	}).(OAuth2CredentialProviderStatusOutput)
+}
+
+func (o OAuth2CredentialProviderStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OAuth2CredentialProviderStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // The actor token content type
@@ -14511,6 +16910,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserEnterprisePolicyTypePtrInput)(nil)).Elem(), BrowserCustomBrowserEnterprisePolicyType("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkModeInput)(nil)).Elem(), BrowserCustomBrowserNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkModePtrInput)(nil)).Elem(), BrowserCustomBrowserNetworkMode("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceInput)(nil)).Elem(), CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("capacity-reservations-only"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrInput)(nil)).Elem(), CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("capacity-reservations-only"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEbsVolumeConfigurationVolumeTypeInput)(nil)).Elem(), CapacityProviderEbsVolumeConfigurationVolumeType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEbsVolumeConfigurationVolumeTypePtrInput)(nil)).Elem(), CapacityProviderEbsVolumeConfigurationVolumeType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeInput)(nil)).Elem(), CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrInput)(nil)).Elem(), CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLaunchParametersMonitoringInput)(nil)).Elem(), CapacityProviderLaunchParametersMonitoring("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLaunchParametersMonitoringPtrInput)(nil)).Elem(), CapacityProviderLaunchParametersMonitoring("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLaunchParametersOperatingSystemInput)(nil)).Elem(), CapacityProviderLaunchParametersOperatingSystem("LINUX_X86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLaunchParametersOperatingSystemPtrInput)(nil)).Elem(), CapacityProviderLaunchParametersOperatingSystem("LINUX_X86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderRootVolumeConfigurationVolumeTypeInput)(nil)).Elem(), CapacityProviderRootVolumeConfigurationVolumeType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderRootVolumeConfigurationVolumeTypePtrInput)(nil)).Elem(), CapacityProviderRootVolumeConfigurationVolumeType("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModeInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModePtrInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSchemaTypeInput)(nil)).Elem(), DatasetSchemaType("AGENTCORE_EVALUATION_PREDEFINED_V1"))
@@ -14519,8 +16930,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLevelPtrInput)(nil)).Elem(), EvaluatorLevel("TOOL_CALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypeInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypePtrInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchOperatorInput)(nil)).Elem(), GatewayClaimMatchOperator("EQUALS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchOperatorPtrInput)(nil)).Elem(), GatewayClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchOperatorTypeInput)(nil)).Elem(), GatewayClaimMatchOperatorType("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchOperatorTypePtrInput)(nil)).Elem(), GatewayClaimMatchOperatorType("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayEndpointIpAddressTypeInput)(nil)).Elem(), GatewayEndpointIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayEndpointIpAddressTypePtrInput)(nil)).Elem(), GatewayEndpointIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayExceptionLevelInput)(nil)).Elem(), GatewayExceptionLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayExceptionLevelPtrInput)(nil)).Elem(), GatewayExceptionLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInboundTokenClaimValueTypeInput)(nil)).Elem(), GatewayInboundTokenClaimValueType("STRING"))
@@ -14528,8 +16941,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointPtrInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointArrayInput)(nil)).Elem(), GatewayInterceptionPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorPayloadExclusionInput)(nil)).Elem(), GatewayInterceptorPayloadExclusion("RESPONSE_BODY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorPayloadExclusionPtrInput)(nil)).Elem(), GatewayInterceptorPayloadExclusion("RESPONSE_BODY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineModeInput)(nil)).Elem(), GatewayPolicyEngineMode("LOG_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineModePtrInput)(nil)).Elem(), GatewayPolicyEngineMode("LOG_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitPeriodInput)(nil)).Elem(), GatewayRateLimitPeriod("second"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitPeriodPtrInput)(nil)).Elem(), GatewayRateLimitPeriod("second"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRulePrincipalMatchOperatorInput)(nil)).Elem(), GatewayRulePrincipalMatchOperator("StringEquals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRulePrincipalMatchOperatorPtrInput)(nil)).Elem(), GatewayRulePrincipalMatchOperator("StringEquals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySearchTypeInput)(nil)).Elem(), GatewaySearchType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySearchTypePtrInput)(nil)).Elem(), GatewaySearchType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiKeyCredentialLocationInput)(nil)).Elem(), GatewayTargetApiKeyCredentialLocation("HEADER"))
@@ -14538,10 +16957,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderTypePtrInput)(nil)).Elem(), GatewayTargetCredentialProviderType("GATEWAY_IAM_ROLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetEndpointIpAddressTypeInput)(nil)).Elem(), GatewayTargetEndpointIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetEndpointIpAddressTypePtrInput)(nil)).Elem(), GatewayTargetEndpointIpAddressType("IPV4"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpServerListingModeInput)(nil)).Elem(), GatewayTargetMcpServerListingMode("DEFAULT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpServerListingModePtrInput)(nil)).Elem(), GatewayTargetMcpServerListingMode("DEFAULT"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypeInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypePtrInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetListingModeInput)(nil)).Elem(), GatewayTargetListingMode("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetListingModePtrInput)(nil)).Elem(), GatewayTargetListingMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPassthroughProtocolTypeInput)(nil)).Elem(), GatewayTargetPassthroughProtocolType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPassthroughProtocolTypePtrInput)(nil)).Elem(), GatewayTargetPassthroughProtocolType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodInput)(nil)).Elem(), GatewayTargetRestApiMethod("GET"))
@@ -14582,6 +16999,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyTypeInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryExtractionTypeInput)(nil)).Elem(), MemoryExtractionType("LLM_INFERRED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryExtractionTypePtrInput)(nil)).Elem(), MemoryExtractionType("LLM_INFERRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataValueTypeInput)(nil)).Elem(), MemoryMetadataValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataValueTypePtrInput)(nil)).Elem(), MemoryMetadataValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyStatusInput)(nil)).Elem(), MemorySemanticMemoryStrategyStatus("CREATING"))
@@ -14612,10 +17031,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourceInput)(nil)).Elem(), OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource("MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeInput)(nil)).Elem(), OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrInput)(nil)).Elem(), OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourceInput)(nil)).Elem(), OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypeInput)(nil)).Elem(), OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType("TOKEN_EXCHANGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtrInput)(nil)).Elem(), OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType("TOKEN_EXCHANGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmInput)(nil)).Elem(), OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("RS256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrInput)(nil)).Elem(), OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("RS256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourceInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourceInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource("MANAGED"))
@@ -14667,6 +17090,20 @@ func init() {
 	pulumi.RegisterOutputType(BrowserCustomBrowserStatusPtrOutput{})
 	pulumi.RegisterOutputType(BrowserProfileStatusOutput{})
 	pulumi.RegisterOutputType(BrowserProfileStatusPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferenceOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEbsVolumeConfigurationVolumeTypeOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypeOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLaunchParametersMonitoringOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLaunchParametersMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLaunchParametersOperatingSystemOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLaunchParametersOperatingSystemPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderRootVolumeConfigurationVolumeTypeOutput{})
+	pulumi.RegisterOutputType(CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderStatusOutput{})
+	pulumi.RegisterOutputType(CapacityProviderStatusPtrOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkModeOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterNetworkModePtrOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusOutput{})
@@ -14681,8 +17118,10 @@ func init() {
 	pulumi.RegisterOutputType(EvaluatorStatusPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypeOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypePtrOutput{})
-	pulumi.RegisterOutputType(GatewayClaimMatchOperatorOutput{})
-	pulumi.RegisterOutputType(GatewayClaimMatchOperatorPtrOutput{})
+	pulumi.RegisterOutputType(GatewayClaimMatchOperatorTypeOutput{})
+	pulumi.RegisterOutputType(GatewayClaimMatchOperatorTypePtrOutput{})
+	pulumi.RegisterOutputType(GatewayEndpointIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(GatewayEndpointIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayExceptionLevelOutput{})
 	pulumi.RegisterOutputType(GatewayExceptionLevelPtrOutput{})
 	pulumi.RegisterOutputType(GatewayInboundTokenClaimValueTypeOutput{})
@@ -14690,8 +17129,18 @@ func init() {
 	pulumi.RegisterOutputType(GatewayInterceptionPointOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptionPointPtrOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptionPointArrayOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorPayloadExclusionOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorPayloadExclusionPtrOutput{})
 	pulumi.RegisterOutputType(GatewayPolicyEngineModeOutput{})
 	pulumi.RegisterOutputType(GatewayPolicyEngineModePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitPeriodOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitPeriodPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitStatusOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitStatusPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRulePrincipalMatchOperatorOutput{})
+	pulumi.RegisterOutputType(GatewayRulePrincipalMatchOperatorPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRuleStatusOutput{})
+	pulumi.RegisterOutputType(GatewayRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(GatewaySearchTypeOutput{})
 	pulumi.RegisterOutputType(GatewaySearchTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayStatusOutput{})
@@ -14702,10 +17151,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetEndpointIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(GatewayTargetEndpointIpAddressTypePtrOutput{})
-	pulumi.RegisterOutputType(GatewayTargetMcpServerListingModeOutput{})
-	pulumi.RegisterOutputType(GatewayTargetMcpServerListingModePtrOutput{})
-	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypeOutput{})
-	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetListingModeOutput{})
+	pulumi.RegisterOutputType(GatewayTargetListingModePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetPassthroughProtocolTypeOutput{})
 	pulumi.RegisterOutputType(GatewayTargetPassthroughProtocolTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRestApiMethodOutput{})
@@ -14754,6 +17201,8 @@ func init() {
 	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyTypeOutput{})
 	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(MemoryExtractionTypeOutput{})
+	pulumi.RegisterOutputType(MemoryExtractionTypePtrOutput{})
 	pulumi.RegisterOutputType(MemoryMetadataValueTypeOutput{})
 	pulumi.RegisterOutputType(MemoryMetadataValueTypePtrOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyStatusOutput{})
@@ -14788,16 +17237,22 @@ func init() {
 	pulumi.RegisterOutputType(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputClientSecretSourcePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourceOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourceOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSourcePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethodPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypeOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantTypePtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourceOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSourcePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourceOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderStatusOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderStatusPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringFrequencyOutput{})

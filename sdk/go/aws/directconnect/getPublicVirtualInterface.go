@@ -33,6 +33,8 @@ type LookupPublicVirtualInterfaceResult struct {
 	BgpPeers []PublicVirtualInterfaceBgpPeer `pulumi:"bgpPeers"`
 	// The ID or ARN of the connection or LAG.
 	ConnectionId *string `pulumi:"connectionId"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit *string `pulumi:"rateLimit"`
 	// The tags associated with the public virtual interface.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the virtual interface.
@@ -83,6 +85,11 @@ func (o LookupPublicVirtualInterfaceResultOutput) BgpPeers() PublicVirtualInterf
 // The ID or ARN of the connection or LAG.
 func (o LookupPublicVirtualInterfaceResultOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPublicVirtualInterfaceResult) *string { return v.ConnectionId }).(pulumi.StringPtrOutput)
+}
+
+// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+func (o LookupPublicVirtualInterfaceResultOutput) RateLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPublicVirtualInterfaceResult) *string { return v.RateLimit }).(pulumi.StringPtrOutput)
 }
 
 // The tags associated with the public virtual interface.

@@ -43,13 +43,24 @@ __all__ = [
     'DomainConfigurationServerCertificateSummary',
     'DomainConfigurationTlsConfig',
     'FleetMetricAggregationType',
+    'JobAbortConfig',
+    'JobAbortCriteria',
+    'JobExecutionsRetryConfig',
     'JobExecutionsRetryConfigProperties',
+    'JobExecutionsRolloutConfig',
     'JobExecutionsRolloutConfigProperties',
+    'JobExponentialRolloutRate',
+    'JobMaintenanceWindow',
+    'JobPresignedUrlConfig',
+    'JobRateIncreaseCriteria',
+    'JobRetryCriteria',
+    'JobSchedulingConfig',
     'JobTemplateAbortCriteria',
     'JobTemplateExponentialRolloutRate',
     'JobTemplateMaintenanceWindow',
     'JobTemplateRateIncreaseCriteria',
     'JobTemplateRetryCriteria',
+    'JobTimeoutConfig',
     'LoggingEventConfiguration',
     'MetricsExportConfigProperties',
     'MitigationActionActionParams',
@@ -1491,6 +1502,163 @@ class FleetMetricAggregationType(dict):
 
 
 @pulumi.output_type
+class JobAbortConfig(dict):
+    """
+    The criteria that determine when and how a job abort takes place.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "criteriaList":
+            suggest = "criteria_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobAbortConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobAbortConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobAbortConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 criteria_list: Sequence['outputs.JobAbortCriteria']):
+        """
+        The criteria that determine when and how a job abort takes place.
+
+        :param Sequence['JobAbortCriteria'] criteria_list: The list of criteria that determine when and how to abort the job.
+        """
+        pulumi.set(__self__, "criteria_list", criteria_list)
+
+    @_builtins.property
+    @pulumi.getter(name="criteriaList")
+    def criteria_list(self) -> Sequence['outputs.JobAbortCriteria']:
+        """
+        The list of criteria that determine when and how to abort the job.
+        """
+        return pulumi.get(self, "criteria_list")
+
+
+@pulumi.output_type
+class JobAbortCriteria(dict):
+    """
+    The criteria that determine when and how a job abort takes place.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureType":
+            suggest = "failure_type"
+        elif key == "minNumberOfExecutedThings":
+            suggest = "min_number_of_executed_things"
+        elif key == "thresholdPercentage":
+            suggest = "threshold_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobAbortCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobAbortCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobAbortCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'JobAbortCriteriaAction',
+                 failure_type: 'JobAbortCriteriaFailureType',
+                 min_number_of_executed_things: _builtins.int,
+                 threshold_percentage: _builtins.float):
+        """
+        The criteria that determine when and how a job abort takes place.
+
+        :param 'JobAbortCriteriaAction' action: The type of job action to take to initiate the job abort.
+        :param 'JobAbortCriteriaFailureType' failure_type: The type of job execution failures that can initiate a job abort.
+        :param _builtins.int min_number_of_executed_things: The minimum number of things which must receive job execution notifications before the job can be aborted.
+        :param _builtins.float threshold_percentage: The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'JobAbortCriteriaAction':
+        """
+        The type of job action to take to initiate the job abort.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> 'JobAbortCriteriaFailureType':
+        """
+        The type of job execution failures that can initiate a job abort.
+        """
+        return pulumi.get(self, "failure_type")
+
+    @_builtins.property
+    @pulumi.getter(name="minNumberOfExecutedThings")
+    def min_number_of_executed_things(self) -> _builtins.int:
+        """
+        The minimum number of things which must receive job execution notifications before the job can be aborted.
+        """
+        return pulumi.get(self, "min_number_of_executed_things")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> _builtins.float:
+        """
+        The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        return pulumi.get(self, "threshold_percentage")
+
+
+@pulumi.output_type
+class JobExecutionsRetryConfig(dict):
+    """
+    The configuration that determines how many retries are allowed for each failure type for a job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "criteriaList":
+            suggest = "criteria_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobExecutionsRetryConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobExecutionsRetryConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobExecutionsRetryConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 criteria_list: Sequence['outputs.JobRetryCriteria']):
+        """
+        The configuration that determines how many retries are allowed for each failure type for a job.
+
+        :param Sequence['JobRetryCriteria'] criteria_list: The list of criteria that determines how many retries are allowed for each failure type for a job.
+        """
+        pulumi.set(__self__, "criteria_list", criteria_list)
+
+    @_builtins.property
+    @pulumi.getter(name="criteriaList")
+    def criteria_list(self) -> Sequence['outputs.JobRetryCriteria']:
+        """
+        The list of criteria that determines how many retries are allowed for each failure type for a job.
+        """
+        return pulumi.get(self, "criteria_list")
+
+
+@pulumi.output_type
 class JobExecutionsRetryConfigProperties(dict):
     """
     Allows you to create the criteria to retry a job.
@@ -1529,6 +1697,57 @@ class JobExecutionsRetryConfigProperties(dict):
         The list of criteria that determines how many retries are allowed for each failure type for a job.
         """
         return pulumi.get(self, "retry_criteria_list")
+
+
+@pulumi.output_type
+class JobExecutionsRolloutConfig(dict):
+    """
+    Allows you to create a staged rollout of a job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exponentialRate":
+            suggest = "exponential_rate"
+        elif key == "maximumPerMinute":
+            suggest = "maximum_per_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobExecutionsRolloutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobExecutionsRolloutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobExecutionsRolloutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exponential_rate: Optional['outputs.JobExponentialRolloutRate'] = None,
+                 maximum_per_minute: Optional[_builtins.int] = None):
+        """
+        Allows you to create a staged rollout of a job.
+
+        :param _builtins.int maximum_per_minute: The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+        """
+        if exponential_rate is not None:
+            pulumi.set(__self__, "exponential_rate", exponential_rate)
+        if maximum_per_minute is not None:
+            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+
+    @_builtins.property
+    @pulumi.getter(name="exponentialRate")
+    def exponential_rate(self) -> Optional['outputs.JobExponentialRolloutRate']:
+        return pulumi.get(self, "exponential_rate")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumPerMinute")
+    def maximum_per_minute(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+        """
+        return pulumi.get(self, "maximum_per_minute")
 
 
 @pulumi.output_type
@@ -1584,6 +1803,367 @@ class JobExecutionsRolloutConfigProperties(dict):
         The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
         """
         return pulumi.get(self, "maximum_per_minute")
+
+
+@pulumi.output_type
+class JobExponentialRolloutRate(dict):
+    """
+    Allows you to create an exponential rate of rollout for a job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseRatePerMinute":
+            suggest = "base_rate_per_minute"
+        elif key == "incrementFactor":
+            suggest = "increment_factor"
+        elif key == "rateIncreaseCriteria":
+            suggest = "rate_increase_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobExponentialRolloutRate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobExponentialRolloutRate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobExponentialRolloutRate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_rate_per_minute: _builtins.int,
+                 increment_factor: _builtins.float,
+                 rate_increase_criteria: 'outputs.JobRateIncreaseCriteria'):
+        """
+        Allows you to create an exponential rate of rollout for a job.
+
+        :param _builtins.int base_rate_per_minute: The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+        :param _builtins.float increment_factor: The exponential factor to increase the rate of rollout for a job.
+        """
+        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
+        pulumi.set(__self__, "increment_factor", increment_factor)
+        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="baseRatePerMinute")
+    def base_rate_per_minute(self) -> _builtins.int:
+        """
+        The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+        """
+        return pulumi.get(self, "base_rate_per_minute")
+
+    @_builtins.property
+    @pulumi.getter(name="incrementFactor")
+    def increment_factor(self) -> _builtins.float:
+        """
+        The exponential factor to increase the rate of rollout for a job.
+        """
+        return pulumi.get(self, "increment_factor")
+
+    @_builtins.property
+    @pulumi.getter(name="rateIncreaseCriteria")
+    def rate_increase_criteria(self) -> 'outputs.JobRateIncreaseCriteria':
+        return pulumi.get(self, "rate_increase_criteria")
+
+
+@pulumi.output_type
+class JobMaintenanceWindow(dict):
+    """
+    An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInMinutes":
+            suggest = "duration_in_minutes"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobMaintenanceWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobMaintenanceWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobMaintenanceWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_in_minutes: _builtins.int,
+                 start_time: _builtins.str):
+        """
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+
+        :param _builtins.int duration_in_minutes: Displays the duration of the next maintenance window.
+        :param _builtins.str start_time: Displays the start time of the next maintenance window.
+        """
+        pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="durationInMinutes")
+    def duration_in_minutes(self) -> _builtins.int:
+        """
+        Displays the duration of the next maintenance window.
+        """
+        return pulumi.get(self, "duration_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> _builtins.str:
+        """
+        Displays the start time of the next maintenance window.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class JobPresignedUrlConfig(dict):
+    """
+    Configuration for pre-signed S3 URLs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expiresInSec":
+            suggest = "expires_in_sec"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobPresignedUrlConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobPresignedUrlConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobPresignedUrlConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expires_in_sec: Optional[_builtins.int] = None,
+                 role_arn: Optional[_builtins.str] = None):
+        """
+        Configuration for pre-signed S3 URLs.
+
+        :param _builtins.int expires_in_sec: How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+        :param _builtins.str role_arn: The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+        """
+        if expires_in_sec is not None:
+            pulumi.set(__self__, "expires_in_sec", expires_in_sec)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="expiresInSec")
+    def expires_in_sec(self) -> Optional[_builtins.int]:
+        """
+        How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+        """
+        return pulumi.get(self, "expires_in_sec")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class JobRateIncreaseCriteria(dict):
+    """
+    Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfNotifiedThings":
+            suggest = "number_of_notified_things"
+        elif key == "numberOfSucceededThings":
+            suggest = "number_of_succeeded_things"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobRateIncreaseCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobRateIncreaseCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobRateIncreaseCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_notified_things: Optional[_builtins.int] = None,
+                 number_of_succeeded_things: Optional[_builtins.int] = None):
+        """
+        Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+
+        :param _builtins.int number_of_notified_things: The threshold for number of notified things that will initiate the increase in rate of rollout.
+        :param _builtins.int number_of_succeeded_things: The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        """
+        if number_of_notified_things is not None:
+            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+        if number_of_succeeded_things is not None:
+            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfNotifiedThings")
+    def number_of_notified_things(self) -> Optional[_builtins.int]:
+        """
+        The threshold for number of notified things that will initiate the increase in rate of rollout.
+        """
+        return pulumi.get(self, "number_of_notified_things")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSucceededThings")
+    def number_of_succeeded_things(self) -> Optional[_builtins.int]:
+        """
+        The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        """
+        return pulumi.get(self, "number_of_succeeded_things")
+
+
+@pulumi.output_type
+class JobRetryCriteria(dict):
+    """
+    The criteria that determines how many retries are allowed for each failure type for a job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureType":
+            suggest = "failure_type"
+        elif key == "numberOfRetries":
+            suggest = "number_of_retries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobRetryCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobRetryCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobRetryCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_type: 'JobRetryCriteriaFailureType',
+                 number_of_retries: _builtins.int):
+        """
+        The criteria that determines how many retries are allowed for each failure type for a job.
+
+        :param 'JobRetryCriteriaFailureType' failure_type: The type of job execution failures that can initiate a job retry.
+        :param _builtins.int number_of_retries: The number of retries allowed for a failure type for the job.
+        """
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "number_of_retries", number_of_retries)
+
+    @_builtins.property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> 'JobRetryCriteriaFailureType':
+        """
+        The type of job execution failures that can initiate a job retry.
+        """
+        return pulumi.get(self, "failure_type")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfRetries")
+    def number_of_retries(self) -> _builtins.int:
+        """
+        The number of retries allowed for a failure type for the job.
+        """
+        return pulumi.get(self, "number_of_retries")
+
+
+@pulumi.output_type
+class JobSchedulingConfig(dict):
+    """
+    Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endBehavior":
+            suggest = "end_behavior"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "maintenanceWindows":
+            suggest = "maintenance_windows"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobSchedulingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobSchedulingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobSchedulingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_behavior: Optional['JobSchedulingConfigEndBehavior'] = None,
+                 end_time: Optional[_builtins.str] = None,
+                 maintenance_windows: Optional[Sequence['outputs.JobMaintenanceWindow']] = None,
+                 start_time: Optional[_builtins.str] = None):
+        """
+        Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group.
+
+        :param 'JobSchedulingConfigEndBehavior' end_behavior: Specifies the end behavior for all job executions after a job reaches the selected endTime.
+        :param _builtins.str end_time: The time a job will stop rollout of the job document to all devices in the target group for a job.
+        :param Sequence['JobMaintenanceWindow'] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+        :param _builtins.str start_time: The time a job will begin rollout of the job document to all devices in the target group for a job.
+        """
+        if end_behavior is not None:
+            pulumi.set(__self__, "end_behavior", end_behavior)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if maintenance_windows is not None:
+            pulumi.set(__self__, "maintenance_windows", maintenance_windows)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endBehavior")
+    def end_behavior(self) -> Optional['JobSchedulingConfigEndBehavior']:
+        """
+        Specifies the end behavior for all job executions after a job reaches the selected endTime.
+        """
+        return pulumi.get(self, "end_behavior")
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[_builtins.str]:
+        """
+        The time a job will stop rollout of the job document to all devices in the target group for a job.
+        """
+        return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindows")
+    def maintenance_windows(self) -> Optional[Sequence['outputs.JobMaintenanceWindow']]:
+        """
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+        """
+        return pulumi.get(self, "maintenance_windows")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[_builtins.str]:
+        """
+        The time a job will begin rollout of the job document to all devices in the target group for a job.
+        """
+        return pulumi.get(self, "start_time")
 
 
 @pulumi.output_type
@@ -1887,6 +2467,47 @@ class JobTemplateRetryCriteria(dict):
         The number of retries allowed for a failure type for the job.
         """
         return pulumi.get(self, "number_of_retries")
+
+
+@pulumi.output_type
+class JobTimeoutConfig(dict):
+    """
+    Specifies the amount of time each device has to finish its execution of the job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inProgressTimeoutInMinutes":
+            suggest = "in_progress_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTimeoutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTimeoutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTimeoutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_progress_timeout_in_minutes: Optional[_builtins.int] = None):
+        """
+        Specifies the amount of time each device has to finish its execution of the job.
+
+        :param _builtins.int in_progress_timeout_in_minutes: Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+        """
+        if in_progress_timeout_in_minutes is not None:
+            pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="inProgressTimeoutInMinutes")
+    def in_progress_timeout_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+        """
+        return pulumi.get(self, "in_progress_timeout_in_minutes")
 
 
 @pulumi.output_type

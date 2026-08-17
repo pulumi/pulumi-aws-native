@@ -149,7 +149,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["updatePolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["computeEnvironmentName", "computeResources.spotIamFleetRole", "eksConfiguration", "tags.*", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["computeEnvironmentName", "computeResources.managedInstancesProvider.instanceLaunchTemplate.capacityOptionType", "computeResources.managedInstancesProvider.instanceLaunchTemplate.fipsEnabled", "computeResources.spotIamFleetRole", "eksConfiguration", "tags.*", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts);
     }

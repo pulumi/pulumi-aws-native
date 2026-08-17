@@ -47,6 +47,14 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
      */
     declare public readonly adDecisionServerUrl: pulumi.Output<string>;
     /**
+     * The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+     */
+    declare public readonly adsPersonalizationConcurrency: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAdsPersonalizationConcurrency | undefined>;
+    /**
+     * The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+     */
+    declare public readonly adsPersonalizationTimeouts: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAdsPersonalizationTimeouts | undefined>;
+    /**
      * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
     declare public readonly availSuppression: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAvailSuppression | undefined>;
@@ -147,6 +155,8 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["adConditioningConfiguration"] = args?.adConditioningConfiguration;
             resourceInputs["adDecisionServerConfiguration"] = args?.adDecisionServerConfiguration;
             resourceInputs["adDecisionServerUrl"] = args?.adDecisionServerUrl;
+            resourceInputs["adsPersonalizationConcurrency"] = args?.adsPersonalizationConcurrency;
+            resourceInputs["adsPersonalizationTimeouts"] = args?.adsPersonalizationTimeouts;
             resourceInputs["availSuppression"] = args?.availSuppression;
             resourceInputs["bumper"] = args?.bumper;
             resourceInputs["cdnConfiguration"] = args?.cdnConfiguration;
@@ -171,6 +181,8 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["adConditioningConfiguration"] = undefined /*out*/;
             resourceInputs["adDecisionServerConfiguration"] = undefined /*out*/;
             resourceInputs["adDecisionServerUrl"] = undefined /*out*/;
+            resourceInputs["adsPersonalizationConcurrency"] = undefined /*out*/;
+            resourceInputs["adsPersonalizationTimeouts"] = undefined /*out*/;
             resourceInputs["availSuppression"] = undefined /*out*/;
             resourceInputs["bumper"] = undefined /*out*/;
             resourceInputs["cdnConfiguration"] = undefined /*out*/;
@@ -212,6 +224,14 @@ export interface PlaybackConfigurationArgs {
      * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
      */
     adDecisionServerUrl: pulumi.Input<string>;
+    /**
+     * The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+     */
+    adsPersonalizationConcurrency?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdsPersonalizationConcurrencyArgs | undefined>;
+    /**
+     * The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+     */
+    adsPersonalizationTimeouts?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdsPersonalizationTimeoutsArgs | undefined>;
     /**
      * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */

@@ -23,6 +23,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly string? ClientId;
         public readonly Outputs.OAuth2CredentialProviderOauth2Discovery? OauthDiscovery;
         public readonly Outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig? OnBehalfOfTokenExchangeConfig;
+        public readonly Outputs.OAuth2CredentialProviderPrivateEndpoint? PrivateEndpoint;
+        /// <summary>
+        /// The list of private endpoint overrides for the OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OAuth2CredentialProviderPrivateEndpointOverride> PrivateEndpointOverrides;
+        public readonly Outputs.OAuth2CredentialProviderPrivateKeyJwtConfig? PrivateKeyJwtConfig;
 
         [OutputConstructor]
         private OAuth2CredentialProviderOauth2ProviderConfigOutput(
@@ -32,12 +38,21 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             Outputs.OAuth2CredentialProviderOauth2Discovery? oauthDiscovery,
 
-            Outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig? onBehalfOfTokenExchangeConfig)
+            Outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig? onBehalfOfTokenExchangeConfig,
+
+            Outputs.OAuth2CredentialProviderPrivateEndpoint? privateEndpoint,
+
+            ImmutableArray<Outputs.OAuth2CredentialProviderPrivateEndpointOverride> privateEndpointOverrides,
+
+            Outputs.OAuth2CredentialProviderPrivateKeyJwtConfig? privateKeyJwtConfig)
         {
             ClientAuthenticationMethod = clientAuthenticationMethod;
             ClientId = clientId;
             OauthDiscovery = oauthDiscovery;
             OnBehalfOfTokenExchangeConfig = onBehalfOfTokenExchangeConfig;
+            PrivateEndpoint = privateEndpoint;
+            PrivateEndpointOverrides = privateEndpointOverrides;
+            PrivateKeyJwtConfig = privateKeyJwtConfig;
         }
     }
 }

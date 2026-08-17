@@ -22,6 +22,8 @@ __all__ = [
     'AgentSpaceIdcAuthConfigurationArgsDict',
     'AgentSpaceOperatorAppArgs',
     'AgentSpaceOperatorAppArgsDict',
+    'AssetFileArgs',
+    'AssetFileArgsDict',
     'AssociationAwsConfigurationArgs',
     'AssociationAwsConfigurationArgsDict',
     'AssociationAwsResourceArgs',
@@ -118,6 +120,10 @@ __all__ = [
     'ServicePagerDutyAuthorizationConfigArgsDict',
     'ServicePagerDutyDetailsArgs',
     'ServicePagerDutyDetailsArgsDict',
+    'TriggerConditionArgs',
+    'TriggerConditionArgsDict',
+    'TriggerScheduleArgs',
+    'TriggerScheduleArgsDict',
 ]
 
 class AgentSpaceIamAuthConfigurationArgsDict(TypedDict):
@@ -266,6 +272,99 @@ class AgentSpaceOperatorAppArgs:
     @idc.setter
     def idc(self, value: pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']]):
         pulumi.set(self, "idc", value)
+
+
+class AssetFileArgsDict(TypedDict):
+    """
+    A single file inside an Asset's bundle. Path is the diff key on update; Content is write-only and not repopulated by Read.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    Path of this file within the asset bundle.
+    """
+    content_bytes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Base64-encoded binary contents of the file. Mutually exclusive with ContentText (max 6 MiB).
+    """
+    content_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    UTF-8 text contents of the file. Mutually exclusive with ContentBytes (max 1.5 MiB).
+    """
+    metadata: NotRequired[Any]
+    """
+    Per-file metadata document. Values may be strings, numbers, booleans, or lists of any of those (validated server-side).
+    """
+
+@pulumi.input_type
+class AssetFileArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 content_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: Optional[Any] = None):
+        """
+        A single file inside an Asset's bundle. Path is the diff key on update; Content is write-only and not repopulated by Read.
+
+        :param pulumi.Input[_builtins.str] path: Path of this file within the asset bundle.
+        :param pulumi.Input[_builtins.str] content_bytes: Base64-encoded binary contents of the file. Mutually exclusive with ContentText (max 6 MiB).
+        :param pulumi.Input[_builtins.str] content_text: UTF-8 text contents of the file. Mutually exclusive with ContentBytes (max 1.5 MiB).
+        :param Any metadata: Per-file metadata document. Values may be strings, numbers, booleans, or lists of any of those (validated server-side).
+        """
+        pulumi.set(__self__, "path", path)
+        if content_bytes is not None:
+            pulumi.set(__self__, "content_bytes", content_bytes)
+        if content_text is not None:
+            pulumi.set(__self__, "content_text", content_text)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path of this file within the asset bundle.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentBytes")
+    def content_bytes(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Base64-encoded binary contents of the file. Mutually exclusive with ContentText (max 6 MiB).
+        """
+        return pulumi.get(self, "content_bytes")
+
+    @content_bytes.setter
+    def content_bytes(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "content_bytes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentText")
+    def content_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        UTF-8 text contents of the file. Mutually exclusive with ContentBytes (max 1.5 MiB).
+        """
+        return pulumi.get(self, "content_text")
+
+    @content_text.setter
+    def content_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "content_text", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        Per-file metadata document. Values may be strings, numbers, booleans, or lists of any of those (validated server-side).
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
 
 
 class AssociationAwsConfigurationArgsDict(TypedDict):
@@ -3730,5 +3829,63 @@ class ServicePagerDutyDetailsArgs:
     @scopes.setter
     def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "scopes", value)
+
+
+class TriggerConditionArgsDict(TypedDict):
+    """
+    The condition that causes the trigger to fire.
+    """
+    schedule: pulumi.Input['TriggerScheduleArgsDict']
+
+@pulumi.input_type
+class TriggerConditionArgs:
+    def __init__(__self__, *,
+                 schedule: pulumi.Input['TriggerScheduleArgs']):
+        """
+        The condition that causes the trigger to fire.
+        """
+        pulumi.set(__self__, "schedule", schedule)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['TriggerScheduleArgs']:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['TriggerScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+
+class TriggerScheduleArgsDict(TypedDict):
+    """
+    Schedule configuration for a time-based trigger.
+    """
+    expression: pulumi.Input[_builtins.str]
+    """
+    A cron or rate expression that defines when the trigger fires.
+    """
+
+@pulumi.input_type
+class TriggerScheduleArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[_builtins.str]):
+        """
+        Schedule configuration for a time-based trigger.
+
+        :param pulumi.Input[_builtins.str] expression: A cron or rate expression that defines when the trigger fires.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        A cron or rate expression that defines when the trigger fires.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expression", value)
 
 

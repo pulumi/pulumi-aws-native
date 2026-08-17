@@ -12,6 +12,13 @@ export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryption
  */
 export type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy = (typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy)[keyof typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy];
 
+export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope = {
+    EncryptedSourceOnly: "ENCRYPTED_SOURCE_ONLY",
+    NewDestinationLogGroups: "NEW_DESTINATION_LOG_GROUPS",
+} as const;
+
+export type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope = (typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope)[keyof typeof OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope];
+
 export const OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy = {
     CustomerManaged: "CUSTOMER_MANAGED",
     AwsOwned: "AWS_OWNED",

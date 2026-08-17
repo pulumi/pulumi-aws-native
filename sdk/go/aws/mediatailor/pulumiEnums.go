@@ -758,6 +758,501 @@ func (in *channelTierPtr) ToChannelTierPtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelTierPtrOutput)
 }
 
+type FunctionMethodType string
+
+const (
+	FunctionMethodTypeGet  = FunctionMethodType("GET")
+	FunctionMethodTypePost = FunctionMethodType("POST")
+)
+
+func (FunctionMethodType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionMethodType)(nil)).Elem()
+}
+
+func (e FunctionMethodType) ToFunctionMethodTypeOutput() FunctionMethodTypeOutput {
+	return pulumi.ToOutput(e).(FunctionMethodTypeOutput)
+}
+
+func (e FunctionMethodType) ToFunctionMethodTypeOutputWithContext(ctx context.Context) FunctionMethodTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionMethodTypeOutput)
+}
+
+func (e FunctionMethodType) ToFunctionMethodTypePtrOutput() FunctionMethodTypePtrOutput {
+	return e.ToFunctionMethodTypePtrOutputWithContext(context.Background())
+}
+
+func (e FunctionMethodType) ToFunctionMethodTypePtrOutputWithContext(ctx context.Context) FunctionMethodTypePtrOutput {
+	return FunctionMethodType(e).ToFunctionMethodTypeOutputWithContext(ctx).ToFunctionMethodTypePtrOutputWithContext(ctx)
+}
+
+func (e FunctionMethodType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionMethodType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionMethodType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionMethodType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionMethodTypeOutput struct{ *pulumi.OutputState }
+
+func (FunctionMethodTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionMethodType)(nil)).Elem()
+}
+
+func (o FunctionMethodTypeOutput) ToFunctionMethodTypeOutput() FunctionMethodTypeOutput {
+	return o
+}
+
+func (o FunctionMethodTypeOutput) ToFunctionMethodTypeOutputWithContext(ctx context.Context) FunctionMethodTypeOutput {
+	return o
+}
+
+func (o FunctionMethodTypeOutput) ToFunctionMethodTypePtrOutput() FunctionMethodTypePtrOutput {
+	return o.ToFunctionMethodTypePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionMethodTypeOutput) ToFunctionMethodTypePtrOutputWithContext(ctx context.Context) FunctionMethodTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionMethodType) *FunctionMethodType {
+		return &v
+	}).(FunctionMethodTypePtrOutput)
+}
+
+func (o FunctionMethodTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionMethodTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionMethodType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionMethodTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionMethodTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionMethodType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionMethodTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionMethodTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionMethodType)(nil)).Elem()
+}
+
+func (o FunctionMethodTypePtrOutput) ToFunctionMethodTypePtrOutput() FunctionMethodTypePtrOutput {
+	return o
+}
+
+func (o FunctionMethodTypePtrOutput) ToFunctionMethodTypePtrOutputWithContext(ctx context.Context) FunctionMethodTypePtrOutput {
+	return o
+}
+
+func (o FunctionMethodTypePtrOutput) Elem() FunctionMethodTypeOutput {
+	return o.ApplyT(func(v *FunctionMethodType) FunctionMethodType {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionMethodType
+		return ret
+	}).(FunctionMethodTypeOutput)
+}
+
+func (o FunctionMethodTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionMethodTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionMethodType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionMethodTypeInput is an input type that accepts values of the FunctionMethodType enum
+// A concrete instance of `FunctionMethodTypeInput` can be one of the following:
+//
+//	FunctionMethodTypeGet
+//	FunctionMethodTypePost
+type FunctionMethodTypeInput interface {
+	pulumi.Input
+
+	ToFunctionMethodTypeOutput() FunctionMethodTypeOutput
+	ToFunctionMethodTypeOutputWithContext(context.Context) FunctionMethodTypeOutput
+}
+
+var functionMethodTypePtrType = reflect.TypeOf((**FunctionMethodType)(nil)).Elem()
+
+type FunctionMethodTypePtrInput interface {
+	pulumi.Input
+
+	ToFunctionMethodTypePtrOutput() FunctionMethodTypePtrOutput
+	ToFunctionMethodTypePtrOutputWithContext(context.Context) FunctionMethodTypePtrOutput
+}
+
+type functionMethodTypePtr string
+
+func FunctionMethodTypePtr(v string) FunctionMethodTypePtrInput {
+	return (*functionMethodTypePtr)(&v)
+}
+
+func (*functionMethodTypePtr) ElementType() reflect.Type {
+	return functionMethodTypePtrType
+}
+
+func (in *functionMethodTypePtr) ToFunctionMethodTypePtrOutput() FunctionMethodTypePtrOutput {
+	return pulumi.ToOutput(in).(FunctionMethodTypePtrOutput)
+}
+
+func (in *functionMethodTypePtr) ToFunctionMethodTypePtrOutputWithContext(ctx context.Context) FunctionMethodTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionMethodTypePtrOutput)
+}
+
+type FunctionRuntimeType string
+
+const (
+	FunctionRuntimeTypeJsonata = FunctionRuntimeType("JSONATA")
+)
+
+func (FunctionRuntimeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntimeType)(nil)).Elem()
+}
+
+func (e FunctionRuntimeType) ToFunctionRuntimeTypeOutput() FunctionRuntimeTypeOutput {
+	return pulumi.ToOutput(e).(FunctionRuntimeTypeOutput)
+}
+
+func (e FunctionRuntimeType) ToFunctionRuntimeTypeOutputWithContext(ctx context.Context) FunctionRuntimeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionRuntimeTypeOutput)
+}
+
+func (e FunctionRuntimeType) ToFunctionRuntimeTypePtrOutput() FunctionRuntimeTypePtrOutput {
+	return e.ToFunctionRuntimeTypePtrOutputWithContext(context.Background())
+}
+
+func (e FunctionRuntimeType) ToFunctionRuntimeTypePtrOutputWithContext(ctx context.Context) FunctionRuntimeTypePtrOutput {
+	return FunctionRuntimeType(e).ToFunctionRuntimeTypeOutputWithContext(ctx).ToFunctionRuntimeTypePtrOutputWithContext(ctx)
+}
+
+func (e FunctionRuntimeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionRuntimeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionRuntimeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionRuntimeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionRuntimeTypeOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntimeType)(nil)).Elem()
+}
+
+func (o FunctionRuntimeTypeOutput) ToFunctionRuntimeTypeOutput() FunctionRuntimeTypeOutput {
+	return o
+}
+
+func (o FunctionRuntimeTypeOutput) ToFunctionRuntimeTypeOutputWithContext(ctx context.Context) FunctionRuntimeTypeOutput {
+	return o
+}
+
+func (o FunctionRuntimeTypeOutput) ToFunctionRuntimeTypePtrOutput() FunctionRuntimeTypePtrOutput {
+	return o.ToFunctionRuntimeTypePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRuntimeTypeOutput) ToFunctionRuntimeTypePtrOutputWithContext(ctx context.Context) FunctionRuntimeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionRuntimeType) *FunctionRuntimeType {
+		return &v
+	}).(FunctionRuntimeTypePtrOutput)
+}
+
+func (o FunctionRuntimeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionRuntimeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionRuntimeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionRuntimeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRuntimeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionRuntimeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionRuntimeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRuntimeType)(nil)).Elem()
+}
+
+func (o FunctionRuntimeTypePtrOutput) ToFunctionRuntimeTypePtrOutput() FunctionRuntimeTypePtrOutput {
+	return o
+}
+
+func (o FunctionRuntimeTypePtrOutput) ToFunctionRuntimeTypePtrOutputWithContext(ctx context.Context) FunctionRuntimeTypePtrOutput {
+	return o
+}
+
+func (o FunctionRuntimeTypePtrOutput) Elem() FunctionRuntimeTypeOutput {
+	return o.ApplyT(func(v *FunctionRuntimeType) FunctionRuntimeType {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionRuntimeType
+		return ret
+	}).(FunctionRuntimeTypeOutput)
+}
+
+func (o FunctionRuntimeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRuntimeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionRuntimeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionRuntimeTypeInput is an input type that accepts values of the FunctionRuntimeType enum
+// A concrete instance of `FunctionRuntimeTypeInput` can be one of the following:
+//
+//	FunctionRuntimeTypeJsonata
+type FunctionRuntimeTypeInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimeTypeOutput() FunctionRuntimeTypeOutput
+	ToFunctionRuntimeTypeOutputWithContext(context.Context) FunctionRuntimeTypeOutput
+}
+
+var functionRuntimeTypePtrType = reflect.TypeOf((**FunctionRuntimeType)(nil)).Elem()
+
+type FunctionRuntimeTypePtrInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimeTypePtrOutput() FunctionRuntimeTypePtrOutput
+	ToFunctionRuntimeTypePtrOutputWithContext(context.Context) FunctionRuntimeTypePtrOutput
+}
+
+type functionRuntimeTypePtr string
+
+func FunctionRuntimeTypePtr(v string) FunctionRuntimeTypePtrInput {
+	return (*functionRuntimeTypePtr)(&v)
+}
+
+func (*functionRuntimeTypePtr) ElementType() reflect.Type {
+	return functionRuntimeTypePtrType
+}
+
+func (in *functionRuntimeTypePtr) ToFunctionRuntimeTypePtrOutput() FunctionRuntimeTypePtrOutput {
+	return pulumi.ToOutput(in).(FunctionRuntimeTypePtrOutput)
+}
+
+func (in *functionRuntimeTypePtr) ToFunctionRuntimeTypePtrOutputWithContext(ctx context.Context) FunctionRuntimeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionRuntimeTypePtrOutput)
+}
+
+type FunctionType string
+
+const (
+	FunctionTypeHttpRequest        = FunctionType("HTTP_REQUEST")
+	FunctionTypeCustomOutput       = FunctionType("CUSTOM_OUTPUT")
+	FunctionTypeSequentialExecutor = FunctionType("SEQUENTIAL_EXECUTOR")
+)
+
+func (FunctionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionType)(nil)).Elem()
+}
+
+func (e FunctionType) ToFunctionTypeOutput() FunctionTypeOutput {
+	return pulumi.ToOutput(e).(FunctionTypeOutput)
+}
+
+func (e FunctionType) ToFunctionTypeOutputWithContext(ctx context.Context) FunctionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionTypeOutput)
+}
+
+func (e FunctionType) ToFunctionTypePtrOutput() FunctionTypePtrOutput {
+	return e.ToFunctionTypePtrOutputWithContext(context.Background())
+}
+
+func (e FunctionType) ToFunctionTypePtrOutputWithContext(ctx context.Context) FunctionTypePtrOutput {
+	return FunctionType(e).ToFunctionTypeOutputWithContext(ctx).ToFunctionTypePtrOutputWithContext(ctx)
+}
+
+func (e FunctionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionTypeOutput struct{ *pulumi.OutputState }
+
+func (FunctionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionType)(nil)).Elem()
+}
+
+func (o FunctionTypeOutput) ToFunctionTypeOutput() FunctionTypeOutput {
+	return o
+}
+
+func (o FunctionTypeOutput) ToFunctionTypeOutputWithContext(ctx context.Context) FunctionTypeOutput {
+	return o
+}
+
+func (o FunctionTypeOutput) ToFunctionTypePtrOutput() FunctionTypePtrOutput {
+	return o.ToFunctionTypePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTypeOutput) ToFunctionTypePtrOutputWithContext(ctx context.Context) FunctionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionType) *FunctionType {
+		return &v
+	}).(FunctionTypePtrOutput)
+}
+
+func (o FunctionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionType)(nil)).Elem()
+}
+
+func (o FunctionTypePtrOutput) ToFunctionTypePtrOutput() FunctionTypePtrOutput {
+	return o
+}
+
+func (o FunctionTypePtrOutput) ToFunctionTypePtrOutputWithContext(ctx context.Context) FunctionTypePtrOutput {
+	return o
+}
+
+func (o FunctionTypePtrOutput) Elem() FunctionTypeOutput {
+	return o.ApplyT(func(v *FunctionType) FunctionType {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionType
+		return ret
+	}).(FunctionTypeOutput)
+}
+
+func (o FunctionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionTypeInput is an input type that accepts values of the FunctionType enum
+// A concrete instance of `FunctionTypeInput` can be one of the following:
+//
+//	FunctionTypeHttpRequest
+//	FunctionTypeCustomOutput
+//	FunctionTypeSequentialExecutor
+type FunctionTypeInput interface {
+	pulumi.Input
+
+	ToFunctionTypeOutput() FunctionTypeOutput
+	ToFunctionTypeOutputWithContext(context.Context) FunctionTypeOutput
+}
+
+var functionTypePtrType = reflect.TypeOf((**FunctionType)(nil)).Elem()
+
+type FunctionTypePtrInput interface {
+	pulumi.Input
+
+	ToFunctionTypePtrOutput() FunctionTypePtrOutput
+	ToFunctionTypePtrOutputWithContext(context.Context) FunctionTypePtrOutput
+}
+
+type functionTypePtr string
+
+func FunctionTypePtr(v string) FunctionTypePtrInput {
+	return (*functionTypePtr)(&v)
+}
+
+func (*functionTypePtr) ElementType() reflect.Type {
+	return functionTypePtrType
+}
+
+func (in *functionTypePtr) ToFunctionTypePtrOutput() FunctionTypePtrOutput {
+	return pulumi.ToOutput(in).(FunctionTypePtrOutput)
+}
+
+func (in *functionTypePtr) ToFunctionTypePtrOutputWithContext(ctx context.Context) FunctionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionTypePtrOutput)
+}
+
 type LiveSourceType string
 
 const (
@@ -2428,6 +2923,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPlaybackModePtrInput)(nil)).Elem(), ChannelPlaybackMode("LOOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTierInput)(nil)).Elem(), ChannelTier("BASIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTierPtrInput)(nil)).Elem(), ChannelTier("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMethodTypeInput)(nil)).Elem(), FunctionMethodType("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMethodTypePtrInput)(nil)).Elem(), FunctionMethodType("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeTypeInput)(nil)).Elem(), FunctionRuntimeType("JSONATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeTypePtrInput)(nil)).Elem(), FunctionRuntimeType("JSONATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTypeInput)(nil)).Elem(), FunctionType("HTTP_REQUEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTypePtrInput)(nil)).Elem(), FunctionType("HTTP_REQUEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTypeInput)(nil)).Elem(), LiveSourceType("DASH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTypePtrInput)(nil)).Elem(), LiveSourceType("DASH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionFillPolicyInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionFillPolicy("PARTIAL_AVAIL"))
@@ -2458,6 +2959,12 @@ func init() {
 	pulumi.RegisterOutputType(ChannelPlaybackModePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTierOutput{})
 	pulumi.RegisterOutputType(ChannelTierPtrOutput{})
+	pulumi.RegisterOutputType(FunctionMethodTypeOutput{})
+	pulumi.RegisterOutputType(FunctionMethodTypePtrOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimeTypeOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimeTypePtrOutput{})
+	pulumi.RegisterOutputType(FunctionTypeOutput{})
+	pulumi.RegisterOutputType(FunctionTypePtrOutput{})
 	pulumi.RegisterOutputType(LiveSourceTypeOutput{})
 	pulumi.RegisterOutputType(LiveSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionFillPolicyOutput{})

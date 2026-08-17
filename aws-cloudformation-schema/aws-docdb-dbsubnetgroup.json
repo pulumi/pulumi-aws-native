@@ -3,28 +3,36 @@
   "description" : "Resource Type definition for AWS::DocDB::DBSubnetGroup",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "DBSubnetGroupName" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The name for the db subnet group. This value is stored as a lowercase string.",
+      "minLength" : 1,
+      "maxLength" : 255,
+      "pattern" : "[a-zA-Z][0-9a-zA-Z-:._ ]*"
     },
     "DBSubnetGroupDescription" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The description for the subnet group.",
+      "minLength" : 1,
+      "maxLength" : 100
     },
     "SubnetIds" : {
       "type" : "array",
       "uniqueItems" : false,
       "items" : {
         "type" : "string"
-      }
+      },
+      "minItems" : 1,
+      "maxItems" : 20,
+      "description" : "One or more subnet IDs to be assigned to the db subnet group."
     },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
-      }
+      },
+      "description" : "One or more tags to be assigned to the db subnet group"
     }
   },
   "definitions" : {
@@ -39,11 +47,35 @@
           "type" : "string"
         }
       },
-      "required" : [ "Value", "Key" ]
+      "required" : [ "Key", "Value" ]
     }
   },
   "required" : [ "DBSubnetGroupDescription", "SubnetIds" ],
   "createOnlyProperties" : [ "/properties/DBSubnetGroupName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/DBSubnetGroupName" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "rds:AddTagsToResource", "rds:ListTagsForResource", "rds:RemoveTagsFromResource" ]
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "rds:CreateDBSubnetGroup", "rds:AddTagsToResource", "rds:ListTagsForResource" ]
+    },
+    "read" : {
+      "permissions" : [ "rds:DescribeDBSubnetGroups", "rds:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "rds:ModifyDBSubnetGroup", "rds:AddTagsToResource", "rds:RemoveTagsFromResource" ]
+    },
+    "list" : {
+      "permissions" : [ "rds:DescribeDBSubnetGroups" ]
+    },
+    "delete" : {
+      "permissions" : [ "rds:DeleteDBSubnetGroup" ]
+    }
+  }
 }

@@ -689,6 +689,164 @@ namespace Pulumi.AwsNative.IoT
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of job action to take to initiate the job abort.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobAbortCriteriaAction : IEquatable<JobAbortCriteriaAction>
+    {
+        private readonly string _value;
+
+        private JobAbortCriteriaAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobAbortCriteriaAction Cancel { get; } = new JobAbortCriteriaAction("CANCEL");
+
+        public static bool operator ==(JobAbortCriteriaAction left, JobAbortCriteriaAction right) => left.Equals(right);
+        public static bool operator !=(JobAbortCriteriaAction left, JobAbortCriteriaAction right) => !left.Equals(right);
+
+        public static explicit operator string(JobAbortCriteriaAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobAbortCriteriaAction other && Equals(other);
+        public bool Equals(JobAbortCriteriaAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of job execution failures that can initiate a job abort.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobAbortCriteriaFailureType : IEquatable<JobAbortCriteriaFailureType>
+    {
+        private readonly string _value;
+
+        private JobAbortCriteriaFailureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobAbortCriteriaFailureType Failed { get; } = new JobAbortCriteriaFailureType("FAILED");
+        public static JobAbortCriteriaFailureType Rejected { get; } = new JobAbortCriteriaFailureType("REJECTED");
+        public static JobAbortCriteriaFailureType TimedOut { get; } = new JobAbortCriteriaFailureType("TIMED_OUT");
+        public static JobAbortCriteriaFailureType All { get; } = new JobAbortCriteriaFailureType("ALL");
+
+        public static bool operator ==(JobAbortCriteriaFailureType left, JobAbortCriteriaFailureType right) => left.Equals(right);
+        public static bool operator !=(JobAbortCriteriaFailureType left, JobAbortCriteriaFailureType right) => !left.Equals(right);
+
+        public static explicit operator string(JobAbortCriteriaFailureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobAbortCriteriaFailureType other && Equals(other);
+        public bool Equals(JobAbortCriteriaFailureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of job execution failures that can initiate a job retry.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobRetryCriteriaFailureType : IEquatable<JobRetryCriteriaFailureType>
+    {
+        private readonly string _value;
+
+        private JobRetryCriteriaFailureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobRetryCriteriaFailureType Failed { get; } = new JobRetryCriteriaFailureType("FAILED");
+        public static JobRetryCriteriaFailureType TimedOut { get; } = new JobRetryCriteriaFailureType("TIMED_OUT");
+        public static JobRetryCriteriaFailureType All { get; } = new JobRetryCriteriaFailureType("ALL");
+
+        public static bool operator ==(JobRetryCriteriaFailureType left, JobRetryCriteriaFailureType right) => left.Equals(right);
+        public static bool operator !=(JobRetryCriteriaFailureType left, JobRetryCriteriaFailureType right) => !left.Equals(right);
+
+        public static explicit operator string(JobRetryCriteriaFailureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobRetryCriteriaFailureType other && Equals(other);
+        public bool Equals(JobRetryCriteriaFailureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the end behavior for all job executions after a job reaches the selected endTime.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobSchedulingConfigEndBehavior : IEquatable<JobSchedulingConfigEndBehavior>
+    {
+        private readonly string _value;
+
+        private JobSchedulingConfigEndBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobSchedulingConfigEndBehavior StopRollout { get; } = new JobSchedulingConfigEndBehavior("STOP_ROLLOUT");
+        public static JobSchedulingConfigEndBehavior Cancel { get; } = new JobSchedulingConfigEndBehavior("CANCEL");
+        public static JobSchedulingConfigEndBehavior ForceCancel { get; } = new JobSchedulingConfigEndBehavior("FORCE_CANCEL");
+
+        public static bool operator ==(JobSchedulingConfigEndBehavior left, JobSchedulingConfigEndBehavior right) => left.Equals(right);
+        public static bool operator !=(JobSchedulingConfigEndBehavior left, JobSchedulingConfigEndBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(JobSchedulingConfigEndBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobSchedulingConfigEndBehavior other && Equals(other);
+        public bool Equals(JobSchedulingConfigEndBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT).
+    /// </summary>
+    [EnumType]
+    public readonly struct JobTargetSelection : IEquatable<JobTargetSelection>
+    {
+        private readonly string _value;
+
+        private JobTargetSelection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobTargetSelection Continuous { get; } = new JobTargetSelection("CONTINUOUS");
+        public static JobTargetSelection Snapshot { get; } = new JobTargetSelection("SNAPSHOT");
+
+        public static bool operator ==(JobTargetSelection left, JobTargetSelection right) => left.Equals(right);
+        public static bool operator !=(JobTargetSelection left, JobTargetSelection right) => !left.Equals(right);
+
+        public static explicit operator string(JobTargetSelection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobTargetSelection other && Equals(other);
+        public bool Equals(JobTargetSelection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct JobTemplateAction : IEquatable<JobTemplateAction>
     {

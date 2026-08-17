@@ -10,6 +10,173 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType string
+
+const (
+	ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOnDemand = ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND")
+	ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeSpot     = ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("SPOT")
+	ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeReserved = ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("RESERVED")
+)
+
+func (ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return pulumi.ToOutput(e).(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput)
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(ctx context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput)
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return e.ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType(e).ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(ctx).ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx)
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return o
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(ctx context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return o
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o.ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) *ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType {
+		return &v
+	}).(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput) Elem() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType
+		return ret
+	}).(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput)
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeInput is an input type that accepts values of the ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType enum
+// A concrete instance of `ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeInput` can be one of the following:
+//
+//	ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOnDemand
+//	ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeSpot
+//	ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeReserved
+type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput
+	ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput
+}
+
+var computeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrType = reflect.TypeOf((**ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+
+type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput
+	ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput
+}
+
+type computeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtr string
+
+func ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtr(v string) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrInput {
+	return (*computeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtr)(&v)
+}
+
+func (*computeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtr) ElementType() reflect.Type {
+	return computeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrType
+}
+
+func (in *computeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtr) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput() ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return pulumi.ToOutput(in).(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
+func (in *computeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtr) ToComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
 // The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
 type ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType string
 
@@ -340,6 +507,171 @@ func (in *computeEnvironmentLaunchTemplateSpecificationUserdataTypePtr) ToComput
 
 func (in *computeEnvironmentLaunchTemplateSpecificationUserdataTypePtr) ToComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput)
+}
+
+type ComputeEnvironmentManagedInstancesProviderPropagateTags string
+
+const (
+	ComputeEnvironmentManagedInstancesProviderPropagateTagsCapacityProvider = ComputeEnvironmentManagedInstancesProviderPropagateTags("CAPACITY_PROVIDER")
+	ComputeEnvironmentManagedInstancesProviderPropagateTagsNone             = ComputeEnvironmentManagedInstancesProviderPropagateTags("NONE")
+)
+
+func (ComputeEnvironmentManagedInstancesProviderPropagateTags) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentManagedInstancesProviderPropagateTags)(nil)).Elem()
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToComputeEnvironmentManagedInstancesProviderPropagateTagsOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput {
+	return pulumi.ToOutput(e).(ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput)
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToComputeEnvironmentManagedInstancesProviderPropagateTagsOutputWithContext(ctx context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput)
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return e.ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return ComputeEnvironmentManagedInstancesProviderPropagateTags(e).ToComputeEnvironmentManagedInstancesProviderPropagateTagsOutputWithContext(ctx).ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(ctx)
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentManagedInstancesProviderPropagateTags) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentManagedInstancesProviderPropagateTags)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToComputeEnvironmentManagedInstancesProviderPropagateTagsOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput {
+	return o
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToComputeEnvironmentManagedInstancesProviderPropagateTagsOutputWithContext(ctx context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput {
+	return o
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return o.ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentManagedInstancesProviderPropagateTags) *ComputeEnvironmentManagedInstancesProviderPropagateTags {
+		return &v
+	}).(ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput)
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentManagedInstancesProviderPropagateTags) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentManagedInstancesProviderPropagateTags) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentManagedInstancesProviderPropagateTags)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput) Elem() ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentManagedInstancesProviderPropagateTags) ComputeEnvironmentManagedInstancesProviderPropagateTags {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentManagedInstancesProviderPropagateTags
+		return ret
+	}).(ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput)
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeEnvironmentManagedInstancesProviderPropagateTags) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeEnvironmentManagedInstancesProviderPropagateTagsInput is an input type that accepts values of the ComputeEnvironmentManagedInstancesProviderPropagateTags enum
+// A concrete instance of `ComputeEnvironmentManagedInstancesProviderPropagateTagsInput` can be one of the following:
+//
+//	ComputeEnvironmentManagedInstancesProviderPropagateTagsCapacityProvider
+//	ComputeEnvironmentManagedInstancesProviderPropagateTagsNone
+type ComputeEnvironmentManagedInstancesProviderPropagateTagsInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentManagedInstancesProviderPropagateTagsOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput
+	ToComputeEnvironmentManagedInstancesProviderPropagateTagsOutputWithContext(context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput
+}
+
+var computeEnvironmentManagedInstancesProviderPropagateTagsPtrType = reflect.TypeOf((**ComputeEnvironmentManagedInstancesProviderPropagateTags)(nil)).Elem()
+
+type ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput
+	ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput
+}
+
+type computeEnvironmentManagedInstancesProviderPropagateTagsPtr string
+
+func ComputeEnvironmentManagedInstancesProviderPropagateTagsPtr(v string) ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrInput {
+	return (*computeEnvironmentManagedInstancesProviderPropagateTagsPtr)(&v)
+}
+
+func (*computeEnvironmentManagedInstancesProviderPropagateTagsPtr) ElementType() reflect.Type {
+	return computeEnvironmentManagedInstancesProviderPropagateTagsPtrType
+}
+
+func (in *computeEnvironmentManagedInstancesProviderPropagateTagsPtr) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput() ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return pulumi.ToOutput(in).(ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput)
+}
+
+func (in *computeEnvironmentManagedInstancesProviderPropagateTagsPtr) ToComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput)
 }
 
 // Type of Consumable Resource.
@@ -1668,10 +2000,14 @@ func (in *schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr) ToS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeInput)(nil)).Elem(), ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrInput)(nil)).Elem(), ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_BOOTSTRAP_SH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationUserdataType("EKS_BOOTSTRAP_SH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentManagedInstancesProviderPropagateTagsInput)(nil)).Elem(), ComputeEnvironmentManagedInstancesProviderPropagateTags("CAPACITY_PROVIDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrInput)(nil)).Elem(), ComputeEnvironmentManagedInstancesProviderPropagateTags("CAPACITY_PROVIDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConsumableResourceResourceTypeInput)(nil)).Elem(), ConsumableResourceResourceType("REPLENISHABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConsumableResourceResourceTypePtrInput)(nil)).Elem(), ConsumableResourceResourceType("REPLENISHABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionActionInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionAction("CANCEL"))
@@ -1688,10 +2024,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareStateEnumPtrInput)(nil)).Elem(), QuotaShareStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO"))
+	pulumi.RegisterOutputType(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypePtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypeOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationUserdataTypePtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentManagedInstancesProviderPropagateTagsOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentManagedInstancesProviderPropagateTagsPtrOutput{})
 	pulumi.RegisterOutputType(ConsumableResourceResourceTypeOutput{})
 	pulumi.RegisterOutputType(ConsumableResourceResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionActionOutput{})

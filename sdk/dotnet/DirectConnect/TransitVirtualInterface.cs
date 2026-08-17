@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.DirectConnect
         public Output<int?> Mtu { get; private set; } = null!;
 
         /// <summary>
+        /// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        /// </summary>
+        [Output("rateLimit")]
+        public Output<string?> RateLimit { get; private set; } = null!;
+
+        /// <summary>
         /// The tags associated with the private virtual interface.
         /// </summary>
         [Output("tags")]
@@ -173,6 +179,12 @@ namespace Pulumi.AwsNative.DirectConnect
         /// </summary>
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
+
+        /// <summary>
+        /// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        /// </summary>
+        [Input("rateLimit")]
+        public Input<string>? RateLimit { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

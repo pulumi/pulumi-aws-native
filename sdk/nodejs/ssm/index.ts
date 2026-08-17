@@ -10,6 +10,11 @@ export type Association = import("./association").Association;
 export const Association: typeof import("./association").Association = null as any;
 utilities.lazyLoad(exports, ["Association"], () => require("./association"));
 
+export { CloudConnectorArgs } from "./cloudConnector";
+export type CloudConnector = import("./cloudConnector").CloudConnector;
+export const CloudConnector: typeof import("./cloudConnector").CloudConnector = null as any;
+utilities.lazyLoad(exports, ["CloudConnector"], () => require("./cloudConnector"));
+
 export { DocumentArgs } from "./document";
 export type Document = import("./document").Document;
 export const Document: typeof import("./document").Document = null as any;
@@ -19,6 +24,11 @@ export { GetAssociationArgs, GetAssociationResult, GetAssociationOutputArgs } fr
 export const getAssociation: typeof import("./getAssociation").getAssociation = null as any;
 export const getAssociationOutput: typeof import("./getAssociation").getAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getAssociation","getAssociationOutput"], () => require("./getAssociation"));
+
+export { GetCloudConnectorArgs, GetCloudConnectorResult, GetCloudConnectorOutputArgs } from "./getCloudConnector";
+export const getCloudConnector: typeof import("./getCloudConnector").getCloudConnector = null as any;
+export const getCloudConnectorOutput: typeof import("./getCloudConnector").getCloudConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudConnector","getCloudConnectorOutput"], () => require("./getCloudConnector"));
 
 export { GetDocumentArgs, GetDocumentResult, GetDocumentOutputArgs } from "./getDocument";
 export const getDocument: typeof import("./getDocument").getDocument = null as any;
@@ -125,6 +135,8 @@ const _module = {
         switch (type) {
             case "aws-native:ssm:Association":
                 return new Association(name, <any>undefined, { urn })
+            case "aws-native:ssm:CloudConnector":
+                return new CloudConnector(name, <any>undefined, { urn })
             case "aws-native:ssm:Document":
                 return new Document(name, <any>undefined, { urn })
             case "aws-native:ssm:MaintenanceWindow":

@@ -40,7 +40,6 @@ func NewCodeSecurityScanConfiguration(ctx *pulumi.Context,
 		"level",
 		"name",
 		"scopeSettings",
-		"tags.*",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -131,12 +131,12 @@
     "permissions" : [ "inspector2:TagResource", "inspector2:UntagResource" ]
   },
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/ScopeSettings", "/properties/Level", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/ScopeSettings", "/properties/Level" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "inspector2:CreateCodeSecurityScanConfiguration", "inspector2:GetCodeSecurityScanConfiguration", "inspector2:TagResource" ]
+      "permissions" : [ "inspector2:CreateCodeSecurityScanConfiguration", "inspector2:GetCodeSecurityScanConfiguration", "inspector2:ListCodeSecurityScanConfigurations", "inspector2:TagResource" ]
     },
     "read" : {
       "permissions" : [ "inspector2:GetCodeSecurityScanConfiguration", "inspector2:ListTagsForResource" ]
@@ -145,7 +145,7 @@
       "permissions" : [ "inspector2:UpdateCodeSecurityScanConfiguration", "inspector2:GetCodeSecurityScanConfiguration", "inspector2:TagResource", "inspector2:UntagResource", "inspector2:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "inspector2:DeleteCodeSecurityScanConfiguration", "inspector2:GetCodeSecurityScanConfiguration" ]
+      "permissions" : [ "inspector2:DeleteCodeSecurityScanConfiguration", "inspector2:GetCodeSecurityScanConfiguration", "inspector2:ListCodeSecurityScanConfigurations" ]
     },
     "list" : {
       "permissions" : [ "inspector2:ListCodeSecurityScanConfigurations" ]

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &App{}
 	case "aws-native:sagemaker:AppImageConfig":
 		r = &AppImageConfig{}
+	case "aws-native:sagemaker:Artifact":
+		r = &Artifact{}
 	case "aws-native:sagemaker:Cluster":
 		r = &Cluster{}
 	case "aws-native:sagemaker:Context":
@@ -51,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FeatureGroup{}
 	case "aws-native:sagemaker:Hub":
 		r = &Hub{}
+	case "aws-native:sagemaker:HumanTaskUi":
+		r = &HumanTaskUi{}
 	case "aws-native:sagemaker:Image":
 		r = &Image{}
 	case "aws-native:sagemaker:ImageVersion":
@@ -95,6 +99,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TrialComponent{}
 	case "aws-native:sagemaker:UserProfile":
 		r = &UserProfile{}
+	case "aws-native:sagemaker:Workforce":
+		r = &Workforce{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

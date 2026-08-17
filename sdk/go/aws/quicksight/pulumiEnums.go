@@ -49380,6 +49380,426 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
 }
 
+type DlpSettingDlpAction string
+
+const (
+	DlpSettingDlpActionAllow = DlpSettingDlpAction("ALLOW")
+	DlpSettingDlpActionWarn  = DlpSettingDlpAction("WARN")
+	DlpSettingDlpActionBlock = DlpSettingDlpAction("BLOCK")
+)
+
+func (DlpSettingDlpAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingDlpAction)(nil)).Elem()
+}
+
+func (e DlpSettingDlpAction) ToDlpSettingDlpActionOutput() DlpSettingDlpActionOutput {
+	return pulumi.ToOutput(e).(DlpSettingDlpActionOutput)
+}
+
+func (e DlpSettingDlpAction) ToDlpSettingDlpActionOutputWithContext(ctx context.Context) DlpSettingDlpActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DlpSettingDlpActionOutput)
+}
+
+func (e DlpSettingDlpAction) ToDlpSettingDlpActionPtrOutput() DlpSettingDlpActionPtrOutput {
+	return e.ToDlpSettingDlpActionPtrOutputWithContext(context.Background())
+}
+
+func (e DlpSettingDlpAction) ToDlpSettingDlpActionPtrOutputWithContext(ctx context.Context) DlpSettingDlpActionPtrOutput {
+	return DlpSettingDlpAction(e).ToDlpSettingDlpActionOutputWithContext(ctx).ToDlpSettingDlpActionPtrOutputWithContext(ctx)
+}
+
+func (e DlpSettingDlpAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DlpSettingDlpAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DlpSettingDlpAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DlpSettingDlpAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DlpSettingDlpActionOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingDlpActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingDlpAction)(nil)).Elem()
+}
+
+func (o DlpSettingDlpActionOutput) ToDlpSettingDlpActionOutput() DlpSettingDlpActionOutput {
+	return o
+}
+
+func (o DlpSettingDlpActionOutput) ToDlpSettingDlpActionOutputWithContext(ctx context.Context) DlpSettingDlpActionOutput {
+	return o
+}
+
+func (o DlpSettingDlpActionOutput) ToDlpSettingDlpActionPtrOutput() DlpSettingDlpActionPtrOutput {
+	return o.ToDlpSettingDlpActionPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpActionOutput) ToDlpSettingDlpActionPtrOutputWithContext(ctx context.Context) DlpSettingDlpActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DlpSettingDlpAction) *DlpSettingDlpAction {
+		return &v
+	}).(DlpSettingDlpActionPtrOutput)
+}
+
+func (o DlpSettingDlpActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DlpSettingDlpAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DlpSettingDlpActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DlpSettingDlpAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DlpSettingDlpActionPtrOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingDlpActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DlpSettingDlpAction)(nil)).Elem()
+}
+
+func (o DlpSettingDlpActionPtrOutput) ToDlpSettingDlpActionPtrOutput() DlpSettingDlpActionPtrOutput {
+	return o
+}
+
+func (o DlpSettingDlpActionPtrOutput) ToDlpSettingDlpActionPtrOutputWithContext(ctx context.Context) DlpSettingDlpActionPtrOutput {
+	return o
+}
+
+func (o DlpSettingDlpActionPtrOutput) Elem() DlpSettingDlpActionOutput {
+	return o.ApplyT(func(v *DlpSettingDlpAction) DlpSettingDlpAction {
+		if v != nil {
+			return *v
+		}
+		var ret DlpSettingDlpAction
+		return ret
+	}).(DlpSettingDlpActionOutput)
+}
+
+func (o DlpSettingDlpActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DlpSettingDlpAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DlpSettingDlpActionInput is an input type that accepts values of the DlpSettingDlpAction enum
+// A concrete instance of `DlpSettingDlpActionInput` can be one of the following:
+//
+//	DlpSettingDlpActionAllow
+//	DlpSettingDlpActionWarn
+//	DlpSettingDlpActionBlock
+type DlpSettingDlpActionInput interface {
+	pulumi.Input
+
+	ToDlpSettingDlpActionOutput() DlpSettingDlpActionOutput
+	ToDlpSettingDlpActionOutputWithContext(context.Context) DlpSettingDlpActionOutput
+}
+
+var dlpSettingDlpActionPtrType = reflect.TypeOf((**DlpSettingDlpAction)(nil)).Elem()
+
+type DlpSettingDlpActionPtrInput interface {
+	pulumi.Input
+
+	ToDlpSettingDlpActionPtrOutput() DlpSettingDlpActionPtrOutput
+	ToDlpSettingDlpActionPtrOutputWithContext(context.Context) DlpSettingDlpActionPtrOutput
+}
+
+type dlpSettingDlpActionPtr string
+
+func DlpSettingDlpActionPtr(v string) DlpSettingDlpActionPtrInput {
+	return (*dlpSettingDlpActionPtr)(&v)
+}
+
+func (*dlpSettingDlpActionPtr) ElementType() reflect.Type {
+	return dlpSettingDlpActionPtrType
+}
+
+func (in *dlpSettingDlpActionPtr) ToDlpSettingDlpActionPtrOutput() DlpSettingDlpActionPtrOutput {
+	return pulumi.ToOutput(in).(DlpSettingDlpActionPtrOutput)
+}
+
+func (in *dlpSettingDlpActionPtr) ToDlpSettingDlpActionPtrOutputWithContext(ctx context.Context) DlpSettingDlpActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DlpSettingDlpActionPtrOutput)
+}
+
+type DlpSettingDlpProviderType string
+
+const (
+	DlpSettingDlpProviderTypeMicrosoftPurview = DlpSettingDlpProviderType("MICROSOFT_PURVIEW")
+)
+
+func (DlpSettingDlpProviderType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingDlpProviderType)(nil)).Elem()
+}
+
+func (e DlpSettingDlpProviderType) ToDlpSettingDlpProviderTypeOutput() DlpSettingDlpProviderTypeOutput {
+	return pulumi.ToOutput(e).(DlpSettingDlpProviderTypeOutput)
+}
+
+func (e DlpSettingDlpProviderType) ToDlpSettingDlpProviderTypeOutputWithContext(ctx context.Context) DlpSettingDlpProviderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DlpSettingDlpProviderTypeOutput)
+}
+
+func (e DlpSettingDlpProviderType) ToDlpSettingDlpProviderTypePtrOutput() DlpSettingDlpProviderTypePtrOutput {
+	return e.ToDlpSettingDlpProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (e DlpSettingDlpProviderType) ToDlpSettingDlpProviderTypePtrOutputWithContext(ctx context.Context) DlpSettingDlpProviderTypePtrOutput {
+	return DlpSettingDlpProviderType(e).ToDlpSettingDlpProviderTypeOutputWithContext(ctx).ToDlpSettingDlpProviderTypePtrOutputWithContext(ctx)
+}
+
+func (e DlpSettingDlpProviderType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DlpSettingDlpProviderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DlpSettingDlpProviderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DlpSettingDlpProviderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DlpSettingDlpProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingDlpProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingDlpProviderType)(nil)).Elem()
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToDlpSettingDlpProviderTypeOutput() DlpSettingDlpProviderTypeOutput {
+	return o
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToDlpSettingDlpProviderTypeOutputWithContext(ctx context.Context) DlpSettingDlpProviderTypeOutput {
+	return o
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToDlpSettingDlpProviderTypePtrOutput() DlpSettingDlpProviderTypePtrOutput {
+	return o.ToDlpSettingDlpProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToDlpSettingDlpProviderTypePtrOutputWithContext(ctx context.Context) DlpSettingDlpProviderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DlpSettingDlpProviderType) *DlpSettingDlpProviderType {
+		return &v
+	}).(DlpSettingDlpProviderTypePtrOutput)
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DlpSettingDlpProviderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpProviderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DlpSettingDlpProviderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DlpSettingDlpProviderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingDlpProviderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DlpSettingDlpProviderType)(nil)).Elem()
+}
+
+func (o DlpSettingDlpProviderTypePtrOutput) ToDlpSettingDlpProviderTypePtrOutput() DlpSettingDlpProviderTypePtrOutput {
+	return o
+}
+
+func (o DlpSettingDlpProviderTypePtrOutput) ToDlpSettingDlpProviderTypePtrOutputWithContext(ctx context.Context) DlpSettingDlpProviderTypePtrOutput {
+	return o
+}
+
+func (o DlpSettingDlpProviderTypePtrOutput) Elem() DlpSettingDlpProviderTypeOutput {
+	return o.ApplyT(func(v *DlpSettingDlpProviderType) DlpSettingDlpProviderType {
+		if v != nil {
+			return *v
+		}
+		var ret DlpSettingDlpProviderType
+		return ret
+	}).(DlpSettingDlpProviderTypeOutput)
+}
+
+func (o DlpSettingDlpProviderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingDlpProviderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DlpSettingDlpProviderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DlpSettingDlpProviderTypeInput is an input type that accepts values of the DlpSettingDlpProviderType enum
+// A concrete instance of `DlpSettingDlpProviderTypeInput` can be one of the following:
+//
+//	DlpSettingDlpProviderTypeMicrosoftPurview
+type DlpSettingDlpProviderTypeInput interface {
+	pulumi.Input
+
+	ToDlpSettingDlpProviderTypeOutput() DlpSettingDlpProviderTypeOutput
+	ToDlpSettingDlpProviderTypeOutputWithContext(context.Context) DlpSettingDlpProviderTypeOutput
+}
+
+var dlpSettingDlpProviderTypePtrType = reflect.TypeOf((**DlpSettingDlpProviderType)(nil)).Elem()
+
+type DlpSettingDlpProviderTypePtrInput interface {
+	pulumi.Input
+
+	ToDlpSettingDlpProviderTypePtrOutput() DlpSettingDlpProviderTypePtrOutput
+	ToDlpSettingDlpProviderTypePtrOutputWithContext(context.Context) DlpSettingDlpProviderTypePtrOutput
+}
+
+type dlpSettingDlpProviderTypePtr string
+
+func DlpSettingDlpProviderTypePtr(v string) DlpSettingDlpProviderTypePtrInput {
+	return (*dlpSettingDlpProviderTypePtr)(&v)
+}
+
+func (*dlpSettingDlpProviderTypePtr) ElementType() reflect.Type {
+	return dlpSettingDlpProviderTypePtrType
+}
+
+func (in *dlpSettingDlpProviderTypePtr) ToDlpSettingDlpProviderTypePtrOutput() DlpSettingDlpProviderTypePtrOutput {
+	return pulumi.ToOutput(in).(DlpSettingDlpProviderTypePtrOutput)
+}
+
+func (in *dlpSettingDlpProviderTypePtr) ToDlpSettingDlpProviderTypePtrOutputWithContext(ctx context.Context) DlpSettingDlpProviderTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DlpSettingDlpProviderTypePtrOutput)
+}
+
+type DlpSettingStatus string
+
+const (
+	DlpSettingStatusActive   = DlpSettingStatus("ACTIVE")
+	DlpSettingStatusInactive = DlpSettingStatus("INACTIVE")
+)
+
+type DlpSettingStatusOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingStatus)(nil)).Elem()
+}
+
+func (o DlpSettingStatusOutput) ToDlpSettingStatusOutput() DlpSettingStatusOutput {
+	return o
+}
+
+func (o DlpSettingStatusOutput) ToDlpSettingStatusOutputWithContext(ctx context.Context) DlpSettingStatusOutput {
+	return o
+}
+
+func (o DlpSettingStatusOutput) ToDlpSettingStatusPtrOutput() DlpSettingStatusPtrOutput {
+	return o.ToDlpSettingStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingStatusOutput) ToDlpSettingStatusPtrOutputWithContext(ctx context.Context) DlpSettingStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DlpSettingStatus) *DlpSettingStatus {
+		return &v
+	}).(DlpSettingStatusPtrOutput)
+}
+
+func (o DlpSettingStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DlpSettingStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DlpSettingStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DlpSettingStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DlpSettingStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DlpSettingStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DlpSettingStatus)(nil)).Elem()
+}
+
+func (o DlpSettingStatusPtrOutput) ToDlpSettingStatusPtrOutput() DlpSettingStatusPtrOutput {
+	return o
+}
+
+func (o DlpSettingStatusPtrOutput) ToDlpSettingStatusPtrOutputWithContext(ctx context.Context) DlpSettingStatusPtrOutput {
+	return o
+}
+
+func (o DlpSettingStatusPtrOutput) Elem() DlpSettingStatusOutput {
+	return o.ApplyT(func(v *DlpSettingStatus) DlpSettingStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DlpSettingStatus
+		return ret
+	}).(DlpSettingStatusOutput)
+}
+
+func (o DlpSettingStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DlpSettingStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DlpSettingStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlowPublishState string
 
 const (
@@ -74087,6 +74507,7 @@ const (
 	TopicFilterClassEnforcedValueFilter    = TopicFilterClass("ENFORCED_VALUE_FILTER")
 	TopicFilterClassConditionalValueFilter = TopicFilterClass("CONDITIONAL_VALUE_FILTER")
 	TopicFilterClassNamedValueFilter       = TopicFilterClass("NAMED_VALUE_FILTER")
+	TopicFilterClassDashboardDefaultFilter = TopicFilterClass("DASHBOARD_DEFAULT_FILTER")
 )
 
 func (TopicFilterClass) ElementType() reflect.Type {
@@ -74214,6 +74635,7 @@ func (o TopicFilterClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	TopicFilterClassEnforcedValueFilter
 //	TopicFilterClassConditionalValueFilter
 //	TopicFilterClassNamedValueFilter
+//	TopicFilterClassDashboardDefaultFilter
 type TopicFilterClassInput interface {
 	pulumi.Input
 
@@ -74628,6 +75050,7 @@ const (
 	TopicNamedFilterTypeNumericRangeFilter    = TopicNamedFilterType("NUMERIC_RANGE_FILTER")
 	TopicNamedFilterTypeDateRangeFilter       = TopicNamedFilterType("DATE_RANGE_FILTER")
 	TopicNamedFilterTypeRelativeDateFilter    = TopicNamedFilterType("RELATIVE_DATE_FILTER")
+	TopicNamedFilterTypeNullFilter            = TopicNamedFilterType("NULL_FILTER")
 )
 
 func (TopicNamedFilterType) ElementType() reflect.Type {
@@ -74757,6 +75180,7 @@ func (o TopicNamedFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	TopicNamedFilterTypeNumericRangeFilter
 //	TopicNamedFilterTypeDateRangeFilter
 //	TopicNamedFilterTypeRelativeDateFilter
+//	TopicNamedFilterTypeNullFilter
 type TopicNamedFilterTypeInput interface {
 	pulumi.Input
 
@@ -77089,6 +77513,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceStarburstProductTypePtrInput)(nil)).Elem(), DataSourceStarburstProductType("GALAXY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingDlpActionInput)(nil)).Elem(), DlpSettingDlpAction("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingDlpActionPtrInput)(nil)).Elem(), DlpSettingDlpAction("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingDlpProviderTypeInput)(nil)).Elem(), DlpSettingDlpProviderType("MICROSOFT_PURVIEW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingDlpProviderTypePtrInput)(nil)).Elem(), DlpSettingDlpProviderType("MICROSOFT_PURVIEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderSharingModelInput)(nil)).Elem(), FolderSharingModel("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderSharingModelPtrInput)(nil)).Elem(), FolderSharingModel("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderTypeInput)(nil)).Elem(), FolderType("SHARED"))
@@ -77995,6 +78423,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceStarburstProductTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(DlpSettingDlpActionOutput{})
+	pulumi.RegisterOutputType(DlpSettingDlpActionPtrOutput{})
+	pulumi.RegisterOutputType(DlpSettingDlpProviderTypeOutput{})
+	pulumi.RegisterOutputType(DlpSettingDlpProviderTypePtrOutput{})
+	pulumi.RegisterOutputType(DlpSettingStatusOutput{})
+	pulumi.RegisterOutputType(DlpSettingStatusPtrOutput{})
 	pulumi.RegisterOutputType(FlowPublishStateOutput{})
 	pulumi.RegisterOutputType(FlowPublishStatePtrOutput{})
 	pulumi.RegisterOutputType(FolderSharingModelOutput{})

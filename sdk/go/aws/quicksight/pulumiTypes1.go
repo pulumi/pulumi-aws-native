@@ -15047,6 +15047,113 @@ func (o AnalysisYAxisOptionsPtrOutput) YAxis() AnalysisSingleYAxisOptionPtrOutpu
 	}).(AnalysisSingleYAxisOptionPtrOutput)
 }
 
+// Scoping: who the policy applies to.
+// GROUP: `groupArns` required (one or more group ARNs).
+type ApprovalPolicyApplicableTo struct {
+	// Required when type = GROUP. One or more group ARNs.
+	GroupArns []string    `pulumi:"groupArns"`
+	Type      interface{} `pulumi:"type"`
+}
+
+// ApprovalPolicyApplicableToInput is an input type that accepts ApprovalPolicyApplicableToArgs and ApprovalPolicyApplicableToOutput values.
+// You can construct a concrete instance of `ApprovalPolicyApplicableToInput` via:
+//
+//	ApprovalPolicyApplicableToArgs{...}
+type ApprovalPolicyApplicableToInput interface {
+	pulumi.Input
+
+	ToApprovalPolicyApplicableToOutput() ApprovalPolicyApplicableToOutput
+	ToApprovalPolicyApplicableToOutputWithContext(context.Context) ApprovalPolicyApplicableToOutput
+}
+
+// Scoping: who the policy applies to.
+// GROUP: `groupArns` required (one or more group ARNs).
+type ApprovalPolicyApplicableToArgs struct {
+	// Required when type = GROUP. One or more group ARNs.
+	GroupArns pulumi.StringArrayInput `pulumi:"groupArns"`
+	Type      pulumi.Input            `pulumi:"type"`
+}
+
+func (ApprovalPolicyApplicableToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyApplicableTo)(nil)).Elem()
+}
+
+func (i ApprovalPolicyApplicableToArgs) ToApprovalPolicyApplicableToOutput() ApprovalPolicyApplicableToOutput {
+	return i.ToApprovalPolicyApplicableToOutputWithContext(context.Background())
+}
+
+func (i ApprovalPolicyApplicableToArgs) ToApprovalPolicyApplicableToOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApprovalPolicyApplicableToOutput)
+}
+
+// Scoping: who the policy applies to.
+// GROUP: `groupArns` required (one or more group ARNs).
+type ApprovalPolicyApplicableToOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyApplicableToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApprovalPolicyApplicableTo)(nil)).Elem()
+}
+
+func (o ApprovalPolicyApplicableToOutput) ToApprovalPolicyApplicableToOutput() ApprovalPolicyApplicableToOutput {
+	return o
+}
+
+func (o ApprovalPolicyApplicableToOutput) ToApprovalPolicyApplicableToOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToOutput {
+	return o
+}
+
+// Required when type = GROUP. One or more group ARNs.
+func (o ApprovalPolicyApplicableToOutput) GroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApprovalPolicyApplicableTo) []string { return v.GroupArns }).(pulumi.StringArrayOutput)
+}
+
+func (o ApprovalPolicyApplicableToOutput) Type() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApprovalPolicyApplicableTo) interface{} { return v.Type }).(pulumi.AnyOutput)
+}
+
+type ApprovalPolicyApplicableToPtrOutput struct{ *pulumi.OutputState }
+
+func (ApprovalPolicyApplicableToPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApprovalPolicyApplicableTo)(nil)).Elem()
+}
+
+func (o ApprovalPolicyApplicableToPtrOutput) ToApprovalPolicyApplicableToPtrOutput() ApprovalPolicyApplicableToPtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyApplicableToPtrOutput) ToApprovalPolicyApplicableToPtrOutputWithContext(ctx context.Context) ApprovalPolicyApplicableToPtrOutput {
+	return o
+}
+
+func (o ApprovalPolicyApplicableToPtrOutput) Elem() ApprovalPolicyApplicableToOutput {
+	return o.ApplyT(func(v *ApprovalPolicyApplicableTo) ApprovalPolicyApplicableTo {
+		if v != nil {
+			return *v
+		}
+		var ret ApprovalPolicyApplicableTo
+		return ret
+	}).(ApprovalPolicyApplicableToOutput)
+}
+
+// Required when type = GROUP. One or more group ARNs.
+func (o ApprovalPolicyApplicableToPtrOutput) GroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApprovalPolicyApplicableTo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupArns
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApprovalPolicyApplicableToPtrOutput) Type() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApprovalPolicyApplicableTo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.AnyOutput)
+}
+
 type CustomPermissionsCapabilities struct {
 	AccessAppsNativeDataStore *CustomPermissionsCapabilityState `pulumi:"accessAppsNativeDataStore"`
 	Action                    *CustomPermissionsCapabilityState `pulumi:"action"`
@@ -90631,257 +90738,6 @@ func (o DashboardRadarChartSortConfigurationPtrOutput) ColorSort() DashboardFiel
 	}).(DashboardFieldSortOptionsArrayOutput)
 }
 
-type DashboardRadarChartVisual struct {
-	// The list of custom actions that are configured for a visual.
-	Actions []DashboardVisualCustomAction `pulumi:"actions"`
-	// The configuration settings of the visual.
-	ChartConfiguration *DashboardRadarChartConfiguration `pulumi:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
-	ColumnHierarchies []DashboardColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
-	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText *string `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-	VisualId string `pulumi:"visualId"`
-}
-
-// DashboardRadarChartVisualInput is an input type that accepts DashboardRadarChartVisualArgs and DashboardRadarChartVisualOutput values.
-// You can construct a concrete instance of `DashboardRadarChartVisualInput` via:
-//
-//	DashboardRadarChartVisualArgs{...}
-type DashboardRadarChartVisualInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartVisualOutput() DashboardRadarChartVisualOutput
-	ToDashboardRadarChartVisualOutputWithContext(context.Context) DashboardRadarChartVisualOutput
-}
-
-type DashboardRadarChartVisualArgs struct {
-	// The list of custom actions that are configured for a visual.
-	Actions DashboardVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration settings of the visual.
-	ChartConfiguration DashboardRadarChartConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The column hierarchy that is used during drill-downs and drill-ups.
-	ColumnHierarchies DashboardColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle that is displayed on the visual.
-	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-	VisualId pulumi.StringInput `pulumi:"visualId"`
-}
-
-func (DashboardRadarChartVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartVisual)(nil)).Elem()
-}
-
-func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualOutput() DashboardRadarChartVisualOutput {
-	return i.ToDashboardRadarChartVisualOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualOutputWithContext(ctx context.Context) DashboardRadarChartVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartVisualOutput)
-}
-
-func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
-	return i.ToDashboardRadarChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartVisualOutput).ToDashboardRadarChartVisualPtrOutputWithContext(ctx)
-}
-
-// DashboardRadarChartVisualPtrInput is an input type that accepts DashboardRadarChartVisualArgs, DashboardRadarChartVisualPtr and DashboardRadarChartVisualPtrOutput values.
-// You can construct a concrete instance of `DashboardRadarChartVisualPtrInput` via:
-//
-//	        DashboardRadarChartVisualArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRadarChartVisualPtrInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput
-	ToDashboardRadarChartVisualPtrOutputWithContext(context.Context) DashboardRadarChartVisualPtrOutput
-}
-
-type dashboardRadarChartVisualPtrType DashboardRadarChartVisualArgs
-
-func DashboardRadarChartVisualPtr(v *DashboardRadarChartVisualArgs) DashboardRadarChartVisualPtrInput {
-	return (*dashboardRadarChartVisualPtrType)(v)
-}
-
-func (*dashboardRadarChartVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartVisual)(nil)).Elem()
-}
-
-func (i *dashboardRadarChartVisualPtrType) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
-	return i.ToDashboardRadarChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRadarChartVisualPtrType) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartVisualPtrOutput)
-}
-
-type DashboardRadarChartVisualOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartVisual)(nil)).Elem()
-}
-
-func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualOutput() DashboardRadarChartVisualOutput {
-	return o
-}
-
-func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualOutputWithContext(ctx context.Context) DashboardRadarChartVisualOutput {
-	return o
-}
-
-func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
-	return o.ToDashboardRadarChartVisualPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartVisual) *DashboardRadarChartVisual {
-		return &v
-	}).(DashboardRadarChartVisualPtrOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o DashboardRadarChartVisualOutput) Actions() DashboardVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v DashboardRadarChartVisual) []DashboardVisualCustomAction { return v.Actions }).(DashboardVisualCustomActionArrayOutput)
-}
-
-// The configuration settings of the visual.
-func (o DashboardRadarChartVisualOutput) ChartConfiguration() DashboardRadarChartConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartVisual) *DashboardRadarChartConfiguration { return v.ChartConfiguration }).(DashboardRadarChartConfigurationPtrOutput)
-}
-
-// The column hierarchy that is used during drill-downs and drill-ups.
-func (o DashboardRadarChartVisualOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v DashboardRadarChartVisual) []DashboardColumnHierarchy { return v.ColumnHierarchies }).(DashboardColumnHierarchyArrayOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o DashboardRadarChartVisualOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartVisual) *DashboardVisualSubtitleLabelOptions { return v.Subtitle }).(DashboardVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o DashboardRadarChartVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o DashboardRadarChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-func (o DashboardRadarChartVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardRadarChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
-}
-
-type DashboardRadarChartVisualPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartVisual)(nil)).Elem()
-}
-
-func (o DashboardRadarChartVisualPtrOutput) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartVisualPtrOutput) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartVisualPtrOutput) Elem() DashboardRadarChartVisualOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) DashboardRadarChartVisual {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRadarChartVisual
-		return ret
-	}).(DashboardRadarChartVisualOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o DashboardRadarChartVisualPtrOutput) Actions() DashboardVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) []DashboardVisualCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(DashboardVisualCustomActionArrayOutput)
-}
-
-// The configuration settings of the visual.
-func (o DashboardRadarChartVisualPtrOutput) ChartConfiguration() DashboardRadarChartConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) *DashboardRadarChartConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ChartConfiguration
-	}).(DashboardRadarChartConfigurationPtrOutput)
-}
-
-// The column hierarchy that is used during drill-downs and drill-ups.
-func (o DashboardRadarChartVisualPtrOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) []DashboardColumnHierarchy {
-		if v == nil {
-			return nil
-		}
-		return v.ColumnHierarchies
-	}).(DashboardColumnHierarchyArrayOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o DashboardRadarChartVisualPtrOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) *DashboardVisualSubtitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Subtitle
-	}).(DashboardVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o DashboardRadarChartVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) *DashboardVisualTitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(DashboardVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o DashboardRadarChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VisualContentAltText
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
-func (o DashboardRadarChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VisualId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsPtrInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
@@ -91049,6 +90905,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudVisualPtrInput)(nil)).Elem(), AnalysisWordCloudVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisYAxisOptionsInput)(nil)).Elem(), AnalysisYAxisOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisYAxisOptionsPtrInput)(nil)).Elem(), AnalysisYAxisOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApprovalPolicyApplicableToInput)(nil)).Elem(), ApprovalPolicyApplicableToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilitiesInput)(nil)).Elem(), CustomPermissionsCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilitiesPtrInput)(nil)).Elem(), CustomPermissionsCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAdHocFilteringOptionInput)(nil)).Elem(), DashboardAdHocFilteringOptionArgs{})
@@ -91872,8 +91729,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSeriesSettingsPtrInput)(nil)).Elem(), DashboardRadarChartSeriesSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSortConfigurationInput)(nil)).Elem(), DashboardRadarChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSortConfigurationPtrInput)(nil)).Elem(), DashboardRadarChartSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualPtrInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
 	pulumi.RegisterOutputType(AnalysisSubtotalOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisSubtotalOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableAggregatedFieldWellsOutput{})
@@ -92040,6 +91895,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisWordCloudVisualPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisYAxisOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisYAxisOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyApplicableToOutput{})
+	pulumi.RegisterOutputType(ApprovalPolicyApplicableToPtrOutput{})
 	pulumi.RegisterOutputType(CustomPermissionsCapabilitiesOutput{})
 	pulumi.RegisterOutputType(CustomPermissionsCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(DashboardAdHocFilteringOptionOutput{})
@@ -92867,6 +92724,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardRadarChartSeriesSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartSortConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartSortConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartVisualOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartVisualPtrOutput{})
 }

@@ -6,8 +6,11 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .collection import *
+from .dataset import *
 from .get_collection import *
+from .get_dataset import *
 from .get_project import *
 from .get_stream_processor import *
 from .project import *

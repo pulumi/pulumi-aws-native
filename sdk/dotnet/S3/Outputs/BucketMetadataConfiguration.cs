@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketMetadataConfiguration
     {
+        /// <summary>
+        /// The annotation table configuration for a metadata configuration.
+        /// </summary>
         public readonly Outputs.BucketAnnotationTableConfiguration? AnnotationTableConfiguration;
         /// <summary>
         /// The destination information for the S3 Metadata configuration.

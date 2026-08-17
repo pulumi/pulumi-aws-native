@@ -50,12 +50,22 @@ __all__ = [
     'ClusterEncryptionConfigArgsDict',
     'ClusterEtcdPlacementArgs',
     'ClusterEtcdPlacementArgsDict',
+    'ClusterHorizontalPodAutoscalerControllerConfigArgs',
+    'ClusterHorizontalPodAutoscalerControllerConfigArgsDict',
+    'ClusterKubeApiServerConfigArgs',
+    'ClusterKubeApiServerConfigArgsDict',
+    'ClusterKubeControllerManagerConfigArgs',
+    'ClusterKubeControllerManagerConfigArgsDict',
+    'ClusterKubeSchedulerConfigArgs',
+    'ClusterKubeSchedulerConfigArgsDict',
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterKubernetesNetworkConfigArgsDict',
     'ClusterLoggingEnabledTypesArgs',
     'ClusterLoggingEnabledTypesArgsDict',
     'ClusterLoggingTypeConfigArgs',
     'ClusterLoggingTypeConfigArgsDict',
+    'ClusterNodeResourcesFitConfigArgs',
+    'ClusterNodeResourcesFitConfigArgsDict',
     'ClusterOutpostConfigArgs',
     'ClusterOutpostConfigArgsDict',
     'ClusterProviderArgs',
@@ -66,10 +76,16 @@ __all__ = [
     'ClusterRemoteNodeNetworkArgsDict',
     'ClusterRemotePodNetworkArgs',
     'ClusterRemotePodNetworkArgsDict',
+    'ClusterResourceWeightArgs',
+    'ClusterResourceWeightArgsDict',
     'ClusterResourcesVpcConfigArgs',
     'ClusterResourcesVpcConfigArgsDict',
     'ClusterRollbackConfigArgs',
     'ClusterRollbackConfigArgsDict',
+    'ClusterScoringStrategyArgs',
+    'ClusterScoringStrategyArgsDict',
+    'ClusterServiceNodePortRangeArgs',
+    'ClusterServiceNodePortRangeArgsDict',
     'ClusterStorageConfigArgs',
     'ClusterStorageConfigArgsDict',
     'ClusterUpgradePolicyArgs',
@@ -491,17 +507,30 @@ class CapabilityConfigurationArgsDict(TypedDict):
     """
     Configuration settings for a capability. The structure of this object varies depending on the capability type.
     """
+    ack: NotRequired[Any]
     argo_cd: NotRequired[pulumi.Input[Optional['CapabilityArgoCdArgsDict']]]
 
 @pulumi.input_type
 class CapabilityConfigurationArgs:
     def __init__(__self__, *,
+                 ack: Optional[Any] = None,
                  argo_cd: pulumi.Input[Optional['CapabilityArgoCdArgs']] = None):
         """
         Configuration settings for a capability. The structure of this object varies depending on the capability type.
         """
+        if ack is not None:
+            pulumi.set(__self__, "ack", ack)
         if argo_cd is not None:
             pulumi.set(__self__, "argo_cd", argo_cd)
+
+    @_builtins.property
+    @pulumi.getter
+    def ack(self) -> Optional[Any]:
+        return pulumi.get(self, "ack")
+
+    @ack.setter
+    def ack(self, value: Optional[Any]):
+        pulumi.set(self, "ack", value)
 
     @_builtins.property
     @pulumi.getter(name="argoCd")
@@ -971,6 +1000,139 @@ class ClusterEtcdPlacementArgs:
         pulumi.set(self, "spread_level", value)
 
 
+class ClusterHorizontalPodAutoscalerControllerConfigArgsDict(TypedDict):
+    """
+    The horizontal pod autoscaler controller configuration.
+    """
+    horizontal_pod_autoscaler_sync_period: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+    """
+
+@pulumi.input_type
+class ClusterHorizontalPodAutoscalerControllerConfigArgs:
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_sync_period: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The horizontal pod autoscaler controller configuration.
+
+        :param pulumi.Input[_builtins.str] horizontal_pod_autoscaler_sync_period: The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+        """
+        if horizontal_pod_autoscaler_sync_period is not None:
+            pulumi.set(__self__, "horizontal_pod_autoscaler_sync_period", horizontal_pod_autoscaler_sync_period)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerSyncPeriod")
+    def horizontal_pod_autoscaler_sync_period(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_sync_period")
+
+    @horizontal_pod_autoscaler_sync_period.setter
+    def horizontal_pod_autoscaler_sync_period(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "horizontal_pod_autoscaler_sync_period", value)
+
+
+class ClusterKubeApiServerConfigArgsDict(TypedDict):
+    """
+    The configuration for the Kubernetes API server on an Amazon EKS cluster.
+    """
+    event_ttl: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The duration that Kubernetes events are retained (e.g., 30m, 1h).
+    """
+    service_node_port_range: NotRequired[pulumi.Input[Optional['ClusterServiceNodePortRangeArgsDict']]]
+
+@pulumi.input_type
+class ClusterKubeApiServerConfigArgs:
+    def __init__(__self__, *,
+                 event_ttl: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_node_port_range: pulumi.Input[Optional['ClusterServiceNodePortRangeArgs']] = None):
+        """
+        The configuration for the Kubernetes API server on an Amazon EKS cluster.
+
+        :param pulumi.Input[_builtins.str] event_ttl: The duration that Kubernetes events are retained (e.g., 30m, 1h).
+        """
+        if event_ttl is not None:
+            pulumi.set(__self__, "event_ttl", event_ttl)
+        if service_node_port_range is not None:
+            pulumi.set(__self__, "service_node_port_range", service_node_port_range)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTtl")
+    def event_ttl(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The duration that Kubernetes events are retained (e.g., 30m, 1h).
+        """
+        return pulumi.get(self, "event_ttl")
+
+    @event_ttl.setter
+    def event_ttl(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "event_ttl", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNodePortRange")
+    def service_node_port_range(self) -> pulumi.Input[Optional['ClusterServiceNodePortRangeArgs']]:
+        return pulumi.get(self, "service_node_port_range")
+
+    @service_node_port_range.setter
+    def service_node_port_range(self, value: pulumi.Input[Optional['ClusterServiceNodePortRangeArgs']]):
+        pulumi.set(self, "service_node_port_range", value)
+
+
+class ClusterKubeControllerManagerConfigArgsDict(TypedDict):
+    """
+    The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+    """
+    horizontal_pod_autoscaler_controller_config: NotRequired[pulumi.Input[Optional['ClusterHorizontalPodAutoscalerControllerConfigArgsDict']]]
+
+@pulumi.input_type
+class ClusterKubeControllerManagerConfigArgs:
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_controller_config: pulumi.Input[Optional['ClusterHorizontalPodAutoscalerControllerConfigArgs']] = None):
+        """
+        The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+        """
+        if horizontal_pod_autoscaler_controller_config is not None:
+            pulumi.set(__self__, "horizontal_pod_autoscaler_controller_config", horizontal_pod_autoscaler_controller_config)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerControllerConfig")
+    def horizontal_pod_autoscaler_controller_config(self) -> pulumi.Input[Optional['ClusterHorizontalPodAutoscalerControllerConfigArgs']]:
+        return pulumi.get(self, "horizontal_pod_autoscaler_controller_config")
+
+    @horizontal_pod_autoscaler_controller_config.setter
+    def horizontal_pod_autoscaler_controller_config(self, value: pulumi.Input[Optional['ClusterHorizontalPodAutoscalerControllerConfigArgs']]):
+        pulumi.set(self, "horizontal_pod_autoscaler_controller_config", value)
+
+
+class ClusterKubeSchedulerConfigArgsDict(TypedDict):
+    """
+    The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+    """
+    node_resources_fit: NotRequired[pulumi.Input[Optional['ClusterNodeResourcesFitConfigArgsDict']]]
+
+@pulumi.input_type
+class ClusterKubeSchedulerConfigArgs:
+    def __init__(__self__, *,
+                 node_resources_fit: pulumi.Input[Optional['ClusterNodeResourcesFitConfigArgs']] = None):
+        """
+        The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+        """
+        if node_resources_fit is not None:
+            pulumi.set(__self__, "node_resources_fit", node_resources_fit)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeResourcesFit")
+    def node_resources_fit(self) -> pulumi.Input[Optional['ClusterNodeResourcesFitConfigArgs']]:
+        return pulumi.get(self, "node_resources_fit")
+
+    @node_resources_fit.setter
+    def node_resources_fit(self, value: pulumi.Input[Optional['ClusterNodeResourcesFitConfigArgs']]):
+        pulumi.set(self, "node_resources_fit", value)
+
+
 class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
     """
     The Kubernetes network configuration for the cluster.
@@ -1137,6 +1299,32 @@ class ClusterLoggingTypeConfigArgs:
     @type.setter
     def type(self, value: pulumi.Input[Optional['ClusterLoggingTypeConfigType']]):
         pulumi.set(self, "type", value)
+
+
+class ClusterNodeResourcesFitConfigArgsDict(TypedDict):
+    """
+    The NodeResourcesFit plugin configuration for the Kubernetes scheduler.
+    """
+    scoring_strategy: NotRequired[pulumi.Input[Optional['ClusterScoringStrategyArgsDict']]]
+
+@pulumi.input_type
+class ClusterNodeResourcesFitConfigArgs:
+    def __init__(__self__, *,
+                 scoring_strategy: pulumi.Input[Optional['ClusterScoringStrategyArgs']] = None):
+        """
+        The NodeResourcesFit plugin configuration for the Kubernetes scheduler.
+        """
+        if scoring_strategy is not None:
+            pulumi.set(__self__, "scoring_strategy", scoring_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategy")
+    def scoring_strategy(self) -> pulumi.Input[Optional['ClusterScoringStrategyArgs']]:
+        return pulumi.get(self, "scoring_strategy")
+
+    @scoring_strategy.setter
+    def scoring_strategy(self, value: pulumi.Input[Optional['ClusterScoringStrategyArgs']]):
+        pulumi.set(self, "scoring_strategy", value)
 
 
 class ClusterOutpostConfigArgsDict(TypedDict):
@@ -1400,6 +1588,60 @@ class ClusterRemotePodNetworkArgs:
         pulumi.set(self, "cidrs", value)
 
 
+class ClusterResourceWeightArgsDict(TypedDict):
+    """
+    A resource weight entry for the scheduler scoring strategy.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the resource (for example, cpu or memory).
+    """
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The weight assigned to the resource for scoring. Must be between 1 and 100.
+    """
+
+@pulumi.input_type
+class ClusterResourceWeightArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        A resource weight entry for the scheduler scoring strategy.
+
+        :param pulumi.Input[_builtins.str] name: The name of the resource (for example, cpu or memory).
+        :param pulumi.Input[_builtins.int] weight: The weight assigned to the resource for scoring. Must be between 1 and 100.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource (for example, cpu or memory).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The weight assigned to the resource for scoring. Must be between 1 and 100.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "weight", value)
+
+
 class ClusterResourcesVpcConfigArgsDict(TypedDict):
     """
     An object representing the VPC configuration to use for an Amazon EKS cluster.
@@ -1565,6 +1807,114 @@ class ClusterRollbackConfigArgs:
     @timeout_minutes.setter
     def timeout_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_minutes", value)
+
+
+class ClusterScoringStrategyArgsDict(TypedDict):
+    """
+    The scoring strategy configuration for the NodeResourcesFit scheduler plugin.
+    """
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterResourceWeightArgsDict']]]]]
+    """
+    The resource weights used for scoring nodes.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The scoring strategy type (LeastAllocated or MostAllocated).
+    """
+
+@pulumi.input_type
+class ClusterScoringStrategyArgs:
+    def __init__(__self__, *,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterResourceWeightArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The scoring strategy configuration for the NodeResourcesFit scheduler plugin.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterResourceWeightArgs']]] resources: The resource weights used for scoring nodes.
+        :param pulumi.Input[_builtins.str] type: The scoring strategy type (LeastAllocated or MostAllocated).
+        """
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterResourceWeightArgs']]]]:
+        """
+        The resource weights used for scoring nodes.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterResourceWeightArgs']]]]):
+        pulumi.set(self, "resources", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The scoring strategy type (LeastAllocated or MostAllocated).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class ClusterServiceNodePortRangeArgsDict(TypedDict):
+    """
+    The port range for Kubernetes NodePort services.
+    """
+    max_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum port number in the range.
+    """
+    min_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The minimum port number in the range.
+    """
+
+@pulumi.input_type
+class ClusterServiceNodePortRangeArgs:
+    def __init__(__self__, *,
+                 max_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_port: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The port range for Kubernetes NodePort services.
+
+        :param pulumi.Input[_builtins.int] max_port: The maximum port number in the range.
+        :param pulumi.Input[_builtins.int] min_port: The minimum port number in the range.
+        """
+        if max_port is not None:
+            pulumi.set(__self__, "max_port", max_port)
+        if min_port is not None:
+            pulumi.set(__self__, "min_port", min_port)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPort")
+    def max_port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum port number in the range.
+        """
+        return pulumi.get(self, "max_port")
+
+    @max_port.setter
+    def max_port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minPort")
+    def min_port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum port number in the range.
+        """
+        return pulumi.get(self, "min_port")
+
+    @min_port.setter
+    def min_port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_port", value)
 
 
 class ClusterStorageConfigArgsDict(TypedDict):

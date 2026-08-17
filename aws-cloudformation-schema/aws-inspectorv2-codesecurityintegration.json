@@ -154,7 +154,7 @@
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Status", "/properties/StatusReason", "/properties/AuthorizationUrl", "/properties/CreatedAt", "/properties/LastUpdatedAt" ],
   "writeOnlyProperties" : [ "/properties/CreateIntegrationDetails", "/properties/UpdateIntegrationDetails" ],
-  "createOnlyProperties" : [ "/properties/CreateIntegrationDetails", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/CreateIntegrationDetails" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {

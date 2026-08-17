@@ -79,7 +79,6 @@ namespace Pulumi.AwsNative.InspectorV2
                     "level",
                     "name",
                     "scopeSettings",
-                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

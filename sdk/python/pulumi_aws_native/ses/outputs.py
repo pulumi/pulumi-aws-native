@@ -126,6 +126,16 @@ __all__ = [
     'MailManagerTrafficPolicyPolicyStatement',
     'MultiRegionEndpointDetails',
     'MultiRegionEndpointRouteDetailsItemProperties',
+    'ReceiptRuleAction',
+    'ReceiptRuleAddHeaderAction',
+    'ReceiptRuleBounceAction',
+    'ReceiptRuleConnectAction',
+    'ReceiptRuleLambdaAction',
+    'ReceiptRuleRule',
+    'ReceiptRuleS3Action',
+    'ReceiptRuleSnsAction',
+    'ReceiptRuleStopAction',
+    'ReceiptRuleWorkmailAction',
     'Template',
     'TenantResourceAssociation',
     'VdmAttributesDashboardAttributes',
@@ -3750,6 +3760,767 @@ class MultiRegionEndpointRouteDetailsItemProperties(dict):
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class ReceiptRuleAction(dict):
+    """
+    An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addHeaderAction":
+            suggest = "add_header_action"
+        elif key == "bounceAction":
+            suggest = "bounce_action"
+        elif key == "connectAction":
+            suggest = "connect_action"
+        elif key == "lambdaAction":
+            suggest = "lambda_action"
+        elif key == "s3Action":
+            suggest = "s3_action"
+        elif key == "snsAction":
+            suggest = "sns_action"
+        elif key == "stopAction":
+            suggest = "stop_action"
+        elif key == "workmailAction":
+            suggest = "workmail_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_header_action: Optional['outputs.ReceiptRuleAddHeaderAction'] = None,
+                 bounce_action: Optional['outputs.ReceiptRuleBounceAction'] = None,
+                 connect_action: Optional['outputs.ReceiptRuleConnectAction'] = None,
+                 lambda_action: Optional['outputs.ReceiptRuleLambdaAction'] = None,
+                 s3_action: Optional['outputs.ReceiptRuleS3Action'] = None,
+                 sns_action: Optional['outputs.ReceiptRuleSnsAction'] = None,
+                 stop_action: Optional['outputs.ReceiptRuleStopAction'] = None,
+                 workmail_action: Optional['outputs.ReceiptRuleWorkmailAction'] = None):
+        """
+        An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
+
+        :param 'ReceiptRuleAddHeaderAction' add_header_action: Adds a header to the received email.
+        :param 'ReceiptRuleBounceAction' bounce_action: Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+        :param 'ReceiptRuleConnectAction' connect_action: The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+        :param 'ReceiptRuleLambdaAction' lambda_action: Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+        :param 'ReceiptRuleS3Action' s3_action: Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
+        :param 'ReceiptRuleSnsAction' sns_action: Publishes the email content within a notification to Amazon SNS.
+        :param 'ReceiptRuleStopAction' stop_action: Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+        :param 'ReceiptRuleWorkmailAction' workmail_action: Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+        """
+        if add_header_action is not None:
+            pulumi.set(__self__, "add_header_action", add_header_action)
+        if bounce_action is not None:
+            pulumi.set(__self__, "bounce_action", bounce_action)
+        if connect_action is not None:
+            pulumi.set(__self__, "connect_action", connect_action)
+        if lambda_action is not None:
+            pulumi.set(__self__, "lambda_action", lambda_action)
+        if s3_action is not None:
+            pulumi.set(__self__, "s3_action", s3_action)
+        if sns_action is not None:
+            pulumi.set(__self__, "sns_action", sns_action)
+        if stop_action is not None:
+            pulumi.set(__self__, "stop_action", stop_action)
+        if workmail_action is not None:
+            pulumi.set(__self__, "workmail_action", workmail_action)
+
+    @_builtins.property
+    @pulumi.getter(name="addHeaderAction")
+    def add_header_action(self) -> Optional['outputs.ReceiptRuleAddHeaderAction']:
+        """
+        Adds a header to the received email.
+        """
+        return pulumi.get(self, "add_header_action")
+
+    @_builtins.property
+    @pulumi.getter(name="bounceAction")
+    def bounce_action(self) -> Optional['outputs.ReceiptRuleBounceAction']:
+        """
+        Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+        """
+        return pulumi.get(self, "bounce_action")
+
+    @_builtins.property
+    @pulumi.getter(name="connectAction")
+    def connect_action(self) -> Optional['outputs.ReceiptRuleConnectAction']:
+        """
+        The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+        """
+        return pulumi.get(self, "connect_action")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaAction")
+    def lambda_action(self) -> Optional['outputs.ReceiptRuleLambdaAction']:
+        """
+        Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+        """
+        return pulumi.get(self, "lambda_action")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Action")
+    def s3_action(self) -> Optional['outputs.ReceiptRuleS3Action']:
+        """
+        Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
+        """
+        return pulumi.get(self, "s3_action")
+
+    @_builtins.property
+    @pulumi.getter(name="snsAction")
+    def sns_action(self) -> Optional['outputs.ReceiptRuleSnsAction']:
+        """
+        Publishes the email content within a notification to Amazon SNS.
+        """
+        return pulumi.get(self, "sns_action")
+
+    @_builtins.property
+    @pulumi.getter(name="stopAction")
+    def stop_action(self) -> Optional['outputs.ReceiptRuleStopAction']:
+        """
+        Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+        """
+        return pulumi.get(self, "stop_action")
+
+    @_builtins.property
+    @pulumi.getter(name="workmailAction")
+    def workmail_action(self) -> Optional['outputs.ReceiptRuleWorkmailAction']:
+        """
+        Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+        """
+        return pulumi.get(self, "workmail_action")
+
+
+@pulumi.output_type
+class ReceiptRuleAddHeaderAction(dict):
+    """
+    When included in a receipt rule, this action adds a header to the received email.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleAddHeaderAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleAddHeaderAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleAddHeaderAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: _builtins.str,
+                 header_value: _builtins.str):
+        """
+        When included in a receipt rule, this action adds a header to the received email.
+
+        :param _builtins.str header_name: The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a-z, A-Z, 0-9) characters and dashes.
+        :param _builtins.str header_value: The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (\\n) or carriage return (\\r) characters.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "header_value", header_value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> _builtins.str:
+        """
+        The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a-z, A-Z, 0-9) characters and dashes.
+        """
+        return pulumi.get(self, "header_name")
+
+    @_builtins.property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> _builtins.str:
+        """
+        The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (\\n) or carriage return (\\r) characters.
+        """
+        return pulumi.get(self, "header_value")
+
+
+@pulumi.output_type
+class ReceiptRuleBounceAction(dict):
+    """
+    When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smtpReplyCode":
+            suggest = "smtp_reply_code"
+        elif key == "statusCode":
+            suggest = "status_code"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleBounceAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleBounceAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleBounceAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message: _builtins.str,
+                 sender: _builtins.str,
+                 smtp_reply_code: _builtins.str,
+                 status_code: Optional[_builtins.str] = None,
+                 topic_arn: Optional[_builtins.str] = None):
+        """
+        When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+
+        :param _builtins.str message: Human-readable text to include in the bounce message.
+        :param _builtins.str sender: The email address of the sender of the bounced email. This is the address from which the bounce message is sent.
+        :param _builtins.str smtp_reply_code: The SMTP reply code, as defined by RFC 5321.
+        :param _builtins.str status_code: The SMTP enhanced status code, as defined by RFC 3463.
+        :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "sender", sender)
+        pulumi.set(__self__, "smtp_reply_code", smtp_reply_code)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        Human-readable text to include in the bounce message.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter
+    def sender(self) -> _builtins.str:
+        """
+        The email address of the sender of the bounced email. This is the address from which the bounce message is sent.
+        """
+        return pulumi.get(self, "sender")
+
+    @_builtins.property
+    @pulumi.getter(name="smtpReplyCode")
+    def smtp_reply_code(self) -> _builtins.str:
+        """
+        The SMTP reply code, as defined by RFC 5321.
+        """
+        return pulumi.get(self, "smtp_reply_code")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[_builtins.str]:
+        """
+        The SMTP enhanced status code, as defined by RFC 3463.
+        """
+        return pulumi.get(self, "status_code")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class ReceiptRuleConnectAction(dict):
+    """
+    When included in a receipt rule, this action parses the received message and starts an email contact in Amazon Connect on your behalf.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamRoleArn":
+            suggest = "iam_role_arn"
+        elif key == "instanceArn":
+            suggest = "instance_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleConnectAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleConnectAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleConnectAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_role_arn: _builtins.str,
+                 instance_arn: _builtins.str):
+        """
+        When included in a receipt rule, this action parses the received message and starts an email contact in Amazon Connect on your behalf.
+
+        :param _builtins.str iam_role_arn: The Amazon Resource Name (ARN) of the IAM role to be used by Amazon Simple Email Service while starting email contacts to the Amazon Connect instance. This role should have permission to invoke connect:StartEmailContact for the given Amazon Connect instance.
+        :param _builtins.str instance_arn: The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting email contacts.
+        """
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "instance_arn", instance_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to be used by Amazon Simple Email Service while starting email contacts to the Amazon Connect instance. This role should have permission to invoke connect:StartEmailContact for the given Amazon Connect instance.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting email contacts.
+        """
+        return pulumi.get(self, "instance_arn")
+
+
+@pulumi.output_type
+class ReceiptRuleLambdaAction(dict):
+    """
+    When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+        elif key == "invocationType":
+            suggest = "invocation_type"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleLambdaAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleLambdaAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleLambdaAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_arn: _builtins.str,
+                 invocation_type: Optional[_builtins.str] = None,
+                 topic_arn: Optional[_builtins.str] = None):
+        """
+        When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+
+        :param _builtins.str function_arn: The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction. For more information about AWS Lambda, see the AWS Lambda Developer Guide.
+        :param _builtins.str invocation_type: The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function immediately results in a response, and a value of Event means that the function is invoked asynchronously. The default value is Event. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide. There is a 30-second timeout on RequestResponse invocations. You should use Event invocation in most cases. Use RequestResponse only to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+        :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        pulumi.set(__self__, "function_arn", function_arn)
+        if invocation_type is not None:
+            pulumi.set(__self__, "invocation_type", invocation_type)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction. For more information about AWS Lambda, see the AWS Lambda Developer Guide.
+        """
+        return pulumi.get(self, "function_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="invocationType")
+    def invocation_type(self) -> Optional[_builtins.str]:
+        """
+        The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function immediately results in a response, and a value of Event means that the function is invoked asynchronously. The default value is Event. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide. There is a 30-second timeout on RequestResponse invocations. You should use Event invocation in most cases. Use RequestResponse only to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+        """
+        return pulumi.get(self, "invocation_type")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class ReceiptRuleRule(dict):
+    """
+    A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scanEnabled":
+            suggest = "scan_enabled"
+        elif key == "tlsPolicy":
+            suggest = "tls_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Optional[Sequence['outputs.ReceiptRuleAction']] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 recipients: Optional[Sequence[_builtins.str]] = None,
+                 scan_enabled: Optional[_builtins.bool] = None,
+                 tls_policy: Optional[_builtins.str] = None):
+        """
+        A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+
+        :param Sequence['ReceiptRuleAction'] actions: An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+        :param _builtins.bool enabled: If true, the receipt rule is active. The default value is false.
+        :param _builtins.str name: The name of the receipt rule. The name must meet the following requirements: Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.). Start and end with a letter or number. Contain 64 characters or fewer.
+        :param Sequence[_builtins.str] recipients: The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
+        :param _builtins.bool scan_enabled: If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.
+        :param _builtins.str tls_policy: Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to Require, Amazon SES bounces emails that are not received over TLS. The default is Optional.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recipients is not None:
+            pulumi.set(__self__, "recipients", recipients)
+        if scan_enabled is not None:
+            pulumi.set(__self__, "scan_enabled", scan_enabled)
+        if tls_policy is not None:
+            pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.ReceiptRuleAction']]:
+        """
+        An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        If true, the receipt rule is active. The default value is false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the receipt rule. The name must meet the following requirements: Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.). Start and end with a letter or number. Contain 64 characters or fewer.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def recipients(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
+        """
+        return pulumi.get(self, "recipients")
+
+    @_builtins.property
+    @pulumi.getter(name="scanEnabled")
+    def scan_enabled(self) -> Optional[_builtins.bool]:
+        """
+        If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.
+        """
+        return pulumi.get(self, "scan_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="tlsPolicy")
+    def tls_policy(self) -> Optional[_builtins.str]:
+        """
+        Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to Require, Amazon SES bounces emails that are not received over TLS. The default is Optional.
+        """
+        return pulumi.get(self, "tls_policy")
+
+
+@pulumi.output_type
+class ReceiptRuleS3Action(dict):
+    """
+    When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "objectKeyPrefix":
+            suggest = "object_key_prefix"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleS3Action. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleS3Action.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleS3Action.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: _builtins.str,
+                 iam_role_arn: Optional[_builtins.str] = None,
+                 kms_key_arn: Optional[_builtins.str] = None,
+                 object_key_prefix: Optional[_builtins.str] = None,
+                 topic_arn: Optional[_builtins.str] = None):
+        """
+        When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+
+        :param _builtins.str bucket_name: The name of the Amazon S3 bucket for incoming email.
+        :param _builtins.str iam_role_arn: The ARN of the IAM role to be used by Amazon SES while writing to the Amazon S3 bucket.
+        :param _builtins.str kms_key_arn: The customer managed key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the AWS managed key or a customer managed key that you created in AWS KMS as follows: To use the AWS managed key, provide an ARN in the form of arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses. For example, if your AWS account ID is 123456789012 and you want to use the AWS managed key in the US West (Oregon) Region, the ARN of the AWS managed key would be arn:aws:kms:us-west-2:123456789012:alias/aws/ses. If you use the AWS managed key, you don't need to perform any extra steps to give Amazon SES permission to use the key. To use a customer managed key that you created in AWS KMS, provide the ARN of the customer managed key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the Amazon SES Developer Guide. For more information about key policies, see the AWS KMS Developer Guide. If you do not specify an AWS KMS key, Amazon SES does not encrypt your emails. Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the AWS SDK for Java and AWS SDK for Ruby only. For more information about client-side encryption using AWS KMS managed keys, see the Amazon S3 Developer Guide.
+        :param _builtins.str object_key_prefix: The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
+        :param _builtins.str topic_arn: The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if object_key_prefix is not None:
+            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> _builtins.str:
+        """
+        The name of the Amazon S3 bucket for incoming email.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the IAM role to be used by Amazon SES while writing to the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The customer managed key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the AWS managed key or a customer managed key that you created in AWS KMS as follows: To use the AWS managed key, provide an ARN in the form of arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses. For example, if your AWS account ID is 123456789012 and you want to use the AWS managed key in the US West (Oregon) Region, the ARN of the AWS managed key would be arn:aws:kms:us-west-2:123456789012:alias/aws/ses. If you use the AWS managed key, you don't need to perform any extra steps to give Amazon SES permission to use the key. To use a customer managed key that you created in AWS KMS, provide the ARN of the customer managed key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the Amazon SES Developer Guide. For more information about key policies, see the AWS KMS Developer Guide. If you do not specify an AWS KMS key, Amazon SES does not encrypt your emails. Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the AWS SDK for Java and AWS SDK for Ruby only. For more information about client-side encryption using AWS KMS managed keys, see the Amazon S3 Developer Guide.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="objectKeyPrefix")
+    def object_key_prefix(self) -> Optional[_builtins.str]:
+        """
+        The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
+        """
+        return pulumi.get(self, "object_key_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class ReceiptRuleSnsAction(dict):
+    """
+    The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleSnsAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleSnsAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleSnsAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encoding: Optional[_builtins.str] = None,
+                 topic_arn: Optional[_builtins.str] = None):
+        """
+        The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.
+
+        :param _builtins.str encoding: The encoding to use for the email within the Amazon SNS notification. The default value is UTF-8. Use BASE64 if you need to preserve all special characters, especially when the original message uses a different encoding format.
+        :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS Topic to which notification for the email received will be published.
+        """
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        """
+        The encoding to use for the email within the Amazon SNS notification. The default value is UTF-8. Use BASE64 if you need to preserve all special characters, especially when the original message uses a different encoding format.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS Topic to which notification for the email received will be published.
+        """
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class ReceiptRuleStopAction(dict):
+    """
+    When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleStopAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleStopAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleStopAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scope: _builtins.str,
+                 topic_arn: Optional[_builtins.str] = None):
+        """
+        When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+
+        :param _builtins.str scope: The scope of the StopAction. The only acceptable value is RuleSet.
+        :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics Amazon SNS operation.
+        """
+        pulumi.set(__self__, "scope", scope)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> _builtins.str:
+        """
+        The scope of the StopAction. The only acceptable value is RuleSet.
+        """
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics Amazon SNS operation.
+        """
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class ReceiptRuleWorkmailAction(dict):
+    """
+    When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). It usually isn't necessary to set this up manually, because Amazon WorkMail adds the rule automatically during its setup procedure.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationArn":
+            suggest = "organization_arn"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptRuleWorkmailAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptRuleWorkmailAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptRuleWorkmailAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organization_arn: _builtins.str,
+                 topic_arn: Optional[_builtins.str] = None):
+        """
+        When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). It usually isn't necessary to set this up manually, because Amazon WorkMail adds the rule automatically during its setup procedure.
+
+        :param _builtins.str organization_arn: The Amazon Resource Name (ARN) of the Amazon WorkMail organization. Amazon WorkMail ARNs use the following format: arn:aws:workmail:<region>:<awsAccountId>:organization/<workmailOrganizationId>. You can find the ID of your organization by using the ListOrganizations operation in Amazon WorkMail. Amazon WorkMail organization IDs begin with "m-", followed by a string of alphanumeric characters.
+        :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        pulumi.set(__self__, "organization_arn", organization_arn)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationArn")
+    def organization_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon WorkMail organization. Amazon WorkMail ARNs use the following format: arn:aws:workmail:<region>:<awsAccountId>:organization/<workmailOrganizationId>. You can find the ID of your organization by using the ListOrganizations operation in Amazon WorkMail. Amazon WorkMail organization IDs begin with "m-", followed by a string of alphanumeric characters.
+        """
+        return pulumi.get(self, "organization_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+        """
+        return pulumi.get(self, "topic_arn")
 
 
 @pulumi.output_type

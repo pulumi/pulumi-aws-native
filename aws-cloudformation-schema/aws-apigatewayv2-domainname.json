@@ -111,16 +111,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:PUT" ]
+      "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:PUT", "apigateway:AddCertificateToDomain", "s3:GetObject", "s3:GetObjectVersion" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT", "apigateway:POST", "apigateway:DELETE" ]
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT", "apigateway:POST", "apigateway:DELETE", "apigateway:AddCertificateToDomain", "apigateway:RemoveCertificateFromDomain", "s3:GetObject", "s3:GetObjectVersion" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "delete" : {
-      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE", "apigateway:RemoveCertificateFromDomain" ]
     },
     "list" : {
       "permissions" : [ "apigateway:GET" ]

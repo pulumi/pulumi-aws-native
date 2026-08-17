@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("encryptionConflictResolutionStrategy")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy>? EncryptionConflictResolutionStrategy { get; set; }
 
+        [Input("encryptionScope")]
+        public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope>? EncryptionScope { get; set; }
+
         /// <summary>
         /// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
         /// </summary>

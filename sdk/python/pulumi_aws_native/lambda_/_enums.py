@@ -209,6 +209,9 @@ class FunctionArchitecturesItem(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:lambda:FunctionCodeS3ObjectStorageMode")
 class FunctionCodeS3ObjectStorageMode(_builtins.str, Enum):
+    """
+    Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
+    """
     COPY = "COPY"
     REFERENCE = "REFERENCE"
 

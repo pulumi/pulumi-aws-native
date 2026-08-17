@@ -234,7 +234,6 @@ namespace Pulumi.AwsNative.CertificateManager
                     "domainValidationOptions[*]",
                     "keyAlgorithm",
                     "subjectAlternativeNames[*]",
-                    "validationMethod",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

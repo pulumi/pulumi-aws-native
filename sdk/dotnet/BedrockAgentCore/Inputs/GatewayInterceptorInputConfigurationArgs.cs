@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("passRequestHeaders", required: true)]
         public Input<bool> PassRequestHeaders { get; set; } = null!;
 
+        [Input("payloadFilter")]
+        public Input<Inputs.GatewayInterceptorPayloadFilterArgs>? PayloadFilter { get; set; }
+
         public GatewayInterceptorInputConfigurationArgs()
         {
         }

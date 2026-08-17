@@ -203,42 +203,6 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
-    /// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-    /// </summary>
-    [EnumType]
-    public readonly struct Ec2FleetEbsBlockDeviceVolumeType : IEquatable<Ec2FleetEbsBlockDeviceVolumeType>
-    {
-        private readonly string _value;
-
-        private Ec2FleetEbsBlockDeviceVolumeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Ec2FleetEbsBlockDeviceVolumeType Gp2 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("gp2");
-        public static Ec2FleetEbsBlockDeviceVolumeType Gp3 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("gp3");
-        public static Ec2FleetEbsBlockDeviceVolumeType Io1 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("io1");
-        public static Ec2FleetEbsBlockDeviceVolumeType Io2 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("io2");
-        public static Ec2FleetEbsBlockDeviceVolumeType Sc1 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("sc1");
-        public static Ec2FleetEbsBlockDeviceVolumeType St1 { get; } = new Ec2FleetEbsBlockDeviceVolumeType("st1");
-        public static Ec2FleetEbsBlockDeviceVolumeType Standard { get; } = new Ec2FleetEbsBlockDeviceVolumeType("standard");
-
-        public static bool operator ==(Ec2FleetEbsBlockDeviceVolumeType left, Ec2FleetEbsBlockDeviceVolumeType right) => left.Equals(right);
-        public static bool operator !=(Ec2FleetEbsBlockDeviceVolumeType left, Ec2FleetEbsBlockDeviceVolumeType right) => !left.Equals(right);
-
-        public static explicit operator string(Ec2FleetEbsBlockDeviceVolumeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Ec2FleetEbsBlockDeviceVolumeType other && Equals(other);
-        public bool Equals(Ec2FleetEbsBlockDeviceVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
     /// 
     /// Supported only for fleets of type `maintain` .
@@ -2179,42 +2143,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-    /// </summary>
-    [EnumType]
-    public readonly struct SpotFleetEbsBlockDeviceVolumeType : IEquatable<SpotFleetEbsBlockDeviceVolumeType>
-    {
-        private readonly string _value;
-
-        private SpotFleetEbsBlockDeviceVolumeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SpotFleetEbsBlockDeviceVolumeType Gp2 { get; } = new SpotFleetEbsBlockDeviceVolumeType("gp2");
-        public static SpotFleetEbsBlockDeviceVolumeType Gp3 { get; } = new SpotFleetEbsBlockDeviceVolumeType("gp3");
-        public static SpotFleetEbsBlockDeviceVolumeType Io1 { get; } = new SpotFleetEbsBlockDeviceVolumeType("io1");
-        public static SpotFleetEbsBlockDeviceVolumeType Io2 { get; } = new SpotFleetEbsBlockDeviceVolumeType("io2");
-        public static SpotFleetEbsBlockDeviceVolumeType Sc1 { get; } = new SpotFleetEbsBlockDeviceVolumeType("sc1");
-        public static SpotFleetEbsBlockDeviceVolumeType St1 { get; } = new SpotFleetEbsBlockDeviceVolumeType("st1");
-        public static SpotFleetEbsBlockDeviceVolumeType Standard { get; } = new SpotFleetEbsBlockDeviceVolumeType("standard");
-
-        public static bool operator ==(SpotFleetEbsBlockDeviceVolumeType left, SpotFleetEbsBlockDeviceVolumeType right) => left.Equals(right);
-        public static bool operator !=(SpotFleetEbsBlockDeviceVolumeType left, SpotFleetEbsBlockDeviceVolumeType right) => !left.Equals(right);
-
-        public static explicit operator string(SpotFleetEbsBlockDeviceVolumeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SpotFleetEbsBlockDeviceVolumeType other && Equals(other);
-        public bool Equals(SpotFleetEbsBlockDeviceVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem : IEquatable<SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem>
     {
@@ -3086,9 +3014,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for Egress-Only Internet Gateways.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlEgressOnlyInternetGatewayExclusion : IEquatable<VpcEncryptionControlEgressOnlyInternetGatewayExclusion>
     {
@@ -3148,9 +3073,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for Elastic File System.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlElasticFileSystemExclusion : IEquatable<VpcEncryptionControlElasticFileSystemExclusion>
     {
@@ -3210,9 +3132,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for Internet Gateways.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlInternetGatewayExclusion : IEquatable<VpcEncryptionControlInternetGatewayExclusion>
     {
@@ -3272,9 +3191,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for Lambda.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlLambdaExclusion : IEquatable<VpcEncryptionControlLambdaExclusion>
     {
@@ -3365,9 +3281,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for NAT Gateways.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlNatGatewayExclusion : IEquatable<VpcEncryptionControlNatGatewayExclusion>
     {
@@ -3465,9 +3378,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for Virtual Private Gateways.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlVirtualPrivateGatewayExclusion : IEquatable<VpcEncryptionControlVirtualPrivateGatewayExclusion>
     {
@@ -3527,9 +3437,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for VPC Lattice.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlVpcLatticeExclusion : IEquatable<VpcEncryptionControlVpcLatticeExclusion>
     {
@@ -3589,9 +3496,6 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The desired exclusion mode for VPC Peering.
-    /// </summary>
     [EnumType]
     public readonly struct VpcEncryptionControlVpcPeeringExclusion : IEquatable<VpcEncryptionControlVpcPeeringExclusion>
     {

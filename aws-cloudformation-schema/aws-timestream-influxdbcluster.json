@@ -14,7 +14,7 @@
       "timeoutInMinutes" : 2160
     },
     "create" : {
-      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:CreateDbInstance", "timestream-influxdb:GetDbCluster", "timestream-influxdb:GetDbParameterGroup", "timestream-influxdb:ListDbClusters", "timestream-influxdb:CreateDbCluster", "timestream-influxdb:TagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "ec2:DescribeRouteTables", "ec2:DescribeVpcEndpoints", "iam:CreateServiceLinkedRole" ],
+      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:CreateDbInstance", "timestream-influxdb:CreateDbParameterGroup", "timestream-influxdb:GetDbCluster", "timestream-influxdb:GetDbParameterGroup", "timestream-influxdb:ListDbClusters", "timestream-influxdb:CreateDbCluster", "timestream-influxdb:TagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "ec2:DescribeRouteTables", "ec2:DescribeVpcEndpoints", "iam:CreateServiceLinkedRole" ],
       "timeoutInMinutes" : 2160
     },
     "update" : {

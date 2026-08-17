@@ -984,6 +984,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public static ObjectTypeKeyStandardIdentifiersItem LoyaltyPromotion { get; } = new ObjectTypeKeyStandardIdentifiersItem("LOYALTY_PROMOTION");
         public static ObjectTypeKeyStandardIdentifiersItem WebAnalytics { get; } = new ObjectTypeKeyStandardIdentifiersItem("WEB_ANALYTICS");
         public static ObjectTypeKeyStandardIdentifiersItem Device { get; } = new ObjectTypeKeyStandardIdentifiersItem("DEVICE");
+        public static ObjectTypeKeyStandardIdentifiersItem CommunicationRecord { get; } = new ObjectTypeKeyStandardIdentifiersItem("COMMUNICATION_RECORD");
 
         public static bool operator ==(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => left.Equals(right);
         public static bool operator !=(ObjectTypeKeyStandardIdentifiersItem left, ObjectTypeKeyStandardIdentifiersItem right) => !left.Equals(right);

@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The Amazon S3 key of the deployment package.
         /// </summary>
         public readonly string? S3Key;
+        /// <summary>
+        /// Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.FunctionCodeS3ObjectStorageMode? S3ObjectStorageMode;
         /// <summary>
         /// For versioned objects, the version of the deployment package object to use.

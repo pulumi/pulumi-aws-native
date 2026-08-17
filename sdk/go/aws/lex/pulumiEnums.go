@@ -2113,6 +2113,172 @@ func (in *botSpeechModelPreferencePtr) ToBotSpeechModelPreferencePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(BotSpeechModelPreferencePtrOutput)
 }
 
+// The type of a bot to create.
+type BotType string
+
+const (
+	BotTypeBot        = BotType("Bot")
+	BotTypeBotNetwork = BotType("BotNetwork")
+)
+
+func (BotType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotType)(nil)).Elem()
+}
+
+func (e BotType) ToBotTypeOutput() BotTypeOutput {
+	return pulumi.ToOutput(e).(BotTypeOutput)
+}
+
+func (e BotType) ToBotTypeOutputWithContext(ctx context.Context) BotTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotTypeOutput)
+}
+
+func (e BotType) ToBotTypePtrOutput() BotTypePtrOutput {
+	return e.ToBotTypePtrOutputWithContext(context.Background())
+}
+
+func (e BotType) ToBotTypePtrOutputWithContext(ctx context.Context) BotTypePtrOutput {
+	return BotType(e).ToBotTypeOutputWithContext(ctx).ToBotTypePtrOutputWithContext(ctx)
+}
+
+func (e BotType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotTypeOutput struct{ *pulumi.OutputState }
+
+func (BotTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotType)(nil)).Elem()
+}
+
+func (o BotTypeOutput) ToBotTypeOutput() BotTypeOutput {
+	return o
+}
+
+func (o BotTypeOutput) ToBotTypeOutputWithContext(ctx context.Context) BotTypeOutput {
+	return o
+}
+
+func (o BotTypeOutput) ToBotTypePtrOutput() BotTypePtrOutput {
+	return o.ToBotTypePtrOutputWithContext(context.Background())
+}
+
+func (o BotTypeOutput) ToBotTypePtrOutputWithContext(ctx context.Context) BotTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotType) *BotType {
+		return &v
+	}).(BotTypePtrOutput)
+}
+
+func (o BotTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BotTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotType)(nil)).Elem()
+}
+
+func (o BotTypePtrOutput) ToBotTypePtrOutput() BotTypePtrOutput {
+	return o
+}
+
+func (o BotTypePtrOutput) ToBotTypePtrOutputWithContext(ctx context.Context) BotTypePtrOutput {
+	return o
+}
+
+func (o BotTypePtrOutput) Elem() BotTypeOutput {
+	return o.ApplyT(func(v *BotType) BotType {
+		if v != nil {
+			return *v
+		}
+		var ret BotType
+		return ret
+	}).(BotTypeOutput)
+}
+
+func (o BotTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotTypeInput is an input type that accepts values of the BotType enum
+// A concrete instance of `BotTypeInput` can be one of the following:
+//
+//	BotTypeBot
+//	BotTypeBotNetwork
+type BotTypeInput interface {
+	pulumi.Input
+
+	ToBotTypeOutput() BotTypeOutput
+	ToBotTypeOutputWithContext(context.Context) BotTypeOutput
+}
+
+var botTypePtrType = reflect.TypeOf((**BotType)(nil)).Elem()
+
+type BotTypePtrInput interface {
+	pulumi.Input
+
+	ToBotTypePtrOutput() BotTypePtrOutput
+	ToBotTypePtrOutputWithContext(context.Context) BotTypePtrOutput
+}
+
+type botTypePtr string
+
+func BotTypePtr(v string) BotTypePtrInput {
+	return (*botTypePtr)(&v)
+}
+
+func (*botTypePtr) ElementType() reflect.Type {
+	return botTypePtrType
+}
+
+func (in *botTypePtr) ToBotTypePtrOutput() BotTypePtrOutput {
+	return pulumi.ToOutput(in).(BotTypePtrOutput)
+}
+
+func (in *botTypePtr) ToBotTypePtrOutputWithContext(ctx context.Context) BotTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotTypePtrOutput)
+}
+
 // Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
 //
 // If you do not specify a value, the default is `standard` .
@@ -2310,6 +2476,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechDetectionSensitivityPtrInput)(nil)).Elem(), BotSpeechDetectionSensitivity("Default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechModelPreferenceInput)(nil)).Elem(), BotSpeechModelPreference("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechModelPreferencePtrInput)(nil)).Elem(), BotSpeechModelPreference("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTypeInput)(nil)).Elem(), BotType("Bot"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotTypePtrInput)(nil)).Elem(), BotType("Bot"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsEngineInput)(nil)).Elem(), BotVoiceSettingsEngine("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsEnginePtrInput)(nil)).Elem(), BotVoiceSettingsEngine("standard"))
 	pulumi.RegisterOutputType(BotAliasStatusOutput{})
@@ -2338,6 +2506,8 @@ func init() {
 	pulumi.RegisterOutputType(BotSpeechDetectionSensitivityPtrOutput{})
 	pulumi.RegisterOutputType(BotSpeechModelPreferenceOutput{})
 	pulumi.RegisterOutputType(BotSpeechModelPreferencePtrOutput{})
+	pulumi.RegisterOutputType(BotTypeOutput{})
+	pulumi.RegisterOutputType(BotTypePtrOutput{})
 	pulumi.RegisterOutputType(BotVoiceSettingsEngineOutput{})
 	pulumi.RegisterOutputType(BotVoiceSettingsEnginePtrOutput{})
 }

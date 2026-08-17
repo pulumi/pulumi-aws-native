@@ -1771,6 +1771,170 @@ func (in *scheduledQueryStateEnumPtr) ToScheduledQueryStateEnumPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduledQueryStateEnumPtrOutput)
 }
 
+// The storage tier to apply. Only INTELLIGENT_TIERING is accepted for creation.
+type StorageTierPolicyStorageTier string
+
+const (
+	StorageTierPolicyStorageTierIntelligentTiering = StorageTierPolicyStorageTier("INTELLIGENT_TIERING")
+)
+
+func (StorageTierPolicyStorageTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageTierPolicyStorageTier)(nil)).Elem()
+}
+
+func (e StorageTierPolicyStorageTier) ToStorageTierPolicyStorageTierOutput() StorageTierPolicyStorageTierOutput {
+	return pulumi.ToOutput(e).(StorageTierPolicyStorageTierOutput)
+}
+
+func (e StorageTierPolicyStorageTier) ToStorageTierPolicyStorageTierOutputWithContext(ctx context.Context) StorageTierPolicyStorageTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StorageTierPolicyStorageTierOutput)
+}
+
+func (e StorageTierPolicyStorageTier) ToStorageTierPolicyStorageTierPtrOutput() StorageTierPolicyStorageTierPtrOutput {
+	return e.ToStorageTierPolicyStorageTierPtrOutputWithContext(context.Background())
+}
+
+func (e StorageTierPolicyStorageTier) ToStorageTierPolicyStorageTierPtrOutputWithContext(ctx context.Context) StorageTierPolicyStorageTierPtrOutput {
+	return StorageTierPolicyStorageTier(e).ToStorageTierPolicyStorageTierOutputWithContext(ctx).ToStorageTierPolicyStorageTierPtrOutputWithContext(ctx)
+}
+
+func (e StorageTierPolicyStorageTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageTierPolicyStorageTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageTierPolicyStorageTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StorageTierPolicyStorageTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StorageTierPolicyStorageTierOutput struct{ *pulumi.OutputState }
+
+func (StorageTierPolicyStorageTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageTierPolicyStorageTier)(nil)).Elem()
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStorageTierPolicyStorageTierOutput() StorageTierPolicyStorageTierOutput {
+	return o
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStorageTierPolicyStorageTierOutputWithContext(ctx context.Context) StorageTierPolicyStorageTierOutput {
+	return o
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStorageTierPolicyStorageTierPtrOutput() StorageTierPolicyStorageTierPtrOutput {
+	return o.ToStorageTierPolicyStorageTierPtrOutputWithContext(context.Background())
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStorageTierPolicyStorageTierPtrOutputWithContext(ctx context.Context) StorageTierPolicyStorageTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageTierPolicyStorageTier) *StorageTierPolicyStorageTier {
+		return &v
+	}).(StorageTierPolicyStorageTierPtrOutput)
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageTierPolicyStorageTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageTierPolicyStorageTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageTierPolicyStorageTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageTierPolicyStorageTierPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageTierPolicyStorageTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageTierPolicyStorageTier)(nil)).Elem()
+}
+
+func (o StorageTierPolicyStorageTierPtrOutput) ToStorageTierPolicyStorageTierPtrOutput() StorageTierPolicyStorageTierPtrOutput {
+	return o
+}
+
+func (o StorageTierPolicyStorageTierPtrOutput) ToStorageTierPolicyStorageTierPtrOutputWithContext(ctx context.Context) StorageTierPolicyStorageTierPtrOutput {
+	return o
+}
+
+func (o StorageTierPolicyStorageTierPtrOutput) Elem() StorageTierPolicyStorageTierOutput {
+	return o.ApplyT(func(v *StorageTierPolicyStorageTier) StorageTierPolicyStorageTier {
+		if v != nil {
+			return *v
+		}
+		var ret StorageTierPolicyStorageTier
+		return ret
+	}).(StorageTierPolicyStorageTierOutput)
+}
+
+func (o StorageTierPolicyStorageTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageTierPolicyStorageTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageTierPolicyStorageTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StorageTierPolicyStorageTierInput is an input type that accepts values of the StorageTierPolicyStorageTier enum
+// A concrete instance of `StorageTierPolicyStorageTierInput` can be one of the following:
+//
+//	StorageTierPolicyStorageTierIntelligentTiering
+type StorageTierPolicyStorageTierInput interface {
+	pulumi.Input
+
+	ToStorageTierPolicyStorageTierOutput() StorageTierPolicyStorageTierOutput
+	ToStorageTierPolicyStorageTierOutputWithContext(context.Context) StorageTierPolicyStorageTierOutput
+}
+
+var storageTierPolicyStorageTierPtrType = reflect.TypeOf((**StorageTierPolicyStorageTier)(nil)).Elem()
+
+type StorageTierPolicyStorageTierPtrInput interface {
+	pulumi.Input
+
+	ToStorageTierPolicyStorageTierPtrOutput() StorageTierPolicyStorageTierPtrOutput
+	ToStorageTierPolicyStorageTierPtrOutputWithContext(context.Context) StorageTierPolicyStorageTierPtrOutput
+}
+
+type storageTierPolicyStorageTierPtr string
+
+func StorageTierPolicyStorageTierPtr(v string) StorageTierPolicyStorageTierPtrInput {
+	return (*storageTierPolicyStorageTierPtr)(&v)
+}
+
+func (*storageTierPolicyStorageTierPtr) ElementType() reflect.Type {
+	return storageTierPolicyStorageTierPtrType
+}
+
+func (in *storageTierPolicyStorageTierPtr) ToStorageTierPolicyStorageTierPtrOutput() StorageTierPolicyStorageTierPtrOutput {
+	return pulumi.ToOutput(in).(StorageTierPolicyStorageTierPtrOutput)
+}
+
+func (in *storageTierPolicyStorageTierPtr) ToStorageTierPolicyStorageTierPtrOutputWithContext(ctx context.Context) StorageTierPolicyStorageTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StorageTierPolicyStorageTierPtrOutput)
+}
+
 // The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 type SubscriptionFilterDistribution string
 
@@ -2624,6 +2788,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryLanguagePtrInput)(nil)).Elem(), QueryDefinitionQueryLanguage("CWLI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryStateEnumInput)(nil)).Elem(), ScheduledQueryStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryStateEnumPtrInput)(nil)).Elem(), ScheduledQueryStateEnum("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageTierPolicyStorageTierInput)(nil)).Elem(), StorageTierPolicyStorageTier("INTELLIGENT_TIERING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageTierPolicyStorageTierPtrInput)(nil)).Elem(), StorageTierPolicyStorageTier("INTELLIGENT_TIERING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionPtrInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerEventSourceInput)(nil)).Elem(), TransformerEventSource("CloudTrail"))
@@ -2658,6 +2824,8 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryLastExecutionStatusPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryStateEnumOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(StorageTierPolicyStorageTierOutput{})
+	pulumi.RegisterOutputType(StorageTierPolicyStorageTierPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionPtrOutput{})
 	pulumi.RegisterOutputType(TransformerEventSourceOutput{})

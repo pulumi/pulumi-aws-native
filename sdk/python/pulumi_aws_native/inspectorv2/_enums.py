@@ -16,6 +16,11 @@ __all__ = [
     'CodeSecurityScanConfigurationPeriodicScanFrequency',
     'CodeSecurityScanConfigurationProjectSelectionScope',
     'CodeSecurityScanConfigurationRuleSetCategory',
+    'ConnectorCloudProvider',
+    'ConnectorHealthStatus',
+    'ConnectorScopeState',
+    'ConnectorScopeType',
+    'ConnectorState',
     'FilterAction',
     'FilterMapComparison',
     'FilterStringComparison',
@@ -83,6 +88,47 @@ class CodeSecurityScanConfigurationRuleSetCategory(_builtins.str, Enum):
     SAST = "SAST"
     IAC = "IAC"
     SCA = "SCA"
+
+
+@pulumi.type_token("aws-native:inspectorv2:ConnectorCloudProvider")
+class ConnectorCloudProvider(_builtins.str, Enum):
+    AZURE = "AZURE"
+
+
+@pulumi.type_token("aws-native:inspectorv2:ConnectorHealthStatus")
+class ConnectorHealthStatus(_builtins.str, Enum):
+    CONNECTED = "CONNECTED"
+    DEGRADED = "DEGRADED"
+    FAILED_TO_CONNECT = "FAILED_TO_CONNECT"
+    PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION"
+    PENDING_CONFIGURATION = "PENDING_CONFIGURATION"
+    UNKNOWN = "UNKNOWN"
+
+
+@pulumi.type_token("aws-native:inspectorv2:ConnectorScopeState")
+class ConnectorScopeState(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    PENDING = "PENDING"
+    ERROR = "ERROR"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:inspectorv2:ConnectorScopeType")
+class ConnectorScopeType(_builtins.str, Enum):
+    TENANT = "TENANT"
+    SUBSCRIPTION = "SUBSCRIPTION"
+
+
+@pulumi.type_token("aws-native:inspectorv2:ConnectorState")
+class ConnectorState(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    PENDING_ENABLEMENT = "PENDING_ENABLEMENT"
+    FAILED_TO_ENABLE = "FAILED_TO_ENABLE"
+    PENDING_UPDATE = "PENDING_UPDATE"
+    FAILED_TO_UPDATE = "FAILED_TO_UPDATE"
+    PENDING_DELETION = "PENDING_DELETION"
+    DELETED = "DELETED"
+    FAILED_TO_DELETE = "FAILED_TO_DELETE"
 
 
 @pulumi.type_token("aws-native:inspectorv2:FilterAction")

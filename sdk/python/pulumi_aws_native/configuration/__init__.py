@@ -6,16 +6,19 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .aggregation_authorization import *
 from .config_rule import *
 from .configuration_aggregator import *
 from .conformance_pack import *
 from .connector import *
+from .delivery_channel import *
 from .get_aggregation_authorization import *
 from .get_config_rule import *
 from .get_configuration_aggregator import *
 from .get_conformance_pack import *
 from .get_connector import *
+from .get_delivery_channel import *
 from .get_organization_conformance_pack import *
 from .get_remediation_configuration import *
 from .get_stored_query import *

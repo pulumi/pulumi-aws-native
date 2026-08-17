@@ -86,11 +86,13 @@
     },
     "CustomInstructions" : {
       "type" : "object",
+      "description" : "<p>Instructions that provide additional guidance and context for response generation.</p>",
       "properties" : {
         "CustomInstructionsString" : {
           "type" : "string",
           "maxLength" : 10000,
-          "minLength" : 0
+          "minLength" : 0,
+          "description" : "<p>A text field for providing additional guidance or context for response generation.</p>"
         }
       },
       "required" : [ "CustomInstructionsString" ],
@@ -236,7 +238,7 @@
     },
     "FilterClass" : {
       "type" : "string",
-      "enum" : [ "ENFORCED_VALUE_FILTER", "CONDITIONAL_VALUE_FILTER", "NAMED_VALUE_FILTER" ]
+      "enum" : [ "ENFORCED_VALUE_FILTER", "CONDITIONAL_VALUE_FILTER", "NAMED_VALUE_FILTER", "DASHBOARD_DEFAULT_FILTER" ]
     },
     "NamedEntityAggType" : {
       "type" : "string",
@@ -285,7 +287,7 @@
     },
     "NamedFilterType" : {
       "type" : "string",
-      "enum" : [ "CATEGORY_FILTER", "NUMERIC_EQUALITY_FILTER", "NUMERIC_RANGE_FILTER", "DATE_RANGE_FILTER", "RELATIVE_DATE_FILTER" ]
+      "enum" : [ "CATEGORY_FILTER", "NUMERIC_EQUALITY_FILTER", "NUMERIC_RANGE_FILTER", "DATE_RANGE_FILTER", "RELATIVE_DATE_FILTER", "NULL_FILTER" ]
     },
     "NegativeFormat" : {
       "type" : "object",
@@ -417,7 +419,7 @@
         },
         "CalculatedFieldDescription" : {
           "type" : "string",
-          "maxLength" : 256,
+          "maxLength" : 500,
           "minLength" : 0
         },
         "Expression" : {
@@ -539,7 +541,7 @@
         },
         "ColumnDescription" : {
           "type" : "string",
-          "maxLength" : 256,
+          "maxLength" : 500,
           "minLength" : 0
         },
         "ColumnSynonyms" : {
@@ -607,7 +609,6 @@
     },
     "TopicConfigOptions" : {
       "type" : "object",
-      "description" : "Model for configuration of a Topic",
       "properties" : {
         "QBusinessInsightsEnabled" : {
           "type" : "boolean"
@@ -661,7 +662,7 @@
       "properties" : {
         "FilterDescription" : {
           "type" : "string",
-          "maxLength" : 256,
+          "maxLength" : 500,
           "minLength" : 0
         },
         "FilterClass" : {
@@ -717,7 +718,7 @@
         },
         "EntityDescription" : {
           "type" : "string",
-          "maxLength" : 256,
+          "maxLength" : 500,
           "minLength" : 0
         },
         "EntitySynonyms" : {

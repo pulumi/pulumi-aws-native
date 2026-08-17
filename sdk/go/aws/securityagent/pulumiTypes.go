@@ -2297,8 +2297,12 @@ type PentestActor struct {
 	Authentication *PentestAuthentication `pulumi:"authentication"`
 	// Description of the actor
 	Description *string `pulumi:"description"`
+	// Whether email-based MFA is enabled for this actor
+	EnableEmailMfa *bool `pulumi:"enableEmailMfa"`
 	// Identifier for the actor
 	Identifier *string `pulumi:"identifier"`
+	// Server-generated email forwarding address for receiving MFA codes
+	MfaForwardingAddress *string `pulumi:"mfaForwardingAddress"`
 	// List of URIs this actor is authorized to access
 	Uris []string `pulumi:"uris"`
 }
@@ -2320,8 +2324,12 @@ type PentestActorArgs struct {
 	Authentication PentestAuthenticationPtrInput `pulumi:"authentication"`
 	// Description of the actor
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether email-based MFA is enabled for this actor
+	EnableEmailMfa pulumi.BoolPtrInput `pulumi:"enableEmailMfa"`
 	// Identifier for the actor
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+	// Server-generated email forwarding address for receiving MFA codes
+	MfaForwardingAddress pulumi.StringPtrInput `pulumi:"mfaForwardingAddress"`
 	// List of URIs this actor is authorized to access
 	Uris pulumi.StringArrayInput `pulumi:"uris"`
 }
@@ -2388,9 +2396,19 @@ func (o PentestActorOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestActor) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Whether email-based MFA is enabled for this actor
+func (o PentestActorOutput) EnableEmailMfa() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PentestActor) *bool { return v.EnableEmailMfa }).(pulumi.BoolPtrOutput)
+}
+
 // Identifier for the actor
 func (o PentestActorOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PentestActor) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+// Server-generated email forwarding address for receiving MFA codes
+func (o PentestActorOutput) MfaForwardingAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PentestActor) *string { return v.MfaForwardingAddress }).(pulumi.StringPtrOutput)
 }
 
 // List of URIs this actor is authorized to access

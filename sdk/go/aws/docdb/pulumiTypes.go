@@ -9,6 +9,21 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type DbClusterParameterGroupTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+type DbSubnetGroupTag struct {
+	// The required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with " `aws:` " or " `rds:` ". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	Key string `pulumi:"key"`
+	// The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with " `aws:` " or " `rds:` ". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with an Amazon DocumentDB resource.
 type GlobalClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.

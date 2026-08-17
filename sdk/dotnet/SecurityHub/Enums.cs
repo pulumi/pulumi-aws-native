@@ -1066,6 +1066,7 @@ namespace Pulumi.AwsNative.SecurityHub
         public static PolicyAssociationAssociationStatus Success { get; } = new PolicyAssociationAssociationStatus("SUCCESS");
         public static PolicyAssociationAssociationStatus Pending { get; } = new PolicyAssociationAssociationStatus("PENDING");
         public static PolicyAssociationAssociationStatus Failed { get; } = new PolicyAssociationAssociationStatus("FAILED");
+        public static PolicyAssociationAssociationStatus Disabled { get; } = new PolicyAssociationAssociationStatus("DISABLED");
 
         public static bool operator ==(PolicyAssociationAssociationStatus left, PolicyAssociationAssociationStatus right) => left.Equals(right);
         public static bool operator !=(PolicyAssociationAssociationStatus left, PolicyAssociationAssociationStatus right) => !left.Equals(right);

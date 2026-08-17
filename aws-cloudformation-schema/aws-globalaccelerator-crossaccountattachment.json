@@ -77,8 +77,9 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "globalaccelerator:TagResource", "globalaccelerator:UntagResource", "globalaccelerator:ListTagsForResource" ]
   },
   "required" : [ "Name" ],
   "writeOnlyProperties" : [ "/properties/Resources/*/Region" ],
@@ -86,13 +87,13 @@
   "primaryIdentifier" : [ "/properties/AttachmentArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "globalaccelerator:DescribeCrossAccountAttachment", "globalaccelerator:CreateCrossAccountAttachment", "globalaccelerator:TagResource" ]
+      "permissions" : [ "globalaccelerator:DescribeCrossAccountAttachment", "globalaccelerator:CreateCrossAccountAttachment", "globalaccelerator:TagResource", "globalaccelerator:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "globalaccelerator:DescribeCrossAccountAttachment" ]
+      "permissions" : [ "globalaccelerator:DescribeCrossAccountAttachment", "globalaccelerator:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "globalaccelerator:UpdateCrossAccountAttachment", "globalaccelerator:DescribeCrossAccountAttachment", "globalaccelerator:TagResource", "globalaccelerator:UntagResource" ]
+      "permissions" : [ "globalaccelerator:UpdateCrossAccountAttachment", "globalaccelerator:DescribeCrossAccountAttachment", "globalaccelerator:TagResource", "globalaccelerator:UntagResource", "globalaccelerator:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "globalaccelerator:DescribeCrossAccountAttachment", "globalaccelerator:DeleteCrossAccountAttachment" ]

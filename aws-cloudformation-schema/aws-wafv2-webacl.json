@@ -102,6 +102,12 @@
             "$ref" : "#/definitions/TextTransformation"
           }
         },
+        "PreParseTextTransformations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PreParseTextTransformation"
+          }
+        },
         "PositionalConstraint" : {
           "$ref" : "#/definitions/PositionalConstraint"
         }
@@ -648,6 +654,12 @@
           "items" : {
             "$ref" : "#/definitions/TextTransformation"
           }
+        },
+        "PreParseTextTransformations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PreParseTextTransformation"
+          }
         }
       },
       "required" : [ "Arn", "FieldToMatch", "TextTransformations" ],
@@ -1003,6 +1015,12 @@
           "items" : {
             "$ref" : "#/definitions/TextTransformation"
           }
+        },
+        "PreParseTextTransformations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PreParseTextTransformation"
+          }
         }
       },
       "required" : [ "FieldToMatch", "ComparisonOperator", "Size", "TextTransformations" ],
@@ -1019,6 +1037,12 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/TextTransformation"
+          }
+        },
+        "PreParseTextTransformations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PreParseTextTransformation"
           }
         },
         "SensitivityLevel" : {
@@ -1121,7 +1145,31 @@
     "TextTransformationType" : {
       "description" : "Type of text transformation.",
       "type" : "string",
-      "enum" : [ "NONE", "COMPRESS_WHITE_SPACE", "HTML_ENTITY_DECODE", "LOWERCASE", "CMD_LINE", "URL_DECODE", "BASE64_DECODE", "HEX_DECODE", "MD5", "REPLACE_COMMENTS", "ESCAPE_SEQ_DECODE", "SQL_HEX_DECODE", "CSS_DECODE", "JS_DECODE", "NORMALIZE_PATH", "NORMALIZE_PATH_WIN", "REMOVE_NULLS", "REPLACE_NULLS", "BASE64_DECODE_EXT", "URL_DECODE_UNI", "UTF8_TO_UNICODE" ]
+      "enum" : [ "NONE", "COMPRESS_WHITE_SPACE", "HTML_ENTITY_DECODE", "LOWERCASE", "CMD_LINE", "URL_DECODE", "BASE64_DECODE", "HEX_DECODE", "MD5", "REPLACE_COMMENTS", "ESCAPE_SEQ_DECODE", "SQL_HEX_DECODE", "CSS_DECODE", "JS_DECODE", "NORMALIZE_PATH", "NORMALIZE_PATH_WIN", "REMOVE_NULLS", "REPLACE_NULLS", "BASE64_DECODE_EXT", "URL_DECODE_UNI", "UTF8_TO_UNICODE", "REMOVE_WHITESPACE", "TRIM", "TRIM_LEFT", "TRIM_RIGHT", "REMOVE_COMMENTS_CHAR", "UPPERCASE", "CMD_LINE_WIN", "CMD_LINE_UNIX", "JS_DECODE_EXT", "SHA256" ]
+    },
+    "PreParseTextTransformation" : {
+      "description" : "Text Transformation applied before parsing the query string.",
+      "type" : "object",
+      "properties" : {
+        "Priority" : {
+          "$ref" : "#/definitions/PreParseTextTransformationPriority"
+        },
+        "Type" : {
+          "$ref" : "#/definitions/PreParseTextTransformationType"
+        }
+      },
+      "required" : [ "Priority", "Type" ],
+      "additionalProperties" : false
+    },
+    "PreParseTextTransformationPriority" : {
+      "description" : "Priority of PreParseTextTransformation being applied.",
+      "type" : "integer",
+      "minimum" : 0
+    },
+    "PreParseTextTransformationType" : {
+      "description" : "Type of pre-parse text transformation.",
+      "type" : "string",
+      "enum" : [ "NONE", "URL_DECODE", "URL_DECODE_UNI", "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA", "REPLACE_SEMICOLONS_WITH_AMPERSANDS" ]
     },
     "UriPath" : {
       "type" : "object"
@@ -1223,6 +1271,12 @@
           "items" : {
             "$ref" : "#/definitions/TextTransformation"
           }
+        },
+        "PreParseTextTransformations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PreParseTextTransformation"
+          }
         }
       },
       "required" : [ "FieldToMatch", "TextTransformations" ],
@@ -1279,6 +1333,12 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/TextTransformation"
+          }
+        },
+        "PreParseTextTransformations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PreParseTextTransformation"
           }
         }
       },

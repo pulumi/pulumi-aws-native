@@ -66,6 +66,7 @@ export * from "./types/enums";
 
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
+import * as accountaccess from "./accountaccess";
 import * as acmpca from "./acmpca";
 import * as aiops from "./aiops";
 import * as amazonmq from "./amazonmq";
@@ -111,6 +112,7 @@ import * as cleanrooms from "./cleanrooms";
 import * as cleanroomsml from "./cleanroomsml";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
+import * as cloudhsm from "./cloudhsm";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
@@ -133,6 +135,7 @@ import * as connectcampaignsv2 from "./connectcampaignsv2";
 import * as controltower from "./controltower";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
+import * as dataexchange from "./dataexchange";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
 import * as datazone from "./datazone";
@@ -240,6 +243,7 @@ import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
 import * as omics from "./omics";
+import * as opensearch from "./opensearch";
 import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
 import * as opsworkscm from "./opsworkscm";
@@ -292,6 +296,7 @@ import * as secretsmanager from "./secretsmanager";
 import * as securityagent from "./securityagent";
 import * as securityhub from "./securityhub";
 import * as securitylake from "./securitylake";
+import * as serverlessrepo from "./serverlessrepo";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as servicediscovery from "./servicediscovery";
@@ -317,6 +322,7 @@ import * as timestream from "./timestream";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as uxc from "./uxc";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as voiceid from "./voiceid";
 import * as vpclattice from "./vpclattice";
@@ -331,6 +337,7 @@ import * as xray from "./xray";
 
 export {
     accessanalyzer,
+    accountaccess,
     acmpca,
     aiops,
     amazonmq,
@@ -376,6 +383,7 @@ export {
     cleanroomsml,
     cloudformation,
     cloudfront,
+    cloudhsm,
     cloudtrail,
     cloudwatch,
     codeartifact,
@@ -398,6 +406,7 @@ export {
     controltower,
     customerprofiles,
     databrew,
+    dataexchange,
     datapipeline,
     datasync,
     datazone,
@@ -505,6 +514,7 @@ export {
     observabilityadmin,
     odb,
     omics,
+    opensearch,
     opensearchserverless,
     opensearchservice,
     opsworkscm,
@@ -557,6 +567,7 @@ export {
     securityagent,
     securityhub,
     securitylake,
+    serverlessrepo,
     servicecatalog,
     servicecatalogappregistry,
     servicediscovery,
@@ -582,6 +593,7 @@ export {
     transcribe,
     transfer,
     types,
+    uxc,
     verifiedpermissions,
     voiceid,
     vpclattice,

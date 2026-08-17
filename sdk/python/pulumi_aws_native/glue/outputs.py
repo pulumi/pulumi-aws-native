@@ -23,6 +23,10 @@ __all__ = [
     'CatalogPrincipalPermissions',
     'CatalogProperties',
     'CatalogTargetRedshiftCatalog',
+    'ClassifierCsvClassifier',
+    'ClassifierGrokClassifier',
+    'ClassifierJsonClassifier',
+    'ClassifierXmlClassifier',
     'CrawlerCatalogTarget',
     'CrawlerDeltaTarget',
     'CrawlerDynamoDbTarget',
@@ -39,6 +43,7 @@ __all__ = [
     'DataCatalogEncryptionSettings',
     'DataCatalogEncryptionSettingsConnectionPasswordEncryption',
     'DataCatalogEncryptionSettingsEncryptionAtRest',
+    'DataQualityRulesetDataQualityTargetTable',
     'DatabaseDataLakePrincipal',
     'DatabaseFederatedDatabase',
     'DatabaseIdentifier',
@@ -49,10 +54,28 @@ __all__ = [
     'JobConnectionsList',
     'JobExecutionProperty',
     'JobNotificationProperty',
+    'MlTransformFindMatchesParameters',
+    'MlTransformGlueTables',
+    'MlTransformInputRecordTables',
+    'MlTransformMlUserDataEncryption',
+    'MlTransformTransformEncryption',
+    'MlTransformTransformParameters',
     'SchemaRegistry',
     'SchemaVersion',
     'SchemaVersionSchema',
+    'SecurityConfigurationCloudWatchEncryption',
+    'SecurityConfigurationEncryptionConfiguration',
+    'SecurityConfigurationJobBookmarksEncryption',
+    'SecurityConfigurationS3Encryption',
     'SourceProcessingPropertiesProperties',
+    'TableOptimizerCompactionConfiguration',
+    'TableOptimizerConfiguration',
+    'TableOptimizerIcebergCompactionConfiguration',
+    'TableOptimizerIcebergConfiguration',
+    'TableOptimizerIcebergRetentionConfiguration',
+    'TableOptimizerOrphanFileDeletionConfiguration',
+    'TableOptimizerRetentionConfiguration',
+    'TableOptimizerVpcConfiguration',
     'TargetProcessingPropertiesProperties',
     'TriggerAction',
     'TriggerCondition',
@@ -418,6 +441,325 @@ class CatalogTargetRedshiftCatalog(dict):
         The Amazon Resource Name (ARN) of the catalog resource.
         """
         return pulumi.get(self, "catalog_arn")
+
+
+@pulumi.output_type
+class ClassifierCsvClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowSingleColumn":
+            suggest = "allow_single_column"
+        elif key == "containsCustomDatatype":
+            suggest = "contains_custom_datatype"
+        elif key == "containsHeader":
+            suggest = "contains_header"
+        elif key == "customDatatypeConfigured":
+            suggest = "custom_datatype_configured"
+        elif key == "disableValueTrimming":
+            suggest = "disable_value_trimming"
+        elif key == "quoteSymbol":
+            suggest = "quote_symbol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierCsvClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierCsvClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierCsvClassifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_single_column: Optional[_builtins.bool] = None,
+                 contains_custom_datatype: Optional[Sequence[_builtins.str]] = None,
+                 contains_header: Optional[_builtins.str] = None,
+                 custom_datatype_configured: Optional[_builtins.bool] = None,
+                 delimiter: Optional[_builtins.str] = None,
+                 disable_value_trimming: Optional[_builtins.bool] = None,
+                 header: Optional[Sequence[_builtins.str]] = None,
+                 name: Optional[_builtins.str] = None,
+                 quote_symbol: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool allow_single_column: Enables the processing of files that contain only one column.
+        :param Sequence[_builtins.str] contains_custom_datatype: Indicates whether the CSV file contains custom data types.
+        :param _builtins.str contains_header: Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+        :param _builtins.bool custom_datatype_configured: Enables the configuration of custom data types.
+        :param _builtins.str delimiter: A custom symbol to denote what separates each column entry in the row.
+        :param _builtins.bool disable_value_trimming: Specifies not to trim values before identifying the type of column values. The default value is true.
+        :param Sequence[_builtins.str] header: A list of strings representing column names.
+        :param _builtins.str name: The name of the classifier.
+        :param _builtins.str quote_symbol: A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        """
+        if allow_single_column is not None:
+            pulumi.set(__self__, "allow_single_column", allow_single_column)
+        if contains_custom_datatype is not None:
+            pulumi.set(__self__, "contains_custom_datatype", contains_custom_datatype)
+        if contains_header is not None:
+            pulumi.set(__self__, "contains_header", contains_header)
+        if custom_datatype_configured is not None:
+            pulumi.set(__self__, "custom_datatype_configured", custom_datatype_configured)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if disable_value_trimming is not None:
+            pulumi.set(__self__, "disable_value_trimming", disable_value_trimming)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if quote_symbol is not None:
+            pulumi.set(__self__, "quote_symbol", quote_symbol)
+
+    @_builtins.property
+    @pulumi.getter(name="allowSingleColumn")
+    def allow_single_column(self) -> Optional[_builtins.bool]:
+        """
+        Enables the processing of files that contain only one column.
+        """
+        return pulumi.get(self, "allow_single_column")
+
+    @_builtins.property
+    @pulumi.getter(name="containsCustomDatatype")
+    def contains_custom_datatype(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Indicates whether the CSV file contains custom data types.
+        """
+        return pulumi.get(self, "contains_custom_datatype")
+
+    @_builtins.property
+    @pulumi.getter(name="containsHeader")
+    def contains_header(self) -> Optional[_builtins.str]:
+        """
+        Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+        """
+        return pulumi.get(self, "contains_header")
+
+    @_builtins.property
+    @pulumi.getter(name="customDatatypeConfigured")
+    def custom_datatype_configured(self) -> Optional[_builtins.bool]:
+        """
+        Enables the configuration of custom data types.
+        """
+        return pulumi.get(self, "custom_datatype_configured")
+
+    @_builtins.property
+    @pulumi.getter
+    def delimiter(self) -> Optional[_builtins.str]:
+        """
+        A custom symbol to denote what separates each column entry in the row.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="disableValueTrimming")
+    def disable_value_trimming(self) -> Optional[_builtins.bool]:
+        """
+        Specifies not to trim values before identifying the type of column values. The default value is true.
+        """
+        return pulumi.get(self, "disable_value_trimming")
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of strings representing column names.
+        """
+        return pulumi.get(self, "header")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="quoteSymbol")
+    def quote_symbol(self) -> Optional[_builtins.str]:
+        """
+        A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        """
+        return pulumi.get(self, "quote_symbol")
+
+
+@pulumi.output_type
+class ClassifierGrokClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grokPattern":
+            suggest = "grok_pattern"
+        elif key == "customPatterns":
+            suggest = "custom_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierGrokClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierGrokClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierGrokClassifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification: _builtins.str,
+                 grok_pattern: _builtins.str,
+                 custom_patterns: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str classification: An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+        :param _builtins.str grok_pattern: The grok pattern applied to a data store by this classifier.
+        :param _builtins.str custom_patterns: Optional custom grok patterns defined by this classifier.
+        :param _builtins.str name: The name of the classifier.
+        """
+        pulumi.set(__self__, "classification", classification)
+        pulumi.set(__self__, "grok_pattern", grok_pattern)
+        if custom_patterns is not None:
+            pulumi.set(__self__, "custom_patterns", custom_patterns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> _builtins.str:
+        """
+        An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+        """
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter(name="grokPattern")
+    def grok_pattern(self) -> _builtins.str:
+        """
+        The grok pattern applied to a data store by this classifier.
+        """
+        return pulumi.get(self, "grok_pattern")
+
+    @_builtins.property
+    @pulumi.getter(name="customPatterns")
+    def custom_patterns(self) -> Optional[_builtins.str]:
+        """
+        Optional custom grok patterns defined by this classifier.
+        """
+        return pulumi.get(self, "custom_patterns")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ClassifierJsonClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonPath":
+            suggest = "json_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierJsonClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierJsonClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierJsonClassifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_path: _builtins.str,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str json_path: A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+        :param _builtins.str name: The name of the classifier.
+        """
+        pulumi.set(__self__, "json_path", json_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonPath")
+    def json_path(self) -> _builtins.str:
+        """
+        A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+        """
+        return pulumi.get(self, "json_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ClassifierXmlClassifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rowTag":
+            suggest = "row_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassifierXmlClassifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassifierXmlClassifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassifierXmlClassifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification: _builtins.str,
+                 row_tag: _builtins.str,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str classification: An identifier of the data format that the classifier matches.
+        :param _builtins.str row_tag: The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+        :param _builtins.str name: The name of the classifier.
+        """
+        pulumi.set(__self__, "classification", classification)
+        pulumi.set(__self__, "row_tag", row_tag)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> _builtins.str:
+        """
+        An identifier of the data format that the classifier matches.
+        """
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter(name="rowTag")
+    def row_tag(self) -> _builtins.str:
+        """
+        The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+        """
+        return pulumi.get(self, "row_tag")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -1581,6 +1923,59 @@ class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
 
 
 @pulumi.output_type
+class DataQualityRulesetDataQualityTargetTable(dict):
+    """
+    An object representing an AWS Glue table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityRulesetDataQualityTargetTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityRulesetDataQualityTargetTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityRulesetDataQualityTargetTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: _builtins.str,
+                 table_name: _builtins.str):
+        """
+        An object representing an AWS Glue table.
+
+        :param _builtins.str database_name: The name of the database where the AWS Glue table exists.
+        :param _builtins.str table_name: The name of the AWS Glue table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        """
+        The name of the database where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        """
+        The name of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
 class DatabaseDataLakePrincipal(dict):
     """
     The AWS Lake Formation principal.
@@ -2131,6 +2526,373 @@ class JobNotificationProperty(dict):
 
 
 @pulumi.output_type
+class MlTransformFindMatchesParameters(dict):
+    """
+    The parameters to configure the find matches transform.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryKeyColumnName":
+            suggest = "primary_key_column_name"
+        elif key == "accuracyCostTradeoff":
+            suggest = "accuracy_cost_tradeoff"
+        elif key == "enforceProvidedLabels":
+            suggest = "enforce_provided_labels"
+        elif key == "precisionRecallTradeoff":
+            suggest = "precision_recall_tradeoff"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformFindMatchesParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MlTransformFindMatchesParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MlTransformFindMatchesParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_key_column_name: _builtins.str,
+                 accuracy_cost_tradeoff: Optional[_builtins.float] = None,
+                 enforce_provided_labels: Optional[_builtins.bool] = None,
+                 precision_recall_tradeoff: Optional[_builtins.float] = None):
+        """
+        The parameters to configure the find matches transform.
+
+        :param _builtins.str primary_key_column_name: The name of a column that uniquely identifies rows in the source table.
+        :param _builtins.float accuracy_cost_tradeoff: The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+        :param _builtins.bool enforce_provided_labels: If true, forces the output to match the provided labels.
+        :param _builtins.float precision_recall_tradeoff: The value for precision and recall tradeoff. A value of 0.5 means no preference.
+        """
+        pulumi.set(__self__, "primary_key_column_name", primary_key_column_name)
+        if accuracy_cost_tradeoff is not None:
+            pulumi.set(__self__, "accuracy_cost_tradeoff", accuracy_cost_tradeoff)
+        if enforce_provided_labels is not None:
+            pulumi.set(__self__, "enforce_provided_labels", enforce_provided_labels)
+        if precision_recall_tradeoff is not None:
+            pulumi.set(__self__, "precision_recall_tradeoff", precision_recall_tradeoff)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKeyColumnName")
+    def primary_key_column_name(self) -> _builtins.str:
+        """
+        The name of a column that uniquely identifies rows in the source table.
+        """
+        return pulumi.get(self, "primary_key_column_name")
+
+    @_builtins.property
+    @pulumi.getter(name="accuracyCostTradeoff")
+    def accuracy_cost_tradeoff(self) -> Optional[_builtins.float]:
+        """
+        The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+        """
+        return pulumi.get(self, "accuracy_cost_tradeoff")
+
+    @_builtins.property
+    @pulumi.getter(name="enforceProvidedLabels")
+    def enforce_provided_labels(self) -> Optional[_builtins.bool]:
+        """
+        If true, forces the output to match the provided labels.
+        """
+        return pulumi.get(self, "enforce_provided_labels")
+
+    @_builtins.property
+    @pulumi.getter(name="precisionRecallTradeoff")
+    def precision_recall_tradeoff(self) -> Optional[_builtins.float]:
+        """
+        The value for precision and recall tradeoff. A value of 0.5 means no preference.
+        """
+        return pulumi.get(self, "precision_recall_tradeoff")
+
+
+@pulumi.output_type
+class MlTransformGlueTables(dict):
+    """
+    The database and table in the AWS Glue Data Catalog that is used for input or output data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformGlueTables. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MlTransformGlueTables.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MlTransformGlueTables.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: _builtins.str,
+                 table_name: _builtins.str,
+                 catalog_id: Optional[_builtins.str] = None,
+                 connection_name: Optional[_builtins.str] = None):
+        """
+        The database and table in the AWS Glue Data Catalog that is used for input or output data.
+
+        :param _builtins.str database_name: A database name in the AWS Glue Data Catalog.
+        :param _builtins.str table_name: A table name in the AWS Glue Data Catalog.
+        :param _builtins.str catalog_id: A unique identifier for the AWS Glue Data Catalog.
+        :param _builtins.str connection_name: The name of the connection to the AWS Glue Data Catalog.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        """
+        A database name in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        """
+        A table name in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[_builtins.str]:
+        """
+        A unique identifier for the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the connection to the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "connection_name")
+
+
+@pulumi.output_type
+class MlTransformInputRecordTables(dict):
+    """
+    A list of AWS Glue table definitions used by the transform.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "glueTables":
+            suggest = "glue_tables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformInputRecordTables. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MlTransformInputRecordTables.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MlTransformInputRecordTables.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 glue_tables: Optional[Sequence['outputs.MlTransformGlueTables']] = None):
+        """
+        A list of AWS Glue table definitions used by the transform.
+
+        :param Sequence['MlTransformGlueTables'] glue_tables: The database and table in the AWS Glue Data Catalog that is used for input or output data.
+        """
+        if glue_tables is not None:
+            pulumi.set(__self__, "glue_tables", glue_tables)
+
+    @_builtins.property
+    @pulumi.getter(name="glueTables")
+    def glue_tables(self) -> Optional[Sequence['outputs.MlTransformGlueTables']]:
+        """
+        The database and table in the AWS Glue Data Catalog that is used for input or output data.
+        """
+        return pulumi.get(self, "glue_tables")
+
+
+@pulumi.output_type
+class MlTransformMlUserDataEncryption(dict):
+    """
+    The encryption-at-rest settings of the transform that apply to accessing user data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mlUserDataEncryptionMode":
+            suggest = "ml_user_data_encryption_mode"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformMlUserDataEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MlTransformMlUserDataEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MlTransformMlUserDataEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ml_user_data_encryption_mode: _builtins.str,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        The encryption-at-rest settings of the transform that apply to accessing user data.
+
+        :param _builtins.str ml_user_data_encryption_mode: The encryption mode applied to user data.
+        :param _builtins.str kms_key_id: The ID for the customer-provided KMS key.
+        """
+        pulumi.set(__self__, "ml_user_data_encryption_mode", ml_user_data_encryption_mode)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="mlUserDataEncryptionMode")
+    def ml_user_data_encryption_mode(self) -> _builtins.str:
+        """
+        The encryption mode applied to user data.
+        """
+        return pulumi.get(self, "ml_user_data_encryption_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The ID for the customer-provided KMS key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class MlTransformTransformEncryption(dict):
+    """
+    The encryption-at-rest settings of the transform that apply to accessing user data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mlUserDataEncryption":
+            suggest = "ml_user_data_encryption"
+        elif key == "taskRunSecurityConfigurationName":
+            suggest = "task_run_security_configuration_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformTransformEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MlTransformTransformEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MlTransformTransformEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ml_user_data_encryption: Optional['outputs.MlTransformMlUserDataEncryption'] = None,
+                 task_run_security_configuration_name: Optional[_builtins.str] = None):
+        """
+        The encryption-at-rest settings of the transform that apply to accessing user data.
+
+        :param 'MlTransformMlUserDataEncryption' ml_user_data_encryption: The encryption-at-rest settings of the transform that apply to accessing user data.
+        :param _builtins.str task_run_security_configuration_name: The name of the security configuration.
+        """
+        if ml_user_data_encryption is not None:
+            pulumi.set(__self__, "ml_user_data_encryption", ml_user_data_encryption)
+        if task_run_security_configuration_name is not None:
+            pulumi.set(__self__, "task_run_security_configuration_name", task_run_security_configuration_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mlUserDataEncryption")
+    def ml_user_data_encryption(self) -> Optional['outputs.MlTransformMlUserDataEncryption']:
+        """
+        The encryption-at-rest settings of the transform that apply to accessing user data.
+        """
+        return pulumi.get(self, "ml_user_data_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="taskRunSecurityConfigurationName")
+    def task_run_security_configuration_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the security configuration.
+        """
+        return pulumi.get(self, "task_run_security_configuration_name")
+
+
+@pulumi.output_type
+class MlTransformTransformParameters(dict):
+    """
+    The algorithm-specific parameters that are associated with the machine learning transform.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transformType":
+            suggest = "transform_type"
+        elif key == "findMatchesParameters":
+            suggest = "find_matches_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MlTransformTransformParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MlTransformTransformParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MlTransformTransformParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transform_type: _builtins.str,
+                 find_matches_parameters: Optional['outputs.MlTransformFindMatchesParameters'] = None):
+        """
+        The algorithm-specific parameters that are associated with the machine learning transform.
+
+        :param _builtins.str transform_type: The type of machine learning transform.
+        :param 'MlTransformFindMatchesParameters' find_matches_parameters: The parameters for the find matches algorithm.
+        """
+        pulumi.set(__self__, "transform_type", transform_type)
+        if find_matches_parameters is not None:
+            pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="transformType")
+    def transform_type(self) -> _builtins.str:
+        """
+        The type of machine learning transform.
+        """
+        return pulumi.get(self, "transform_type")
+
+    @_builtins.property
+    @pulumi.getter(name="findMatchesParameters")
+    def find_matches_parameters(self) -> Optional['outputs.MlTransformFindMatchesParameters']:
+        """
+        The parameters for the find matches algorithm.
+        """
+        return pulumi.get(self, "find_matches_parameters")
+
+
+@pulumi.output_type
 class SchemaRegistry(dict):
     """
     Identifier for the registry which the schema is part of.
@@ -2291,6 +3053,240 @@ class SchemaVersionSchema(dict):
 
 
 @pulumi.output_type
+class SecurityConfigurationCloudWatchEncryption(dict):
+    """
+    The encryption configuration for Amazon CloudWatch.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchEncryptionMode":
+            suggest = "cloud_watch_encryption_mode"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationCloudWatchEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationCloudWatchEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationCloudWatchEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_encryption_mode: Optional[_builtins.str] = None,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        The encryption configuration for Amazon CloudWatch.
+
+        :param _builtins.str cloud_watch_encryption_mode: The encryption mode to use for CloudWatch data.
+        :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        if cloud_watch_encryption_mode is not None:
+            pulumi.set(__self__, "cloud_watch_encryption_mode", cloud_watch_encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchEncryptionMode")
+    def cloud_watch_encryption_mode(self) -> Optional[_builtins.str]:
+        """
+        The encryption mode to use for CloudWatch data.
+        """
+        return pulumi.get(self, "cloud_watch_encryption_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class SecurityConfigurationEncryptionConfiguration(dict):
+    """
+    The encryption configuration for the security configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchEncryption":
+            suggest = "cloud_watch_encryption"
+        elif key == "jobBookmarksEncryption":
+            suggest = "job_bookmarks_encryption"
+        elif key == "s3Encryptions":
+            suggest = "s3_encryptions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_encryption: Optional['outputs.SecurityConfigurationCloudWatchEncryption'] = None,
+                 job_bookmarks_encryption: Optional['outputs.SecurityConfigurationJobBookmarksEncryption'] = None,
+                 s3_encryptions: Optional[Sequence['outputs.SecurityConfigurationS3Encryption']] = None):
+        """
+        The encryption configuration for the security configuration.
+
+        :param 'SecurityConfigurationCloudWatchEncryption' cloud_watch_encryption: The encryption configuration for Amazon CloudWatch.
+        :param 'SecurityConfigurationJobBookmarksEncryption' job_bookmarks_encryption: The encryption configuration for job bookmarks.
+        :param Sequence['SecurityConfigurationS3Encryption'] s3_encryptions: The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+        """
+        if cloud_watch_encryption is not None:
+            pulumi.set(__self__, "cloud_watch_encryption", cloud_watch_encryption)
+        if job_bookmarks_encryption is not None:
+            pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
+        if s3_encryptions is not None:
+            pulumi.set(__self__, "s3_encryptions", s3_encryptions)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchEncryption")
+    def cloud_watch_encryption(self) -> Optional['outputs.SecurityConfigurationCloudWatchEncryption']:
+        """
+        The encryption configuration for Amazon CloudWatch.
+        """
+        return pulumi.get(self, "cloud_watch_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="jobBookmarksEncryption")
+    def job_bookmarks_encryption(self) -> Optional['outputs.SecurityConfigurationJobBookmarksEncryption']:
+        """
+        The encryption configuration for job bookmarks.
+        """
+        return pulumi.get(self, "job_bookmarks_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Encryptions")
+    def s3_encryptions(self) -> Optional[Sequence['outputs.SecurityConfigurationS3Encryption']]:
+        """
+        The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+        """
+        return pulumi.get(self, "s3_encryptions")
+
+
+@pulumi.output_type
+class SecurityConfigurationJobBookmarksEncryption(dict):
+    """
+    The encryption configuration for job bookmarks.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobBookmarksEncryptionMode":
+            suggest = "job_bookmarks_encryption_mode"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationJobBookmarksEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationJobBookmarksEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationJobBookmarksEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_bookmarks_encryption_mode: Optional[_builtins.str] = None,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        The encryption configuration for job bookmarks.
+
+        :param _builtins.str job_bookmarks_encryption_mode: The encryption mode to use for job bookmarks data.
+        :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        if job_bookmarks_encryption_mode is not None:
+            pulumi.set(__self__, "job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="jobBookmarksEncryptionMode")
+    def job_bookmarks_encryption_mode(self) -> Optional[_builtins.str]:
+        """
+        The encryption mode to use for job bookmarks data.
+        """
+        return pulumi.get(self, "job_bookmarks_encryption_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class SecurityConfigurationS3Encryption(dict):
+    """
+    Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "s3EncryptionMode":
+            suggest = "s3_encryption_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigurationS3Encryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigurationS3Encryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigurationS3Encryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[_builtins.str] = None,
+                 s3_encryption_mode: Optional[_builtins.str] = None):
+        """
+        Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+
+        :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        :param _builtins.str s3_encryption_mode: The encryption mode to use for Amazon S3 data.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if s3_encryption_mode is not None:
+            pulumi.set(__self__, "s3_encryption_mode", s3_encryption_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="s3EncryptionMode")
+    def s3_encryption_mode(self) -> Optional[_builtins.str]:
+        """
+        The encryption mode to use for Amazon S3 data.
+        """
+        return pulumi.get(self, "s3_encryption_mode")
+
+
+@pulumi.output_type
 class SourceProcessingPropertiesProperties(dict):
     """
     The resource properties associated with the integration source.
@@ -2328,6 +3324,412 @@ class SourceProcessingPropertiesProperties(dict):
         The IAM role to access the Glue connection.
         """
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class TableOptimizerCompactionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergConfiguration":
+            suggest = "iceberg_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerCompactionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerCompactionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerCompactionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional['outputs.TableOptimizerIcebergCompactionConfiguration'] = None):
+        """
+        :param 'TableOptimizerIcebergCompactionConfiguration' iceberg_configuration: The configuration for an Iceberg compaction optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional['outputs.TableOptimizerIcebergCompactionConfiguration']:
+        """
+        The configuration for an Iceberg compaction optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+
+@pulumi.output_type
+class TableOptimizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "compactionConfiguration":
+            suggest = "compaction_configuration"
+        elif key == "orphanFileDeletionConfiguration":
+            suggest = "orphan_file_deletion_configuration"
+        elif key == "retentionConfiguration":
+            suggest = "retention_configuration"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 role_arn: _builtins.str,
+                 compaction_configuration: Optional['outputs.TableOptimizerCompactionConfiguration'] = None,
+                 orphan_file_deletion_configuration: Optional['outputs.TableOptimizerOrphanFileDeletionConfiguration'] = None,
+                 retention_configuration: Optional['outputs.TableOptimizerRetentionConfiguration'] = None,
+                 vpc_configuration: Optional['outputs.TableOptimizerVpcConfiguration'] = None):
+        """
+        :param _builtins.bool enabled: Whether the table optimization is enabled.
+        :param _builtins.str role_arn: A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+        :param 'TableOptimizerCompactionConfiguration' compaction_configuration: The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+        :param 'TableOptimizerOrphanFileDeletionConfiguration' orphan_file_deletion_configuration: OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+        :param 'TableOptimizerRetentionConfiguration' retention_configuration: The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+        :param 'TableOptimizerVpcConfiguration' vpc_configuration: An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if compaction_configuration is not None:
+            pulumi.set(__self__, "compaction_configuration", compaction_configuration)
+        if orphan_file_deletion_configuration is not None:
+            pulumi.set(__self__, "orphan_file_deletion_configuration", orphan_file_deletion_configuration)
+        if retention_configuration is not None:
+            pulumi.set(__self__, "retention_configuration", retention_configuration)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the table optimization is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="compactionConfiguration")
+    def compaction_configuration(self) -> Optional['outputs.TableOptimizerCompactionConfiguration']:
+        """
+        The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+        """
+        return pulumi.get(self, "compaction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="orphanFileDeletionConfiguration")
+    def orphan_file_deletion_configuration(self) -> Optional['outputs.TableOptimizerOrphanFileDeletionConfiguration']:
+        """
+        OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+        """
+        return pulumi.get(self, "orphan_file_deletion_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionConfiguration")
+    def retention_configuration(self) -> Optional['outputs.TableOptimizerRetentionConfiguration']:
+        """
+        The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+        """
+        return pulumi.get(self, "retention_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional['outputs.TableOptimizerVpcConfiguration']:
+        """
+        An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+        """
+        return pulumi.get(self, "vpc_configuration")
+
+
+@pulumi.output_type
+class TableOptimizerIcebergCompactionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteFileThreshold":
+            suggest = "delete_file_threshold"
+        elif key == "minInputFiles":
+            suggest = "min_input_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerIcebergCompactionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerIcebergCompactionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerIcebergCompactionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_file_threshold: Optional[_builtins.int] = None,
+                 min_input_files: Optional[_builtins.int] = None,
+                 strategy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int delete_file_threshold: The minimum number of deletes in a data file to make it eligible for compaction.
+        :param _builtins.int min_input_files: The minimum number of input files before compaction is triggered.
+        :param _builtins.str strategy: The compaction strategy to use. Valid values are binpack, sort, and z-order.
+        """
+        if delete_file_threshold is not None:
+            pulumi.set(__self__, "delete_file_threshold", delete_file_threshold)
+        if min_input_files is not None:
+            pulumi.set(__self__, "min_input_files", min_input_files)
+        if strategy is not None:
+            pulumi.set(__self__, "strategy", strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteFileThreshold")
+    def delete_file_threshold(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of deletes in a data file to make it eligible for compaction.
+        """
+        return pulumi.get(self, "delete_file_threshold")
+
+    @_builtins.property
+    @pulumi.getter(name="minInputFiles")
+    def min_input_files(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of input files before compaction is triggered.
+        """
+        return pulumi.get(self, "min_input_files")
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> Optional[_builtins.str]:
+        """
+        The compaction strategy to use. Valid values are binpack, sort, and z-order.
+        """
+        return pulumi.get(self, "strategy")
+
+
+@pulumi.output_type
+class TableOptimizerIcebergConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orphanFileRetentionPeriodInDays":
+            suggest = "orphan_file_retention_period_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerIcebergConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerIcebergConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerIcebergConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: Optional[_builtins.str] = None,
+                 orphan_file_retention_period_in_days: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str location: Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+        :param _builtins.int orphan_file_retention_period_in_days: The specific number of days you want to keep the orphan files.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if orphan_file_retention_period_in_days is not None:
+            pulumi.set(__self__, "orphan_file_retention_period_in_days", orphan_file_retention_period_in_days)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[_builtins.str]:
+        """
+        Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="orphanFileRetentionPeriodInDays")
+    def orphan_file_retention_period_in_days(self) -> Optional[_builtins.int]:
+        """
+        The specific number of days you want to keep the orphan files.
+        """
+        return pulumi.get(self, "orphan_file_retention_period_in_days")
+
+
+@pulumi.output_type
+class TableOptimizerIcebergRetentionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cleanExpiredFiles":
+            suggest = "clean_expired_files"
+        elif key == "numberOfSnapshotsToRetain":
+            suggest = "number_of_snapshots_to_retain"
+        elif key == "snapshotRetentionPeriodInDays":
+            suggest = "snapshot_retention_period_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerIcebergRetentionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerIcebergRetentionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerIcebergRetentionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 clean_expired_files: Optional[_builtins.bool] = None,
+                 number_of_snapshots_to_retain: Optional[_builtins.int] = None,
+                 snapshot_retention_period_in_days: Optional[_builtins.int] = None):
+        if clean_expired_files is not None:
+            pulumi.set(__self__, "clean_expired_files", clean_expired_files)
+        if number_of_snapshots_to_retain is not None:
+            pulumi.set(__self__, "number_of_snapshots_to_retain", number_of_snapshots_to_retain)
+        if snapshot_retention_period_in_days is not None:
+            pulumi.set(__self__, "snapshot_retention_period_in_days", snapshot_retention_period_in_days)
+
+    @_builtins.property
+    @pulumi.getter(name="cleanExpiredFiles")
+    def clean_expired_files(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "clean_expired_files")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSnapshotsToRetain")
+    def number_of_snapshots_to_retain(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "number_of_snapshots_to_retain")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotRetentionPeriodInDays")
+    def snapshot_retention_period_in_days(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "snapshot_retention_period_in_days")
+
+
+@pulumi.output_type
+class TableOptimizerOrphanFileDeletionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergConfiguration":
+            suggest = "iceberg_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerOrphanFileDeletionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerOrphanFileDeletionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerOrphanFileDeletionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional['outputs.TableOptimizerIcebergConfiguration'] = None):
+        """
+        :param 'TableOptimizerIcebergConfiguration' iceberg_configuration: The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional['outputs.TableOptimizerIcebergConfiguration']:
+        """
+        The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+
+@pulumi.output_type
+class TableOptimizerRetentionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergConfiguration":
+            suggest = "iceberg_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerRetentionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerRetentionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerRetentionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional['outputs.TableOptimizerIcebergRetentionConfiguration'] = None):
+        """
+        :param 'TableOptimizerIcebergRetentionConfiguration' iceberg_configuration: The configuration for an Iceberg snapshot retention optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional['outputs.TableOptimizerIcebergRetentionConfiguration']:
+        """
+        The configuration for an Iceberg snapshot retention optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+
+@pulumi.output_type
+class TableOptimizerVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "glueConnectionName":
+            suggest = "glue_connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableOptimizerVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableOptimizerVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableOptimizerVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 glue_connection_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str glue_connection_name: The name of the AWS Glue connection used for the VPC for the table optimizer.
+        """
+        if glue_connection_name is not None:
+            pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+
+    @_builtins.property
+    @pulumi.getter(name="glueConnectionName")
+    def glue_connection_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the AWS Glue connection used for the VPC for the table optimizer.
+        """
+        return pulumi.get(self, "glue_connection_name")
 
 
 @pulumi.output_type

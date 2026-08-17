@@ -92,9 +92,17 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+        /// </summary>
+        public readonly string? KmsKeyArn;
+        /// <summary>
         /// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
         /// </summary>
         public readonly Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup? ProvisionedResourceCleanup;
+        /// <summary>
+        /// List of replica locations for multi-location canary execution
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CanaryReplica> Replicas;
         /// <summary>
         /// Provide canary run configuration
         /// </summary>
@@ -140,7 +148,11 @@ namespace Pulumi.AwsNative.Synthetics
 
             string? id,
 
+            string? kmsKeyArn,
+
             Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup? provisionedResourceCleanup,
+
+            ImmutableArray<Outputs.CanaryReplica> replicas,
 
             Outputs.CanaryRunConfig? runConfig,
 
@@ -163,7 +175,9 @@ namespace Pulumi.AwsNative.Synthetics
             ExecutionRoleArn = executionRoleArn;
             FailureRetentionPeriod = failureRetentionPeriod;
             Id = id;
+            KmsKeyArn = kmsKeyArn;
             ProvisionedResourceCleanup = provisionedResourceCleanup;
+            Replicas = replicas;
             RunConfig = runConfig;
             RuntimeVersion = runtimeVersion;
             Schedule = schedule;

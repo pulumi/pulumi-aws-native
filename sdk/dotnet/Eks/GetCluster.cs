@@ -103,6 +103,9 @@ namespace Pulumi.AwsNative.Eks
         /// The unique ID given to your cluster.
         /// </summary>
         public readonly string? Id;
+        public readonly Outputs.ClusterKubeApiServerConfig? KubeApiServerConfig;
+        public readonly Outputs.ClusterKubeControllerManagerConfig? KubeControllerManagerConfig;
+        public readonly Outputs.ClusterKubeSchedulerConfig? KubeSchedulerConfig;
         /// <summary>
         /// The Kubernetes network configuration for the cluster.
         /// </summary>
@@ -168,6 +171,12 @@ namespace Pulumi.AwsNative.Eks
 
             string? id,
 
+            Outputs.ClusterKubeApiServerConfig? kubeApiServerConfig,
+
+            Outputs.ClusterKubeControllerManagerConfig? kubeControllerManagerConfig,
+
+            Outputs.ClusterKubeSchedulerConfig? kubeSchedulerConfig,
+
             Outputs.ClusterKubernetesNetworkConfig? kubernetesNetworkConfig,
 
             Outputs.Logging? logging,
@@ -198,6 +207,9 @@ namespace Pulumi.AwsNative.Eks
             EncryptionConfigKeyArn = encryptionConfigKeyArn;
             Endpoint = endpoint;
             Id = id;
+            KubeApiServerConfig = kubeApiServerConfig;
+            KubeControllerManagerConfig = kubeControllerManagerConfig;
+            KubeSchedulerConfig = kubeSchedulerConfig;
             KubernetesNetworkConfig = kubernetesNetworkConfig;
             Logging = logging;
             OpenIdConnectIssuerUrl = openIdConnectIssuerUrl;

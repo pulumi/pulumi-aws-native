@@ -3377,6 +3377,842 @@ func (in *encryptionConfigurationEncryptionTypePtr) ToEncryptionConfigurationEnc
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionConfigurationEncryptionTypePtrOutput)
 }
 
+// The type of job action to take to initiate the job abort.
+type JobAbortCriteriaAction string
+
+const (
+	JobAbortCriteriaActionCancel = JobAbortCriteriaAction("CANCEL")
+)
+
+func (JobAbortCriteriaAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (e JobAbortCriteriaAction) ToJobAbortCriteriaActionOutput() JobAbortCriteriaActionOutput {
+	return pulumi.ToOutput(e).(JobAbortCriteriaActionOutput)
+}
+
+func (e JobAbortCriteriaAction) ToJobAbortCriteriaActionOutputWithContext(ctx context.Context) JobAbortCriteriaActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobAbortCriteriaActionOutput)
+}
+
+func (e JobAbortCriteriaAction) ToJobAbortCriteriaActionPtrOutput() JobAbortCriteriaActionPtrOutput {
+	return e.ToJobAbortCriteriaActionPtrOutputWithContext(context.Background())
+}
+
+func (e JobAbortCriteriaAction) ToJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) JobAbortCriteriaActionPtrOutput {
+	return JobAbortCriteriaAction(e).ToJobAbortCriteriaActionOutputWithContext(ctx).ToJobAbortCriteriaActionPtrOutputWithContext(ctx)
+}
+
+func (e JobAbortCriteriaAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobAbortCriteriaAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobAbortCriteriaAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobAbortCriteriaAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobAbortCriteriaActionOutput struct{ *pulumi.OutputState }
+
+func (JobAbortCriteriaActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (o JobAbortCriteriaActionOutput) ToJobAbortCriteriaActionOutput() JobAbortCriteriaActionOutput {
+	return o
+}
+
+func (o JobAbortCriteriaActionOutput) ToJobAbortCriteriaActionOutputWithContext(ctx context.Context) JobAbortCriteriaActionOutput {
+	return o
+}
+
+func (o JobAbortCriteriaActionOutput) ToJobAbortCriteriaActionPtrOutput() JobAbortCriteriaActionPtrOutput {
+	return o.ToJobAbortCriteriaActionPtrOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaActionOutput) ToJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) JobAbortCriteriaActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAbortCriteriaAction) *JobAbortCriteriaAction {
+		return &v
+	}).(JobAbortCriteriaActionPtrOutput)
+}
+
+func (o JobAbortCriteriaActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobAbortCriteriaAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobAbortCriteriaActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobAbortCriteriaAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobAbortCriteriaActionPtrOutput struct{ *pulumi.OutputState }
+
+func (JobAbortCriteriaActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (o JobAbortCriteriaActionPtrOutput) ToJobAbortCriteriaActionPtrOutput() JobAbortCriteriaActionPtrOutput {
+	return o
+}
+
+func (o JobAbortCriteriaActionPtrOutput) ToJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) JobAbortCriteriaActionPtrOutput {
+	return o
+}
+
+func (o JobAbortCriteriaActionPtrOutput) Elem() JobAbortCriteriaActionOutput {
+	return o.ApplyT(func(v *JobAbortCriteriaAction) JobAbortCriteriaAction {
+		if v != nil {
+			return *v
+		}
+		var ret JobAbortCriteriaAction
+		return ret
+	}).(JobAbortCriteriaActionOutput)
+}
+
+func (o JobAbortCriteriaActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobAbortCriteriaAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobAbortCriteriaActionInput is an input type that accepts values of the JobAbortCriteriaAction enum
+// A concrete instance of `JobAbortCriteriaActionInput` can be one of the following:
+//
+//	JobAbortCriteriaActionCancel
+type JobAbortCriteriaActionInput interface {
+	pulumi.Input
+
+	ToJobAbortCriteriaActionOutput() JobAbortCriteriaActionOutput
+	ToJobAbortCriteriaActionOutputWithContext(context.Context) JobAbortCriteriaActionOutput
+}
+
+var jobAbortCriteriaActionPtrType = reflect.TypeOf((**JobAbortCriteriaAction)(nil)).Elem()
+
+type JobAbortCriteriaActionPtrInput interface {
+	pulumi.Input
+
+	ToJobAbortCriteriaActionPtrOutput() JobAbortCriteriaActionPtrOutput
+	ToJobAbortCriteriaActionPtrOutputWithContext(context.Context) JobAbortCriteriaActionPtrOutput
+}
+
+type jobAbortCriteriaActionPtr string
+
+func JobAbortCriteriaActionPtr(v string) JobAbortCriteriaActionPtrInput {
+	return (*jobAbortCriteriaActionPtr)(&v)
+}
+
+func (*jobAbortCriteriaActionPtr) ElementType() reflect.Type {
+	return jobAbortCriteriaActionPtrType
+}
+
+func (in *jobAbortCriteriaActionPtr) ToJobAbortCriteriaActionPtrOutput() JobAbortCriteriaActionPtrOutput {
+	return pulumi.ToOutput(in).(JobAbortCriteriaActionPtrOutput)
+}
+
+func (in *jobAbortCriteriaActionPtr) ToJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) JobAbortCriteriaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobAbortCriteriaActionPtrOutput)
+}
+
+// The type of job execution failures that can initiate a job abort.
+type JobAbortCriteriaFailureType string
+
+const (
+	JobAbortCriteriaFailureTypeFailed   = JobAbortCriteriaFailureType("FAILED")
+	JobAbortCriteriaFailureTypeRejected = JobAbortCriteriaFailureType("REJECTED")
+	JobAbortCriteriaFailureTypeTimedOut = JobAbortCriteriaFailureType("TIMED_OUT")
+	JobAbortCriteriaFailureTypeAll      = JobAbortCriteriaFailureType("ALL")
+)
+
+func (JobAbortCriteriaFailureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (e JobAbortCriteriaFailureType) ToJobAbortCriteriaFailureTypeOutput() JobAbortCriteriaFailureTypeOutput {
+	return pulumi.ToOutput(e).(JobAbortCriteriaFailureTypeOutput)
+}
+
+func (e JobAbortCriteriaFailureType) ToJobAbortCriteriaFailureTypeOutputWithContext(ctx context.Context) JobAbortCriteriaFailureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobAbortCriteriaFailureTypeOutput)
+}
+
+func (e JobAbortCriteriaFailureType) ToJobAbortCriteriaFailureTypePtrOutput() JobAbortCriteriaFailureTypePtrOutput {
+	return e.ToJobAbortCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (e JobAbortCriteriaFailureType) ToJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobAbortCriteriaFailureTypePtrOutput {
+	return JobAbortCriteriaFailureType(e).ToJobAbortCriteriaFailureTypeOutputWithContext(ctx).ToJobAbortCriteriaFailureTypePtrOutputWithContext(ctx)
+}
+
+func (e JobAbortCriteriaFailureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobAbortCriteriaFailureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobAbortCriteriaFailureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobAbortCriteriaFailureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobAbortCriteriaFailureTypeOutput struct{ *pulumi.OutputState }
+
+func (JobAbortCriteriaFailureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToJobAbortCriteriaFailureTypeOutput() JobAbortCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToJobAbortCriteriaFailureTypeOutputWithContext(ctx context.Context) JobAbortCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToJobAbortCriteriaFailureTypePtrOutput() JobAbortCriteriaFailureTypePtrOutput {
+	return o.ToJobAbortCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobAbortCriteriaFailureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAbortCriteriaFailureType) *JobAbortCriteriaFailureType {
+		return &v
+	}).(JobAbortCriteriaFailureTypePtrOutput)
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobAbortCriteriaFailureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaFailureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobAbortCriteriaFailureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobAbortCriteriaFailureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (JobAbortCriteriaFailureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (o JobAbortCriteriaFailureTypePtrOutput) ToJobAbortCriteriaFailureTypePtrOutput() JobAbortCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o JobAbortCriteriaFailureTypePtrOutput) ToJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobAbortCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o JobAbortCriteriaFailureTypePtrOutput) Elem() JobAbortCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v *JobAbortCriteriaFailureType) JobAbortCriteriaFailureType {
+		if v != nil {
+			return *v
+		}
+		var ret JobAbortCriteriaFailureType
+		return ret
+	}).(JobAbortCriteriaFailureTypeOutput)
+}
+
+func (o JobAbortCriteriaFailureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobAbortCriteriaFailureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobAbortCriteriaFailureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobAbortCriteriaFailureTypeInput is an input type that accepts values of the JobAbortCriteriaFailureType enum
+// A concrete instance of `JobAbortCriteriaFailureTypeInput` can be one of the following:
+//
+//	JobAbortCriteriaFailureTypeFailed
+//	JobAbortCriteriaFailureTypeRejected
+//	JobAbortCriteriaFailureTypeTimedOut
+//	JobAbortCriteriaFailureTypeAll
+type JobAbortCriteriaFailureTypeInput interface {
+	pulumi.Input
+
+	ToJobAbortCriteriaFailureTypeOutput() JobAbortCriteriaFailureTypeOutput
+	ToJobAbortCriteriaFailureTypeOutputWithContext(context.Context) JobAbortCriteriaFailureTypeOutput
+}
+
+var jobAbortCriteriaFailureTypePtrType = reflect.TypeOf((**JobAbortCriteriaFailureType)(nil)).Elem()
+
+type JobAbortCriteriaFailureTypePtrInput interface {
+	pulumi.Input
+
+	ToJobAbortCriteriaFailureTypePtrOutput() JobAbortCriteriaFailureTypePtrOutput
+	ToJobAbortCriteriaFailureTypePtrOutputWithContext(context.Context) JobAbortCriteriaFailureTypePtrOutput
+}
+
+type jobAbortCriteriaFailureTypePtr string
+
+func JobAbortCriteriaFailureTypePtr(v string) JobAbortCriteriaFailureTypePtrInput {
+	return (*jobAbortCriteriaFailureTypePtr)(&v)
+}
+
+func (*jobAbortCriteriaFailureTypePtr) ElementType() reflect.Type {
+	return jobAbortCriteriaFailureTypePtrType
+}
+
+func (in *jobAbortCriteriaFailureTypePtr) ToJobAbortCriteriaFailureTypePtrOutput() JobAbortCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutput(in).(JobAbortCriteriaFailureTypePtrOutput)
+}
+
+func (in *jobAbortCriteriaFailureTypePtr) ToJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobAbortCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobAbortCriteriaFailureTypePtrOutput)
+}
+
+// The type of job execution failures that can initiate a job retry.
+type JobRetryCriteriaFailureType string
+
+const (
+	JobRetryCriteriaFailureTypeFailed   = JobRetryCriteriaFailureType("FAILED")
+	JobRetryCriteriaFailureTypeTimedOut = JobRetryCriteriaFailureType("TIMED_OUT")
+	JobRetryCriteriaFailureTypeAll      = JobRetryCriteriaFailureType("ALL")
+)
+
+func (JobRetryCriteriaFailureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRetryCriteriaFailureType)(nil)).Elem()
+}
+
+func (e JobRetryCriteriaFailureType) ToJobRetryCriteriaFailureTypeOutput() JobRetryCriteriaFailureTypeOutput {
+	return pulumi.ToOutput(e).(JobRetryCriteriaFailureTypeOutput)
+}
+
+func (e JobRetryCriteriaFailureType) ToJobRetryCriteriaFailureTypeOutputWithContext(ctx context.Context) JobRetryCriteriaFailureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobRetryCriteriaFailureTypeOutput)
+}
+
+func (e JobRetryCriteriaFailureType) ToJobRetryCriteriaFailureTypePtrOutput() JobRetryCriteriaFailureTypePtrOutput {
+	return e.ToJobRetryCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (e JobRetryCriteriaFailureType) ToJobRetryCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobRetryCriteriaFailureTypePtrOutput {
+	return JobRetryCriteriaFailureType(e).ToJobRetryCriteriaFailureTypeOutputWithContext(ctx).ToJobRetryCriteriaFailureTypePtrOutputWithContext(ctx)
+}
+
+func (e JobRetryCriteriaFailureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobRetryCriteriaFailureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobRetryCriteriaFailureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobRetryCriteriaFailureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobRetryCriteriaFailureTypeOutput struct{ *pulumi.OutputState }
+
+func (JobRetryCriteriaFailureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRetryCriteriaFailureType)(nil)).Elem()
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToJobRetryCriteriaFailureTypeOutput() JobRetryCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToJobRetryCriteriaFailureTypeOutputWithContext(ctx context.Context) JobRetryCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToJobRetryCriteriaFailureTypePtrOutput() JobRetryCriteriaFailureTypePtrOutput {
+	return o.ToJobRetryCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToJobRetryCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobRetryCriteriaFailureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobRetryCriteriaFailureType) *JobRetryCriteriaFailureType {
+		return &v
+	}).(JobRetryCriteriaFailureTypePtrOutput)
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobRetryCriteriaFailureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobRetryCriteriaFailureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobRetryCriteriaFailureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobRetryCriteriaFailureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (JobRetryCriteriaFailureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRetryCriteriaFailureType)(nil)).Elem()
+}
+
+func (o JobRetryCriteriaFailureTypePtrOutput) ToJobRetryCriteriaFailureTypePtrOutput() JobRetryCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o JobRetryCriteriaFailureTypePtrOutput) ToJobRetryCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobRetryCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o JobRetryCriteriaFailureTypePtrOutput) Elem() JobRetryCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v *JobRetryCriteriaFailureType) JobRetryCriteriaFailureType {
+		if v != nil {
+			return *v
+		}
+		var ret JobRetryCriteriaFailureType
+		return ret
+	}).(JobRetryCriteriaFailureTypeOutput)
+}
+
+func (o JobRetryCriteriaFailureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobRetryCriteriaFailureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobRetryCriteriaFailureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobRetryCriteriaFailureTypeInput is an input type that accepts values of the JobRetryCriteriaFailureType enum
+// A concrete instance of `JobRetryCriteriaFailureTypeInput` can be one of the following:
+//
+//	JobRetryCriteriaFailureTypeFailed
+//	JobRetryCriteriaFailureTypeTimedOut
+//	JobRetryCriteriaFailureTypeAll
+type JobRetryCriteriaFailureTypeInput interface {
+	pulumi.Input
+
+	ToJobRetryCriteriaFailureTypeOutput() JobRetryCriteriaFailureTypeOutput
+	ToJobRetryCriteriaFailureTypeOutputWithContext(context.Context) JobRetryCriteriaFailureTypeOutput
+}
+
+var jobRetryCriteriaFailureTypePtrType = reflect.TypeOf((**JobRetryCriteriaFailureType)(nil)).Elem()
+
+type JobRetryCriteriaFailureTypePtrInput interface {
+	pulumi.Input
+
+	ToJobRetryCriteriaFailureTypePtrOutput() JobRetryCriteriaFailureTypePtrOutput
+	ToJobRetryCriteriaFailureTypePtrOutputWithContext(context.Context) JobRetryCriteriaFailureTypePtrOutput
+}
+
+type jobRetryCriteriaFailureTypePtr string
+
+func JobRetryCriteriaFailureTypePtr(v string) JobRetryCriteriaFailureTypePtrInput {
+	return (*jobRetryCriteriaFailureTypePtr)(&v)
+}
+
+func (*jobRetryCriteriaFailureTypePtr) ElementType() reflect.Type {
+	return jobRetryCriteriaFailureTypePtrType
+}
+
+func (in *jobRetryCriteriaFailureTypePtr) ToJobRetryCriteriaFailureTypePtrOutput() JobRetryCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutput(in).(JobRetryCriteriaFailureTypePtrOutput)
+}
+
+func (in *jobRetryCriteriaFailureTypePtr) ToJobRetryCriteriaFailureTypePtrOutputWithContext(ctx context.Context) JobRetryCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobRetryCriteriaFailureTypePtrOutput)
+}
+
+// Specifies the end behavior for all job executions after a job reaches the selected endTime.
+type JobSchedulingConfigEndBehavior string
+
+const (
+	JobSchedulingConfigEndBehaviorStopRollout = JobSchedulingConfigEndBehavior("STOP_ROLLOUT")
+	JobSchedulingConfigEndBehaviorCancel      = JobSchedulingConfigEndBehavior("CANCEL")
+	JobSchedulingConfigEndBehaviorForceCancel = JobSchedulingConfigEndBehavior("FORCE_CANCEL")
+)
+
+func (JobSchedulingConfigEndBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedulingConfigEndBehavior)(nil)).Elem()
+}
+
+func (e JobSchedulingConfigEndBehavior) ToJobSchedulingConfigEndBehaviorOutput() JobSchedulingConfigEndBehaviorOutput {
+	return pulumi.ToOutput(e).(JobSchedulingConfigEndBehaviorOutput)
+}
+
+func (e JobSchedulingConfigEndBehavior) ToJobSchedulingConfigEndBehaviorOutputWithContext(ctx context.Context) JobSchedulingConfigEndBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobSchedulingConfigEndBehaviorOutput)
+}
+
+func (e JobSchedulingConfigEndBehavior) ToJobSchedulingConfigEndBehaviorPtrOutput() JobSchedulingConfigEndBehaviorPtrOutput {
+	return e.ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e JobSchedulingConfigEndBehavior) ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(ctx context.Context) JobSchedulingConfigEndBehaviorPtrOutput {
+	return JobSchedulingConfigEndBehavior(e).ToJobSchedulingConfigEndBehaviorOutputWithContext(ctx).ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e JobSchedulingConfigEndBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobSchedulingConfigEndBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobSchedulingConfigEndBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobSchedulingConfigEndBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobSchedulingConfigEndBehaviorOutput struct{ *pulumi.OutputState }
+
+func (JobSchedulingConfigEndBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobSchedulingConfigEndBehavior)(nil)).Elem()
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToJobSchedulingConfigEndBehaviorOutput() JobSchedulingConfigEndBehaviorOutput {
+	return o
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToJobSchedulingConfigEndBehaviorOutputWithContext(ctx context.Context) JobSchedulingConfigEndBehaviorOutput {
+	return o
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToJobSchedulingConfigEndBehaviorPtrOutput() JobSchedulingConfigEndBehaviorPtrOutput {
+	return o.ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(ctx context.Context) JobSchedulingConfigEndBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSchedulingConfigEndBehavior) *JobSchedulingConfigEndBehavior {
+		return &v
+	}).(JobSchedulingConfigEndBehaviorPtrOutput)
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobSchedulingConfigEndBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobSchedulingConfigEndBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobSchedulingConfigEndBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobSchedulingConfigEndBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (JobSchedulingConfigEndBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobSchedulingConfigEndBehavior)(nil)).Elem()
+}
+
+func (o JobSchedulingConfigEndBehaviorPtrOutput) ToJobSchedulingConfigEndBehaviorPtrOutput() JobSchedulingConfigEndBehaviorPtrOutput {
+	return o
+}
+
+func (o JobSchedulingConfigEndBehaviorPtrOutput) ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(ctx context.Context) JobSchedulingConfigEndBehaviorPtrOutput {
+	return o
+}
+
+func (o JobSchedulingConfigEndBehaviorPtrOutput) Elem() JobSchedulingConfigEndBehaviorOutput {
+	return o.ApplyT(func(v *JobSchedulingConfigEndBehavior) JobSchedulingConfigEndBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret JobSchedulingConfigEndBehavior
+		return ret
+	}).(JobSchedulingConfigEndBehaviorOutput)
+}
+
+func (o JobSchedulingConfigEndBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobSchedulingConfigEndBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobSchedulingConfigEndBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobSchedulingConfigEndBehaviorInput is an input type that accepts values of the JobSchedulingConfigEndBehavior enum
+// A concrete instance of `JobSchedulingConfigEndBehaviorInput` can be one of the following:
+//
+//	JobSchedulingConfigEndBehaviorStopRollout
+//	JobSchedulingConfigEndBehaviorCancel
+//	JobSchedulingConfigEndBehaviorForceCancel
+type JobSchedulingConfigEndBehaviorInput interface {
+	pulumi.Input
+
+	ToJobSchedulingConfigEndBehaviorOutput() JobSchedulingConfigEndBehaviorOutput
+	ToJobSchedulingConfigEndBehaviorOutputWithContext(context.Context) JobSchedulingConfigEndBehaviorOutput
+}
+
+var jobSchedulingConfigEndBehaviorPtrType = reflect.TypeOf((**JobSchedulingConfigEndBehavior)(nil)).Elem()
+
+type JobSchedulingConfigEndBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToJobSchedulingConfigEndBehaviorPtrOutput() JobSchedulingConfigEndBehaviorPtrOutput
+	ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(context.Context) JobSchedulingConfigEndBehaviorPtrOutput
+}
+
+type jobSchedulingConfigEndBehaviorPtr string
+
+func JobSchedulingConfigEndBehaviorPtr(v string) JobSchedulingConfigEndBehaviorPtrInput {
+	return (*jobSchedulingConfigEndBehaviorPtr)(&v)
+}
+
+func (*jobSchedulingConfigEndBehaviorPtr) ElementType() reflect.Type {
+	return jobSchedulingConfigEndBehaviorPtrType
+}
+
+func (in *jobSchedulingConfigEndBehaviorPtr) ToJobSchedulingConfigEndBehaviorPtrOutput() JobSchedulingConfigEndBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(JobSchedulingConfigEndBehaviorPtrOutput)
+}
+
+func (in *jobSchedulingConfigEndBehaviorPtr) ToJobSchedulingConfigEndBehaviorPtrOutputWithContext(ctx context.Context) JobSchedulingConfigEndBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobSchedulingConfigEndBehaviorPtrOutput)
+}
+
+// Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT).
+type JobTargetSelection string
+
+const (
+	JobTargetSelectionContinuous = JobTargetSelection("CONTINUOUS")
+	JobTargetSelectionSnapshot   = JobTargetSelection("SNAPSHOT")
+)
+
+func (JobTargetSelection) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetSelection)(nil)).Elem()
+}
+
+func (e JobTargetSelection) ToJobTargetSelectionOutput() JobTargetSelectionOutput {
+	return pulumi.ToOutput(e).(JobTargetSelectionOutput)
+}
+
+func (e JobTargetSelection) ToJobTargetSelectionOutputWithContext(ctx context.Context) JobTargetSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobTargetSelectionOutput)
+}
+
+func (e JobTargetSelection) ToJobTargetSelectionPtrOutput() JobTargetSelectionPtrOutput {
+	return e.ToJobTargetSelectionPtrOutputWithContext(context.Background())
+}
+
+func (e JobTargetSelection) ToJobTargetSelectionPtrOutputWithContext(ctx context.Context) JobTargetSelectionPtrOutput {
+	return JobTargetSelection(e).ToJobTargetSelectionOutputWithContext(ctx).ToJobTargetSelectionPtrOutputWithContext(ctx)
+}
+
+func (e JobTargetSelection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTargetSelection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTargetSelection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobTargetSelection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobTargetSelectionOutput struct{ *pulumi.OutputState }
+
+func (JobTargetSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetSelection)(nil)).Elem()
+}
+
+func (o JobTargetSelectionOutput) ToJobTargetSelectionOutput() JobTargetSelectionOutput {
+	return o
+}
+
+func (o JobTargetSelectionOutput) ToJobTargetSelectionOutputWithContext(ctx context.Context) JobTargetSelectionOutput {
+	return o
+}
+
+func (o JobTargetSelectionOutput) ToJobTargetSelectionPtrOutput() JobTargetSelectionPtrOutput {
+	return o.ToJobTargetSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o JobTargetSelectionOutput) ToJobTargetSelectionPtrOutputWithContext(ctx context.Context) JobTargetSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTargetSelection) *JobTargetSelection {
+		return &v
+	}).(JobTargetSelectionPtrOutput)
+}
+
+func (o JobTargetSelectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobTargetSelectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTargetSelection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobTargetSelectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTargetSelectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTargetSelection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTargetSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTargetSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTargetSelection)(nil)).Elem()
+}
+
+func (o JobTargetSelectionPtrOutput) ToJobTargetSelectionPtrOutput() JobTargetSelectionPtrOutput {
+	return o
+}
+
+func (o JobTargetSelectionPtrOutput) ToJobTargetSelectionPtrOutputWithContext(ctx context.Context) JobTargetSelectionPtrOutput {
+	return o
+}
+
+func (o JobTargetSelectionPtrOutput) Elem() JobTargetSelectionOutput {
+	return o.ApplyT(func(v *JobTargetSelection) JobTargetSelection {
+		if v != nil {
+			return *v
+		}
+		var ret JobTargetSelection
+		return ret
+	}).(JobTargetSelectionOutput)
+}
+
+func (o JobTargetSelectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTargetSelectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobTargetSelection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobTargetSelectionInput is an input type that accepts values of the JobTargetSelection enum
+// A concrete instance of `JobTargetSelectionInput` can be one of the following:
+//
+//	JobTargetSelectionContinuous
+//	JobTargetSelectionSnapshot
+type JobTargetSelectionInput interface {
+	pulumi.Input
+
+	ToJobTargetSelectionOutput() JobTargetSelectionOutput
+	ToJobTargetSelectionOutputWithContext(context.Context) JobTargetSelectionOutput
+}
+
+var jobTargetSelectionPtrType = reflect.TypeOf((**JobTargetSelection)(nil)).Elem()
+
+type JobTargetSelectionPtrInput interface {
+	pulumi.Input
+
+	ToJobTargetSelectionPtrOutput() JobTargetSelectionPtrOutput
+	ToJobTargetSelectionPtrOutputWithContext(context.Context) JobTargetSelectionPtrOutput
+}
+
+type jobTargetSelectionPtr string
+
+func JobTargetSelectionPtr(v string) JobTargetSelectionPtrInput {
+	return (*jobTargetSelectionPtr)(&v)
+}
+
+func (*jobTargetSelectionPtr) ElementType() reflect.Type {
+	return jobTargetSelectionPtrType
+}
+
+func (in *jobTargetSelectionPtr) ToJobTargetSelectionPtrOutput() JobTargetSelectionPtrOutput {
+	return pulumi.ToOutput(in).(JobTargetSelectionPtrOutput)
+}
+
+func (in *jobTargetSelectionPtr) ToJobTargetSelectionPtrOutputWithContext(ctx context.Context) JobTargetSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobTargetSelectionPtrOutput)
+}
+
 type JobTemplateAction string
 
 const (
@@ -7182,6 +8018,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationStatusPtrInput)(nil)).Elem(), DomainConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigurationEncryptionTypeInput)(nil)).Elem(), EncryptionConfigurationEncryptionType("CUSTOMER_MANAGED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigurationEncryptionTypePtrInput)(nil)).Elem(), EncryptionConfigurationEncryptionType("CUSTOMER_MANAGED_KMS_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortCriteriaActionInput)(nil)).Elem(), JobAbortCriteriaAction("CANCEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortCriteriaActionPtrInput)(nil)).Elem(), JobAbortCriteriaAction("CANCEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortCriteriaFailureTypeInput)(nil)).Elem(), JobAbortCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAbortCriteriaFailureTypePtrInput)(nil)).Elem(), JobAbortCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRetryCriteriaFailureTypeInput)(nil)).Elem(), JobRetryCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobRetryCriteriaFailureTypePtrInput)(nil)).Elem(), JobRetryCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSchedulingConfigEndBehaviorInput)(nil)).Elem(), JobSchedulingConfigEndBehavior("STOP_ROLLOUT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobSchedulingConfigEndBehaviorPtrInput)(nil)).Elem(), JobSchedulingConfigEndBehavior("STOP_ROLLOUT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetSelectionInput)(nil)).Elem(), JobTargetSelection("CONTINUOUS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetSelectionPtrInput)(nil)).Elem(), JobTargetSelection("CONTINUOUS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateActionInput)(nil)).Elem(), JobTemplateAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateActionPtrInput)(nil)).Elem(), JobTemplateAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateFailureTypeInput)(nil)).Elem(), JobTemplateFailureType("FAILED"))
@@ -7267,6 +8113,16 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigurationEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigurationEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(JobAbortCriteriaActionOutput{})
+	pulumi.RegisterOutputType(JobAbortCriteriaActionPtrOutput{})
+	pulumi.RegisterOutputType(JobAbortCriteriaFailureTypeOutput{})
+	pulumi.RegisterOutputType(JobAbortCriteriaFailureTypePtrOutput{})
+	pulumi.RegisterOutputType(JobRetryCriteriaFailureTypeOutput{})
+	pulumi.RegisterOutputType(JobRetryCriteriaFailureTypePtrOutput{})
+	pulumi.RegisterOutputType(JobSchedulingConfigEndBehaviorOutput{})
+	pulumi.RegisterOutputType(JobSchedulingConfigEndBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(JobTargetSelectionOutput{})
+	pulumi.RegisterOutputType(JobTargetSelectionPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateActionOutput{})
 	pulumi.RegisterOutputType(JobTemplateActionPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateFailureTypeOutput{})

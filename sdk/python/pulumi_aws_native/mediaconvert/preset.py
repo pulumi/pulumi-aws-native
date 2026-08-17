@@ -29,8 +29,6 @@ class PresetArgs:
 
         :param Any settings_json: Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
                
-               For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
-               
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] category: The new category for the preset, if you are changing it.
         :param pulumi.Input[_builtins.str] description: The new description for the preset, if you are changing it.
@@ -56,8 +54,6 @@ class PresetArgs:
     def settings_json(self) -> Any:
         """
         Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-
-        For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         """
@@ -142,8 +138,6 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the preset that you are modifying.
         :param Any settings_json: Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
                
-               For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
-               
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         :param Any tags: An array of key-value pairs to apply to this resource.
                
@@ -197,7 +191,6 @@ class Preset(pulumi.CustomResource):
             __props__.__dict__["settings_json"] = settings_json
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Preset, __self__).__init__(
@@ -223,7 +216,6 @@ class Preset(pulumi.CustomResource):
         __props__ = PresetArgs.__new__(PresetArgs)
 
         __props__.__dict__["arn"] = None
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["category"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -235,14 +227,9 @@ class Preset(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+        The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
         """
         return pulumi.get(self, "arn")
-
-    @_builtins.property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "aws_id")
 
     @_builtins.property
     @pulumi.getter
@@ -273,8 +260,6 @@ class Preset(pulumi.CustomResource):
     def settings_json(self) -> pulumi.Output[Any]:
         """
         Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-
-        For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         """

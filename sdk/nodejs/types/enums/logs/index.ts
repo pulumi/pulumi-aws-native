@@ -154,6 +154,15 @@ export const ScheduledQueryState = {
 
 export type ScheduledQueryState = (typeof ScheduledQueryState)[keyof typeof ScheduledQueryState];
 
+export const StorageTierPolicyStorageTier = {
+    IntelligentTiering: "INTELLIGENT_TIERING",
+} as const;
+
+/**
+ * The storage tier to apply. Only INTELLIGENT_TIERING is accepted for creation.
+ */
+export type StorageTierPolicyStorageTier = (typeof StorageTierPolicyStorageTier)[keyof typeof StorageTierPolicyStorageTier];
+
 export const SubscriptionFilterDistribution = {
     Random: "Random",
     ByLogStream: "ByLogStream",

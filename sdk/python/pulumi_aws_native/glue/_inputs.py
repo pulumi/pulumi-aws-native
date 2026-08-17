@@ -28,6 +28,14 @@ __all__ = [
     'CatalogPropertiesArgsDict',
     'CatalogTargetRedshiftCatalogArgs',
     'CatalogTargetRedshiftCatalogArgsDict',
+    'ClassifierCsvClassifierArgs',
+    'ClassifierCsvClassifierArgsDict',
+    'ClassifierGrokClassifierArgs',
+    'ClassifierGrokClassifierArgsDict',
+    'ClassifierJsonClassifierArgs',
+    'ClassifierJsonClassifierArgsDict',
+    'ClassifierXmlClassifierArgs',
+    'ClassifierXmlClassifierArgsDict',
     'CrawlerCatalogTargetArgs',
     'CrawlerCatalogTargetArgsDict',
     'CrawlerDeltaTargetArgs',
@@ -60,6 +68,8 @@ __all__ = [
     'DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgsDict',
     'DataCatalogEncryptionSettingsEncryptionAtRestArgs',
     'DataCatalogEncryptionSettingsEncryptionAtRestArgsDict',
+    'DataQualityRulesetDataQualityTargetTableArgs',
+    'DataQualityRulesetDataQualityTargetTableArgsDict',
     'DatabaseDataLakePrincipalArgs',
     'DatabaseDataLakePrincipalArgsDict',
     'DatabaseFederatedDatabaseArgs',
@@ -80,14 +90,50 @@ __all__ = [
     'JobExecutionPropertyArgsDict',
     'JobNotificationPropertyArgs',
     'JobNotificationPropertyArgsDict',
+    'MlTransformFindMatchesParametersArgs',
+    'MlTransformFindMatchesParametersArgsDict',
+    'MlTransformGlueTablesArgs',
+    'MlTransformGlueTablesArgsDict',
+    'MlTransformInputRecordTablesArgs',
+    'MlTransformInputRecordTablesArgsDict',
+    'MlTransformMlUserDataEncryptionArgs',
+    'MlTransformMlUserDataEncryptionArgsDict',
+    'MlTransformTransformEncryptionArgs',
+    'MlTransformTransformEncryptionArgsDict',
+    'MlTransformTransformParametersArgs',
+    'MlTransformTransformParametersArgsDict',
     'SchemaRegistryArgs',
     'SchemaRegistryArgsDict',
     'SchemaVersionArgs',
     'SchemaVersionArgsDict',
     'SchemaVersionSchemaArgs',
     'SchemaVersionSchemaArgsDict',
+    'SecurityConfigurationCloudWatchEncryptionArgs',
+    'SecurityConfigurationCloudWatchEncryptionArgsDict',
+    'SecurityConfigurationEncryptionConfigurationArgs',
+    'SecurityConfigurationEncryptionConfigurationArgsDict',
+    'SecurityConfigurationJobBookmarksEncryptionArgs',
+    'SecurityConfigurationJobBookmarksEncryptionArgsDict',
+    'SecurityConfigurationS3EncryptionArgs',
+    'SecurityConfigurationS3EncryptionArgsDict',
     'SourceProcessingPropertiesPropertiesArgs',
     'SourceProcessingPropertiesPropertiesArgsDict',
+    'TableOptimizerCompactionConfigurationArgs',
+    'TableOptimizerCompactionConfigurationArgsDict',
+    'TableOptimizerConfigurationArgs',
+    'TableOptimizerConfigurationArgsDict',
+    'TableOptimizerIcebergCompactionConfigurationArgs',
+    'TableOptimizerIcebergCompactionConfigurationArgsDict',
+    'TableOptimizerIcebergConfigurationArgs',
+    'TableOptimizerIcebergConfigurationArgsDict',
+    'TableOptimizerIcebergRetentionConfigurationArgs',
+    'TableOptimizerIcebergRetentionConfigurationArgsDict',
+    'TableOptimizerOrphanFileDeletionConfigurationArgs',
+    'TableOptimizerOrphanFileDeletionConfigurationArgsDict',
+    'TableOptimizerRetentionConfigurationArgs',
+    'TableOptimizerRetentionConfigurationArgsDict',
+    'TableOptimizerVpcConfigurationArgs',
+    'TableOptimizerVpcConfigurationArgsDict',
     'TargetProcessingPropertiesPropertiesArgs',
     'TargetProcessingPropertiesPropertiesArgsDict',
     'TriggerActionArgs',
@@ -495,6 +541,397 @@ class CatalogTargetRedshiftCatalogArgs:
     @catalog_arn.setter
     def catalog_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "catalog_arn", value)
+
+
+class ClassifierCsvClassifierArgsDict(TypedDict):
+    allow_single_column: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables the processing of files that contain only one column.
+    """
+    contains_custom_datatype: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Indicates whether the CSV file contains custom data types.
+    """
+    contains_header: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+    """
+    custom_datatype_configured: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables the configuration of custom data types.
+    """
+    delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A custom symbol to denote what separates each column entry in the row.
+    """
+    disable_value_trimming: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies not to trim values before identifying the type of column values. The default value is true.
+    """
+    header: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of strings representing column names.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the classifier.
+    """
+    quote_symbol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+    """
+
+@pulumi.input_type
+class ClassifierCsvClassifierArgs:
+    def __init__(__self__, *,
+                 allow_single_column: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contains_custom_datatype: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 contains_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_datatype_configured: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_value_trimming: pulumi.Input[Optional[_builtins.bool]] = None,
+                 header: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quote_symbol: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] allow_single_column: Enables the processing of files that contain only one column.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contains_custom_datatype: Indicates whether the CSV file contains custom data types.
+        :param pulumi.Input[_builtins.str] contains_header: Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+        :param pulumi.Input[_builtins.bool] custom_datatype_configured: Enables the configuration of custom data types.
+        :param pulumi.Input[_builtins.str] delimiter: A custom symbol to denote what separates each column entry in the row.
+        :param pulumi.Input[_builtins.bool] disable_value_trimming: Specifies not to trim values before identifying the type of column values. The default value is true.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] header: A list of strings representing column names.
+        :param pulumi.Input[_builtins.str] name: The name of the classifier.
+        :param pulumi.Input[_builtins.str] quote_symbol: A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        """
+        if allow_single_column is not None:
+            pulumi.set(__self__, "allow_single_column", allow_single_column)
+        if contains_custom_datatype is not None:
+            pulumi.set(__self__, "contains_custom_datatype", contains_custom_datatype)
+        if contains_header is not None:
+            pulumi.set(__self__, "contains_header", contains_header)
+        if custom_datatype_configured is not None:
+            pulumi.set(__self__, "custom_datatype_configured", custom_datatype_configured)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if disable_value_trimming is not None:
+            pulumi.set(__self__, "disable_value_trimming", disable_value_trimming)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if quote_symbol is not None:
+            pulumi.set(__self__, "quote_symbol", quote_symbol)
+
+    @_builtins.property
+    @pulumi.getter(name="allowSingleColumn")
+    def allow_single_column(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables the processing of files that contain only one column.
+        """
+        return pulumi.get(self, "allow_single_column")
+
+    @allow_single_column.setter
+    def allow_single_column(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "allow_single_column", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containsCustomDatatype")
+    def contains_custom_datatype(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Indicates whether the CSV file contains custom data types.
+        """
+        return pulumi.get(self, "contains_custom_datatype")
+
+    @contains_custom_datatype.setter
+    def contains_custom_datatype(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "contains_custom_datatype", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containsHeader")
+    def contains_header(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+        """
+        return pulumi.get(self, "contains_header")
+
+    @contains_header.setter
+    def contains_header(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "contains_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customDatatypeConfigured")
+    def custom_datatype_configured(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables the configuration of custom data types.
+        """
+        return pulumi.get(self, "custom_datatype_configured")
+
+    @custom_datatype_configured.setter
+    def custom_datatype_configured(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "custom_datatype_configured", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A custom symbol to denote what separates each column entry in the row.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableValueTrimming")
+    def disable_value_trimming(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies not to trim values before identifying the type of column values. The default value is true.
+        """
+        return pulumi.get(self, "disable_value_trimming")
+
+    @disable_value_trimming.setter
+    def disable_value_trimming(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_value_trimming", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of strings representing column names.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "header", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quoteSymbol")
+    def quote_symbol(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        """
+        return pulumi.get(self, "quote_symbol")
+
+    @quote_symbol.setter
+    def quote_symbol(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "quote_symbol", value)
+
+
+class ClassifierGrokClassifierArgsDict(TypedDict):
+    classification: pulumi.Input[_builtins.str]
+    """
+    An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+    """
+    grok_pattern: pulumi.Input[_builtins.str]
+    """
+    The grok pattern applied to a data store by this classifier.
+    """
+    custom_patterns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional custom grok patterns defined by this classifier.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the classifier.
+    """
+
+@pulumi.input_type
+class ClassifierGrokClassifierArgs:
+    def __init__(__self__, *,
+                 classification: pulumi.Input[_builtins.str],
+                 grok_pattern: pulumi.Input[_builtins.str],
+                 custom_patterns: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] classification: An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+        :param pulumi.Input[_builtins.str] grok_pattern: The grok pattern applied to a data store by this classifier.
+        :param pulumi.Input[_builtins.str] custom_patterns: Optional custom grok patterns defined by this classifier.
+        :param pulumi.Input[_builtins.str] name: The name of the classifier.
+        """
+        pulumi.set(__self__, "classification", classification)
+        pulumi.set(__self__, "grok_pattern", grok_pattern)
+        if custom_patterns is not None:
+            pulumi.set(__self__, "custom_patterns", custom_patterns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> pulumi.Input[_builtins.str]:
+        """
+        An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "classification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="grokPattern")
+    def grok_pattern(self) -> pulumi.Input[_builtins.str]:
+        """
+        The grok pattern applied to a data store by this classifier.
+        """
+        return pulumi.get(self, "grok_pattern")
+
+    @grok_pattern.setter
+    def grok_pattern(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "grok_pattern", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customPatterns")
+    def custom_patterns(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional custom grok patterns defined by this classifier.
+        """
+        return pulumi.get(self, "custom_patterns")
+
+    @custom_patterns.setter
+    def custom_patterns(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_patterns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class ClassifierJsonClassifierArgsDict(TypedDict):
+    json_path: pulumi.Input[_builtins.str]
+    """
+    A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the classifier.
+    """
+
+@pulumi.input_type
+class ClassifierJsonClassifierArgs:
+    def __init__(__self__, *,
+                 json_path: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] json_path: A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+        :param pulumi.Input[_builtins.str] name: The name of the classifier.
+        """
+        pulumi.set(__self__, "json_path", json_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonPath")
+    def json_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+        """
+        return pulumi.get(self, "json_path")
+
+    @json_path.setter
+    def json_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "json_path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class ClassifierXmlClassifierArgsDict(TypedDict):
+    classification: pulumi.Input[_builtins.str]
+    """
+    An identifier of the data format that the classifier matches.
+    """
+    row_tag: pulumi.Input[_builtins.str]
+    """
+    The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the classifier.
+    """
+
+@pulumi.input_type
+class ClassifierXmlClassifierArgs:
+    def __init__(__self__, *,
+                 classification: pulumi.Input[_builtins.str],
+                 row_tag: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] classification: An identifier of the data format that the classifier matches.
+        :param pulumi.Input[_builtins.str] row_tag: The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+        :param pulumi.Input[_builtins.str] name: The name of the classifier.
+        """
+        pulumi.set(__self__, "classification", classification)
+        pulumi.set(__self__, "row_tag", row_tag)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> pulumi.Input[_builtins.str]:
+        """
+        An identifier of the data format that the classifier matches.
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "classification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rowTag")
+    def row_tag(self) -> pulumi.Input[_builtins.str]:
+        """
+        The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+        """
+        return pulumi.get(self, "row_tag")
+
+    @row_tag.setter
+    def row_tag(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "row_tag", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the classifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 class CrawlerCatalogTargetArgsDict(TypedDict):
@@ -1793,6 +2230,58 @@ class DataCatalogEncryptionSettingsEncryptionAtRestArgs:
         pulumi.set(self, "sse_aws_kms_key_id", value)
 
 
+class DataQualityRulesetDataQualityTargetTableArgsDict(TypedDict):
+    """
+    An object representing an AWS Glue table.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database where the AWS Glue table exists.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the AWS Glue table.
+    """
+
+@pulumi.input_type
+class DataQualityRulesetDataQualityTargetTableArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[_builtins.str],
+                 table_name: pulumi.Input[_builtins.str]):
+        """
+        An object representing an AWS Glue table.
+
+        :param pulumi.Input[_builtins.str] database_name: The name of the database where the AWS Glue table exists.
+        :param pulumi.Input[_builtins.str] table_name: The name of the AWS Glue table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the database where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_name", value)
+
+
 class DatabaseDataLakePrincipalArgsDict(TypedDict):
     """
     The AWS Lake Formation principal.
@@ -2413,6 +2902,385 @@ class JobNotificationPropertyArgs:
         pulumi.set(self, "notify_delay_after", value)
 
 
+class MlTransformFindMatchesParametersArgsDict(TypedDict):
+    """
+    The parameters to configure the find matches transform.
+    """
+    primary_key_column_name: pulumi.Input[_builtins.str]
+    """
+    The name of a column that uniquely identifies rows in the source table.
+    """
+    accuracy_cost_tradeoff: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+    """
+    enforce_provided_labels: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If true, forces the output to match the provided labels.
+    """
+    precision_recall_tradeoff: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The value for precision and recall tradeoff. A value of 0.5 means no preference.
+    """
+
+@pulumi.input_type
+class MlTransformFindMatchesParametersArgs:
+    def __init__(__self__, *,
+                 primary_key_column_name: pulumi.Input[_builtins.str],
+                 accuracy_cost_tradeoff: pulumi.Input[Optional[_builtins.float]] = None,
+                 enforce_provided_labels: pulumi.Input[Optional[_builtins.bool]] = None,
+                 precision_recall_tradeoff: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        The parameters to configure the find matches transform.
+
+        :param pulumi.Input[_builtins.str] primary_key_column_name: The name of a column that uniquely identifies rows in the source table.
+        :param pulumi.Input[_builtins.float] accuracy_cost_tradeoff: The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+        :param pulumi.Input[_builtins.bool] enforce_provided_labels: If true, forces the output to match the provided labels.
+        :param pulumi.Input[_builtins.float] precision_recall_tradeoff: The value for precision and recall tradeoff. A value of 0.5 means no preference.
+        """
+        pulumi.set(__self__, "primary_key_column_name", primary_key_column_name)
+        if accuracy_cost_tradeoff is not None:
+            pulumi.set(__self__, "accuracy_cost_tradeoff", accuracy_cost_tradeoff)
+        if enforce_provided_labels is not None:
+            pulumi.set(__self__, "enforce_provided_labels", enforce_provided_labels)
+        if precision_recall_tradeoff is not None:
+            pulumi.set(__self__, "precision_recall_tradeoff", precision_recall_tradeoff)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKeyColumnName")
+    def primary_key_column_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of a column that uniquely identifies rows in the source table.
+        """
+        return pulumi.get(self, "primary_key_column_name")
+
+    @primary_key_column_name.setter
+    def primary_key_column_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "primary_key_column_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accuracyCostTradeoff")
+    def accuracy_cost_tradeoff(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+        """
+        return pulumi.get(self, "accuracy_cost_tradeoff")
+
+    @accuracy_cost_tradeoff.setter
+    def accuracy_cost_tradeoff(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "accuracy_cost_tradeoff", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enforceProvidedLabels")
+    def enforce_provided_labels(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, forces the output to match the provided labels.
+        """
+        return pulumi.get(self, "enforce_provided_labels")
+
+    @enforce_provided_labels.setter
+    def enforce_provided_labels(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enforce_provided_labels", value)
+
+    @_builtins.property
+    @pulumi.getter(name="precisionRecallTradeoff")
+    def precision_recall_tradeoff(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The value for precision and recall tradeoff. A value of 0.5 means no preference.
+        """
+        return pulumi.get(self, "precision_recall_tradeoff")
+
+    @precision_recall_tradeoff.setter
+    def precision_recall_tradeoff(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "precision_recall_tradeoff", value)
+
+
+class MlTransformGlueTablesArgsDict(TypedDict):
+    """
+    The database and table in the AWS Glue Data Catalog that is used for input or output data.
+    """
+    database_name: pulumi.Input[_builtins.str]
+    """
+    A database name in the AWS Glue Data Catalog.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    A table name in the AWS Glue Data Catalog.
+    """
+    catalog_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A unique identifier for the AWS Glue Data Catalog.
+    """
+    connection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the connection to the AWS Glue Data Catalog.
+    """
+
+@pulumi.input_type
+class MlTransformGlueTablesArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[_builtins.str],
+                 table_name: pulumi.Input[_builtins.str],
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The database and table in the AWS Glue Data Catalog that is used for input or output data.
+
+        :param pulumi.Input[_builtins.str] database_name: A database name in the AWS Glue Data Catalog.
+        :param pulumi.Input[_builtins.str] table_name: A table name in the AWS Glue Data Catalog.
+        :param pulumi.Input[_builtins.str] catalog_id: A unique identifier for the AWS Glue Data Catalog.
+        :param pulumi.Input[_builtins.str] connection_name: The name of the connection to the AWS Glue Data Catalog.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A database name in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A table name in the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A unique identifier for the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the connection to the AWS Glue Data Catalog.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_name", value)
+
+
+class MlTransformInputRecordTablesArgsDict(TypedDict):
+    """
+    A list of AWS Glue table definitions used by the transform.
+    """
+    glue_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MlTransformGlueTablesArgsDict']]]]]
+    """
+    The database and table in the AWS Glue Data Catalog that is used for input or output data.
+    """
+
+@pulumi.input_type
+class MlTransformInputRecordTablesArgs:
+    def __init__(__self__, *,
+                 glue_tables: pulumi.Input[Optional[Sequence[pulumi.Input['MlTransformGlueTablesArgs']]]] = None):
+        """
+        A list of AWS Glue table definitions used by the transform.
+
+        :param pulumi.Input[Sequence[pulumi.Input['MlTransformGlueTablesArgs']]] glue_tables: The database and table in the AWS Glue Data Catalog that is used for input or output data.
+        """
+        if glue_tables is not None:
+            pulumi.set(__self__, "glue_tables", glue_tables)
+
+    @_builtins.property
+    @pulumi.getter(name="glueTables")
+    def glue_tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MlTransformGlueTablesArgs']]]]:
+        """
+        The database and table in the AWS Glue Data Catalog that is used for input or output data.
+        """
+        return pulumi.get(self, "glue_tables")
+
+    @glue_tables.setter
+    def glue_tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MlTransformGlueTablesArgs']]]]):
+        pulumi.set(self, "glue_tables", value)
+
+
+class MlTransformMlUserDataEncryptionArgsDict(TypedDict):
+    """
+    The encryption-at-rest settings of the transform that apply to accessing user data.
+    """
+    ml_user_data_encryption_mode: pulumi.Input[_builtins.str]
+    """
+    The encryption mode applied to user data.
+    """
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID for the customer-provided KMS key.
+    """
+
+@pulumi.input_type
+class MlTransformMlUserDataEncryptionArgs:
+    def __init__(__self__, *,
+                 ml_user_data_encryption_mode: pulumi.Input[_builtins.str],
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The encryption-at-rest settings of the transform that apply to accessing user data.
+
+        :param pulumi.Input[_builtins.str] ml_user_data_encryption_mode: The encryption mode applied to user data.
+        :param pulumi.Input[_builtins.str] kms_key_id: The ID for the customer-provided KMS key.
+        """
+        pulumi.set(__self__, "ml_user_data_encryption_mode", ml_user_data_encryption_mode)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="mlUserDataEncryptionMode")
+    def ml_user_data_encryption_mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        The encryption mode applied to user data.
+        """
+        return pulumi.get(self, "ml_user_data_encryption_mode")
+
+    @ml_user_data_encryption_mode.setter
+    def ml_user_data_encryption_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ml_user_data_encryption_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID for the customer-provided KMS key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+class MlTransformTransformEncryptionArgsDict(TypedDict):
+    """
+    The encryption-at-rest settings of the transform that apply to accessing user data.
+    """
+    ml_user_data_encryption: NotRequired[pulumi.Input[Optional['MlTransformMlUserDataEncryptionArgsDict']]]
+    """
+    The encryption-at-rest settings of the transform that apply to accessing user data.
+    """
+    task_run_security_configuration_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the security configuration.
+    """
+
+@pulumi.input_type
+class MlTransformTransformEncryptionArgs:
+    def __init__(__self__, *,
+                 ml_user_data_encryption: pulumi.Input[Optional['MlTransformMlUserDataEncryptionArgs']] = None,
+                 task_run_security_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The encryption-at-rest settings of the transform that apply to accessing user data.
+
+        :param pulumi.Input['MlTransformMlUserDataEncryptionArgs'] ml_user_data_encryption: The encryption-at-rest settings of the transform that apply to accessing user data.
+        :param pulumi.Input[_builtins.str] task_run_security_configuration_name: The name of the security configuration.
+        """
+        if ml_user_data_encryption is not None:
+            pulumi.set(__self__, "ml_user_data_encryption", ml_user_data_encryption)
+        if task_run_security_configuration_name is not None:
+            pulumi.set(__self__, "task_run_security_configuration_name", task_run_security_configuration_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mlUserDataEncryption")
+    def ml_user_data_encryption(self) -> pulumi.Input[Optional['MlTransformMlUserDataEncryptionArgs']]:
+        """
+        The encryption-at-rest settings of the transform that apply to accessing user data.
+        """
+        return pulumi.get(self, "ml_user_data_encryption")
+
+    @ml_user_data_encryption.setter
+    def ml_user_data_encryption(self, value: pulumi.Input[Optional['MlTransformMlUserDataEncryptionArgs']]):
+        pulumi.set(self, "ml_user_data_encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskRunSecurityConfigurationName")
+    def task_run_security_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the security configuration.
+        """
+        return pulumi.get(self, "task_run_security_configuration_name")
+
+    @task_run_security_configuration_name.setter
+    def task_run_security_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "task_run_security_configuration_name", value)
+
+
+class MlTransformTransformParametersArgsDict(TypedDict):
+    """
+    The algorithm-specific parameters that are associated with the machine learning transform.
+    """
+    transform_type: pulumi.Input[_builtins.str]
+    """
+    The type of machine learning transform.
+    """
+    find_matches_parameters: NotRequired[pulumi.Input[Optional['MlTransformFindMatchesParametersArgsDict']]]
+    """
+    The parameters for the find matches algorithm.
+    """
+
+@pulumi.input_type
+class MlTransformTransformParametersArgs:
+    def __init__(__self__, *,
+                 transform_type: pulumi.Input[_builtins.str],
+                 find_matches_parameters: pulumi.Input[Optional['MlTransformFindMatchesParametersArgs']] = None):
+        """
+        The algorithm-specific parameters that are associated with the machine learning transform.
+
+        :param pulumi.Input[_builtins.str] transform_type: The type of machine learning transform.
+        :param pulumi.Input['MlTransformFindMatchesParametersArgs'] find_matches_parameters: The parameters for the find matches algorithm.
+        """
+        pulumi.set(__self__, "transform_type", transform_type)
+        if find_matches_parameters is not None:
+            pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="transformType")
+    def transform_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of machine learning transform.
+        """
+        return pulumi.get(self, "transform_type")
+
+    @transform_type.setter
+    def transform_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transform_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="findMatchesParameters")
+    def find_matches_parameters(self) -> pulumi.Input[Optional['MlTransformFindMatchesParametersArgs']]:
+        """
+        The parameters for the find matches algorithm.
+        """
+        return pulumi.get(self, "find_matches_parameters")
+
+    @find_matches_parameters.setter
+    def find_matches_parameters(self, value: pulumi.Input[Optional['MlTransformFindMatchesParametersArgs']]):
+        pulumi.set(self, "find_matches_parameters", value)
+
+
 class SchemaRegistryArgsDict(TypedDict):
     """
     Identifier for the registry which the schema is part of.
@@ -2595,6 +3463,242 @@ class SchemaVersionSchemaArgs:
         pulumi.set(self, "schema_name", value)
 
 
+class SecurityConfigurationCloudWatchEncryptionArgsDict(TypedDict):
+    """
+    The encryption configuration for Amazon CloudWatch.
+    """
+    cloud_watch_encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The encryption mode to use for CloudWatch data.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+    """
+
+@pulumi.input_type
+class SecurityConfigurationCloudWatchEncryptionArgs:
+    def __init__(__self__, *,
+                 cloud_watch_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The encryption configuration for Amazon CloudWatch.
+
+        :param pulumi.Input[_builtins.str] cloud_watch_encryption_mode: The encryption mode to use for CloudWatch data.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        if cloud_watch_encryption_mode is not None:
+            pulumi.set(__self__, "cloud_watch_encryption_mode", cloud_watch_encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchEncryptionMode")
+    def cloud_watch_encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The encryption mode to use for CloudWatch data.
+        """
+        return pulumi.get(self, "cloud_watch_encryption_mode")
+
+    @cloud_watch_encryption_mode.setter
+    def cloud_watch_encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloud_watch_encryption_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+class SecurityConfigurationEncryptionConfigurationArgsDict(TypedDict):
+    """
+    The encryption configuration for the security configuration.
+    """
+    cloud_watch_encryption: NotRequired[pulumi.Input[Optional['SecurityConfigurationCloudWatchEncryptionArgsDict']]]
+    """
+    The encryption configuration for Amazon CloudWatch.
+    """
+    job_bookmarks_encryption: NotRequired[pulumi.Input[Optional['SecurityConfigurationJobBookmarksEncryptionArgsDict']]]
+    """
+    The encryption configuration for job bookmarks.
+    """
+    s3_encryptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SecurityConfigurationS3EncryptionArgsDict']]]]]
+    """
+    The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+    """
+
+@pulumi.input_type
+class SecurityConfigurationEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_encryption: pulumi.Input[Optional['SecurityConfigurationCloudWatchEncryptionArgs']] = None,
+                 job_bookmarks_encryption: pulumi.Input[Optional['SecurityConfigurationJobBookmarksEncryptionArgs']] = None,
+                 s3_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityConfigurationS3EncryptionArgs']]]] = None):
+        """
+        The encryption configuration for the security configuration.
+
+        :param pulumi.Input['SecurityConfigurationCloudWatchEncryptionArgs'] cloud_watch_encryption: The encryption configuration for Amazon CloudWatch.
+        :param pulumi.Input['SecurityConfigurationJobBookmarksEncryptionArgs'] job_bookmarks_encryption: The encryption configuration for job bookmarks.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityConfigurationS3EncryptionArgs']]] s3_encryptions: The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+        """
+        if cloud_watch_encryption is not None:
+            pulumi.set(__self__, "cloud_watch_encryption", cloud_watch_encryption)
+        if job_bookmarks_encryption is not None:
+            pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
+        if s3_encryptions is not None:
+            pulumi.set(__self__, "s3_encryptions", s3_encryptions)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchEncryption")
+    def cloud_watch_encryption(self) -> pulumi.Input[Optional['SecurityConfigurationCloudWatchEncryptionArgs']]:
+        """
+        The encryption configuration for Amazon CloudWatch.
+        """
+        return pulumi.get(self, "cloud_watch_encryption")
+
+    @cloud_watch_encryption.setter
+    def cloud_watch_encryption(self, value: pulumi.Input[Optional['SecurityConfigurationCloudWatchEncryptionArgs']]):
+        pulumi.set(self, "cloud_watch_encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobBookmarksEncryption")
+    def job_bookmarks_encryption(self) -> pulumi.Input[Optional['SecurityConfigurationJobBookmarksEncryptionArgs']]:
+        """
+        The encryption configuration for job bookmarks.
+        """
+        return pulumi.get(self, "job_bookmarks_encryption")
+
+    @job_bookmarks_encryption.setter
+    def job_bookmarks_encryption(self, value: pulumi.Input[Optional['SecurityConfigurationJobBookmarksEncryptionArgs']]):
+        pulumi.set(self, "job_bookmarks_encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Encryptions")
+    def s3_encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityConfigurationS3EncryptionArgs']]]]:
+        """
+        The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+        """
+        return pulumi.get(self, "s3_encryptions")
+
+    @s3_encryptions.setter
+    def s3_encryptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityConfigurationS3EncryptionArgs']]]]):
+        pulumi.set(self, "s3_encryptions", value)
+
+
+class SecurityConfigurationJobBookmarksEncryptionArgsDict(TypedDict):
+    """
+    The encryption configuration for job bookmarks.
+    """
+    job_bookmarks_encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The encryption mode to use for job bookmarks data.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+    """
+
+@pulumi.input_type
+class SecurityConfigurationJobBookmarksEncryptionArgs:
+    def __init__(__self__, *,
+                 job_bookmarks_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The encryption configuration for job bookmarks.
+
+        :param pulumi.Input[_builtins.str] job_bookmarks_encryption_mode: The encryption mode to use for job bookmarks data.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        if job_bookmarks_encryption_mode is not None:
+            pulumi.set(__self__, "job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="jobBookmarksEncryptionMode")
+    def job_bookmarks_encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The encryption mode to use for job bookmarks data.
+        """
+        return pulumi.get(self, "job_bookmarks_encryption_mode")
+
+    @job_bookmarks_encryption_mode.setter
+    def job_bookmarks_encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "job_bookmarks_encryption_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+class SecurityConfigurationS3EncryptionArgsDict(TypedDict):
+    """
+    Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+    """
+    s3_encryption_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The encryption mode to use for Amazon S3 data.
+    """
+
+@pulumi.input_type
+class SecurityConfigurationS3EncryptionArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+
+        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        :param pulumi.Input[_builtins.str] s3_encryption_mode: The encryption mode to use for Amazon S3 data.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if s3_encryption_mode is not None:
+            pulumi.set(__self__, "s3_encryption_mode", s3_encryption_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3EncryptionMode")
+    def s3_encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The encryption mode to use for Amazon S3 data.
+        """
+        return pulumi.get(self, "s3_encryption_mode")
+
+    @s3_encryption_mode.setter
+    def s3_encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_encryption_mode", value)
+
+
 class SourceProcessingPropertiesPropertiesArgsDict(TypedDict):
     """
     The resource properties associated with the integration source.
@@ -2626,6 +3730,413 @@ class SourceProcessingPropertiesPropertiesArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
+
+
+class TableOptimizerCompactionConfigurationArgsDict(TypedDict):
+    iceberg_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerIcebergCompactionConfigurationArgsDict']]]
+    """
+    The configuration for an Iceberg compaction optimizer.
+    """
+
+@pulumi.input_type
+class TableOptimizerCompactionConfigurationArgs:
+    def __init__(__self__, *,
+                 iceberg_configuration: pulumi.Input[Optional['TableOptimizerIcebergCompactionConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['TableOptimizerIcebergCompactionConfigurationArgs'] iceberg_configuration: The configuration for an Iceberg compaction optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> pulumi.Input[Optional['TableOptimizerIcebergCompactionConfigurationArgs']]:
+        """
+        The configuration for an Iceberg compaction optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+    @iceberg_configuration.setter
+    def iceberg_configuration(self, value: pulumi.Input[Optional['TableOptimizerIcebergCompactionConfigurationArgs']]):
+        pulumi.set(self, "iceberg_configuration", value)
+
+
+class TableOptimizerConfigurationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the table optimization is enabled.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+    """
+    compaction_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerCompactionConfigurationArgsDict']]]
+    """
+    The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+    """
+    orphan_file_deletion_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerOrphanFileDeletionConfigurationArgsDict']]]
+    """
+    OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+    """
+    retention_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerRetentionConfigurationArgsDict']]]
+    """
+    The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+    """
+    vpc_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerVpcConfigurationArgsDict']]]
+    """
+    An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+    """
+
+@pulumi.input_type
+class TableOptimizerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 role_arn: pulumi.Input[_builtins.str],
+                 compaction_configuration: pulumi.Input[Optional['TableOptimizerCompactionConfigurationArgs']] = None,
+                 orphan_file_deletion_configuration: pulumi.Input[Optional['TableOptimizerOrphanFileDeletionConfigurationArgs']] = None,
+                 retention_configuration: pulumi.Input[Optional['TableOptimizerRetentionConfigurationArgs']] = None,
+                 vpc_configuration: pulumi.Input[Optional['TableOptimizerVpcConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether the table optimization is enabled.
+        :param pulumi.Input[_builtins.str] role_arn: A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+        :param pulumi.Input['TableOptimizerCompactionConfigurationArgs'] compaction_configuration: The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+        :param pulumi.Input['TableOptimizerOrphanFileDeletionConfigurationArgs'] orphan_file_deletion_configuration: OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+        :param pulumi.Input['TableOptimizerRetentionConfigurationArgs'] retention_configuration: The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+        :param pulumi.Input['TableOptimizerVpcConfigurationArgs'] vpc_configuration: An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if compaction_configuration is not None:
+            pulumi.set(__self__, "compaction_configuration", compaction_configuration)
+        if orphan_file_deletion_configuration is not None:
+            pulumi.set(__self__, "orphan_file_deletion_configuration", orphan_file_deletion_configuration)
+        if retention_configuration is not None:
+            pulumi.set(__self__, "retention_configuration", retention_configuration)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the table optimization is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compactionConfiguration")
+    def compaction_configuration(self) -> pulumi.Input[Optional['TableOptimizerCompactionConfigurationArgs']]:
+        """
+        The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+        """
+        return pulumi.get(self, "compaction_configuration")
+
+    @compaction_configuration.setter
+    def compaction_configuration(self, value: pulumi.Input[Optional['TableOptimizerCompactionConfigurationArgs']]):
+        pulumi.set(self, "compaction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orphanFileDeletionConfiguration")
+    def orphan_file_deletion_configuration(self) -> pulumi.Input[Optional['TableOptimizerOrphanFileDeletionConfigurationArgs']]:
+        """
+        OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+        """
+        return pulumi.get(self, "orphan_file_deletion_configuration")
+
+    @orphan_file_deletion_configuration.setter
+    def orphan_file_deletion_configuration(self, value: pulumi.Input[Optional['TableOptimizerOrphanFileDeletionConfigurationArgs']]):
+        pulumi.set(self, "orphan_file_deletion_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionConfiguration")
+    def retention_configuration(self) -> pulumi.Input[Optional['TableOptimizerRetentionConfigurationArgs']]:
+        """
+        The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+        """
+        return pulumi.get(self, "retention_configuration")
+
+    @retention_configuration.setter
+    def retention_configuration(self, value: pulumi.Input[Optional['TableOptimizerRetentionConfigurationArgs']]):
+        pulumi.set(self, "retention_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> pulumi.Input[Optional['TableOptimizerVpcConfigurationArgs']]:
+        """
+        An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+        """
+        return pulumi.get(self, "vpc_configuration")
+
+    @vpc_configuration.setter
+    def vpc_configuration(self, value: pulumi.Input[Optional['TableOptimizerVpcConfigurationArgs']]):
+        pulumi.set(self, "vpc_configuration", value)
+
+
+class TableOptimizerIcebergCompactionConfigurationArgsDict(TypedDict):
+    delete_file_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The minimum number of deletes in a data file to make it eligible for compaction.
+    """
+    min_input_files: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The minimum number of input files before compaction is triggered.
+    """
+    strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The compaction strategy to use. Valid values are binpack, sort, and z-order.
+    """
+
+@pulumi.input_type
+class TableOptimizerIcebergCompactionConfigurationArgs:
+    def __init__(__self__, *,
+                 delete_file_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_input_files: pulumi.Input[Optional[_builtins.int]] = None,
+                 strategy: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] delete_file_threshold: The minimum number of deletes in a data file to make it eligible for compaction.
+        :param pulumi.Input[_builtins.int] min_input_files: The minimum number of input files before compaction is triggered.
+        :param pulumi.Input[_builtins.str] strategy: The compaction strategy to use. Valid values are binpack, sort, and z-order.
+        """
+        if delete_file_threshold is not None:
+            pulumi.set(__self__, "delete_file_threshold", delete_file_threshold)
+        if min_input_files is not None:
+            pulumi.set(__self__, "min_input_files", min_input_files)
+        if strategy is not None:
+            pulumi.set(__self__, "strategy", strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteFileThreshold")
+    def delete_file_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum number of deletes in a data file to make it eligible for compaction.
+        """
+        return pulumi.get(self, "delete_file_threshold")
+
+    @delete_file_threshold.setter
+    def delete_file_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "delete_file_threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minInputFiles")
+    def min_input_files(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum number of input files before compaction is triggered.
+        """
+        return pulumi.get(self, "min_input_files")
+
+    @min_input_files.setter
+    def min_input_files(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_input_files", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The compaction strategy to use. Valid values are binpack, sort, and z-order.
+        """
+        return pulumi.get(self, "strategy")
+
+    @strategy.setter
+    def strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "strategy", value)
+
+
+class TableOptimizerIcebergConfigurationArgsDict(TypedDict):
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+    """
+    orphan_file_retention_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The specific number of days you want to keep the orphan files.
+    """
+
+@pulumi.input_type
+class TableOptimizerIcebergConfigurationArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 orphan_file_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] location: Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+        :param pulumi.Input[_builtins.int] orphan_file_retention_period_in_days: The specific number of days you want to keep the orphan files.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if orphan_file_retention_period_in_days is not None:
+            pulumi.set(__self__, "orphan_file_retention_period_in_days", orphan_file_retention_period_in_days)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orphanFileRetentionPeriodInDays")
+    def orphan_file_retention_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The specific number of days you want to keep the orphan files.
+        """
+        return pulumi.get(self, "orphan_file_retention_period_in_days")
+
+    @orphan_file_retention_period_in_days.setter
+    def orphan_file_retention_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "orphan_file_retention_period_in_days", value)
+
+
+class TableOptimizerIcebergRetentionConfigurationArgsDict(TypedDict):
+    clean_expired_files: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    number_of_snapshots_to_retain: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    snapshot_retention_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class TableOptimizerIcebergRetentionConfigurationArgs:
+    def __init__(__self__, *,
+                 clean_expired_files: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number_of_snapshots_to_retain: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None):
+        if clean_expired_files is not None:
+            pulumi.set(__self__, "clean_expired_files", clean_expired_files)
+        if number_of_snapshots_to_retain is not None:
+            pulumi.set(__self__, "number_of_snapshots_to_retain", number_of_snapshots_to_retain)
+        if snapshot_retention_period_in_days is not None:
+            pulumi.set(__self__, "snapshot_retention_period_in_days", snapshot_retention_period_in_days)
+
+    @_builtins.property
+    @pulumi.getter(name="cleanExpiredFiles")
+    def clean_expired_files(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "clean_expired_files")
+
+    @clean_expired_files.setter
+    def clean_expired_files(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "clean_expired_files", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSnapshotsToRetain")
+    def number_of_snapshots_to_retain(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "number_of_snapshots_to_retain")
+
+    @number_of_snapshots_to_retain.setter
+    def number_of_snapshots_to_retain(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_snapshots_to_retain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotRetentionPeriodInDays")
+    def snapshot_retention_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "snapshot_retention_period_in_days")
+
+    @snapshot_retention_period_in_days.setter
+    def snapshot_retention_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "snapshot_retention_period_in_days", value)
+
+
+class TableOptimizerOrphanFileDeletionConfigurationArgsDict(TypedDict):
+    iceberg_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerIcebergConfigurationArgsDict']]]
+    """
+    The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+    """
+
+@pulumi.input_type
+class TableOptimizerOrphanFileDeletionConfigurationArgs:
+    def __init__(__self__, *,
+                 iceberg_configuration: pulumi.Input[Optional['TableOptimizerIcebergConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['TableOptimizerIcebergConfigurationArgs'] iceberg_configuration: The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> pulumi.Input[Optional['TableOptimizerIcebergConfigurationArgs']]:
+        """
+        The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+    @iceberg_configuration.setter
+    def iceberg_configuration(self, value: pulumi.Input[Optional['TableOptimizerIcebergConfigurationArgs']]):
+        pulumi.set(self, "iceberg_configuration", value)
+
+
+class TableOptimizerRetentionConfigurationArgsDict(TypedDict):
+    iceberg_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerIcebergRetentionConfigurationArgsDict']]]
+    """
+    The configuration for an Iceberg snapshot retention optimizer.
+    """
+
+@pulumi.input_type
+class TableOptimizerRetentionConfigurationArgs:
+    def __init__(__self__, *,
+                 iceberg_configuration: pulumi.Input[Optional['TableOptimizerIcebergRetentionConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['TableOptimizerIcebergRetentionConfigurationArgs'] iceberg_configuration: The configuration for an Iceberg snapshot retention optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> pulumi.Input[Optional['TableOptimizerIcebergRetentionConfigurationArgs']]:
+        """
+        The configuration for an Iceberg snapshot retention optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+    @iceberg_configuration.setter
+    def iceberg_configuration(self, value: pulumi.Input[Optional['TableOptimizerIcebergRetentionConfigurationArgs']]):
+        pulumi.set(self, "iceberg_configuration", value)
+
+
+class TableOptimizerVpcConfigurationArgsDict(TypedDict):
+    glue_connection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the AWS Glue connection used for the VPC for the table optimizer.
+    """
+
+@pulumi.input_type
+class TableOptimizerVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 glue_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] glue_connection_name: The name of the AWS Glue connection used for the VPC for the table optimizer.
+        """
+        if glue_connection_name is not None:
+            pulumi.set(__self__, "glue_connection_name", glue_connection_name)
+
+    @_builtins.property
+    @pulumi.getter(name="glueConnectionName")
+    def glue_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the AWS Glue connection used for the VPC for the table optimizer.
+        """
+        return pulumi.get(self, "glue_connection_name")
+
+    @glue_connection_name.setter
+    def glue_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "glue_connection_name", value)
 
 
 class TargetProcessingPropertiesPropertiesArgsDict(TypedDict):

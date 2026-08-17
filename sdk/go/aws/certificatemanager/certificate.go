@@ -234,7 +234,6 @@ func NewCertificate(ctx *pulumi.Context,
 		"domainValidationOptions[*]",
 		"keyAlgorithm",
 		"subjectAlternativeNames[*]",
-		"validationMethod",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

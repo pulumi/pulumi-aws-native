@@ -7,16 +7,15 @@
       "$ref" : "#/definitions/EncryptionConfiguration"
     },
     "Name" : {
-      "type" : "string"
-    },
-    "Id" : {
+      "description" : "The name for the security configuration.",
       "type" : "string"
     }
   },
   "definitions" : {
     "S3Encryption" : {
-      "type" : "object",
+      "description" : "Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
         "KmsKeyArn" : {
           "type" : "string"
@@ -27,15 +26,17 @@
       }
     },
     "EncryptionConfiguration" : {
+      "description" : "The encryption configuration for the security configuration.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "S3Encryptions" : {
+          "description" : "The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.",
           "type" : "array",
-          "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/S3Encryption"
-          }
+          },
+          "insertionOrder" : false
         },
         "JobBookmarksEncryption" : {
           "$ref" : "#/definitions/JobBookmarksEncryption"
@@ -46,6 +47,7 @@
       }
     },
     "CloudWatchEncryption" : {
+      "description" : "The encryption configuration for Amazon CloudWatch.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -58,6 +60,7 @@
       }
     },
     "JobBookmarksEncryption" : {
+      "description" : "The encryption configuration for job bookmarks.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -72,6 +75,22 @@
   },
   "required" : [ "EncryptionConfiguration", "Name" ],
   "createOnlyProperties" : [ "/properties/Name" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/Name" ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "glue:CreateSecurityConfiguration", "glue:GetSecurityConfiguration" ]
+    },
+    "read" : {
+      "permissions" : [ "glue:GetSecurityConfiguration" ]
+    },
+    "list" : {
+      "permissions" : [ "glue:GetSecurityConfigurations" ]
+    },
+    "delete" : {
+      "permissions" : [ "glue:DeleteSecurityConfiguration" ]
+    }
+  }
 }

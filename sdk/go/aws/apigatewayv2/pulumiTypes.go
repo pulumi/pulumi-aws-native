@@ -445,6 +445,1027 @@ func (o ApiCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type ApiGatewayManagedOverridesAccessLogSettings struct {
+	// The ARN of the CloudWatch Logs log group to receive access logs.
+	DestinationArn *string `pulumi:"destinationArn"`
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+	Format *string `pulumi:"format"`
+}
+
+// ApiGatewayManagedOverridesAccessLogSettingsInput is an input type that accepts ApiGatewayManagedOverridesAccessLogSettingsArgs and ApiGatewayManagedOverridesAccessLogSettingsOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesAccessLogSettingsInput` via:
+//
+//	ApiGatewayManagedOverridesAccessLogSettingsArgs{...}
+type ApiGatewayManagedOverridesAccessLogSettingsInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesAccessLogSettingsOutput() ApiGatewayManagedOverridesAccessLogSettingsOutput
+	ToApiGatewayManagedOverridesAccessLogSettingsOutputWithContext(context.Context) ApiGatewayManagedOverridesAccessLogSettingsOutput
+}
+
+type ApiGatewayManagedOverridesAccessLogSettingsArgs struct {
+	// The ARN of the CloudWatch Logs log group to receive access logs.
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+}
+
+func (ApiGatewayManagedOverridesAccessLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesAccessLogSettings)(nil)).Elem()
+}
+
+func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToApiGatewayManagedOverridesAccessLogSettingsOutput() ApiGatewayManagedOverridesAccessLogSettingsOutput {
+	return i.ToApiGatewayManagedOverridesAccessLogSettingsOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToApiGatewayManagedOverridesAccessLogSettingsOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesAccessLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesAccessLogSettingsOutput)
+}
+
+func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutput() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return i.ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesAccessLogSettingsArgs) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesAccessLogSettingsOutput).ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(ctx)
+}
+
+// ApiGatewayManagedOverridesAccessLogSettingsPtrInput is an input type that accepts ApiGatewayManagedOverridesAccessLogSettingsArgs, ApiGatewayManagedOverridesAccessLogSettingsPtr and ApiGatewayManagedOverridesAccessLogSettingsPtrOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesAccessLogSettingsPtrInput` via:
+//
+//	        ApiGatewayManagedOverridesAccessLogSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiGatewayManagedOverridesAccessLogSettingsPtrInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesAccessLogSettingsPtrOutput() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput
+	ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(context.Context) ApiGatewayManagedOverridesAccessLogSettingsPtrOutput
+}
+
+type apiGatewayManagedOverridesAccessLogSettingsPtrType ApiGatewayManagedOverridesAccessLogSettingsArgs
+
+func ApiGatewayManagedOverridesAccessLogSettingsPtr(v *ApiGatewayManagedOverridesAccessLogSettingsArgs) ApiGatewayManagedOverridesAccessLogSettingsPtrInput {
+	return (*apiGatewayManagedOverridesAccessLogSettingsPtrType)(v)
+}
+
+func (*apiGatewayManagedOverridesAccessLogSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesAccessLogSettings)(nil)).Elem()
+}
+
+func (i *apiGatewayManagedOverridesAccessLogSettingsPtrType) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutput() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return i.ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *apiGatewayManagedOverridesAccessLogSettingsPtrType) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesAccessLogSettingsPtrOutput)
+}
+
+type ApiGatewayManagedOverridesAccessLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesAccessLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesAccessLogSettings)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) ToApiGatewayManagedOverridesAccessLogSettingsOutput() ApiGatewayManagedOverridesAccessLogSettingsOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) ToApiGatewayManagedOverridesAccessLogSettingsOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesAccessLogSettingsOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutput() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return o.ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesAccessLogSettings) *ApiGatewayManagedOverridesAccessLogSettings {
+		return &v
+	}).(ApiGatewayManagedOverridesAccessLogSettingsPtrOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to receive access logs.
+func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesAccessLogSettings) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+func (o ApiGatewayManagedOverridesAccessLogSettingsOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesAccessLogSettings) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+type ApiGatewayManagedOverridesAccessLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesAccessLogSettings)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutput() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) ToApiGatewayManagedOverridesAccessLogSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) Elem() ApiGatewayManagedOverridesAccessLogSettingsOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesAccessLogSettings) ApiGatewayManagedOverridesAccessLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ApiGatewayManagedOverridesAccessLogSettings
+		return ret
+	}).(ApiGatewayManagedOverridesAccessLogSettingsOutput)
+}
+
+// The ARN of the CloudWatch Logs log group to receive access logs.
+func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesAccessLogSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+func (o ApiGatewayManagedOverridesAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesAccessLogSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiGatewayManagedOverridesIntegrationOverrides struct {
+	// The description of the integration.
+	Description *string `pulumi:"description"`
+	// Specifies the integration's HTTP method type. For WebSocket APIs, if you use a Lambda integration, you must set the integration method to POST.
+	IntegrationMethod *string `pulumi:"integrationMethod"`
+	// Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value
+	PayloadFormatVersion *string `pulumi:"payloadFormatVersion"`
+	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
+}
+
+// ApiGatewayManagedOverridesIntegrationOverridesInput is an input type that accepts ApiGatewayManagedOverridesIntegrationOverridesArgs and ApiGatewayManagedOverridesIntegrationOverridesOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesIntegrationOverridesInput` via:
+//
+//	ApiGatewayManagedOverridesIntegrationOverridesArgs{...}
+type ApiGatewayManagedOverridesIntegrationOverridesInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesIntegrationOverridesOutput() ApiGatewayManagedOverridesIntegrationOverridesOutput
+	ToApiGatewayManagedOverridesIntegrationOverridesOutputWithContext(context.Context) ApiGatewayManagedOverridesIntegrationOverridesOutput
+}
+
+type ApiGatewayManagedOverridesIntegrationOverridesArgs struct {
+	// The description of the integration.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies the integration's HTTP method type. For WebSocket APIs, if you use a Lambda integration, you must set the integration method to POST.
+	IntegrationMethod pulumi.StringPtrInput `pulumi:"integrationMethod"`
+	// Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value
+	PayloadFormatVersion pulumi.StringPtrInput `pulumi:"payloadFormatVersion"`
+	// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
+}
+
+func (ApiGatewayManagedOverridesIntegrationOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesIntegrationOverrides)(nil)).Elem()
+}
+
+func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToApiGatewayManagedOverridesIntegrationOverridesOutput() ApiGatewayManagedOverridesIntegrationOverridesOutput {
+	return i.ToApiGatewayManagedOverridesIntegrationOverridesOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToApiGatewayManagedOverridesIntegrationOverridesOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesIntegrationOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesIntegrationOverridesOutput)
+}
+
+func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutput() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return i.ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesIntegrationOverridesArgs) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesIntegrationOverridesOutput).ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(ctx)
+}
+
+// ApiGatewayManagedOverridesIntegrationOverridesPtrInput is an input type that accepts ApiGatewayManagedOverridesIntegrationOverridesArgs, ApiGatewayManagedOverridesIntegrationOverridesPtr and ApiGatewayManagedOverridesIntegrationOverridesPtrOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesIntegrationOverridesPtrInput` via:
+//
+//	        ApiGatewayManagedOverridesIntegrationOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiGatewayManagedOverridesIntegrationOverridesPtrInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesIntegrationOverridesPtrOutput() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput
+	ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(context.Context) ApiGatewayManagedOverridesIntegrationOverridesPtrOutput
+}
+
+type apiGatewayManagedOverridesIntegrationOverridesPtrType ApiGatewayManagedOverridesIntegrationOverridesArgs
+
+func ApiGatewayManagedOverridesIntegrationOverridesPtr(v *ApiGatewayManagedOverridesIntegrationOverridesArgs) ApiGatewayManagedOverridesIntegrationOverridesPtrInput {
+	return (*apiGatewayManagedOverridesIntegrationOverridesPtrType)(v)
+}
+
+func (*apiGatewayManagedOverridesIntegrationOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesIntegrationOverrides)(nil)).Elem()
+}
+
+func (i *apiGatewayManagedOverridesIntegrationOverridesPtrType) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutput() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return i.ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *apiGatewayManagedOverridesIntegrationOverridesPtrType) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesIntegrationOverridesPtrOutput)
+}
+
+type ApiGatewayManagedOverridesIntegrationOverridesOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesIntegrationOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesIntegrationOverrides)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) ToApiGatewayManagedOverridesIntegrationOverridesOutput() ApiGatewayManagedOverridesIntegrationOverridesOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) ToApiGatewayManagedOverridesIntegrationOverridesOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesIntegrationOverridesOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutput() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return o.ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesIntegrationOverrides) *ApiGatewayManagedOverridesIntegrationOverrides {
+		return &v
+	}).(ApiGatewayManagedOverridesIntegrationOverridesPtrOutput)
+}
+
+// The description of the integration.
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesIntegrationOverrides) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the integration's HTTP method type. For WebSocket APIs, if you use a Lambda integration, you must set the integration method to POST.
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) IntegrationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesIntegrationOverrides) *string { return v.IntegrationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) PayloadFormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesIntegrationOverrides) *string { return v.PayloadFormatVersion }).(pulumi.StringPtrOutput)
+}
+
+// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+func (o ApiGatewayManagedOverridesIntegrationOverridesOutput) TimeoutInMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesIntegrationOverrides) *int { return v.TimeoutInMillis }).(pulumi.IntPtrOutput)
+}
+
+type ApiGatewayManagedOverridesIntegrationOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesIntegrationOverrides)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutput() ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) ToApiGatewayManagedOverridesIntegrationOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesIntegrationOverridesPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) Elem() ApiGatewayManagedOverridesIntegrationOverridesOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesIntegrationOverrides) ApiGatewayManagedOverridesIntegrationOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret ApiGatewayManagedOverridesIntegrationOverrides
+		return ret
+	}).(ApiGatewayManagedOverridesIntegrationOverridesOutput)
+}
+
+// The description of the integration.
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesIntegrationOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the integration's HTTP method type. For WebSocket APIs, if you use a Lambda integration, you must set the integration method to POST.
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) IntegrationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesIntegrationOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0. For all other integrations, 1.0 is the only supported value
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) PayloadFormatVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesIntegrationOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadFormatVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+func (o ApiGatewayManagedOverridesIntegrationOverridesPtrOutput) TimeoutInMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesIntegrationOverrides) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+type ApiGatewayManagedOverridesRouteOverrides struct {
+	// The authorization scopes supported by this route.
+	AuthorizationScopes []string `pulumi:"authorizationScopes"`
+	// The authorization type for the route. To learn more, see AuthorizationType.
+	AuthorizationType *string `pulumi:"authorizationType"`
+	// The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.
+	AuthorizerId *string `pulumi:"authorizerId"`
+	// The operation name for the route.
+	OperationName *string `pulumi:"operationName"`
+	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
+	Target *string `pulumi:"target"`
+}
+
+// ApiGatewayManagedOverridesRouteOverridesInput is an input type that accepts ApiGatewayManagedOverridesRouteOverridesArgs and ApiGatewayManagedOverridesRouteOverridesOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesRouteOverridesInput` via:
+//
+//	ApiGatewayManagedOverridesRouteOverridesArgs{...}
+type ApiGatewayManagedOverridesRouteOverridesInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesRouteOverridesOutput() ApiGatewayManagedOverridesRouteOverridesOutput
+	ToApiGatewayManagedOverridesRouteOverridesOutputWithContext(context.Context) ApiGatewayManagedOverridesRouteOverridesOutput
+}
+
+type ApiGatewayManagedOverridesRouteOverridesArgs struct {
+	// The authorization scopes supported by this route.
+	AuthorizationScopes pulumi.StringArrayInput `pulumi:"authorizationScopes"`
+	// The authorization type for the route. To learn more, see AuthorizationType.
+	AuthorizationType pulumi.StringPtrInput `pulumi:"authorizationType"`
+	// The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.
+	AuthorizerId pulumi.StringPtrInput `pulumi:"authorizerId"`
+	// The operation name for the route.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ApiGatewayManagedOverridesRouteOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesRouteOverrides)(nil)).Elem()
+}
+
+func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToApiGatewayManagedOverridesRouteOverridesOutput() ApiGatewayManagedOverridesRouteOverridesOutput {
+	return i.ToApiGatewayManagedOverridesRouteOverridesOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToApiGatewayManagedOverridesRouteOverridesOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteOverridesOutput)
+}
+
+func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToApiGatewayManagedOverridesRouteOverridesPtrOutput() ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return i.ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesRouteOverridesArgs) ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteOverridesOutput).ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(ctx)
+}
+
+// ApiGatewayManagedOverridesRouteOverridesPtrInput is an input type that accepts ApiGatewayManagedOverridesRouteOverridesArgs, ApiGatewayManagedOverridesRouteOverridesPtr and ApiGatewayManagedOverridesRouteOverridesPtrOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesRouteOverridesPtrInput` via:
+//
+//	        ApiGatewayManagedOverridesRouteOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiGatewayManagedOverridesRouteOverridesPtrInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesRouteOverridesPtrOutput() ApiGatewayManagedOverridesRouteOverridesPtrOutput
+	ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(context.Context) ApiGatewayManagedOverridesRouteOverridesPtrOutput
+}
+
+type apiGatewayManagedOverridesRouteOverridesPtrType ApiGatewayManagedOverridesRouteOverridesArgs
+
+func ApiGatewayManagedOverridesRouteOverridesPtr(v *ApiGatewayManagedOverridesRouteOverridesArgs) ApiGatewayManagedOverridesRouteOverridesPtrInput {
+	return (*apiGatewayManagedOverridesRouteOverridesPtrType)(v)
+}
+
+func (*apiGatewayManagedOverridesRouteOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesRouteOverrides)(nil)).Elem()
+}
+
+func (i *apiGatewayManagedOverridesRouteOverridesPtrType) ToApiGatewayManagedOverridesRouteOverridesPtrOutput() ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return i.ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *apiGatewayManagedOverridesRouteOverridesPtrType) ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteOverridesPtrOutput)
+}
+
+type ApiGatewayManagedOverridesRouteOverridesOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesRouteOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesRouteOverrides)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) ToApiGatewayManagedOverridesRouteOverridesOutput() ApiGatewayManagedOverridesRouteOverridesOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) ToApiGatewayManagedOverridesRouteOverridesOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteOverridesOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) ToApiGatewayManagedOverridesRouteOverridesPtrOutput() ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return o.ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesRouteOverrides) *ApiGatewayManagedOverridesRouteOverrides {
+		return &v
+	}).(ApiGatewayManagedOverridesRouteOverridesPtrOutput)
+}
+
+// The authorization scopes supported by this route.
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) AuthorizationScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteOverrides) []string { return v.AuthorizationScopes }).(pulumi.StringArrayOutput)
+}
+
+// The authorization type for the route. To learn more, see AuthorizationType.
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteOverrides) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) AuthorizerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteOverrides) *string { return v.AuthorizerId }).(pulumi.StringPtrOutput)
+}
+
+// The operation name for the route.
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteOverrides) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
+func (o ApiGatewayManagedOverridesRouteOverridesOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteOverrides) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ApiGatewayManagedOverridesRouteOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesRouteOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesRouteOverrides)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) ToApiGatewayManagedOverridesRouteOverridesPtrOutput() ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) ToApiGatewayManagedOverridesRouteOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteOverridesPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) Elem() ApiGatewayManagedOverridesRouteOverridesOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteOverrides) ApiGatewayManagedOverridesRouteOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret ApiGatewayManagedOverridesRouteOverrides
+		return ret
+	}).(ApiGatewayManagedOverridesRouteOverridesOutput)
+}
+
+// The authorization scopes supported by this route.
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) AuthorizationScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteOverrides) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The authorization type for the route. To learn more, see AuthorizationType.
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) AuthorizerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operation name for the route.
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively.
+func (o ApiGatewayManagedOverridesRouteOverridesPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiGatewayManagedOverridesRouteSettings struct {
+	// Specifies whether detailed metrics are enabled.
+	DetailedMetricsEnabled *bool `pulumi:"detailedMetricsEnabled"`
+	// Specifies the throttling burst limit.
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// Specifies the throttling rate limit.
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// ApiGatewayManagedOverridesRouteSettingsInput is an input type that accepts ApiGatewayManagedOverridesRouteSettingsArgs and ApiGatewayManagedOverridesRouteSettingsOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesRouteSettingsInput` via:
+//
+//	ApiGatewayManagedOverridesRouteSettingsArgs{...}
+type ApiGatewayManagedOverridesRouteSettingsInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesRouteSettingsOutput() ApiGatewayManagedOverridesRouteSettingsOutput
+	ToApiGatewayManagedOverridesRouteSettingsOutputWithContext(context.Context) ApiGatewayManagedOverridesRouteSettingsOutput
+}
+
+type ApiGatewayManagedOverridesRouteSettingsArgs struct {
+	// Specifies whether detailed metrics are enabled.
+	DetailedMetricsEnabled pulumi.BoolPtrInput `pulumi:"detailedMetricsEnabled"`
+	// Specifies the throttling burst limit.
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// Specifies the throttling rate limit.
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (ApiGatewayManagedOverridesRouteSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesRouteSettings)(nil)).Elem()
+}
+
+func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToApiGatewayManagedOverridesRouteSettingsOutput() ApiGatewayManagedOverridesRouteSettingsOutput {
+	return i.ToApiGatewayManagedOverridesRouteSettingsOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToApiGatewayManagedOverridesRouteSettingsOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteSettingsOutput)
+}
+
+func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToApiGatewayManagedOverridesRouteSettingsPtrOutput() ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return i.ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesRouteSettingsArgs) ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteSettingsOutput).ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(ctx)
+}
+
+// ApiGatewayManagedOverridesRouteSettingsPtrInput is an input type that accepts ApiGatewayManagedOverridesRouteSettingsArgs, ApiGatewayManagedOverridesRouteSettingsPtr and ApiGatewayManagedOverridesRouteSettingsPtrOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesRouteSettingsPtrInput` via:
+//
+//	        ApiGatewayManagedOverridesRouteSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiGatewayManagedOverridesRouteSettingsPtrInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesRouteSettingsPtrOutput() ApiGatewayManagedOverridesRouteSettingsPtrOutput
+	ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(context.Context) ApiGatewayManagedOverridesRouteSettingsPtrOutput
+}
+
+type apiGatewayManagedOverridesRouteSettingsPtrType ApiGatewayManagedOverridesRouteSettingsArgs
+
+func ApiGatewayManagedOverridesRouteSettingsPtr(v *ApiGatewayManagedOverridesRouteSettingsArgs) ApiGatewayManagedOverridesRouteSettingsPtrInput {
+	return (*apiGatewayManagedOverridesRouteSettingsPtrType)(v)
+}
+
+func (*apiGatewayManagedOverridesRouteSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesRouteSettings)(nil)).Elem()
+}
+
+func (i *apiGatewayManagedOverridesRouteSettingsPtrType) ToApiGatewayManagedOverridesRouteSettingsPtrOutput() ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return i.ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *apiGatewayManagedOverridesRouteSettingsPtrType) ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteSettingsPtrOutput)
+}
+
+// ApiGatewayManagedOverridesRouteSettingsMapInput is an input type that accepts ApiGatewayManagedOverridesRouteSettingsMap and ApiGatewayManagedOverridesRouteSettingsMapOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesRouteSettingsMapInput` via:
+//
+//	ApiGatewayManagedOverridesRouteSettingsMap{ "key": ApiGatewayManagedOverridesRouteSettingsArgs{...} }
+type ApiGatewayManagedOverridesRouteSettingsMapInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesRouteSettingsMapOutput() ApiGatewayManagedOverridesRouteSettingsMapOutput
+	ToApiGatewayManagedOverridesRouteSettingsMapOutputWithContext(context.Context) ApiGatewayManagedOverridesRouteSettingsMapOutput
+}
+
+type ApiGatewayManagedOverridesRouteSettingsMap map[string]ApiGatewayManagedOverridesRouteSettingsInput
+
+func (ApiGatewayManagedOverridesRouteSettingsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiGatewayManagedOverridesRouteSettings)(nil)).Elem()
+}
+
+func (i ApiGatewayManagedOverridesRouteSettingsMap) ToApiGatewayManagedOverridesRouteSettingsMapOutput() ApiGatewayManagedOverridesRouteSettingsMapOutput {
+	return i.ToApiGatewayManagedOverridesRouteSettingsMapOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesRouteSettingsMap) ToApiGatewayManagedOverridesRouteSettingsMapOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesRouteSettingsMapOutput)
+}
+
+type ApiGatewayManagedOverridesRouteSettingsOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesRouteSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesRouteSettings)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) ToApiGatewayManagedOverridesRouteSettingsOutput() ApiGatewayManagedOverridesRouteSettingsOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) ToApiGatewayManagedOverridesRouteSettingsOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) ToApiGatewayManagedOverridesRouteSettingsPtrOutput() ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return o.ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesRouteSettings) *ApiGatewayManagedOverridesRouteSettings {
+		return &v
+	}).(ApiGatewayManagedOverridesRouteSettingsPtrOutput)
+}
+
+// Specifies whether detailed metrics are enabled.
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteSettings) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the throttling burst limit.
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteSettings) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the throttling rate limit.
+func (o ApiGatewayManagedOverridesRouteSettingsOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesRouteSettings) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type ApiGatewayManagedOverridesRouteSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesRouteSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesRouteSettings)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) ToApiGatewayManagedOverridesRouteSettingsPtrOutput() ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) ToApiGatewayManagedOverridesRouteSettingsPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) Elem() ApiGatewayManagedOverridesRouteSettingsOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteSettings) ApiGatewayManagedOverridesRouteSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ApiGatewayManagedOverridesRouteSettings
+		return ret
+	}).(ApiGatewayManagedOverridesRouteSettingsOutput)
+}
+
+// Specifies whether detailed metrics are enabled.
+func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DetailedMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the throttling burst limit.
+func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingBurstLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the throttling rate limit.
+func (o ApiGatewayManagedOverridesRouteSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesRouteSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingRateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ApiGatewayManagedOverridesRouteSettingsMapOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesRouteSettingsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApiGatewayManagedOverridesRouteSettings)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsMapOutput) ToApiGatewayManagedOverridesRouteSettingsMapOutput() ApiGatewayManagedOverridesRouteSettingsMapOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsMapOutput) ToApiGatewayManagedOverridesRouteSettingsMapOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesRouteSettingsMapOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesRouteSettingsMapOutput) MapIndex(k pulumi.StringInput) ApiGatewayManagedOverridesRouteSettingsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApiGatewayManagedOverridesRouteSettings {
+		return vs[0].(map[string]ApiGatewayManagedOverridesRouteSettings)[vs[1].(string)]
+	}).(ApiGatewayManagedOverridesRouteSettingsOutput)
+}
+
+type ApiGatewayManagedOverridesStageOverrides struct {
+	// Settings for logging access in a stage.
+	AccessLogSettings *ApiGatewayManagedOverridesAccessLogSettings `pulumi:"accessLogSettings"`
+	// Specifies whether updates to an API automatically trigger a new deployment. The default value is true.
+	AutoDeploy *bool `pulumi:"autoDeploy"`
+	// The default route settings for the stage.
+	DefaultRouteSettings *ApiGatewayManagedOverridesRouteSettings `pulumi:"defaultRouteSettings"`
+	// The description for the API stage.
+	Description *string `pulumi:"description"`
+	// Route settings for the stage.
+	RouteSettings map[string]ApiGatewayManagedOverridesRouteSettings `pulumi:"routeSettings"`
+	// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+	StageVariables map[string]string `pulumi:"stageVariables"`
+}
+
+// ApiGatewayManagedOverridesStageOverridesInput is an input type that accepts ApiGatewayManagedOverridesStageOverridesArgs and ApiGatewayManagedOverridesStageOverridesOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesStageOverridesInput` via:
+//
+//	ApiGatewayManagedOverridesStageOverridesArgs{...}
+type ApiGatewayManagedOverridesStageOverridesInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesStageOverridesOutput() ApiGatewayManagedOverridesStageOverridesOutput
+	ToApiGatewayManagedOverridesStageOverridesOutputWithContext(context.Context) ApiGatewayManagedOverridesStageOverridesOutput
+}
+
+type ApiGatewayManagedOverridesStageOverridesArgs struct {
+	// Settings for logging access in a stage.
+	AccessLogSettings ApiGatewayManagedOverridesAccessLogSettingsPtrInput `pulumi:"accessLogSettings"`
+	// Specifies whether updates to an API automatically trigger a new deployment. The default value is true.
+	AutoDeploy pulumi.BoolPtrInput `pulumi:"autoDeploy"`
+	// The default route settings for the stage.
+	DefaultRouteSettings ApiGatewayManagedOverridesRouteSettingsPtrInput `pulumi:"defaultRouteSettings"`
+	// The description for the API stage.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Route settings for the stage.
+	RouteSettings ApiGatewayManagedOverridesRouteSettingsMapInput `pulumi:"routeSettings"`
+	// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+	StageVariables pulumi.StringMapInput `pulumi:"stageVariables"`
+}
+
+func (ApiGatewayManagedOverridesStageOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesStageOverrides)(nil)).Elem()
+}
+
+func (i ApiGatewayManagedOverridesStageOverridesArgs) ToApiGatewayManagedOverridesStageOverridesOutput() ApiGatewayManagedOverridesStageOverridesOutput {
+	return i.ToApiGatewayManagedOverridesStageOverridesOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesStageOverridesArgs) ToApiGatewayManagedOverridesStageOverridesOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesStageOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesStageOverridesOutput)
+}
+
+func (i ApiGatewayManagedOverridesStageOverridesArgs) ToApiGatewayManagedOverridesStageOverridesPtrOutput() ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return i.ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i ApiGatewayManagedOverridesStageOverridesArgs) ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesStageOverridesOutput).ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(ctx)
+}
+
+// ApiGatewayManagedOverridesStageOverridesPtrInput is an input type that accepts ApiGatewayManagedOverridesStageOverridesArgs, ApiGatewayManagedOverridesStageOverridesPtr and ApiGatewayManagedOverridesStageOverridesPtrOutput values.
+// You can construct a concrete instance of `ApiGatewayManagedOverridesStageOverridesPtrInput` via:
+//
+//	        ApiGatewayManagedOverridesStageOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiGatewayManagedOverridesStageOverridesPtrInput interface {
+	pulumi.Input
+
+	ToApiGatewayManagedOverridesStageOverridesPtrOutput() ApiGatewayManagedOverridesStageOverridesPtrOutput
+	ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(context.Context) ApiGatewayManagedOverridesStageOverridesPtrOutput
+}
+
+type apiGatewayManagedOverridesStageOverridesPtrType ApiGatewayManagedOverridesStageOverridesArgs
+
+func ApiGatewayManagedOverridesStageOverridesPtr(v *ApiGatewayManagedOverridesStageOverridesArgs) ApiGatewayManagedOverridesStageOverridesPtrInput {
+	return (*apiGatewayManagedOverridesStageOverridesPtrType)(v)
+}
+
+func (*apiGatewayManagedOverridesStageOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesStageOverrides)(nil)).Elem()
+}
+
+func (i *apiGatewayManagedOverridesStageOverridesPtrType) ToApiGatewayManagedOverridesStageOverridesPtrOutput() ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return i.ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *apiGatewayManagedOverridesStageOverridesPtrType) ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesStageOverridesPtrOutput)
+}
+
+type ApiGatewayManagedOverridesStageOverridesOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesStageOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiGatewayManagedOverridesStageOverrides)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesOutput) ToApiGatewayManagedOverridesStageOverridesOutput() ApiGatewayManagedOverridesStageOverridesOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesOutput) ToApiGatewayManagedOverridesStageOverridesOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesStageOverridesOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesOutput) ToApiGatewayManagedOverridesStageOverridesPtrOutput() ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return o.ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesOutput) ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiGatewayManagedOverridesStageOverrides) *ApiGatewayManagedOverridesStageOverrides {
+		return &v
+	}).(ApiGatewayManagedOverridesStageOverridesPtrOutput)
+}
+
+// Settings for logging access in a stage.
+func (o ApiGatewayManagedOverridesStageOverridesOutput) AccessLogSettings() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesStageOverrides) *ApiGatewayManagedOverridesAccessLogSettings {
+		return v.AccessLogSettings
+	}).(ApiGatewayManagedOverridesAccessLogSettingsPtrOutput)
+}
+
+// Specifies whether updates to an API automatically trigger a new deployment. The default value is true.
+func (o ApiGatewayManagedOverridesStageOverridesOutput) AutoDeploy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesStageOverrides) *bool { return v.AutoDeploy }).(pulumi.BoolPtrOutput)
+}
+
+// The default route settings for the stage.
+func (o ApiGatewayManagedOverridesStageOverridesOutput) DefaultRouteSettings() ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesStageOverrides) *ApiGatewayManagedOverridesRouteSettings {
+		return v.DefaultRouteSettings
+	}).(ApiGatewayManagedOverridesRouteSettingsPtrOutput)
+}
+
+// The description for the API stage.
+func (o ApiGatewayManagedOverridesStageOverridesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesStageOverrides) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Route settings for the stage.
+func (o ApiGatewayManagedOverridesStageOverridesOutput) RouteSettings() ApiGatewayManagedOverridesRouteSettingsMapOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesStageOverrides) map[string]ApiGatewayManagedOverridesRouteSettings {
+		return v.RouteSettings
+	}).(ApiGatewayManagedOverridesRouteSettingsMapOutput)
+}
+
+// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+func (o ApiGatewayManagedOverridesStageOverridesOutput) StageVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApiGatewayManagedOverridesStageOverrides) map[string]string { return v.StageVariables }).(pulumi.StringMapOutput)
+}
+
+type ApiGatewayManagedOverridesStageOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiGatewayManagedOverridesStageOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiGatewayManagedOverridesStageOverrides)(nil)).Elem()
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) ToApiGatewayManagedOverridesStageOverridesPtrOutput() ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) ToApiGatewayManagedOverridesStageOverridesPtrOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesStageOverridesPtrOutput {
+	return o
+}
+
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) Elem() ApiGatewayManagedOverridesStageOverridesOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesStageOverrides) ApiGatewayManagedOverridesStageOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret ApiGatewayManagedOverridesStageOverrides
+		return ret
+	}).(ApiGatewayManagedOverridesStageOverridesOutput)
+}
+
+// Settings for logging access in a stage.
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) AccessLogSettings() ApiGatewayManagedOverridesAccessLogSettingsPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesStageOverrides) *ApiGatewayManagedOverridesAccessLogSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLogSettings
+	}).(ApiGatewayManagedOverridesAccessLogSettingsPtrOutput)
+}
+
+// Specifies whether updates to an API automatically trigger a new deployment. The default value is true.
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) AutoDeploy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesStageOverrides) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDeploy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The default route settings for the stage.
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) DefaultRouteSettings() ApiGatewayManagedOverridesRouteSettingsPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesStageOverrides) *ApiGatewayManagedOverridesRouteSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultRouteSettings
+	}).(ApiGatewayManagedOverridesRouteSettingsPtrOutput)
+}
+
+// The description for the API stage.
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesStageOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Route settings for the stage.
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) RouteSettings() ApiGatewayManagedOverridesRouteSettingsMapOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesStageOverrides) map[string]ApiGatewayManagedOverridesRouteSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RouteSettings
+	}).(ApiGatewayManagedOverridesRouteSettingsMapOutput)
+}
+
+// A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&=,]+.
+func (o ApiGatewayManagedOverridesStageOverridesPtrOutput) StageVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApiGatewayManagedOverridesStageOverrides) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariables
+	}).(pulumi.StringMapOutput)
+}
+
 // The “JWTConfiguration“ property specifies the configuration of a JWT authorizer. Required for the “JWT“ authorizer type. Supported only for HTTP APIs.
 type AuthorizerJwtConfiguration struct {
 	// A list of the intended recipients of the JWT. A valid JWT must provide an ``aud`` that matches at least one entry in this list. See [RFC 7519](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc7519#section-4.1.3). Required for the ``JWT`` authorizer type. Supported only for HTTP APIs.
@@ -1252,6 +2273,14 @@ func (o IntegrationTlsConfigPtrOutput) ServerNameToVerify() pulumi.StringPtrOutp
 		}
 		return v.ServerNameToVerify
 	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type PortalProductTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
 }
 
 type RouteParameterConstraints struct {
@@ -2493,6 +3522,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiBodyS3LocationPtrInput)(nil)).Elem(), ApiBodyS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiCorsInput)(nil)).Elem(), ApiCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiCorsPtrInput)(nil)).Elem(), ApiCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesAccessLogSettingsInput)(nil)).Elem(), ApiGatewayManagedOverridesAccessLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesAccessLogSettingsPtrInput)(nil)).Elem(), ApiGatewayManagedOverridesAccessLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesIntegrationOverridesInput)(nil)).Elem(), ApiGatewayManagedOverridesIntegrationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesIntegrationOverridesPtrInput)(nil)).Elem(), ApiGatewayManagedOverridesIntegrationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesRouteOverridesInput)(nil)).Elem(), ApiGatewayManagedOverridesRouteOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesRouteOverridesPtrInput)(nil)).Elem(), ApiGatewayManagedOverridesRouteOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesRouteSettingsInput)(nil)).Elem(), ApiGatewayManagedOverridesRouteSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesRouteSettingsPtrInput)(nil)).Elem(), ApiGatewayManagedOverridesRouteSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesRouteSettingsMapInput)(nil)).Elem(), ApiGatewayManagedOverridesRouteSettingsMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesStageOverridesInput)(nil)).Elem(), ApiGatewayManagedOverridesStageOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiGatewayManagedOverridesStageOverridesPtrInput)(nil)).Elem(), ApiGatewayManagedOverridesStageOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationPtrInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameConfigurationInput)(nil)).Elem(), DomainNameConfigurationArgs{})
@@ -2528,6 +3568,17 @@ func init() {
 	pulumi.RegisterOutputType(ApiBodyS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ApiCorsOutput{})
 	pulumi.RegisterOutputType(ApiCorsPtrOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesAccessLogSettingsOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesAccessLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesIntegrationOverridesOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesIntegrationOverridesPtrOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesRouteOverridesOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesRouteOverridesPtrOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesRouteSettingsOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesRouteSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesRouteSettingsMapOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesStageOverridesOutput{})
+	pulumi.RegisterOutputType(ApiGatewayManagedOverridesStageOverridesPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationOutput{})
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameConfigurationOutput{})

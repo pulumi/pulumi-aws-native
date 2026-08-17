@@ -10,20 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 {
 
-    /// <summary>
-    /// The value or values in the custom claim to match and relationship of match
-    /// </summary>
     [OutputType]
     public sealed class GatewayAuthorizingClaimMatchValueType
     {
-        public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayClaimMatchOperator ClaimMatchOperator;
-        public readonly Outputs.GatewayClaimMatchValueType ClaimMatchValue;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayClaimMatchOperatorType ClaimMatchOperator;
+        public readonly Union<Outputs.GatewayClaimMatchValueType0Properties, Outputs.GatewayClaimMatchValueType1Properties> ClaimMatchValue;
 
         [OutputConstructor]
         private GatewayAuthorizingClaimMatchValueType(
-            Pulumi.AwsNative.BedrockAgentCore.GatewayClaimMatchOperator claimMatchOperator,
+            Pulumi.AwsNative.BedrockAgentCore.GatewayClaimMatchOperatorType claimMatchOperator,
 
-            Outputs.GatewayClaimMatchValueType claimMatchValue)
+            Union<Outputs.GatewayClaimMatchValueType0Properties, Outputs.GatewayClaimMatchValueType1Properties> claimMatchValue)
         {
             ClaimMatchOperator = claimMatchOperator;
             ClaimMatchValue = claimMatchValue;

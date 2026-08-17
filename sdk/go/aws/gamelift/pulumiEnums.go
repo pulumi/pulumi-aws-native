@@ -2549,6 +2549,7 @@ const (
 	ContainerFleetStatusActive     = ContainerFleetStatus("ACTIVE")
 	ContainerFleetStatusUpdating   = ContainerFleetStatus("UPDATING")
 	ContainerFleetStatusDeleting   = ContainerFleetStatus("DELETING")
+	ContainerFleetStatusExpired    = ContainerFleetStatus("EXPIRED")
 )
 
 type ContainerFleetStatusOutput struct{ *pulumi.OutputState }

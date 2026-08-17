@@ -32,6 +32,8 @@ type LookupCodeSecurityScanConfigurationResult struct {
 	Arn *string `pulumi:"arn"`
 	// Code Security Scan Configuration
 	Configuration *CodeSecurityScanConfigurationType `pulumi:"configuration"`
+	// The tags to apply to the scan configuration.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupCodeSecurityScanConfigurationOutput(ctx *pulumi.Context, args LookupCodeSecurityScanConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSecurityScanConfigurationResultOutput {
@@ -76,6 +78,11 @@ func (o LookupCodeSecurityScanConfigurationResultOutput) Configuration() CodeSec
 	return o.ApplyT(func(v LookupCodeSecurityScanConfigurationResult) *CodeSecurityScanConfigurationType {
 		return v.Configuration
 	}).(CodeSecurityScanConfigurationTypePtrOutput)
+}
+
+// The tags to apply to the scan configuration.
+func (o LookupCodeSecurityScanConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCodeSecurityScanConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -8,73 +8,41 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS SageMaker Experiment Trial Component
+ * Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
  */
 export function getExperimentTrialComponent(args: GetExperimentTrialComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentTrialComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getExperimentTrialComponent", {
-        "arn": args.arn,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetExperimentTrialComponentArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the trial component.
-     */
-    arn: string;
+    id: string;
 }
 
 export interface GetExperimentTrialComponentResult {
-    /**
-     * The Amazon Resource Name (ARN) of the trial component.
-     */
     readonly arn?: string;
-    /**
-     * When the component was created.
-     */
     readonly creationTime?: string;
-    /**
-     * The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-     */
     readonly displayName?: string;
-    /**
-     * When the component ended.
-     */
     readonly endTime?: string;
-    /**
-     * When the component was last modified.
-     */
+    readonly id?: string;
     readonly lastModifiedTime?: string;
-    /**
-     * The Amazon Resource Name (ARN) of the lineage group.
-     */
     readonly lineageGroupArn?: string;
-    /**
-     * When the component started.
-     */
     readonly startTime?: string;
-    /**
-     * The status of the trial component.
-     */
-    readonly status?: outputs.sagemaker.StatusProperties;
-    /**
-     * A list of tags to associate with the component.
-     */
+    readonly status?: outputs.sagemaker.ExperimentTrialComponentStatus;
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource type definition for AWS SageMaker Experiment Trial Component
+ * Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
  */
 export function getExperimentTrialComponentOutput(args: GetExperimentTrialComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExperimentTrialComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getExperimentTrialComponent", {
-        "arn": args.arn,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetExperimentTrialComponentOutputArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the trial component.
-     */
-    arn: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

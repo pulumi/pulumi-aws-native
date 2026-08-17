@@ -58,6 +58,10 @@ export interface GetOAuth2CredentialProviderResult {
      */
     readonly oauth2ProviderConfigOutput?: outputs.bedrockagentcore.OAuth2CredentialProviderOauth2ProviderConfigOutput;
     /**
+     * The current status of the OAuth2 credential provider
+     */
+    readonly status?: enums.bedrockagentcore.OAuth2CredentialProviderStatus;
+    /**
      * Tags to assign to the OAuth2 credential provider
      */
     readonly tags?: outputs.Tag[];

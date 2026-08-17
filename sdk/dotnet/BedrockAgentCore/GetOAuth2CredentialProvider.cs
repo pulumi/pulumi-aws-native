@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly Outputs.OAuth2CredentialProviderOauth2ProviderConfigOutput? Oauth2ProviderConfigOutput;
         /// <summary>
+        /// The current status of the OAuth2 credential provider
+        /// </summary>
+        public readonly Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderStatus? Status;
+        /// <summary>
         /// Tags to assign to the OAuth2 credential provider
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             Outputs.OAuth2CredentialProviderOauth2ProviderConfigOutput? oauth2ProviderConfigOutput,
 
+            Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderStatus? status,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CallbackUrl = callbackUrl;
@@ -128,6 +134,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             CredentialProviderArn = credentialProviderArn;
             LastUpdatedTime = lastUpdatedTime;
             Oauth2ProviderConfigOutput = oauth2ProviderConfigOutput;
+            Status = status;
             Tags = tags;
         }
     }

@@ -243,6 +243,59 @@ export const EncryptionConfigurationEncryptionType = {
  */
 export type EncryptionConfigurationEncryptionType = (typeof EncryptionConfigurationEncryptionType)[keyof typeof EncryptionConfigurationEncryptionType];
 
+export const JobAbortCriteriaAction = {
+    Cancel: "CANCEL",
+} as const;
+
+/**
+ * The type of job action to take to initiate the job abort.
+ */
+export type JobAbortCriteriaAction = (typeof JobAbortCriteriaAction)[keyof typeof JobAbortCriteriaAction];
+
+export const JobAbortCriteriaFailureType = {
+    Failed: "FAILED",
+    Rejected: "REJECTED",
+    TimedOut: "TIMED_OUT",
+    All: "ALL",
+} as const;
+
+/**
+ * The type of job execution failures that can initiate a job abort.
+ */
+export type JobAbortCriteriaFailureType = (typeof JobAbortCriteriaFailureType)[keyof typeof JobAbortCriteriaFailureType];
+
+export const JobRetryCriteriaFailureType = {
+    Failed: "FAILED",
+    TimedOut: "TIMED_OUT",
+    All: "ALL",
+} as const;
+
+/**
+ * The type of job execution failures that can initiate a job retry.
+ */
+export type JobRetryCriteriaFailureType = (typeof JobRetryCriteriaFailureType)[keyof typeof JobRetryCriteriaFailureType];
+
+export const JobSchedulingConfigEndBehavior = {
+    StopRollout: "STOP_ROLLOUT",
+    Cancel: "CANCEL",
+    ForceCancel: "FORCE_CANCEL",
+} as const;
+
+/**
+ * Specifies the end behavior for all job executions after a job reaches the selected endTime.
+ */
+export type JobSchedulingConfigEndBehavior = (typeof JobSchedulingConfigEndBehavior)[keyof typeof JobSchedulingConfigEndBehavior];
+
+export const JobTargetSelection = {
+    Continuous: "CONTINUOUS",
+    Snapshot: "SNAPSHOT",
+} as const;
+
+/**
+ * Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT).
+ */
+export type JobTargetSelection = (typeof JobTargetSelection)[keyof typeof JobTargetSelection];
+
 export const JobTemplateAction = {
     Cancel: "CANCEL",
 } as const;

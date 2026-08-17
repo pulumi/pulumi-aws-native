@@ -1,4 +1,38 @@
 {
+  "aws-native:accountaccess:Application": {
+    "cfTypeName": "AWS::AccountAccess::Application",
+    "properties": {
+      "identitySource": {
+        "$ref": "#/types/aws-native:accountaccess:ApplicationIdentitySource",
+        "description": "The identity source for the application"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:accountaccess:Entitlement": {
+    "cfTypeName": "AWS::AccountAccess::Entitlement",
+    "properties": {
+      "applicationArn": {
+        "type": "string",
+        "description": "The ARN of the application"
+      },
+      "entitlement": {
+        "$ref": "#/types/aws-native:accountaccess:Entitlement",
+        "description": "The entitlement details",
+        "language": {
+          "csharp": {
+            "name": "EntitlementValue"
+          }
+        }
+      }
+    }
+  },
   "aws-native:acmpca:Certificate": {
     "cfTypeName": "AWS::ACMPCA::Certificate",
     "properties": {
@@ -510,6 +544,27 @@
       }
     }
   },
+  "aws-native:apigatewayv2:ApiGatewayManagedOverrides": {
+    "cfTypeName": "AWS::ApiGatewayV2::ApiGatewayManagedOverrides",
+    "properties": {
+      "apiId": {
+        "type": "string",
+        "description": "The ID of the API for which to override the configuration of API Gateway-managed resources."
+      },
+      "integration": {
+        "$ref": "#/types/aws-native:apigatewayv2:ApiGatewayManagedOverridesIntegrationOverrides",
+        "description": "Overrides the integration configuration for an API Gateway-managed integration."
+      },
+      "route": {
+        "$ref": "#/types/aws-native:apigatewayv2:ApiGatewayManagedOverridesRouteOverrides",
+        "description": "Overrides the route configuration for an API Gateway-managed route."
+      },
+      "stage": {
+        "$ref": "#/types/aws-native:apigatewayv2:ApiGatewayManagedOverridesStageOverrides",
+        "description": "Overrides the stage configuration for an API Gateway-managed stage."
+      }
+    }
+  },
   "aws-native:apigatewayv2:ApiMapping": {
     "cfTypeName": "AWS::ApiGatewayV2::ApiMapping",
     "properties": {
@@ -700,6 +755,26 @@
       "templateSelectionExpression": {
         "type": "string",
         "description": "The template selection expression for the integration response. Supported only for WebSocket APIs."
+      }
+    }
+  },
+  "aws-native:apigatewayv2:PortalProduct": {
+    "cfTypeName": "AWS::ApiGatewayV2::PortalProduct",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "A description of the portal product."
+      },
+      "displayName": {
+        "type": "string",
+        "description": "The name of the portal product as it appears in a published portal."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The collection of tags associated with the portal product."
       }
     }
   },
@@ -1133,11 +1208,11 @@
     "properties": {
       "fleetName": {
         "type": "string",
-        "description": "The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource."
+        "description": "The name of the fleet.\n\nTo associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) ."
       },
       "stackName": {
         "type": "string",
-        "description": "The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource."
+        "description": "The name of the stack.\n\nTo associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) ."
       }
     }
   },
@@ -1739,6 +1814,99 @@
       "resourceArn": {
         "type": "string",
         "description": "The ARN of the Bedrock Guardrail or Guardrail Profile resource"
+      }
+    }
+  },
+  "aws-native:bedrock:Session": {
+    "cfTypeName": "AWS::Bedrock::Session",
+    "properties": {
+      "encryptionKeyArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the KMS key to use to encrypt the session data."
+      },
+      "sessionMetadata": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A map of key-value pairs containing attributes to be persisted across the session."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tags associated with the session."
+      }
+    }
+  },
+  "aws-native:bedrockagentcore:GatewayRateLimit": {
+    "cfTypeName": "AWS::BedrockAgentCore::GatewayRateLimit",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "Optional human-readable description for this limit."
+      },
+      "dimensionKeys": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Ordered list of dimension names defining the scope of this limit.\nUnique per gateway — no two limits can share the same dimensionKeys."
+      },
+      "entries": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:bedrockagentcore:GatewayRateLimitLimitEntry"
+        },
+        "description": "Rule entries mapping dimension values to rate configurations."
+      },
+      "gatewayIdentifier": {
+        "type": "string"
+      },
+      "rateLimitId": {
+        "type": "string",
+        "description": "Limit identifier. Optional on Create (system-generates if not provided by customer).\nAlways present in responses."
+      }
+    }
+  },
+  "aws-native:bedrockagentcore:GatewayRule": {
+    "cfTypeName": "AWS::BedrockAgentCore::GatewayRule",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleAction0Properties"
+            },
+            {
+              "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleAction1Properties"
+            }
+          ]
+        }
+      },
+      "conditions": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleCondition0Properties"
+            },
+            {
+              "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleCondition1Properties"
+            }
+          ]
+        }
+      },
+      "description": {
+        "type": "string"
+      },
+      "gatewayIdentifier": {
+        "type": "string"
+      },
+      "priority": {
+        "type": "number"
       }
     }
   },
@@ -2533,6 +2701,41 @@
       "vpcOriginEndpointConfig": {
         "$ref": "#/types/aws-native:cloudfront:VpcOriginEndpointConfig",
         "description": "The VPC origin endpoint configuration."
+      }
+    }
+  },
+  "aws-native:cloudhsm:Cluster": {
+    "cfTypeName": "AWS::CloudHSM::Cluster",
+    "properties": {
+      "backupRetentionPolicy": {
+        "$ref": "#/types/aws-native:cloudhsm:BackupRetentionPolicyProperties",
+        "description": "A policy that defines how the service retains backups."
+      },
+      "hsmType": {
+        "type": "string",
+        "description": "The type of HSM to use in the cluster."
+      },
+      "mode": {
+        "$ref": "#/types/aws-native:cloudhsm:ClusterMode",
+        "description": "The mode to use in the cluster."
+      },
+      "networkType": {
+        "$ref": "#/types/aws-native:cloudhsm:ClusterNetworkType",
+        "description": "The NetworkType to create a cluster with."
+      },
+      "subnetIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The identifiers (IDs) of the subnets where the cluster is created. You must specify at least one subnet."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to apply to the CloudHSM cluster."
       }
     }
   },
@@ -4640,6 +4843,34 @@
       }
     }
   },
+  "aws-native:devopsagent:Asset": {
+    "cfTypeName": "AWS::DevOpsAgent::Asset",
+    "properties": {
+      "agentSpaceId": {
+        "type": "string",
+        "description": "The unique identifier of the parent Agent Space. The asset is created as a child of this agent space."
+      },
+      "assetType": {
+        "type": "string",
+        "description": "The type of asset. The Asset API treats this as an open string; call ListAssetTypes for the current authoritative set of supported types. As of launch, customer-creatable types include skill, agents_md, and attachment."
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:devopsagent:AssetFile"
+        },
+        "description": "Inline file list. Mutually exclusive with Zip; enforced by the handler at Create/Update time. Write-only: not repopulated by Read."
+      },
+      "metadata": {
+        "$ref": "pulumi.json#/Any",
+        "description": "Asset metadata document. Required and optional keys depend on AssetType. Values may be strings, numbers, booleans, or lists of any of those - validated server-side; see the public Asset API docs for the per-type metadata schema.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DevOpsAgent::Asset` for more information about the expected schema for this property."
+      },
+      "zip": {
+        "type": "string",
+        "description": "Base64-encoded zip bundle containing all files for the asset. Mutually exclusive with Files; enforced by the handler at Create/Update time. Write-only: not repopulated by Read. Server treats a zip as 'replace all files' (max 6 MiB)."
+      }
+    }
+  },
   "aws-native:devopsagent:Association": {
     "cfTypeName": "AWS::DevOpsAgent::Association",
     "properties": {
@@ -4667,9 +4898,17 @@
   "aws-native:devopsagent:Service": {
     "cfTypeName": "AWS::DevOpsAgent::Service",
     "properties": {
+      "exchangeUrlPrivateConnectionName": {
+        "type": "string",
+        "description": "The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided."
+      },
       "kmsKeyArn": {
         "type": "string",
         "description": "The ARN of the KMS key to use for encryption."
+      },
+      "privateConnectionName": {
+        "type": "string",
+        "description": "The name of the private connection to use for VPC connectivity."
       },
       "serviceDetails": {
         "$ref": "#/types/aws-native:devopsagent:ServiceDetails",
@@ -4685,6 +4924,34 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      },
+      "targetUrlPrivateConnectionName": {
+        "type": "string",
+        "description": "The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided."
+      }
+    }
+  },
+  "aws-native:devopsagent:Trigger": {
+    "cfTypeName": "AWS::DevOpsAgent::Trigger",
+    "properties": {
+      "action": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The action to perform when the trigger fires. A JSON object containing actionType and task.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::DevOpsAgent::Trigger` for more information about the expected schema for this property."
+      },
+      "agentSpaceId": {
+        "type": "string",
+        "description": "The unique identifier of the parent Agent Space."
+      },
+      "condition": {
+        "$ref": "#/types/aws-native:devopsagent:TriggerCondition"
+      },
+      "status": {
+        "$ref": "#/types/aws-native:devopsagent:TriggerStatus",
+        "description": "The status of the trigger. Active triggers fire on schedule; Inactive triggers are paused."
+      },
+      "type": {
+        "$ref": "#/types/aws-native:devopsagent:TriggerType",
+        "description": "The type of trigger."
       }
     }
   },
@@ -4928,6 +5195,33 @@
       "targetEndpointArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration"
+      }
+    }
+  },
+  "aws-native:dms:ReplicationSubnetGroup": {
+    "cfTypeName": "AWS::DMS::ReplicationSubnetGroup",
+    "properties": {
+      "replicationSubnetGroupDescription": {
+        "type": "string",
+        "description": "The description for the subnet group."
+      },
+      "replicationSubnetGroupIdentifier": {
+        "type": "string",
+        "description": "The name for the replication subnet group. This value is stored as a lowercase string."
+      },
+      "subnetIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "One or more subnet IDs to be assigned to the replication subnet group."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags to be assigned to the replication subnet group"
       }
     }
   },
@@ -7999,7 +8293,8 @@
         "description": "The tags for the VPC."
       },
       "vpcEncryptionControl": {
-        "$ref": "#/types/aws-native:ec2:VpcEncryptionControl"
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControl",
+        "description": "Describes the configuration and state of VPC encryption controls.\n For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*."
       }
     }
   },
@@ -10152,6 +10447,27 @@
       }
     }
   },
+  "aws-native:glue:Classifier": {
+    "cfTypeName": "AWS::Glue::Classifier",
+    "properties": {
+      "csvClassifier": {
+        "$ref": "#/types/aws-native:glue:ClassifierCsvClassifier",
+        "description": "A classifier for comma-separated values (CSV)."
+      },
+      "grokClassifier": {
+        "$ref": "#/types/aws-native:glue:ClassifierGrokClassifier",
+        "description": "A classifier that uses grok."
+      },
+      "jsonClassifier": {
+        "$ref": "#/types/aws-native:glue:ClassifierJsonClassifier",
+        "description": "A classifier for JSON content."
+      },
+      "xmlClassifier": {
+        "$ref": "#/types/aws-native:glue:ClassifierXmlClassifier",
+        "description": "A classifier for XML content."
+      }
+    }
+  },
   "aws-native:glue:DataCatalogEncryptionSettings": {
     "cfTypeName": "AWS::Glue::DataCatalogEncryptionSettings",
     "properties": {
@@ -10241,6 +10557,31 @@
       "value": {
         "type": "string",
         "description": "Metadata value"
+      }
+    }
+  },
+  "aws-native:glue:TableOptimizer": {
+    "cfTypeName": "AWS::Glue::TableOptimizer",
+    "properties": {
+      "catalogId": {
+        "type": "string",
+        "description": "The catalog ID of the table"
+      },
+      "databaseName": {
+        "type": "string",
+        "description": "The name of the database. For Hive compatibility, this is folded to lowercase when it is stored."
+      },
+      "tableName": {
+        "type": "string",
+        "description": "The table name. For Hive compatibility, this must be entirely lowercase."
+      },
+      "tableOptimizerConfiguration": {
+        "$ref": "#/types/aws-native:glue:TableOptimizerConfiguration",
+        "description": "Specifies configuration details of a table optimizer."
+      },
+      "type": {
+        "type": "string",
+        "description": "The type of table optimizer."
       }
     }
   },
@@ -10834,6 +11175,81 @@
       "kmsKeyArn": {
         "type": "string",
         "description": "The ARN of the customer managed KMS key."
+      }
+    }
+  },
+  "aws-native:iot:Job": {
+    "cfTypeName": "AWS::IoT::Job",
+    "properties": {
+      "abortConfig": {
+        "$ref": "#/types/aws-native:iot:JobAbortConfig"
+      },
+      "description": {
+        "type": "string",
+        "description": "A short text description of the job."
+      },
+      "destinationPackageVersions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes."
+      },
+      "document": {
+        "type": "string",
+        "description": "The job document. Required if you don't specify a value for documentSource."
+      },
+      "documentParameters": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Parameters of an Amazon Web Services managed template that you can specify to create the job document."
+      },
+      "documentSource": {
+        "type": "string",
+        "description": "An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for document."
+      },
+      "jobExecutionsRetryConfig": {
+        "$ref": "#/types/aws-native:iot:JobExecutionsRetryConfig"
+      },
+      "jobExecutionsRolloutConfig": {
+        "$ref": "#/types/aws-native:iot:JobExecutionsRolloutConfig"
+      },
+      "jobId": {
+        "type": "string",
+        "description": "A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, '-' and '_' are valid for use here."
+      },
+      "jobTemplateArn": {
+        "type": "string",
+        "description": "The ARN of the job template used to create the job."
+      },
+      "presignedUrlConfig": {
+        "$ref": "#/types/aws-native:iot:JobPresignedUrlConfig"
+      },
+      "schedulingConfig": {
+        "$ref": "#/types/aws-native:iot:JobSchedulingConfig"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Metadata which can be used to manage the job."
+      },
+      "targetSelection": {
+        "$ref": "#/types/aws-native:iot:JobTargetSelection",
+        "description": "Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT)."
+      },
+      "targets": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of things and thing groups to which the job should be sent."
+      },
+      "timeoutConfig": {
+        "$ref": "#/types/aws-native:iot:JobTimeoutConfig"
       }
     }
   },
@@ -11920,6 +12336,15 @@
       }
     }
   },
+  "aws-native:logs:StorageTierPolicy": {
+    "cfTypeName": "AWS::Logs::StorageTierPolicy",
+    "properties": {
+      "storageTier": {
+        "$ref": "#/types/aws-native:logs:StorageTierPolicyStorageTier",
+        "description": "The storage tier to apply. Only INTELLIGENT_TIERING is accepted for creation."
+      }
+    }
+  },
   "aws-native:logs:Transformer": {
     "cfTypeName": "AWS::Logs::Transformer",
     "properties": {
@@ -12216,6 +12641,39 @@
       "policy": {
         "$ref": "pulumi.json#/Any",
         "description": "\u003cp\u003eThe IAM policy for the channel. IAM policies are used to control access to your channel.\u003c/p\u003e\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property."
+      }
+    }
+  },
+  "aws-native:mediatailor:Function": {
+    "cfTypeName": "AWS::MediaTailor::Function",
+    "properties": {
+      "customOutputConfiguration": {
+        "$ref": "#/types/aws-native:mediatailor:FunctionCustomOutputConfiguration"
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the function."
+      },
+      "functionId": {
+        "type": "string",
+        "description": "The unique identifier for the function."
+      },
+      "functionType": {
+        "$ref": "#/types/aws-native:mediatailor:FunctionType",
+        "description": "The type of the function. Determines which configuration object is used."
+      },
+      "httpRequestConfiguration": {
+        "$ref": "#/types/aws-native:mediatailor:FunctionHttpRequestConfiguration"
+      },
+      "sequentialExecutorConfiguration": {
+        "$ref": "#/types/aws-native:mediatailor:FunctionSequentialExecutorConfiguration"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to assign to the function resource."
       }
     }
   },
@@ -14300,7 +14758,7 @@
       },
       "engineLifecycleSupport": {
         "type": "string",
-        "description": "The life cycle type for this DB cluster.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.\n  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:\n  +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*\n  +  Amazon RDS - [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*\n  \n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
+        "description": "The lifecycle type for this DB cluster.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.\n  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:\n  +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*\n  +  Amazon RDS - [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*\n  \n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
       },
       "engineMode": {
         "type": "string",
@@ -14630,7 +15088,7 @@
       },
       "engineLifecycleSupport": {
         "type": "string",
-        "description": "The life cycle type for this DB instance.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.\n  This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the life cycle type is managed by the DB cluster.\n You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
+        "description": "The lifecycle type for this DB instance.\n  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB instance into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB instance will fail if the DB major version is past its end of standard support date.\n  This setting applies only to RDS for MySQL and RDS for PostgreSQL. For Amazon Aurora DB instances, the engine lifecycle support is managed by the DB cluster.\n You can use this setting to enroll your DB instance into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB instance past the end of standard support for that engine version. For more information, see [Amazon RDS Extended Support with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide*.\n Valid Values: ``open-source-rds-extended-support | open-source-rds-extended-support-disabled``\n Default: ``open-source-rds-extended-support``"
       },
       "engineVersion": {
         "type": "string",
@@ -15212,6 +15670,33 @@
       }
     }
   },
+  "aws-native:redshift:SnapshotSchedule": {
+    "cfTypeName": "AWS::Redshift::SnapshotSchedule",
+    "properties": {
+      "scheduleDefinitions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The definition of the snapshot schedule. The definition is made up of schedule expressions, for example \"cron(30 12 *)\" or \"rate(12 hours)\"."
+      },
+      "scheduleDescription": {
+        "type": "string",
+        "description": "The description of the snapshot schedule."
+      },
+      "scheduleIdentifier": {
+        "type": "string",
+        "description": "A unique identifier for the snapshot schedule. Only alphanumeric characters are allowed."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An optional set of tags for the snapshot schedule."
+      }
+    }
+  },
   "aws-native:refactorspaces:Route": {
     "cfTypeName": "AWS::RefactorSpaces::Route",
     "properties": {
@@ -15254,6 +15739,26 @@
       "collectionId": {
         "type": "string",
         "description": "ID for the collection that you are creating."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:rekognition:Dataset": {
+    "cfTypeName": "AWS::Rekognition::Dataset",
+    "properties": {
+      "datasetType": {
+        "$ref": "#/types/aws-native:rekognition:DatasetType",
+        "description": "The type of the dataset. Specify TRAIN to create a training dataset. Specify TEST to create a test dataset."
+      },
+      "projectArn": {
+        "type": "string",
+        "description": "The ARN of the project to which the dataset belongs."
       },
       "tags": {
         "type": "array",
@@ -16102,6 +16607,27 @@
       }
     }
   },
+  "aws-native:securityagent:Artifact": {
+    "cfTypeName": "AWS::SecurityAgent::Artifact",
+    "properties": {
+      "agentSpaceId": {
+        "type": "string",
+        "description": "The unique identifier of the agent space to add the artifact to."
+      },
+      "artifactContent": {
+        "type": "string",
+        "description": "The binary content of the artifact to upload, encoded as a Base64 string."
+      },
+      "artifactType": {
+        "$ref": "#/types/aws-native:securityagent:ArtifactType",
+        "description": "The file type of the artifact."
+      },
+      "fileName": {
+        "type": "string",
+        "description": "The file name of the artifact."
+      }
+    }
+  },
   "aws-native:securityagent:Pentest": {
     "cfTypeName": "AWS::SecurityAgent::Pentest",
     "properties": {
@@ -16874,6 +17400,23 @@
       }
     }
   },
+  "aws-native:ses:ReceiptRule": {
+    "cfTypeName": "AWS::SES::ReceiptRule",
+    "properties": {
+      "after": {
+        "type": "string",
+        "description": "The name of an existing rule after which the new rule is placed. If this parameter is null, the new rule is inserted at the beginning of the rule list."
+      },
+      "rule": {
+        "$ref": "#/types/aws-native:ses:ReceiptRuleRule",
+        "description": "A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy."
+      },
+      "ruleSetName": {
+        "type": "string",
+        "description": "The name of the rule set where the receipt rule is added."
+      }
+    }
+  },
   "aws-native:ses:Template": {
     "cfTypeName": "AWS::SES::Template",
     "properties": {
@@ -17270,6 +17813,38 @@
       "queue": {
         "type": "string",
         "description": "The URL of the SQS queue."
+      }
+    }
+  },
+  "aws-native:ssm:CloudConnector": {
+    "cfTypeName": "AWS::SSM::CloudConnector",
+    "properties": {
+      "configConnectorArn": {
+        "type": "string",
+        "description": "The ARN of the AWS Config connector."
+      },
+      "configuration": {
+        "$ref": "#/types/aws-native:ssm:CloudConnectorConfiguration",
+        "description": "The configuration for the cloud connector."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the cloud connector."
+      },
+      "displayName": {
+        "type": "string",
+        "description": "The display name of the cloud connector."
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "The IAM role ARN used by the cloud connector."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to apply to the cloud connector."
       }
     }
   },
@@ -17799,6 +18374,30 @@
       }
     }
   },
+  "aws-native:transfer:HostKey": {
+    "cfTypeName": "AWS::Transfer::HostKey",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The text description for this host key."
+      },
+      "hostKeyBody": {
+        "type": "string",
+        "description": "The private key portion of an SSH key pair. Transfer Family accepts RSA, ECDSA, and ED25519 keys."
+      },
+      "serverId": {
+        "type": "string",
+        "description": "The identifier of the server that contains the host key."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Key-value pairs that can be used to group and search for host keys."
+      }
+    }
+  },
   "aws-native:transfer:Profile": {
     "cfTypeName": "AWS::Transfer::Profile",
     "properties": {
@@ -17970,6 +18569,29 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Key-value pairs that can be used to group and search for workflows. Tags are metadata attached to workflows for any purpose."
+      }
+    }
+  },
+  "aws-native:uxc:AccountCustomization": {
+    "cfTypeName": "AWS::UXC::AccountCustomization",
+    "properties": {
+      "accountColor": {
+        "$ref": "#/types/aws-native:uxc:AccountCustomizationAccountColor",
+        "description": "The color theme assigned to the account for visual identification in the AWS Console."
+      },
+      "visibleRegions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of AWS region identifiers visible to the account in the AWS Console."
+      },
+      "visibleServices": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of AWS service identifiers visible to the account in the AWS Console."
       }
     }
   },

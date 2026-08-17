@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:rekognition:Collection":
 		r = &Collection{}
+	case "aws-native:rekognition:Dataset":
+		r = &Dataset{}
 	case "aws-native:rekognition:Project":
 		r = &Project{}
 	case "aws-native:rekognition:StreamProcessor":

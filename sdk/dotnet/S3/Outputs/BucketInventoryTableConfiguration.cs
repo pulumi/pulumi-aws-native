@@ -11,7 +11,8 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// The inventory table configuration for an S3 Metadata configuration.
+    /// The inventory table configuration for an S3 Metadata configuration. 
+    ///   If you've disabled your inventory table configuration and now want to re-enable it, you must first manually delete the old inventory table from your AWS managed table bucket. Otherwise, the newly re-enabled inventory table configuration will enter a failed state because the inventory table already exists in the table bucket.
     /// </summary>
     [OutputType]
     public sealed class BucketInventoryTableConfiguration

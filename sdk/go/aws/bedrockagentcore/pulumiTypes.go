@@ -1159,6 +1159,1958 @@ func (o BrowserCustomVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Capacity Reservation targeting option.
+type CapacityProviderCapacityReservationSpecification struct {
+	// Indicates the instance's Capacity Reservation preferences.
+	CapacityReservationPreference *CapacityProviderCapacityReservationSpecificationCapacityReservationPreference `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     *CapacityProviderCapacityReservationTarget                                     `pulumi:"capacityReservationTarget"`
+}
+
+// CapacityProviderCapacityReservationSpecificationInput is an input type that accepts CapacityProviderCapacityReservationSpecificationArgs and CapacityProviderCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityReservationSpecificationInput` via:
+//
+//	CapacityProviderCapacityReservationSpecificationArgs{...}
+type CapacityProviderCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationSpecificationOutput() CapacityProviderCapacityReservationSpecificationOutput
+	ToCapacityProviderCapacityReservationSpecificationOutputWithContext(context.Context) CapacityProviderCapacityReservationSpecificationOutput
+}
+
+// The Capacity Reservation targeting option.
+type CapacityProviderCapacityReservationSpecificationArgs struct {
+	// Indicates the instance's Capacity Reservation preferences.
+	CapacityReservationPreference CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrInput `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     CapacityProviderCapacityReservationTargetPtrInput                                     `pulumi:"capacityReservationTarget"`
+}
+
+func (CapacityProviderCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i CapacityProviderCapacityReservationSpecificationArgs) ToCapacityProviderCapacityReservationSpecificationOutput() CapacityProviderCapacityReservationSpecificationOutput {
+	return i.ToCapacityProviderCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityReservationSpecificationArgs) ToCapacityProviderCapacityReservationSpecificationOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationSpecificationOutput)
+}
+
+func (i CapacityProviderCapacityReservationSpecificationArgs) ToCapacityProviderCapacityReservationSpecificationPtrOutput() CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return i.ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityReservationSpecificationArgs) ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationSpecificationOutput).ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderCapacityReservationSpecificationPtrInput is an input type that accepts CapacityProviderCapacityReservationSpecificationArgs, CapacityProviderCapacityReservationSpecificationPtr and CapacityProviderCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityReservationSpecificationPtrInput` via:
+//
+//	        CapacityProviderCapacityReservationSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationSpecificationPtrOutput() CapacityProviderCapacityReservationSpecificationPtrOutput
+	ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(context.Context) CapacityProviderCapacityReservationSpecificationPtrOutput
+}
+
+type capacityProviderCapacityReservationSpecificationPtrType CapacityProviderCapacityReservationSpecificationArgs
+
+func CapacityProviderCapacityReservationSpecificationPtr(v *CapacityProviderCapacityReservationSpecificationArgs) CapacityProviderCapacityReservationSpecificationPtrInput {
+	return (*capacityProviderCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*capacityProviderCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *capacityProviderCapacityReservationSpecificationPtrType) ToCapacityProviderCapacityReservationSpecificationPtrOutput() CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return i.ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderCapacityReservationSpecificationPtrType) ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationSpecificationPtrOutput)
+}
+
+// The Capacity Reservation targeting option.
+type CapacityProviderCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationSpecificationOutput) ToCapacityProviderCapacityReservationSpecificationOutput() CapacityProviderCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationOutput) ToCapacityProviderCapacityReservationSpecificationOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationOutput) ToCapacityProviderCapacityReservationSpecificationPtrOutput() CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return o.ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationSpecificationOutput) ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderCapacityReservationSpecification) *CapacityProviderCapacityReservationSpecification {
+		return &v
+	}).(CapacityProviderCapacityReservationSpecificationPtrOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences.
+func (o CapacityProviderCapacityReservationSpecificationOutput) CapacityReservationPreference() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityReservationSpecification) *CapacityProviderCapacityReservationSpecificationCapacityReservationPreference {
+		return v.CapacityReservationPreference
+	}).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
+}
+
+func (o CapacityProviderCapacityReservationSpecificationOutput) CapacityReservationTarget() CapacityProviderCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityReservationSpecification) *CapacityProviderCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(CapacityProviderCapacityReservationTargetPtrOutput)
+}
+
+type CapacityProviderCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationSpecificationPtrOutput) ToCapacityProviderCapacityReservationSpecificationPtrOutput() CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationPtrOutput) ToCapacityProviderCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationSpecificationPtrOutput) Elem() CapacityProviderCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationSpecification) CapacityProviderCapacityReservationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderCapacityReservationSpecification
+		return ret
+	}).(CapacityProviderCapacityReservationSpecificationOutput)
+}
+
+// Indicates the instance's Capacity Reservation preferences.
+func (o CapacityProviderCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationSpecification) *CapacityProviderCapacityReservationSpecificationCapacityReservationPreference {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(CapacityProviderCapacityReservationSpecificationCapacityReservationPreferencePtrOutput)
+}
+
+func (o CapacityProviderCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() CapacityProviderCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationSpecification) *CapacityProviderCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(CapacityProviderCapacityReservationTargetPtrOutput)
+}
+
+// Information about the target Capacity Reservation or Capacity Reservation group.
+type CapacityProviderCapacityReservationTarget struct {
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId *string `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+// CapacityProviderCapacityReservationTargetInput is an input type that accepts CapacityProviderCapacityReservationTargetArgs and CapacityProviderCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityReservationTargetInput` via:
+//
+//	CapacityProviderCapacityReservationTargetArgs{...}
+type CapacityProviderCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationTargetOutput() CapacityProviderCapacityReservationTargetOutput
+	ToCapacityProviderCapacityReservationTargetOutputWithContext(context.Context) CapacityProviderCapacityReservationTargetOutput
+}
+
+// Information about the target Capacity Reservation or Capacity Reservation group.
+type CapacityProviderCapacityReservationTargetArgs struct {
+	// The ID of the Capacity Reservation in which to run the instance.
+	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+func (CapacityProviderCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i CapacityProviderCapacityReservationTargetArgs) ToCapacityProviderCapacityReservationTargetOutput() CapacityProviderCapacityReservationTargetOutput {
+	return i.ToCapacityProviderCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityReservationTargetArgs) ToCapacityProviderCapacityReservationTargetOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationTargetOutput)
+}
+
+func (i CapacityProviderCapacityReservationTargetArgs) ToCapacityProviderCapacityReservationTargetPtrOutput() CapacityProviderCapacityReservationTargetPtrOutput {
+	return i.ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderCapacityReservationTargetArgs) ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationTargetOutput).ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderCapacityReservationTargetPtrInput is an input type that accepts CapacityProviderCapacityReservationTargetArgs, CapacityProviderCapacityReservationTargetPtr and CapacityProviderCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderCapacityReservationTargetPtrInput` via:
+//
+//	        CapacityProviderCapacityReservationTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderCapacityReservationTargetPtrOutput() CapacityProviderCapacityReservationTargetPtrOutput
+	ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(context.Context) CapacityProviderCapacityReservationTargetPtrOutput
+}
+
+type capacityProviderCapacityReservationTargetPtrType CapacityProviderCapacityReservationTargetArgs
+
+func CapacityProviderCapacityReservationTargetPtr(v *CapacityProviderCapacityReservationTargetArgs) CapacityProviderCapacityReservationTargetPtrInput {
+	return (*capacityProviderCapacityReservationTargetPtrType)(v)
+}
+
+func (*capacityProviderCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *capacityProviderCapacityReservationTargetPtrType) ToCapacityProviderCapacityReservationTargetPtrOutput() CapacityProviderCapacityReservationTargetPtrOutput {
+	return i.ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderCapacityReservationTargetPtrType) ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderCapacityReservationTargetPtrOutput)
+}
+
+// Information about the target Capacity Reservation or Capacity Reservation group.
+type CapacityProviderCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationTargetOutput) ToCapacityProviderCapacityReservationTargetOutput() CapacityProviderCapacityReservationTargetOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationTargetOutput) ToCapacityProviderCapacityReservationTargetOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationTargetOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationTargetOutput) ToCapacityProviderCapacityReservationTargetPtrOutput() CapacityProviderCapacityReservationTargetPtrOutput {
+	return o.ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderCapacityReservationTargetOutput) ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderCapacityReservationTarget) *CapacityProviderCapacityReservationTarget {
+		return &v
+	}).(CapacityProviderCapacityReservationTargetPtrOutput)
+}
+
+// The ID of the Capacity Reservation in which to run the instance.
+func (o CapacityProviderCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityReservationTarget) *string { return v.CapacityReservationId }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o CapacityProviderCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderCapacityReservationTarget) *string {
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o CapacityProviderCapacityReservationTargetPtrOutput) ToCapacityProviderCapacityReservationTargetPtrOutput() CapacityProviderCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationTargetPtrOutput) ToCapacityProviderCapacityReservationTargetPtrOutputWithContext(ctx context.Context) CapacityProviderCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o CapacityProviderCapacityReservationTargetPtrOutput) Elem() CapacityProviderCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationTarget) CapacityProviderCapacityReservationTarget {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderCapacityReservationTarget
+		return ret
+	}).(CapacityProviderCapacityReservationTargetOutput)
+}
+
+// The ID of the Capacity Reservation in which to run the instance.
+func (o CapacityProviderCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o CapacityProviderCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The capacity configuration for the capacity provider. Defines the compute resources for this capacity provider.
+type CapacityProviderComputeConfiguration struct {
+	Ec2Configuration CapacityProviderEc2Configuration `pulumi:"ec2Configuration"`
+}
+
+// CapacityProviderComputeConfigurationInput is an input type that accepts CapacityProviderComputeConfigurationArgs and CapacityProviderComputeConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderComputeConfigurationInput` via:
+//
+//	CapacityProviderComputeConfigurationArgs{...}
+type CapacityProviderComputeConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderComputeConfigurationOutput() CapacityProviderComputeConfigurationOutput
+	ToCapacityProviderComputeConfigurationOutputWithContext(context.Context) CapacityProviderComputeConfigurationOutput
+}
+
+// The capacity configuration for the capacity provider. Defines the compute resources for this capacity provider.
+type CapacityProviderComputeConfigurationArgs struct {
+	Ec2Configuration CapacityProviderEc2ConfigurationInput `pulumi:"ec2Configuration"`
+}
+
+func (CapacityProviderComputeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderComputeConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderComputeConfigurationArgs) ToCapacityProviderComputeConfigurationOutput() CapacityProviderComputeConfigurationOutput {
+	return i.ToCapacityProviderComputeConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderComputeConfigurationArgs) ToCapacityProviderComputeConfigurationOutputWithContext(ctx context.Context) CapacityProviderComputeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderComputeConfigurationOutput)
+}
+
+// The capacity configuration for the capacity provider. Defines the compute resources for this capacity provider.
+type CapacityProviderComputeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderComputeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderComputeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderComputeConfigurationOutput) ToCapacityProviderComputeConfigurationOutput() CapacityProviderComputeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderComputeConfigurationOutput) ToCapacityProviderComputeConfigurationOutputWithContext(ctx context.Context) CapacityProviderComputeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderComputeConfigurationOutput) Ec2Configuration() CapacityProviderEc2ConfigurationOutput {
+	return o.ApplyT(func(v CapacityProviderComputeConfiguration) CapacityProviderEc2Configuration {
+		return v.Ec2Configuration
+	}).(CapacityProviderEc2ConfigurationOutput)
+}
+
+// Configuration for an EBS-backed persistent volume.
+type CapacityProviderEbsVolumeConfiguration struct {
+	// Whether to encrypt the volume. Defaults to true.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+	Iops *int `pulumi:"iops"`
+	// Identifier of the KMS key to use for encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The logical name of the volume, used to reference it when mounting.
+	Name string `pulumi:"name"`
+	// The size of the volume in GiB.
+	SizeGiB int `pulumi:"sizeGiB"`
+	// Optional EBS snapshot ID to initialize the volume from.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput in MiB/s. Only valid for gp3 volumes.
+	Throughput *int `pulumi:"throughput"`
+	// The EBS volume type. Defaults to gp3 if not specified.
+	VolumeType *CapacityProviderEbsVolumeConfigurationVolumeType `pulumi:"volumeType"`
+}
+
+// CapacityProviderEbsVolumeConfigurationInput is an input type that accepts CapacityProviderEbsVolumeConfigurationArgs and CapacityProviderEbsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderEbsVolumeConfigurationInput` via:
+//
+//	CapacityProviderEbsVolumeConfigurationArgs{...}
+type CapacityProviderEbsVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEbsVolumeConfigurationOutput() CapacityProviderEbsVolumeConfigurationOutput
+	ToCapacityProviderEbsVolumeConfigurationOutputWithContext(context.Context) CapacityProviderEbsVolumeConfigurationOutput
+}
+
+// Configuration for an EBS-backed persistent volume.
+type CapacityProviderEbsVolumeConfigurationArgs struct {
+	// Whether to encrypt the volume. Defaults to true.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Identifier of the KMS key to use for encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The logical name of the volume, used to reference it when mounting.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The size of the volume in GiB.
+	SizeGiB pulumi.IntInput `pulumi:"sizeGiB"`
+	// Optional EBS snapshot ID to initialize the volume from.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput in MiB/s. Only valid for gp3 volumes.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The EBS volume type. Defaults to gp3 if not specified.
+	VolumeType CapacityProviderEbsVolumeConfigurationVolumeTypePtrInput `pulumi:"volumeType"`
+}
+
+func (CapacityProviderEbsVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderEbsVolumeConfigurationArgs) ToCapacityProviderEbsVolumeConfigurationOutput() CapacityProviderEbsVolumeConfigurationOutput {
+	return i.ToCapacityProviderEbsVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderEbsVolumeConfigurationArgs) ToCapacityProviderEbsVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderEbsVolumeConfigurationOutput)
+}
+
+// Configuration for an EBS-backed persistent volume.
+type CapacityProviderEbsVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEbsVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderEbsVolumeConfigurationOutput) ToCapacityProviderEbsVolumeConfigurationOutput() CapacityProviderEbsVolumeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderEbsVolumeConfigurationOutput) ToCapacityProviderEbsVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderEbsVolumeConfigurationOutput {
+	return o
+}
+
+// Whether to encrypt the volume. Defaults to true.
+func (o CapacityProviderEbsVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+func (o CapacityProviderEbsVolumeConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Identifier of the KMS key to use for encryption.
+func (o CapacityProviderEbsVolumeConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The logical name of the volume, used to reference it when mounting.
+func (o CapacityProviderEbsVolumeConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The size of the volume in GiB.
+func (o CapacityProviderEbsVolumeConfigurationOutput) SizeGiB() pulumi.IntOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) int { return v.SizeGiB }).(pulumi.IntOutput)
+}
+
+// Optional EBS snapshot ID to initialize the volume from.
+func (o CapacityProviderEbsVolumeConfigurationOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// The throughput in MiB/s. Only valid for gp3 volumes.
+func (o CapacityProviderEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// The EBS volume type. Defaults to gp3 if not specified.
+func (o CapacityProviderEbsVolumeConfigurationOutput) VolumeType() CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyT(func(v CapacityProviderEbsVolumeConfiguration) *CapacityProviderEbsVolumeConfigurationVolumeType {
+		return v.VolumeType
+	}).(CapacityProviderEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+// Configuration for EC2-based capacity.
+type CapacityProviderEc2Configuration struct {
+	LaunchTemplateSource   CapacityProviderLaunchTemplateSource            `pulumi:"launchTemplateSource"`
+	LifecycleConfiguration *CapacityProviderInstanceLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
+	RootVolume             *CapacityProviderRootVolumeConfiguration        `pulumi:"rootVolume"`
+	// Named persistent EBS volumes for this capacity provider.
+	Volumes          []CapacityProviderVolumeConfiguration `pulumi:"volumes"`
+	VpcConfiguration CapacityProviderVpcConfiguration      `pulumi:"vpcConfiguration"`
+}
+
+// CapacityProviderEc2ConfigurationInput is an input type that accepts CapacityProviderEc2ConfigurationArgs and CapacityProviderEc2ConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderEc2ConfigurationInput` via:
+//
+//	CapacityProviderEc2ConfigurationArgs{...}
+type CapacityProviderEc2ConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEc2ConfigurationOutput() CapacityProviderEc2ConfigurationOutput
+	ToCapacityProviderEc2ConfigurationOutputWithContext(context.Context) CapacityProviderEc2ConfigurationOutput
+}
+
+// Configuration for EC2-based capacity.
+type CapacityProviderEc2ConfigurationArgs struct {
+	LaunchTemplateSource   CapacityProviderLaunchTemplateSourceInput              `pulumi:"launchTemplateSource"`
+	LifecycleConfiguration CapacityProviderInstanceLifecycleConfigurationPtrInput `pulumi:"lifecycleConfiguration"`
+	RootVolume             CapacityProviderRootVolumeConfigurationPtrInput        `pulumi:"rootVolume"`
+	// Named persistent EBS volumes for this capacity provider.
+	Volumes          CapacityProviderVolumeConfigurationArrayInput `pulumi:"volumes"`
+	VpcConfiguration CapacityProviderVpcConfigurationInput         `pulumi:"vpcConfiguration"`
+}
+
+func (CapacityProviderEc2ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEc2Configuration)(nil)).Elem()
+}
+
+func (i CapacityProviderEc2ConfigurationArgs) ToCapacityProviderEc2ConfigurationOutput() CapacityProviderEc2ConfigurationOutput {
+	return i.ToCapacityProviderEc2ConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderEc2ConfigurationArgs) ToCapacityProviderEc2ConfigurationOutputWithContext(ctx context.Context) CapacityProviderEc2ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderEc2ConfigurationOutput)
+}
+
+// Configuration for EC2-based capacity.
+type CapacityProviderEc2ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEc2ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEc2Configuration)(nil)).Elem()
+}
+
+func (o CapacityProviderEc2ConfigurationOutput) ToCapacityProviderEc2ConfigurationOutput() CapacityProviderEc2ConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderEc2ConfigurationOutput) ToCapacityProviderEc2ConfigurationOutputWithContext(ctx context.Context) CapacityProviderEc2ConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderEc2ConfigurationOutput) LaunchTemplateSource() CapacityProviderLaunchTemplateSourceOutput {
+	return o.ApplyT(func(v CapacityProviderEc2Configuration) CapacityProviderLaunchTemplateSource {
+		return v.LaunchTemplateSource
+	}).(CapacityProviderLaunchTemplateSourceOutput)
+}
+
+func (o CapacityProviderEc2ConfigurationOutput) LifecycleConfiguration() CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEc2Configuration) *CapacityProviderInstanceLifecycleConfiguration {
+		return v.LifecycleConfiguration
+	}).(CapacityProviderInstanceLifecycleConfigurationPtrOutput)
+}
+
+func (o CapacityProviderEc2ConfigurationOutput) RootVolume() CapacityProviderRootVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEc2Configuration) *CapacityProviderRootVolumeConfiguration { return v.RootVolume }).(CapacityProviderRootVolumeConfigurationPtrOutput)
+}
+
+// Named persistent EBS volumes for this capacity provider.
+func (o CapacityProviderEc2ConfigurationOutput) Volumes() CapacityProviderVolumeConfigurationArrayOutput {
+	return o.ApplyT(func(v CapacityProviderEc2Configuration) []CapacityProviderVolumeConfiguration { return v.Volumes }).(CapacityProviderVolumeConfigurationArrayOutput)
+}
+
+func (o CapacityProviderEc2ConfigurationOutput) VpcConfiguration() CapacityProviderVpcConfigurationOutput {
+	return o.ApplyT(func(v CapacityProviderEc2Configuration) CapacityProviderVpcConfiguration { return v.VpcConfiguration }).(CapacityProviderVpcConfigurationOutput)
+}
+
+// Describes an ephemeral block device mapping.
+type CapacityProviderEphemeralBlockDeviceMapping struct {
+	// The device name (for example, /dev/sdh or xvdh).
+	DeviceName *string                                          `pulumi:"deviceName"`
+	Ebs        *CapacityProviderEphemeralEbsVolumeConfiguration `pulumi:"ebs"`
+	// The virtual device name (ephemeralN).
+	VirtualName *string `pulumi:"virtualName"`
+}
+
+// CapacityProviderEphemeralBlockDeviceMappingInput is an input type that accepts CapacityProviderEphemeralBlockDeviceMappingArgs and CapacityProviderEphemeralBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `CapacityProviderEphemeralBlockDeviceMappingInput` via:
+//
+//	CapacityProviderEphemeralBlockDeviceMappingArgs{...}
+type CapacityProviderEphemeralBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEphemeralBlockDeviceMappingOutput() CapacityProviderEphemeralBlockDeviceMappingOutput
+	ToCapacityProviderEphemeralBlockDeviceMappingOutputWithContext(context.Context) CapacityProviderEphemeralBlockDeviceMappingOutput
+}
+
+// Describes an ephemeral block device mapping.
+type CapacityProviderEphemeralBlockDeviceMappingArgs struct {
+	// The device name (for example, /dev/sdh or xvdh).
+	DeviceName pulumi.StringPtrInput                                   `pulumi:"deviceName"`
+	Ebs        CapacityProviderEphemeralEbsVolumeConfigurationPtrInput `pulumi:"ebs"`
+	// The virtual device name (ephemeralN).
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
+}
+
+func (CapacityProviderEphemeralBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEphemeralBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i CapacityProviderEphemeralBlockDeviceMappingArgs) ToCapacityProviderEphemeralBlockDeviceMappingOutput() CapacityProviderEphemeralBlockDeviceMappingOutput {
+	return i.ToCapacityProviderEphemeralBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderEphemeralBlockDeviceMappingArgs) ToCapacityProviderEphemeralBlockDeviceMappingOutputWithContext(ctx context.Context) CapacityProviderEphemeralBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderEphemeralBlockDeviceMappingOutput)
+}
+
+// CapacityProviderEphemeralBlockDeviceMappingArrayInput is an input type that accepts CapacityProviderEphemeralBlockDeviceMappingArray and CapacityProviderEphemeralBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderEphemeralBlockDeviceMappingArrayInput` via:
+//
+//	CapacityProviderEphemeralBlockDeviceMappingArray{ CapacityProviderEphemeralBlockDeviceMappingArgs{...} }
+type CapacityProviderEphemeralBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEphemeralBlockDeviceMappingArrayOutput() CapacityProviderEphemeralBlockDeviceMappingArrayOutput
+	ToCapacityProviderEphemeralBlockDeviceMappingArrayOutputWithContext(context.Context) CapacityProviderEphemeralBlockDeviceMappingArrayOutput
+}
+
+type CapacityProviderEphemeralBlockDeviceMappingArray []CapacityProviderEphemeralBlockDeviceMappingInput
+
+func (CapacityProviderEphemeralBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderEphemeralBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i CapacityProviderEphemeralBlockDeviceMappingArray) ToCapacityProviderEphemeralBlockDeviceMappingArrayOutput() CapacityProviderEphemeralBlockDeviceMappingArrayOutput {
+	return i.ToCapacityProviderEphemeralBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderEphemeralBlockDeviceMappingArray) ToCapacityProviderEphemeralBlockDeviceMappingArrayOutputWithContext(ctx context.Context) CapacityProviderEphemeralBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderEphemeralBlockDeviceMappingArrayOutput)
+}
+
+// Describes an ephemeral block device mapping.
+type CapacityProviderEphemeralBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEphemeralBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEphemeralBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o CapacityProviderEphemeralBlockDeviceMappingOutput) ToCapacityProviderEphemeralBlockDeviceMappingOutput() CapacityProviderEphemeralBlockDeviceMappingOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralBlockDeviceMappingOutput) ToCapacityProviderEphemeralBlockDeviceMappingOutputWithContext(ctx context.Context) CapacityProviderEphemeralBlockDeviceMappingOutput {
+	return o
+}
+
+// The device name (for example, /dev/sdh or xvdh).
+func (o CapacityProviderEphemeralBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderEphemeralBlockDeviceMappingOutput) Ebs() CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralBlockDeviceMapping) *CapacityProviderEphemeralEbsVolumeConfiguration {
+		return v.Ebs
+	}).(CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput)
+}
+
+// The virtual device name (ephemeralN).
+func (o CapacityProviderEphemeralBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderEphemeralBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEphemeralBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderEphemeralBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o CapacityProviderEphemeralBlockDeviceMappingArrayOutput) ToCapacityProviderEphemeralBlockDeviceMappingArrayOutput() CapacityProviderEphemeralBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralBlockDeviceMappingArrayOutput) ToCapacityProviderEphemeralBlockDeviceMappingArrayOutputWithContext(ctx context.Context) CapacityProviderEphemeralBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) CapacityProviderEphemeralBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderEphemeralBlockDeviceMapping {
+		return vs[0].([]CapacityProviderEphemeralBlockDeviceMapping)[vs[1].(int)]
+	}).(CapacityProviderEphemeralBlockDeviceMappingOutput)
+}
+
+// Parameters used to automatically set up EBS volumes when the instance is launched.
+type CapacityProviderEphemeralEbsVolumeConfiguration struct {
+	// The index of the EBS card. Applies to instances with multiple EBS cards.
+	EbsCardIndex *int `pulumi:"ebsCardIndex"`
+	// Indicates whether the EBS volume is encrypted.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS).
+	Iops *int `pulumi:"iops"`
+	// Identifier of the customer managed KMS key to use for EBS encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The throughput to provision for a gp3 volume, in MiB/s.
+	Throughput *int `pulumi:"throughput"`
+	// The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. If the snapshot is enabled for fast snapshot restore and a volume initialization rate is also specified, the volume is initialized at the specified rate instead of by fast snapshot restore. Valid range: 100-300 MiB/s.
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
+	// The size of the volume, in GiBs.
+	VolumeSize *int `pulumi:"volumeSize"`
+	// The volume type. Defaults to gp3 if not specified.
+	VolumeType *CapacityProviderEphemeralEbsVolumeConfigurationVolumeType `pulumi:"volumeType"`
+}
+
+// CapacityProviderEphemeralEbsVolumeConfigurationInput is an input type that accepts CapacityProviderEphemeralEbsVolumeConfigurationArgs and CapacityProviderEphemeralEbsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderEphemeralEbsVolumeConfigurationInput` via:
+//
+//	CapacityProviderEphemeralEbsVolumeConfigurationArgs{...}
+type CapacityProviderEphemeralEbsVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEphemeralEbsVolumeConfigurationOutput() CapacityProviderEphemeralEbsVolumeConfigurationOutput
+	ToCapacityProviderEphemeralEbsVolumeConfigurationOutputWithContext(context.Context) CapacityProviderEphemeralEbsVolumeConfigurationOutput
+}
+
+// Parameters used to automatically set up EBS volumes when the instance is launched.
+type CapacityProviderEphemeralEbsVolumeConfigurationArgs struct {
+	// The index of the EBS card. Applies to instances with multiple EBS cards.
+	EbsCardIndex pulumi.IntPtrInput `pulumi:"ebsCardIndex"`
+	// Indicates whether the EBS volume is encrypted.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The number of I/O operations per second (IOPS).
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Identifier of the customer managed KMS key to use for EBS encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The ID of the snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The throughput to provision for a gp3 volume, in MiB/s.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. If the snapshot is enabled for fast snapshot restore and a volume initialization rate is also specified, the volume is initialized at the specified rate instead of by fast snapshot restore. Valid range: 100-300 MiB/s.
+	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
+	// The size of the volume, in GiBs.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// The volume type. Defaults to gp3 if not specified.
+	VolumeType CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrInput `pulumi:"volumeType"`
+}
+
+func (CapacityProviderEphemeralEbsVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderEphemeralEbsVolumeConfigurationArgs) ToCapacityProviderEphemeralEbsVolumeConfigurationOutput() CapacityProviderEphemeralEbsVolumeConfigurationOutput {
+	return i.ToCapacityProviderEphemeralEbsVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderEphemeralEbsVolumeConfigurationArgs) ToCapacityProviderEphemeralEbsVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderEphemeralEbsVolumeConfigurationOutput)
+}
+
+func (i CapacityProviderEphemeralEbsVolumeConfigurationArgs) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return i.ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderEphemeralEbsVolumeConfigurationArgs) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderEphemeralEbsVolumeConfigurationOutput).ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderEphemeralEbsVolumeConfigurationPtrInput is an input type that accepts CapacityProviderEphemeralEbsVolumeConfigurationArgs, CapacityProviderEphemeralEbsVolumeConfigurationPtr and CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderEphemeralEbsVolumeConfigurationPtrInput` via:
+//
+//	        CapacityProviderEphemeralEbsVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderEphemeralEbsVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput
+	ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(context.Context) CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput
+}
+
+type capacityProviderEphemeralEbsVolumeConfigurationPtrType CapacityProviderEphemeralEbsVolumeConfigurationArgs
+
+func CapacityProviderEphemeralEbsVolumeConfigurationPtr(v *CapacityProviderEphemeralEbsVolumeConfigurationArgs) CapacityProviderEphemeralEbsVolumeConfigurationPtrInput {
+	return (*capacityProviderEphemeralEbsVolumeConfigurationPtrType)(v)
+}
+
+func (*capacityProviderEphemeralEbsVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderEphemeralEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderEphemeralEbsVolumeConfigurationPtrType) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return i.ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderEphemeralEbsVolumeConfigurationPtrType) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput)
+}
+
+// Parameters used to automatically set up EBS volumes when the instance is launched.
+type CapacityProviderEphemeralEbsVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEphemeralEbsVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationOutput() CapacityProviderEphemeralEbsVolumeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return o.ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderEphemeralEbsVolumeConfiguration) *CapacityProviderEphemeralEbsVolumeConfiguration {
+		return &v
+	}).(CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput)
+}
+
+// The index of the EBS card. Applies to instances with multiple EBS cards.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) EbsCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *int { return v.EbsCardIndex }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the EBS volume is encrypted.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The number of I/O operations per second (IOPS).
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Identifier of the customer managed KMS key to use for EBS encryption.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the snapshot.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a gp3 volume, in MiB/s.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. If the snapshot is enabled for fast snapshot restore and a volume initialization rate is also specified, the volume is initialized at the specified rate instead of by fast snapshot restore. Valid range: 100-300 MiB/s.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
+}
+
+// The size of the volume, in GiBs.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+// The volume type. Defaults to gp3 if not specified.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationOutput) VolumeType() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyT(func(v CapacityProviderEphemeralEbsVolumeConfiguration) *CapacityProviderEphemeralEbsVolumeConfigurationVolumeType {
+		return v.VolumeType
+	}).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+type CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderEphemeralEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutput() CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) ToCapacityProviderEphemeralEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) Elem() CapacityProviderEphemeralEbsVolumeConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) CapacityProviderEphemeralEbsVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderEphemeralEbsVolumeConfiguration
+		return ret
+	}).(CapacityProviderEphemeralEbsVolumeConfigurationOutput)
+}
+
+// The index of the EBS card. Applies to instances with multiple EBS cards.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) EbsCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EbsCardIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the EBS volume is encrypted.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of I/O operations per second (IOPS).
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Identifier of the customer managed KMS key to use for EBS encryption.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the snapshot.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a gp3 volume, in MiB/s.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. If the snapshot is enabled for fast snapshot restore and a volume initialization rate is also specified, the volume is initialized at the specified rate instead of by fast snapshot restore. Valid range: 100-300 MiB/s.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeInitializationRate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The size of the volume, in GiBs.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The volume type. Defaults to gp3 if not specified.
+func (o CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput) VolumeType() CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderEphemeralEbsVolumeConfiguration) *CapacityProviderEphemeralEbsVolumeConfigurationVolumeType {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(CapacityProviderEphemeralEbsVolumeConfigurationVolumeTypePtrOutput)
+}
+
+// Configuration for managing the lifecycle of instances in a capacity provider.
+type CapacityProviderInstanceLifecycleConfiguration struct {
+	// The number of seconds an instance can remain idle before it is stopped.
+	IdleInstanceTimeout *int `pulumi:"idleInstanceTimeout"`
+	// Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated regardless of activity. Default: 28800 seconds (8 hours). Maximum: 1209600 seconds (14 days).
+	MaxLifetime *int `pulumi:"maxLifetime"`
+}
+
+// CapacityProviderInstanceLifecycleConfigurationInput is an input type that accepts CapacityProviderInstanceLifecycleConfigurationArgs and CapacityProviderInstanceLifecycleConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceLifecycleConfigurationInput` via:
+//
+//	CapacityProviderInstanceLifecycleConfigurationArgs{...}
+type CapacityProviderInstanceLifecycleConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceLifecycleConfigurationOutput() CapacityProviderInstanceLifecycleConfigurationOutput
+	ToCapacityProviderInstanceLifecycleConfigurationOutputWithContext(context.Context) CapacityProviderInstanceLifecycleConfigurationOutput
+}
+
+// Configuration for managing the lifecycle of instances in a capacity provider.
+type CapacityProviderInstanceLifecycleConfigurationArgs struct {
+	// The number of seconds an instance can remain idle before it is stopped.
+	IdleInstanceTimeout pulumi.IntPtrInput `pulumi:"idleInstanceTimeout"`
+	// Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated regardless of activity. Default: 28800 seconds (8 hours). Maximum: 1209600 seconds (14 days).
+	MaxLifetime pulumi.IntPtrInput `pulumi:"maxLifetime"`
+}
+
+func (CapacityProviderInstanceLifecycleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderInstanceLifecycleConfigurationArgs) ToCapacityProviderInstanceLifecycleConfigurationOutput() CapacityProviderInstanceLifecycleConfigurationOutput {
+	return i.ToCapacityProviderInstanceLifecycleConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceLifecycleConfigurationArgs) ToCapacityProviderInstanceLifecycleConfigurationOutputWithContext(ctx context.Context) CapacityProviderInstanceLifecycleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceLifecycleConfigurationOutput)
+}
+
+func (i CapacityProviderInstanceLifecycleConfigurationArgs) ToCapacityProviderInstanceLifecycleConfigurationPtrOutput() CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return i.ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceLifecycleConfigurationArgs) ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceLifecycleConfigurationOutput).ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderInstanceLifecycleConfigurationPtrInput is an input type that accepts CapacityProviderInstanceLifecycleConfigurationArgs, CapacityProviderInstanceLifecycleConfigurationPtr and CapacityProviderInstanceLifecycleConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceLifecycleConfigurationPtrInput` via:
+//
+//	        CapacityProviderInstanceLifecycleConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderInstanceLifecycleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceLifecycleConfigurationPtrOutput() CapacityProviderInstanceLifecycleConfigurationPtrOutput
+	ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(context.Context) CapacityProviderInstanceLifecycleConfigurationPtrOutput
+}
+
+type capacityProviderInstanceLifecycleConfigurationPtrType CapacityProviderInstanceLifecycleConfigurationArgs
+
+func CapacityProviderInstanceLifecycleConfigurationPtr(v *CapacityProviderInstanceLifecycleConfigurationArgs) CapacityProviderInstanceLifecycleConfigurationPtrInput {
+	return (*capacityProviderInstanceLifecycleConfigurationPtrType)(v)
+}
+
+func (*capacityProviderInstanceLifecycleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderInstanceLifecycleConfigurationPtrType) ToCapacityProviderInstanceLifecycleConfigurationPtrOutput() CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return i.ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderInstanceLifecycleConfigurationPtrType) ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceLifecycleConfigurationPtrOutput)
+}
+
+// Configuration for managing the lifecycle of instances in a capacity provider.
+type CapacityProviderInstanceLifecycleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceLifecycleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceLifecycleConfigurationOutput) ToCapacityProviderInstanceLifecycleConfigurationOutput() CapacityProviderInstanceLifecycleConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLifecycleConfigurationOutput) ToCapacityProviderInstanceLifecycleConfigurationOutputWithContext(ctx context.Context) CapacityProviderInstanceLifecycleConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLifecycleConfigurationOutput) ToCapacityProviderInstanceLifecycleConfigurationPtrOutput() CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return o.ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceLifecycleConfigurationOutput) ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderInstanceLifecycleConfiguration) *CapacityProviderInstanceLifecycleConfiguration {
+		return &v
+	}).(CapacityProviderInstanceLifecycleConfigurationPtrOutput)
+}
+
+// The number of seconds an instance can remain idle before it is stopped.
+func (o CapacityProviderInstanceLifecycleConfigurationOutput) IdleInstanceTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLifecycleConfiguration) *int { return v.IdleInstanceTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated regardless of activity. Default: 28800 seconds (8 hours). Maximum: 1209600 seconds (14 days).
+func (o CapacityProviderInstanceLifecycleConfigurationOutput) MaxLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLifecycleConfiguration) *int { return v.MaxLifetime }).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderInstanceLifecycleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceLifecycleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceLifecycleConfigurationPtrOutput) ToCapacityProviderInstanceLifecycleConfigurationPtrOutput() CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLifecycleConfigurationPtrOutput) ToCapacityProviderInstanceLifecycleConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLifecycleConfigurationPtrOutput) Elem() CapacityProviderInstanceLifecycleConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLifecycleConfiguration) CapacityProviderInstanceLifecycleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderInstanceLifecycleConfiguration
+		return ret
+	}).(CapacityProviderInstanceLifecycleConfigurationOutput)
+}
+
+// The number of seconds an instance can remain idle before it is stopped.
+func (o CapacityProviderInstanceLifecycleConfigurationPtrOutput) IdleInstanceTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLifecycleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleInstanceTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated regardless of activity. Default: 28800 seconds (8 hours). Maximum: 1209600 seconds (14 days).
+func (o CapacityProviderInstanceLifecycleConfigurationPtrOutput) MaxLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLifecycleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLifetime
+	}).(pulumi.IntPtrOutput)
+}
+
+// Requirements for EC2 instance types.
+type CapacityProviderInstanceRequirements struct {
+	// List of allowed instance types.
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+}
+
+// CapacityProviderInstanceRequirementsInput is an input type that accepts CapacityProviderInstanceRequirementsArgs and CapacityProviderInstanceRequirementsOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceRequirementsInput` via:
+//
+//	CapacityProviderInstanceRequirementsArgs{...}
+type CapacityProviderInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceRequirementsOutput() CapacityProviderInstanceRequirementsOutput
+	ToCapacityProviderInstanceRequirementsOutputWithContext(context.Context) CapacityProviderInstanceRequirementsOutput
+}
+
+// Requirements for EC2 instance types.
+type CapacityProviderInstanceRequirementsArgs struct {
+	// List of allowed instance types.
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+}
+
+func (CapacityProviderInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirements)(nil)).Elem()
+}
+
+func (i CapacityProviderInstanceRequirementsArgs) ToCapacityProviderInstanceRequirementsOutput() CapacityProviderInstanceRequirementsOutput {
+	return i.ToCapacityProviderInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceRequirementsArgs) ToCapacityProviderInstanceRequirementsOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsOutput)
+}
+
+// Requirements for EC2 instance types.
+type CapacityProviderInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirements)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceRequirementsOutput) ToCapacityProviderInstanceRequirementsOutput() CapacityProviderInstanceRequirementsOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsOutput) ToCapacityProviderInstanceRequirementsOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsOutput {
+	return o
+}
+
+// List of allowed instance types.
+func (o CapacityProviderInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// Parameters for launching EC2 instances.
+type CapacityProviderLaunchParameters struct {
+	CapacityReservationSpecification *CapacityProviderCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	// The block device mapping for ephemeral (instance store) volumes.
+	EphemeralVolumes []CapacityProviderEphemeralBlockDeviceMapping `pulumi:"ephemeralVolumes"`
+	// The ARN of the IAM instance profile to associate with launched instances.
+	InstanceProfileArn   *string                              `pulumi:"instanceProfileArn"`
+	InstanceRequirements CapacityProviderInstanceRequirements `pulumi:"instanceRequirements"`
+	// The license configurations.
+	LicenseSpecifications []CapacityProviderLicenseSpecification `pulumi:"licenseSpecifications"`
+	// The monitoring level for the instance.
+	Monitoring *CapacityProviderLaunchParametersMonitoring `pulumi:"monitoring"`
+	// The operating system and CPU architecture for the instances.
+	OperatingSystem CapacityProviderLaunchParametersOperatingSystem `pulumi:"operatingSystem"`
+	// Tags to apply to all EC2 resources (instances, volumes, and network interfaces) created by this capacity provider.
+	PropagatedTags map[string]string `pulumi:"propagatedTags"`
+	// The name of the SSH key pair to configure on instances for SSH connectivity.
+	SshKeyName *string `pulumi:"sshKeyName"`
+}
+
+// CapacityProviderLaunchParametersInput is an input type that accepts CapacityProviderLaunchParametersArgs and CapacityProviderLaunchParametersOutput values.
+// You can construct a concrete instance of `CapacityProviderLaunchParametersInput` via:
+//
+//	CapacityProviderLaunchParametersArgs{...}
+type CapacityProviderLaunchParametersInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLaunchParametersOutput() CapacityProviderLaunchParametersOutput
+	ToCapacityProviderLaunchParametersOutputWithContext(context.Context) CapacityProviderLaunchParametersOutput
+}
+
+// Parameters for launching EC2 instances.
+type CapacityProviderLaunchParametersArgs struct {
+	CapacityReservationSpecification CapacityProviderCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
+	// The block device mapping for ephemeral (instance store) volumes.
+	EphemeralVolumes CapacityProviderEphemeralBlockDeviceMappingArrayInput `pulumi:"ephemeralVolumes"`
+	// The ARN of the IAM instance profile to associate with launched instances.
+	InstanceProfileArn   pulumi.StringPtrInput                     `pulumi:"instanceProfileArn"`
+	InstanceRequirements CapacityProviderInstanceRequirementsInput `pulumi:"instanceRequirements"`
+	// The license configurations.
+	LicenseSpecifications CapacityProviderLicenseSpecificationArrayInput `pulumi:"licenseSpecifications"`
+	// The monitoring level for the instance.
+	Monitoring CapacityProviderLaunchParametersMonitoringPtrInput `pulumi:"monitoring"`
+	// The operating system and CPU architecture for the instances.
+	OperatingSystem CapacityProviderLaunchParametersOperatingSystemInput `pulumi:"operatingSystem"`
+	// Tags to apply to all EC2 resources (instances, volumes, and network interfaces) created by this capacity provider.
+	PropagatedTags pulumi.StringMapInput `pulumi:"propagatedTags"`
+	// The name of the SSH key pair to configure on instances for SSH connectivity.
+	SshKeyName pulumi.StringPtrInput `pulumi:"sshKeyName"`
+}
+
+func (CapacityProviderLaunchParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchParameters)(nil)).Elem()
+}
+
+func (i CapacityProviderLaunchParametersArgs) ToCapacityProviderLaunchParametersOutput() CapacityProviderLaunchParametersOutput {
+	return i.ToCapacityProviderLaunchParametersOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderLaunchParametersArgs) ToCapacityProviderLaunchParametersOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderLaunchParametersOutput)
+}
+
+// Parameters for launching EC2 instances.
+type CapacityProviderLaunchParametersOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLaunchParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchParameters)(nil)).Elem()
+}
+
+func (o CapacityProviderLaunchParametersOutput) ToCapacityProviderLaunchParametersOutput() CapacityProviderLaunchParametersOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersOutput) ToCapacityProviderLaunchParametersOutputWithContext(ctx context.Context) CapacityProviderLaunchParametersOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchParametersOutput) CapacityReservationSpecification() CapacityProviderCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) *CapacityProviderCapacityReservationSpecification {
+		return v.CapacityReservationSpecification
+	}).(CapacityProviderCapacityReservationSpecificationPtrOutput)
+}
+
+// The block device mapping for ephemeral (instance store) volumes.
+func (o CapacityProviderLaunchParametersOutput) EphemeralVolumes() CapacityProviderEphemeralBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) []CapacityProviderEphemeralBlockDeviceMapping {
+		return v.EphemeralVolumes
+	}).(CapacityProviderEphemeralBlockDeviceMappingArrayOutput)
+}
+
+// The ARN of the IAM instance profile to associate with launched instances.
+func (o CapacityProviderLaunchParametersOutput) InstanceProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) *string { return v.InstanceProfileArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderLaunchParametersOutput) InstanceRequirements() CapacityProviderInstanceRequirementsOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) CapacityProviderInstanceRequirements {
+		return v.InstanceRequirements
+	}).(CapacityProviderInstanceRequirementsOutput)
+}
+
+// The license configurations.
+func (o CapacityProviderLaunchParametersOutput) LicenseSpecifications() CapacityProviderLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) []CapacityProviderLicenseSpecification {
+		return v.LicenseSpecifications
+	}).(CapacityProviderLicenseSpecificationArrayOutput)
+}
+
+// The monitoring level for the instance.
+func (o CapacityProviderLaunchParametersOutput) Monitoring() CapacityProviderLaunchParametersMonitoringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) *CapacityProviderLaunchParametersMonitoring {
+		return v.Monitoring
+	}).(CapacityProviderLaunchParametersMonitoringPtrOutput)
+}
+
+// The operating system and CPU architecture for the instances.
+func (o CapacityProviderLaunchParametersOutput) OperatingSystem() CapacityProviderLaunchParametersOperatingSystemOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) CapacityProviderLaunchParametersOperatingSystem {
+		return v.OperatingSystem
+	}).(CapacityProviderLaunchParametersOperatingSystemOutput)
+}
+
+// Tags to apply to all EC2 resources (instances, volumes, and network interfaces) created by this capacity provider.
+func (o CapacityProviderLaunchParametersOutput) PropagatedTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) map[string]string { return v.PropagatedTags }).(pulumi.StringMapOutput)
+}
+
+// The name of the SSH key pair to configure on instances for SSH connectivity.
+func (o CapacityProviderLaunchParametersOutput) SshKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchParameters) *string { return v.SshKeyName }).(pulumi.StringPtrOutput)
+}
+
+// How the launch template is specified.
+type CapacityProviderLaunchTemplateSource struct {
+	LaunchParameters CapacityProviderLaunchParameters `pulumi:"launchParameters"`
+}
+
+// CapacityProviderLaunchTemplateSourceInput is an input type that accepts CapacityProviderLaunchTemplateSourceArgs and CapacityProviderLaunchTemplateSourceOutput values.
+// You can construct a concrete instance of `CapacityProviderLaunchTemplateSourceInput` via:
+//
+//	CapacityProviderLaunchTemplateSourceArgs{...}
+type CapacityProviderLaunchTemplateSourceInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLaunchTemplateSourceOutput() CapacityProviderLaunchTemplateSourceOutput
+	ToCapacityProviderLaunchTemplateSourceOutputWithContext(context.Context) CapacityProviderLaunchTemplateSourceOutput
+}
+
+// How the launch template is specified.
+type CapacityProviderLaunchTemplateSourceArgs struct {
+	LaunchParameters CapacityProviderLaunchParametersInput `pulumi:"launchParameters"`
+}
+
+func (CapacityProviderLaunchTemplateSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchTemplateSource)(nil)).Elem()
+}
+
+func (i CapacityProviderLaunchTemplateSourceArgs) ToCapacityProviderLaunchTemplateSourceOutput() CapacityProviderLaunchTemplateSourceOutput {
+	return i.ToCapacityProviderLaunchTemplateSourceOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderLaunchTemplateSourceArgs) ToCapacityProviderLaunchTemplateSourceOutputWithContext(ctx context.Context) CapacityProviderLaunchTemplateSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderLaunchTemplateSourceOutput)
+}
+
+// How the launch template is specified.
+type CapacityProviderLaunchTemplateSourceOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLaunchTemplateSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLaunchTemplateSource)(nil)).Elem()
+}
+
+func (o CapacityProviderLaunchTemplateSourceOutput) ToCapacityProviderLaunchTemplateSourceOutput() CapacityProviderLaunchTemplateSourceOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchTemplateSourceOutput) ToCapacityProviderLaunchTemplateSourceOutputWithContext(ctx context.Context) CapacityProviderLaunchTemplateSourceOutput {
+	return o
+}
+
+func (o CapacityProviderLaunchTemplateSourceOutput) LaunchParameters() CapacityProviderLaunchParametersOutput {
+	return o.ApplyT(func(v CapacityProviderLaunchTemplateSource) CapacityProviderLaunchParameters {
+		return v.LaunchParameters
+	}).(CapacityProviderLaunchParametersOutput)
+}
+
+// Describes a license configuration.
+type CapacityProviderLicenseSpecification struct {
+	// The ARN of the license configuration.
+	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
+}
+
+// CapacityProviderLicenseSpecificationInput is an input type that accepts CapacityProviderLicenseSpecificationArgs and CapacityProviderLicenseSpecificationOutput values.
+// You can construct a concrete instance of `CapacityProviderLicenseSpecificationInput` via:
+//
+//	CapacityProviderLicenseSpecificationArgs{...}
+type CapacityProviderLicenseSpecificationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLicenseSpecificationOutput() CapacityProviderLicenseSpecificationOutput
+	ToCapacityProviderLicenseSpecificationOutputWithContext(context.Context) CapacityProviderLicenseSpecificationOutput
+}
+
+// Describes a license configuration.
+type CapacityProviderLicenseSpecificationArgs struct {
+	// The ARN of the license configuration.
+	LicenseConfigurationArn pulumi.StringInput `pulumi:"licenseConfigurationArn"`
+}
+
+func (CapacityProviderLicenseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLicenseSpecification)(nil)).Elem()
+}
+
+func (i CapacityProviderLicenseSpecificationArgs) ToCapacityProviderLicenseSpecificationOutput() CapacityProviderLicenseSpecificationOutput {
+	return i.ToCapacityProviderLicenseSpecificationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderLicenseSpecificationArgs) ToCapacityProviderLicenseSpecificationOutputWithContext(ctx context.Context) CapacityProviderLicenseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderLicenseSpecificationOutput)
+}
+
+// CapacityProviderLicenseSpecificationArrayInput is an input type that accepts CapacityProviderLicenseSpecificationArray and CapacityProviderLicenseSpecificationArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderLicenseSpecificationArrayInput` via:
+//
+//	CapacityProviderLicenseSpecificationArray{ CapacityProviderLicenseSpecificationArgs{...} }
+type CapacityProviderLicenseSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderLicenseSpecificationArrayOutput() CapacityProviderLicenseSpecificationArrayOutput
+	ToCapacityProviderLicenseSpecificationArrayOutputWithContext(context.Context) CapacityProviderLicenseSpecificationArrayOutput
+}
+
+type CapacityProviderLicenseSpecificationArray []CapacityProviderLicenseSpecificationInput
+
+func (CapacityProviderLicenseSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderLicenseSpecification)(nil)).Elem()
+}
+
+func (i CapacityProviderLicenseSpecificationArray) ToCapacityProviderLicenseSpecificationArrayOutput() CapacityProviderLicenseSpecificationArrayOutput {
+	return i.ToCapacityProviderLicenseSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderLicenseSpecificationArray) ToCapacityProviderLicenseSpecificationArrayOutputWithContext(ctx context.Context) CapacityProviderLicenseSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderLicenseSpecificationArrayOutput)
+}
+
+// Describes a license configuration.
+type CapacityProviderLicenseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLicenseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderLicenseSpecification)(nil)).Elem()
+}
+
+func (o CapacityProviderLicenseSpecificationOutput) ToCapacityProviderLicenseSpecificationOutput() CapacityProviderLicenseSpecificationOutput {
+	return o
+}
+
+func (o CapacityProviderLicenseSpecificationOutput) ToCapacityProviderLicenseSpecificationOutputWithContext(ctx context.Context) CapacityProviderLicenseSpecificationOutput {
+	return o
+}
+
+// The ARN of the license configuration.
+func (o CapacityProviderLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderLicenseSpecification) string { return v.LicenseConfigurationArn }).(pulumi.StringOutput)
+}
+
+type CapacityProviderLicenseSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderLicenseSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderLicenseSpecification)(nil)).Elem()
+}
+
+func (o CapacityProviderLicenseSpecificationArrayOutput) ToCapacityProviderLicenseSpecificationArrayOutput() CapacityProviderLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o CapacityProviderLicenseSpecificationArrayOutput) ToCapacityProviderLicenseSpecificationArrayOutputWithContext(ctx context.Context) CapacityProviderLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o CapacityProviderLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) CapacityProviderLicenseSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderLicenseSpecification {
+		return vs[0].([]CapacityProviderLicenseSpecification)[vs[1].(int)]
+	}).(CapacityProviderLicenseSpecificationOutput)
+}
+
+// Configuration for permissions associated with a capacity provider.
+type CapacityProviderPermissionsConfiguration struct {
+	// The ARN of the IAM role that operators use to manage the capacity provider.
+	CapacityProviderOperatorRoleArn string `pulumi:"capacityProviderOperatorRoleArn"`
+}
+
+// CapacityProviderPermissionsConfigurationInput is an input type that accepts CapacityProviderPermissionsConfigurationArgs and CapacityProviderPermissionsConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderPermissionsConfigurationInput` via:
+//
+//	CapacityProviderPermissionsConfigurationArgs{...}
+type CapacityProviderPermissionsConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPermissionsConfigurationOutput() CapacityProviderPermissionsConfigurationOutput
+	ToCapacityProviderPermissionsConfigurationOutputWithContext(context.Context) CapacityProviderPermissionsConfigurationOutput
+}
+
+// Configuration for permissions associated with a capacity provider.
+type CapacityProviderPermissionsConfigurationArgs struct {
+	// The ARN of the IAM role that operators use to manage the capacity provider.
+	CapacityProviderOperatorRoleArn pulumi.StringInput `pulumi:"capacityProviderOperatorRoleArn"`
+}
+
+func (CapacityProviderPermissionsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPermissionsConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderPermissionsConfigurationArgs) ToCapacityProviderPermissionsConfigurationOutput() CapacityProviderPermissionsConfigurationOutput {
+	return i.ToCapacityProviderPermissionsConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderPermissionsConfigurationArgs) ToCapacityProviderPermissionsConfigurationOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPermissionsConfigurationOutput)
+}
+
+// Configuration for permissions associated with a capacity provider.
+type CapacityProviderPermissionsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPermissionsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPermissionsConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderPermissionsConfigurationOutput) ToCapacityProviderPermissionsConfigurationOutput() CapacityProviderPermissionsConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderPermissionsConfigurationOutput) ToCapacityProviderPermissionsConfigurationOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigurationOutput {
+	return o
+}
+
+// The ARN of the IAM role that operators use to manage the capacity provider.
+func (o CapacityProviderPermissionsConfigurationOutput) CapacityProviderOperatorRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderPermissionsConfiguration) string { return v.CapacityProviderOperatorRoleArn }).(pulumi.StringOutput)
+}
+
+// Customer-facing configuration for the (service-managed) root volume. The service provisions the root volume at its own AMI size estimate plus FreeSpaceGiB, and pins the visible free space to FreeSpaceGiB with a filler file, so the space you are guaranteed does not change as the underlying AMI grows. The device name and the delete-on-termination behavior are service-owned and are not configurable.
+type CapacityProviderRootVolumeConfiguration struct {
+	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The free space guaranteed on the root volume, in GiB. The service adds the operating system overhead on top of this value. Defaults to 8 GiB. The maximum is below the 65,536 GiB gp3 ceiling because the service adds the AMI size bucket on top of this value, and the resulting total must still be a provisionable gp3 volume.
+	FreeSpaceGiB *int `pulumi:"freeSpaceGiB"`
+	// The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+	Iops *int `pulumi:"iops"`
+	// Identifier of the customer managed KMS key to use for EBS encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The throughput to provision for a gp3 volume, in MiB/s. Valid range: 125-2000 MiB/s.
+	Throughput *int `pulumi:"throughput"`
+	// The EBS volume type. Defaults to gp3 if not specified.
+	VolumeType *CapacityProviderRootVolumeConfigurationVolumeType `pulumi:"volumeType"`
+}
+
+// CapacityProviderRootVolumeConfigurationInput is an input type that accepts CapacityProviderRootVolumeConfigurationArgs and CapacityProviderRootVolumeConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderRootVolumeConfigurationInput` via:
+//
+//	CapacityProviderRootVolumeConfigurationArgs{...}
+type CapacityProviderRootVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderRootVolumeConfigurationOutput() CapacityProviderRootVolumeConfigurationOutput
+	ToCapacityProviderRootVolumeConfigurationOutputWithContext(context.Context) CapacityProviderRootVolumeConfigurationOutput
+}
+
+// Customer-facing configuration for the (service-managed) root volume. The service provisions the root volume at its own AMI size estimate plus FreeSpaceGiB, and pins the visible free space to FreeSpaceGiB with a filler file, so the space you are guaranteed does not change as the underlying AMI grows. The device name and the delete-on-termination behavior are service-owned and are not configurable.
+type CapacityProviderRootVolumeConfigurationArgs struct {
+	// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The free space guaranteed on the root volume, in GiB. The service adds the operating system overhead on top of this value. Defaults to 8 GiB. The maximum is below the 65,536 GiB gp3 ceiling because the service adds the AMI size bucket on top of this value, and the resulting total must still be a provisionable gp3 volume.
+	FreeSpaceGiB pulumi.IntPtrInput `pulumi:"freeSpaceGiB"`
+	// The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Identifier of the customer managed KMS key to use for EBS encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The throughput to provision for a gp3 volume, in MiB/s. Valid range: 125-2000 MiB/s.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The EBS volume type. Defaults to gp3 if not specified.
+	VolumeType CapacityProviderRootVolumeConfigurationVolumeTypePtrInput `pulumi:"volumeType"`
+}
+
+func (CapacityProviderRootVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderRootVolumeConfigurationArgs) ToCapacityProviderRootVolumeConfigurationOutput() CapacityProviderRootVolumeConfigurationOutput {
+	return i.ToCapacityProviderRootVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderRootVolumeConfigurationArgs) ToCapacityProviderRootVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderRootVolumeConfigurationOutput)
+}
+
+func (i CapacityProviderRootVolumeConfigurationArgs) ToCapacityProviderRootVolumeConfigurationPtrOutput() CapacityProviderRootVolumeConfigurationPtrOutput {
+	return i.ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderRootVolumeConfigurationArgs) ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderRootVolumeConfigurationOutput).ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderRootVolumeConfigurationPtrInput is an input type that accepts CapacityProviderRootVolumeConfigurationArgs, CapacityProviderRootVolumeConfigurationPtr and CapacityProviderRootVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderRootVolumeConfigurationPtrInput` via:
+//
+//	        CapacityProviderRootVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderRootVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderRootVolumeConfigurationPtrOutput() CapacityProviderRootVolumeConfigurationPtrOutput
+	ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(context.Context) CapacityProviderRootVolumeConfigurationPtrOutput
+}
+
+type capacityProviderRootVolumeConfigurationPtrType CapacityProviderRootVolumeConfigurationArgs
+
+func CapacityProviderRootVolumeConfigurationPtr(v *CapacityProviderRootVolumeConfigurationArgs) CapacityProviderRootVolumeConfigurationPtrInput {
+	return (*capacityProviderRootVolumeConfigurationPtrType)(v)
+}
+
+func (*capacityProviderRootVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderRootVolumeConfigurationPtrType) ToCapacityProviderRootVolumeConfigurationPtrOutput() CapacityProviderRootVolumeConfigurationPtrOutput {
+	return i.ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderRootVolumeConfigurationPtrType) ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderRootVolumeConfigurationPtrOutput)
+}
+
+// Customer-facing configuration for the (service-managed) root volume. The service provisions the root volume at its own AMI size estimate plus FreeSpaceGiB, and pins the visible free space to FreeSpaceGiB with a filler file, so the space you are guaranteed does not change as the underlying AMI grows. The device name and the delete-on-termination behavior are service-owned and are not configurable.
+type CapacityProviderRootVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderRootVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderRootVolumeConfigurationOutput) ToCapacityProviderRootVolumeConfigurationOutput() CapacityProviderRootVolumeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationOutput) ToCapacityProviderRootVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationOutput) ToCapacityProviderRootVolumeConfigurationPtrOutput() CapacityProviderRootVolumeConfigurationPtrOutput {
+	return o.ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderRootVolumeConfigurationOutput) ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderRootVolumeConfiguration) *CapacityProviderRootVolumeConfiguration {
+		return &v
+	}).(CapacityProviderRootVolumeConfigurationPtrOutput)
+}
+
+// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+func (o CapacityProviderRootVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderRootVolumeConfiguration) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The free space guaranteed on the root volume, in GiB. The service adds the operating system overhead on top of this value. Defaults to 8 GiB. The maximum is below the 65,536 GiB gp3 ceiling because the service adds the AMI size bucket on top of this value, and the resulting total must still be a provisionable gp3 volume.
+func (o CapacityProviderRootVolumeConfigurationOutput) FreeSpaceGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderRootVolumeConfiguration) *int { return v.FreeSpaceGiB }).(pulumi.IntPtrOutput)
+}
+
+// The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+func (o CapacityProviderRootVolumeConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderRootVolumeConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Identifier of the customer managed KMS key to use for EBS encryption.
+func (o CapacityProviderRootVolumeConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderRootVolumeConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a gp3 volume, in MiB/s. Valid range: 125-2000 MiB/s.
+func (o CapacityProviderRootVolumeConfigurationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderRootVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// The EBS volume type. Defaults to gp3 if not specified.
+func (o CapacityProviderRootVolumeConfigurationOutput) VolumeType() CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyT(func(v CapacityProviderRootVolumeConfiguration) *CapacityProviderRootVolumeConfigurationVolumeType {
+		return v.VolumeType
+	}).(CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput)
+}
+
+type CapacityProviderRootVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderRootVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderRootVolumeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) ToCapacityProviderRootVolumeConfigurationPtrOutput() CapacityProviderRootVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) ToCapacityProviderRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderRootVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) Elem() CapacityProviderRootVolumeConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfiguration) CapacityProviderRootVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderRootVolumeConfiguration
+		return ret
+	}).(CapacityProviderRootVolumeConfigurationOutput)
+}
+
+// Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The free space guaranteed on the root volume, in GiB. The service adds the operating system overhead on top of this value. Defaults to 8 GiB. The maximum is below the 65,536 GiB gp3 ceiling because the service adds the AMI size bucket on top of this value, and the resulting total must still be a provisionable gp3 volume.
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) FreeSpaceGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FreeSpaceGiB
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Identifier of the customer managed KMS key to use for EBS encryption.
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The throughput to provision for a gp3 volume, in MiB/s. Valid range: 125-2000 MiB/s.
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// The EBS volume type. Defaults to gp3 if not specified.
+func (o CapacityProviderRootVolumeConfigurationPtrOutput) VolumeType() CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderRootVolumeConfiguration) *CapacityProviderRootVolumeConfigurationVolumeType {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(CapacityProviderRootVolumeConfigurationVolumeTypePtrOutput)
+}
+
+// A key-value pair to associate with the capacity provider.
+type CapacityProviderTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// Configuration for a persistent volume attached to a capacity provider session.
+type CapacityProviderVolumeConfiguration struct {
+	EbsConfiguration CapacityProviderEbsVolumeConfiguration `pulumi:"ebsConfiguration"`
+}
+
+// CapacityProviderVolumeConfigurationInput is an input type that accepts CapacityProviderVolumeConfigurationArgs and CapacityProviderVolumeConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderVolumeConfigurationInput` via:
+//
+//	CapacityProviderVolumeConfigurationArgs{...}
+type CapacityProviderVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVolumeConfigurationOutput() CapacityProviderVolumeConfigurationOutput
+	ToCapacityProviderVolumeConfigurationOutputWithContext(context.Context) CapacityProviderVolumeConfigurationOutput
+}
+
+// Configuration for a persistent volume attached to a capacity provider session.
+type CapacityProviderVolumeConfigurationArgs struct {
+	EbsConfiguration CapacityProviderEbsVolumeConfigurationInput `pulumi:"ebsConfiguration"`
+}
+
+func (CapacityProviderVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderVolumeConfigurationArgs) ToCapacityProviderVolumeConfigurationOutput() CapacityProviderVolumeConfigurationOutput {
+	return i.ToCapacityProviderVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVolumeConfigurationArgs) ToCapacityProviderVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVolumeConfigurationOutput)
+}
+
+// CapacityProviderVolumeConfigurationArrayInput is an input type that accepts CapacityProviderVolumeConfigurationArray and CapacityProviderVolumeConfigurationArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderVolumeConfigurationArrayInput` via:
+//
+//	CapacityProviderVolumeConfigurationArray{ CapacityProviderVolumeConfigurationArgs{...} }
+type CapacityProviderVolumeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVolumeConfigurationArrayOutput() CapacityProviderVolumeConfigurationArrayOutput
+	ToCapacityProviderVolumeConfigurationArrayOutputWithContext(context.Context) CapacityProviderVolumeConfigurationArrayOutput
+}
+
+type CapacityProviderVolumeConfigurationArray []CapacityProviderVolumeConfigurationInput
+
+func (CapacityProviderVolumeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderVolumeConfigurationArray) ToCapacityProviderVolumeConfigurationArrayOutput() CapacityProviderVolumeConfigurationArrayOutput {
+	return i.ToCapacityProviderVolumeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVolumeConfigurationArray) ToCapacityProviderVolumeConfigurationArrayOutputWithContext(ctx context.Context) CapacityProviderVolumeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVolumeConfigurationArrayOutput)
+}
+
+// Configuration for a persistent volume attached to a capacity provider session.
+type CapacityProviderVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderVolumeConfigurationOutput) ToCapacityProviderVolumeConfigurationOutput() CapacityProviderVolumeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderVolumeConfigurationOutput) ToCapacityProviderVolumeConfigurationOutputWithContext(ctx context.Context) CapacityProviderVolumeConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderVolumeConfigurationOutput) EbsConfiguration() CapacityProviderEbsVolumeConfigurationOutput {
+	return o.ApplyT(func(v CapacityProviderVolumeConfiguration) CapacityProviderEbsVolumeConfiguration {
+		return v.EbsConfiguration
+	}).(CapacityProviderEbsVolumeConfigurationOutput)
+}
+
+type CapacityProviderVolumeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVolumeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderVolumeConfigurationArrayOutput) ToCapacityProviderVolumeConfigurationArrayOutput() CapacityProviderVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o CapacityProviderVolumeConfigurationArrayOutput) ToCapacityProviderVolumeConfigurationArrayOutputWithContext(ctx context.Context) CapacityProviderVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o CapacityProviderVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) CapacityProviderVolumeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderVolumeConfiguration {
+		return vs[0].([]CapacityProviderVolumeConfiguration)[vs[1].(int)]
+	}).(CapacityProviderVolumeConfigurationOutput)
+}
+
+// VPC configuration for launching EC2 instances.
+type CapacityProviderVpcConfiguration struct {
+	// The IDs of the security groups to associate with the instances.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The IDs of the subnets in which to launch instances.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// CapacityProviderVpcConfigurationInput is an input type that accepts CapacityProviderVpcConfigurationArgs and CapacityProviderVpcConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderVpcConfigurationInput` via:
+//
+//	CapacityProviderVpcConfigurationArgs{...}
+type CapacityProviderVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVpcConfigurationOutput() CapacityProviderVpcConfigurationOutput
+	ToCapacityProviderVpcConfigurationOutputWithContext(context.Context) CapacityProviderVpcConfigurationOutput
+}
+
+// VPC configuration for launching EC2 instances.
+type CapacityProviderVpcConfigurationArgs struct {
+	// The IDs of the security groups to associate with the instances.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The IDs of the subnets in which to launch instances.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (CapacityProviderVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVpcConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderVpcConfigurationArgs) ToCapacityProviderVpcConfigurationOutput() CapacityProviderVpcConfigurationOutput {
+	return i.ToCapacityProviderVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVpcConfigurationArgs) ToCapacityProviderVpcConfigurationOutputWithContext(ctx context.Context) CapacityProviderVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVpcConfigurationOutput)
+}
+
+// VPC configuration for launching EC2 instances.
+type CapacityProviderVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVpcConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderVpcConfigurationOutput) ToCapacityProviderVpcConfigurationOutput() CapacityProviderVpcConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderVpcConfigurationOutput) ToCapacityProviderVpcConfigurationOutputWithContext(ctx context.Context) CapacityProviderVpcConfigurationOutput {
+	return o
+}
+
+// The IDs of the security groups to associate with the instances.
+func (o CapacityProviderVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderVpcConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The IDs of the subnets in which to launch instances.
+func (o CapacityProviderVpcConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderVpcConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
 // A root CA certificate configuration.
 type CodeInterpreterCustomCertificate struct {
 	// Certificate location in Secrets Manager.
@@ -3373,7 +5325,8 @@ func (o EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput) RatingScale() EvaluatorRat
 
 // The model configuration that specifies which foundation model to use for evaluation.
 type EvaluatorModelConfig struct {
-	BedrockEvaluatorModelConfig EvaluatorBedrockEvaluatorModelConfig `pulumi:"bedrockEvaluatorModelConfig"`
+	BedrockEvaluatorModelConfig   *EvaluatorBedrockEvaluatorModelConfig       `pulumi:"bedrockEvaluatorModelConfig"`
+	ResponsesEvaluatorModelConfig *EvaluatorOpenResponsesEvaluatorModelConfig `pulumi:"responsesEvaluatorModelConfig"`
 }
 
 // EvaluatorModelConfigInput is an input type that accepts EvaluatorModelConfigArgs and EvaluatorModelConfigOutput values.
@@ -3389,7 +5342,8 @@ type EvaluatorModelConfigInput interface {
 
 // The model configuration that specifies which foundation model to use for evaluation.
 type EvaluatorModelConfigArgs struct {
-	BedrockEvaluatorModelConfig EvaluatorBedrockEvaluatorModelConfigInput `pulumi:"bedrockEvaluatorModelConfig"`
+	BedrockEvaluatorModelConfig   EvaluatorBedrockEvaluatorModelConfigPtrInput       `pulumi:"bedrockEvaluatorModelConfig"`
+	ResponsesEvaluatorModelConfig EvaluatorOpenResponsesEvaluatorModelConfigPtrInput `pulumi:"responsesEvaluatorModelConfig"`
 }
 
 func (EvaluatorModelConfigArgs) ElementType() reflect.Type {
@@ -3470,10 +5424,16 @@ func (o EvaluatorModelConfigOutput) ToEvaluatorModelConfigPtrOutputWithContext(c
 	}).(EvaluatorModelConfigPtrOutput)
 }
 
-func (o EvaluatorModelConfigOutput) BedrockEvaluatorModelConfig() EvaluatorBedrockEvaluatorModelConfigOutput {
-	return o.ApplyT(func(v EvaluatorModelConfig) EvaluatorBedrockEvaluatorModelConfig {
+func (o EvaluatorModelConfigOutput) BedrockEvaluatorModelConfig() EvaluatorBedrockEvaluatorModelConfigPtrOutput {
+	return o.ApplyT(func(v EvaluatorModelConfig) *EvaluatorBedrockEvaluatorModelConfig {
 		return v.BedrockEvaluatorModelConfig
-	}).(EvaluatorBedrockEvaluatorModelConfigOutput)
+	}).(EvaluatorBedrockEvaluatorModelConfigPtrOutput)
+}
+
+func (o EvaluatorModelConfigOutput) ResponsesEvaluatorModelConfig() EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return o.ApplyT(func(v EvaluatorModelConfig) *EvaluatorOpenResponsesEvaluatorModelConfig {
+		return v.ResponsesEvaluatorModelConfig
+	}).(EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput)
 }
 
 type EvaluatorModelConfigPtrOutput struct{ *pulumi.OutputState }
@@ -3505,8 +5465,17 @@ func (o EvaluatorModelConfigPtrOutput) BedrockEvaluatorModelConfig() EvaluatorBe
 		if v == nil {
 			return nil
 		}
-		return &v.BedrockEvaluatorModelConfig
+		return v.BedrockEvaluatorModelConfig
 	}).(EvaluatorBedrockEvaluatorModelConfigPtrOutput)
+}
+
+func (o EvaluatorModelConfigPtrOutput) ResponsesEvaluatorModelConfig() EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorModelConfig) *EvaluatorOpenResponsesEvaluatorModelConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ResponsesEvaluatorModelConfig
+	}).(EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput)
 }
 
 // A numerical rating scale option.
@@ -3625,6 +5594,220 @@ func (o EvaluatorNumericalScaleDefinitionArrayOutput) Index(i pulumi.IntInput) E
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluatorNumericalScaleDefinition {
 		return vs[0].([]EvaluatorNumericalScaleDefinition)[vs[1].(int)]
 	}).(EvaluatorNumericalScaleDefinitionOutput)
+}
+
+// The configuration for using OpenResponses-compatible models in evaluator assessments.
+type EvaluatorOpenResponsesEvaluatorModelConfig struct {
+	// The maximum number of output tokens to generate, including visible output and reasoning tokens.
+	MaxOutputTokens *int `pulumi:"maxOutputTokens"`
+	// The identifier of the model to use for evaluation.
+	ModelId   string                           `pulumi:"modelId"`
+	Reasoning *EvaluatorReasoningConfiguration `pulumi:"reasoning"`
+	// The sampling temperature between 0 and 2.
+	Temperature *float64 `pulumi:"temperature"`
+	// The nucleus sampling probability mass between 0 and 1.
+	TopP *float64 `pulumi:"topP"`
+}
+
+// EvaluatorOpenResponsesEvaluatorModelConfigInput is an input type that accepts EvaluatorOpenResponsesEvaluatorModelConfigArgs and EvaluatorOpenResponsesEvaluatorModelConfigOutput values.
+// You can construct a concrete instance of `EvaluatorOpenResponsesEvaluatorModelConfigInput` via:
+//
+//	EvaluatorOpenResponsesEvaluatorModelConfigArgs{...}
+type EvaluatorOpenResponsesEvaluatorModelConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorOpenResponsesEvaluatorModelConfigOutput() EvaluatorOpenResponsesEvaluatorModelConfigOutput
+	ToEvaluatorOpenResponsesEvaluatorModelConfigOutputWithContext(context.Context) EvaluatorOpenResponsesEvaluatorModelConfigOutput
+}
+
+// The configuration for using OpenResponses-compatible models in evaluator assessments.
+type EvaluatorOpenResponsesEvaluatorModelConfigArgs struct {
+	// The maximum number of output tokens to generate, including visible output and reasoning tokens.
+	MaxOutputTokens pulumi.IntPtrInput `pulumi:"maxOutputTokens"`
+	// The identifier of the model to use for evaluation.
+	ModelId   pulumi.StringInput                      `pulumi:"modelId"`
+	Reasoning EvaluatorReasoningConfigurationPtrInput `pulumi:"reasoning"`
+	// The sampling temperature between 0 and 2.
+	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
+	// The nucleus sampling probability mass between 0 and 1.
+	TopP pulumi.Float64PtrInput `pulumi:"topP"`
+}
+
+func (EvaluatorOpenResponsesEvaluatorModelConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorOpenResponsesEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (i EvaluatorOpenResponsesEvaluatorModelConfigArgs) ToEvaluatorOpenResponsesEvaluatorModelConfigOutput() EvaluatorOpenResponsesEvaluatorModelConfigOutput {
+	return i.ToEvaluatorOpenResponsesEvaluatorModelConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorOpenResponsesEvaluatorModelConfigArgs) ToEvaluatorOpenResponsesEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorOpenResponsesEvaluatorModelConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorOpenResponsesEvaluatorModelConfigOutput)
+}
+
+func (i EvaluatorOpenResponsesEvaluatorModelConfigArgs) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutput() EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return i.ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorOpenResponsesEvaluatorModelConfigArgs) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorOpenResponsesEvaluatorModelConfigOutput).ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorOpenResponsesEvaluatorModelConfigPtrInput is an input type that accepts EvaluatorOpenResponsesEvaluatorModelConfigArgs, EvaluatorOpenResponsesEvaluatorModelConfigPtr and EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorOpenResponsesEvaluatorModelConfigPtrInput` via:
+//
+//	        EvaluatorOpenResponsesEvaluatorModelConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorOpenResponsesEvaluatorModelConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutput() EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput
+	ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(context.Context) EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput
+}
+
+type evaluatorOpenResponsesEvaluatorModelConfigPtrType EvaluatorOpenResponsesEvaluatorModelConfigArgs
+
+func EvaluatorOpenResponsesEvaluatorModelConfigPtr(v *EvaluatorOpenResponsesEvaluatorModelConfigArgs) EvaluatorOpenResponsesEvaluatorModelConfigPtrInput {
+	return (*evaluatorOpenResponsesEvaluatorModelConfigPtrType)(v)
+}
+
+func (*evaluatorOpenResponsesEvaluatorModelConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorOpenResponsesEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (i *evaluatorOpenResponsesEvaluatorModelConfigPtrType) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutput() EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return i.ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorOpenResponsesEvaluatorModelConfigPtrType) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput)
+}
+
+// The configuration for using OpenResponses-compatible models in evaluator assessments.
+type EvaluatorOpenResponsesEvaluatorModelConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorOpenResponsesEvaluatorModelConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorOpenResponsesEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) ToEvaluatorOpenResponsesEvaluatorModelConfigOutput() EvaluatorOpenResponsesEvaluatorModelConfigOutput {
+	return o
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) ToEvaluatorOpenResponsesEvaluatorModelConfigOutputWithContext(ctx context.Context) EvaluatorOpenResponsesEvaluatorModelConfigOutput {
+	return o
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutput() EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return o.ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorOpenResponsesEvaluatorModelConfig) *EvaluatorOpenResponsesEvaluatorModelConfig {
+		return &v
+	}).(EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput)
+}
+
+// The maximum number of output tokens to generate, including visible output and reasoning tokens.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) MaxOutputTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluatorOpenResponsesEvaluatorModelConfig) *int { return v.MaxOutputTokens }).(pulumi.IntPtrOutput)
+}
+
+// The identifier of the model to use for evaluation.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorOpenResponsesEvaluatorModelConfig) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) Reasoning() EvaluatorReasoningConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluatorOpenResponsesEvaluatorModelConfig) *EvaluatorReasoningConfiguration {
+		return v.Reasoning
+	}).(EvaluatorReasoningConfigurationPtrOutput)
+}
+
+// The sampling temperature between 0 and 2.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluatorOpenResponsesEvaluatorModelConfig) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
+}
+
+// The nucleus sampling probability mass between 0 and 1.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluatorOpenResponsesEvaluatorModelConfig) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
+}
+
+type EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorOpenResponsesEvaluatorModelConfig)(nil)).Elem()
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutput() EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) ToEvaluatorOpenResponsesEvaluatorModelConfigPtrOutputWithContext(ctx context.Context) EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) Elem() EvaluatorOpenResponsesEvaluatorModelConfigOutput {
+	return o.ApplyT(func(v *EvaluatorOpenResponsesEvaluatorModelConfig) EvaluatorOpenResponsesEvaluatorModelConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorOpenResponsesEvaluatorModelConfig
+		return ret
+	}).(EvaluatorOpenResponsesEvaluatorModelConfigOutput)
+}
+
+// The maximum number of output tokens to generate, including visible output and reasoning tokens.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) MaxOutputTokens() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluatorOpenResponsesEvaluatorModelConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxOutputTokens
+	}).(pulumi.IntPtrOutput)
+}
+
+// The identifier of the model to use for evaluation.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluatorOpenResponsesEvaluatorModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) Reasoning() EvaluatorReasoningConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluatorOpenResponsesEvaluatorModelConfig) *EvaluatorReasoningConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Reasoning
+	}).(EvaluatorReasoningConfigurationPtrOutput)
+}
+
+// The sampling temperature between 0 and 2.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) Temperature() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EvaluatorOpenResponsesEvaluatorModelConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Temperature
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The nucleus sampling probability mass between 0 and 1.
+func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) TopP() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EvaluatorOpenResponsesEvaluatorModelConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TopP
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The rating scale that defines how evaluators should score agent performance.
@@ -3778,6 +5961,146 @@ func (o EvaluatorRatingScalePtrOutput) Numerical() EvaluatorNumericalScaleDefini
 	}).(EvaluatorNumericalScaleDefinitionArrayOutput)
 }
 
+// The reasoning configuration for reasoning models.
+type EvaluatorReasoningConfiguration struct {
+	// The level of reasoning effort the model applies.
+	Effort *string `pulumi:"effort"`
+}
+
+// EvaluatorReasoningConfigurationInput is an input type that accepts EvaluatorReasoningConfigurationArgs and EvaluatorReasoningConfigurationOutput values.
+// You can construct a concrete instance of `EvaluatorReasoningConfigurationInput` via:
+//
+//	EvaluatorReasoningConfigurationArgs{...}
+type EvaluatorReasoningConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluatorReasoningConfigurationOutput() EvaluatorReasoningConfigurationOutput
+	ToEvaluatorReasoningConfigurationOutputWithContext(context.Context) EvaluatorReasoningConfigurationOutput
+}
+
+// The reasoning configuration for reasoning models.
+type EvaluatorReasoningConfigurationArgs struct {
+	// The level of reasoning effort the model applies.
+	Effort pulumi.StringPtrInput `pulumi:"effort"`
+}
+
+func (EvaluatorReasoningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorReasoningConfiguration)(nil)).Elem()
+}
+
+func (i EvaluatorReasoningConfigurationArgs) ToEvaluatorReasoningConfigurationOutput() EvaluatorReasoningConfigurationOutput {
+	return i.ToEvaluatorReasoningConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluatorReasoningConfigurationArgs) ToEvaluatorReasoningConfigurationOutputWithContext(ctx context.Context) EvaluatorReasoningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorReasoningConfigurationOutput)
+}
+
+func (i EvaluatorReasoningConfigurationArgs) ToEvaluatorReasoningConfigurationPtrOutput() EvaluatorReasoningConfigurationPtrOutput {
+	return i.ToEvaluatorReasoningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorReasoningConfigurationArgs) ToEvaluatorReasoningConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorReasoningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorReasoningConfigurationOutput).ToEvaluatorReasoningConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluatorReasoningConfigurationPtrInput is an input type that accepts EvaluatorReasoningConfigurationArgs, EvaluatorReasoningConfigurationPtr and EvaluatorReasoningConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluatorReasoningConfigurationPtrInput` via:
+//
+//	        EvaluatorReasoningConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorReasoningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorReasoningConfigurationPtrOutput() EvaluatorReasoningConfigurationPtrOutput
+	ToEvaluatorReasoningConfigurationPtrOutputWithContext(context.Context) EvaluatorReasoningConfigurationPtrOutput
+}
+
+type evaluatorReasoningConfigurationPtrType EvaluatorReasoningConfigurationArgs
+
+func EvaluatorReasoningConfigurationPtr(v *EvaluatorReasoningConfigurationArgs) EvaluatorReasoningConfigurationPtrInput {
+	return (*evaluatorReasoningConfigurationPtrType)(v)
+}
+
+func (*evaluatorReasoningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorReasoningConfiguration)(nil)).Elem()
+}
+
+func (i *evaluatorReasoningConfigurationPtrType) ToEvaluatorReasoningConfigurationPtrOutput() EvaluatorReasoningConfigurationPtrOutput {
+	return i.ToEvaluatorReasoningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorReasoningConfigurationPtrType) ToEvaluatorReasoningConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorReasoningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorReasoningConfigurationPtrOutput)
+}
+
+// The reasoning configuration for reasoning models.
+type EvaluatorReasoningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorReasoningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorReasoningConfiguration)(nil)).Elem()
+}
+
+func (o EvaluatorReasoningConfigurationOutput) ToEvaluatorReasoningConfigurationOutput() EvaluatorReasoningConfigurationOutput {
+	return o
+}
+
+func (o EvaluatorReasoningConfigurationOutput) ToEvaluatorReasoningConfigurationOutputWithContext(ctx context.Context) EvaluatorReasoningConfigurationOutput {
+	return o
+}
+
+func (o EvaluatorReasoningConfigurationOutput) ToEvaluatorReasoningConfigurationPtrOutput() EvaluatorReasoningConfigurationPtrOutput {
+	return o.ToEvaluatorReasoningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorReasoningConfigurationOutput) ToEvaluatorReasoningConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorReasoningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorReasoningConfiguration) *EvaluatorReasoningConfiguration {
+		return &v
+	}).(EvaluatorReasoningConfigurationPtrOutput)
+}
+
+// The level of reasoning effort the model applies.
+func (o EvaluatorReasoningConfigurationOutput) Effort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluatorReasoningConfiguration) *string { return v.Effort }).(pulumi.StringPtrOutput)
+}
+
+type EvaluatorReasoningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorReasoningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorReasoningConfiguration)(nil)).Elem()
+}
+
+func (o EvaluatorReasoningConfigurationPtrOutput) ToEvaluatorReasoningConfigurationPtrOutput() EvaluatorReasoningConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluatorReasoningConfigurationPtrOutput) ToEvaluatorReasoningConfigurationPtrOutputWithContext(ctx context.Context) EvaluatorReasoningConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluatorReasoningConfigurationPtrOutput) Elem() EvaluatorReasoningConfigurationOutput {
+	return o.ApplyT(func(v *EvaluatorReasoningConfiguration) EvaluatorReasoningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorReasoningConfiguration
+		return ret
+	}).(EvaluatorReasoningConfigurationOutput)
+}
+
+// The level of reasoning effort the model applies.
+func (o EvaluatorReasoningConfigurationPtrOutput) Effort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluatorReasoningConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Effort
+	}).(pulumi.StringPtrOutput)
+}
+
 type EvaluatorTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -3922,10 +6245,9 @@ func (o GatewayAuthorizerConfigurationPropertiesPtrOutput) CustomJwtAuthorizer()
 	}).(GatewayCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
-// The value or values in the custom claim to match and relationship of match
 type GatewayAuthorizingClaimMatchValueType struct {
-	ClaimMatchOperator GatewayClaimMatchOperator  `pulumi:"claimMatchOperator"`
-	ClaimMatchValue    GatewayClaimMatchValueType `pulumi:"claimMatchValue"`
+	ClaimMatchOperator GatewayClaimMatchOperatorType `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    interface{}                   `pulumi:"claimMatchValue"`
 }
 
 // GatewayAuthorizingClaimMatchValueTypeInput is an input type that accepts GatewayAuthorizingClaimMatchValueTypeArgs and GatewayAuthorizingClaimMatchValueTypeOutput values.
@@ -3939,10 +6261,9 @@ type GatewayAuthorizingClaimMatchValueTypeInput interface {
 	ToGatewayAuthorizingClaimMatchValueTypeOutputWithContext(context.Context) GatewayAuthorizingClaimMatchValueTypeOutput
 }
 
-// The value or values in the custom claim to match and relationship of match
 type GatewayAuthorizingClaimMatchValueTypeArgs struct {
-	ClaimMatchOperator GatewayClaimMatchOperatorInput  `pulumi:"claimMatchOperator"`
-	ClaimMatchValue    GatewayClaimMatchValueTypeInput `pulumi:"claimMatchValue"`
+	ClaimMatchOperator GatewayClaimMatchOperatorTypeInput `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    pulumi.Input                       `pulumi:"claimMatchValue"`
 }
 
 func (GatewayAuthorizingClaimMatchValueTypeArgs) ElementType() reflect.Type {
@@ -3957,7 +6278,6 @@ func (i GatewayAuthorizingClaimMatchValueTypeArgs) ToGatewayAuthorizingClaimMatc
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAuthorizingClaimMatchValueTypeOutput)
 }
 
-// The value or values in the custom claim to match and relationship of match
 type GatewayAuthorizingClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
 
 func (GatewayAuthorizingClaimMatchValueTypeOutput) ElementType() reflect.Type {
@@ -3972,73 +6292,114 @@ func (o GatewayAuthorizingClaimMatchValueTypeOutput) ToGatewayAuthorizingClaimMa
 	return o
 }
 
-func (o GatewayAuthorizingClaimMatchValueTypeOutput) ClaimMatchOperator() GatewayClaimMatchOperatorOutput {
-	return o.ApplyT(func(v GatewayAuthorizingClaimMatchValueType) GatewayClaimMatchOperator { return v.ClaimMatchOperator }).(GatewayClaimMatchOperatorOutput)
+func (o GatewayAuthorizingClaimMatchValueTypeOutput) ClaimMatchOperator() GatewayClaimMatchOperatorTypeOutput {
+	return o.ApplyT(func(v GatewayAuthorizingClaimMatchValueType) GatewayClaimMatchOperatorType {
+		return v.ClaimMatchOperator
+	}).(GatewayClaimMatchOperatorTypeOutput)
 }
 
-func (o GatewayAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() GatewayClaimMatchValueTypeOutput {
-	return o.ApplyT(func(v GatewayAuthorizingClaimMatchValueType) GatewayClaimMatchValueType { return v.ClaimMatchValue }).(GatewayClaimMatchValueTypeOutput)
+func (o GatewayAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayAuthorizingClaimMatchValueType) interface{} { return v.ClaimMatchValue }).(pulumi.AnyOutput)
 }
 
-// The value or values in the custom claim to match for
-type GatewayClaimMatchValueType struct {
-	MatchValueString     *string  `pulumi:"matchValueString"`
+type GatewayClaimMatchValueType0Properties struct {
+	MatchValueString string `pulumi:"matchValueString"`
+}
+
+// GatewayClaimMatchValueType0PropertiesInput is an input type that accepts GatewayClaimMatchValueType0PropertiesArgs and GatewayClaimMatchValueType0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayClaimMatchValueType0PropertiesInput` via:
+//
+//	GatewayClaimMatchValueType0PropertiesArgs{...}
+type GatewayClaimMatchValueType0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayClaimMatchValueType0PropertiesOutput() GatewayClaimMatchValueType0PropertiesOutput
+	ToGatewayClaimMatchValueType0PropertiesOutputWithContext(context.Context) GatewayClaimMatchValueType0PropertiesOutput
+}
+
+type GatewayClaimMatchValueType0PropertiesArgs struct {
+	MatchValueString pulumi.StringInput `pulumi:"matchValueString"`
+}
+
+func (GatewayClaimMatchValueType0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchValueType0Properties)(nil)).Elem()
+}
+
+func (i GatewayClaimMatchValueType0PropertiesArgs) ToGatewayClaimMatchValueType0PropertiesOutput() GatewayClaimMatchValueType0PropertiesOutput {
+	return i.ToGatewayClaimMatchValueType0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayClaimMatchValueType0PropertiesArgs) ToGatewayClaimMatchValueType0PropertiesOutputWithContext(ctx context.Context) GatewayClaimMatchValueType0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayClaimMatchValueType0PropertiesOutput)
+}
+
+type GatewayClaimMatchValueType0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayClaimMatchValueType0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchValueType0Properties)(nil)).Elem()
+}
+
+func (o GatewayClaimMatchValueType0PropertiesOutput) ToGatewayClaimMatchValueType0PropertiesOutput() GatewayClaimMatchValueType0PropertiesOutput {
+	return o
+}
+
+func (o GatewayClaimMatchValueType0PropertiesOutput) ToGatewayClaimMatchValueType0PropertiesOutputWithContext(ctx context.Context) GatewayClaimMatchValueType0PropertiesOutput {
+	return o
+}
+
+func (o GatewayClaimMatchValueType0PropertiesOutput) MatchValueString() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayClaimMatchValueType0Properties) string { return v.MatchValueString }).(pulumi.StringOutput)
+}
+
+type GatewayClaimMatchValueType1Properties struct {
 	MatchValueStringList []string `pulumi:"matchValueStringList"`
 }
 
-// GatewayClaimMatchValueTypeInput is an input type that accepts GatewayClaimMatchValueTypeArgs and GatewayClaimMatchValueTypeOutput values.
-// You can construct a concrete instance of `GatewayClaimMatchValueTypeInput` via:
+// GatewayClaimMatchValueType1PropertiesInput is an input type that accepts GatewayClaimMatchValueType1PropertiesArgs and GatewayClaimMatchValueType1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayClaimMatchValueType1PropertiesInput` via:
 //
-//	GatewayClaimMatchValueTypeArgs{...}
-type GatewayClaimMatchValueTypeInput interface {
+//	GatewayClaimMatchValueType1PropertiesArgs{...}
+type GatewayClaimMatchValueType1PropertiesInput interface {
 	pulumi.Input
 
-	ToGatewayClaimMatchValueTypeOutput() GatewayClaimMatchValueTypeOutput
-	ToGatewayClaimMatchValueTypeOutputWithContext(context.Context) GatewayClaimMatchValueTypeOutput
+	ToGatewayClaimMatchValueType1PropertiesOutput() GatewayClaimMatchValueType1PropertiesOutput
+	ToGatewayClaimMatchValueType1PropertiesOutputWithContext(context.Context) GatewayClaimMatchValueType1PropertiesOutput
 }
 
-// The value or values in the custom claim to match for
-type GatewayClaimMatchValueTypeArgs struct {
-	MatchValueString     pulumi.StringPtrInput   `pulumi:"matchValueString"`
+type GatewayClaimMatchValueType1PropertiesArgs struct {
 	MatchValueStringList pulumi.StringArrayInput `pulumi:"matchValueStringList"`
 }
 
-func (GatewayClaimMatchValueTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayClaimMatchValueType)(nil)).Elem()
+func (GatewayClaimMatchValueType1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchValueType1Properties)(nil)).Elem()
 }
 
-func (i GatewayClaimMatchValueTypeArgs) ToGatewayClaimMatchValueTypeOutput() GatewayClaimMatchValueTypeOutput {
-	return i.ToGatewayClaimMatchValueTypeOutputWithContext(context.Background())
+func (i GatewayClaimMatchValueType1PropertiesArgs) ToGatewayClaimMatchValueType1PropertiesOutput() GatewayClaimMatchValueType1PropertiesOutput {
+	return i.ToGatewayClaimMatchValueType1PropertiesOutputWithContext(context.Background())
 }
 
-func (i GatewayClaimMatchValueTypeArgs) ToGatewayClaimMatchValueTypeOutputWithContext(ctx context.Context) GatewayClaimMatchValueTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayClaimMatchValueTypeOutput)
+func (i GatewayClaimMatchValueType1PropertiesArgs) ToGatewayClaimMatchValueType1PropertiesOutputWithContext(ctx context.Context) GatewayClaimMatchValueType1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayClaimMatchValueType1PropertiesOutput)
 }
 
-// The value or values in the custom claim to match for
-type GatewayClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+type GatewayClaimMatchValueType1PropertiesOutput struct{ *pulumi.OutputState }
 
-func (GatewayClaimMatchValueTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayClaimMatchValueType)(nil)).Elem()
+func (GatewayClaimMatchValueType1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchValueType1Properties)(nil)).Elem()
 }
 
-func (o GatewayClaimMatchValueTypeOutput) ToGatewayClaimMatchValueTypeOutput() GatewayClaimMatchValueTypeOutput {
+func (o GatewayClaimMatchValueType1PropertiesOutput) ToGatewayClaimMatchValueType1PropertiesOutput() GatewayClaimMatchValueType1PropertiesOutput {
 	return o
 }
 
-func (o GatewayClaimMatchValueTypeOutput) ToGatewayClaimMatchValueTypeOutputWithContext(ctx context.Context) GatewayClaimMatchValueTypeOutput {
+func (o GatewayClaimMatchValueType1PropertiesOutput) ToGatewayClaimMatchValueType1PropertiesOutputWithContext(ctx context.Context) GatewayClaimMatchValueType1PropertiesOutput {
 	return o
 }
 
-func (o GatewayClaimMatchValueTypeOutput) MatchValueString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayClaimMatchValueType) *string { return v.MatchValueString }).(pulumi.StringPtrOutput)
+func (o GatewayClaimMatchValueType1PropertiesOutput) MatchValueStringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayClaimMatchValueType1Properties) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
 }
 
-func (o GatewayClaimMatchValueTypeOutput) MatchValueStringList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GatewayClaimMatchValueType) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
-}
-
-// Required custom claim
 type GatewayCustomClaimValidationType struct {
 	AuthorizingClaimMatchValue GatewayAuthorizingClaimMatchValueType `pulumi:"authorizingClaimMatchValue"`
 	InboundTokenClaimName      string                                `pulumi:"inboundTokenClaimName"`
@@ -4056,7 +6417,6 @@ type GatewayCustomClaimValidationTypeInput interface {
 	ToGatewayCustomClaimValidationTypeOutputWithContext(context.Context) GatewayCustomClaimValidationTypeOutput
 }
 
-// Required custom claim
 type GatewayCustomClaimValidationTypeArgs struct {
 	AuthorizingClaimMatchValue GatewayAuthorizingClaimMatchValueTypeInput `pulumi:"authorizingClaimMatchValue"`
 	InboundTokenClaimName      pulumi.StringInput                         `pulumi:"inboundTokenClaimName"`
@@ -4100,7 +6460,6 @@ func (i GatewayCustomClaimValidationTypeArray) ToGatewayCustomClaimValidationTyp
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayCustomClaimValidationTypeArrayOutput)
 }
 
-// Required custom claim
 type GatewayCustomClaimValidationTypeOutput struct{ *pulumi.OutputState }
 
 func (GatewayCustomClaimValidationTypeOutput) ElementType() reflect.Type {
@@ -4152,11 +6511,13 @@ func (o GatewayCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) Ga
 }
 
 type GatewayCustomJwtAuthorizerConfiguration struct {
-	AllowedAudience []string                           `pulumi:"allowedAudience"`
-	AllowedClients  []string                           `pulumi:"allowedClients"`
-	AllowedScopes   []string                           `pulumi:"allowedScopes"`
-	CustomClaims    []GatewayCustomClaimValidationType `pulumi:"customClaims"`
-	DiscoveryUrl    string                             `pulumi:"discoveryUrl"`
+	AdvertisedScopeMapping map[string]string                  `pulumi:"advertisedScopeMapping"`
+	AllowedAudience        []string                           `pulumi:"allowedAudience"`
+	AllowedClients         []string                           `pulumi:"allowedClients"`
+	AllowedScopes          []string                           `pulumi:"allowedScopes"`
+	CustomClaims           []GatewayCustomClaimValidationType `pulumi:"customClaims"`
+	DiscoveryUrl           string                             `pulumi:"discoveryUrl"`
+	PrivateEndpoint        interface{}                        `pulumi:"privateEndpoint"`
 }
 
 // GatewayCustomJwtAuthorizerConfigurationInput is an input type that accepts GatewayCustomJwtAuthorizerConfigurationArgs and GatewayCustomJwtAuthorizerConfigurationOutput values.
@@ -4171,11 +6532,13 @@ type GatewayCustomJwtAuthorizerConfigurationInput interface {
 }
 
 type GatewayCustomJwtAuthorizerConfigurationArgs struct {
-	AllowedAudience pulumi.StringArrayInput                    `pulumi:"allowedAudience"`
-	AllowedClients  pulumi.StringArrayInput                    `pulumi:"allowedClients"`
-	AllowedScopes   pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
-	CustomClaims    GatewayCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
-	DiscoveryUrl    pulumi.StringInput                         `pulumi:"discoveryUrl"`
+	AdvertisedScopeMapping pulumi.StringMapInput                      `pulumi:"advertisedScopeMapping"`
+	AllowedAudience        pulumi.StringArrayInput                    `pulumi:"allowedAudience"`
+	AllowedClients         pulumi.StringArrayInput                    `pulumi:"allowedClients"`
+	AllowedScopes          pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
+	CustomClaims           GatewayCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
+	DiscoveryUrl           pulumi.StringInput                         `pulumi:"discoveryUrl"`
+	PrivateEndpoint        pulumi.Input                               `pulumi:"privateEndpoint"`
 }
 
 func (GatewayCustomJwtAuthorizerConfigurationArgs) ElementType() reflect.Type {
@@ -4255,6 +6618,10 @@ func (o GatewayCustomJwtAuthorizerConfigurationOutput) ToGatewayCustomJwtAuthori
 	}).(GatewayCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
+func (o GatewayCustomJwtAuthorizerConfigurationOutput) AdvertisedScopeMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) map[string]string { return v.AdvertisedScopeMapping }).(pulumi.StringMapOutput)
+}
+
 func (o GatewayCustomJwtAuthorizerConfigurationOutput) AllowedAudience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) []string { return v.AllowedAudience }).(pulumi.StringArrayOutput)
 }
@@ -4275,6 +6642,10 @@ func (o GatewayCustomJwtAuthorizerConfigurationOutput) CustomClaims() GatewayCus
 
 func (o GatewayCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
+}
+
+func (o GatewayCustomJwtAuthorizerConfigurationOutput) PrivateEndpoint() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) interface{} { return v.PrivateEndpoint }).(pulumi.AnyOutput)
 }
 
 type GatewayCustomJwtAuthorizerConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -4299,6 +6670,15 @@ func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) Elem() GatewayCustomJw
 		var ret GatewayCustomJwtAuthorizerConfiguration
 		return ret
 	}).(GatewayCustomJwtAuthorizerConfigurationOutput)
+}
+
+func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) AdvertisedScopeMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GatewayCustomJwtAuthorizerConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertisedScopeMapping
+	}).(pulumi.StringMapOutput)
 }
 
 func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience() pulumi.StringArrayOutput {
@@ -4344,6 +6724,15 @@ func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 		}
 		return &v.DiscoveryUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) PrivateEndpoint() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayCustomJwtAuthorizerConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(pulumi.AnyOutput)
 }
 
 type GatewayInterceptorConfiguration struct {
@@ -4455,7 +6844,8 @@ func (o GatewayInterceptorConfigurationArrayOutput) Index(i pulumi.IntInput) Gat
 }
 
 type GatewayInterceptorInputConfiguration struct {
-	PassRequestHeaders bool `pulumi:"passRequestHeaders"`
+	PassRequestHeaders bool                             `pulumi:"passRequestHeaders"`
+	PayloadFilter      *GatewayInterceptorPayloadFilter `pulumi:"payloadFilter"`
 }
 
 // GatewayInterceptorInputConfigurationInput is an input type that accepts GatewayInterceptorInputConfigurationArgs and GatewayInterceptorInputConfigurationOutput values.
@@ -4470,7 +6860,8 @@ type GatewayInterceptorInputConfigurationInput interface {
 }
 
 type GatewayInterceptorInputConfigurationArgs struct {
-	PassRequestHeaders pulumi.BoolInput `pulumi:"passRequestHeaders"`
+	PassRequestHeaders pulumi.BoolInput                        `pulumi:"passRequestHeaders"`
+	PayloadFilter      GatewayInterceptorPayloadFilterPtrInput `pulumi:"payloadFilter"`
 }
 
 func (GatewayInterceptorInputConfigurationArgs) ElementType() reflect.Type {
@@ -4554,6 +6945,10 @@ func (o GatewayInterceptorInputConfigurationOutput) PassRequestHeaders() pulumi.
 	return o.ApplyT(func(v GatewayInterceptorInputConfiguration) bool { return v.PassRequestHeaders }).(pulumi.BoolOutput)
 }
 
+func (o GatewayInterceptorInputConfigurationOutput) PayloadFilter() GatewayInterceptorPayloadFilterPtrOutput {
+	return o.ApplyT(func(v GatewayInterceptorInputConfiguration) *GatewayInterceptorPayloadFilter { return v.PayloadFilter }).(GatewayInterceptorPayloadFilterPtrOutput)
+}
+
 type GatewayInterceptorInputConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (GatewayInterceptorInputConfigurationPtrOutput) ElementType() reflect.Type {
@@ -4585,6 +6980,250 @@ func (o GatewayInterceptorInputConfigurationPtrOutput) PassRequestHeaders() pulu
 		}
 		return &v.PassRequestHeaders
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GatewayInterceptorInputConfigurationPtrOutput) PayloadFilter() GatewayInterceptorPayloadFilterPtrOutput {
+	return o.ApplyT(func(v *GatewayInterceptorInputConfiguration) *GatewayInterceptorPayloadFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadFilter
+	}).(GatewayInterceptorPayloadFilterPtrOutput)
+}
+
+type GatewayInterceptorPayloadExclusionSelector0Properties struct {
+	Field GatewayInterceptorPayloadExclusion `pulumi:"field"`
+}
+
+type GatewayInterceptorPayloadExclusionSelectorProperties struct {
+	Field GatewayInterceptorPayloadExclusion `pulumi:"field"`
+}
+
+// GatewayInterceptorPayloadExclusionSelectorPropertiesInput is an input type that accepts GatewayInterceptorPayloadExclusionSelectorPropertiesArgs and GatewayInterceptorPayloadExclusionSelectorPropertiesOutput values.
+// You can construct a concrete instance of `GatewayInterceptorPayloadExclusionSelectorPropertiesInput` via:
+//
+//	GatewayInterceptorPayloadExclusionSelectorPropertiesArgs{...}
+type GatewayInterceptorPayloadExclusionSelectorPropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorPayloadExclusionSelectorPropertiesOutput() GatewayInterceptorPayloadExclusionSelectorPropertiesOutput
+	ToGatewayInterceptorPayloadExclusionSelectorPropertiesOutputWithContext(context.Context) GatewayInterceptorPayloadExclusionSelectorPropertiesOutput
+}
+
+type GatewayInterceptorPayloadExclusionSelectorPropertiesArgs struct {
+	Field GatewayInterceptorPayloadExclusionInput `pulumi:"field"`
+}
+
+func (GatewayInterceptorPayloadExclusionSelectorPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorPayloadExclusionSelectorProperties)(nil)).Elem()
+}
+
+func (i GatewayInterceptorPayloadExclusionSelectorPropertiesArgs) ToGatewayInterceptorPayloadExclusionSelectorPropertiesOutput() GatewayInterceptorPayloadExclusionSelectorPropertiesOutput {
+	return i.ToGatewayInterceptorPayloadExclusionSelectorPropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorPayloadExclusionSelectorPropertiesArgs) ToGatewayInterceptorPayloadExclusionSelectorPropertiesOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionSelectorPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorPayloadExclusionSelectorPropertiesOutput)
+}
+
+// GatewayInterceptorPayloadExclusionSelectorPropertiesArrayInput is an input type that accepts GatewayInterceptorPayloadExclusionSelectorPropertiesArray and GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput values.
+// You can construct a concrete instance of `GatewayInterceptorPayloadExclusionSelectorPropertiesArrayInput` via:
+//
+//	GatewayInterceptorPayloadExclusionSelectorPropertiesArray{ GatewayInterceptorPayloadExclusionSelectorPropertiesArgs{...} }
+type GatewayInterceptorPayloadExclusionSelectorPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput() GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput
+	ToGatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutputWithContext(context.Context) GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput
+}
+
+type GatewayInterceptorPayloadExclusionSelectorPropertiesArray []GatewayInterceptorPayloadExclusionSelectorPropertiesInput
+
+func (GatewayInterceptorPayloadExclusionSelectorPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayInterceptorPayloadExclusionSelectorProperties)(nil)).Elem()
+}
+
+func (i GatewayInterceptorPayloadExclusionSelectorPropertiesArray) ToGatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput() GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput {
+	return i.ToGatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorPayloadExclusionSelectorPropertiesArray) ToGatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput)
+}
+
+type GatewayInterceptorPayloadExclusionSelectorPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorPayloadExclusionSelectorPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorPayloadExclusionSelectorProperties)(nil)).Elem()
+}
+
+func (o GatewayInterceptorPayloadExclusionSelectorPropertiesOutput) ToGatewayInterceptorPayloadExclusionSelectorPropertiesOutput() GatewayInterceptorPayloadExclusionSelectorPropertiesOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionSelectorPropertiesOutput) ToGatewayInterceptorPayloadExclusionSelectorPropertiesOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionSelectorPropertiesOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionSelectorPropertiesOutput) Field() GatewayInterceptorPayloadExclusionOutput {
+	return o.ApplyT(func(v GatewayInterceptorPayloadExclusionSelectorProperties) GatewayInterceptorPayloadExclusion {
+		return v.Field
+	}).(GatewayInterceptorPayloadExclusionOutput)
+}
+
+type GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayInterceptorPayloadExclusionSelectorProperties)(nil)).Elem()
+}
+
+func (o GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput) ToGatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput() GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput) ToGatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutputWithContext(ctx context.Context) GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput) Index(i pulumi.IntInput) GatewayInterceptorPayloadExclusionSelectorPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayInterceptorPayloadExclusionSelectorProperties {
+		return vs[0].([]GatewayInterceptorPayloadExclusionSelectorProperties)[vs[1].(int)]
+	}).(GatewayInterceptorPayloadExclusionSelectorPropertiesOutput)
+}
+
+type GatewayInterceptorPayloadFilter struct {
+	Exclude []GatewayInterceptorPayloadExclusionSelectorProperties `pulumi:"exclude"`
+}
+
+// GatewayInterceptorPayloadFilterInput is an input type that accepts GatewayInterceptorPayloadFilterArgs and GatewayInterceptorPayloadFilterOutput values.
+// You can construct a concrete instance of `GatewayInterceptorPayloadFilterInput` via:
+//
+//	GatewayInterceptorPayloadFilterArgs{...}
+type GatewayInterceptorPayloadFilterInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorPayloadFilterOutput() GatewayInterceptorPayloadFilterOutput
+	ToGatewayInterceptorPayloadFilterOutputWithContext(context.Context) GatewayInterceptorPayloadFilterOutput
+}
+
+type GatewayInterceptorPayloadFilterArgs struct {
+	Exclude GatewayInterceptorPayloadExclusionSelectorPropertiesArrayInput `pulumi:"exclude"`
+}
+
+func (GatewayInterceptorPayloadFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorPayloadFilter)(nil)).Elem()
+}
+
+func (i GatewayInterceptorPayloadFilterArgs) ToGatewayInterceptorPayloadFilterOutput() GatewayInterceptorPayloadFilterOutput {
+	return i.ToGatewayInterceptorPayloadFilterOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorPayloadFilterArgs) ToGatewayInterceptorPayloadFilterOutputWithContext(ctx context.Context) GatewayInterceptorPayloadFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorPayloadFilterOutput)
+}
+
+func (i GatewayInterceptorPayloadFilterArgs) ToGatewayInterceptorPayloadFilterPtrOutput() GatewayInterceptorPayloadFilterPtrOutput {
+	return i.ToGatewayInterceptorPayloadFilterPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorPayloadFilterArgs) ToGatewayInterceptorPayloadFilterPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorPayloadFilterOutput).ToGatewayInterceptorPayloadFilterPtrOutputWithContext(ctx)
+}
+
+// GatewayInterceptorPayloadFilterPtrInput is an input type that accepts GatewayInterceptorPayloadFilterArgs, GatewayInterceptorPayloadFilterPtr and GatewayInterceptorPayloadFilterPtrOutput values.
+// You can construct a concrete instance of `GatewayInterceptorPayloadFilterPtrInput` via:
+//
+//	        GatewayInterceptorPayloadFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayInterceptorPayloadFilterPtrInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorPayloadFilterPtrOutput() GatewayInterceptorPayloadFilterPtrOutput
+	ToGatewayInterceptorPayloadFilterPtrOutputWithContext(context.Context) GatewayInterceptorPayloadFilterPtrOutput
+}
+
+type gatewayInterceptorPayloadFilterPtrType GatewayInterceptorPayloadFilterArgs
+
+func GatewayInterceptorPayloadFilterPtr(v *GatewayInterceptorPayloadFilterArgs) GatewayInterceptorPayloadFilterPtrInput {
+	return (*gatewayInterceptorPayloadFilterPtrType)(v)
+}
+
+func (*gatewayInterceptorPayloadFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayInterceptorPayloadFilter)(nil)).Elem()
+}
+
+func (i *gatewayInterceptorPayloadFilterPtrType) ToGatewayInterceptorPayloadFilterPtrOutput() GatewayInterceptorPayloadFilterPtrOutput {
+	return i.ToGatewayInterceptorPayloadFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayInterceptorPayloadFilterPtrType) ToGatewayInterceptorPayloadFilterPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorPayloadFilterPtrOutput)
+}
+
+type GatewayInterceptorPayloadFilterOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorPayloadFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorPayloadFilter)(nil)).Elem()
+}
+
+func (o GatewayInterceptorPayloadFilterOutput) ToGatewayInterceptorPayloadFilterOutput() GatewayInterceptorPayloadFilterOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadFilterOutput) ToGatewayInterceptorPayloadFilterOutputWithContext(ctx context.Context) GatewayInterceptorPayloadFilterOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadFilterOutput) ToGatewayInterceptorPayloadFilterPtrOutput() GatewayInterceptorPayloadFilterPtrOutput {
+	return o.ToGatewayInterceptorPayloadFilterPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptorPayloadFilterOutput) ToGatewayInterceptorPayloadFilterPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayInterceptorPayloadFilter) *GatewayInterceptorPayloadFilter {
+		return &v
+	}).(GatewayInterceptorPayloadFilterPtrOutput)
+}
+
+func (o GatewayInterceptorPayloadFilterOutput) Exclude() GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput {
+	return o.ApplyT(func(v GatewayInterceptorPayloadFilter) []GatewayInterceptorPayloadExclusionSelectorProperties {
+		return v.Exclude
+	}).(GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput)
+}
+
+type GatewayInterceptorPayloadFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorPayloadFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayInterceptorPayloadFilter)(nil)).Elem()
+}
+
+func (o GatewayInterceptorPayloadFilterPtrOutput) ToGatewayInterceptorPayloadFilterPtrOutput() GatewayInterceptorPayloadFilterPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadFilterPtrOutput) ToGatewayInterceptorPayloadFilterPtrOutputWithContext(ctx context.Context) GatewayInterceptorPayloadFilterPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptorPayloadFilterPtrOutput) Elem() GatewayInterceptorPayloadFilterOutput {
+	return o.ApplyT(func(v *GatewayInterceptorPayloadFilter) GatewayInterceptorPayloadFilter {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayInterceptorPayloadFilter
+		return ret
+	}).(GatewayInterceptorPayloadFilterOutput)
+}
+
+func (o GatewayInterceptorPayloadFilterPtrOutput) Exclude() GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput {
+	return o.ApplyT(func(v *GatewayInterceptorPayloadFilter) []GatewayInterceptorPayloadExclusionSelectorProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput)
 }
 
 type GatewayLambdaInterceptorConfiguration struct {
@@ -4634,6 +7273,199 @@ func (o GatewayLambdaInterceptorConfigurationOutput) ToGatewayLambdaInterceptorC
 
 func (o GatewayLambdaInterceptorConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayLambdaInterceptorConfiguration) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type GatewayManagedVpcResource struct {
+	EndpointIpAddressType GatewayEndpointIpAddressType `pulumi:"endpointIpAddressType"`
+	RoutingDomain         *string                      `pulumi:"routingDomain"`
+	SecurityGroupIds      []string                     `pulumi:"securityGroupIds"`
+	SubnetIds             []string                     `pulumi:"subnetIds"`
+	VpcIdentifier         string                       `pulumi:"vpcIdentifier"`
+}
+
+// GatewayManagedVpcResourceInput is an input type that accepts GatewayManagedVpcResourceArgs and GatewayManagedVpcResourceOutput values.
+// You can construct a concrete instance of `GatewayManagedVpcResourceInput` via:
+//
+//	GatewayManagedVpcResourceArgs{...}
+type GatewayManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToGatewayManagedVpcResourceOutput() GatewayManagedVpcResourceOutput
+	ToGatewayManagedVpcResourceOutputWithContext(context.Context) GatewayManagedVpcResourceOutput
+}
+
+type GatewayManagedVpcResourceArgs struct {
+	EndpointIpAddressType GatewayEndpointIpAddressTypeInput `pulumi:"endpointIpAddressType"`
+	RoutingDomain         pulumi.StringPtrInput             `pulumi:"routingDomain"`
+	SecurityGroupIds      pulumi.StringArrayInput           `pulumi:"securityGroupIds"`
+	SubnetIds             pulumi.StringArrayInput           `pulumi:"subnetIds"`
+	VpcIdentifier         pulumi.StringInput                `pulumi:"vpcIdentifier"`
+}
+
+func (GatewayManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayManagedVpcResource)(nil)).Elem()
+}
+
+func (i GatewayManagedVpcResourceArgs) ToGatewayManagedVpcResourceOutput() GatewayManagedVpcResourceOutput {
+	return i.ToGatewayManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i GatewayManagedVpcResourceArgs) ToGatewayManagedVpcResourceOutputWithContext(ctx context.Context) GatewayManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayManagedVpcResourceOutput)
+}
+
+func (i GatewayManagedVpcResourceArgs) ToGatewayManagedVpcResourcePtrOutput() GatewayManagedVpcResourcePtrOutput {
+	return i.ToGatewayManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayManagedVpcResourceArgs) ToGatewayManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayManagedVpcResourceOutput).ToGatewayManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// GatewayManagedVpcResourcePtrInput is an input type that accepts GatewayManagedVpcResourceArgs, GatewayManagedVpcResourcePtr and GatewayManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `GatewayManagedVpcResourcePtrInput` via:
+//
+//	        GatewayManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToGatewayManagedVpcResourcePtrOutput() GatewayManagedVpcResourcePtrOutput
+	ToGatewayManagedVpcResourcePtrOutputWithContext(context.Context) GatewayManagedVpcResourcePtrOutput
+}
+
+type gatewayManagedVpcResourcePtrType GatewayManagedVpcResourceArgs
+
+func GatewayManagedVpcResourcePtr(v *GatewayManagedVpcResourceArgs) GatewayManagedVpcResourcePtrInput {
+	return (*gatewayManagedVpcResourcePtrType)(v)
+}
+
+func (*gatewayManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayManagedVpcResource)(nil)).Elem()
+}
+
+func (i *gatewayManagedVpcResourcePtrType) ToGatewayManagedVpcResourcePtrOutput() GatewayManagedVpcResourcePtrOutput {
+	return i.ToGatewayManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayManagedVpcResourcePtrType) ToGatewayManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayManagedVpcResourcePtrOutput)
+}
+
+type GatewayManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (GatewayManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayManagedVpcResource)(nil)).Elem()
+}
+
+func (o GatewayManagedVpcResourceOutput) ToGatewayManagedVpcResourceOutput() GatewayManagedVpcResourceOutput {
+	return o
+}
+
+func (o GatewayManagedVpcResourceOutput) ToGatewayManagedVpcResourceOutputWithContext(ctx context.Context) GatewayManagedVpcResourceOutput {
+	return o
+}
+
+func (o GatewayManagedVpcResourceOutput) ToGatewayManagedVpcResourcePtrOutput() GatewayManagedVpcResourcePtrOutput {
+	return o.ToGatewayManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayManagedVpcResourceOutput) ToGatewayManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayManagedVpcResource) *GatewayManagedVpcResource {
+		return &v
+	}).(GatewayManagedVpcResourcePtrOutput)
+}
+
+func (o GatewayManagedVpcResourceOutput) EndpointIpAddressType() GatewayEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v GatewayManagedVpcResource) GatewayEndpointIpAddressType { return v.EndpointIpAddressType }).(GatewayEndpointIpAddressTypeOutput)
+}
+
+func (o GatewayManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayManagedVpcResource) *string { return v.RoutingDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayManagedVpcResource) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayManagedVpcResource) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayManagedVpcResource) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+}
+
+type GatewayManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayManagedVpcResource)(nil)).Elem()
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) ToGatewayManagedVpcResourcePtrOutput() GatewayManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) ToGatewayManagedVpcResourcePtrOutputWithContext(ctx context.Context) GatewayManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) Elem() GatewayManagedVpcResourceOutput {
+	return o.ApplyT(func(v *GatewayManagedVpcResource) GatewayManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayManagedVpcResource
+		return ret
+	}).(GatewayManagedVpcResourceOutput)
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) EndpointIpAddressType() GatewayEndpointIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *GatewayManagedVpcResource) *GatewayEndpointIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(GatewayEndpointIpAddressTypePtrOutput)
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 type GatewayMcpGatewayConfiguration struct {
@@ -4829,9 +7661,7 @@ func (o GatewayMcpGatewayConfigurationPtrOutput) SupportedVersions() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
 type GatewayPolicyEngineConfiguration struct {
-	// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
 	Arn  string                  `pulumi:"arn"`
 	Mode GatewayPolicyEngineMode `pulumi:"mode"`
 }
@@ -4847,9 +7677,7 @@ type GatewayPolicyEngineConfigurationInput interface {
 	ToGatewayPolicyEngineConfigurationOutputWithContext(context.Context) GatewayPolicyEngineConfigurationOutput
 }
 
-// The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
 type GatewayPolicyEngineConfigurationArgs struct {
-	// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
 	Arn  pulumi.StringInput           `pulumi:"arn"`
 	Mode GatewayPolicyEngineModeInput `pulumi:"mode"`
 }
@@ -4907,7 +7735,6 @@ func (i *gatewayPolicyEngineConfigurationPtrType) ToGatewayPolicyEngineConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayPolicyEngineConfigurationPtrOutput)
 }
 
-// The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
 type GatewayPolicyEngineConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GatewayPolicyEngineConfigurationOutput) ElementType() reflect.Type {
@@ -4932,7 +7759,6 @@ func (o GatewayPolicyEngineConfigurationOutput) ToGatewayPolicyEngineConfigurati
 	}).(GatewayPolicyEngineConfigurationPtrOutput)
 }
 
-// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
 func (o GatewayPolicyEngineConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayPolicyEngineConfiguration) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -4965,7 +7791,6 @@ func (o GatewayPolicyEngineConfigurationPtrOutput) Elem() GatewayPolicyEngineCon
 	}).(GatewayPolicyEngineConfigurationOutput)
 }
 
-// The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
 func (o GatewayPolicyEngineConfigurationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayPolicyEngineConfiguration) *string {
 		if v == nil {
@@ -4982,6 +7807,274 @@ func (o GatewayPolicyEngineConfigurationPtrOutput) Mode() GatewayPolicyEngineMod
 		}
 		return &v.Mode
 	}).(GatewayPolicyEngineModePtrOutput)
+}
+
+type GatewayPrivateEndpoint0Properties struct {
+	SelfManagedLatticeResource GatewaySelfManagedLatticeResourceProperties `pulumi:"selfManagedLatticeResource"`
+}
+
+// GatewayPrivateEndpoint0PropertiesInput is an input type that accepts GatewayPrivateEndpoint0PropertiesArgs and GatewayPrivateEndpoint0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayPrivateEndpoint0PropertiesInput` via:
+//
+//	GatewayPrivateEndpoint0PropertiesArgs{...}
+type GatewayPrivateEndpoint0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayPrivateEndpoint0PropertiesOutput() GatewayPrivateEndpoint0PropertiesOutput
+	ToGatewayPrivateEndpoint0PropertiesOutputWithContext(context.Context) GatewayPrivateEndpoint0PropertiesOutput
+}
+
+type GatewayPrivateEndpoint0PropertiesArgs struct {
+	SelfManagedLatticeResource GatewaySelfManagedLatticeResourcePropertiesInput `pulumi:"selfManagedLatticeResource"`
+}
+
+func (GatewayPrivateEndpoint0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (i GatewayPrivateEndpoint0PropertiesArgs) ToGatewayPrivateEndpoint0PropertiesOutput() GatewayPrivateEndpoint0PropertiesOutput {
+	return i.ToGatewayPrivateEndpoint0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayPrivateEndpoint0PropertiesArgs) ToGatewayPrivateEndpoint0PropertiesOutputWithContext(ctx context.Context) GatewayPrivateEndpoint0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPrivateEndpoint0PropertiesOutput)
+}
+
+func (i GatewayPrivateEndpoint0PropertiesArgs) ToGatewayPrivateEndpoint0PropertiesPtrOutput() GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return i.ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayPrivateEndpoint0PropertiesArgs) ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPrivateEndpoint0PropertiesOutput).ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayPrivateEndpoint0PropertiesPtrInput is an input type that accepts GatewayPrivateEndpoint0PropertiesArgs, GatewayPrivateEndpoint0PropertiesPtr and GatewayPrivateEndpoint0PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayPrivateEndpoint0PropertiesPtrInput` via:
+//
+//	        GatewayPrivateEndpoint0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayPrivateEndpoint0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayPrivateEndpoint0PropertiesPtrOutput() GatewayPrivateEndpoint0PropertiesPtrOutput
+	ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(context.Context) GatewayPrivateEndpoint0PropertiesPtrOutput
+}
+
+type gatewayPrivateEndpoint0PropertiesPtrType GatewayPrivateEndpoint0PropertiesArgs
+
+func GatewayPrivateEndpoint0PropertiesPtr(v *GatewayPrivateEndpoint0PropertiesArgs) GatewayPrivateEndpoint0PropertiesPtrInput {
+	return (*gatewayPrivateEndpoint0PropertiesPtrType)(v)
+}
+
+func (*gatewayPrivateEndpoint0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (i *gatewayPrivateEndpoint0PropertiesPtrType) ToGatewayPrivateEndpoint0PropertiesPtrOutput() GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return i.ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayPrivateEndpoint0PropertiesPtrType) ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPrivateEndpoint0PropertiesPtrOutput)
+}
+
+type GatewayPrivateEndpoint0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayPrivateEndpoint0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (o GatewayPrivateEndpoint0PropertiesOutput) ToGatewayPrivateEndpoint0PropertiesOutput() GatewayPrivateEndpoint0PropertiesOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint0PropertiesOutput) ToGatewayPrivateEndpoint0PropertiesOutputWithContext(ctx context.Context) GatewayPrivateEndpoint0PropertiesOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint0PropertiesOutput) ToGatewayPrivateEndpoint0PropertiesPtrOutput() GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return o.ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayPrivateEndpoint0PropertiesOutput) ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayPrivateEndpoint0Properties) *GatewayPrivateEndpoint0Properties {
+		return &v
+	}).(GatewayPrivateEndpoint0PropertiesPtrOutput)
+}
+
+func (o GatewayPrivateEndpoint0PropertiesOutput) SelfManagedLatticeResource() GatewaySelfManagedLatticeResourcePropertiesOutput {
+	return o.ApplyT(func(v GatewayPrivateEndpoint0Properties) GatewaySelfManagedLatticeResourceProperties {
+		return v.SelfManagedLatticeResource
+	}).(GatewaySelfManagedLatticeResourcePropertiesOutput)
+}
+
+type GatewayPrivateEndpoint0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayPrivateEndpoint0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPrivateEndpoint0Properties)(nil)).Elem()
+}
+
+func (o GatewayPrivateEndpoint0PropertiesPtrOutput) ToGatewayPrivateEndpoint0PropertiesPtrOutput() GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint0PropertiesPtrOutput) ToGatewayPrivateEndpoint0PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint0PropertiesPtrOutput) Elem() GatewayPrivateEndpoint0PropertiesOutput {
+	return o.ApplyT(func(v *GatewayPrivateEndpoint0Properties) GatewayPrivateEndpoint0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayPrivateEndpoint0Properties
+		return ret
+	}).(GatewayPrivateEndpoint0PropertiesOutput)
+}
+
+func (o GatewayPrivateEndpoint0PropertiesPtrOutput) SelfManagedLatticeResource() GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *GatewayPrivateEndpoint0Properties) *GatewaySelfManagedLatticeResourceProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.SelfManagedLatticeResource
+	}).(GatewaySelfManagedLatticeResourcePropertiesPtrOutput)
+}
+
+type GatewayPrivateEndpoint1Properties struct {
+	ManagedVpcResource GatewayManagedVpcResource `pulumi:"managedVpcResource"`
+}
+
+// GatewayPrivateEndpoint1PropertiesInput is an input type that accepts GatewayPrivateEndpoint1PropertiesArgs and GatewayPrivateEndpoint1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayPrivateEndpoint1PropertiesInput` via:
+//
+//	GatewayPrivateEndpoint1PropertiesArgs{...}
+type GatewayPrivateEndpoint1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayPrivateEndpoint1PropertiesOutput() GatewayPrivateEndpoint1PropertiesOutput
+	ToGatewayPrivateEndpoint1PropertiesOutputWithContext(context.Context) GatewayPrivateEndpoint1PropertiesOutput
+}
+
+type GatewayPrivateEndpoint1PropertiesArgs struct {
+	ManagedVpcResource GatewayManagedVpcResourceInput `pulumi:"managedVpcResource"`
+}
+
+func (GatewayPrivateEndpoint1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (i GatewayPrivateEndpoint1PropertiesArgs) ToGatewayPrivateEndpoint1PropertiesOutput() GatewayPrivateEndpoint1PropertiesOutput {
+	return i.ToGatewayPrivateEndpoint1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayPrivateEndpoint1PropertiesArgs) ToGatewayPrivateEndpoint1PropertiesOutputWithContext(ctx context.Context) GatewayPrivateEndpoint1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPrivateEndpoint1PropertiesOutput)
+}
+
+func (i GatewayPrivateEndpoint1PropertiesArgs) ToGatewayPrivateEndpoint1PropertiesPtrOutput() GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return i.ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayPrivateEndpoint1PropertiesArgs) ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPrivateEndpoint1PropertiesOutput).ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewayPrivateEndpoint1PropertiesPtrInput is an input type that accepts GatewayPrivateEndpoint1PropertiesArgs, GatewayPrivateEndpoint1PropertiesPtr and GatewayPrivateEndpoint1PropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewayPrivateEndpoint1PropertiesPtrInput` via:
+//
+//	        GatewayPrivateEndpoint1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayPrivateEndpoint1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewayPrivateEndpoint1PropertiesPtrOutput() GatewayPrivateEndpoint1PropertiesPtrOutput
+	ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(context.Context) GatewayPrivateEndpoint1PropertiesPtrOutput
+}
+
+type gatewayPrivateEndpoint1PropertiesPtrType GatewayPrivateEndpoint1PropertiesArgs
+
+func GatewayPrivateEndpoint1PropertiesPtr(v *GatewayPrivateEndpoint1PropertiesArgs) GatewayPrivateEndpoint1PropertiesPtrInput {
+	return (*gatewayPrivateEndpoint1PropertiesPtrType)(v)
+}
+
+func (*gatewayPrivateEndpoint1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (i *gatewayPrivateEndpoint1PropertiesPtrType) ToGatewayPrivateEndpoint1PropertiesPtrOutput() GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return i.ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayPrivateEndpoint1PropertiesPtrType) ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPrivateEndpoint1PropertiesPtrOutput)
+}
+
+type GatewayPrivateEndpoint1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayPrivateEndpoint1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (o GatewayPrivateEndpoint1PropertiesOutput) ToGatewayPrivateEndpoint1PropertiesOutput() GatewayPrivateEndpoint1PropertiesOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint1PropertiesOutput) ToGatewayPrivateEndpoint1PropertiesOutputWithContext(ctx context.Context) GatewayPrivateEndpoint1PropertiesOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint1PropertiesOutput) ToGatewayPrivateEndpoint1PropertiesPtrOutput() GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return o.ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayPrivateEndpoint1PropertiesOutput) ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayPrivateEndpoint1Properties) *GatewayPrivateEndpoint1Properties {
+		return &v
+	}).(GatewayPrivateEndpoint1PropertiesPtrOutput)
+}
+
+func (o GatewayPrivateEndpoint1PropertiesOutput) ManagedVpcResource() GatewayManagedVpcResourceOutput {
+	return o.ApplyT(func(v GatewayPrivateEndpoint1Properties) GatewayManagedVpcResource { return v.ManagedVpcResource }).(GatewayManagedVpcResourceOutput)
+}
+
+type GatewayPrivateEndpoint1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayPrivateEndpoint1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPrivateEndpoint1Properties)(nil)).Elem()
+}
+
+func (o GatewayPrivateEndpoint1PropertiesPtrOutput) ToGatewayPrivateEndpoint1PropertiesPtrOutput() GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint1PropertiesPtrOutput) ToGatewayPrivateEndpoint1PropertiesPtrOutputWithContext(ctx context.Context) GatewayPrivateEndpoint1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayPrivateEndpoint1PropertiesPtrOutput) Elem() GatewayPrivateEndpoint1PropertiesOutput {
+	return o.ApplyT(func(v *GatewayPrivateEndpoint1Properties) GatewayPrivateEndpoint1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayPrivateEndpoint1Properties
+		return ret
+	}).(GatewayPrivateEndpoint1PropertiesOutput)
+}
+
+func (o GatewayPrivateEndpoint1PropertiesPtrOutput) ManagedVpcResource() GatewayManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v *GatewayPrivateEndpoint1Properties) *GatewayManagedVpcResource {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagedVpcResource
+	}).(GatewayManagedVpcResourcePtrOutput)
 }
 
 type GatewayProtocolConfiguration0Properties struct {
@@ -5121,8 +8214,1514 @@ func (o GatewayProtocolConfigurationPropertiesPtrOutput) Mcp() GatewayMcpGateway
 	}).(GatewayMcpGatewayConfigurationPtrOutput)
 }
 
+// A single rule entry within a limit, mapping dimension values to rate configurations
+type GatewayRateLimitLimitEntry struct {
+	// Connection rate limits (per second only). Limited to 1 entry for now. — P2
+	Connections []GatewayRateLimitRateConfig `pulumi:"connections"`
+	Dimensions  map[string]string            `pulumi:"dimensions"`
+	// Request rate limits (RPS or RPM). Limited to 1 entry for now.
+	Requests []GatewayRateLimitRateConfig `pulumi:"requests"`
+	// Token rate limits (TPM). Limited to 1 entry for now. — P1
+	Tokens []GatewayRateLimitRateConfig `pulumi:"tokens"`
+}
+
+// GatewayRateLimitLimitEntryInput is an input type that accepts GatewayRateLimitLimitEntryArgs and GatewayRateLimitLimitEntryOutput values.
+// You can construct a concrete instance of `GatewayRateLimitLimitEntryInput` via:
+//
+//	GatewayRateLimitLimitEntryArgs{...}
+type GatewayRateLimitLimitEntryInput interface {
+	pulumi.Input
+
+	ToGatewayRateLimitLimitEntryOutput() GatewayRateLimitLimitEntryOutput
+	ToGatewayRateLimitLimitEntryOutputWithContext(context.Context) GatewayRateLimitLimitEntryOutput
+}
+
+// A single rule entry within a limit, mapping dimension values to rate configurations
+type GatewayRateLimitLimitEntryArgs struct {
+	// Connection rate limits (per second only). Limited to 1 entry for now. — P2
+	Connections GatewayRateLimitRateConfigArrayInput `pulumi:"connections"`
+	Dimensions  pulumi.StringMapInput                `pulumi:"dimensions"`
+	// Request rate limits (RPS or RPM). Limited to 1 entry for now.
+	Requests GatewayRateLimitRateConfigArrayInput `pulumi:"requests"`
+	// Token rate limits (TPM). Limited to 1 entry for now. — P1
+	Tokens GatewayRateLimitRateConfigArrayInput `pulumi:"tokens"`
+}
+
+func (GatewayRateLimitLimitEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRateLimitLimitEntry)(nil)).Elem()
+}
+
+func (i GatewayRateLimitLimitEntryArgs) ToGatewayRateLimitLimitEntryOutput() GatewayRateLimitLimitEntryOutput {
+	return i.ToGatewayRateLimitLimitEntryOutputWithContext(context.Background())
+}
+
+func (i GatewayRateLimitLimitEntryArgs) ToGatewayRateLimitLimitEntryOutputWithContext(ctx context.Context) GatewayRateLimitLimitEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRateLimitLimitEntryOutput)
+}
+
+// GatewayRateLimitLimitEntryArrayInput is an input type that accepts GatewayRateLimitLimitEntryArray and GatewayRateLimitLimitEntryArrayOutput values.
+// You can construct a concrete instance of `GatewayRateLimitLimitEntryArrayInput` via:
+//
+//	GatewayRateLimitLimitEntryArray{ GatewayRateLimitLimitEntryArgs{...} }
+type GatewayRateLimitLimitEntryArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRateLimitLimitEntryArrayOutput() GatewayRateLimitLimitEntryArrayOutput
+	ToGatewayRateLimitLimitEntryArrayOutputWithContext(context.Context) GatewayRateLimitLimitEntryArrayOutput
+}
+
+type GatewayRateLimitLimitEntryArray []GatewayRateLimitLimitEntryInput
+
+func (GatewayRateLimitLimitEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRateLimitLimitEntry)(nil)).Elem()
+}
+
+func (i GatewayRateLimitLimitEntryArray) ToGatewayRateLimitLimitEntryArrayOutput() GatewayRateLimitLimitEntryArrayOutput {
+	return i.ToGatewayRateLimitLimitEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRateLimitLimitEntryArray) ToGatewayRateLimitLimitEntryArrayOutputWithContext(ctx context.Context) GatewayRateLimitLimitEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRateLimitLimitEntryArrayOutput)
+}
+
+// A single rule entry within a limit, mapping dimension values to rate configurations
+type GatewayRateLimitLimitEntryOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitLimitEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRateLimitLimitEntry)(nil)).Elem()
+}
+
+func (o GatewayRateLimitLimitEntryOutput) ToGatewayRateLimitLimitEntryOutput() GatewayRateLimitLimitEntryOutput {
+	return o
+}
+
+func (o GatewayRateLimitLimitEntryOutput) ToGatewayRateLimitLimitEntryOutputWithContext(ctx context.Context) GatewayRateLimitLimitEntryOutput {
+	return o
+}
+
+// Connection rate limits (per second only). Limited to 1 entry for now. — P2
+func (o GatewayRateLimitLimitEntryOutput) Connections() GatewayRateLimitRateConfigArrayOutput {
+	return o.ApplyT(func(v GatewayRateLimitLimitEntry) []GatewayRateLimitRateConfig { return v.Connections }).(GatewayRateLimitRateConfigArrayOutput)
+}
+
+func (o GatewayRateLimitLimitEntryOutput) Dimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GatewayRateLimitLimitEntry) map[string]string { return v.Dimensions }).(pulumi.StringMapOutput)
+}
+
+// Request rate limits (RPS or RPM). Limited to 1 entry for now.
+func (o GatewayRateLimitLimitEntryOutput) Requests() GatewayRateLimitRateConfigArrayOutput {
+	return o.ApplyT(func(v GatewayRateLimitLimitEntry) []GatewayRateLimitRateConfig { return v.Requests }).(GatewayRateLimitRateConfigArrayOutput)
+}
+
+// Token rate limits (TPM). Limited to 1 entry for now. — P1
+func (o GatewayRateLimitLimitEntryOutput) Tokens() GatewayRateLimitRateConfigArrayOutput {
+	return o.ApplyT(func(v GatewayRateLimitLimitEntry) []GatewayRateLimitRateConfig { return v.Tokens }).(GatewayRateLimitRateConfigArrayOutput)
+}
+
+type GatewayRateLimitLimitEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitLimitEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRateLimitLimitEntry)(nil)).Elem()
+}
+
+func (o GatewayRateLimitLimitEntryArrayOutput) ToGatewayRateLimitLimitEntryArrayOutput() GatewayRateLimitLimitEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRateLimitLimitEntryArrayOutput) ToGatewayRateLimitLimitEntryArrayOutputWithContext(ctx context.Context) GatewayRateLimitLimitEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRateLimitLimitEntryArrayOutput) Index(i pulumi.IntInput) GatewayRateLimitLimitEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRateLimitLimitEntry {
+		return vs[0].([]GatewayRateLimitLimitEntry)[vs[1].(int)]
+	}).(GatewayRateLimitLimitEntryOutput)
+}
+
+// Rate configuration for a metric (requests or tokens)
+type GatewayRateLimitRateConfig struct {
+	Period GatewayRateLimitPeriod `pulumi:"period"`
+	Rate   float64                `pulumi:"rate"`
+}
+
+// GatewayRateLimitRateConfigInput is an input type that accepts GatewayRateLimitRateConfigArgs and GatewayRateLimitRateConfigOutput values.
+// You can construct a concrete instance of `GatewayRateLimitRateConfigInput` via:
+//
+//	GatewayRateLimitRateConfigArgs{...}
+type GatewayRateLimitRateConfigInput interface {
+	pulumi.Input
+
+	ToGatewayRateLimitRateConfigOutput() GatewayRateLimitRateConfigOutput
+	ToGatewayRateLimitRateConfigOutputWithContext(context.Context) GatewayRateLimitRateConfigOutput
+}
+
+// Rate configuration for a metric (requests or tokens)
+type GatewayRateLimitRateConfigArgs struct {
+	Period GatewayRateLimitPeriodInput `pulumi:"period"`
+	Rate   pulumi.Float64Input         `pulumi:"rate"`
+}
+
+func (GatewayRateLimitRateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRateLimitRateConfig)(nil)).Elem()
+}
+
+func (i GatewayRateLimitRateConfigArgs) ToGatewayRateLimitRateConfigOutput() GatewayRateLimitRateConfigOutput {
+	return i.ToGatewayRateLimitRateConfigOutputWithContext(context.Background())
+}
+
+func (i GatewayRateLimitRateConfigArgs) ToGatewayRateLimitRateConfigOutputWithContext(ctx context.Context) GatewayRateLimitRateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRateLimitRateConfigOutput)
+}
+
+// GatewayRateLimitRateConfigArrayInput is an input type that accepts GatewayRateLimitRateConfigArray and GatewayRateLimitRateConfigArrayOutput values.
+// You can construct a concrete instance of `GatewayRateLimitRateConfigArrayInput` via:
+//
+//	GatewayRateLimitRateConfigArray{ GatewayRateLimitRateConfigArgs{...} }
+type GatewayRateLimitRateConfigArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRateLimitRateConfigArrayOutput() GatewayRateLimitRateConfigArrayOutput
+	ToGatewayRateLimitRateConfigArrayOutputWithContext(context.Context) GatewayRateLimitRateConfigArrayOutput
+}
+
+type GatewayRateLimitRateConfigArray []GatewayRateLimitRateConfigInput
+
+func (GatewayRateLimitRateConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRateLimitRateConfig)(nil)).Elem()
+}
+
+func (i GatewayRateLimitRateConfigArray) ToGatewayRateLimitRateConfigArrayOutput() GatewayRateLimitRateConfigArrayOutput {
+	return i.ToGatewayRateLimitRateConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRateLimitRateConfigArray) ToGatewayRateLimitRateConfigArrayOutputWithContext(ctx context.Context) GatewayRateLimitRateConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRateLimitRateConfigArrayOutput)
+}
+
+// Rate configuration for a metric (requests or tokens)
+type GatewayRateLimitRateConfigOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitRateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRateLimitRateConfig)(nil)).Elem()
+}
+
+func (o GatewayRateLimitRateConfigOutput) ToGatewayRateLimitRateConfigOutput() GatewayRateLimitRateConfigOutput {
+	return o
+}
+
+func (o GatewayRateLimitRateConfigOutput) ToGatewayRateLimitRateConfigOutputWithContext(ctx context.Context) GatewayRateLimitRateConfigOutput {
+	return o
+}
+
+func (o GatewayRateLimitRateConfigOutput) Period() GatewayRateLimitPeriodOutput {
+	return o.ApplyT(func(v GatewayRateLimitRateConfig) GatewayRateLimitPeriod { return v.Period }).(GatewayRateLimitPeriodOutput)
+}
+
+func (o GatewayRateLimitRateConfigOutput) Rate() pulumi.Float64Output {
+	return o.ApplyT(func(v GatewayRateLimitRateConfig) float64 { return v.Rate }).(pulumi.Float64Output)
+}
+
+type GatewayRateLimitRateConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRateLimitRateConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRateLimitRateConfig)(nil)).Elem()
+}
+
+func (o GatewayRateLimitRateConfigArrayOutput) ToGatewayRateLimitRateConfigArrayOutput() GatewayRateLimitRateConfigArrayOutput {
+	return o
+}
+
+func (o GatewayRateLimitRateConfigArrayOutput) ToGatewayRateLimitRateConfigArrayOutputWithContext(ctx context.Context) GatewayRateLimitRateConfigArrayOutput {
+	return o
+}
+
+func (o GatewayRateLimitRateConfigArrayOutput) Index(i pulumi.IntInput) GatewayRateLimitRateConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRateLimitRateConfig {
+		return vs[0].([]GatewayRateLimitRateConfig)[vs[1].(int)]
+	}).(GatewayRateLimitRateConfigOutput)
+}
+
+type GatewayRuleAction0Properties struct {
+	ConfigurationBundle interface{} `pulumi:"configurationBundle"`
+}
+
+// GatewayRuleAction0PropertiesInput is an input type that accepts GatewayRuleAction0PropertiesArgs and GatewayRuleAction0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleAction0PropertiesInput` via:
+//
+//	GatewayRuleAction0PropertiesArgs{...}
+type GatewayRuleAction0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleAction0PropertiesOutput() GatewayRuleAction0PropertiesOutput
+	ToGatewayRuleAction0PropertiesOutputWithContext(context.Context) GatewayRuleAction0PropertiesOutput
+}
+
+type GatewayRuleAction0PropertiesArgs struct {
+	ConfigurationBundle pulumi.Input `pulumi:"configurationBundle"`
+}
+
+func (GatewayRuleAction0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleAction0Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleAction0PropertiesArgs) ToGatewayRuleAction0PropertiesOutput() GatewayRuleAction0PropertiesOutput {
+	return i.ToGatewayRuleAction0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleAction0PropertiesArgs) ToGatewayRuleAction0PropertiesOutputWithContext(ctx context.Context) GatewayRuleAction0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleAction0PropertiesOutput)
+}
+
+type GatewayRuleAction0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleAction0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleAction0Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleAction0PropertiesOutput) ToGatewayRuleAction0PropertiesOutput() GatewayRuleAction0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleAction0PropertiesOutput) ToGatewayRuleAction0PropertiesOutputWithContext(ctx context.Context) GatewayRuleAction0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleAction0PropertiesOutput) ConfigurationBundle() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayRuleAction0Properties) interface{} { return v.ConfigurationBundle }).(pulumi.AnyOutput)
+}
+
+type GatewayRuleAction1Properties struct {
+	RouteToTarget interface{} `pulumi:"routeToTarget"`
+}
+
+// GatewayRuleAction1PropertiesInput is an input type that accepts GatewayRuleAction1PropertiesArgs and GatewayRuleAction1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleAction1PropertiesInput` via:
+//
+//	GatewayRuleAction1PropertiesArgs{...}
+type GatewayRuleAction1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleAction1PropertiesOutput() GatewayRuleAction1PropertiesOutput
+	ToGatewayRuleAction1PropertiesOutputWithContext(context.Context) GatewayRuleAction1PropertiesOutput
+}
+
+type GatewayRuleAction1PropertiesArgs struct {
+	RouteToTarget pulumi.Input `pulumi:"routeToTarget"`
+}
+
+func (GatewayRuleAction1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleAction1Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleAction1PropertiesArgs) ToGatewayRuleAction1PropertiesOutput() GatewayRuleAction1PropertiesOutput {
+	return i.ToGatewayRuleAction1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleAction1PropertiesArgs) ToGatewayRuleAction1PropertiesOutputWithContext(ctx context.Context) GatewayRuleAction1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleAction1PropertiesOutput)
+}
+
+type GatewayRuleAction1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleAction1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleAction1Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleAction1PropertiesOutput) ToGatewayRuleAction1PropertiesOutput() GatewayRuleAction1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleAction1PropertiesOutput) ToGatewayRuleAction1PropertiesOutputWithContext(ctx context.Context) GatewayRuleAction1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleAction1PropertiesOutput) RouteToTarget() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayRuleAction1Properties) interface{} { return v.RouteToTarget }).(pulumi.AnyOutput)
+}
+
+type GatewayRuleCondition0Properties struct {
+	MatchPrincipals GatewayRuleMatchPrincipals `pulumi:"matchPrincipals"`
+}
+
+// GatewayRuleCondition0PropertiesInput is an input type that accepts GatewayRuleCondition0PropertiesArgs and GatewayRuleCondition0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleCondition0PropertiesInput` via:
+//
+//	GatewayRuleCondition0PropertiesArgs{...}
+type GatewayRuleCondition0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleCondition0PropertiesOutput() GatewayRuleCondition0PropertiesOutput
+	ToGatewayRuleCondition0PropertiesOutputWithContext(context.Context) GatewayRuleCondition0PropertiesOutput
+}
+
+type GatewayRuleCondition0PropertiesArgs struct {
+	MatchPrincipals GatewayRuleMatchPrincipalsInput `pulumi:"matchPrincipals"`
+}
+
+func (GatewayRuleCondition0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCondition0Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleCondition0PropertiesArgs) ToGatewayRuleCondition0PropertiesOutput() GatewayRuleCondition0PropertiesOutput {
+	return i.ToGatewayRuleCondition0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleCondition0PropertiesArgs) ToGatewayRuleCondition0PropertiesOutputWithContext(ctx context.Context) GatewayRuleCondition0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleCondition0PropertiesOutput)
+}
+
+type GatewayRuleCondition0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleCondition0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCondition0Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleCondition0PropertiesOutput) ToGatewayRuleCondition0PropertiesOutput() GatewayRuleCondition0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleCondition0PropertiesOutput) ToGatewayRuleCondition0PropertiesOutputWithContext(ctx context.Context) GatewayRuleCondition0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleCondition0PropertiesOutput) MatchPrincipals() GatewayRuleMatchPrincipalsOutput {
+	return o.ApplyT(func(v GatewayRuleCondition0Properties) GatewayRuleMatchPrincipals { return v.MatchPrincipals }).(GatewayRuleMatchPrincipalsOutput)
+}
+
+type GatewayRuleCondition1Properties struct {
+	MatchPaths GatewayRuleMatchPaths `pulumi:"matchPaths"`
+}
+
+// GatewayRuleCondition1PropertiesInput is an input type that accepts GatewayRuleCondition1PropertiesArgs and GatewayRuleCondition1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleCondition1PropertiesInput` via:
+//
+//	GatewayRuleCondition1PropertiesArgs{...}
+type GatewayRuleCondition1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleCondition1PropertiesOutput() GatewayRuleCondition1PropertiesOutput
+	ToGatewayRuleCondition1PropertiesOutputWithContext(context.Context) GatewayRuleCondition1PropertiesOutput
+}
+
+type GatewayRuleCondition1PropertiesArgs struct {
+	MatchPaths GatewayRuleMatchPathsInput `pulumi:"matchPaths"`
+}
+
+func (GatewayRuleCondition1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCondition1Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleCondition1PropertiesArgs) ToGatewayRuleCondition1PropertiesOutput() GatewayRuleCondition1PropertiesOutput {
+	return i.ToGatewayRuleCondition1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleCondition1PropertiesArgs) ToGatewayRuleCondition1PropertiesOutputWithContext(ctx context.Context) GatewayRuleCondition1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleCondition1PropertiesOutput)
+}
+
+type GatewayRuleCondition1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleCondition1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleCondition1Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleCondition1PropertiesOutput) ToGatewayRuleCondition1PropertiesOutput() GatewayRuleCondition1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleCondition1PropertiesOutput) ToGatewayRuleCondition1PropertiesOutputWithContext(ctx context.Context) GatewayRuleCondition1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleCondition1PropertiesOutput) MatchPaths() GatewayRuleMatchPathsOutput {
+	return o.ApplyT(func(v GatewayRuleCondition1Properties) GatewayRuleMatchPaths { return v.MatchPaths }).(GatewayRuleMatchPathsOutput)
+}
+
+type GatewayRuleConfigurationBundleAction0Properties struct {
+	StaticOverride GatewayRuleStaticOverride `pulumi:"staticOverride"`
+}
+
+// GatewayRuleConfigurationBundleAction0PropertiesInput is an input type that accepts GatewayRuleConfigurationBundleAction0PropertiesArgs and GatewayRuleConfigurationBundleAction0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleConfigurationBundleAction0PropertiesInput` via:
+//
+//	GatewayRuleConfigurationBundleAction0PropertiesArgs{...}
+type GatewayRuleConfigurationBundleAction0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleConfigurationBundleAction0PropertiesOutput() GatewayRuleConfigurationBundleAction0PropertiesOutput
+	ToGatewayRuleConfigurationBundleAction0PropertiesOutputWithContext(context.Context) GatewayRuleConfigurationBundleAction0PropertiesOutput
+}
+
+type GatewayRuleConfigurationBundleAction0PropertiesArgs struct {
+	StaticOverride GatewayRuleStaticOverrideInput `pulumi:"staticOverride"`
+}
+
+func (GatewayRuleConfigurationBundleAction0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleConfigurationBundleAction0Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleConfigurationBundleAction0PropertiesArgs) ToGatewayRuleConfigurationBundleAction0PropertiesOutput() GatewayRuleConfigurationBundleAction0PropertiesOutput {
+	return i.ToGatewayRuleConfigurationBundleAction0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleConfigurationBundleAction0PropertiesArgs) ToGatewayRuleConfigurationBundleAction0PropertiesOutputWithContext(ctx context.Context) GatewayRuleConfigurationBundleAction0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleConfigurationBundleAction0PropertiesOutput)
+}
+
+type GatewayRuleConfigurationBundleAction0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleConfigurationBundleAction0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleConfigurationBundleAction0Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleConfigurationBundleAction0PropertiesOutput) ToGatewayRuleConfigurationBundleAction0PropertiesOutput() GatewayRuleConfigurationBundleAction0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleConfigurationBundleAction0PropertiesOutput) ToGatewayRuleConfigurationBundleAction0PropertiesOutputWithContext(ctx context.Context) GatewayRuleConfigurationBundleAction0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleConfigurationBundleAction0PropertiesOutput) StaticOverride() GatewayRuleStaticOverrideOutput {
+	return o.ApplyT(func(v GatewayRuleConfigurationBundleAction0Properties) GatewayRuleStaticOverride {
+		return v.StaticOverride
+	}).(GatewayRuleStaticOverrideOutput)
+}
+
+type GatewayRuleConfigurationBundleAction1Properties struct {
+	WeightedOverride GatewayRuleWeightedOverride `pulumi:"weightedOverride"`
+}
+
+// GatewayRuleConfigurationBundleAction1PropertiesInput is an input type that accepts GatewayRuleConfigurationBundleAction1PropertiesArgs and GatewayRuleConfigurationBundleAction1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleConfigurationBundleAction1PropertiesInput` via:
+//
+//	GatewayRuleConfigurationBundleAction1PropertiesArgs{...}
+type GatewayRuleConfigurationBundleAction1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleConfigurationBundleAction1PropertiesOutput() GatewayRuleConfigurationBundleAction1PropertiesOutput
+	ToGatewayRuleConfigurationBundleAction1PropertiesOutputWithContext(context.Context) GatewayRuleConfigurationBundleAction1PropertiesOutput
+}
+
+type GatewayRuleConfigurationBundleAction1PropertiesArgs struct {
+	WeightedOverride GatewayRuleWeightedOverrideInput `pulumi:"weightedOverride"`
+}
+
+func (GatewayRuleConfigurationBundleAction1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleConfigurationBundleAction1Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleConfigurationBundleAction1PropertiesArgs) ToGatewayRuleConfigurationBundleAction1PropertiesOutput() GatewayRuleConfigurationBundleAction1PropertiesOutput {
+	return i.ToGatewayRuleConfigurationBundleAction1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleConfigurationBundleAction1PropertiesArgs) ToGatewayRuleConfigurationBundleAction1PropertiesOutputWithContext(ctx context.Context) GatewayRuleConfigurationBundleAction1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleConfigurationBundleAction1PropertiesOutput)
+}
+
+type GatewayRuleConfigurationBundleAction1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleConfigurationBundleAction1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleConfigurationBundleAction1Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleConfigurationBundleAction1PropertiesOutput) ToGatewayRuleConfigurationBundleAction1PropertiesOutput() GatewayRuleConfigurationBundleAction1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleConfigurationBundleAction1PropertiesOutput) ToGatewayRuleConfigurationBundleAction1PropertiesOutputWithContext(ctx context.Context) GatewayRuleConfigurationBundleAction1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleConfigurationBundleAction1PropertiesOutput) WeightedOverride() GatewayRuleWeightedOverrideOutput {
+	return o.ApplyT(func(v GatewayRuleConfigurationBundleAction1Properties) GatewayRuleWeightedOverride {
+		return v.WeightedOverride
+	}).(GatewayRuleWeightedOverrideOutput)
+}
+
+type GatewayRuleConfigurationBundleReference struct {
+	BundleArn     string `pulumi:"bundleArn"`
+	BundleVersion string `pulumi:"bundleVersion"`
+}
+
+// GatewayRuleConfigurationBundleReferenceInput is an input type that accepts GatewayRuleConfigurationBundleReferenceArgs and GatewayRuleConfigurationBundleReferenceOutput values.
+// You can construct a concrete instance of `GatewayRuleConfigurationBundleReferenceInput` via:
+//
+//	GatewayRuleConfigurationBundleReferenceArgs{...}
+type GatewayRuleConfigurationBundleReferenceInput interface {
+	pulumi.Input
+
+	ToGatewayRuleConfigurationBundleReferenceOutput() GatewayRuleConfigurationBundleReferenceOutput
+	ToGatewayRuleConfigurationBundleReferenceOutputWithContext(context.Context) GatewayRuleConfigurationBundleReferenceOutput
+}
+
+type GatewayRuleConfigurationBundleReferenceArgs struct {
+	BundleArn     pulumi.StringInput `pulumi:"bundleArn"`
+	BundleVersion pulumi.StringInput `pulumi:"bundleVersion"`
+}
+
+func (GatewayRuleConfigurationBundleReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleConfigurationBundleReference)(nil)).Elem()
+}
+
+func (i GatewayRuleConfigurationBundleReferenceArgs) ToGatewayRuleConfigurationBundleReferenceOutput() GatewayRuleConfigurationBundleReferenceOutput {
+	return i.ToGatewayRuleConfigurationBundleReferenceOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleConfigurationBundleReferenceArgs) ToGatewayRuleConfigurationBundleReferenceOutputWithContext(ctx context.Context) GatewayRuleConfigurationBundleReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleConfigurationBundleReferenceOutput)
+}
+
+type GatewayRuleConfigurationBundleReferenceOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleConfigurationBundleReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleConfigurationBundleReference)(nil)).Elem()
+}
+
+func (o GatewayRuleConfigurationBundleReferenceOutput) ToGatewayRuleConfigurationBundleReferenceOutput() GatewayRuleConfigurationBundleReferenceOutput {
+	return o
+}
+
+func (o GatewayRuleConfigurationBundleReferenceOutput) ToGatewayRuleConfigurationBundleReferenceOutputWithContext(ctx context.Context) GatewayRuleConfigurationBundleReferenceOutput {
+	return o
+}
+
+func (o GatewayRuleConfigurationBundleReferenceOutput) BundleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleConfigurationBundleReference) string { return v.BundleArn }).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleConfigurationBundleReferenceOutput) BundleVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleConfigurationBundleReference) string { return v.BundleVersion }).(pulumi.StringOutput)
+}
+
+type GatewayRuleIamPrincipal struct {
+	Arn      string                             `pulumi:"arn"`
+	Operator *GatewayRulePrincipalMatchOperator `pulumi:"operator"`
+}
+
+// GatewayRuleIamPrincipalInput is an input type that accepts GatewayRuleIamPrincipalArgs and GatewayRuleIamPrincipalOutput values.
+// You can construct a concrete instance of `GatewayRuleIamPrincipalInput` via:
+//
+//	GatewayRuleIamPrincipalArgs{...}
+type GatewayRuleIamPrincipalInput interface {
+	pulumi.Input
+
+	ToGatewayRuleIamPrincipalOutput() GatewayRuleIamPrincipalOutput
+	ToGatewayRuleIamPrincipalOutputWithContext(context.Context) GatewayRuleIamPrincipalOutput
+}
+
+type GatewayRuleIamPrincipalArgs struct {
+	Arn      pulumi.StringInput                        `pulumi:"arn"`
+	Operator GatewayRulePrincipalMatchOperatorPtrInput `pulumi:"operator"`
+}
+
+func (GatewayRuleIamPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleIamPrincipal)(nil)).Elem()
+}
+
+func (i GatewayRuleIamPrincipalArgs) ToGatewayRuleIamPrincipalOutput() GatewayRuleIamPrincipalOutput {
+	return i.ToGatewayRuleIamPrincipalOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleIamPrincipalArgs) ToGatewayRuleIamPrincipalOutputWithContext(ctx context.Context) GatewayRuleIamPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleIamPrincipalOutput)
+}
+
+type GatewayRuleIamPrincipalOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleIamPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleIamPrincipal)(nil)).Elem()
+}
+
+func (o GatewayRuleIamPrincipalOutput) ToGatewayRuleIamPrincipalOutput() GatewayRuleIamPrincipalOutput {
+	return o
+}
+
+func (o GatewayRuleIamPrincipalOutput) ToGatewayRuleIamPrincipalOutputWithContext(ctx context.Context) GatewayRuleIamPrincipalOutput {
+	return o
+}
+
+func (o GatewayRuleIamPrincipalOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleIamPrincipal) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleIamPrincipalOutput) Operator() GatewayRulePrincipalMatchOperatorPtrOutput {
+	return o.ApplyT(func(v GatewayRuleIamPrincipal) *GatewayRulePrincipalMatchOperator { return v.Operator }).(GatewayRulePrincipalMatchOperatorPtrOutput)
+}
+
+type GatewayRuleMatchPaths struct {
+	AnyOf []string `pulumi:"anyOf"`
+}
+
+// GatewayRuleMatchPathsInput is an input type that accepts GatewayRuleMatchPathsArgs and GatewayRuleMatchPathsOutput values.
+// You can construct a concrete instance of `GatewayRuleMatchPathsInput` via:
+//
+//	GatewayRuleMatchPathsArgs{...}
+type GatewayRuleMatchPathsInput interface {
+	pulumi.Input
+
+	ToGatewayRuleMatchPathsOutput() GatewayRuleMatchPathsOutput
+	ToGatewayRuleMatchPathsOutputWithContext(context.Context) GatewayRuleMatchPathsOutput
+}
+
+type GatewayRuleMatchPathsArgs struct {
+	AnyOf pulumi.StringArrayInput `pulumi:"anyOf"`
+}
+
+func (GatewayRuleMatchPathsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchPaths)(nil)).Elem()
+}
+
+func (i GatewayRuleMatchPathsArgs) ToGatewayRuleMatchPathsOutput() GatewayRuleMatchPathsOutput {
+	return i.ToGatewayRuleMatchPathsOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleMatchPathsArgs) ToGatewayRuleMatchPathsOutputWithContext(ctx context.Context) GatewayRuleMatchPathsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleMatchPathsOutput)
+}
+
+type GatewayRuleMatchPathsOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleMatchPathsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchPaths)(nil)).Elem()
+}
+
+func (o GatewayRuleMatchPathsOutput) ToGatewayRuleMatchPathsOutput() GatewayRuleMatchPathsOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPathsOutput) ToGatewayRuleMatchPathsOutputWithContext(ctx context.Context) GatewayRuleMatchPathsOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPathsOutput) AnyOf() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayRuleMatchPaths) []string { return v.AnyOf }).(pulumi.StringArrayOutput)
+}
+
+type GatewayRuleMatchPrincipalEntry0Properties struct {
+	IamPrincipal GatewayRuleIamPrincipal `pulumi:"iamPrincipal"`
+}
+
+type GatewayRuleMatchPrincipalEntryProperties struct {
+	IamPrincipal GatewayRuleIamPrincipal `pulumi:"iamPrincipal"`
+}
+
+// GatewayRuleMatchPrincipalEntryPropertiesInput is an input type that accepts GatewayRuleMatchPrincipalEntryPropertiesArgs and GatewayRuleMatchPrincipalEntryPropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleMatchPrincipalEntryPropertiesInput` via:
+//
+//	GatewayRuleMatchPrincipalEntryPropertiesArgs{...}
+type GatewayRuleMatchPrincipalEntryPropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleMatchPrincipalEntryPropertiesOutput() GatewayRuleMatchPrincipalEntryPropertiesOutput
+	ToGatewayRuleMatchPrincipalEntryPropertiesOutputWithContext(context.Context) GatewayRuleMatchPrincipalEntryPropertiesOutput
+}
+
+type GatewayRuleMatchPrincipalEntryPropertiesArgs struct {
+	IamPrincipal GatewayRuleIamPrincipalInput `pulumi:"iamPrincipal"`
+}
+
+func (GatewayRuleMatchPrincipalEntryPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchPrincipalEntryProperties)(nil)).Elem()
+}
+
+func (i GatewayRuleMatchPrincipalEntryPropertiesArgs) ToGatewayRuleMatchPrincipalEntryPropertiesOutput() GatewayRuleMatchPrincipalEntryPropertiesOutput {
+	return i.ToGatewayRuleMatchPrincipalEntryPropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleMatchPrincipalEntryPropertiesArgs) ToGatewayRuleMatchPrincipalEntryPropertiesOutputWithContext(ctx context.Context) GatewayRuleMatchPrincipalEntryPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleMatchPrincipalEntryPropertiesOutput)
+}
+
+// GatewayRuleMatchPrincipalEntryPropertiesArrayInput is an input type that accepts GatewayRuleMatchPrincipalEntryPropertiesArray and GatewayRuleMatchPrincipalEntryPropertiesArrayOutput values.
+// You can construct a concrete instance of `GatewayRuleMatchPrincipalEntryPropertiesArrayInput` via:
+//
+//	GatewayRuleMatchPrincipalEntryPropertiesArray{ GatewayRuleMatchPrincipalEntryPropertiesArgs{...} }
+type GatewayRuleMatchPrincipalEntryPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRuleMatchPrincipalEntryPropertiesArrayOutput() GatewayRuleMatchPrincipalEntryPropertiesArrayOutput
+	ToGatewayRuleMatchPrincipalEntryPropertiesArrayOutputWithContext(context.Context) GatewayRuleMatchPrincipalEntryPropertiesArrayOutput
+}
+
+type GatewayRuleMatchPrincipalEntryPropertiesArray []GatewayRuleMatchPrincipalEntryPropertiesInput
+
+func (GatewayRuleMatchPrincipalEntryPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleMatchPrincipalEntryProperties)(nil)).Elem()
+}
+
+func (i GatewayRuleMatchPrincipalEntryPropertiesArray) ToGatewayRuleMatchPrincipalEntryPropertiesArrayOutput() GatewayRuleMatchPrincipalEntryPropertiesArrayOutput {
+	return i.ToGatewayRuleMatchPrincipalEntryPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleMatchPrincipalEntryPropertiesArray) ToGatewayRuleMatchPrincipalEntryPropertiesArrayOutputWithContext(ctx context.Context) GatewayRuleMatchPrincipalEntryPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleMatchPrincipalEntryPropertiesArrayOutput)
+}
+
+type GatewayRuleMatchPrincipalEntryPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleMatchPrincipalEntryPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchPrincipalEntryProperties)(nil)).Elem()
+}
+
+func (o GatewayRuleMatchPrincipalEntryPropertiesOutput) ToGatewayRuleMatchPrincipalEntryPropertiesOutput() GatewayRuleMatchPrincipalEntryPropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPrincipalEntryPropertiesOutput) ToGatewayRuleMatchPrincipalEntryPropertiesOutputWithContext(ctx context.Context) GatewayRuleMatchPrincipalEntryPropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPrincipalEntryPropertiesOutput) IamPrincipal() GatewayRuleIamPrincipalOutput {
+	return o.ApplyT(func(v GatewayRuleMatchPrincipalEntryProperties) GatewayRuleIamPrincipal { return v.IamPrincipal }).(GatewayRuleIamPrincipalOutput)
+}
+
+type GatewayRuleMatchPrincipalEntryPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleMatchPrincipalEntryPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleMatchPrincipalEntryProperties)(nil)).Elem()
+}
+
+func (o GatewayRuleMatchPrincipalEntryPropertiesArrayOutput) ToGatewayRuleMatchPrincipalEntryPropertiesArrayOutput() GatewayRuleMatchPrincipalEntryPropertiesArrayOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPrincipalEntryPropertiesArrayOutput) ToGatewayRuleMatchPrincipalEntryPropertiesArrayOutputWithContext(ctx context.Context) GatewayRuleMatchPrincipalEntryPropertiesArrayOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPrincipalEntryPropertiesArrayOutput) Index(i pulumi.IntInput) GatewayRuleMatchPrincipalEntryPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRuleMatchPrincipalEntryProperties {
+		return vs[0].([]GatewayRuleMatchPrincipalEntryProperties)[vs[1].(int)]
+	}).(GatewayRuleMatchPrincipalEntryPropertiesOutput)
+}
+
+type GatewayRuleMatchPrincipals struct {
+	AnyOf []GatewayRuleMatchPrincipalEntryProperties `pulumi:"anyOf"`
+}
+
+// GatewayRuleMatchPrincipalsInput is an input type that accepts GatewayRuleMatchPrincipalsArgs and GatewayRuleMatchPrincipalsOutput values.
+// You can construct a concrete instance of `GatewayRuleMatchPrincipalsInput` via:
+//
+//	GatewayRuleMatchPrincipalsArgs{...}
+type GatewayRuleMatchPrincipalsInput interface {
+	pulumi.Input
+
+	ToGatewayRuleMatchPrincipalsOutput() GatewayRuleMatchPrincipalsOutput
+	ToGatewayRuleMatchPrincipalsOutputWithContext(context.Context) GatewayRuleMatchPrincipalsOutput
+}
+
+type GatewayRuleMatchPrincipalsArgs struct {
+	AnyOf GatewayRuleMatchPrincipalEntryPropertiesArrayInput `pulumi:"anyOf"`
+}
+
+func (GatewayRuleMatchPrincipalsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchPrincipals)(nil)).Elem()
+}
+
+func (i GatewayRuleMatchPrincipalsArgs) ToGatewayRuleMatchPrincipalsOutput() GatewayRuleMatchPrincipalsOutput {
+	return i.ToGatewayRuleMatchPrincipalsOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleMatchPrincipalsArgs) ToGatewayRuleMatchPrincipalsOutputWithContext(ctx context.Context) GatewayRuleMatchPrincipalsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleMatchPrincipalsOutput)
+}
+
+type GatewayRuleMatchPrincipalsOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleMatchPrincipalsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleMatchPrincipals)(nil)).Elem()
+}
+
+func (o GatewayRuleMatchPrincipalsOutput) ToGatewayRuleMatchPrincipalsOutput() GatewayRuleMatchPrincipalsOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPrincipalsOutput) ToGatewayRuleMatchPrincipalsOutputWithContext(ctx context.Context) GatewayRuleMatchPrincipalsOutput {
+	return o
+}
+
+func (o GatewayRuleMatchPrincipalsOutput) AnyOf() GatewayRuleMatchPrincipalEntryPropertiesArrayOutput {
+	return o.ApplyT(func(v GatewayRuleMatchPrincipals) []GatewayRuleMatchPrincipalEntryProperties { return v.AnyOf }).(GatewayRuleMatchPrincipalEntryPropertiesArrayOutput)
+}
+
+type GatewayRuleRouteToTargetAction0Properties struct {
+	StaticRoute GatewayRuleStaticRoute `pulumi:"staticRoute"`
+}
+
+// GatewayRuleRouteToTargetAction0PropertiesInput is an input type that accepts GatewayRuleRouteToTargetAction0PropertiesArgs and GatewayRuleRouteToTargetAction0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleRouteToTargetAction0PropertiesInput` via:
+//
+//	GatewayRuleRouteToTargetAction0PropertiesArgs{...}
+type GatewayRuleRouteToTargetAction0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleRouteToTargetAction0PropertiesOutput() GatewayRuleRouteToTargetAction0PropertiesOutput
+	ToGatewayRuleRouteToTargetAction0PropertiesOutputWithContext(context.Context) GatewayRuleRouteToTargetAction0PropertiesOutput
+}
+
+type GatewayRuleRouteToTargetAction0PropertiesArgs struct {
+	StaticRoute GatewayRuleStaticRouteInput `pulumi:"staticRoute"`
+}
+
+func (GatewayRuleRouteToTargetAction0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleRouteToTargetAction0Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleRouteToTargetAction0PropertiesArgs) ToGatewayRuleRouteToTargetAction0PropertiesOutput() GatewayRuleRouteToTargetAction0PropertiesOutput {
+	return i.ToGatewayRuleRouteToTargetAction0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleRouteToTargetAction0PropertiesArgs) ToGatewayRuleRouteToTargetAction0PropertiesOutputWithContext(ctx context.Context) GatewayRuleRouteToTargetAction0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleRouteToTargetAction0PropertiesOutput)
+}
+
+type GatewayRuleRouteToTargetAction0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleRouteToTargetAction0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleRouteToTargetAction0Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleRouteToTargetAction0PropertiesOutput) ToGatewayRuleRouteToTargetAction0PropertiesOutput() GatewayRuleRouteToTargetAction0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleRouteToTargetAction0PropertiesOutput) ToGatewayRuleRouteToTargetAction0PropertiesOutputWithContext(ctx context.Context) GatewayRuleRouteToTargetAction0PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleRouteToTargetAction0PropertiesOutput) StaticRoute() GatewayRuleStaticRouteOutput {
+	return o.ApplyT(func(v GatewayRuleRouteToTargetAction0Properties) GatewayRuleStaticRoute { return v.StaticRoute }).(GatewayRuleStaticRouteOutput)
+}
+
+type GatewayRuleRouteToTargetAction1Properties struct {
+	WeightedRoute GatewayRuleWeightedRoute `pulumi:"weightedRoute"`
+}
+
+// GatewayRuleRouteToTargetAction1PropertiesInput is an input type that accepts GatewayRuleRouteToTargetAction1PropertiesArgs and GatewayRuleRouteToTargetAction1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayRuleRouteToTargetAction1PropertiesInput` via:
+//
+//	GatewayRuleRouteToTargetAction1PropertiesArgs{...}
+type GatewayRuleRouteToTargetAction1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayRuleRouteToTargetAction1PropertiesOutput() GatewayRuleRouteToTargetAction1PropertiesOutput
+	ToGatewayRuleRouteToTargetAction1PropertiesOutputWithContext(context.Context) GatewayRuleRouteToTargetAction1PropertiesOutput
+}
+
+type GatewayRuleRouteToTargetAction1PropertiesArgs struct {
+	WeightedRoute GatewayRuleWeightedRouteInput `pulumi:"weightedRoute"`
+}
+
+func (GatewayRuleRouteToTargetAction1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleRouteToTargetAction1Properties)(nil)).Elem()
+}
+
+func (i GatewayRuleRouteToTargetAction1PropertiesArgs) ToGatewayRuleRouteToTargetAction1PropertiesOutput() GatewayRuleRouteToTargetAction1PropertiesOutput {
+	return i.ToGatewayRuleRouteToTargetAction1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleRouteToTargetAction1PropertiesArgs) ToGatewayRuleRouteToTargetAction1PropertiesOutputWithContext(ctx context.Context) GatewayRuleRouteToTargetAction1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleRouteToTargetAction1PropertiesOutput)
+}
+
+type GatewayRuleRouteToTargetAction1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleRouteToTargetAction1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleRouteToTargetAction1Properties)(nil)).Elem()
+}
+
+func (o GatewayRuleRouteToTargetAction1PropertiesOutput) ToGatewayRuleRouteToTargetAction1PropertiesOutput() GatewayRuleRouteToTargetAction1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleRouteToTargetAction1PropertiesOutput) ToGatewayRuleRouteToTargetAction1PropertiesOutputWithContext(ctx context.Context) GatewayRuleRouteToTargetAction1PropertiesOutput {
+	return o
+}
+
+func (o GatewayRuleRouteToTargetAction1PropertiesOutput) WeightedRoute() GatewayRuleWeightedRouteOutput {
+	return o.ApplyT(func(v GatewayRuleRouteToTargetAction1Properties) GatewayRuleWeightedRoute { return v.WeightedRoute }).(GatewayRuleWeightedRouteOutput)
+}
+
+type GatewayRuleStaticOverride struct {
+	BundleArn     string `pulumi:"bundleArn"`
+	BundleVersion string `pulumi:"bundleVersion"`
+}
+
+// GatewayRuleStaticOverrideInput is an input type that accepts GatewayRuleStaticOverrideArgs and GatewayRuleStaticOverrideOutput values.
+// You can construct a concrete instance of `GatewayRuleStaticOverrideInput` via:
+//
+//	GatewayRuleStaticOverrideArgs{...}
+type GatewayRuleStaticOverrideInput interface {
+	pulumi.Input
+
+	ToGatewayRuleStaticOverrideOutput() GatewayRuleStaticOverrideOutput
+	ToGatewayRuleStaticOverrideOutputWithContext(context.Context) GatewayRuleStaticOverrideOutput
+}
+
+type GatewayRuleStaticOverrideArgs struct {
+	BundleArn     pulumi.StringInput `pulumi:"bundleArn"`
+	BundleVersion pulumi.StringInput `pulumi:"bundleVersion"`
+}
+
+func (GatewayRuleStaticOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleStaticOverride)(nil)).Elem()
+}
+
+func (i GatewayRuleStaticOverrideArgs) ToGatewayRuleStaticOverrideOutput() GatewayRuleStaticOverrideOutput {
+	return i.ToGatewayRuleStaticOverrideOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleStaticOverrideArgs) ToGatewayRuleStaticOverrideOutputWithContext(ctx context.Context) GatewayRuleStaticOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleStaticOverrideOutput)
+}
+
+type GatewayRuleStaticOverrideOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleStaticOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleStaticOverride)(nil)).Elem()
+}
+
+func (o GatewayRuleStaticOverrideOutput) ToGatewayRuleStaticOverrideOutput() GatewayRuleStaticOverrideOutput {
+	return o
+}
+
+func (o GatewayRuleStaticOverrideOutput) ToGatewayRuleStaticOverrideOutputWithContext(ctx context.Context) GatewayRuleStaticOverrideOutput {
+	return o
+}
+
+func (o GatewayRuleStaticOverrideOutput) BundleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleStaticOverride) string { return v.BundleArn }).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleStaticOverrideOutput) BundleVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleStaticOverride) string { return v.BundleVersion }).(pulumi.StringOutput)
+}
+
+type GatewayRuleStaticRoute struct {
+	TargetName string `pulumi:"targetName"`
+}
+
+// GatewayRuleStaticRouteInput is an input type that accepts GatewayRuleStaticRouteArgs and GatewayRuleStaticRouteOutput values.
+// You can construct a concrete instance of `GatewayRuleStaticRouteInput` via:
+//
+//	GatewayRuleStaticRouteArgs{...}
+type GatewayRuleStaticRouteInput interface {
+	pulumi.Input
+
+	ToGatewayRuleStaticRouteOutput() GatewayRuleStaticRouteOutput
+	ToGatewayRuleStaticRouteOutputWithContext(context.Context) GatewayRuleStaticRouteOutput
+}
+
+type GatewayRuleStaticRouteArgs struct {
+	TargetName pulumi.StringInput `pulumi:"targetName"`
+}
+
+func (GatewayRuleStaticRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleStaticRoute)(nil)).Elem()
+}
+
+func (i GatewayRuleStaticRouteArgs) ToGatewayRuleStaticRouteOutput() GatewayRuleStaticRouteOutput {
+	return i.ToGatewayRuleStaticRouteOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleStaticRouteArgs) ToGatewayRuleStaticRouteOutputWithContext(ctx context.Context) GatewayRuleStaticRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleStaticRouteOutput)
+}
+
+type GatewayRuleStaticRouteOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleStaticRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleStaticRoute)(nil)).Elem()
+}
+
+func (o GatewayRuleStaticRouteOutput) ToGatewayRuleStaticRouteOutput() GatewayRuleStaticRouteOutput {
+	return o
+}
+
+func (o GatewayRuleStaticRouteOutput) ToGatewayRuleStaticRouteOutputWithContext(ctx context.Context) GatewayRuleStaticRouteOutput {
+	return o
+}
+
+func (o GatewayRuleStaticRouteOutput) TargetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleStaticRoute) string { return v.TargetName }).(pulumi.StringOutput)
+}
+
+type GatewayRuleTargetTrafficSplitEntry struct {
+	Description *string           `pulumi:"description"`
+	Metadata    map[string]string `pulumi:"metadata"`
+	Name        string            `pulumi:"name"`
+	TargetName  string            `pulumi:"targetName"`
+	Weight      float64           `pulumi:"weight"`
+}
+
+// GatewayRuleTargetTrafficSplitEntryInput is an input type that accepts GatewayRuleTargetTrafficSplitEntryArgs and GatewayRuleTargetTrafficSplitEntryOutput values.
+// You can construct a concrete instance of `GatewayRuleTargetTrafficSplitEntryInput` via:
+//
+//	GatewayRuleTargetTrafficSplitEntryArgs{...}
+type GatewayRuleTargetTrafficSplitEntryInput interface {
+	pulumi.Input
+
+	ToGatewayRuleTargetTrafficSplitEntryOutput() GatewayRuleTargetTrafficSplitEntryOutput
+	ToGatewayRuleTargetTrafficSplitEntryOutputWithContext(context.Context) GatewayRuleTargetTrafficSplitEntryOutput
+}
+
+type GatewayRuleTargetTrafficSplitEntryArgs struct {
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Metadata    pulumi.StringMapInput `pulumi:"metadata"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	TargetName  pulumi.StringInput    `pulumi:"targetName"`
+	Weight      pulumi.Float64Input   `pulumi:"weight"`
+}
+
+func (GatewayRuleTargetTrafficSplitEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleTargetTrafficSplitEntry)(nil)).Elem()
+}
+
+func (i GatewayRuleTargetTrafficSplitEntryArgs) ToGatewayRuleTargetTrafficSplitEntryOutput() GatewayRuleTargetTrafficSplitEntryOutput {
+	return i.ToGatewayRuleTargetTrafficSplitEntryOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleTargetTrafficSplitEntryArgs) ToGatewayRuleTargetTrafficSplitEntryOutputWithContext(ctx context.Context) GatewayRuleTargetTrafficSplitEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleTargetTrafficSplitEntryOutput)
+}
+
+// GatewayRuleTargetTrafficSplitEntryArrayInput is an input type that accepts GatewayRuleTargetTrafficSplitEntryArray and GatewayRuleTargetTrafficSplitEntryArrayOutput values.
+// You can construct a concrete instance of `GatewayRuleTargetTrafficSplitEntryArrayInput` via:
+//
+//	GatewayRuleTargetTrafficSplitEntryArray{ GatewayRuleTargetTrafficSplitEntryArgs{...} }
+type GatewayRuleTargetTrafficSplitEntryArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRuleTargetTrafficSplitEntryArrayOutput() GatewayRuleTargetTrafficSplitEntryArrayOutput
+	ToGatewayRuleTargetTrafficSplitEntryArrayOutputWithContext(context.Context) GatewayRuleTargetTrafficSplitEntryArrayOutput
+}
+
+type GatewayRuleTargetTrafficSplitEntryArray []GatewayRuleTargetTrafficSplitEntryInput
+
+func (GatewayRuleTargetTrafficSplitEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleTargetTrafficSplitEntry)(nil)).Elem()
+}
+
+func (i GatewayRuleTargetTrafficSplitEntryArray) ToGatewayRuleTargetTrafficSplitEntryArrayOutput() GatewayRuleTargetTrafficSplitEntryArrayOutput {
+	return i.ToGatewayRuleTargetTrafficSplitEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleTargetTrafficSplitEntryArray) ToGatewayRuleTargetTrafficSplitEntryArrayOutputWithContext(ctx context.Context) GatewayRuleTargetTrafficSplitEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleTargetTrafficSplitEntryArrayOutput)
+}
+
+type GatewayRuleTargetTrafficSplitEntryOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleTargetTrafficSplitEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleTargetTrafficSplitEntry)(nil)).Elem()
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) ToGatewayRuleTargetTrafficSplitEntryOutput() GatewayRuleTargetTrafficSplitEntryOutput {
+	return o
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) ToGatewayRuleTargetTrafficSplitEntryOutputWithContext(ctx context.Context) GatewayRuleTargetTrafficSplitEntryOutput {
+	return o
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) TargetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) string { return v.TargetName }).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v GatewayRuleTargetTrafficSplitEntry) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+type GatewayRuleTargetTrafficSplitEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleTargetTrafficSplitEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleTargetTrafficSplitEntry)(nil)).Elem()
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryArrayOutput) ToGatewayRuleTargetTrafficSplitEntryArrayOutput() GatewayRuleTargetTrafficSplitEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryArrayOutput) ToGatewayRuleTargetTrafficSplitEntryArrayOutputWithContext(ctx context.Context) GatewayRuleTargetTrafficSplitEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRuleTargetTrafficSplitEntryArrayOutput) Index(i pulumi.IntInput) GatewayRuleTargetTrafficSplitEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRuleTargetTrafficSplitEntry {
+		return vs[0].([]GatewayRuleTargetTrafficSplitEntry)[vs[1].(int)]
+	}).(GatewayRuleTargetTrafficSplitEntryOutput)
+}
+
+type GatewayRuleTrafficSplitEntry struct {
+	ConfigurationBundle GatewayRuleConfigurationBundleReference `pulumi:"configurationBundle"`
+	Description         *string                                 `pulumi:"description"`
+	Metadata            map[string]string                       `pulumi:"metadata"`
+	Name                string                                  `pulumi:"name"`
+	Weight              float64                                 `pulumi:"weight"`
+}
+
+// GatewayRuleTrafficSplitEntryInput is an input type that accepts GatewayRuleTrafficSplitEntryArgs and GatewayRuleTrafficSplitEntryOutput values.
+// You can construct a concrete instance of `GatewayRuleTrafficSplitEntryInput` via:
+//
+//	GatewayRuleTrafficSplitEntryArgs{...}
+type GatewayRuleTrafficSplitEntryInput interface {
+	pulumi.Input
+
+	ToGatewayRuleTrafficSplitEntryOutput() GatewayRuleTrafficSplitEntryOutput
+	ToGatewayRuleTrafficSplitEntryOutputWithContext(context.Context) GatewayRuleTrafficSplitEntryOutput
+}
+
+type GatewayRuleTrafficSplitEntryArgs struct {
+	ConfigurationBundle GatewayRuleConfigurationBundleReferenceInput `pulumi:"configurationBundle"`
+	Description         pulumi.StringPtrInput                        `pulumi:"description"`
+	Metadata            pulumi.StringMapInput                        `pulumi:"metadata"`
+	Name                pulumi.StringInput                           `pulumi:"name"`
+	Weight              pulumi.Float64Input                          `pulumi:"weight"`
+}
+
+func (GatewayRuleTrafficSplitEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleTrafficSplitEntry)(nil)).Elem()
+}
+
+func (i GatewayRuleTrafficSplitEntryArgs) ToGatewayRuleTrafficSplitEntryOutput() GatewayRuleTrafficSplitEntryOutput {
+	return i.ToGatewayRuleTrafficSplitEntryOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleTrafficSplitEntryArgs) ToGatewayRuleTrafficSplitEntryOutputWithContext(ctx context.Context) GatewayRuleTrafficSplitEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleTrafficSplitEntryOutput)
+}
+
+// GatewayRuleTrafficSplitEntryArrayInput is an input type that accepts GatewayRuleTrafficSplitEntryArray and GatewayRuleTrafficSplitEntryArrayOutput values.
+// You can construct a concrete instance of `GatewayRuleTrafficSplitEntryArrayInput` via:
+//
+//	GatewayRuleTrafficSplitEntryArray{ GatewayRuleTrafficSplitEntryArgs{...} }
+type GatewayRuleTrafficSplitEntryArrayInput interface {
+	pulumi.Input
+
+	ToGatewayRuleTrafficSplitEntryArrayOutput() GatewayRuleTrafficSplitEntryArrayOutput
+	ToGatewayRuleTrafficSplitEntryArrayOutputWithContext(context.Context) GatewayRuleTrafficSplitEntryArrayOutput
+}
+
+type GatewayRuleTrafficSplitEntryArray []GatewayRuleTrafficSplitEntryInput
+
+func (GatewayRuleTrafficSplitEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleTrafficSplitEntry)(nil)).Elem()
+}
+
+func (i GatewayRuleTrafficSplitEntryArray) ToGatewayRuleTrafficSplitEntryArrayOutput() GatewayRuleTrafficSplitEntryArrayOutput {
+	return i.ToGatewayRuleTrafficSplitEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleTrafficSplitEntryArray) ToGatewayRuleTrafficSplitEntryArrayOutputWithContext(ctx context.Context) GatewayRuleTrafficSplitEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleTrafficSplitEntryArrayOutput)
+}
+
+type GatewayRuleTrafficSplitEntryOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleTrafficSplitEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleTrafficSplitEntry)(nil)).Elem()
+}
+
+func (o GatewayRuleTrafficSplitEntryOutput) ToGatewayRuleTrafficSplitEntryOutput() GatewayRuleTrafficSplitEntryOutput {
+	return o
+}
+
+func (o GatewayRuleTrafficSplitEntryOutput) ToGatewayRuleTrafficSplitEntryOutputWithContext(ctx context.Context) GatewayRuleTrafficSplitEntryOutput {
+	return o
+}
+
+func (o GatewayRuleTrafficSplitEntryOutput) ConfigurationBundle() GatewayRuleConfigurationBundleReferenceOutput {
+	return o.ApplyT(func(v GatewayRuleTrafficSplitEntry) GatewayRuleConfigurationBundleReference {
+		return v.ConfigurationBundle
+	}).(GatewayRuleConfigurationBundleReferenceOutput)
+}
+
+func (o GatewayRuleTrafficSplitEntryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRuleTrafficSplitEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayRuleTrafficSplitEntryOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GatewayRuleTrafficSplitEntry) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+func (o GatewayRuleTrafficSplitEntryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRuleTrafficSplitEntry) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GatewayRuleTrafficSplitEntryOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v GatewayRuleTrafficSplitEntry) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+type GatewayRuleTrafficSplitEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleTrafficSplitEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayRuleTrafficSplitEntry)(nil)).Elem()
+}
+
+func (o GatewayRuleTrafficSplitEntryArrayOutput) ToGatewayRuleTrafficSplitEntryArrayOutput() GatewayRuleTrafficSplitEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRuleTrafficSplitEntryArrayOutput) ToGatewayRuleTrafficSplitEntryArrayOutputWithContext(ctx context.Context) GatewayRuleTrafficSplitEntryArrayOutput {
+	return o
+}
+
+func (o GatewayRuleTrafficSplitEntryArrayOutput) Index(i pulumi.IntInput) GatewayRuleTrafficSplitEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayRuleTrafficSplitEntry {
+		return vs[0].([]GatewayRuleTrafficSplitEntry)[vs[1].(int)]
+	}).(GatewayRuleTrafficSplitEntryOutput)
+}
+
+type GatewayRuleWeightedOverride struct {
+	TrafficSplit []GatewayRuleTrafficSplitEntry `pulumi:"trafficSplit"`
+}
+
+// GatewayRuleWeightedOverrideInput is an input type that accepts GatewayRuleWeightedOverrideArgs and GatewayRuleWeightedOverrideOutput values.
+// You can construct a concrete instance of `GatewayRuleWeightedOverrideInput` via:
+//
+//	GatewayRuleWeightedOverrideArgs{...}
+type GatewayRuleWeightedOverrideInput interface {
+	pulumi.Input
+
+	ToGatewayRuleWeightedOverrideOutput() GatewayRuleWeightedOverrideOutput
+	ToGatewayRuleWeightedOverrideOutputWithContext(context.Context) GatewayRuleWeightedOverrideOutput
+}
+
+type GatewayRuleWeightedOverrideArgs struct {
+	TrafficSplit GatewayRuleTrafficSplitEntryArrayInput `pulumi:"trafficSplit"`
+}
+
+func (GatewayRuleWeightedOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleWeightedOverride)(nil)).Elem()
+}
+
+func (i GatewayRuleWeightedOverrideArgs) ToGatewayRuleWeightedOverrideOutput() GatewayRuleWeightedOverrideOutput {
+	return i.ToGatewayRuleWeightedOverrideOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleWeightedOverrideArgs) ToGatewayRuleWeightedOverrideOutputWithContext(ctx context.Context) GatewayRuleWeightedOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleWeightedOverrideOutput)
+}
+
+type GatewayRuleWeightedOverrideOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleWeightedOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleWeightedOverride)(nil)).Elem()
+}
+
+func (o GatewayRuleWeightedOverrideOutput) ToGatewayRuleWeightedOverrideOutput() GatewayRuleWeightedOverrideOutput {
+	return o
+}
+
+func (o GatewayRuleWeightedOverrideOutput) ToGatewayRuleWeightedOverrideOutputWithContext(ctx context.Context) GatewayRuleWeightedOverrideOutput {
+	return o
+}
+
+func (o GatewayRuleWeightedOverrideOutput) TrafficSplit() GatewayRuleTrafficSplitEntryArrayOutput {
+	return o.ApplyT(func(v GatewayRuleWeightedOverride) []GatewayRuleTrafficSplitEntry { return v.TrafficSplit }).(GatewayRuleTrafficSplitEntryArrayOutput)
+}
+
+type GatewayRuleWeightedRoute struct {
+	TrafficSplit []GatewayRuleTargetTrafficSplitEntry `pulumi:"trafficSplit"`
+}
+
+// GatewayRuleWeightedRouteInput is an input type that accepts GatewayRuleWeightedRouteArgs and GatewayRuleWeightedRouteOutput values.
+// You can construct a concrete instance of `GatewayRuleWeightedRouteInput` via:
+//
+//	GatewayRuleWeightedRouteArgs{...}
+type GatewayRuleWeightedRouteInput interface {
+	pulumi.Input
+
+	ToGatewayRuleWeightedRouteOutput() GatewayRuleWeightedRouteOutput
+	ToGatewayRuleWeightedRouteOutputWithContext(context.Context) GatewayRuleWeightedRouteOutput
+}
+
+type GatewayRuleWeightedRouteArgs struct {
+	TrafficSplit GatewayRuleTargetTrafficSplitEntryArrayInput `pulumi:"trafficSplit"`
+}
+
+func (GatewayRuleWeightedRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleWeightedRoute)(nil)).Elem()
+}
+
+func (i GatewayRuleWeightedRouteArgs) ToGatewayRuleWeightedRouteOutput() GatewayRuleWeightedRouteOutput {
+	return i.ToGatewayRuleWeightedRouteOutputWithContext(context.Background())
+}
+
+func (i GatewayRuleWeightedRouteArgs) ToGatewayRuleWeightedRouteOutputWithContext(ctx context.Context) GatewayRuleWeightedRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRuleWeightedRouteOutput)
+}
+
+type GatewayRuleWeightedRouteOutput struct{ *pulumi.OutputState }
+
+func (GatewayRuleWeightedRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRuleWeightedRoute)(nil)).Elem()
+}
+
+func (o GatewayRuleWeightedRouteOutput) ToGatewayRuleWeightedRouteOutput() GatewayRuleWeightedRouteOutput {
+	return o
+}
+
+func (o GatewayRuleWeightedRouteOutput) ToGatewayRuleWeightedRouteOutputWithContext(ctx context.Context) GatewayRuleWeightedRouteOutput {
+	return o
+}
+
+func (o GatewayRuleWeightedRouteOutput) TrafficSplit() GatewayRuleTargetTrafficSplitEntryArrayOutput {
+	return o.ApplyT(func(v GatewayRuleWeightedRoute) []GatewayRuleTargetTrafficSplitEntry { return v.TrafficSplit }).(GatewayRuleTargetTrafficSplitEntryArrayOutput)
+}
+
+type GatewaySelfManagedLatticeResource0Properties struct {
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+type GatewaySelfManagedLatticeResourceProperties struct {
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// GatewaySelfManagedLatticeResourcePropertiesInput is an input type that accepts GatewaySelfManagedLatticeResourcePropertiesArgs and GatewaySelfManagedLatticeResourcePropertiesOutput values.
+// You can construct a concrete instance of `GatewaySelfManagedLatticeResourcePropertiesInput` via:
+//
+//	GatewaySelfManagedLatticeResourcePropertiesArgs{...}
+type GatewaySelfManagedLatticeResourcePropertiesInput interface {
+	pulumi.Input
+
+	ToGatewaySelfManagedLatticeResourcePropertiesOutput() GatewaySelfManagedLatticeResourcePropertiesOutput
+	ToGatewaySelfManagedLatticeResourcePropertiesOutputWithContext(context.Context) GatewaySelfManagedLatticeResourcePropertiesOutput
+}
+
+type GatewaySelfManagedLatticeResourcePropertiesArgs struct {
+	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (GatewaySelfManagedLatticeResourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewaySelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (i GatewaySelfManagedLatticeResourcePropertiesArgs) ToGatewaySelfManagedLatticeResourcePropertiesOutput() GatewaySelfManagedLatticeResourcePropertiesOutput {
+	return i.ToGatewaySelfManagedLatticeResourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewaySelfManagedLatticeResourcePropertiesArgs) ToGatewaySelfManagedLatticeResourcePropertiesOutputWithContext(ctx context.Context) GatewaySelfManagedLatticeResourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySelfManagedLatticeResourcePropertiesOutput)
+}
+
+func (i GatewaySelfManagedLatticeResourcePropertiesArgs) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutput() GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return i.ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GatewaySelfManagedLatticeResourcePropertiesArgs) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySelfManagedLatticeResourcePropertiesOutput).ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// GatewaySelfManagedLatticeResourcePropertiesPtrInput is an input type that accepts GatewaySelfManagedLatticeResourcePropertiesArgs, GatewaySelfManagedLatticeResourcePropertiesPtr and GatewaySelfManagedLatticeResourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `GatewaySelfManagedLatticeResourcePropertiesPtrInput` via:
+//
+//	        GatewaySelfManagedLatticeResourcePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewaySelfManagedLatticeResourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGatewaySelfManagedLatticeResourcePropertiesPtrOutput() GatewaySelfManagedLatticeResourcePropertiesPtrOutput
+	ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Context) GatewaySelfManagedLatticeResourcePropertiesPtrOutput
+}
+
+type gatewaySelfManagedLatticeResourcePropertiesPtrType GatewaySelfManagedLatticeResourcePropertiesArgs
+
+func GatewaySelfManagedLatticeResourcePropertiesPtr(v *GatewaySelfManagedLatticeResourcePropertiesArgs) GatewaySelfManagedLatticeResourcePropertiesPtrInput {
+	return (*gatewaySelfManagedLatticeResourcePropertiesPtrType)(v)
+}
+
+func (*gatewaySelfManagedLatticeResourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewaySelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (i *gatewaySelfManagedLatticeResourcePropertiesPtrType) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutput() GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return i.ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewaySelfManagedLatticeResourcePropertiesPtrType) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewaySelfManagedLatticeResourcePropertiesPtrOutput)
+}
+
+type GatewaySelfManagedLatticeResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewaySelfManagedLatticeResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewaySelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesOutput) ToGatewaySelfManagedLatticeResourcePropertiesOutput() GatewaySelfManagedLatticeResourcePropertiesOutput {
+	return o
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesOutput) ToGatewaySelfManagedLatticeResourcePropertiesOutputWithContext(ctx context.Context) GatewaySelfManagedLatticeResourcePropertiesOutput {
+	return o
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesOutput) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutput() GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return o.ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesOutput) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewaySelfManagedLatticeResourceProperties) *GatewaySelfManagedLatticeResourceProperties {
+		return &v
+	}).(GatewaySelfManagedLatticeResourcePropertiesPtrOutput)
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewaySelfManagedLatticeResourceProperties) string { return v.ResourceConfigurationIdentifier }).(pulumi.StringOutput)
+}
+
+type GatewaySelfManagedLatticeResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewaySelfManagedLatticeResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewaySelfManagedLatticeResourceProperties)(nil)).Elem()
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesPtrOutput) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutput() GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesPtrOutput) ToGatewaySelfManagedLatticeResourcePropertiesPtrOutputWithContext(ctx context.Context) GatewaySelfManagedLatticeResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesPtrOutput) Elem() GatewaySelfManagedLatticeResourcePropertiesOutput {
+	return o.ApplyT(func(v *GatewaySelfManagedLatticeResourceProperties) GatewaySelfManagedLatticeResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewaySelfManagedLatticeResourceProperties
+		return ret
+	}).(GatewaySelfManagedLatticeResourcePropertiesOutput)
+}
+
+func (o GatewaySelfManagedLatticeResourcePropertiesPtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewaySelfManagedLatticeResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type GatewaySessionConfiguration struct {
-	SessionTimeoutInSeconds *int `pulumi:"sessionTimeoutInSeconds"`
+	SessionTimeoutInSeconds *float64 `pulumi:"sessionTimeoutInSeconds"`
 }
 
 // GatewaySessionConfigurationInput is an input type that accepts GatewaySessionConfigurationArgs and GatewaySessionConfigurationOutput values.
@@ -5137,7 +9736,7 @@ type GatewaySessionConfigurationInput interface {
 }
 
 type GatewaySessionConfigurationArgs struct {
-	SessionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"sessionTimeoutInSeconds"`
+	SessionTimeoutInSeconds pulumi.Float64PtrInput `pulumi:"sessionTimeoutInSeconds"`
 }
 
 func (GatewaySessionConfigurationArgs) ElementType() reflect.Type {
@@ -5217,8 +9816,8 @@ func (o GatewaySessionConfigurationOutput) ToGatewaySessionConfigurationPtrOutpu
 	}).(GatewaySessionConfigurationPtrOutput)
 }
 
-func (o GatewaySessionConfigurationOutput) SessionTimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GatewaySessionConfiguration) *int { return v.SessionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+func (o GatewaySessionConfigurationOutput) SessionTimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GatewaySessionConfiguration) *float64 { return v.SessionTimeoutInSeconds }).(pulumi.Float64PtrOutput)
 }
 
 type GatewaySessionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5245,13 +9844,13 @@ func (o GatewaySessionConfigurationPtrOutput) Elem() GatewaySessionConfiguration
 	}).(GatewaySessionConfigurationOutput)
 }
 
-func (o GatewaySessionConfigurationPtrOutput) SessionTimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GatewaySessionConfiguration) *int {
+func (o GatewaySessionConfigurationPtrOutput) SessionTimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GatewaySessionConfiguration) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.SessionTimeoutInSeconds
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GatewayStreamingConfiguration struct {
@@ -8310,6 +12909,7 @@ type GatewayTargetManagedVpcResource struct {
 	RoutingDomain         *string                            `pulumi:"routingDomain"`
 	SecurityGroupIds      []string                           `pulumi:"securityGroupIds"`
 	SubnetIds             []string                           `pulumi:"subnetIds"`
+	Tags                  map[string]string                  `pulumi:"tags"`
 	VpcIdentifier         string                             `pulumi:"vpcIdentifier"`
 }
 
@@ -8329,6 +12929,7 @@ type GatewayTargetManagedVpcResourceArgs struct {
 	RoutingDomain         pulumi.StringPtrInput                   `pulumi:"routingDomain"`
 	SecurityGroupIds      pulumi.StringArrayInput                 `pulumi:"securityGroupIds"`
 	SubnetIds             pulumi.StringArrayInput                 `pulumi:"subnetIds"`
+	Tags                  pulumi.StringMapInput                   `pulumi:"tags"`
 	VpcIdentifier         pulumi.StringInput                      `pulumi:"vpcIdentifier"`
 }
 
@@ -8427,6 +13028,10 @@ func (o GatewayTargetManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOut
 	return o.ApplyT(func(v GatewayTargetManagedVpcResource) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+func (o GatewayTargetManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GatewayTargetManagedVpcResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
 func (o GatewayTargetManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayTargetManagedVpcResource) string { return v.VpcIdentifier }).(pulumi.StringOutput)
 }
@@ -8489,6 +13094,15 @@ func (o GatewayTargetManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArray
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GatewayTargetManagedVpcResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
 }
 
 func (o GatewayTargetManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
@@ -8598,10 +13212,10 @@ func (o GatewayTargetMcpLambdaTargetConfigurationPtrOutput) ToolSchema() pulumi.
 }
 
 type GatewayTargetMcpServerTargetConfiguration struct {
-	Endpoint         string                             `pulumi:"endpoint"`
-	ListingMode      *GatewayTargetMcpServerListingMode `pulumi:"listingMode"`
-	McpToolSchema    interface{}                        `pulumi:"mcpToolSchema"`
-	ResourcePriority *int                               `pulumi:"resourcePriority"`
+	Endpoint         string                    `pulumi:"endpoint"`
+	ListingMode      *GatewayTargetListingMode `pulumi:"listingMode"`
+	McpToolSchema    interface{}               `pulumi:"mcpToolSchema"`
+	ResourcePriority *float64                  `pulumi:"resourcePriority"`
 }
 
 // GatewayTargetMcpServerTargetConfigurationInput is an input type that accepts GatewayTargetMcpServerTargetConfigurationArgs and GatewayTargetMcpServerTargetConfigurationOutput values.
@@ -8616,10 +13230,10 @@ type GatewayTargetMcpServerTargetConfigurationInput interface {
 }
 
 type GatewayTargetMcpServerTargetConfigurationArgs struct {
-	Endpoint         pulumi.StringInput                        `pulumi:"endpoint"`
-	ListingMode      GatewayTargetMcpServerListingModePtrInput `pulumi:"listingMode"`
-	McpToolSchema    pulumi.Input                              `pulumi:"mcpToolSchema"`
-	ResourcePriority pulumi.IntPtrInput                        `pulumi:"resourcePriority"`
+	Endpoint         pulumi.StringInput               `pulumi:"endpoint"`
+	ListingMode      GatewayTargetListingModePtrInput `pulumi:"listingMode"`
+	McpToolSchema    pulumi.Input                     `pulumi:"mcpToolSchema"`
+	ResourcePriority pulumi.Float64PtrInput           `pulumi:"resourcePriority"`
 }
 
 func (GatewayTargetMcpServerTargetConfigurationArgs) ElementType() reflect.Type {
@@ -8652,18 +13266,16 @@ func (o GatewayTargetMcpServerTargetConfigurationOutput) Endpoint() pulumi.Strin
 	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-func (o GatewayTargetMcpServerTargetConfigurationOutput) ListingMode() GatewayTargetMcpServerListingModePtrOutput {
-	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) *GatewayTargetMcpServerListingMode {
-		return v.ListingMode
-	}).(GatewayTargetMcpServerListingModePtrOutput)
+func (o GatewayTargetMcpServerTargetConfigurationOutput) ListingMode() GatewayTargetListingModePtrOutput {
+	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) *GatewayTargetListingMode { return v.ListingMode }).(GatewayTargetListingModePtrOutput)
 }
 
 func (o GatewayTargetMcpServerTargetConfigurationOutput) McpToolSchema() pulumi.AnyOutput {
 	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) interface{} { return v.McpToolSchema }).(pulumi.AnyOutput)
 }
 
-func (o GatewayTargetMcpServerTargetConfigurationOutput) ResourcePriority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) *int { return v.ResourcePriority }).(pulumi.IntPtrOutput)
+func (o GatewayTargetMcpServerTargetConfigurationOutput) ResourcePriority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) *float64 { return v.ResourcePriority }).(pulumi.Float64PtrOutput)
 }
 
 type GatewayTargetMcpServerTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -8699,13 +13311,13 @@ func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) Endpoint() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ListingMode() GatewayTargetMcpServerListingModePtrOutput {
-	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) *GatewayTargetMcpServerListingMode {
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ListingMode() GatewayTargetListingModePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) *GatewayTargetListingMode {
 		if v == nil {
 			return nil
 		}
 		return v.ListingMode
-	}).(GatewayTargetMcpServerListingModePtrOutput)
+	}).(GatewayTargetListingModePtrOutput)
 }
 
 func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) McpToolSchema() pulumi.AnyOutput {
@@ -8717,13 +13329,13 @@ func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) McpToolSchema() pulu
 	}).(pulumi.AnyOutput)
 }
 
-func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ResourcePriority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) *int {
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ResourcePriority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.ResourcePriority
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GatewayTargetMcpTargetConfiguration0Properties struct {
@@ -9953,11 +14565,10 @@ func (o GatewayTargetOAuth2AuthorizationDataPtrOutput) UserId() pulumi.StringPtr
 
 type GatewayTargetOAuthCredentialProvider struct {
 	CustomParameters map[string]string `pulumi:"customParameters"`
-	// Return URL for OAuth callback.
-	DefaultReturnUrl *string                      `pulumi:"defaultReturnUrl"`
-	GrantType        *GatewayTargetOAuthGrantType `pulumi:"grantType"`
-	ProviderArn      string                       `pulumi:"providerArn"`
-	Scopes           []string                     `pulumi:"scopes"`
+	DefaultReturnUrl *string           `pulumi:"defaultReturnUrl"`
+	GrantType        interface{}       `pulumi:"grantType"`
+	ProviderArn      string            `pulumi:"providerArn"`
+	Scopes           []string          `pulumi:"scopes"`
 }
 
 // GatewayTargetOAuthCredentialProviderInput is an input type that accepts GatewayTargetOAuthCredentialProviderArgs and GatewayTargetOAuthCredentialProviderOutput values.
@@ -9972,12 +14583,11 @@ type GatewayTargetOAuthCredentialProviderInput interface {
 }
 
 type GatewayTargetOAuthCredentialProviderArgs struct {
-	CustomParameters pulumi.StringMapInput `pulumi:"customParameters"`
-	// Return URL for OAuth callback.
-	DefaultReturnUrl pulumi.StringPtrInput               `pulumi:"defaultReturnUrl"`
-	GrantType        GatewayTargetOAuthGrantTypePtrInput `pulumi:"grantType"`
-	ProviderArn      pulumi.StringInput                  `pulumi:"providerArn"`
-	Scopes           pulumi.StringArrayInput             `pulumi:"scopes"`
+	CustomParameters pulumi.StringMapInput   `pulumi:"customParameters"`
+	DefaultReturnUrl pulumi.StringPtrInput   `pulumi:"defaultReturnUrl"`
+	GrantType        pulumi.Input            `pulumi:"grantType"`
+	ProviderArn      pulumi.StringInput      `pulumi:"providerArn"`
+	Scopes           pulumi.StringArrayInput `pulumi:"scopes"`
 }
 
 func (GatewayTargetOAuthCredentialProviderArgs) ElementType() reflect.Type {
@@ -10061,13 +14671,12 @@ func (o GatewayTargetOAuthCredentialProviderOutput) CustomParameters() pulumi.St
 	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) map[string]string { return v.CustomParameters }).(pulumi.StringMapOutput)
 }
 
-// Return URL for OAuth callback.
 func (o GatewayTargetOAuthCredentialProviderOutput) DefaultReturnUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) *string { return v.DefaultReturnUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o GatewayTargetOAuthCredentialProviderOutput) GrantType() GatewayTargetOAuthGrantTypePtrOutput {
-	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) *GatewayTargetOAuthGrantType { return v.GrantType }).(GatewayTargetOAuthGrantTypePtrOutput)
+func (o GatewayTargetOAuthCredentialProviderOutput) GrantType() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) interface{} { return v.GrantType }).(pulumi.AnyOutput)
 }
 
 func (o GatewayTargetOAuthCredentialProviderOutput) ProviderArn() pulumi.StringOutput {
@@ -10111,7 +14720,6 @@ func (o GatewayTargetOAuthCredentialProviderPtrOutput) CustomParameters() pulumi
 	}).(pulumi.StringMapOutput)
 }
 
-// Return URL for OAuth callback.
 func (o GatewayTargetOAuthCredentialProviderPtrOutput) DefaultReturnUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayTargetOAuthCredentialProvider) *string {
 		if v == nil {
@@ -10121,13 +14729,13 @@ func (o GatewayTargetOAuthCredentialProviderPtrOutput) DefaultReturnUrl() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GatewayTargetOAuthCredentialProviderPtrOutput) GrantType() GatewayTargetOAuthGrantTypePtrOutput {
-	return o.ApplyT(func(v *GatewayTargetOAuthCredentialProvider) *GatewayTargetOAuthGrantType {
+func (o GatewayTargetOAuthCredentialProviderPtrOutput) GrantType() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTargetOAuthCredentialProvider) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.GrantType
-	}).(GatewayTargetOAuthGrantTypePtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 func (o GatewayTargetOAuthCredentialProviderPtrOutput) ProviderArn() pulumi.StringPtrOutput {
@@ -11339,8 +15947,8 @@ func (o GatewayTargetSelfManagedLatticeResourcePropertiesPtrOutput) ResourceConf
 }
 
 type GatewayTargetStickinessConfiguration struct {
-	Identifier string `pulumi:"identifier"`
-	Timeout    *int   `pulumi:"timeout"`
+	Identifier string   `pulumi:"identifier"`
+	Timeout    *float64 `pulumi:"timeout"`
 }
 
 // GatewayTargetStickinessConfigurationInput is an input type that accepts GatewayTargetStickinessConfigurationArgs and GatewayTargetStickinessConfigurationOutput values.
@@ -11355,8 +15963,8 @@ type GatewayTargetStickinessConfigurationInput interface {
 }
 
 type GatewayTargetStickinessConfigurationArgs struct {
-	Identifier pulumi.StringInput `pulumi:"identifier"`
-	Timeout    pulumi.IntPtrInput `pulumi:"timeout"`
+	Identifier pulumi.StringInput     `pulumi:"identifier"`
+	Timeout    pulumi.Float64PtrInput `pulumi:"timeout"`
 }
 
 func (GatewayTargetStickinessConfigurationArgs) ElementType() reflect.Type {
@@ -11440,8 +16048,8 @@ func (o GatewayTargetStickinessConfigurationOutput) Identifier() pulumi.StringOu
 	return o.ApplyT(func(v GatewayTargetStickinessConfiguration) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
-func (o GatewayTargetStickinessConfigurationOutput) Timeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v GatewayTargetStickinessConfiguration) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+func (o GatewayTargetStickinessConfigurationOutput) Timeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GatewayTargetStickinessConfiguration) *float64 { return v.Timeout }).(pulumi.Float64PtrOutput)
 }
 
 type GatewayTargetStickinessConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -11477,13 +16085,13 @@ func (o GatewayTargetStickinessConfigurationPtrOutput) Identifier() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GatewayTargetStickinessConfigurationPtrOutput) Timeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GatewayTargetStickinessConfiguration) *int {
+func (o GatewayTargetStickinessConfigurationPtrOutput) Timeout() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GatewayTargetStickinessConfiguration) *float64 {
 		if v == nil {
 			return nil
 		}
 		return v.Timeout
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 type GatewayTargetTargetConfiguration0Properties struct {
@@ -22060,6 +26668,7 @@ func (o MemoryMessageBasedTriggerInputPtrOutput) MessageCount() pulumi.IntPtrOut
 
 type MemoryMetadataSchemaEntry struct {
 	ExtractionConfig *MemoryExtractionConfig  `pulumi:"extractionConfig"`
+	ExtractionType   *MemoryExtractionType    `pulumi:"extractionType"`
 	Key              string                   `pulumi:"key"`
 	Type             *MemoryMetadataValueType `pulumi:"type"`
 }
@@ -22077,6 +26686,7 @@ type MemoryMetadataSchemaEntryInput interface {
 
 type MemoryMetadataSchemaEntryArgs struct {
 	ExtractionConfig MemoryExtractionConfigPtrInput  `pulumi:"extractionConfig"`
+	ExtractionType   MemoryExtractionTypePtrInput    `pulumi:"extractionType"`
 	Key              pulumi.StringInput              `pulumi:"key"`
 	Type             MemoryMetadataValueTypePtrInput `pulumi:"type"`
 }
@@ -22134,6 +26744,10 @@ func (o MemoryMetadataSchemaEntryOutput) ToMemoryMetadataSchemaEntryOutputWithCo
 
 func (o MemoryMetadataSchemaEntryOutput) ExtractionConfig() MemoryExtractionConfigPtrOutput {
 	return o.ApplyT(func(v MemoryMetadataSchemaEntry) *MemoryExtractionConfig { return v.ExtractionConfig }).(MemoryExtractionConfigPtrOutput)
+}
+
+func (o MemoryMetadataSchemaEntryOutput) ExtractionType() MemoryExtractionTypePtrOutput {
+	return o.ApplyT(func(v MemoryMetadataSchemaEntry) *MemoryExtractionType { return v.ExtractionType }).(MemoryExtractionTypePtrOutput)
 }
 
 func (o MemoryMetadataSchemaEntryOutput) Key() pulumi.StringOutput {
@@ -26072,6 +30686,10 @@ type OAuth2CredentialProviderCustomOauth2ProviderConfigInput struct {
 	ClientSecretSource            *OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource `pulumi:"clientSecretSource"`
 	OauthDiscovery                OAuth2CredentialProviderOauth2Discovery                                    `pulumi:"oauthDiscovery"`
 	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig                     `pulumi:"onBehalfOfTokenExchangeConfig"`
+	PrivateEndpoint               *OAuth2CredentialProviderPrivateEndpoint                                   `pulumi:"privateEndpoint"`
+	// A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+	PrivateEndpointOverrides []OAuth2CredentialProviderPrivateEndpointOverride `pulumi:"privateEndpointOverrides"`
+	PrivateKeyJwtConfig      *OAuth2CredentialProviderPrivateKeyJwtConfig      `pulumi:"privateKeyJwtConfig"`
 }
 
 // OAuth2CredentialProviderCustomOauth2ProviderConfigInputInput is an input type that accepts OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs and OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput values.
@@ -26098,6 +30716,10 @@ type OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs struct {
 	ClientSecretSource            OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSourcePtrInput `pulumi:"clientSecretSource"`
 	OauthDiscovery                OAuth2CredentialProviderOauth2DiscoveryInput                                      `pulumi:"oauthDiscovery"`
 	OnBehalfOfTokenExchangeConfig OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput                     `pulumi:"onBehalfOfTokenExchangeConfig"`
+	PrivateEndpoint               OAuth2CredentialProviderPrivateEndpointPtrInput                                   `pulumi:"privateEndpoint"`
+	// A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+	PrivateEndpointOverrides OAuth2CredentialProviderPrivateEndpointOverrideArrayInput `pulumi:"privateEndpointOverrides"`
+	PrivateKeyJwtConfig      OAuth2CredentialProviderPrivateKeyJwtConfigPtrInput       `pulumi:"privateKeyJwtConfig"`
 }
 
 func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs) ElementType() reflect.Type {
@@ -26220,6 +30842,25 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) OnBehalfO
 	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
 }
 
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) PrivateEndpoint() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderPrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(OAuth2CredentialProviderPrivateEndpointPtrOutput)
+}
+
+// A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) PrivateEndpointOverrides() OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) []OAuth2CredentialProviderPrivateEndpointOverride {
+		return v.PrivateEndpointOverrides
+	}).(OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputOutput) PrivateKeyJwtConfig() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderPrivateKeyJwtConfig {
+		return v.PrivateKeyJwtConfig
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput)
+}
+
 type OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput struct{ *pulumi.OutputState }
 
 func (OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) ElementType() reflect.Type {
@@ -26309,6 +30950,34 @@ func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) OnBeha
 		}
 		return v.OnBehalfOfTokenExchangeConfig
 	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) PrivateEndpoint() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderPrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(OAuth2CredentialProviderPrivateEndpointPtrOutput)
+}
+
+// A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) PrivateEndpointOverrides() OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) []OAuth2CredentialProviderPrivateEndpointOverride {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointOverrides
+	}).(OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput)
+}
+
+func (o OAuth2CredentialProviderCustomOauth2ProviderConfigInputPtrOutput) PrivateKeyJwtConfig() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderCustomOauth2ProviderConfigInput) *OAuth2CredentialProviderPrivateKeyJwtConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKeyJwtConfig
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput)
 }
 
 // Input configuration for a GitHub OAuth2 provider
@@ -26925,6 +31594,146 @@ func (o OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput) Toke
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the KMS key configuration for a JWT client assertion
+type OAuth2CredentialProviderKmsKeySourceType struct {
+	// The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// OAuth2CredentialProviderKmsKeySourceTypeInput is an input type that accepts OAuth2CredentialProviderKmsKeySourceTypeArgs and OAuth2CredentialProviderKmsKeySourceTypeOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderKmsKeySourceTypeInput` via:
+//
+//	OAuth2CredentialProviderKmsKeySourceTypeArgs{...}
+type OAuth2CredentialProviderKmsKeySourceTypeInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderKmsKeySourceTypeOutput() OAuth2CredentialProviderKmsKeySourceTypeOutput
+	ToOAuth2CredentialProviderKmsKeySourceTypeOutputWithContext(context.Context) OAuth2CredentialProviderKmsKeySourceTypeOutput
+}
+
+// Contains the KMS key configuration for a JWT client assertion
+type OAuth2CredentialProviderKmsKeySourceTypeArgs struct {
+	// The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (OAuth2CredentialProviderKmsKeySourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderKmsKeySourceType)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderKmsKeySourceTypeArgs) ToOAuth2CredentialProviderKmsKeySourceTypeOutput() OAuth2CredentialProviderKmsKeySourceTypeOutput {
+	return i.ToOAuth2CredentialProviderKmsKeySourceTypeOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderKmsKeySourceTypeArgs) ToOAuth2CredentialProviderKmsKeySourceTypeOutputWithContext(ctx context.Context) OAuth2CredentialProviderKmsKeySourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderKmsKeySourceTypeOutput)
+}
+
+func (i OAuth2CredentialProviderKmsKeySourceTypeArgs) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutput() OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return i.ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderKmsKeySourceTypeArgs) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderKmsKeySourceTypeOutput).ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderKmsKeySourceTypePtrInput is an input type that accepts OAuth2CredentialProviderKmsKeySourceTypeArgs, OAuth2CredentialProviderKmsKeySourceTypePtr and OAuth2CredentialProviderKmsKeySourceTypePtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderKmsKeySourceTypePtrInput` via:
+//
+//	        OAuth2CredentialProviderKmsKeySourceTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderKmsKeySourceTypePtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderKmsKeySourceTypePtrOutput() OAuth2CredentialProviderKmsKeySourceTypePtrOutput
+	ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(context.Context) OAuth2CredentialProviderKmsKeySourceTypePtrOutput
+}
+
+type oauth2CredentialProviderKmsKeySourceTypePtrType OAuth2CredentialProviderKmsKeySourceTypeArgs
+
+func OAuth2CredentialProviderKmsKeySourceTypePtr(v *OAuth2CredentialProviderKmsKeySourceTypeArgs) OAuth2CredentialProviderKmsKeySourceTypePtrInput {
+	return (*oauth2CredentialProviderKmsKeySourceTypePtrType)(v)
+}
+
+func (*oauth2CredentialProviderKmsKeySourceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderKmsKeySourceType)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderKmsKeySourceTypePtrType) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutput() OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return i.ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderKmsKeySourceTypePtrType) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderKmsKeySourceTypePtrOutput)
+}
+
+// Contains the KMS key configuration for a JWT client assertion
+type OAuth2CredentialProviderKmsKeySourceTypeOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderKmsKeySourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderKmsKeySourceType)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderKmsKeySourceTypeOutput) ToOAuth2CredentialProviderKmsKeySourceTypeOutput() OAuth2CredentialProviderKmsKeySourceTypeOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderKmsKeySourceTypeOutput) ToOAuth2CredentialProviderKmsKeySourceTypeOutputWithContext(ctx context.Context) OAuth2CredentialProviderKmsKeySourceTypeOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderKmsKeySourceTypeOutput) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutput() OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return o.ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderKmsKeySourceTypeOutput) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderKmsKeySourceType) *OAuth2CredentialProviderKmsKeySourceType {
+		return &v
+	}).(OAuth2CredentialProviderKmsKeySourceTypePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion
+func (o OAuth2CredentialProviderKmsKeySourceTypeOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderKmsKeySourceType) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderKmsKeySourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderKmsKeySourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderKmsKeySourceType)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderKmsKeySourceTypePtrOutput) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutput() OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderKmsKeySourceTypePtrOutput) ToOAuth2CredentialProviderKmsKeySourceTypePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderKmsKeySourceTypePtrOutput) Elem() OAuth2CredentialProviderKmsKeySourceTypeOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderKmsKeySourceType) OAuth2CredentialProviderKmsKeySourceType {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderKmsKeySourceType
+		return ret
+	}).(OAuth2CredentialProviderKmsKeySourceTypeOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion
+func (o OAuth2CredentialProviderKmsKeySourceTypePtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderKmsKeySourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Input configuration for a LinkedIn OAuth2 provider
 type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput struct {
 	ClientId           string                                                                       `pulumi:"clientId"`
@@ -27108,6 +31917,243 @@ func (o OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput) Clie
 		}
 		return v.ClientSecretSource
 	}).(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSourcePtrOutput)
+}
+
+// Configuration for a managed VPC Lattice resource. AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf.
+type OAuth2CredentialProviderManagedVpcResource struct {
+	// The IP address type for the resource configuration endpoint
+	EndpointIpAddressType OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType `pulumi:"endpointIpAddressType"`
+	// An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint
+	RoutingDomain *string `pulumi:"routingDomain"`
+	// The security group IDs to associate with the VPC Lattice resource gateway
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The subnet IDs within the VPC where the VPC Lattice resource gateway is placed
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags to apply to the managed VPC Lattice resource gateway
+	Tags map[string]string `pulumi:"tags"`
+	// The ID of the VPC that contains your private resource
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
+}
+
+// OAuth2CredentialProviderManagedVpcResourceInput is an input type that accepts OAuth2CredentialProviderManagedVpcResourceArgs and OAuth2CredentialProviderManagedVpcResourceOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderManagedVpcResourceInput` via:
+//
+//	OAuth2CredentialProviderManagedVpcResourceArgs{...}
+type OAuth2CredentialProviderManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderManagedVpcResourceOutput() OAuth2CredentialProviderManagedVpcResourceOutput
+	ToOAuth2CredentialProviderManagedVpcResourceOutputWithContext(context.Context) OAuth2CredentialProviderManagedVpcResourceOutput
+}
+
+// Configuration for a managed VPC Lattice resource. AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf.
+type OAuth2CredentialProviderManagedVpcResourceArgs struct {
+	// The IP address type for the resource configuration endpoint
+	EndpointIpAddressType OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeInput `pulumi:"endpointIpAddressType"`
+	// An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint
+	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
+	// The security group IDs to associate with the VPC Lattice resource gateway
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The subnet IDs within the VPC where the VPC Lattice resource gateway is placed
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags to apply to the managed VPC Lattice resource gateway
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The ID of the VPC that contains your private resource
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+}
+
+func (OAuth2CredentialProviderManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResource)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderManagedVpcResourceArgs) ToOAuth2CredentialProviderManagedVpcResourceOutput() OAuth2CredentialProviderManagedVpcResourceOutput {
+	return i.ToOAuth2CredentialProviderManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderManagedVpcResourceArgs) ToOAuth2CredentialProviderManagedVpcResourceOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderManagedVpcResourceOutput)
+}
+
+func (i OAuth2CredentialProviderManagedVpcResourceArgs) ToOAuth2CredentialProviderManagedVpcResourcePtrOutput() OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return i.ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderManagedVpcResourceArgs) ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderManagedVpcResourceOutput).ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderManagedVpcResourcePtrInput is an input type that accepts OAuth2CredentialProviderManagedVpcResourceArgs, OAuth2CredentialProviderManagedVpcResourcePtr and OAuth2CredentialProviderManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderManagedVpcResourcePtrInput` via:
+//
+//	        OAuth2CredentialProviderManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderManagedVpcResourcePtrOutput() OAuth2CredentialProviderManagedVpcResourcePtrOutput
+	ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(context.Context) OAuth2CredentialProviderManagedVpcResourcePtrOutput
+}
+
+type oauth2CredentialProviderManagedVpcResourcePtrType OAuth2CredentialProviderManagedVpcResourceArgs
+
+func OAuth2CredentialProviderManagedVpcResourcePtr(v *OAuth2CredentialProviderManagedVpcResourceArgs) OAuth2CredentialProviderManagedVpcResourcePtrInput {
+	return (*oauth2CredentialProviderManagedVpcResourcePtrType)(v)
+}
+
+func (*oauth2CredentialProviderManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderManagedVpcResource)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderManagedVpcResourcePtrType) ToOAuth2CredentialProviderManagedVpcResourcePtrOutput() OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return i.ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderManagedVpcResourcePtrType) ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderManagedVpcResourcePtrOutput)
+}
+
+// Configuration for a managed VPC Lattice resource. AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf.
+type OAuth2CredentialProviderManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResource)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) ToOAuth2CredentialProviderManagedVpcResourceOutput() OAuth2CredentialProviderManagedVpcResourceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) ToOAuth2CredentialProviderManagedVpcResourceOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) ToOAuth2CredentialProviderManagedVpcResourcePtrOutput() OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return o.ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderManagedVpcResource) *OAuth2CredentialProviderManagedVpcResource {
+		return &v
+	}).(OAuth2CredentialProviderManagedVpcResourcePtrOutput)
+}
+
+// The IP address type for the resource configuration endpoint
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) EndpointIpAddressType() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderManagedVpcResource) OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType {
+		return v.EndpointIpAddressType
+	}).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypeOutput)
+}
+
+// An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderManagedVpcResource) *string { return v.RoutingDomain }).(pulumi.StringPtrOutput)
+}
+
+// The security group IDs to associate with the VPC Lattice resource gateway
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderManagedVpcResource) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The subnet IDs within the VPC where the VPC Lattice resource gateway is placed
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderManagedVpcResource) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// Tags to apply to the managed VPC Lattice resource gateway
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderManagedVpcResource) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ID of the VPC that contains your private resource
+func (o OAuth2CredentialProviderManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderManagedVpcResource) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderManagedVpcResource)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) ToOAuth2CredentialProviderManagedVpcResourcePtrOutput() OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) ToOAuth2CredentialProviderManagedVpcResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) Elem() OAuth2CredentialProviderManagedVpcResourceOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResource) OAuth2CredentialProviderManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderManagedVpcResource
+		return ret
+	}).(OAuth2CredentialProviderManagedVpcResourceOutput)
+}
+
+// The IP address type for the resource configuration endpoint
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) EndpointIpAddressType() OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResource) *OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressTypePtrOutput)
+}
+
+// An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The security group IDs to associate with the VPC Lattice resource gateway
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnet IDs within the VPC where the VPC Lattice resource gateway is placed
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags to apply to the managed VPC Lattice resource gateway
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// The ID of the VPC that contains your private resource
+func (o OAuth2CredentialProviderManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 // Input configuration for a Microsoft OAuth2 provider
@@ -27951,6 +32997,10 @@ type OAuth2CredentialProviderOauth2ProviderConfigOutput struct {
 	ClientId                      *string                                                                       `pulumi:"clientId"`
 	OauthDiscovery                *OAuth2CredentialProviderOauth2Discovery                                      `pulumi:"oauthDiscovery"`
 	OnBehalfOfTokenExchangeConfig *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig                        `pulumi:"onBehalfOfTokenExchangeConfig"`
+	PrivateEndpoint               *OAuth2CredentialProviderPrivateEndpoint                                      `pulumi:"privateEndpoint"`
+	// The list of private endpoint overrides for the OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+	PrivateEndpointOverrides []OAuth2CredentialProviderPrivateEndpointOverride `pulumi:"privateEndpointOverrides"`
+	PrivateKeyJwtConfig      *OAuth2CredentialProviderPrivateKeyJwtConfig      `pulumi:"privateKeyJwtConfig"`
 }
 
 // Output configuration for an OAuth2 provider
@@ -27989,6 +33039,25 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) OnBehalfOfToke
 	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig {
 		return v.OnBehalfOfTokenExchangeConfig
 	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) PrivateEndpoint() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderPrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(OAuth2CredentialProviderPrivateEndpointPtrOutput)
+}
+
+// The list of private endpoint overrides for the OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) PrivateEndpointOverrides() OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) []OAuth2CredentialProviderPrivateEndpointOverride {
+		return v.PrivateEndpointOverrides
+	}).(OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputOutput) PrivateKeyJwtConfig() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderPrivateKeyJwtConfig {
+		return v.PrivateKeyJwtConfig
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput)
 }
 
 type OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput struct{ *pulumi.OutputState }
@@ -28050,6 +33119,34 @@ func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) OnBehalfOfT
 		}
 		return v.OnBehalfOfTokenExchangeConfig
 	}).(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) PrivateEndpoint() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderPrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(OAuth2CredentialProviderPrivateEndpointPtrOutput)
+}
+
+// The list of private endpoint overrides for the OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) PrivateEndpointOverrides() OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) []OAuth2CredentialProviderPrivateEndpointOverride {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointOverrides
+	}).(OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput)
+}
+
+func (o OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput) PrivateKeyJwtConfig() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderOauth2ProviderConfigOutput) *OAuth2CredentialProviderPrivateKeyJwtConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKeyJwtConfig
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput)
 }
 
 // Configuration for on-behalf-of token exchange
@@ -28209,6 +33306,598 @@ func (o OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput) TokenExc
 		}
 		return v.TokenExchangeGrantTypeConfig
 	}).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput)
+}
+
+// The private endpoint configuration for connecting to private resources in your VPC
+type OAuth2CredentialProviderPrivateEndpoint struct {
+	ManagedVpcResource         *OAuth2CredentialProviderManagedVpcResource         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource *OAuth2CredentialProviderSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
+}
+
+// OAuth2CredentialProviderPrivateEndpointInput is an input type that accepts OAuth2CredentialProviderPrivateEndpointArgs and OAuth2CredentialProviderPrivateEndpointOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateEndpointInput` via:
+//
+//	OAuth2CredentialProviderPrivateEndpointArgs{...}
+type OAuth2CredentialProviderPrivateEndpointInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateEndpointOutput() OAuth2CredentialProviderPrivateEndpointOutput
+	ToOAuth2CredentialProviderPrivateEndpointOutputWithContext(context.Context) OAuth2CredentialProviderPrivateEndpointOutput
+}
+
+// The private endpoint configuration for connecting to private resources in your VPC
+type OAuth2CredentialProviderPrivateEndpointArgs struct {
+	ManagedVpcResource         OAuth2CredentialProviderManagedVpcResourcePtrInput         `pulumi:"managedVpcResource"`
+	SelfManagedLatticeResource OAuth2CredentialProviderSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
+}
+
+func (OAuth2CredentialProviderPrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpoint)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointArgs) ToOAuth2CredentialProviderPrivateEndpointOutput() OAuth2CredentialProviderPrivateEndpointOutput {
+	return i.ToOAuth2CredentialProviderPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointArgs) ToOAuth2CredentialProviderPrivateEndpointOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateEndpointOutput)
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointArgs) ToOAuth2CredentialProviderPrivateEndpointPtrOutput() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return i.ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointArgs) ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateEndpointOutput).ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderPrivateEndpointPtrInput is an input type that accepts OAuth2CredentialProviderPrivateEndpointArgs, OAuth2CredentialProviderPrivateEndpointPtr and OAuth2CredentialProviderPrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateEndpointPtrInput` via:
+//
+//	        OAuth2CredentialProviderPrivateEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderPrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateEndpointPtrOutput() OAuth2CredentialProviderPrivateEndpointPtrOutput
+	ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(context.Context) OAuth2CredentialProviderPrivateEndpointPtrOutput
+}
+
+type oauth2CredentialProviderPrivateEndpointPtrType OAuth2CredentialProviderPrivateEndpointArgs
+
+func OAuth2CredentialProviderPrivateEndpointPtr(v *OAuth2CredentialProviderPrivateEndpointArgs) OAuth2CredentialProviderPrivateEndpointPtrInput {
+	return (*oauth2CredentialProviderPrivateEndpointPtrType)(v)
+}
+
+func (*oauth2CredentialProviderPrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderPrivateEndpoint)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderPrivateEndpointPtrType) ToOAuth2CredentialProviderPrivateEndpointPtrOutput() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return i.ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderPrivateEndpointPtrType) ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateEndpointPtrOutput)
+}
+
+// The private endpoint configuration for connecting to private resources in your VPC
+type OAuth2CredentialProviderPrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpoint)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOutput) ToOAuth2CredentialProviderPrivateEndpointOutput() OAuth2CredentialProviderPrivateEndpointOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOutput) ToOAuth2CredentialProviderPrivateEndpointOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOutput) ToOAuth2CredentialProviderPrivateEndpointPtrOutput() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o.ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOutput) ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderPrivateEndpoint) *OAuth2CredentialProviderPrivateEndpoint {
+		return &v
+	}).(OAuth2CredentialProviderPrivateEndpointPtrOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOutput) ManagedVpcResource() OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateEndpoint) *OAuth2CredentialProviderManagedVpcResource {
+		return v.ManagedVpcResource
+	}).(OAuth2CredentialProviderManagedVpcResourcePtrOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOutput) SelfManagedLatticeResource() OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateEndpoint) *OAuth2CredentialProviderSelfManagedLatticeResource {
+		return v.SelfManagedLatticeResource
+	}).(OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput)
+}
+
+type OAuth2CredentialProviderPrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderPrivateEndpoint)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointPtrOutput) ToOAuth2CredentialProviderPrivateEndpointPtrOutput() OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointPtrOutput) ToOAuth2CredentialProviderPrivateEndpointPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointPtrOutput) Elem() OAuth2CredentialProviderPrivateEndpointOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateEndpoint) OAuth2CredentialProviderPrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderPrivateEndpoint
+		return ret
+	}).(OAuth2CredentialProviderPrivateEndpointOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointPtrOutput) ManagedVpcResource() OAuth2CredentialProviderManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateEndpoint) *OAuth2CredentialProviderManagedVpcResource {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedVpcResource
+	}).(OAuth2CredentialProviderManagedVpcResourcePtrOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointPtrOutput) SelfManagedLatticeResource() OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateEndpoint) *OAuth2CredentialProviderSelfManagedLatticeResource {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedLatticeResource
+	}).(OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput)
+}
+
+// A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration
+type OAuth2CredentialProviderPrivateEndpointOverride struct {
+	// The domain to override with a private endpoint
+	Domain          string                                  `pulumi:"domain"`
+	PrivateEndpoint OAuth2CredentialProviderPrivateEndpoint `pulumi:"privateEndpoint"`
+}
+
+// OAuth2CredentialProviderPrivateEndpointOverrideInput is an input type that accepts OAuth2CredentialProviderPrivateEndpointOverrideArgs and OAuth2CredentialProviderPrivateEndpointOverrideOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateEndpointOverrideInput` via:
+//
+//	OAuth2CredentialProviderPrivateEndpointOverrideArgs{...}
+type OAuth2CredentialProviderPrivateEndpointOverrideInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateEndpointOverrideOutput() OAuth2CredentialProviderPrivateEndpointOverrideOutput
+	ToOAuth2CredentialProviderPrivateEndpointOverrideOutputWithContext(context.Context) OAuth2CredentialProviderPrivateEndpointOverrideOutput
+}
+
+// A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration
+type OAuth2CredentialProviderPrivateEndpointOverrideArgs struct {
+	// The domain to override with a private endpoint
+	Domain          pulumi.StringInput                           `pulumi:"domain"`
+	PrivateEndpoint OAuth2CredentialProviderPrivateEndpointInput `pulumi:"privateEndpoint"`
+}
+
+func (OAuth2CredentialProviderPrivateEndpointOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointOverrideArgs) ToOAuth2CredentialProviderPrivateEndpointOverrideOutput() OAuth2CredentialProviderPrivateEndpointOverrideOutput {
+	return i.ToOAuth2CredentialProviderPrivateEndpointOverrideOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointOverrideArgs) ToOAuth2CredentialProviderPrivateEndpointOverrideOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateEndpointOverrideOutput)
+}
+
+// OAuth2CredentialProviderPrivateEndpointOverrideArrayInput is an input type that accepts OAuth2CredentialProviderPrivateEndpointOverrideArray and OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateEndpointOverrideArrayInput` via:
+//
+//	OAuth2CredentialProviderPrivateEndpointOverrideArray{ OAuth2CredentialProviderPrivateEndpointOverrideArgs{...} }
+type OAuth2CredentialProviderPrivateEndpointOverrideArrayInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateEndpointOverrideArrayOutput() OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput
+	ToOAuth2CredentialProviderPrivateEndpointOverrideArrayOutputWithContext(context.Context) OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput
+}
+
+type OAuth2CredentialProviderPrivateEndpointOverrideArray []OAuth2CredentialProviderPrivateEndpointOverrideInput
+
+func (OAuth2CredentialProviderPrivateEndpointOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OAuth2CredentialProviderPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointOverrideArray) ToOAuth2CredentialProviderPrivateEndpointOverrideArrayOutput() OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return i.ToOAuth2CredentialProviderPrivateEndpointOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateEndpointOverrideArray) ToOAuth2CredentialProviderPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput)
+}
+
+// A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration
+type OAuth2CredentialProviderPrivateEndpointOverrideOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateEndpointOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOverrideOutput) ToOAuth2CredentialProviderPrivateEndpointOverrideOutput() OAuth2CredentialProviderPrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOverrideOutput) ToOAuth2CredentialProviderPrivateEndpointOverrideOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointOverrideOutput {
+	return o
+}
+
+// The domain to override with a private endpoint
+func (o OAuth2CredentialProviderPrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateEndpointOverride) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOverrideOutput) PrivateEndpoint() OAuth2CredentialProviderPrivateEndpointOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateEndpointOverride) OAuth2CredentialProviderPrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(OAuth2CredentialProviderPrivateEndpointOutput)
+}
+
+type OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OAuth2CredentialProviderPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput) ToOAuth2CredentialProviderPrivateEndpointOverrideArrayOutput() OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput) ToOAuth2CredentialProviderPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput) Index(i pulumi.IntInput) OAuth2CredentialProviderPrivateEndpointOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OAuth2CredentialProviderPrivateEndpointOverride {
+		return vs[0].([]OAuth2CredentialProviderPrivateEndpointOverride)[vs[1].(int)]
+	}).(OAuth2CredentialProviderPrivateEndpointOverrideOutput)
+}
+
+// Configuration for private_key_jwt client authentication (RFC 7523)
+type OAuth2CredentialProviderPrivateKeyJwtConfig struct {
+	AdditionalHeaderClaims  map[string]string                         `pulumi:"additionalHeaderClaims"`
+	AdditionalPayloadClaims map[string]string                         `pulumi:"additionalPayloadClaims"`
+	PrivateKeySource        *OAuth2CredentialProviderPrivateKeySource `pulumi:"privateKeySource"`
+	// The algorithm used to sign the JWT client assertion
+	SigningAlgorithm *OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm `pulumi:"signingAlgorithm"`
+}
+
+// OAuth2CredentialProviderPrivateKeyJwtConfigInput is an input type that accepts OAuth2CredentialProviderPrivateKeyJwtConfigArgs and OAuth2CredentialProviderPrivateKeyJwtConfigOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateKeyJwtConfigInput` via:
+//
+//	OAuth2CredentialProviderPrivateKeyJwtConfigArgs{...}
+type OAuth2CredentialProviderPrivateKeyJwtConfigInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigOutput() OAuth2CredentialProviderPrivateKeyJwtConfigOutput
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigOutputWithContext(context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigOutput
+}
+
+// Configuration for private_key_jwt client authentication (RFC 7523)
+type OAuth2CredentialProviderPrivateKeyJwtConfigArgs struct {
+	AdditionalHeaderClaims  pulumi.StringMapInput                            `pulumi:"additionalHeaderClaims"`
+	AdditionalPayloadClaims pulumi.StringMapInput                            `pulumi:"additionalPayloadClaims"`
+	PrivateKeySource        OAuth2CredentialProviderPrivateKeySourcePtrInput `pulumi:"privateKeySource"`
+	// The algorithm used to sign the JWT client assertion
+	SigningAlgorithm OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrInput `pulumi:"signingAlgorithm"`
+}
+
+func (OAuth2CredentialProviderPrivateKeyJwtConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfig)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderPrivateKeyJwtConfigArgs) ToOAuth2CredentialProviderPrivateKeyJwtConfigOutput() OAuth2CredentialProviderPrivateKeyJwtConfigOutput {
+	return i.ToOAuth2CredentialProviderPrivateKeyJwtConfigOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateKeyJwtConfigArgs) ToOAuth2CredentialProviderPrivateKeyJwtConfigOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateKeyJwtConfigOutput)
+}
+
+func (i OAuth2CredentialProviderPrivateKeyJwtConfigArgs) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return i.ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateKeyJwtConfigArgs) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateKeyJwtConfigOutput).ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderPrivateKeyJwtConfigPtrInput is an input type that accepts OAuth2CredentialProviderPrivateKeyJwtConfigArgs, OAuth2CredentialProviderPrivateKeyJwtConfigPtr and OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateKeyJwtConfigPtrInput` via:
+//
+//	        OAuth2CredentialProviderPrivateKeyJwtConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderPrivateKeyJwtConfigPtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput
+	ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput
+}
+
+type oauth2CredentialProviderPrivateKeyJwtConfigPtrType OAuth2CredentialProviderPrivateKeyJwtConfigArgs
+
+func OAuth2CredentialProviderPrivateKeyJwtConfigPtr(v *OAuth2CredentialProviderPrivateKeyJwtConfigArgs) OAuth2CredentialProviderPrivateKeyJwtConfigPtrInput {
+	return (*oauth2CredentialProviderPrivateKeyJwtConfigPtrType)(v)
+}
+
+func (*oauth2CredentialProviderPrivateKeyJwtConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderPrivateKeyJwtConfig)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderPrivateKeyJwtConfigPtrType) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return i.ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderPrivateKeyJwtConfigPtrType) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput)
+}
+
+// Configuration for private_key_jwt client authentication (RFC 7523)
+type OAuth2CredentialProviderPrivateKeyJwtConfigOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateKeyJwtConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfig)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigOutput() OAuth2CredentialProviderPrivateKeyJwtConfigOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o.ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderPrivateKeyJwtConfig) *OAuth2CredentialProviderPrivateKeyJwtConfig {
+		return &v
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) AdditionalHeaderClaims() pulumi.StringMapOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateKeyJwtConfig) map[string]string { return v.AdditionalHeaderClaims }).(pulumi.StringMapOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) AdditionalPayloadClaims() pulumi.StringMapOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateKeyJwtConfig) map[string]string {
+		return v.AdditionalPayloadClaims
+	}).(pulumi.StringMapOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) PrivateKeySource() OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateKeyJwtConfig) *OAuth2CredentialProviderPrivateKeySource {
+		return v.PrivateKeySource
+	}).(OAuth2CredentialProviderPrivateKeySourcePtrOutput)
+}
+
+// The algorithm used to sign the JWT client assertion
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigOutput) SigningAlgorithm() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateKeyJwtConfig) *OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm {
+		return v.SigningAlgorithm
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput)
+}
+
+type OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderPrivateKeyJwtConfig)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput() OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) ToOAuth2CredentialProviderPrivateKeyJwtConfigPtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) Elem() OAuth2CredentialProviderPrivateKeyJwtConfigOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeyJwtConfig) OAuth2CredentialProviderPrivateKeyJwtConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderPrivateKeyJwtConfig
+		return ret
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) AdditionalHeaderClaims() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeyJwtConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalHeaderClaims
+	}).(pulumi.StringMapOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) AdditionalPayloadClaims() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeyJwtConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalPayloadClaims
+	}).(pulumi.StringMapOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) PrivateKeySource() OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeyJwtConfig) *OAuth2CredentialProviderPrivateKeySource {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKeySource
+	}).(OAuth2CredentialProviderPrivateKeySourcePtrOutput)
+}
+
+// The algorithm used to sign the JWT client assertion
+func (o OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput) SigningAlgorithm() OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeyJwtConfig) *OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.SigningAlgorithm
+	}).(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithmPtrOutput)
+}
+
+// Contains the private key source configuration for a JWT client assertion
+type OAuth2CredentialProviderPrivateKeySource struct {
+	KmsKeySource *OAuth2CredentialProviderKmsKeySourceType `pulumi:"kmsKeySource"`
+}
+
+// OAuth2CredentialProviderPrivateKeySourceInput is an input type that accepts OAuth2CredentialProviderPrivateKeySourceArgs and OAuth2CredentialProviderPrivateKeySourceOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateKeySourceInput` via:
+//
+//	OAuth2CredentialProviderPrivateKeySourceArgs{...}
+type OAuth2CredentialProviderPrivateKeySourceInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateKeySourceOutput() OAuth2CredentialProviderPrivateKeySourceOutput
+	ToOAuth2CredentialProviderPrivateKeySourceOutputWithContext(context.Context) OAuth2CredentialProviderPrivateKeySourceOutput
+}
+
+// Contains the private key source configuration for a JWT client assertion
+type OAuth2CredentialProviderPrivateKeySourceArgs struct {
+	KmsKeySource OAuth2CredentialProviderKmsKeySourceTypePtrInput `pulumi:"kmsKeySource"`
+}
+
+func (OAuth2CredentialProviderPrivateKeySourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateKeySource)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderPrivateKeySourceArgs) ToOAuth2CredentialProviderPrivateKeySourceOutput() OAuth2CredentialProviderPrivateKeySourceOutput {
+	return i.ToOAuth2CredentialProviderPrivateKeySourceOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateKeySourceArgs) ToOAuth2CredentialProviderPrivateKeySourceOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateKeySourceOutput)
+}
+
+func (i OAuth2CredentialProviderPrivateKeySourceArgs) ToOAuth2CredentialProviderPrivateKeySourcePtrOutput() OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return i.ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderPrivateKeySourceArgs) ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateKeySourceOutput).ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderPrivateKeySourcePtrInput is an input type that accepts OAuth2CredentialProviderPrivateKeySourceArgs, OAuth2CredentialProviderPrivateKeySourcePtr and OAuth2CredentialProviderPrivateKeySourcePtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderPrivateKeySourcePtrInput` via:
+//
+//	        OAuth2CredentialProviderPrivateKeySourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderPrivateKeySourcePtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderPrivateKeySourcePtrOutput() OAuth2CredentialProviderPrivateKeySourcePtrOutput
+	ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(context.Context) OAuth2CredentialProviderPrivateKeySourcePtrOutput
+}
+
+type oauth2CredentialProviderPrivateKeySourcePtrType OAuth2CredentialProviderPrivateKeySourceArgs
+
+func OAuth2CredentialProviderPrivateKeySourcePtr(v *OAuth2CredentialProviderPrivateKeySourceArgs) OAuth2CredentialProviderPrivateKeySourcePtrInput {
+	return (*oauth2CredentialProviderPrivateKeySourcePtrType)(v)
+}
+
+func (*oauth2CredentialProviderPrivateKeySourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderPrivateKeySource)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderPrivateKeySourcePtrType) ToOAuth2CredentialProviderPrivateKeySourcePtrOutput() OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return i.ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderPrivateKeySourcePtrType) ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderPrivateKeySourcePtrOutput)
+}
+
+// Contains the private key source configuration for a JWT client assertion
+type OAuth2CredentialProviderPrivateKeySourceOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateKeySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderPrivateKeySource)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourceOutput) ToOAuth2CredentialProviderPrivateKeySourceOutput() OAuth2CredentialProviderPrivateKeySourceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourceOutput) ToOAuth2CredentialProviderPrivateKeySourceOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeySourceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourceOutput) ToOAuth2CredentialProviderPrivateKeySourcePtrOutput() OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return o.ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourceOutput) ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderPrivateKeySource) *OAuth2CredentialProviderPrivateKeySource {
+		return &v
+	}).(OAuth2CredentialProviderPrivateKeySourcePtrOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourceOutput) KmsKeySource() OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderPrivateKeySource) *OAuth2CredentialProviderKmsKeySourceType {
+		return v.KmsKeySource
+	}).(OAuth2CredentialProviderKmsKeySourceTypePtrOutput)
+}
+
+type OAuth2CredentialProviderPrivateKeySourcePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderPrivateKeySourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderPrivateKeySource)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourcePtrOutput) ToOAuth2CredentialProviderPrivateKeySourcePtrOutput() OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourcePtrOutput) ToOAuth2CredentialProviderPrivateKeySourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderPrivateKeySourcePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourcePtrOutput) Elem() OAuth2CredentialProviderPrivateKeySourceOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeySource) OAuth2CredentialProviderPrivateKeySource {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderPrivateKeySource
+		return ret
+	}).(OAuth2CredentialProviderPrivateKeySourceOutput)
+}
+
+func (o OAuth2CredentialProviderPrivateKeySourcePtrOutput) KmsKeySource() OAuth2CredentialProviderKmsKeySourceTypePtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderPrivateKeySource) *OAuth2CredentialProviderKmsKeySourceType {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeySource
+	}).(OAuth2CredentialProviderKmsKeySourceTypePtrOutput)
 }
 
 // Input configuration for a Salesforce OAuth2 provider
@@ -28552,6 +34241,148 @@ func (o OAuth2CredentialProviderSecretReferencePtrOutput) SecretId() pulumi.Stri
 			return nil
 		}
 		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.
+type OAuth2CredentialProviderSelfManagedLatticeResource struct {
+	// The ARN or ID of the VPC Lattice resource configuration
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// OAuth2CredentialProviderSelfManagedLatticeResourceInput is an input type that accepts OAuth2CredentialProviderSelfManagedLatticeResourceArgs and OAuth2CredentialProviderSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSelfManagedLatticeResourceInput` via:
+//
+//	OAuth2CredentialProviderSelfManagedLatticeResourceArgs{...}
+type OAuth2CredentialProviderSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSelfManagedLatticeResourceOutput() OAuth2CredentialProviderSelfManagedLatticeResourceOutput
+	ToOAuth2CredentialProviderSelfManagedLatticeResourceOutputWithContext(context.Context) OAuth2CredentialProviderSelfManagedLatticeResourceOutput
+}
+
+// Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.
+type OAuth2CredentialProviderSelfManagedLatticeResourceArgs struct {
+	// The ARN or ID of the VPC Lattice resource configuration
+	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (OAuth2CredentialProviderSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i OAuth2CredentialProviderSelfManagedLatticeResourceArgs) ToOAuth2CredentialProviderSelfManagedLatticeResourceOutput() OAuth2CredentialProviderSelfManagedLatticeResourceOutput {
+	return i.ToOAuth2CredentialProviderSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSelfManagedLatticeResourceArgs) ToOAuth2CredentialProviderSelfManagedLatticeResourceOutputWithContext(ctx context.Context) OAuth2CredentialProviderSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSelfManagedLatticeResourceOutput)
+}
+
+func (i OAuth2CredentialProviderSelfManagedLatticeResourceArgs) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput() OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return i.ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i OAuth2CredentialProviderSelfManagedLatticeResourceArgs) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSelfManagedLatticeResourceOutput).ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(ctx)
+}
+
+// OAuth2CredentialProviderSelfManagedLatticeResourcePtrInput is an input type that accepts OAuth2CredentialProviderSelfManagedLatticeResourceArgs, OAuth2CredentialProviderSelfManagedLatticeResourcePtr and OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput values.
+// You can construct a concrete instance of `OAuth2CredentialProviderSelfManagedLatticeResourcePtrInput` via:
+//
+//	        OAuth2CredentialProviderSelfManagedLatticeResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuth2CredentialProviderSelfManagedLatticeResourcePtrInput interface {
+	pulumi.Input
+
+	ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput() OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput
+	ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(context.Context) OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput
+}
+
+type oauth2CredentialProviderSelfManagedLatticeResourcePtrType OAuth2CredentialProviderSelfManagedLatticeResourceArgs
+
+func OAuth2CredentialProviderSelfManagedLatticeResourcePtr(v *OAuth2CredentialProviderSelfManagedLatticeResourceArgs) OAuth2CredentialProviderSelfManagedLatticeResourcePtrInput {
+	return (*oauth2CredentialProviderSelfManagedLatticeResourcePtrType)(v)
+}
+
+func (*oauth2CredentialProviderSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i *oauth2CredentialProviderSelfManagedLatticeResourcePtrType) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput() OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return i.ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *oauth2CredentialProviderSelfManagedLatticeResourcePtrType) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput)
+}
+
+// Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.
+type OAuth2CredentialProviderSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuth2CredentialProviderSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSelfManagedLatticeResourceOutput) ToOAuth2CredentialProviderSelfManagedLatticeResourceOutput() OAuth2CredentialProviderSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSelfManagedLatticeResourceOutput) ToOAuth2CredentialProviderSelfManagedLatticeResourceOutputWithContext(ctx context.Context) OAuth2CredentialProviderSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSelfManagedLatticeResourceOutput) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput() OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return o.ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (o OAuth2CredentialProviderSelfManagedLatticeResourceOutput) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2CredentialProviderSelfManagedLatticeResource) *OAuth2CredentialProviderSelfManagedLatticeResource {
+		return &v
+	}).(OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput)
+}
+
+// The ARN or ID of the VPC Lattice resource configuration
+func (o OAuth2CredentialProviderSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuth2CredentialProviderSelfManagedLatticeResource) string {
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuth2CredentialProviderSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput() OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput) ToOAuth2CredentialProviderSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput) Elem() OAuth2CredentialProviderSelfManagedLatticeResourceOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSelfManagedLatticeResource) OAuth2CredentialProviderSelfManagedLatticeResource {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2CredentialProviderSelfManagedLatticeResource
+		return ret
+	}).(OAuth2CredentialProviderSelfManagedLatticeResourceOutput)
+}
+
+// The ARN or ID of the VPC Lattice resource configuration
+func (o OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth2CredentialProviderSelfManagedLatticeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -36058,6 +41889,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomS3LocationPtrInput)(nil)).Elem(), BrowserCustomS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomVpcConfigInput)(nil)).Elem(), BrowserCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomVpcConfigPtrInput)(nil)).Elem(), BrowserCustomVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationInput)(nil)).Elem(), CapacityProviderCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationSpecificationPtrInput)(nil)).Elem(), CapacityProviderCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationTargetInput)(nil)).Elem(), CapacityProviderCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderCapacityReservationTargetPtrInput)(nil)).Elem(), CapacityProviderCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderComputeConfigurationInput)(nil)).Elem(), CapacityProviderComputeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEbsVolumeConfigurationInput)(nil)).Elem(), CapacityProviderEbsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEc2ConfigurationInput)(nil)).Elem(), CapacityProviderEc2ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEphemeralBlockDeviceMappingInput)(nil)).Elem(), CapacityProviderEphemeralBlockDeviceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEphemeralBlockDeviceMappingArrayInput)(nil)).Elem(), CapacityProviderEphemeralBlockDeviceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfigurationInput)(nil)).Elem(), CapacityProviderEphemeralEbsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderEphemeralEbsVolumeConfigurationPtrInput)(nil)).Elem(), CapacityProviderEphemeralEbsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLifecycleConfigurationInput)(nil)).Elem(), CapacityProviderInstanceLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLifecycleConfigurationPtrInput)(nil)).Elem(), CapacityProviderInstanceLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLaunchParametersInput)(nil)).Elem(), CapacityProviderLaunchParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLaunchTemplateSourceInput)(nil)).Elem(), CapacityProviderLaunchTemplateSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLicenseSpecificationInput)(nil)).Elem(), CapacityProviderLicenseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLicenseSpecificationArrayInput)(nil)).Elem(), CapacityProviderLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPermissionsConfigurationInput)(nil)).Elem(), CapacityProviderPermissionsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderRootVolumeConfigurationInput)(nil)).Elem(), CapacityProviderRootVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderRootVolumeConfigurationPtrInput)(nil)).Elem(), CapacityProviderRootVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVolumeConfigurationInput)(nil)).Elem(), CapacityProviderVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVolumeConfigurationArrayInput)(nil)).Elem(), CapacityProviderVolumeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVpcConfigurationInput)(nil)).Elem(), CapacityProviderVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCertificateInput)(nil)).Elem(), CodeInterpreterCustomCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCertificateArrayInput)(nil)).Elem(), CodeInterpreterCustomCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCertificateLocationInput)(nil)).Elem(), CodeInterpreterCustomCertificateLocationArgs{})
@@ -36091,12 +41946,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorModelConfigPtrInput)(nil)).Elem(), EvaluatorModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorNumericalScaleDefinitionInput)(nil)).Elem(), EvaluatorNumericalScaleDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorNumericalScaleDefinitionArrayInput)(nil)).Elem(), EvaluatorNumericalScaleDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorOpenResponsesEvaluatorModelConfigInput)(nil)).Elem(), EvaluatorOpenResponsesEvaluatorModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorOpenResponsesEvaluatorModelConfigPtrInput)(nil)).Elem(), EvaluatorOpenResponsesEvaluatorModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorRatingScaleInput)(nil)).Elem(), EvaluatorRatingScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorRatingScalePtrInput)(nil)).Elem(), EvaluatorRatingScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorReasoningConfigurationInput)(nil)).Elem(), EvaluatorReasoningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorReasoningConfigurationPtrInput)(nil)).Elem(), EvaluatorReasoningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), GatewayAuthorizingClaimMatchValueTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchValueTypeInput)(nil)).Elem(), GatewayClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchValueType0PropertiesInput)(nil)).Elem(), GatewayClaimMatchValueType0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchValueType1PropertiesInput)(nil)).Elem(), GatewayClaimMatchValueType1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomClaimValidationTypeInput)(nil)).Elem(), GatewayCustomClaimValidationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomClaimValidationTypeArrayInput)(nil)).Elem(), GatewayCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), GatewayCustomJwtAuthorizerConfigurationArgs{})
@@ -36105,13 +41965,51 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorConfigurationArrayInput)(nil)).Elem(), GatewayInterceptorConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorInputConfigurationInput)(nil)).Elem(), GatewayInterceptorInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorInputConfigurationPtrInput)(nil)).Elem(), GatewayInterceptorInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorPayloadExclusionSelectorPropertiesInput)(nil)).Elem(), GatewayInterceptorPayloadExclusionSelectorPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorPayloadExclusionSelectorPropertiesArrayInput)(nil)).Elem(), GatewayInterceptorPayloadExclusionSelectorPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorPayloadFilterInput)(nil)).Elem(), GatewayInterceptorPayloadFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorPayloadFilterPtrInput)(nil)).Elem(), GatewayInterceptorPayloadFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayLambdaInterceptorConfigurationInput)(nil)).Elem(), GatewayLambdaInterceptorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayManagedVpcResourceInput)(nil)).Elem(), GatewayManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayManagedVpcResourcePtrInput)(nil)).Elem(), GatewayManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMcpGatewayConfigurationInput)(nil)).Elem(), GatewayMcpGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMcpGatewayConfigurationPtrInput)(nil)).Elem(), GatewayMcpGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineConfigurationInput)(nil)).Elem(), GatewayPolicyEngineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPolicyEngineConfigurationPtrInput)(nil)).Elem(), GatewayPolicyEngineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPrivateEndpoint0PropertiesInput)(nil)).Elem(), GatewayPrivateEndpoint0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPrivateEndpoint0PropertiesPtrInput)(nil)).Elem(), GatewayPrivateEndpoint0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPrivateEndpoint1PropertiesInput)(nil)).Elem(), GatewayPrivateEndpoint1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPrivateEndpoint1PropertiesPtrInput)(nil)).Elem(), GatewayPrivateEndpoint1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitLimitEntryInput)(nil)).Elem(), GatewayRateLimitLimitEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitLimitEntryArrayInput)(nil)).Elem(), GatewayRateLimitLimitEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitRateConfigInput)(nil)).Elem(), GatewayRateLimitRateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRateLimitRateConfigArrayInput)(nil)).Elem(), GatewayRateLimitRateConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleAction0PropertiesInput)(nil)).Elem(), GatewayRuleAction0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleAction1PropertiesInput)(nil)).Elem(), GatewayRuleAction1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleCondition0PropertiesInput)(nil)).Elem(), GatewayRuleCondition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleCondition1PropertiesInput)(nil)).Elem(), GatewayRuleCondition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleConfigurationBundleAction0PropertiesInput)(nil)).Elem(), GatewayRuleConfigurationBundleAction0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleConfigurationBundleAction1PropertiesInput)(nil)).Elem(), GatewayRuleConfigurationBundleAction1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleConfigurationBundleReferenceInput)(nil)).Elem(), GatewayRuleConfigurationBundleReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleIamPrincipalInput)(nil)).Elem(), GatewayRuleIamPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchPathsInput)(nil)).Elem(), GatewayRuleMatchPathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchPrincipalEntryPropertiesInput)(nil)).Elem(), GatewayRuleMatchPrincipalEntryPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchPrincipalEntryPropertiesArrayInput)(nil)).Elem(), GatewayRuleMatchPrincipalEntryPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleMatchPrincipalsInput)(nil)).Elem(), GatewayRuleMatchPrincipalsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleRouteToTargetAction0PropertiesInput)(nil)).Elem(), GatewayRuleRouteToTargetAction0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleRouteToTargetAction1PropertiesInput)(nil)).Elem(), GatewayRuleRouteToTargetAction1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleStaticOverrideInput)(nil)).Elem(), GatewayRuleStaticOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleStaticRouteInput)(nil)).Elem(), GatewayRuleStaticRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleTargetTrafficSplitEntryInput)(nil)).Elem(), GatewayRuleTargetTrafficSplitEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleTargetTrafficSplitEntryArrayInput)(nil)).Elem(), GatewayRuleTargetTrafficSplitEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleTrafficSplitEntryInput)(nil)).Elem(), GatewayRuleTrafficSplitEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleTrafficSplitEntryArrayInput)(nil)).Elem(), GatewayRuleTrafficSplitEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleWeightedOverrideInput)(nil)).Elem(), GatewayRuleWeightedOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRuleWeightedRouteInput)(nil)).Elem(), GatewayRuleWeightedRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySelfManagedLatticeResourcePropertiesInput)(nil)).Elem(), GatewaySelfManagedLatticeResourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySelfManagedLatticeResourcePropertiesPtrInput)(nil)).Elem(), GatewaySelfManagedLatticeResourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySessionConfigurationInput)(nil)).Elem(), GatewaySessionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySessionConfigurationPtrInput)(nil)).Elem(), GatewaySessionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayStreamingConfigurationInput)(nil)).Elem(), GatewayStreamingConfigurationArgs{})
@@ -36385,8 +42283,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderGoogleOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderIncludedOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderIncludedOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderKmsKeySourceTypeInput)(nil)).Elem(), OAuth2CredentialProviderKmsKeySourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderKmsKeySourceTypePtrInput)(nil)).Elem(), OAuth2CredentialProviderKmsKeySourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResourceInput)(nil)).Elem(), OAuth2CredentialProviderManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderManagedVpcResourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2AuthorizationServerMetadataInput)(nil)).Elem(), OAuth2CredentialProviderOauth2AuthorizationServerMetadataArgs{})
@@ -36397,10 +42299,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigInput)(nil)).Elem(), OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrInput)(nil)).Elem(), OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpointInput)(nil)).Elem(), OAuth2CredentialProviderPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpointPtrInput)(nil)).Elem(), OAuth2CredentialProviderPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpointOverrideInput)(nil)).Elem(), OAuth2CredentialProviderPrivateEndpointOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateEndpointOverrideArrayInput)(nil)).Elem(), OAuth2CredentialProviderPrivateEndpointOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfigInput)(nil)).Elem(), OAuth2CredentialProviderPrivateKeyJwtConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateKeyJwtConfigPtrInput)(nil)).Elem(), OAuth2CredentialProviderPrivateKeyJwtConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateKeySourceInput)(nil)).Elem(), OAuth2CredentialProviderPrivateKeySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderPrivateKeySourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderPrivateKeySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSecretReferenceInput)(nil)).Elem(), OAuth2CredentialProviderSecretReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSecretReferencePtrInput)(nil)).Elem(), OAuth2CredentialProviderSecretReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSelfManagedLatticeResourceInput)(nil)).Elem(), OAuth2CredentialProviderSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSelfManagedLatticeResourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderSelfManagedLatticeResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
@@ -36507,6 +42419,30 @@ func init() {
 	pulumi.RegisterOutputType(BrowserCustomS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomVpcConfigOutput{})
 	pulumi.RegisterOutputType(BrowserCustomVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(CapacityProviderCapacityReservationTargetPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderComputeConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEbsVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEc2ConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEphemeralBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEphemeralBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEphemeralEbsVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderEphemeralEbsVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceLifecycleConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceLifecycleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLaunchParametersOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLaunchTemplateSourceOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLicenseSpecificationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPermissionsConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderRootVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderRootVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVolumeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCertificateOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCertificateArrayOutput{})
 	pulumi.RegisterOutputType(CodeInterpreterCustomCertificateLocationOutput{})
@@ -36543,12 +42479,17 @@ func init() {
 	pulumi.RegisterOutputType(EvaluatorModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorNumericalScaleDefinitionOutput{})
 	pulumi.RegisterOutputType(EvaluatorNumericalScaleDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(EvaluatorOpenResponsesEvaluatorModelConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorRatingScaleOutput{})
 	pulumi.RegisterOutputType(EvaluatorRatingScalePtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorReasoningConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluatorReasoningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizingClaimMatchValueTypeOutput{})
-	pulumi.RegisterOutputType(GatewayClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(GatewayClaimMatchValueType0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayClaimMatchValueType1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayCustomClaimValidationTypeOutput{})
 	pulumi.RegisterOutputType(GatewayCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(GatewayCustomJwtAuthorizerConfigurationOutput{})
@@ -36557,13 +42498,51 @@ func init() {
 	pulumi.RegisterOutputType(GatewayInterceptorConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptorInputConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptorInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorPayloadExclusionSelectorPropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorPayloadExclusionSelectorPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorPayloadFilterOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorPayloadFilterPtrOutput{})
 	pulumi.RegisterOutputType(GatewayLambdaInterceptorConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(GatewayManagedVpcResourcePtrOutput{})
 	pulumi.RegisterOutputType(GatewayMcpGatewayConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayMcpGatewayConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayPolicyEngineConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayPolicyEngineConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayPrivateEndpoint0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayPrivateEndpoint0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayPrivateEndpoint1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayPrivateEndpoint1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitLimitEntryOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitLimitEntryArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitRateConfigOutput{})
+	pulumi.RegisterOutputType(GatewayRateLimitRateConfigArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRuleAction0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleAction1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleCondition0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleCondition1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleConfigurationBundleAction0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleConfigurationBundleAction1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleConfigurationBundleReferenceOutput{})
+	pulumi.RegisterOutputType(GatewayRuleIamPrincipalOutput{})
+	pulumi.RegisterOutputType(GatewayRuleMatchPathsOutput{})
+	pulumi.RegisterOutputType(GatewayRuleMatchPrincipalEntryPropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleMatchPrincipalEntryPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRuleMatchPrincipalsOutput{})
+	pulumi.RegisterOutputType(GatewayRuleRouteToTargetAction0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleRouteToTargetAction1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayRuleStaticOverrideOutput{})
+	pulumi.RegisterOutputType(GatewayRuleStaticRouteOutput{})
+	pulumi.RegisterOutputType(GatewayRuleTargetTrafficSplitEntryOutput{})
+	pulumi.RegisterOutputType(GatewayRuleTargetTrafficSplitEntryArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRuleTrafficSplitEntryOutput{})
+	pulumi.RegisterOutputType(GatewayRuleTrafficSplitEntryArrayOutput{})
+	pulumi.RegisterOutputType(GatewayRuleWeightedOverrideOutput{})
+	pulumi.RegisterOutputType(GatewayRuleWeightedRouteOutput{})
+	pulumi.RegisterOutputType(GatewaySelfManagedLatticeResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(GatewaySelfManagedLatticeResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewaySessionConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewaySessionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayStreamingConfigurationOutput{})
@@ -36874,8 +42853,12 @@ func init() {
 	pulumi.RegisterOutputType(OAuth2CredentialProviderGoogleOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderIncludedOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderKmsKeySourceTypeOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderKmsKeySourceTypePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderManagedVpcResourcePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2AuthorizationServerMetadataOutput{})
@@ -36888,10 +42871,20 @@ func init() {
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOauth2ProviderConfigOutputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateEndpointOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateEndpointOverrideOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateEndpointOverrideArrayOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateKeyJwtConfigOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateKeyJwtConfigPtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateKeySourceOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderPrivateKeySourcePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSecretReferenceOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSecretReferencePtrOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(OAuth2CredentialProviderSelfManagedLatticeResourcePtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderSlackOauth2ProviderConfigInputPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigOutput{})

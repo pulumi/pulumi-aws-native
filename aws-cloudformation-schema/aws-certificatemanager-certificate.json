@@ -99,7 +99,7 @@
     "permissions" : [ "acm:AddTagsToCertificate", "acm:RemoveTagsFromCertificate" ]
   },
   "required" : [ "DomainName" ],
-  "createOnlyProperties" : [ "/properties/SubjectAlternativeNames", "/properties/DomainValidationOptions", "/properties/ValidationMethod", "/properties/KeyAlgorithm", "/properties/DomainName", "/properties/CertificateAuthorityArn", "/properties/CertificateExport" ],
+  "createOnlyProperties" : [ "/properties/SubjectAlternativeNames", "/properties/DomainValidationOptions", "/properties/KeyAlgorithm", "/properties/DomainName", "/properties/CertificateAuthorityArn", "/properties/CertificateExport" ],
   "writeOnlyProperties" : [ "/properties/DomainValidationOptions/*/HostedZoneId", "/properties/ValidationMethod" ],
   "readOnlyProperties" : [ "/properties/CertificateArn" ],
   "primaryIdentifier" : [ "/properties/CertificateArn" ],
@@ -112,7 +112,7 @@
       "permissions" : [ "acm:DescribeCertificate", "acm:ListTagsForCertificate" ]
     },
     "update" : {
-      "permissions" : [ "acm:UpdateCertificateOptions", "acm:AddTagsToCertificate", "acm:RemoveTagsFromCertificate" ]
+      "permissions" : [ "acm:DescribeCertificate", "acm:UpdateCertificateOptions", "acm:AddTagsToCertificate", "acm:RemoveTagsFromCertificate" ]
     },
     "delete" : {
       "permissions" : [ "acm:DeleteCertificate", "acm:DescribeCertificate", "acm:RemoveTagsFromCertificate" ],

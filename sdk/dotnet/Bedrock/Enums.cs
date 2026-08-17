@@ -3688,4 +3688,36 @@ namespace Pulumi.AwsNative.Bedrock
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The current status of the session.
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionStatus : IEquatable<SessionStatus>
+    {
+        private readonly string _value;
+
+        private SessionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionStatus Active { get; } = new SessionStatus("ACTIVE");
+        public static SessionStatus Expired { get; } = new SessionStatus("EXPIRED");
+        public static SessionStatus Ended { get; } = new SessionStatus("ENDED");
+
+        public static bool operator ==(SessionStatus left, SessionStatus right) => left.Equals(right);
+        public static bool operator !=(SessionStatus left, SessionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SessionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionStatus other && Equals(other);
+        public bool Equals(SessionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -35,6 +35,11 @@ export const getServerlessCache: typeof import("./getServerlessCache").getServer
 export const getServerlessCacheOutput: typeof import("./getServerlessCache").getServerlessCacheOutput = null as any;
 utilities.lazyLoad(exports, ["getServerlessCache","getServerlessCacheOutput"], () => require("./getServerlessCache"));
 
+export { GetServerlessCacheSnapshotArgs, GetServerlessCacheSnapshotResult, GetServerlessCacheSnapshotOutputArgs } from "./getServerlessCacheSnapshot";
+export const getServerlessCacheSnapshot: typeof import("./getServerlessCacheSnapshot").getServerlessCacheSnapshot = null as any;
+export const getServerlessCacheSnapshotOutput: typeof import("./getServerlessCacheSnapshot").getServerlessCacheSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessCacheSnapshot","getServerlessCacheSnapshotOutput"], () => require("./getServerlessCacheSnapshot"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
@@ -70,6 +75,11 @@ export type ServerlessCache = import("./serverlessCache").ServerlessCache;
 export const ServerlessCache: typeof import("./serverlessCache").ServerlessCache = null as any;
 utilities.lazyLoad(exports, ["ServerlessCache"], () => require("./serverlessCache"));
 
+export { ServerlessCacheSnapshotArgs } from "./serverlessCacheSnapshot";
+export type ServerlessCacheSnapshot = import("./serverlessCacheSnapshot").ServerlessCacheSnapshot;
+export const ServerlessCacheSnapshot: typeof import("./serverlessCacheSnapshot").ServerlessCacheSnapshot = null as any;
+utilities.lazyLoad(exports, ["ServerlessCacheSnapshot"], () => require("./serverlessCacheSnapshot"));
+
 export { SubnetGroupArgs } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
@@ -103,6 +113,8 @@ const _module = {
                 return new ReplicationGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:ServerlessCache":
                 return new ServerlessCache(name, <any>undefined, { urn })
+            case "aws-native:elasticache:ServerlessCacheSnapshot":
+                return new ServerlessCacheSnapshot(name, <any>undefined, { urn })
             case "aws-native:elasticache:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:User":

@@ -28,6 +28,14 @@ __all__ = [
     'ChannelSlateSourceArgsDict',
     'ChannelTimeShiftConfigurationArgs',
     'ChannelTimeShiftConfigurationArgsDict',
+    'FunctionCustomOutputConfigurationArgs',
+    'FunctionCustomOutputConfigurationArgsDict',
+    'FunctionHttpRequestConfigurationArgs',
+    'FunctionHttpRequestConfigurationArgsDict',
+    'FunctionRefArgs',
+    'FunctionRefArgsDict',
+    'FunctionSequentialExecutorConfigurationArgs',
+    'FunctionSequentialExecutorConfigurationArgsDict',
     'LiveSourceHttpPackageConfigurationArgs',
     'LiveSourceHttpPackageConfigurationArgsDict',
     'PlaybackConfigurationAdConditioningConfigurationArgs',
@@ -38,6 +46,10 @@ __all__ = [
     'PlaybackConfigurationAdMarkerPassthroughArgsDict',
     'PlaybackConfigurationAdsInteractionLogArgs',
     'PlaybackConfigurationAdsInteractionLogArgsDict',
+    'PlaybackConfigurationAdsPersonalizationConcurrencyArgs',
+    'PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict',
+    'PlaybackConfigurationAdsPersonalizationTimeoutsArgs',
+    'PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict',
     'PlaybackConfigurationAvailSuppressionArgs',
     'PlaybackConfigurationAvailSuppressionArgsDict',
     'PlaybackConfigurationBumperArgs',
@@ -433,6 +445,354 @@ class ChannelTimeShiftConfigurationArgs:
         pulumi.set(self, "max_time_delay_seconds", value)
 
 
+class FunctionCustomOutputConfigurationArgsDict(TypedDict):
+    """
+    Configuration for custom output functions.
+    """
+    runtime: pulumi.Input['FunctionRuntimeType']
+    """
+    The runtime environment for the function expression language.
+    """
+    output: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of output key-value pairs that define the custom output.
+    """
+
+@pulumi.input_type
+class FunctionCustomOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 runtime: pulumi.Input['FunctionRuntimeType'],
+                 output: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for custom output functions.
+
+        :param pulumi.Input['FunctionRuntimeType'] runtime: The runtime environment for the function expression language.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] output: A map of output key-value pairs that define the custom output.
+        """
+        pulumi.set(__self__, "runtime", runtime)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input['FunctionRuntimeType']:
+        """
+        The runtime environment for the function expression language.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input['FunctionRuntimeType']):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def output(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of output key-value pairs that define the custom output.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "output", value)
+
+
+class FunctionHttpRequestConfigurationArgsDict(TypedDict):
+    """
+    Configuration for HTTP request functions.
+    """
+    method_type: pulumi.Input['FunctionMethodType']
+    """
+    The HTTP method type for the request.
+    """
+    request_timeout_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The timeout in milliseconds for the HTTP request. Maximum value is 2000.
+    """
+    runtime: pulumi.Input['FunctionRuntimeType']
+    """
+    The runtime environment for the function expression language.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    The URL endpoint for the HTTP request.
+    """
+    body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The body of the HTTP request.
+    """
+    headers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of HTTP headers to include in the request.
+    """
+    output: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
+    """
+
+@pulumi.input_type
+class FunctionHttpRequestConfigurationArgs:
+    def __init__(__self__, *,
+                 method_type: pulumi.Input['FunctionMethodType'],
+                 request_timeout_milliseconds: pulumi.Input[_builtins.int],
+                 runtime: pulumi.Input['FunctionRuntimeType'],
+                 url: pulumi.Input[_builtins.str],
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 output: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for HTTP request functions.
+
+        :param pulumi.Input['FunctionMethodType'] method_type: The HTTP method type for the request.
+        :param pulumi.Input[_builtins.int] request_timeout_milliseconds: The timeout in milliseconds for the HTTP request. Maximum value is 2000.
+        :param pulumi.Input['FunctionRuntimeType'] runtime: The runtime environment for the function expression language.
+        :param pulumi.Input[_builtins.str] url: The URL endpoint for the HTTP request.
+        :param pulumi.Input[_builtins.str] body: The body of the HTTP request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] headers: A map of HTTP headers to include in the request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] output: A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
+        """
+        pulumi.set(__self__, "method_type", method_type)
+        pulumi.set(__self__, "request_timeout_milliseconds", request_timeout_milliseconds)
+        pulumi.set(__self__, "runtime", runtime)
+        pulumi.set(__self__, "url", url)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+
+    @_builtins.property
+    @pulumi.getter(name="methodType")
+    def method_type(self) -> pulumi.Input['FunctionMethodType']:
+        """
+        The HTTP method type for the request.
+        """
+        return pulumi.get(self, "method_type")
+
+    @method_type.setter
+    def method_type(self, value: pulumi.Input['FunctionMethodType']):
+        pulumi.set(self, "method_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestTimeoutMilliseconds")
+    def request_timeout_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The timeout in milliseconds for the HTTP request. Maximum value is 2000.
+        """
+        return pulumi.get(self, "request_timeout_milliseconds")
+
+    @request_timeout_milliseconds.setter
+    def request_timeout_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "request_timeout_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input['FunctionRuntimeType']:
+        """
+        The runtime environment for the function expression language.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input['FunctionRuntimeType']):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The URL endpoint for the HTTP request.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The body of the HTTP request.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "body", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of HTTP headers to include in the request.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def output(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of output key-value pairs. Keys must start with session., temp., avail., scte., or be a valid adsRequest directive.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "output", value)
+
+
+class FunctionRefArgsDict(TypedDict):
+    """
+    A reference to a function with an optional run condition.
+    """
+    function_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier of the function to execute.
+    """
+    run_condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A conditional expression that determines whether this function should execute.
+    """
+
+@pulumi.input_type
+class FunctionRefArgs:
+    def __init__(__self__, *,
+                 function_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_condition: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A reference to a function with an optional run condition.
+
+        :param pulumi.Input[_builtins.str] function_id: The identifier of the function to execute.
+        :param pulumi.Input[_builtins.str] run_condition: A conditional expression that determines whether this function should execute.
+        """
+        if function_id is not None:
+            pulumi.set(__self__, "function_id", function_id)
+        if run_condition is not None:
+            pulumi.set(__self__, "run_condition", run_condition)
+
+    @_builtins.property
+    @pulumi.getter(name="functionId")
+    def function_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the function to execute.
+        """
+        return pulumi.get(self, "function_id")
+
+    @function_id.setter
+    def function_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "function_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runCondition")
+    def run_condition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A conditional expression that determines whether this function should execute.
+        """
+        return pulumi.get(self, "run_condition")
+
+    @run_condition.setter
+    def run_condition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "run_condition", value)
+
+
+class FunctionSequentialExecutorConfigurationArgsDict(TypedDict):
+    """
+    Configuration for sequential executor functions.
+    """
+    function_list: pulumi.Input[Sequence[pulumi.Input['FunctionRefArgsDict']]]
+    """
+    The list of functions to execute sequentially.
+    """
+    runtime: pulumi.Input['FunctionRuntimeType']
+    """
+    The runtime environment for the function expression language.
+    """
+    timeout_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The timeout in milliseconds for the entire sequential execution chain.
+    """
+    output: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of output key-value pairs that define the final output from sequential execution.
+    """
+
+@pulumi.input_type
+class FunctionSequentialExecutorConfigurationArgs:
+    def __init__(__self__, *,
+                 function_list: pulumi.Input[Sequence[pulumi.Input['FunctionRefArgs']]],
+                 runtime: pulumi.Input['FunctionRuntimeType'],
+                 timeout_milliseconds: pulumi.Input[_builtins.int],
+                 output: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for sequential executor functions.
+
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionRefArgs']]] function_list: The list of functions to execute sequentially.
+        :param pulumi.Input['FunctionRuntimeType'] runtime: The runtime environment for the function expression language.
+        :param pulumi.Input[_builtins.int] timeout_milliseconds: The timeout in milliseconds for the entire sequential execution chain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] output: A map of output key-value pairs that define the final output from sequential execution.
+        """
+        pulumi.set(__self__, "function_list", function_list)
+        pulumi.set(__self__, "runtime", runtime)
+        pulumi.set(__self__, "timeout_milliseconds", timeout_milliseconds)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+
+    @_builtins.property
+    @pulumi.getter(name="functionList")
+    def function_list(self) -> pulumi.Input[Sequence[pulumi.Input['FunctionRefArgs']]]:
+        """
+        The list of functions to execute sequentially.
+        """
+        return pulumi.get(self, "function_list")
+
+    @function_list.setter
+    def function_list(self, value: pulumi.Input[Sequence[pulumi.Input['FunctionRefArgs']]]):
+        pulumi.set(self, "function_list", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input['FunctionRuntimeType']:
+        """
+        The runtime environment for the function expression language.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input['FunctionRuntimeType']):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMilliseconds")
+    def timeout_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The timeout in milliseconds for the entire sequential execution chain.
+        """
+        return pulumi.get(self, "timeout_milliseconds")
+
+    @timeout_milliseconds.setter
+    def timeout_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "timeout_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def output(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of output key-value pairs that define the final output from sequential execution.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "output", value)
+
+
 class LiveSourceHttpPackageConfigurationArgsDict(TypedDict):
     """
     <p>The HTTP package configuration properties for the requested VOD source.</p>
@@ -643,6 +1003,174 @@ class PlaybackConfigurationAdsInteractionLogArgs:
     @publish_opt_in_event_types.setter
     def publish_opt_in_event_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "publish_opt_in_event_types", value)
+
+
+class PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict(TypedDict):
+    """
+    The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+    """
+    enable_vod_vast_parallelization: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables parallel processing of ADS requests in VOD workflows when the ADS returns VAST responses. The default is false.
+    """
+    max_concurrent_ads_requests: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of simultaneous requests that MediaTailor makes to the ADS for each manifest request. The default is 1.
+    """
+
+@pulumi.input_type
+class PlaybackConfigurationAdsPersonalizationConcurrencyArgs:
+    def __init__(__self__, *,
+                 enable_vod_vast_parallelization: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_concurrent_ads_requests: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+
+        :param pulumi.Input[_builtins.bool] enable_vod_vast_parallelization: Enables parallel processing of ADS requests in VOD workflows when the ADS returns VAST responses. The default is false.
+        :param pulumi.Input[_builtins.int] max_concurrent_ads_requests: The maximum number of simultaneous requests that MediaTailor makes to the ADS for each manifest request. The default is 1.
+        """
+        if enable_vod_vast_parallelization is not None:
+            pulumi.set(__self__, "enable_vod_vast_parallelization", enable_vod_vast_parallelization)
+        if max_concurrent_ads_requests is not None:
+            pulumi.set(__self__, "max_concurrent_ads_requests", max_concurrent_ads_requests)
+
+    @_builtins.property
+    @pulumi.getter(name="enableVodVastParallelization")
+    def enable_vod_vast_parallelization(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables parallel processing of ADS requests in VOD workflows when the ADS returns VAST responses. The default is false.
+        """
+        return pulumi.get(self, "enable_vod_vast_parallelization")
+
+    @enable_vod_vast_parallelization.setter
+    def enable_vod_vast_parallelization(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_vod_vast_parallelization", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrentAdsRequests")
+    def max_concurrent_ads_requests(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of simultaneous requests that MediaTailor makes to the ADS for each manifest request. The default is 1.
+        """
+        return pulumi.get(self, "max_concurrent_ads_requests")
+
+    @max_concurrent_ads_requests.setter
+    def max_concurrent_ads_requests(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_concurrent_ads_requests", value)
+
+
+class PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict(TypedDict):
+    """
+    The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+    """
+    ads_request_timeout_milliseconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during live or VOD playback. The default is 3000.
+    """
+    live_maximum_ads_personalization_time_milliseconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for live manifests. The default is 10000.
+    """
+    prefetch_ads_request_timeout_milliseconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during prefetch retrieval. If not set, MediaTailor uses the AdsRequestTimeoutMilliseconds value.
+    """
+    prefetch_maximum_ads_personalization_time_milliseconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum total time, in milliseconds, that MediaTailor spends on ADS activity during prefetch retrieval.
+    """
+    vod_maximum_ads_personalization_time_milliseconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for VOD manifests. The default is 10000.
+    """
+
+@pulumi.input_type
+class PlaybackConfigurationAdsPersonalizationTimeoutsArgs:
+    def __init__(__self__, *,
+                 ads_request_timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 live_maximum_ads_personalization_time_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefetch_ads_request_timeout_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefetch_maximum_ads_personalization_time_milliseconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 vod_maximum_ads_personalization_time_milliseconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+
+        :param pulumi.Input[_builtins.int] ads_request_timeout_milliseconds: The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during live or VOD playback. The default is 3000.
+        :param pulumi.Input[_builtins.int] live_maximum_ads_personalization_time_milliseconds: The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for live manifests. The default is 10000.
+        :param pulumi.Input[_builtins.int] prefetch_ads_request_timeout_milliseconds: The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during prefetch retrieval. If not set, MediaTailor uses the AdsRequestTimeoutMilliseconds value.
+        :param pulumi.Input[_builtins.int] prefetch_maximum_ads_personalization_time_milliseconds: The maximum total time, in milliseconds, that MediaTailor spends on ADS activity during prefetch retrieval.
+        :param pulumi.Input[_builtins.int] vod_maximum_ads_personalization_time_milliseconds: The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for VOD manifests. The default is 10000.
+        """
+        if ads_request_timeout_milliseconds is not None:
+            pulumi.set(__self__, "ads_request_timeout_milliseconds", ads_request_timeout_milliseconds)
+        if live_maximum_ads_personalization_time_milliseconds is not None:
+            pulumi.set(__self__, "live_maximum_ads_personalization_time_milliseconds", live_maximum_ads_personalization_time_milliseconds)
+        if prefetch_ads_request_timeout_milliseconds is not None:
+            pulumi.set(__self__, "prefetch_ads_request_timeout_milliseconds", prefetch_ads_request_timeout_milliseconds)
+        if prefetch_maximum_ads_personalization_time_milliseconds is not None:
+            pulumi.set(__self__, "prefetch_maximum_ads_personalization_time_milliseconds", prefetch_maximum_ads_personalization_time_milliseconds)
+        if vod_maximum_ads_personalization_time_milliseconds is not None:
+            pulumi.set(__self__, "vod_maximum_ads_personalization_time_milliseconds", vod_maximum_ads_personalization_time_milliseconds)
+
+    @_builtins.property
+    @pulumi.getter(name="adsRequestTimeoutMilliseconds")
+    def ads_request_timeout_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during live or VOD playback. The default is 3000.
+        """
+        return pulumi.get(self, "ads_request_timeout_milliseconds")
+
+    @ads_request_timeout_milliseconds.setter
+    def ads_request_timeout_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ads_request_timeout_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveMaximumAdsPersonalizationTimeMilliseconds")
+    def live_maximum_ads_personalization_time_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for live manifests. The default is 10000.
+        """
+        return pulumi.get(self, "live_maximum_ads_personalization_time_milliseconds")
+
+    @live_maximum_ads_personalization_time_milliseconds.setter
+    def live_maximum_ads_personalization_time_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "live_maximum_ads_personalization_time_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefetchAdsRequestTimeoutMilliseconds")
+    def prefetch_ads_request_timeout_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum time, in milliseconds, that MediaTailor waits for a single ADS response during prefetch retrieval. If not set, MediaTailor uses the AdsRequestTimeoutMilliseconds value.
+        """
+        return pulumi.get(self, "prefetch_ads_request_timeout_milliseconds")
+
+    @prefetch_ads_request_timeout_milliseconds.setter
+    def prefetch_ads_request_timeout_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefetch_ads_request_timeout_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefetchMaximumAdsPersonalizationTimeMilliseconds")
+    def prefetch_maximum_ads_personalization_time_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum total time, in milliseconds, that MediaTailor spends on ADS activity during prefetch retrieval.
+        """
+        return pulumi.get(self, "prefetch_maximum_ads_personalization_time_milliseconds")
+
+    @prefetch_maximum_ads_personalization_time_milliseconds.setter
+    def prefetch_maximum_ads_personalization_time_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "prefetch_maximum_ads_personalization_time_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vodMaximumAdsPersonalizationTimeMilliseconds")
+    def vod_maximum_ads_personalization_time_milliseconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum total time, in milliseconds, that MediaTailor spends on ADS activity for VOD manifests. The default is 10000.
+        """
+        return pulumi.get(self, "vod_maximum_ads_personalization_time_milliseconds")
+
+    @vod_maximum_ads_personalization_time_milliseconds.setter
+    def vod_maximum_ads_personalization_time_milliseconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "vod_maximum_ads_personalization_time_milliseconds", value)
 
 
 class PlaybackConfigurationAvailSuppressionArgsDict(TypedDict):
