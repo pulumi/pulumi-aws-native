@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class GatewayCustomJwtAuthorizerConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advertisedScopeMapping")]
+        private InputMap<string>? _advertisedScopeMapping;
+        public InputMap<string> AdvertisedScopeMapping
+        {
+            get => _advertisedScopeMapping ?? (_advertisedScopeMapping = new InputMap<string>());
+            set => _advertisedScopeMapping = value;
+        }
+
         [Input("allowedAudience")]
         private InputList<string>? _allowedAudience;
         public InputList<string> AllowedAudience
@@ -46,6 +54,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
+
+        [Input("privateEndpoint")]
+        public InputUnion<Inputs.GatewayPrivateEndpoint0PropertiesArgs, Inputs.GatewayPrivateEndpoint1PropertiesArgs>? PrivateEndpoint { get; set; }
 
         public GatewayCustomJwtAuthorizerConfigurationArgs()
         {

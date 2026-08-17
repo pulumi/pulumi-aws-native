@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class BucketMetadataConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The annotation table configuration for a metadata configuration.
+        /// </summary>
         [Input("annotationTableConfiguration")]
         public Input<Inputs.BucketAnnotationTableConfigurationArgs>? AnnotationTableConfiguration { get; set; }
 

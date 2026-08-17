@@ -2511,6 +2511,105 @@ func (o ServerlessCacheEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerlessCacheSnapshotServerlessCacheConfiguration struct {
+	// The engine that the serverless cache is configured with.
+	Engine *string `pulumi:"engine"`
+	// The engine version number that the serverless cache is configured with.
+	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
+	// The identifier of the serverless cache.
+	ServerlessCacheName *string `pulumi:"serverlessCacheName"`
+}
+
+type ServerlessCacheSnapshotServerlessCacheConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheSnapshotServerlessCacheConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheSnapshotServerlessCacheConfiguration)(nil)).Elem()
+}
+
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationOutput) ToServerlessCacheSnapshotServerlessCacheConfigurationOutput() ServerlessCacheSnapshotServerlessCacheConfigurationOutput {
+	return o
+}
+
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationOutput) ToServerlessCacheSnapshotServerlessCacheConfigurationOutputWithContext(ctx context.Context) ServerlessCacheSnapshotServerlessCacheConfigurationOutput {
+	return o
+}
+
+// The engine that the serverless cache is configured with.
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheSnapshotServerlessCacheConfiguration) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+// The engine version number that the serverless cache is configured with.
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationOutput) MajorEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheSnapshotServerlessCacheConfiguration) *string { return v.MajorEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the serverless cache.
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationOutput) ServerlessCacheName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCacheSnapshotServerlessCacheConfiguration) *string { return v.ServerlessCacheName }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheSnapshotServerlessCacheConfiguration)(nil)).Elem()
+}
+
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput) ToServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput() ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput) ToServerlessCacheSnapshotServerlessCacheConfigurationPtrOutputWithContext(ctx context.Context) ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput) Elem() ServerlessCacheSnapshotServerlessCacheConfigurationOutput {
+	return o.ApplyT(func(v *ServerlessCacheSnapshotServerlessCacheConfiguration) ServerlessCacheSnapshotServerlessCacheConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCacheSnapshotServerlessCacheConfiguration
+		return ret
+	}).(ServerlessCacheSnapshotServerlessCacheConfigurationOutput)
+}
+
+// The engine that the serverless cache is configured with.
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheSnapshotServerlessCacheConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Engine
+	}).(pulumi.StringPtrOutput)
+}
+
+// The engine version number that the serverless cache is configured with.
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput) MajorEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheSnapshotServerlessCacheConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MajorEngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the serverless cache.
+func (o ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput) ServerlessCacheName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCacheSnapshotServerlessCacheConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerlessCacheName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCacheSnapshotTag struct {
+	// The key for the tag. May not be null.
+	Key string `pulumi:"key"`
+	// The tag's value. May be null.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with Serverless Cache.
 type ServerlessCacheTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2614,4 +2713,6 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessCacheEcpuPerSecondPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheEndpointOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheSnapshotServerlessCacheConfigurationOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput{})
 }

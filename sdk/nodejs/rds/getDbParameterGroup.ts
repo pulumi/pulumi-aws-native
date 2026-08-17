@@ -36,6 +36,7 @@ export interface GetDbParameterGroupArgs {
 }
 
 export interface GetDbParameterGroupResult {
+    readonly dbParameterGroupArn?: string;
     /**
      * A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
      *  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.

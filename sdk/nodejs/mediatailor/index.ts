@@ -15,6 +15,11 @@ export type ChannelPolicy = import("./channelPolicy").ChannelPolicy;
 export const ChannelPolicy: typeof import("./channelPolicy").ChannelPolicy = null as any;
 utilities.lazyLoad(exports, ["ChannelPolicy"], () => require("./channelPolicy"));
 
+export { FunctionArgs } from "./function";
+export type Function = import("./function").Function;
+export const Function: typeof import("./function").Function = null as any;
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
+
 export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
 export const getChannel: typeof import("./getChannel").getChannel = null as any;
 export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
@@ -24,6 +29,11 @@ export { GetChannelPolicyArgs, GetChannelPolicyResult, GetChannelPolicyOutputArg
 export const getChannelPolicy: typeof import("./getChannelPolicy").getChannelPolicy = null as any;
 export const getChannelPolicyOutput: typeof import("./getChannelPolicy").getChannelPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getChannelPolicy","getChannelPolicyOutput"], () => require("./getChannelPolicy"));
+
+export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
+export const getFunction: typeof import("./getFunction").getFunction = null as any;
+export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
 
 export { GetLiveSourceArgs, GetLiveSourceResult, GetLiveSourceOutputArgs } from "./getLiveSource";
 export const getLiveSource: typeof import("./getLiveSource").getLiveSource = null as any;
@@ -77,6 +87,8 @@ const _module = {
                 return new Channel(name, <any>undefined, { urn })
             case "aws-native:mediatailor:ChannelPolicy":
                 return new ChannelPolicy(name, <any>undefined, { urn })
+            case "aws-native:mediatailor:Function":
+                return new Function(name, <any>undefined, { urn })
             case "aws-native:mediatailor:LiveSource":
                 return new LiveSource(name, <any>undefined, { urn })
             case "aws-native:mediatailor:PlaybackConfiguration":

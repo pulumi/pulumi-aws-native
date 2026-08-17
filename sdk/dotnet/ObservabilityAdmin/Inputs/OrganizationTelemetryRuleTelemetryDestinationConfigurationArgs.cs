@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("elbLoadBalancerLoggingParameters")]
         public Input<Inputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs>? ElbLoadBalancerLoggingParameters { get; set; }
 
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
         /// <summary>
         /// Parameters for log delivery configuration
         /// </summary>

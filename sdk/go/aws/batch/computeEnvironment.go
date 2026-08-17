@@ -76,6 +76,8 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"computeEnvironmentName",
+		"computeResources.managedInstancesProvider.instanceLaunchTemplate.capacityOptionType",
+		"computeResources.managedInstancesProvider.instanceLaunchTemplate.fipsEnabled",
 		"computeResources.spotIamFleetRole",
 		"eksConfiguration",
 		"tags.*",

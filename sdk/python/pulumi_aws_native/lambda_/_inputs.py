@@ -1864,6 +1864,9 @@ class FunctionCodeArgsDict(TypedDict):
     The Amazon S3 key of the deployment package.
     """
     s3_object_storage_mode: NotRequired[pulumi.Input[Optional['FunctionCodeS3ObjectStorageMode']]]
+    """
+    Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
+    """
     s3_object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For versioned objects, the version of the deployment package object to use.
@@ -1899,6 +1902,7 @@ class FunctionCodeArgs:
         :param pulumi.Input[_builtins.str] image_uri: URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
         :param pulumi.Input[_builtins.str] s3_bucket: An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
         :param pulumi.Input[_builtins.str] s3_key: The Amazon S3 key of the deployment package.
+        :param pulumi.Input['FunctionCodeS3ObjectStorageMode'] s3_object_storage_mode: Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
         :param pulumi.Input[_builtins.str] s3_object_version: For versioned objects, the version of the deployment package object to use.
         :param pulumi.Input[_builtins.str] source_kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
         :param pulumi.Input[_builtins.str] zip_file: (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
@@ -1961,6 +1965,9 @@ class FunctionCodeArgs:
     @_builtins.property
     @pulumi.getter(name="s3ObjectStorageMode")
     def s3_object_storage_mode(self) -> pulumi.Input[Optional['FunctionCodeS3ObjectStorageMode']]:
+        """
+        Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
+        """
         return pulumi.get(self, "s3_object_storage_mode")
 
     @s3_object_storage_mode.setter
@@ -2044,13 +2051,16 @@ class FunctionDeadLetterConfigArgs:
 
 class FunctionDurableConfigArgsDict(TypedDict):
     """
-    Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+    Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
     """
     execution_timeout: pulumi.Input[_builtins.int]
     """
     The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
     """
     kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+    """
     retention_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
@@ -2063,9 +2073,10 @@ class FunctionDurableConfigArgs:
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
 
         :param pulumi.Input[_builtins.int] execution_timeout: The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
         :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
@@ -2089,6 +2100,9 @@ class FunctionDurableConfigArgs:
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter

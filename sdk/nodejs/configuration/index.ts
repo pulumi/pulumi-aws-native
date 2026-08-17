@@ -30,6 +30,11 @@ export type Connector = import("./connector").Connector;
 export const Connector: typeof import("./connector").Connector = null as any;
 utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
 
+export { DeliveryChannelArgs } from "./deliveryChannel";
+export type DeliveryChannel = import("./deliveryChannel").DeliveryChannel;
+export const DeliveryChannel: typeof import("./deliveryChannel").DeliveryChannel = null as any;
+utilities.lazyLoad(exports, ["DeliveryChannel"], () => require("./deliveryChannel"));
+
 export { GetAggregationAuthorizationArgs, GetAggregationAuthorizationResult, GetAggregationAuthorizationOutputArgs } from "./getAggregationAuthorization";
 export const getAggregationAuthorization: typeof import("./getAggregationAuthorization").getAggregationAuthorization = null as any;
 export const getAggregationAuthorizationOutput: typeof import("./getAggregationAuthorization").getAggregationAuthorizationOutput = null as any;
@@ -54,6 +59,11 @@ export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./
 export const getConnector: typeof import("./getConnector").getConnector = null as any;
 export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+
+export { GetDeliveryChannelArgs, GetDeliveryChannelResult, GetDeliveryChannelOutputArgs } from "./getDeliveryChannel";
+export const getDeliveryChannel: typeof import("./getDeliveryChannel").getDeliveryChannel = null as any;
+export const getDeliveryChannelOutput: typeof import("./getDeliveryChannel").getDeliveryChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getDeliveryChannel","getDeliveryChannelOutput"], () => require("./getDeliveryChannel"));
 
 export { GetOrganizationConformancePackArgs, GetOrganizationConformancePackResult, GetOrganizationConformancePackOutputArgs } from "./getOrganizationConformancePack";
 export const getOrganizationConformancePack: typeof import("./getOrganizationConformancePack").getOrganizationConformancePack = null as any;
@@ -86,6 +96,9 @@ export const StoredQuery: typeof import("./storedQuery").StoredQuery = null as a
 utilities.lazyLoad(exports, ["StoredQuery"], () => require("./storedQuery"));
 
 
+// Export enums:
+export * from "../types/enums/configuration";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -100,6 +113,8 @@ const _module = {
                 return new ConformancePack(name, <any>undefined, { urn })
             case "aws-native:configuration:Connector":
                 return new Connector(name, <any>undefined, { urn })
+            case "aws-native:configuration:DeliveryChannel":
+                return new DeliveryChannel(name, <any>undefined, { urn })
             case "aws-native:configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
             case "aws-native:configuration:RemediationConfiguration":

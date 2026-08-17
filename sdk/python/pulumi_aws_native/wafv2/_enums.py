@@ -28,6 +28,7 @@ __all__ = [
     'RuleGroupMapMatchScope',
     'RuleGroupOversizeHandling',
     'RuleGroupPositionalConstraint',
+    'RuleGroupPreParseTextTransformationType',
     'RuleGroupRateBasedStatementAggregateKeyType',
     'RuleGroupRateLimitJa3FingerprintFallbackBehavior',
     'RuleGroupRateLimitJa4FingerprintFallbackBehavior',
@@ -56,6 +57,7 @@ __all__ = [
     'WebAclOnSourceDDoSProtectionConfigAlbLowReputationMode',
     'WebAclOversizeHandling',
     'WebAclPositionalConstraint',
+    'WebAclPreParseTextTransformationType',
     'WebAclRateBasedStatementAggregateKeyType',
     'WebAclRateLimitJa3FingerprintFallbackBehavior',
     'WebAclRateLimitJa4FingerprintFallbackBehavior',
@@ -303,6 +305,18 @@ class RuleGroupPositionalConstraint(_builtins.str, Enum):
     CONTAINS_WORD = "CONTAINS_WORD"
 
 
+@pulumi.type_token("aws-native:wafv2:RuleGroupPreParseTextTransformationType")
+class RuleGroupPreParseTextTransformationType(_builtins.str, Enum):
+    """
+    Type of pre-parse text transformation.
+    """
+    NONE = "NONE"
+    URL_DECODE = "URL_DECODE"
+    URL_DECODE_UNI = "URL_DECODE_UNI"
+    COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA = "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA"
+    REPLACE_SEMICOLONS_WITH_AMPERSANDS = "REPLACE_SEMICOLONS_WITH_AMPERSANDS"
+
+
 @pulumi.type_token("aws-native:wafv2:RuleGroupRateBasedStatementAggregateKeyType")
 class RuleGroupRateBasedStatementAggregateKeyType(_builtins.str, Enum):
     """
@@ -428,6 +442,16 @@ class RuleGroupTextTransformationType(_builtins.str, Enum):
     BASE64_DECODE_EXT = "BASE64_DECODE_EXT"
     URL_DECODE_UNI = "URL_DECODE_UNI"
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
+    REMOVE_WHITESPACE = "REMOVE_WHITESPACE"
+    TRIM = "TRIM"
+    TRIM_LEFT = "TRIM_LEFT"
+    TRIM_RIGHT = "TRIM_RIGHT"
+    REMOVE_COMMENTS_CHAR = "REMOVE_COMMENTS_CHAR"
+    UPPERCASE = "UPPERCASE"
+    CMD_LINE_WIN = "CMD_LINE_WIN"
+    CMD_LINE_UNIX = "CMD_LINE_UNIX"
+    JS_DECODE_EXT = "JS_DECODE_EXT"
+    SHA256 = "SHA256"
 
 
 @pulumi.type_token("aws-native:wafv2:RuleGroupUriFragmentFallbackBehavior")
@@ -656,6 +680,18 @@ class WebAclPositionalConstraint(_builtins.str, Enum):
     CONTAINS_WORD = "CONTAINS_WORD"
 
 
+@pulumi.type_token("aws-native:wafv2:WebAclPreParseTextTransformationType")
+class WebAclPreParseTextTransformationType(_builtins.str, Enum):
+    """
+    Type of pre-parse text transformation.
+    """
+    NONE = "NONE"
+    URL_DECODE = "URL_DECODE"
+    URL_DECODE_UNI = "URL_DECODE_UNI"
+    COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA = "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA"
+    REPLACE_SEMICOLONS_WITH_AMPERSANDS = "REPLACE_SEMICOLONS_WITH_AMPERSANDS"
+
+
 @pulumi.type_token("aws-native:wafv2:WebAclRateBasedStatementAggregateKeyType")
 class WebAclRateBasedStatementAggregateKeyType(_builtins.str, Enum):
     """
@@ -814,6 +850,16 @@ class WebAclTextTransformationType(_builtins.str, Enum):
     BASE64_DECODE_EXT = "BASE64_DECODE_EXT"
     URL_DECODE_UNI = "URL_DECODE_UNI"
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
+    REMOVE_WHITESPACE = "REMOVE_WHITESPACE"
+    TRIM = "TRIM"
+    TRIM_LEFT = "TRIM_LEFT"
+    TRIM_RIGHT = "TRIM_RIGHT"
+    REMOVE_COMMENTS_CHAR = "REMOVE_COMMENTS_CHAR"
+    UPPERCASE = "UPPERCASE"
+    CMD_LINE_WIN = "CMD_LINE_WIN"
+    CMD_LINE_UNIX = "CMD_LINE_UNIX"
+    JS_DECODE_EXT = "JS_DECODE_EXT"
+    SHA256 = "SHA256"
 
 
 @pulumi.type_token("aws-native:wafv2:WebAclUriFragmentFallbackBehavior")

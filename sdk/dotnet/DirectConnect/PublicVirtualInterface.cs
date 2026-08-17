@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.DirectConnect
         public Output<string> ConnectionId { get; private set; } = null!;
 
         /// <summary>
+        /// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        /// </summary>
+        [Output("rateLimit")]
+        public Output<string?> RateLimit { get; private set; } = null!;
+
+        /// <summary>
         /// The routes to be advertised to the AWS network in this region.
         /// </summary>
         [Output("routeFilterPrefixes")]
@@ -143,6 +149,12 @@ namespace Pulumi.AwsNative.DirectConnect
         /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
+
+        /// <summary>
+        /// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        /// </summary>
+        [Input("rateLimit")]
+        public Input<string>? RateLimit { get; set; }
 
         [Input("routeFilterPrefixes")]
         private InputList<string>? _routeFilterPrefixes;

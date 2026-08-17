@@ -34,10 +34,22 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+        /// </summary>
+        [Output("exchangeUrlPrivateConnectionName")]
+        public Output<string?> ExchangeUrlPrivateConnectionName { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the KMS key to use for encryption.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the private connection to use for VPC connectivity.
+        /// </summary>
+        [Output("privateConnectionName")]
+        public Output<string?> PrivateConnectionName { get; private set; } = null!;
 
         /// <summary>
         /// Service-specific configuration details for create operation
@@ -62,6 +74,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+        /// </summary>
+        [Output("targetUrlPrivateConnectionName")]
+        public Output<string?> TargetUrlPrivateConnectionName { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,13 +106,16 @@ namespace Pulumi.AwsNative.DevOpsAgent
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "exchangeUrlPrivateConnectionName",
                     "kmsKeyArn",
+                    "privateConnectionName",
                     "serviceDetails.azureIdentity",
                     "serviceDetails.dynatrace",
                     "serviceDetails.mcpServerSplunk",
                     "serviceDetails.pagerDuty",
                     "serviceDetails.serviceNow",
                     "serviceType",
+                    "targetUrlPrivateConnectionName",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,10 +140,22 @@ namespace Pulumi.AwsNative.DevOpsAgent
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+        /// </summary>
+        [Input("exchangeUrlPrivateConnectionName")]
+        public Input<string>? ExchangeUrlPrivateConnectionName { get; set; }
+
+        /// <summary>
         /// The ARN of the KMS key to use for encryption.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
+        /// The name of the private connection to use for VPC connectivity.
+        /// </summary>
+        [Input("privateConnectionName")]
+        public Input<string>? PrivateConnectionName { get; set; }
 
         /// <summary>
         /// Service-specific configuration details for create operation
@@ -147,6 +180,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+        /// </summary>
+        [Input("targetUrlPrivateConnectionName")]
+        public Input<string>? TargetUrlPrivateConnectionName { get; set; }
 
         public ServiceArgs()
         {

@@ -38,6 +38,34 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope : IEquatable<OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope>
+    {
+        private readonly string _value;
+
+        private OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope EncryptedSourceOnly { get; } = new OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope("ENCRYPTED_SOURCE_ONLY");
+        public static OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope NewDestinationLogGroups { get; } = new OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope("NEW_DESTINATION_LOG_GROUPS");
+
+        public static bool operator ==(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope left, OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope right) => left.Equals(right);
+        public static bool operator !=(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope left, OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope other && Equals(other);
+        public bool Equals(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
     /// </summary>

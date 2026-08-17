@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class GatewayTargetStickinessConfiguration
     {
         public readonly string Identifier;
-        public readonly int? Timeout;
+        public readonly double? Timeout;
 
         [OutputConstructor]
         private GatewayTargetStickinessConfiguration(
             string identifier,
 
-            int? timeout)
+            double? timeout)
         {
             Identifier = identifier;
             Timeout = timeout;

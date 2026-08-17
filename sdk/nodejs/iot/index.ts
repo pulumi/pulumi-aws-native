@@ -125,6 +125,11 @@ export const getFleetMetric: typeof import("./getFleetMetric").getFleetMetric = 
 export const getFleetMetricOutput: typeof import("./getFleetMetric").getFleetMetricOutput = null as any;
 utilities.lazyLoad(exports, ["getFleetMetric","getFleetMetricOutput"], () => require("./getFleetMetric"));
 
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
 export { GetJobTemplateArgs, GetJobTemplateResult, GetJobTemplateOutputArgs } from "./getJobTemplate";
 export const getJobTemplate: typeof import("./getJobTemplate").getJobTemplate = null as any;
 export const getJobTemplateOutput: typeof import("./getJobTemplate").getJobTemplateOutput = null as any;
@@ -204,6 +209,11 @@ export { GetTopicRuleDestinationArgs, GetTopicRuleDestinationResult, GetTopicRul
 export const getTopicRuleDestination: typeof import("./getTopicRuleDestination").getTopicRuleDestination = null as any;
 export const getTopicRuleDestinationOutput: typeof import("./getTopicRuleDestination").getTopicRuleDestinationOutput = null as any;
 utilities.lazyLoad(exports, ["getTopicRuleDestination","getTopicRuleDestinationOutput"], () => require("./getTopicRuleDestination"));
+
+export { JobArgs } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
 
 export { JobTemplateArgs } from "./jobTemplate";
 export type JobTemplate = import("./jobTemplate").JobTemplate;
@@ -317,6 +327,8 @@ const _module = {
                 return new EncryptionConfiguration(name, <any>undefined, { urn })
             case "aws-native:iot:FleetMetric":
                 return new FleetMetric(name, <any>undefined, { urn })
+            case "aws-native:iot:Job":
+                return new Job(name, <any>undefined, { urn })
             case "aws-native:iot:JobTemplate":
                 return new JobTemplate(name, <any>undefined, { urn })
             case "aws-native:iot:Logging":

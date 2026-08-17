@@ -42,6 +42,14 @@ export interface GetQueueResult {
      */
     readonly instanceArn?: string;
     /**
+     * The AWS Region where this resource was last modified.
+     */
+    readonly lastModifiedRegion?: string;
+    /**
+     * The timestamp when this resource was last modified.
+     */
+    readonly lastModifiedTime?: number;
+    /**
      * The maximum number of contacts that can be in the queue before it is considered full.
      */
     readonly maxContacts?: number;

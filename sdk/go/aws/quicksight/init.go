@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Agent{}
 	case "aws-native:quicksight:Analysis":
 		r = &Analysis{}
+	case "aws-native:quicksight:ApprovalPolicy":
+		r = &ApprovalPolicy{}
 	case "aws-native:quicksight:CustomPermissions":
 		r = &CustomPermissions{}
 	case "aws-native:quicksight:Dashboard":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataSet{}
 	case "aws-native:quicksight:DataSource":
 		r = &DataSource{}
+	case "aws-native:quicksight:DlpSetting":
+		r = &DlpSetting{}
 	case "aws-native:quicksight:Flow":
 		r = &Flow{}
 	case "aws-native:quicksight:Folder":
@@ -53,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Theme{}
 	case "aws-native:quicksight:Topic":
 		r = &Topic{}
+	case "aws-native:quicksight:TopicV2":
+		r = &TopicV2{}
 	case "aws-native:quicksight:VpcConnection":
 		r = &VpcConnection{}
 	default:

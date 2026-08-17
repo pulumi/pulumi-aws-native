@@ -1353,6 +1353,118 @@ func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput) Exclus
 	}).(AnalyzerAnalysisRuleCriteriaArrayOutput)
 }
 
+type FilterValueProperties struct {
+	Contains []string `pulumi:"contains"`
+	Eq       []string `pulumi:"eq"`
+	Exists   *bool    `pulumi:"exists"`
+	Neq      []string `pulumi:"neq"`
+}
+
+// FilterValuePropertiesInput is an input type that accepts FilterValuePropertiesArgs and FilterValuePropertiesOutput values.
+// You can construct a concrete instance of `FilterValuePropertiesInput` via:
+//
+//	FilterValuePropertiesArgs{...}
+type FilterValuePropertiesInput interface {
+	pulumi.Input
+
+	ToFilterValuePropertiesOutput() FilterValuePropertiesOutput
+	ToFilterValuePropertiesOutputWithContext(context.Context) FilterValuePropertiesOutput
+}
+
+type FilterValuePropertiesArgs struct {
+	Contains pulumi.StringArrayInput `pulumi:"contains"`
+	Eq       pulumi.StringArrayInput `pulumi:"eq"`
+	Exists   pulumi.BoolPtrInput     `pulumi:"exists"`
+	Neq      pulumi.StringArrayInput `pulumi:"neq"`
+}
+
+func (FilterValuePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterValueProperties)(nil)).Elem()
+}
+
+func (i FilterValuePropertiesArgs) ToFilterValuePropertiesOutput() FilterValuePropertiesOutput {
+	return i.ToFilterValuePropertiesOutputWithContext(context.Background())
+}
+
+func (i FilterValuePropertiesArgs) ToFilterValuePropertiesOutputWithContext(ctx context.Context) FilterValuePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterValuePropertiesOutput)
+}
+
+// FilterValuePropertiesMapInput is an input type that accepts FilterValuePropertiesMap and FilterValuePropertiesMapOutput values.
+// You can construct a concrete instance of `FilterValuePropertiesMapInput` via:
+//
+//	FilterValuePropertiesMap{ "key": FilterValuePropertiesArgs{...} }
+type FilterValuePropertiesMapInput interface {
+	pulumi.Input
+
+	ToFilterValuePropertiesMapOutput() FilterValuePropertiesMapOutput
+	ToFilterValuePropertiesMapOutputWithContext(context.Context) FilterValuePropertiesMapOutput
+}
+
+type FilterValuePropertiesMap map[string]FilterValuePropertiesInput
+
+func (FilterValuePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FilterValueProperties)(nil)).Elem()
+}
+
+func (i FilterValuePropertiesMap) ToFilterValuePropertiesMapOutput() FilterValuePropertiesMapOutput {
+	return i.ToFilterValuePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i FilterValuePropertiesMap) ToFilterValuePropertiesMapOutputWithContext(ctx context.Context) FilterValuePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterValuePropertiesMapOutput)
+}
+
+type FilterValuePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FilterValuePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterValueProperties)(nil)).Elem()
+}
+
+func (o FilterValuePropertiesOutput) ToFilterValuePropertiesOutput() FilterValuePropertiesOutput {
+	return o
+}
+
+func (o FilterValuePropertiesOutput) ToFilterValuePropertiesOutputWithContext(ctx context.Context) FilterValuePropertiesOutput {
+	return o
+}
+
+func (o FilterValuePropertiesOutput) Contains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterValueProperties) []string { return v.Contains }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterValuePropertiesOutput) Eq() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterValueProperties) []string { return v.Eq }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterValuePropertiesOutput) Exists() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FilterValueProperties) *bool { return v.Exists }).(pulumi.BoolPtrOutput)
+}
+
+func (o FilterValuePropertiesOutput) Neq() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterValueProperties) []string { return v.Neq }).(pulumi.StringArrayOutput)
+}
+
+type FilterValuePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (FilterValuePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FilterValueProperties)(nil)).Elem()
+}
+
+func (o FilterValuePropertiesMapOutput) ToFilterValuePropertiesMapOutput() FilterValuePropertiesMapOutput {
+	return o
+}
+
+func (o FilterValuePropertiesMapOutput) ToFilterValuePropertiesMapOutputWithContext(ctx context.Context) FilterValuePropertiesMapOutput {
+	return o
+}
+
+func (o FilterValuePropertiesMapOutput) MapIndex(k pulumi.StringInput) FilterValuePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FilterValueProperties {
+		return vs[0].(map[string]FilterValueProperties)[vs[1].(string)]
+	}).(FilterValuePropertiesOutput)
+}
+
 type AnalyzerTagArrayArray []AnalyzerTagArrayInput
 
 func (AnalyzerTagArrayArray) ElementType() reflect.Type {
@@ -1419,6 +1531,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationPtrInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterValuePropertiesInput)(nil)).Elem(), FilterValuePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterValuePropertiesMapInput)(nil)).Elem(), FilterValuePropertiesMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagArrayArrayInput)(nil)).Elem(), AnalyzerTagArrayArray{})
 	pulumi.RegisterOutputType(AnalyzerAnalysisRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(AnalyzerAnalysisRuleCriteriaArrayOutput{})
@@ -1440,5 +1554,7 @@ func init() {
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput{})
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FilterValuePropertiesOutput{})
+	pulumi.RegisterOutputType(FilterValuePropertiesMapOutput{})
 	pulumi.RegisterOutputType(AnalyzerTagArrayArrayOutput{})
 }

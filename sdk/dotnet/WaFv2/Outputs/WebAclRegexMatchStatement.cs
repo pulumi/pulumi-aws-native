@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// The part of the web request that you want AWS WAF to inspect.
         /// </summary>
         public readonly Outputs.WebAclFieldToMatch FieldToMatch;
+        public readonly ImmutableArray<Outputs.WebAclPreParseTextTransformation> PreParseTextTransformations;
         /// <summary>
         /// The string representing the regular expression.
         /// </summary>
@@ -30,11 +31,14 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         private WebAclRegexMatchStatement(
             Outputs.WebAclFieldToMatch fieldToMatch,
 
+            ImmutableArray<Outputs.WebAclPreParseTextTransformation> preParseTextTransformations,
+
             string regexString,
 
             ImmutableArray<Outputs.WebAclTextTransformation> textTransformations)
         {
             FieldToMatch = fieldToMatch;
+            PreParseTextTransformations = preParseTextTransformations;
             RegexString = regexString;
             TextTransformations = textTransformations;
         }

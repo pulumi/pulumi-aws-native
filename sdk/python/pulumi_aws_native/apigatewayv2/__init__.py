@@ -8,11 +8,13 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .api import *
+from .api_gateway_managed_overrides import *
 from .api_mapping import *
 from .authorizer import *
 from .deployment import *
 from .domain_name import *
 from .get_api import *
+from .get_api_gateway_managed_overrides import *
 from .get_api_mapping import *
 from .get_authorizer import *
 from .get_deployment import *
@@ -20,6 +22,7 @@ from .get_domain_name import *
 from .get_integration import *
 from .get_integration_response import *
 from .get_model import *
+from .get_portal_product import *
 from .get_route import *
 from .get_route_response import *
 from .get_routing_rule import *
@@ -28,6 +31,7 @@ from .get_vpc_link import *
 from .integration import *
 from .integration_response import *
 from .model import *
+from .portal_product import *
 from .route import *
 from .route_response import *
 from .routing_rule import *

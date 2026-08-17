@@ -165,6 +165,7 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
             __props__.__dict__["credential_provider_arn"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["oauth2_provider_config_output"] = None
+            __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["credentialProviderVendor", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OAuth2CredentialProvider, __self__).__init__(
@@ -200,6 +201,7 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["oauth2_provider_config_input"] = None
         __props__.__dict__["oauth2_provider_config_output"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return OAuth2CredentialProvider(resource_name, opts=opts, __props__=__props__)
 
@@ -290,6 +292,14 @@ class OAuth2CredentialProvider(pulumi.CustomResource):
         The output configuration for the OAuth2 provider
         """
         return pulumi.get(self, "oauth2_provider_config_output")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Output['OAuth2CredentialProviderStatus']:
+        """
+        The current status of the OAuth2 credential provider
+        """
+        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter

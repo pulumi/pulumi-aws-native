@@ -5,10 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DbClusterParameterGroupArgs } from "./dbClusterParameterGroup";
+export type DbClusterParameterGroup = import("./dbClusterParameterGroup").DbClusterParameterGroup;
+export const DbClusterParameterGroup: typeof import("./dbClusterParameterGroup").DbClusterParameterGroup = null as any;
+utilities.lazyLoad(exports, ["DbClusterParameterGroup"], () => require("./dbClusterParameterGroup"));
+
+export { DbSubnetGroupArgs } from "./dbSubnetGroup";
+export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
+export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
+utilities.lazyLoad(exports, ["DbSubnetGroup"], () => require("./dbSubnetGroup"));
+
 export { EventSubscriptionArgs } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
 utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+
+export { GetDbClusterParameterGroupArgs, GetDbClusterParameterGroupResult, GetDbClusterParameterGroupOutputArgs } from "./getDbClusterParameterGroup";
+export const getDbClusterParameterGroup: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroup = null as any;
+export const getDbClusterParameterGroupOutput: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbClusterParameterGroup","getDbClusterParameterGroupOutput"], () => require("./getDbClusterParameterGroup"));
+
+export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
+export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
+export const getDbSubnetGroupOutput: typeof import("./getDbSubnetGroup").getDbSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSubnetGroup","getDbSubnetGroupOutput"], () => require("./getDbSubnetGroup"));
 
 export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
 export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
@@ -33,6 +53,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:docdb:DbClusterParameterGroup":
+                return new DbClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:docdb:DbSubnetGroup":
+                return new DbSubnetGroup(name, <any>undefined, { urn })
             case "aws-native:docdb:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws-native:docdb:GlobalCluster":

@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .channel import *
 from .channel_policy import *
+from .function import *
 from .get_channel import *
 from .get_channel_policy import *
+from .get_function import *
 from .get_live_source import *
 from .get_playback_configuration import *
 from .get_source_location import *

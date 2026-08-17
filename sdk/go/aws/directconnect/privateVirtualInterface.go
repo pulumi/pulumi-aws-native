@@ -29,6 +29,8 @@ type PrivateVirtualInterface struct {
 	EnableSiteLink pulumi.BoolPtrOutput `pulumi:"enableSiteLink"`
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit pulumi.StringPtrOutput `pulumi:"rateLimit"`
 	// The tags associated with the private virtual interface.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID or ARN of the virtual private gateway.
@@ -111,6 +113,8 @@ type privateVirtualInterfaceArgs struct {
 	EnableSiteLink *bool `pulumi:"enableSiteLink"`
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 	Mtu *int `pulumi:"mtu"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit *string `pulumi:"rateLimit"`
 	// The tags associated with the private virtual interface.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID or ARN of the virtual private gateway.
@@ -135,6 +139,8 @@ type PrivateVirtualInterfaceArgs struct {
 	EnableSiteLink pulumi.BoolPtrInput
 	// The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 	Mtu pulumi.IntPtrInput
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit pulumi.StringPtrInput
 	// The tags associated with the private virtual interface.
 	Tags aws.TagArrayInput
 	// The ID or ARN of the virtual private gateway.
@@ -212,6 +218,11 @@ func (o PrivateVirtualInterfaceOutput) EnableSiteLink() pulumi.BoolPtrOutput {
 // The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 func (o PrivateVirtualInterfaceOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.IntPtrOutput { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+func (o PrivateVirtualInterfaceOutput) RateLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringPtrOutput { return v.RateLimit }).(pulumi.StringPtrOutput)
 }
 
 // The tags associated with the private virtual interface.

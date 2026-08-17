@@ -23,7 +23,9 @@ func LookupConfigurationSetEventDestination(ctx *pulumi.Context, args *LookupCon
 }
 
 type LookupConfigurationSetEventDestinationArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the configuration set that contains the event destination.
+	ConfigurationSetName string `pulumi:"configurationSetName"`
+	Id                   string `pulumi:"id"`
 }
 
 type LookupConfigurationSetEventDestinationResult struct {
@@ -42,7 +44,9 @@ func LookupConfigurationSetEventDestinationOutput(ctx *pulumi.Context, args Look
 }
 
 type LookupConfigurationSetEventDestinationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the configuration set that contains the event destination.
+	ConfigurationSetName pulumi.StringInput `pulumi:"configurationSetName"`
+	Id                   pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupConfigurationSetEventDestinationOutputArgs) ElementType() reflect.Type {

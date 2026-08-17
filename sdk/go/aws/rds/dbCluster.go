@@ -158,7 +158,7 @@ type DbCluster struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The life cycle type for this DB cluster.
+	// The lifecycle type for this DB cluster.
 	//   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
 	//   You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
 	//   +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
@@ -594,7 +594,7 @@ type dbClusterArgs struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	Engine *string `pulumi:"engine"`
-	// The life cycle type for this DB cluster.
+	// The lifecycle type for this DB cluster.
 	//   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
 	//   You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
 	//   +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
@@ -966,7 +966,7 @@ type DbClusterArgs struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	Engine pulumi.StringPtrInput
-	// The life cycle type for this DB cluster.
+	// The lifecycle type for this DB cluster.
 	//   By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
 	//   You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
 	//   +  Amazon Aurora - [Amazon RDS Extended Support with Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide*
@@ -1489,7 +1489,7 @@ func (o DbClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-// The life cycle type for this DB cluster.
+// The lifecycle type for this DB cluster.
 //
 //	 By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
 //	 You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:

@@ -39,6 +39,10 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly int? BidPercentage;
         /// <summary>
+        /// Capacity-level tags for compute environments.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? CapacityTags;
+        /// <summary>
         /// The desired number of vCPUS in the compute environment. AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
         /// 
         /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. &gt; AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify this parameter for compute environments using Amazon EKS clusters. &gt; When you update the `desiredvCpus` setting, the value must be between the `minvCpus` and `maxvCpus` values.
@@ -104,6 +108,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// &gt; This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public readonly Outputs.ComputeEnvironmentLaunchTemplateSpecification? LaunchTemplate;
+        public readonly Outputs.ComputeEnvironmentManagedInstancesProvider? ManagedInstancesProvider;
         /// <summary>
         /// The maximum number of Amazon EC2 vCPUs that an environment can reach.
         /// 
@@ -176,6 +181,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             int? bidPercentage,
 
+            ImmutableDictionary<string, string>? capacityTags,
+
             int? desiredvCpus,
 
             ImmutableArray<Outputs.ComputeEnvironmentEc2ConfigurationObject> ec2Configuration,
@@ -189,6 +196,8 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ImmutableArray<string> instanceTypes,
 
             Outputs.ComputeEnvironmentLaunchTemplateSpecification? launchTemplate,
+
+            Outputs.ComputeEnvironmentManagedInstancesProvider? managedInstancesProvider,
 
             int maxvCpus,
 
@@ -212,6 +221,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         {
             AllocationStrategy = allocationStrategy;
             BidPercentage = bidPercentage;
+            CapacityTags = capacityTags;
             DesiredvCpus = desiredvCpus;
             Ec2Configuration = ec2Configuration;
             Ec2KeyPair = ec2KeyPair;
@@ -219,6 +229,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
             InstanceRole = instanceRole;
             InstanceTypes = instanceTypes;
             LaunchTemplate = launchTemplate;
+            ManagedInstancesProvider = managedInstancesProvider;
             MaxvCpus = maxvCpus;
             MinvCpus = minvCpus;
             PlacementGroup = placementGroup;

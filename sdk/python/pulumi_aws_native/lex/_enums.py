@@ -20,6 +20,7 @@ __all__ = [
     'BotSlotValueResolutionStrategy',
     'BotSpeechDetectionSensitivity',
     'BotSpeechModelPreference',
+    'BotType',
     'BotVoiceSettingsEngine',
 ]
 
@@ -120,6 +121,15 @@ class BotSpeechModelPreference(_builtins.str, Enum):
     NEURAL = "Neural"
     DEEPGRAM = "Deepgram"
     ADVANCED = "Advanced"
+
+
+@pulumi.type_token("aws-native:lex:BotType")
+class BotType(_builtins.str, Enum):
+    """
+    The type of a bot to create.
+    """
+    BOT = "Bot"
+    BOT_NETWORK = "BotNetwork"
 
 
 @pulumi.type_token("aws-native:lex:BotVoiceSettingsEngine")

@@ -25,6 +25,11 @@ export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
 utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
+export { EventSubscriptionArgs } from "./eventSubscription";
+export type EventSubscription = import("./eventSubscription").EventSubscription;
+export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
@@ -45,6 +50,11 @@ export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as a
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
+export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
+export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
+export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
+
 export { GetInstanceProfileArgs, GetInstanceProfileResult, GetInstanceProfileOutputArgs } from "./getInstanceProfile";
 export const getInstanceProfile: typeof import("./getInstanceProfile").getInstanceProfile = null as any;
 export const getInstanceProfileOutput: typeof import("./getInstanceProfile").getInstanceProfileOutput = null as any;
@@ -60,6 +70,11 @@ export const getReplicationConfig: typeof import("./getReplicationConfig").getRe
 export const getReplicationConfigOutput: typeof import("./getReplicationConfig").getReplicationConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationConfig","getReplicationConfigOutput"], () => require("./getReplicationConfig"));
 
+export { GetReplicationSubnetGroupArgs, GetReplicationSubnetGroupResult, GetReplicationSubnetGroupOutputArgs } from "./getReplicationSubnetGroup";
+export const getReplicationSubnetGroup: typeof import("./getReplicationSubnetGroup").getReplicationSubnetGroup = null as any;
+export const getReplicationSubnetGroupOutput: typeof import("./getReplicationSubnetGroup").getReplicationSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationSubnetGroup","getReplicationSubnetGroupOutput"], () => require("./getReplicationSubnetGroup"));
+
 export { InstanceProfileArgs } from "./instanceProfile";
 export type InstanceProfile = import("./instanceProfile").InstanceProfile;
 export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
@@ -74,6 +89,11 @@ export { ReplicationConfigArgs } from "./replicationConfig";
 export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
 export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
 utilities.lazyLoad(exports, ["ReplicationConfig"], () => require("./replicationConfig"));
+
+export { ReplicationSubnetGroupArgs } from "./replicationSubnetGroup";
+export type ReplicationSubnetGroup = import("./replicationSubnetGroup").ReplicationSubnetGroup;
+export const ReplicationSubnetGroup: typeof import("./replicationSubnetGroup").ReplicationSubnetGroup = null as any;
+utilities.lazyLoad(exports, ["ReplicationSubnetGroup"], () => require("./replicationSubnetGroup"));
 
 
 // Export enums:
@@ -91,12 +111,16 @@ const _module = {
                 return new DataProvider(name, <any>undefined, { urn })
             case "aws-native:dms:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
+            case "aws-native:dms:EventSubscription":
+                return new EventSubscription(name, <any>undefined, { urn })
             case "aws-native:dms:InstanceProfile":
                 return new InstanceProfile(name, <any>undefined, { urn })
             case "aws-native:dms:MigrationProject":
                 return new MigrationProject(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
+            case "aws-native:dms:ReplicationSubnetGroup":
+                return new ReplicationSubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -23,20 +23,18 @@ func LookupPreset(ctx *pulumi.Context, args *LookupPresetArgs, opts ...pulumi.In
 }
 
 type LookupPresetArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the preset that you are modifying.
+	Name string `pulumi:"name"`
 }
 
 type LookupPresetResult struct {
-	// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+	// The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
 	Arn *string `pulumi:"arn"`
 	// The new category for the preset, if you are changing it.
 	Category *string `pulumi:"category"`
 	// The new description for the preset, if you are changing it.
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
 	// Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-	//
-	// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 	SettingsJson interface{} `pulumi:"settingsJson"`
@@ -58,7 +56,8 @@ func LookupPresetOutput(ctx *pulumi.Context, args LookupPresetOutputArgs, opts .
 }
 
 type LookupPresetOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the preset that you are modifying.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupPresetOutputArgs) ElementType() reflect.Type {
@@ -79,7 +78,7 @@ func (o LookupPresetResultOutput) ToLookupPresetResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+// The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
 func (o LookupPresetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPresetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -94,13 +93,7 @@ func (o LookupPresetResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPresetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupPresetResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPresetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 // Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-//
-// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 func (o LookupPresetResultOutput) SettingsJson() pulumi.AnyOutput {

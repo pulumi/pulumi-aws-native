@@ -2799,6 +2799,7 @@ func (o FunctionArchitecturesItemArrayOutput) Index(i pulumi.IntInput) FunctionA
 	}).(FunctionArchitecturesItemOutput)
 }
 
+// Specifies the storage mode for the deployment package. Use “COPY“ to store the package in LAMlong-managed storage. Use “REFERENCE“ to read the package directly from the Amazon S3 bucket. If omitted, the default is “COPY“.
 type FunctionCodeS3ObjectStorageMode string
 
 const (

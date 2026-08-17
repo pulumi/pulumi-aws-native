@@ -62,6 +62,10 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
      */
     declare public readonly mtu: pulumi.Output<number | undefined>;
     /**
+     * The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+     */
+    declare public readonly rateLimit: pulumi.Output<string | undefined>;
+    /**
      * The tags associated with the private virtual interface.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -112,6 +116,7 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["directConnectGatewayId"] = args?.directConnectGatewayId;
             resourceInputs["enableSiteLink"] = args?.enableSiteLink;
             resourceInputs["mtu"] = args?.mtu;
+            resourceInputs["rateLimit"] = args?.rateLimit;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualGatewayId"] = args?.virtualGatewayId;
             resourceInputs["virtualInterfaceName"] = args?.virtualInterfaceName;
@@ -125,6 +130,7 @@ export class PrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["directConnectGatewayId"] = undefined /*out*/;
             resourceInputs["enableSiteLink"] = undefined /*out*/;
             resourceInputs["mtu"] = undefined /*out*/;
+            resourceInputs["rateLimit"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["virtualGatewayId"] = undefined /*out*/;
             resourceInputs["virtualInterfaceArn"] = undefined /*out*/;
@@ -167,6 +173,10 @@ export interface PrivateVirtualInterfaceArgs {
      * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
      */
     mtu?: pulumi.Input<number | undefined>;
+    /**
+     * The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with the private virtual interface.
      */

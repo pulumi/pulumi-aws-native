@@ -13,7 +13,6 @@ __all__ = [
     'CapacityReservationFleetTenancy',
     'Ec2FleetCapacityRebalanceReplacementStrategy',
     'Ec2FleetCapacityReservationOptionsRequestUsageStrategy',
-    'Ec2FleetEbsBlockDeviceVolumeType',
     'Ec2FleetExcessCapacityTerminationPolicy',
     'Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint',
     'Ec2FleetInstanceMetadataOptionsRequestHttpTokens',
@@ -73,7 +72,6 @@ __all__ = [
     'RouteServerPersistRoutes',
     'SecurityGroupVpcAssociationState',
     'SnapshotBlockPublicAccessState',
-    'SpotFleetEbsBlockDeviceVolumeType',
     'SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem',
     'SpotFleetInstanceRequirementsRequestAcceleratorNamesItem',
     'SpotFleetInstanceRequirementsRequestAcceleratorTypesItem',
@@ -198,20 +196,6 @@ class Ec2FleetCapacityReservationOptionsRequestUsageStrategy(_builtins.str, Enum
     If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
     """
     USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
-
-
-@pulumi.type_token("aws-native:ec2:Ec2FleetEbsBlockDeviceVolumeType")
-class Ec2FleetEbsBlockDeviceVolumeType(_builtins.str, Enum):
-    """
-    The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-    """
-    GP2 = "gp2"
-    GP3 = "gp3"
-    IO1 = "io1"
-    IO2 = "io2"
-    SC1 = "sc1"
-    ST1 = "st1"
-    STANDARD = "standard"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetExcessCapacityTerminationPolicy")
@@ -857,20 +841,6 @@ class SnapshotBlockPublicAccessState(_builtins.str, Enum):
     BLOCK_NEW_SHARING = "block-new-sharing"
 
 
-@pulumi.type_token("aws-native:ec2:SpotFleetEbsBlockDeviceVolumeType")
-class SpotFleetEbsBlockDeviceVolumeType(_builtins.str, Enum):
-    """
-    The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-    """
-    GP2 = "gp2"
-    GP3 = "gp3"
-    IO1 = "io1"
-    IO2 = "io2"
-    SC1 = "sc1"
-    ST1 = "st1"
-    STANDARD = "standard"
-
-
 @pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem")
 class SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem(_builtins.str, Enum):
     AMAZON_WEB_SERVICES = "amazon-web-services"
@@ -1194,9 +1164,6 @@ class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlEgressOnlyInternetGatewayExclusion")
 class VpcEncryptionControlEgressOnlyInternetGatewayExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for Egress-Only Internet Gateways.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 
@@ -1212,9 +1179,6 @@ class VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput(_builtins.str,
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlElasticFileSystemExclusion")
 class VpcEncryptionControlElasticFileSystemExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for Elastic File System.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 
@@ -1230,9 +1194,6 @@ class VpcEncryptionControlElasticFileSystemExclusionInput(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlInternetGatewayExclusion")
 class VpcEncryptionControlInternetGatewayExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for Internet Gateways.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 
@@ -1248,9 +1209,6 @@ class VpcEncryptionControlInternetGatewayExclusionInput(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlLambdaExclusion")
 class VpcEncryptionControlLambdaExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for Lambda.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 
@@ -1275,9 +1233,6 @@ class VpcEncryptionControlMode(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlNatGatewayExclusion")
 class VpcEncryptionControlNatGatewayExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for NAT Gateways.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 
@@ -1309,9 +1264,6 @@ class VpcEncryptionControlState(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlVirtualPrivateGatewayExclusion")
 class VpcEncryptionControlVirtualPrivateGatewayExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for Virtual Private Gateways.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 
@@ -1327,9 +1279,6 @@ class VpcEncryptionControlVirtualPrivateGatewayExclusionInput(_builtins.str, Enu
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlVpcLatticeExclusion")
 class VpcEncryptionControlVpcLatticeExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for VPC Lattice.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 
@@ -1345,9 +1294,6 @@ class VpcEncryptionControlVpcLatticeExclusionInput(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlVpcPeeringExclusion")
 class VpcEncryptionControlVpcPeeringExclusion(_builtins.str, Enum):
-    """
-    The desired exclusion mode for VPC Peering.
-    """
     ENABLE = "enable"
     DISABLE = "disable"
 

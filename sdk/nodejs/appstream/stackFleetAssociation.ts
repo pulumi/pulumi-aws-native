@@ -34,12 +34,17 @@ export class StackFleetAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === StackFleetAssociation.__pulumiType;
     }
 
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
-     * The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+     * The name of the fleet.
+     *
+     * To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
      */
     declare public readonly fleetName: pulumi.Output<string>;
     /**
-     * The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
+     * The name of the stack.
+     *
+     * To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
      */
     declare public readonly stackName: pulumi.Output<string>;
 
@@ -62,13 +67,13 @@ export class StackFleetAssociation extends pulumi.CustomResource {
             }
             resourceInputs["fleetName"] = args?.fleetName;
             resourceInputs["stackName"] = args?.stackName;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["fleetName"] = undefined /*out*/;
             resourceInputs["stackName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["fleetName", "stackName"] };
-        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StackFleetAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -78,11 +83,15 @@ export class StackFleetAssociation extends pulumi.CustomResource {
  */
 export interface StackFleetAssociationArgs {
     /**
-     * The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+     * The name of the fleet.
+     *
+     * To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
      */
     fleetName: pulumi.Input<string>;
     /**
-     * The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
+     * The name of the stack.
+     *
+     * To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
      */
     stackName: pulumi.Input<string>;
 }

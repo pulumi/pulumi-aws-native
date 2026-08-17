@@ -384,6 +384,39 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The type of ID.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArtifactSourceTypeSourceIdType : IEquatable<ArtifactSourceTypeSourceIdType>
+    {
+        private readonly string _value;
+
+        private ArtifactSourceTypeSourceIdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArtifactSourceTypeSourceIdType Md5Hash { get; } = new ArtifactSourceTypeSourceIdType("MD5Hash");
+        public static ArtifactSourceTypeSourceIdType S3eTag { get; } = new ArtifactSourceTypeSourceIdType("S3ETag");
+        public static ArtifactSourceTypeSourceIdType S3Version { get; } = new ArtifactSourceTypeSourceIdType("S3Version");
+        public static ArtifactSourceTypeSourceIdType Custom { get; } = new ArtifactSourceTypeSourceIdType("Custom");
+
+        public static bool operator ==(ArtifactSourceTypeSourceIdType left, ArtifactSourceTypeSourceIdType right) => left.Equals(right);
+        public static bool operator !=(ArtifactSourceTypeSourceIdType left, ArtifactSourceTypeSourceIdType right) => !left.Equals(right);
+
+        public static explicit operator string(ArtifactSourceTypeSourceIdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArtifactSourceTypeSourceIdType other && Equals(other);
+        public bool Equals(ArtifactSourceTypeSourceIdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
     /// </summary>
     [EnumType]
@@ -1720,40 +1753,6 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainUserSettingsStudioWebPortal other && Equals(other);
         public bool Equals(DomainUserSettingsStudioWebPortal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The status of the trial component.
-    /// </summary>
-    [EnumType]
-    public readonly struct ExperimentTrialComponentStatusPropertiesPrimaryStatus : IEquatable<ExperimentTrialComponentStatusPropertiesPrimaryStatus>
-    {
-        private readonly string _value;
-
-        private ExperimentTrialComponentStatusPropertiesPrimaryStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus InProgress { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress");
-        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Completed { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Completed");
-        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Failed { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Failed");
-        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Stopping { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopping");
-        public static ExperimentTrialComponentStatusPropertiesPrimaryStatus Stopped { get; } = new ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopped");
-
-        public static bool operator ==(ExperimentTrialComponentStatusPropertiesPrimaryStatus left, ExperimentTrialComponentStatusPropertiesPrimaryStatus right) => left.Equals(right);
-        public static bool operator !=(ExperimentTrialComponentStatusPropertiesPrimaryStatus left, ExperimentTrialComponentStatusPropertiesPrimaryStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ExperimentTrialComponentStatusPropertiesPrimaryStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ExperimentTrialComponentStatusPropertiesPrimaryStatus other && Equals(other);
-        public bool Equals(ExperimentTrialComponentStatusPropertiesPrimaryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5557,6 +5556,37 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserProfileUserSettingsStudioWebPortal other && Equals(other);
         public bool Equals(UserProfileUserSettingsStudioWebPortal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP address type for the workforce. IPv4 only or dualstack (IPv4 and IPv6).
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkforceIpAddressType : IEquatable<WorkforceIpAddressType>
+    {
+        private readonly string _value;
+
+        private WorkforceIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkforceIpAddressType Ipv4 { get; } = new WorkforceIpAddressType("ipv4");
+        public static WorkforceIpAddressType Dualstack { get; } = new WorkforceIpAddressType("dualstack");
+
+        public static bool operator ==(WorkforceIpAddressType left, WorkforceIpAddressType right) => left.Equals(right);
+        public static bool operator !=(WorkforceIpAddressType left, WorkforceIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkforceIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkforceIpAddressType other && Equals(other);
+        public bool Equals(WorkforceIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

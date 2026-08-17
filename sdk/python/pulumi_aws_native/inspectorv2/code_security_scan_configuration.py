@@ -175,7 +175,7 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
             __props__.__dict__["scope_settings"] = scope_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["level", "name", "scopeSettings", "tags.*"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["level", "name", "scopeSettings"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CodeSecurityScanConfiguration, __self__).__init__(
             'aws-native:inspectorv2:CodeSecurityScanConfiguration',

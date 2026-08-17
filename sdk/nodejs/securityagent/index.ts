@@ -15,6 +15,11 @@ export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
 utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
+export { ArtifactArgs } from "./artifact";
+export type Artifact = import("./artifact").Artifact;
+export const Artifact: typeof import("./artifact").Artifact = null as any;
+utilities.lazyLoad(exports, ["Artifact"], () => require("./artifact"));
+
 export { GetAgentSpaceArgs, GetAgentSpaceResult, GetAgentSpaceOutputArgs } from "./getAgentSpace";
 export const getAgentSpace: typeof import("./getAgentSpace").getAgentSpace = null as any;
 export const getAgentSpaceOutput: typeof import("./getAgentSpace").getAgentSpaceOutput = null as any;
@@ -24,6 +29,11 @@ export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } fr
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetArtifactArgs, GetArtifactResult, GetArtifactOutputArgs } from "./getArtifact";
+export const getArtifact: typeof import("./getArtifact").getArtifact = null as any;
+export const getArtifactOutput: typeof import("./getArtifact").getArtifactOutput = null as any;
+utilities.lazyLoad(exports, ["getArtifact","getArtifactOutput"], () => require("./getArtifact"));
 
 export { GetPentestArgs, GetPentestResult, GetPentestOutputArgs } from "./getPentest";
 export const getPentest: typeof import("./getPentest").getPentest = null as any;
@@ -67,6 +77,8 @@ const _module = {
                 return new AgentSpace(name, <any>undefined, { urn })
             case "aws-native:securityagent:Application":
                 return new Application(name, <any>undefined, { urn })
+            case "aws-native:securityagent:Artifact":
+                return new Artifact(name, <any>undefined, { urn })
             case "aws-native:securityagent:Pentest":
                 return new Pentest(name, <any>undefined, { urn })
             case "aws-native:securityagent:SecurityRequirementPack":

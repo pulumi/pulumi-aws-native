@@ -143,6 +143,9 @@
         "ThroughputCapacity" : {
           "type" : "integer"
         },
+        "LogConfiguration" : {
+          "$ref" : "#/definitions/LogConfiguration"
+        },
         "DataCompressionType" : {
           "type" : "string"
         },
@@ -224,6 +227,19 @@
         }
       },
       "required" : [ "DeploymentType" ]
+    },
+    "LogConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Destination" : {
+          "type" : "string"
+        },
+        "Level" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Level" ]
     },
     "RootVolumeConfiguration" : {
       "type" : "object",

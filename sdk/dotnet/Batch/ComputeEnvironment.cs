@@ -135,6 +135,8 @@ namespace Pulumi.AwsNative.Batch
                 ReplaceOnChanges =
                 {
                     "computeEnvironmentName",
+                    "computeResources.managedInstancesProvider.instanceLaunchTemplate.capacityOptionType",
+                    "computeResources.managedInstancesProvider.instanceLaunchTemplate.fipsEnabled",
                     "computeResources.spotIamFleetRole",
                     "eksConfiguration",
                     "tags.*",

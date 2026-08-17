@@ -176,6 +176,171 @@ func (in *organizationCentralizationRuleLogsEncryptionConfigurationEncryptionCon
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput)
 }
 
+type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope string
+
+const (
+	OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeEncryptedSourceOnly     = OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope("ENCRYPTED_SOURCE_ONLY")
+	OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeNewDestinationLogGroups = OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope("NEW_DESTINATION_LOG_GROUPS")
+)
+
+func (OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope)(nil)).Elem()
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput {
+	return pulumi.ToOutput(e).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput)
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput)
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return e.ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope(e).ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutputWithContext(ctx).ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(ctx)
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput struct{ *pulumi.OutputState }
+
+func (OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope)(nil)).Elem()
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return o.ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope {
+		return &v
+	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput)
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope)(nil)).Elem()
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput) Elem() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope
+		return ret
+	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput)
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeInput is an input type that accepts values of the OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope enum
+// A concrete instance of `OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeInput` can be one of the following:
+//
+//	OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeEncryptedSourceOnly
+//	OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeNewDestinationLogGroups
+type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeInput interface {
+	pulumi.Input
+
+	ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput
+	ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutputWithContext(context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput
+}
+
+var organizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrType = reflect.TypeOf((**OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope)(nil)).Elem()
+
+type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrInput interface {
+	pulumi.Input
+
+	ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput
+	ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput
+}
+
+type organizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtr string
+
+func OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtr(v string) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrInput {
+	return (*organizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtr)(&v)
+}
+
+func (*organizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtr) ElementType() reflect.Type {
+	return organizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrType
+}
+
+func (in *organizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtr) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput() OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return pulumi.ToOutput(in).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput)
+}
+
+func (in *organizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtr) ToOrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput)
+}
+
 // Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
 type OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy string
 
@@ -4581,6 +4746,8 @@ func (in *telemetryRuleWafLogTypePtr) ToTelemetryRuleWafLogTypePtrOutputWithCont
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyInput)(nil)).Elem(), OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrInput)(nil)).Elem(), OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeInput)(nil)).Elem(), OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope("ENCRYPTED_SOURCE_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrInput)(nil)).Elem(), OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope("ENCRYPTED_SOURCE_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyInput)(nil)).Elem(), OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy("CUSTOMER_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyPtrInput)(nil)).Elem(), OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy("CUSTOMER_MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyInput)(nil)).Elem(), OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy("ALLOW"))
@@ -4635,6 +4802,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleWafLogTypePtrInput)(nil)).Elem(), TelemetryRuleWafLogType("WAF_LOGS"))
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategyPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopeOutput{})
+	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScopePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategyOutput{})

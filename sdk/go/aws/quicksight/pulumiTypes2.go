@@ -13,6 +13,257 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardRadarChartVisual struct {
+	// The list of custom actions that are configured for a visual.
+	Actions []DashboardVisualCustomAction `pulumi:"actions"`
+	// The configuration settings of the visual.
+	ChartConfiguration *DashboardRadarChartConfiguration `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies []DashboardColumnHierarchy `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId string `pulumi:"visualId"`
+}
+
+// DashboardRadarChartVisualInput is an input type that accepts DashboardRadarChartVisualArgs and DashboardRadarChartVisualOutput values.
+// You can construct a concrete instance of `DashboardRadarChartVisualInput` via:
+//
+//	DashboardRadarChartVisualArgs{...}
+type DashboardRadarChartVisualInput interface {
+	pulumi.Input
+
+	ToDashboardRadarChartVisualOutput() DashboardRadarChartVisualOutput
+	ToDashboardRadarChartVisualOutputWithContext(context.Context) DashboardRadarChartVisualOutput
+}
+
+type DashboardRadarChartVisualArgs struct {
+	// The list of custom actions that are configured for a visual.
+	Actions DashboardVisualCustomActionArrayInput `pulumi:"actions"`
+	// The configuration settings of the visual.
+	ChartConfiguration DashboardRadarChartConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The column hierarchy that is used during drill-downs and drill-ups.
+	ColumnHierarchies DashboardColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
+	// The subtitle that is displayed on the visual.
+	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	// The title that is displayed on the visual.
+	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
+}
+
+func (DashboardRadarChartVisualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRadarChartVisual)(nil)).Elem()
+}
+
+func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualOutput() DashboardRadarChartVisualOutput {
+	return i.ToDashboardRadarChartVisualOutputWithContext(context.Background())
+}
+
+func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualOutputWithContext(ctx context.Context) DashboardRadarChartVisualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartVisualOutput)
+}
+
+func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
+	return i.ToDashboardRadarChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardRadarChartVisualArgs) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartVisualOutput).ToDashboardRadarChartVisualPtrOutputWithContext(ctx)
+}
+
+// DashboardRadarChartVisualPtrInput is an input type that accepts DashboardRadarChartVisualArgs, DashboardRadarChartVisualPtr and DashboardRadarChartVisualPtrOutput values.
+// You can construct a concrete instance of `DashboardRadarChartVisualPtrInput` via:
+//
+//	        DashboardRadarChartVisualArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardRadarChartVisualPtrInput interface {
+	pulumi.Input
+
+	ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput
+	ToDashboardRadarChartVisualPtrOutputWithContext(context.Context) DashboardRadarChartVisualPtrOutput
+}
+
+type dashboardRadarChartVisualPtrType DashboardRadarChartVisualArgs
+
+func DashboardRadarChartVisualPtr(v *DashboardRadarChartVisualArgs) DashboardRadarChartVisualPtrInput {
+	return (*dashboardRadarChartVisualPtrType)(v)
+}
+
+func (*dashboardRadarChartVisualPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardRadarChartVisual)(nil)).Elem()
+}
+
+func (i *dashboardRadarChartVisualPtrType) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
+	return i.ToDashboardRadarChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardRadarChartVisualPtrType) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartVisualPtrOutput)
+}
+
+type DashboardRadarChartVisualOutput struct{ *pulumi.OutputState }
+
+func (DashboardRadarChartVisualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRadarChartVisual)(nil)).Elem()
+}
+
+func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualOutput() DashboardRadarChartVisualOutput {
+	return o
+}
+
+func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualOutputWithContext(ctx context.Context) DashboardRadarChartVisualOutput {
+	return o
+}
+
+func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
+	return o.ToDashboardRadarChartVisualPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardRadarChartVisualOutput) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartVisual) *DashboardRadarChartVisual {
+		return &v
+	}).(DashboardRadarChartVisualPtrOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o DashboardRadarChartVisualOutput) Actions() DashboardVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v DashboardRadarChartVisual) []DashboardVisualCustomAction { return v.Actions }).(DashboardVisualCustomActionArrayOutput)
+}
+
+// The configuration settings of the visual.
+func (o DashboardRadarChartVisualOutput) ChartConfiguration() DashboardRadarChartConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardRadarChartVisual) *DashboardRadarChartConfiguration { return v.ChartConfiguration }).(DashboardRadarChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o DashboardRadarChartVisualOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v DashboardRadarChartVisual) []DashboardColumnHierarchy { return v.ColumnHierarchies }).(DashboardColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o DashboardRadarChartVisualOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardRadarChartVisual) *DashboardVisualSubtitleLabelOptions { return v.Subtitle }).(DashboardVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o DashboardRadarChartVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardRadarChartVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o DashboardRadarChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardRadarChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o DashboardRadarChartVisualOutput) VisualId() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardRadarChartVisual) string { return v.VisualId }).(pulumi.StringOutput)
+}
+
+type DashboardRadarChartVisualPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardRadarChartVisualPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardRadarChartVisual)(nil)).Elem()
+}
+
+func (o DashboardRadarChartVisualPtrOutput) ToDashboardRadarChartVisualPtrOutput() DashboardRadarChartVisualPtrOutput {
+	return o
+}
+
+func (o DashboardRadarChartVisualPtrOutput) ToDashboardRadarChartVisualPtrOutputWithContext(ctx context.Context) DashboardRadarChartVisualPtrOutput {
+	return o
+}
+
+func (o DashboardRadarChartVisualPtrOutput) Elem() DashboardRadarChartVisualOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) DashboardRadarChartVisual {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardRadarChartVisual
+		return ret
+	}).(DashboardRadarChartVisualOutput)
+}
+
+// The list of custom actions that are configured for a visual.
+func (o DashboardRadarChartVisualPtrOutput) Actions() DashboardVisualCustomActionArrayOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) []DashboardVisualCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(DashboardVisualCustomActionArrayOutput)
+}
+
+// The configuration settings of the visual.
+func (o DashboardRadarChartVisualPtrOutput) ChartConfiguration() DashboardRadarChartConfigurationPtrOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) *DashboardRadarChartConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ChartConfiguration
+	}).(DashboardRadarChartConfigurationPtrOutput)
+}
+
+// The column hierarchy that is used during drill-downs and drill-ups.
+func (o DashboardRadarChartVisualPtrOutput) ColumnHierarchies() DashboardColumnHierarchyArrayOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) []DashboardColumnHierarchy {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnHierarchies
+	}).(DashboardColumnHierarchyArrayOutput)
+}
+
+// The subtitle that is displayed on the visual.
+func (o DashboardRadarChartVisualPtrOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) *DashboardVisualSubtitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Subtitle
+	}).(DashboardVisualSubtitleLabelOptionsPtrOutput)
+}
+
+// The title that is displayed on the visual.
+func (o DashboardRadarChartVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) *DashboardVisualTitleLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+// The alt text for the visual.
+func (o DashboardRadarChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VisualContentAltText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
+func (o DashboardRadarChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardRadarChartVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VisualId
+	}).(pulumi.StringPtrOutput)
+}
+
 type DashboardRangeEndsLabelType struct {
 	// The visibility of the range ends label.
 	Visibility *DashboardVisibility `pulumi:"visibility"`
@@ -50924,6 +51175,408 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type DlpSettingLabelActionMapping struct {
+	Action    DlpSettingDlpAction `pulumi:"action"`
+	LabelId   string              `pulumi:"labelId"`
+	LabelName string              `pulumi:"labelName"`
+}
+
+// DlpSettingLabelActionMappingInput is an input type that accepts DlpSettingLabelActionMappingArgs and DlpSettingLabelActionMappingOutput values.
+// You can construct a concrete instance of `DlpSettingLabelActionMappingInput` via:
+//
+//	DlpSettingLabelActionMappingArgs{...}
+type DlpSettingLabelActionMappingInput interface {
+	pulumi.Input
+
+	ToDlpSettingLabelActionMappingOutput() DlpSettingLabelActionMappingOutput
+	ToDlpSettingLabelActionMappingOutputWithContext(context.Context) DlpSettingLabelActionMappingOutput
+}
+
+type DlpSettingLabelActionMappingArgs struct {
+	Action    DlpSettingDlpActionInput `pulumi:"action"`
+	LabelId   pulumi.StringInput       `pulumi:"labelId"`
+	LabelName pulumi.StringInput       `pulumi:"labelName"`
+}
+
+func (DlpSettingLabelActionMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingLabelActionMapping)(nil)).Elem()
+}
+
+func (i DlpSettingLabelActionMappingArgs) ToDlpSettingLabelActionMappingOutput() DlpSettingLabelActionMappingOutput {
+	return i.ToDlpSettingLabelActionMappingOutputWithContext(context.Background())
+}
+
+func (i DlpSettingLabelActionMappingArgs) ToDlpSettingLabelActionMappingOutputWithContext(ctx context.Context) DlpSettingLabelActionMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpSettingLabelActionMappingOutput)
+}
+
+// DlpSettingLabelActionMappingArrayInput is an input type that accepts DlpSettingLabelActionMappingArray and DlpSettingLabelActionMappingArrayOutput values.
+// You can construct a concrete instance of `DlpSettingLabelActionMappingArrayInput` via:
+//
+//	DlpSettingLabelActionMappingArray{ DlpSettingLabelActionMappingArgs{...} }
+type DlpSettingLabelActionMappingArrayInput interface {
+	pulumi.Input
+
+	ToDlpSettingLabelActionMappingArrayOutput() DlpSettingLabelActionMappingArrayOutput
+	ToDlpSettingLabelActionMappingArrayOutputWithContext(context.Context) DlpSettingLabelActionMappingArrayOutput
+}
+
+type DlpSettingLabelActionMappingArray []DlpSettingLabelActionMappingInput
+
+func (DlpSettingLabelActionMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DlpSettingLabelActionMapping)(nil)).Elem()
+}
+
+func (i DlpSettingLabelActionMappingArray) ToDlpSettingLabelActionMappingArrayOutput() DlpSettingLabelActionMappingArrayOutput {
+	return i.ToDlpSettingLabelActionMappingArrayOutputWithContext(context.Background())
+}
+
+func (i DlpSettingLabelActionMappingArray) ToDlpSettingLabelActionMappingArrayOutputWithContext(ctx context.Context) DlpSettingLabelActionMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpSettingLabelActionMappingArrayOutput)
+}
+
+type DlpSettingLabelActionMappingOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingLabelActionMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingLabelActionMapping)(nil)).Elem()
+}
+
+func (o DlpSettingLabelActionMappingOutput) ToDlpSettingLabelActionMappingOutput() DlpSettingLabelActionMappingOutput {
+	return o
+}
+
+func (o DlpSettingLabelActionMappingOutput) ToDlpSettingLabelActionMappingOutputWithContext(ctx context.Context) DlpSettingLabelActionMappingOutput {
+	return o
+}
+
+func (o DlpSettingLabelActionMappingOutput) Action() DlpSettingDlpActionOutput {
+	return o.ApplyT(func(v DlpSettingLabelActionMapping) DlpSettingDlpAction { return v.Action }).(DlpSettingDlpActionOutput)
+}
+
+func (o DlpSettingLabelActionMappingOutput) LabelId() pulumi.StringOutput {
+	return o.ApplyT(func(v DlpSettingLabelActionMapping) string { return v.LabelId }).(pulumi.StringOutput)
+}
+
+func (o DlpSettingLabelActionMappingOutput) LabelName() pulumi.StringOutput {
+	return o.ApplyT(func(v DlpSettingLabelActionMapping) string { return v.LabelName }).(pulumi.StringOutput)
+}
+
+type DlpSettingLabelActionMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingLabelActionMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DlpSettingLabelActionMapping)(nil)).Elem()
+}
+
+func (o DlpSettingLabelActionMappingArrayOutput) ToDlpSettingLabelActionMappingArrayOutput() DlpSettingLabelActionMappingArrayOutput {
+	return o
+}
+
+func (o DlpSettingLabelActionMappingArrayOutput) ToDlpSettingLabelActionMappingArrayOutputWithContext(ctx context.Context) DlpSettingLabelActionMappingArrayOutput {
+	return o
+}
+
+func (o DlpSettingLabelActionMappingArrayOutput) Index(i pulumi.IntInput) DlpSettingLabelActionMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DlpSettingLabelActionMapping {
+		return vs[0].([]DlpSettingLabelActionMapping)[vs[1].(int)]
+	}).(DlpSettingLabelActionMappingOutput)
+}
+
+type DlpSettingMicrosoftPurviewCredentials struct {
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// DlpSettingMicrosoftPurviewCredentialsInput is an input type that accepts DlpSettingMicrosoftPurviewCredentialsArgs and DlpSettingMicrosoftPurviewCredentialsOutput values.
+// You can construct a concrete instance of `DlpSettingMicrosoftPurviewCredentialsInput` via:
+//
+//	DlpSettingMicrosoftPurviewCredentialsArgs{...}
+type DlpSettingMicrosoftPurviewCredentialsInput interface {
+	pulumi.Input
+
+	ToDlpSettingMicrosoftPurviewCredentialsOutput() DlpSettingMicrosoftPurviewCredentialsOutput
+	ToDlpSettingMicrosoftPurviewCredentialsOutputWithContext(context.Context) DlpSettingMicrosoftPurviewCredentialsOutput
+}
+
+type DlpSettingMicrosoftPurviewCredentialsArgs struct {
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (DlpSettingMicrosoftPurviewCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingMicrosoftPurviewCredentials)(nil)).Elem()
+}
+
+func (i DlpSettingMicrosoftPurviewCredentialsArgs) ToDlpSettingMicrosoftPurviewCredentialsOutput() DlpSettingMicrosoftPurviewCredentialsOutput {
+	return i.ToDlpSettingMicrosoftPurviewCredentialsOutputWithContext(context.Background())
+}
+
+func (i DlpSettingMicrosoftPurviewCredentialsArgs) ToDlpSettingMicrosoftPurviewCredentialsOutputWithContext(ctx context.Context) DlpSettingMicrosoftPurviewCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpSettingMicrosoftPurviewCredentialsOutput)
+}
+
+type DlpSettingMicrosoftPurviewCredentialsOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingMicrosoftPurviewCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingMicrosoftPurviewCredentials)(nil)).Elem()
+}
+
+func (o DlpSettingMicrosoftPurviewCredentialsOutput) ToDlpSettingMicrosoftPurviewCredentialsOutput() DlpSettingMicrosoftPurviewCredentialsOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewCredentialsOutput) ToDlpSettingMicrosoftPurviewCredentialsOutputWithContext(ctx context.Context) DlpSettingMicrosoftPurviewCredentialsOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewCredentialsOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DlpSettingMicrosoftPurviewCredentials) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type DlpSettingMicrosoftPurviewCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingMicrosoftPurviewCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DlpSettingMicrosoftPurviewCredentials)(nil)).Elem()
+}
+
+func (o DlpSettingMicrosoftPurviewCredentialsPtrOutput) ToDlpSettingMicrosoftPurviewCredentialsPtrOutput() DlpSettingMicrosoftPurviewCredentialsPtrOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewCredentialsPtrOutput) ToDlpSettingMicrosoftPurviewCredentialsPtrOutputWithContext(ctx context.Context) DlpSettingMicrosoftPurviewCredentialsPtrOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewCredentialsPtrOutput) Elem() DlpSettingMicrosoftPurviewCredentialsOutput {
+	return o.ApplyT(func(v *DlpSettingMicrosoftPurviewCredentials) DlpSettingMicrosoftPurviewCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret DlpSettingMicrosoftPurviewCredentials
+		return ret
+	}).(DlpSettingMicrosoftPurviewCredentialsOutput)
+}
+
+func (o DlpSettingMicrosoftPurviewCredentialsPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DlpSettingMicrosoftPurviewCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DlpSettingMicrosoftPurviewProviderConfig struct {
+	Credentials         DlpSettingMicrosoftPurviewCredentials `pulumi:"credentials"`
+	LabelActionMappings []DlpSettingLabelActionMapping        `pulumi:"labelActionMappings"`
+	UnmappedAction      DlpSettingDlpAction                   `pulumi:"unmappedAction"`
+}
+
+// DlpSettingMicrosoftPurviewProviderConfigInput is an input type that accepts DlpSettingMicrosoftPurviewProviderConfigArgs and DlpSettingMicrosoftPurviewProviderConfigOutput values.
+// You can construct a concrete instance of `DlpSettingMicrosoftPurviewProviderConfigInput` via:
+//
+//	DlpSettingMicrosoftPurviewProviderConfigArgs{...}
+type DlpSettingMicrosoftPurviewProviderConfigInput interface {
+	pulumi.Input
+
+	ToDlpSettingMicrosoftPurviewProviderConfigOutput() DlpSettingMicrosoftPurviewProviderConfigOutput
+	ToDlpSettingMicrosoftPurviewProviderConfigOutputWithContext(context.Context) DlpSettingMicrosoftPurviewProviderConfigOutput
+}
+
+type DlpSettingMicrosoftPurviewProviderConfigArgs struct {
+	Credentials         DlpSettingMicrosoftPurviewCredentialsInput `pulumi:"credentials"`
+	LabelActionMappings DlpSettingLabelActionMappingArrayInput     `pulumi:"labelActionMappings"`
+	UnmappedAction      DlpSettingDlpActionInput                   `pulumi:"unmappedAction"`
+}
+
+func (DlpSettingMicrosoftPurviewProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingMicrosoftPurviewProviderConfig)(nil)).Elem()
+}
+
+func (i DlpSettingMicrosoftPurviewProviderConfigArgs) ToDlpSettingMicrosoftPurviewProviderConfigOutput() DlpSettingMicrosoftPurviewProviderConfigOutput {
+	return i.ToDlpSettingMicrosoftPurviewProviderConfigOutputWithContext(context.Background())
+}
+
+func (i DlpSettingMicrosoftPurviewProviderConfigArgs) ToDlpSettingMicrosoftPurviewProviderConfigOutputWithContext(ctx context.Context) DlpSettingMicrosoftPurviewProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpSettingMicrosoftPurviewProviderConfigOutput)
+}
+
+type DlpSettingMicrosoftPurviewProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingMicrosoftPurviewProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingMicrosoftPurviewProviderConfig)(nil)).Elem()
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigOutput) ToDlpSettingMicrosoftPurviewProviderConfigOutput() DlpSettingMicrosoftPurviewProviderConfigOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigOutput) ToDlpSettingMicrosoftPurviewProviderConfigOutputWithContext(ctx context.Context) DlpSettingMicrosoftPurviewProviderConfigOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigOutput) Credentials() DlpSettingMicrosoftPurviewCredentialsOutput {
+	return o.ApplyT(func(v DlpSettingMicrosoftPurviewProviderConfig) DlpSettingMicrosoftPurviewCredentials {
+		return v.Credentials
+	}).(DlpSettingMicrosoftPurviewCredentialsOutput)
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigOutput) LabelActionMappings() DlpSettingLabelActionMappingArrayOutput {
+	return o.ApplyT(func(v DlpSettingMicrosoftPurviewProviderConfig) []DlpSettingLabelActionMapping {
+		return v.LabelActionMappings
+	}).(DlpSettingLabelActionMappingArrayOutput)
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigOutput) UnmappedAction() DlpSettingDlpActionOutput {
+	return o.ApplyT(func(v DlpSettingMicrosoftPurviewProviderConfig) DlpSettingDlpAction { return v.UnmappedAction }).(DlpSettingDlpActionOutput)
+}
+
+type DlpSettingMicrosoftPurviewProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingMicrosoftPurviewProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DlpSettingMicrosoftPurviewProviderConfig)(nil)).Elem()
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigPtrOutput) ToDlpSettingMicrosoftPurviewProviderConfigPtrOutput() DlpSettingMicrosoftPurviewProviderConfigPtrOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigPtrOutput) ToDlpSettingMicrosoftPurviewProviderConfigPtrOutputWithContext(ctx context.Context) DlpSettingMicrosoftPurviewProviderConfigPtrOutput {
+	return o
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigPtrOutput) Elem() DlpSettingMicrosoftPurviewProviderConfigOutput {
+	return o.ApplyT(func(v *DlpSettingMicrosoftPurviewProviderConfig) DlpSettingMicrosoftPurviewProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DlpSettingMicrosoftPurviewProviderConfig
+		return ret
+	}).(DlpSettingMicrosoftPurviewProviderConfigOutput)
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigPtrOutput) Credentials() DlpSettingMicrosoftPurviewCredentialsPtrOutput {
+	return o.ApplyT(func(v *DlpSettingMicrosoftPurviewProviderConfig) *DlpSettingMicrosoftPurviewCredentials {
+		if v == nil {
+			return nil
+		}
+		return &v.Credentials
+	}).(DlpSettingMicrosoftPurviewCredentialsPtrOutput)
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigPtrOutput) LabelActionMappings() DlpSettingLabelActionMappingArrayOutput {
+	return o.ApplyT(func(v *DlpSettingMicrosoftPurviewProviderConfig) []DlpSettingLabelActionMapping {
+		if v == nil {
+			return nil
+		}
+		return v.LabelActionMappings
+	}).(DlpSettingLabelActionMappingArrayOutput)
+}
+
+func (o DlpSettingMicrosoftPurviewProviderConfigPtrOutput) UnmappedAction() DlpSettingDlpActionPtrOutput {
+	return o.ApplyT(func(v *DlpSettingMicrosoftPurviewProviderConfig) *DlpSettingDlpAction {
+		if v == nil {
+			return nil
+		}
+		return &v.UnmappedAction
+	}).(DlpSettingDlpActionPtrOutput)
+}
+
+type DlpSettingProviderConfig0Properties struct {
+	MicrosoftPurview DlpSettingMicrosoftPurviewProviderConfig `pulumi:"microsoftPurview"`
+}
+
+type DlpSettingProviderConfigProperties struct {
+	MicrosoftPurview DlpSettingMicrosoftPurviewProviderConfig `pulumi:"microsoftPurview"`
+}
+
+// DlpSettingProviderConfigPropertiesInput is an input type that accepts DlpSettingProviderConfigPropertiesArgs and DlpSettingProviderConfigPropertiesOutput values.
+// You can construct a concrete instance of `DlpSettingProviderConfigPropertiesInput` via:
+//
+//	DlpSettingProviderConfigPropertiesArgs{...}
+type DlpSettingProviderConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToDlpSettingProviderConfigPropertiesOutput() DlpSettingProviderConfigPropertiesOutput
+	ToDlpSettingProviderConfigPropertiesOutputWithContext(context.Context) DlpSettingProviderConfigPropertiesOutput
+}
+
+type DlpSettingProviderConfigPropertiesArgs struct {
+	MicrosoftPurview DlpSettingMicrosoftPurviewProviderConfigInput `pulumi:"microsoftPurview"`
+}
+
+func (DlpSettingProviderConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingProviderConfigProperties)(nil)).Elem()
+}
+
+func (i DlpSettingProviderConfigPropertiesArgs) ToDlpSettingProviderConfigPropertiesOutput() DlpSettingProviderConfigPropertiesOutput {
+	return i.ToDlpSettingProviderConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i DlpSettingProviderConfigPropertiesArgs) ToDlpSettingProviderConfigPropertiesOutputWithContext(ctx context.Context) DlpSettingProviderConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DlpSettingProviderConfigPropertiesOutput)
+}
+
+type DlpSettingProviderConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingProviderConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DlpSettingProviderConfigProperties)(nil)).Elem()
+}
+
+func (o DlpSettingProviderConfigPropertiesOutput) ToDlpSettingProviderConfigPropertiesOutput() DlpSettingProviderConfigPropertiesOutput {
+	return o
+}
+
+func (o DlpSettingProviderConfigPropertiesOutput) ToDlpSettingProviderConfigPropertiesOutputWithContext(ctx context.Context) DlpSettingProviderConfigPropertiesOutput {
+	return o
+}
+
+func (o DlpSettingProviderConfigPropertiesOutput) MicrosoftPurview() DlpSettingMicrosoftPurviewProviderConfigOutput {
+	return o.ApplyT(func(v DlpSettingProviderConfigProperties) DlpSettingMicrosoftPurviewProviderConfig {
+		return v.MicrosoftPurview
+	}).(DlpSettingMicrosoftPurviewProviderConfigOutput)
+}
+
+type DlpSettingProviderConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DlpSettingProviderConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DlpSettingProviderConfigProperties)(nil)).Elem()
+}
+
+func (o DlpSettingProviderConfigPropertiesPtrOutput) ToDlpSettingProviderConfigPropertiesPtrOutput() DlpSettingProviderConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o DlpSettingProviderConfigPropertiesPtrOutput) ToDlpSettingProviderConfigPropertiesPtrOutputWithContext(ctx context.Context) DlpSettingProviderConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o DlpSettingProviderConfigPropertiesPtrOutput) Elem() DlpSettingProviderConfigPropertiesOutput {
+	return o.ApplyT(func(v *DlpSettingProviderConfigProperties) DlpSettingProviderConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DlpSettingProviderConfigProperties
+		return ret
+	}).(DlpSettingProviderConfigPropertiesOutput)
+}
+
+func (o DlpSettingProviderConfigPropertiesPtrOutput) MicrosoftPurview() DlpSettingMicrosoftPurviewProviderConfigPtrOutput {
+	return o.ApplyT(func(v *DlpSettingProviderConfigProperties) *DlpSettingMicrosoftPurviewProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.MicrosoftPurview
+	}).(DlpSettingMicrosoftPurviewProviderConfigPtrOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
+type DlpSettingTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
 type FlowPermission struct {
 	Actions   []string `pulumi:"actions"`
 	Principal string   `pulumi:"principal"`
@@ -81083,1507 +81736,9 @@ func (o TemplateFilterArrayOutput) Index(i pulumi.IntInput) TemplateFilterOutput
 	}).(TemplateFilterOutput)
 }
 
-type TemplateFilterControl struct {
-	// A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet
-	CrossSheet *TemplateFilterCrossSheetControl `pulumi:"crossSheet"`
-	// A control from a date filter that is used to specify date and time.
-	DateTimePicker *TemplateFilterDateTimePickerControl `pulumi:"dateTimePicker"`
-	// A control to display a dropdown list with buttons that are used to select a single value.
-	Dropdown *TemplateFilterDropDownControl `pulumi:"dropdown"`
-	// A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.
-	List *TemplateFilterListControl `pulumi:"list"`
-	// A control from a date filter that is used to specify the relative date.
-	RelativeDateTime *TemplateFilterRelativeDateTimeControl `pulumi:"relativeDateTime"`
-	// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
-	Slider *TemplateFilterSliderControl `pulumi:"slider"`
-	// A control to display a text box that is used to enter multiple entries.
-	TextArea *TemplateFilterTextAreaControl `pulumi:"textArea"`
-	// A control to display a text box that is used to enter a single entry.
-	TextField *TemplateFilterTextFieldControl `pulumi:"textField"`
-}
-
-// TemplateFilterControlInput is an input type that accepts TemplateFilterControlArgs and TemplateFilterControlOutput values.
-// You can construct a concrete instance of `TemplateFilterControlInput` via:
-//
-//	TemplateFilterControlArgs{...}
-type TemplateFilterControlInput interface {
-	pulumi.Input
-
-	ToTemplateFilterControlOutput() TemplateFilterControlOutput
-	ToTemplateFilterControlOutputWithContext(context.Context) TemplateFilterControlOutput
-}
-
-type TemplateFilterControlArgs struct {
-	// A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet
-	CrossSheet TemplateFilterCrossSheetControlPtrInput `pulumi:"crossSheet"`
-	// A control from a date filter that is used to specify date and time.
-	DateTimePicker TemplateFilterDateTimePickerControlPtrInput `pulumi:"dateTimePicker"`
-	// A control to display a dropdown list with buttons that are used to select a single value.
-	Dropdown TemplateFilterDropDownControlPtrInput `pulumi:"dropdown"`
-	// A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.
-	List TemplateFilterListControlPtrInput `pulumi:"list"`
-	// A control from a date filter that is used to specify the relative date.
-	RelativeDateTime TemplateFilterRelativeDateTimeControlPtrInput `pulumi:"relativeDateTime"`
-	// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
-	Slider TemplateFilterSliderControlPtrInput `pulumi:"slider"`
-	// A control to display a text box that is used to enter multiple entries.
-	TextArea TemplateFilterTextAreaControlPtrInput `pulumi:"textArea"`
-	// A control to display a text box that is used to enter a single entry.
-	TextField TemplateFilterTextFieldControlPtrInput `pulumi:"textField"`
-}
-
-func (TemplateFilterControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterControl)(nil)).Elem()
-}
-
-func (i TemplateFilterControlArgs) ToTemplateFilterControlOutput() TemplateFilterControlOutput {
-	return i.ToTemplateFilterControlOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterControlArgs) ToTemplateFilterControlOutputWithContext(ctx context.Context) TemplateFilterControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterControlOutput)
-}
-
-// TemplateFilterControlArrayInput is an input type that accepts TemplateFilterControlArray and TemplateFilterControlArrayOutput values.
-// You can construct a concrete instance of `TemplateFilterControlArrayInput` via:
-//
-//	TemplateFilterControlArray{ TemplateFilterControlArgs{...} }
-type TemplateFilterControlArrayInput interface {
-	pulumi.Input
-
-	ToTemplateFilterControlArrayOutput() TemplateFilterControlArrayOutput
-	ToTemplateFilterControlArrayOutputWithContext(context.Context) TemplateFilterControlArrayOutput
-}
-
-type TemplateFilterControlArray []TemplateFilterControlInput
-
-func (TemplateFilterControlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFilterControl)(nil)).Elem()
-}
-
-func (i TemplateFilterControlArray) ToTemplateFilterControlArrayOutput() TemplateFilterControlArrayOutput {
-	return i.ToTemplateFilterControlArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterControlArray) ToTemplateFilterControlArrayOutputWithContext(ctx context.Context) TemplateFilterControlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterControlArrayOutput)
-}
-
-type TemplateFilterControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterControl)(nil)).Elem()
-}
-
-func (o TemplateFilterControlOutput) ToTemplateFilterControlOutput() TemplateFilterControlOutput {
-	return o
-}
-
-func (o TemplateFilterControlOutput) ToTemplateFilterControlOutputWithContext(ctx context.Context) TemplateFilterControlOutput {
-	return o
-}
-
-// A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet
-func (o TemplateFilterControlOutput) CrossSheet() TemplateFilterCrossSheetControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterCrossSheetControl { return v.CrossSheet }).(TemplateFilterCrossSheetControlPtrOutput)
-}
-
-// A control from a date filter that is used to specify date and time.
-func (o TemplateFilterControlOutput) DateTimePicker() TemplateFilterDateTimePickerControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterDateTimePickerControl { return v.DateTimePicker }).(TemplateFilterDateTimePickerControlPtrOutput)
-}
-
-// A control to display a dropdown list with buttons that are used to select a single value.
-func (o TemplateFilterControlOutput) Dropdown() TemplateFilterDropDownControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterDropDownControl { return v.Dropdown }).(TemplateFilterDropDownControlPtrOutput)
-}
-
-// A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.
-func (o TemplateFilterControlOutput) List() TemplateFilterListControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterListControl { return v.List }).(TemplateFilterListControlPtrOutput)
-}
-
-// A control from a date filter that is used to specify the relative date.
-func (o TemplateFilterControlOutput) RelativeDateTime() TemplateFilterRelativeDateTimeControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterRelativeDateTimeControl { return v.RelativeDateTime }).(TemplateFilterRelativeDateTimeControlPtrOutput)
-}
-
-// A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
-func (o TemplateFilterControlOutput) Slider() TemplateFilterSliderControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterSliderControl { return v.Slider }).(TemplateFilterSliderControlPtrOutput)
-}
-
-// A control to display a text box that is used to enter multiple entries.
-func (o TemplateFilterControlOutput) TextArea() TemplateFilterTextAreaControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterTextAreaControl { return v.TextArea }).(TemplateFilterTextAreaControlPtrOutput)
-}
-
-// A control to display a text box that is used to enter a single entry.
-func (o TemplateFilterControlOutput) TextField() TemplateFilterTextFieldControlPtrOutput {
-	return o.ApplyT(func(v TemplateFilterControl) *TemplateFilterTextFieldControl { return v.TextField }).(TemplateFilterTextFieldControlPtrOutput)
-}
-
-type TemplateFilterControlArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterControlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFilterControl)(nil)).Elem()
-}
-
-func (o TemplateFilterControlArrayOutput) ToTemplateFilterControlArrayOutput() TemplateFilterControlArrayOutput {
-	return o
-}
-
-func (o TemplateFilterControlArrayOutput) ToTemplateFilterControlArrayOutputWithContext(ctx context.Context) TemplateFilterControlArrayOutput {
-	return o
-}
-
-func (o TemplateFilterControlArrayOutput) Index(i pulumi.IntInput) TemplateFilterControlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateFilterControl {
-		return vs[0].([]TemplateFilterControl)[vs[1].(int)]
-	}).(TemplateFilterControlOutput)
-}
-
-type TemplateFilterCrossSheetControl struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
-	// The ID of the `FilterCrossSheetControl` .
-	FilterControlId string `pulumi:"filterControlId"`
-	// The source filter ID of the `FilterCrossSheetControl` .
-	SourceFilterId string `pulumi:"sourceFilterId"`
-}
-
-// TemplateFilterCrossSheetControlInput is an input type that accepts TemplateFilterCrossSheetControlArgs and TemplateFilterCrossSheetControlOutput values.
-// You can construct a concrete instance of `TemplateFilterCrossSheetControlInput` via:
-//
-//	TemplateFilterCrossSheetControlArgs{...}
-type TemplateFilterCrossSheetControlInput interface {
-	pulumi.Input
-
-	ToTemplateFilterCrossSheetControlOutput() TemplateFilterCrossSheetControlOutput
-	ToTemplateFilterCrossSheetControlOutputWithContext(context.Context) TemplateFilterCrossSheetControlOutput
-}
-
-type TemplateFilterCrossSheetControlArgs struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
-	// The ID of the `FilterCrossSheetControl` .
-	FilterControlId pulumi.StringInput `pulumi:"filterControlId"`
-	// The source filter ID of the `FilterCrossSheetControl` .
-	SourceFilterId pulumi.StringInput `pulumi:"sourceFilterId"`
-}
-
-func (TemplateFilterCrossSheetControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterCrossSheetControl)(nil)).Elem()
-}
-
-func (i TemplateFilterCrossSheetControlArgs) ToTemplateFilterCrossSheetControlOutput() TemplateFilterCrossSheetControlOutput {
-	return i.ToTemplateFilterCrossSheetControlOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterCrossSheetControlArgs) ToTemplateFilterCrossSheetControlOutputWithContext(ctx context.Context) TemplateFilterCrossSheetControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterCrossSheetControlOutput)
-}
-
-func (i TemplateFilterCrossSheetControlArgs) ToTemplateFilterCrossSheetControlPtrOutput() TemplateFilterCrossSheetControlPtrOutput {
-	return i.ToTemplateFilterCrossSheetControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterCrossSheetControlArgs) ToTemplateFilterCrossSheetControlPtrOutputWithContext(ctx context.Context) TemplateFilterCrossSheetControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterCrossSheetControlOutput).ToTemplateFilterCrossSheetControlPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterCrossSheetControlPtrInput is an input type that accepts TemplateFilterCrossSheetControlArgs, TemplateFilterCrossSheetControlPtr and TemplateFilterCrossSheetControlPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterCrossSheetControlPtrInput` via:
-//
-//	        TemplateFilterCrossSheetControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterCrossSheetControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterCrossSheetControlPtrOutput() TemplateFilterCrossSheetControlPtrOutput
-	ToTemplateFilterCrossSheetControlPtrOutputWithContext(context.Context) TemplateFilterCrossSheetControlPtrOutput
-}
-
-type templateFilterCrossSheetControlPtrType TemplateFilterCrossSheetControlArgs
-
-func TemplateFilterCrossSheetControlPtr(v *TemplateFilterCrossSheetControlArgs) TemplateFilterCrossSheetControlPtrInput {
-	return (*templateFilterCrossSheetControlPtrType)(v)
-}
-
-func (*templateFilterCrossSheetControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterCrossSheetControl)(nil)).Elem()
-}
-
-func (i *templateFilterCrossSheetControlPtrType) ToTemplateFilterCrossSheetControlPtrOutput() TemplateFilterCrossSheetControlPtrOutput {
-	return i.ToTemplateFilterCrossSheetControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterCrossSheetControlPtrType) ToTemplateFilterCrossSheetControlPtrOutputWithContext(ctx context.Context) TemplateFilterCrossSheetControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterCrossSheetControlPtrOutput)
-}
-
-type TemplateFilterCrossSheetControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterCrossSheetControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterCrossSheetControl)(nil)).Elem()
-}
-
-func (o TemplateFilterCrossSheetControlOutput) ToTemplateFilterCrossSheetControlOutput() TemplateFilterCrossSheetControlOutput {
-	return o
-}
-
-func (o TemplateFilterCrossSheetControlOutput) ToTemplateFilterCrossSheetControlOutputWithContext(ctx context.Context) TemplateFilterCrossSheetControlOutput {
-	return o
-}
-
-func (o TemplateFilterCrossSheetControlOutput) ToTemplateFilterCrossSheetControlPtrOutput() TemplateFilterCrossSheetControlPtrOutput {
-	return o.ToTemplateFilterCrossSheetControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterCrossSheetControlOutput) ToTemplateFilterCrossSheetControlPtrOutputWithContext(ctx context.Context) TemplateFilterCrossSheetControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterCrossSheetControl) *TemplateFilterCrossSheetControl {
-		return &v
-	}).(TemplateFilterCrossSheetControlPtrOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateFilterCrossSheetControlOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateFilterCrossSheetControl) *TemplateCascadingControlConfiguration {
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The ID of the `FilterCrossSheetControl` .
-func (o TemplateFilterCrossSheetControlOutput) FilterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterCrossSheetControl) string { return v.FilterControlId }).(pulumi.StringOutput)
-}
-
-// The source filter ID of the `FilterCrossSheetControl` .
-func (o TemplateFilterCrossSheetControlOutput) SourceFilterId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterCrossSheetControl) string { return v.SourceFilterId }).(pulumi.StringOutput)
-}
-
-type TemplateFilterCrossSheetControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterCrossSheetControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterCrossSheetControl)(nil)).Elem()
-}
-
-func (o TemplateFilterCrossSheetControlPtrOutput) ToTemplateFilterCrossSheetControlPtrOutput() TemplateFilterCrossSheetControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterCrossSheetControlPtrOutput) ToTemplateFilterCrossSheetControlPtrOutputWithContext(ctx context.Context) TemplateFilterCrossSheetControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterCrossSheetControlPtrOutput) Elem() TemplateFilterCrossSheetControlOutput {
-	return o.ApplyT(func(v *TemplateFilterCrossSheetControl) TemplateFilterCrossSheetControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterCrossSheetControl
-		return ret
-	}).(TemplateFilterCrossSheetControlOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateFilterCrossSheetControlPtrOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterCrossSheetControl) *TemplateCascadingControlConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The ID of the `FilterCrossSheetControl` .
-func (o TemplateFilterCrossSheetControlPtrOutput) FilterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterCrossSheetControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source filter ID of the `FilterCrossSheetControl` .
-func (o TemplateFilterCrossSheetControlPtrOutput) SourceFilterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterCrossSheetControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceFilterId
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateFilterDateTimePickerControl struct {
-	// The visibility configurationof the Apply button on a `DateTimePickerControl` .
-	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
-	// The display options of a control.
-	DisplayOptions *TemplateDateTimePickerControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `FilterDateTimePickerControl` .
-	FilterControlId string `pulumi:"filterControlId"`
-	// The source filter ID of the `FilterDateTimePickerControl` .
-	SourceFilterId string `pulumi:"sourceFilterId"`
-	// The title of the `FilterDateTimePickerControl` .
-	Title string `pulumi:"title"`
-	// The type of the `FilterDropDownControl` . Choose one of the following options:
-	//
-	// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-	// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-	Type *TemplateSheetControlDateTimePickerType `pulumi:"type"`
-}
-
-// TemplateFilterDateTimePickerControlInput is an input type that accepts TemplateFilterDateTimePickerControlArgs and TemplateFilterDateTimePickerControlOutput values.
-// You can construct a concrete instance of `TemplateFilterDateTimePickerControlInput` via:
-//
-//	TemplateFilterDateTimePickerControlArgs{...}
-type TemplateFilterDateTimePickerControlInput interface {
-	pulumi.Input
-
-	ToTemplateFilterDateTimePickerControlOutput() TemplateFilterDateTimePickerControlOutput
-	ToTemplateFilterDateTimePickerControlOutputWithContext(context.Context) TemplateFilterDateTimePickerControlOutput
-}
-
-type TemplateFilterDateTimePickerControlArgs struct {
-	// The visibility configurationof the Apply button on a `DateTimePickerControl` .
-	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
-	// The display options of a control.
-	DisplayOptions TemplateDateTimePickerControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `FilterDateTimePickerControl` .
-	FilterControlId pulumi.StringInput `pulumi:"filterControlId"`
-	// The source filter ID of the `FilterDateTimePickerControl` .
-	SourceFilterId pulumi.StringInput `pulumi:"sourceFilterId"`
-	// The title of the `FilterDateTimePickerControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-	// The type of the `FilterDropDownControl` . Choose one of the following options:
-	//
-	// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-	// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-	Type TemplateSheetControlDateTimePickerTypePtrInput `pulumi:"type"`
-}
-
-func (TemplateFilterDateTimePickerControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterDateTimePickerControl)(nil)).Elem()
-}
-
-func (i TemplateFilterDateTimePickerControlArgs) ToTemplateFilterDateTimePickerControlOutput() TemplateFilterDateTimePickerControlOutput {
-	return i.ToTemplateFilterDateTimePickerControlOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterDateTimePickerControlArgs) ToTemplateFilterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateFilterDateTimePickerControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterDateTimePickerControlOutput)
-}
-
-func (i TemplateFilterDateTimePickerControlArgs) ToTemplateFilterDateTimePickerControlPtrOutput() TemplateFilterDateTimePickerControlPtrOutput {
-	return i.ToTemplateFilterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterDateTimePickerControlArgs) ToTemplateFilterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateFilterDateTimePickerControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterDateTimePickerControlOutput).ToTemplateFilterDateTimePickerControlPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterDateTimePickerControlPtrInput is an input type that accepts TemplateFilterDateTimePickerControlArgs, TemplateFilterDateTimePickerControlPtr and TemplateFilterDateTimePickerControlPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterDateTimePickerControlPtrInput` via:
-//
-//	        TemplateFilterDateTimePickerControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterDateTimePickerControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterDateTimePickerControlPtrOutput() TemplateFilterDateTimePickerControlPtrOutput
-	ToTemplateFilterDateTimePickerControlPtrOutputWithContext(context.Context) TemplateFilterDateTimePickerControlPtrOutput
-}
-
-type templateFilterDateTimePickerControlPtrType TemplateFilterDateTimePickerControlArgs
-
-func TemplateFilterDateTimePickerControlPtr(v *TemplateFilterDateTimePickerControlArgs) TemplateFilterDateTimePickerControlPtrInput {
-	return (*templateFilterDateTimePickerControlPtrType)(v)
-}
-
-func (*templateFilterDateTimePickerControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterDateTimePickerControl)(nil)).Elem()
-}
-
-func (i *templateFilterDateTimePickerControlPtrType) ToTemplateFilterDateTimePickerControlPtrOutput() TemplateFilterDateTimePickerControlPtrOutput {
-	return i.ToTemplateFilterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterDateTimePickerControlPtrType) ToTemplateFilterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateFilterDateTimePickerControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterDateTimePickerControlPtrOutput)
-}
-
-type TemplateFilterDateTimePickerControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterDateTimePickerControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterDateTimePickerControl)(nil)).Elem()
-}
-
-func (o TemplateFilterDateTimePickerControlOutput) ToTemplateFilterDateTimePickerControlOutput() TemplateFilterDateTimePickerControlOutput {
-	return o
-}
-
-func (o TemplateFilterDateTimePickerControlOutput) ToTemplateFilterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateFilterDateTimePickerControlOutput {
-	return o
-}
-
-func (o TemplateFilterDateTimePickerControlOutput) ToTemplateFilterDateTimePickerControlPtrOutput() TemplateFilterDateTimePickerControlPtrOutput {
-	return o.ToTemplateFilterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterDateTimePickerControlOutput) ToTemplateFilterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateFilterDateTimePickerControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterDateTimePickerControl) *TemplateFilterDateTimePickerControl {
-		return &v
-	}).(TemplateFilterDateTimePickerControlPtrOutput)
-}
-
-// The visibility configurationof the Apply button on a `DateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateFilterDateTimePickerControlOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
-		return v.DisplayOptions
-	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterDateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlOutput) FilterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) string { return v.FilterControlId }).(pulumi.StringOutput)
-}
-
-// The source filter ID of the `FilterDateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlOutput) SourceFilterId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) string { return v.SourceFilterId }).(pulumi.StringOutput)
-}
-
-// The title of the `FilterDateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-// The type of the `FilterDropDownControl` . Choose one of the following options:
-//
-// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-func (o TemplateFilterDateTimePickerControlOutput) Type() TemplateSheetControlDateTimePickerTypePtrOutput {
-	return o.ApplyT(func(v TemplateFilterDateTimePickerControl) *TemplateSheetControlDateTimePickerType { return v.Type }).(TemplateSheetControlDateTimePickerTypePtrOutput)
-}
-
-type TemplateFilterDateTimePickerControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterDateTimePickerControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterDateTimePickerControl)(nil)).Elem()
-}
-
-func (o TemplateFilterDateTimePickerControlPtrOutput) ToTemplateFilterDateTimePickerControlPtrOutput() TemplateFilterDateTimePickerControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterDateTimePickerControlPtrOutput) ToTemplateFilterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateFilterDateTimePickerControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterDateTimePickerControlPtrOutput) Elem() TemplateFilterDateTimePickerControlOutput {
-	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) TemplateFilterDateTimePickerControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterDateTimePickerControl
-		return ret
-	}).(TemplateFilterDateTimePickerControlOutput)
-}
-
-// The visibility configurationof the Apply button on a `DateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) *TemplateCommitMode {
-		if v == nil {
-			return nil
-		}
-		return v.CommitMode
-	}).(TemplateCommitModePtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateFilterDateTimePickerControlPtrOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterDateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlPtrOutput) FilterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source filter ID of the `FilterDateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlPtrOutput) SourceFilterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceFilterId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `FilterDateTimePickerControl` .
-func (o TemplateFilterDateTimePickerControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the `FilterDropDownControl` . Choose one of the following options:
-//
-// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-func (o TemplateFilterDateTimePickerControlPtrOutput) Type() TemplateSheetControlDateTimePickerTypePtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDateTimePickerControl) *TemplateSheetControlDateTimePickerType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(TemplateSheetControlDateTimePickerTypePtrOutput)
-}
-
-type TemplateFilterDropDownControl struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
-	// The visibility configuration of the Apply button on a `FilterDropDownControl` .
-	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
-	// The display options of the `FilterDropDownControl` .
-	DisplayOptions *TemplateDropDownControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `FilterDropDownControl` .
-	FilterControlId string `pulumi:"filterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues *TemplateFilterSelectableValues `pulumi:"selectableValues"`
-	// The source filter ID of the `FilterDropDownControl` .
-	SourceFilterId string `pulumi:"sourceFilterId"`
-	// The title of the `FilterDropDownControl` .
-	Title string `pulumi:"title"`
-	// The type of the `FilterDropDownControl` . Choose one of the following options:
-	//
-	// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-	// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-	Type *TemplateSheetControlListType `pulumi:"type"`
-}
-
-// TemplateFilterDropDownControlInput is an input type that accepts TemplateFilterDropDownControlArgs and TemplateFilterDropDownControlOutput values.
-// You can construct a concrete instance of `TemplateFilterDropDownControlInput` via:
-//
-//	TemplateFilterDropDownControlArgs{...}
-type TemplateFilterDropDownControlInput interface {
-	pulumi.Input
-
-	ToTemplateFilterDropDownControlOutput() TemplateFilterDropDownControlOutput
-	ToTemplateFilterDropDownControlOutputWithContext(context.Context) TemplateFilterDropDownControlOutput
-}
-
-type TemplateFilterDropDownControlArgs struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
-	// The visibility configuration of the Apply button on a `FilterDropDownControl` .
-	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
-	// The display options of the `FilterDropDownControl` .
-	DisplayOptions TemplateDropDownControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `FilterDropDownControl` .
-	FilterControlId pulumi.StringInput `pulumi:"filterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues TemplateFilterSelectableValuesPtrInput `pulumi:"selectableValues"`
-	// The source filter ID of the `FilterDropDownControl` .
-	SourceFilterId pulumi.StringInput `pulumi:"sourceFilterId"`
-	// The title of the `FilterDropDownControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-	// The type of the `FilterDropDownControl` . Choose one of the following options:
-	//
-	// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-	// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-	Type TemplateSheetControlListTypePtrInput `pulumi:"type"`
-}
-
-func (TemplateFilterDropDownControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterDropDownControl)(nil)).Elem()
-}
-
-func (i TemplateFilterDropDownControlArgs) ToTemplateFilterDropDownControlOutput() TemplateFilterDropDownControlOutput {
-	return i.ToTemplateFilterDropDownControlOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterDropDownControlArgs) ToTemplateFilterDropDownControlOutputWithContext(ctx context.Context) TemplateFilterDropDownControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterDropDownControlOutput)
-}
-
-func (i TemplateFilterDropDownControlArgs) ToTemplateFilterDropDownControlPtrOutput() TemplateFilterDropDownControlPtrOutput {
-	return i.ToTemplateFilterDropDownControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterDropDownControlArgs) ToTemplateFilterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateFilterDropDownControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterDropDownControlOutput).ToTemplateFilterDropDownControlPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterDropDownControlPtrInput is an input type that accepts TemplateFilterDropDownControlArgs, TemplateFilterDropDownControlPtr and TemplateFilterDropDownControlPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterDropDownControlPtrInput` via:
-//
-//	        TemplateFilterDropDownControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterDropDownControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterDropDownControlPtrOutput() TemplateFilterDropDownControlPtrOutput
-	ToTemplateFilterDropDownControlPtrOutputWithContext(context.Context) TemplateFilterDropDownControlPtrOutput
-}
-
-type templateFilterDropDownControlPtrType TemplateFilterDropDownControlArgs
-
-func TemplateFilterDropDownControlPtr(v *TemplateFilterDropDownControlArgs) TemplateFilterDropDownControlPtrInput {
-	return (*templateFilterDropDownControlPtrType)(v)
-}
-
-func (*templateFilterDropDownControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterDropDownControl)(nil)).Elem()
-}
-
-func (i *templateFilterDropDownControlPtrType) ToTemplateFilterDropDownControlPtrOutput() TemplateFilterDropDownControlPtrOutput {
-	return i.ToTemplateFilterDropDownControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterDropDownControlPtrType) ToTemplateFilterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateFilterDropDownControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterDropDownControlPtrOutput)
-}
-
-type TemplateFilterDropDownControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterDropDownControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterDropDownControl)(nil)).Elem()
-}
-
-func (o TemplateFilterDropDownControlOutput) ToTemplateFilterDropDownControlOutput() TemplateFilterDropDownControlOutput {
-	return o
-}
-
-func (o TemplateFilterDropDownControlOutput) ToTemplateFilterDropDownControlOutputWithContext(ctx context.Context) TemplateFilterDropDownControlOutput {
-	return o
-}
-
-func (o TemplateFilterDropDownControlOutput) ToTemplateFilterDropDownControlPtrOutput() TemplateFilterDropDownControlPtrOutput {
-	return o.ToTemplateFilterDropDownControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterDropDownControlOutput) ToTemplateFilterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateFilterDropDownControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterDropDownControl) *TemplateFilterDropDownControl {
-		return &v
-	}).(TemplateFilterDropDownControlPtrOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateFilterDropDownControlOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateCascadingControlConfiguration {
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The visibility configuration of the Apply button on a `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
-}
-
-// The display options of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateDropDownControlDisplayOptions { return v.DisplayOptions }).(TemplateDropDownControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlOutput) FilterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) string { return v.FilterControlId }).(pulumi.StringOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateFilterDropDownControlOutput) SelectableValues() TemplateFilterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateFilterSelectableValues { return v.SelectableValues }).(TemplateFilterSelectableValuesPtrOutput)
-}
-
-// The source filter ID of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlOutput) SourceFilterId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) string { return v.SourceFilterId }).(pulumi.StringOutput)
-}
-
-// The title of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-// The type of the `FilterDropDownControl` . Choose one of the following options:
-//
-// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-func (o TemplateFilterDropDownControlOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateSheetControlListType { return v.Type }).(TemplateSheetControlListTypePtrOutput)
-}
-
-type TemplateFilterDropDownControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterDropDownControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterDropDownControl)(nil)).Elem()
-}
-
-func (o TemplateFilterDropDownControlPtrOutput) ToTemplateFilterDropDownControlPtrOutput() TemplateFilterDropDownControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterDropDownControlPtrOutput) ToTemplateFilterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateFilterDropDownControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterDropDownControlPtrOutput) Elem() TemplateFilterDropDownControlOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) TemplateFilterDropDownControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterDropDownControl
-		return ret
-	}).(TemplateFilterDropDownControlOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateFilterDropDownControlPtrOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *TemplateCascadingControlConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The visibility configuration of the Apply button on a `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *TemplateCommitMode {
-		if v == nil {
-			return nil
-		}
-		return v.CommitMode
-	}).(TemplateCommitModePtrOutput)
-}
-
-// The display options of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlPtrOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *TemplateDropDownControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateDropDownControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlPtrOutput) FilterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateFilterDropDownControlPtrOutput) SelectableValues() TemplateFilterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *TemplateFilterSelectableValues {
-		if v == nil {
-			return nil
-		}
-		return v.SelectableValues
-	}).(TemplateFilterSelectableValuesPtrOutput)
-}
-
-// The source filter ID of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlPtrOutput) SourceFilterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceFilterId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `FilterDropDownControl` .
-func (o TemplateFilterDropDownControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the `FilterDropDownControl` . Choose one of the following options:
-//
-// - `MULTI_SELECT` : The user can select multiple entries from a dropdown menu.
-// - `SINGLE_SELECT` : The user can select a single entry from a dropdown menu.
-func (o TemplateFilterDropDownControlPtrOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v *TemplateFilterDropDownControl) *TemplateSheetControlListType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(TemplateSheetControlListTypePtrOutput)
-}
-
-type TemplateFilterGroup struct {
-	// The filter new feature which can apply filter group to all data sets. Choose one of the following options:
-	//
-	// - `ALL_DATASETS`
-	// - `SINGLE_DATASET`
-	CrossDataset TemplateCrossDatasetTypes `pulumi:"crossDataset"`
-	// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
-	FilterGroupId string `pulumi:"filterGroupId"`
-	// The list of filters that are present in a `FilterGroup` .
-	Filters []TemplateFilter `pulumi:"filters"`
-	// The configuration that specifies what scope to apply to a `FilterGroup` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-	ScopeConfiguration TemplateFilterScopeConfiguration `pulumi:"scopeConfiguration"`
-	// The status of the `FilterGroup` .
-	Status *TemplateWidgetStatus `pulumi:"status"`
-}
-
-// TemplateFilterGroupInput is an input type that accepts TemplateFilterGroupArgs and TemplateFilterGroupOutput values.
-// You can construct a concrete instance of `TemplateFilterGroupInput` via:
-//
-//	TemplateFilterGroupArgs{...}
-type TemplateFilterGroupInput interface {
-	pulumi.Input
-
-	ToTemplateFilterGroupOutput() TemplateFilterGroupOutput
-	ToTemplateFilterGroupOutputWithContext(context.Context) TemplateFilterGroupOutput
-}
-
-type TemplateFilterGroupArgs struct {
-	// The filter new feature which can apply filter group to all data sets. Choose one of the following options:
-	//
-	// - `ALL_DATASETS`
-	// - `SINGLE_DATASET`
-	CrossDataset TemplateCrossDatasetTypesInput `pulumi:"crossDataset"`
-	// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
-	FilterGroupId pulumi.StringInput `pulumi:"filterGroupId"`
-	// The list of filters that are present in a `FilterGroup` .
-	Filters TemplateFilterArrayInput `pulumi:"filters"`
-	// The configuration that specifies what scope to apply to a `FilterGroup` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-	ScopeConfiguration TemplateFilterScopeConfigurationInput `pulumi:"scopeConfiguration"`
-	// The status of the `FilterGroup` .
-	Status TemplateWidgetStatusPtrInput `pulumi:"status"`
-}
-
-func (TemplateFilterGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterGroup)(nil)).Elem()
-}
-
-func (i TemplateFilterGroupArgs) ToTemplateFilterGroupOutput() TemplateFilterGroupOutput {
-	return i.ToTemplateFilterGroupOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterGroupArgs) ToTemplateFilterGroupOutputWithContext(ctx context.Context) TemplateFilterGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterGroupOutput)
-}
-
-// TemplateFilterGroupArrayInput is an input type that accepts TemplateFilterGroupArray and TemplateFilterGroupArrayOutput values.
-// You can construct a concrete instance of `TemplateFilterGroupArrayInput` via:
-//
-//	TemplateFilterGroupArray{ TemplateFilterGroupArgs{...} }
-type TemplateFilterGroupArrayInput interface {
-	pulumi.Input
-
-	ToTemplateFilterGroupArrayOutput() TemplateFilterGroupArrayOutput
-	ToTemplateFilterGroupArrayOutputWithContext(context.Context) TemplateFilterGroupArrayOutput
-}
-
-type TemplateFilterGroupArray []TemplateFilterGroupInput
-
-func (TemplateFilterGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFilterGroup)(nil)).Elem()
-}
-
-func (i TemplateFilterGroupArray) ToTemplateFilterGroupArrayOutput() TemplateFilterGroupArrayOutput {
-	return i.ToTemplateFilterGroupArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterGroupArray) ToTemplateFilterGroupArrayOutputWithContext(ctx context.Context) TemplateFilterGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterGroupArrayOutput)
-}
-
-type TemplateFilterGroupOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterGroup)(nil)).Elem()
-}
-
-func (o TemplateFilterGroupOutput) ToTemplateFilterGroupOutput() TemplateFilterGroupOutput {
-	return o
-}
-
-func (o TemplateFilterGroupOutput) ToTemplateFilterGroupOutputWithContext(ctx context.Context) TemplateFilterGroupOutput {
-	return o
-}
-
-// The filter new feature which can apply filter group to all data sets. Choose one of the following options:
-//
-// - `ALL_DATASETS`
-// - `SINGLE_DATASET`
-func (o TemplateFilterGroupOutput) CrossDataset() TemplateCrossDatasetTypesOutput {
-	return o.ApplyT(func(v TemplateFilterGroup) TemplateCrossDatasetTypes { return v.CrossDataset }).(TemplateCrossDatasetTypesOutput)
-}
-
-// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
-func (o TemplateFilterGroupOutput) FilterGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterGroup) string { return v.FilterGroupId }).(pulumi.StringOutput)
-}
-
-// The list of filters that are present in a `FilterGroup` .
-func (o TemplateFilterGroupOutput) Filters() TemplateFilterArrayOutput {
-	return o.ApplyT(func(v TemplateFilterGroup) []TemplateFilter { return v.Filters }).(TemplateFilterArrayOutput)
-}
-
-// The configuration that specifies what scope to apply to a `FilterGroup` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-func (o TemplateFilterGroupOutput) ScopeConfiguration() TemplateFilterScopeConfigurationOutput {
-	return o.ApplyT(func(v TemplateFilterGroup) TemplateFilterScopeConfiguration { return v.ScopeConfiguration }).(TemplateFilterScopeConfigurationOutput)
-}
-
-// The status of the `FilterGroup` .
-func (o TemplateFilterGroupOutput) Status() TemplateWidgetStatusPtrOutput {
-	return o.ApplyT(func(v TemplateFilterGroup) *TemplateWidgetStatus { return v.Status }).(TemplateWidgetStatusPtrOutput)
-}
-
-type TemplateFilterGroupArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFilterGroup)(nil)).Elem()
-}
-
-func (o TemplateFilterGroupArrayOutput) ToTemplateFilterGroupArrayOutput() TemplateFilterGroupArrayOutput {
-	return o
-}
-
-func (o TemplateFilterGroupArrayOutput) ToTemplateFilterGroupArrayOutputWithContext(ctx context.Context) TemplateFilterGroupArrayOutput {
-	return o
-}
-
-func (o TemplateFilterGroupArrayOutput) Index(i pulumi.IntInput) TemplateFilterGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateFilterGroup {
-		return vs[0].([]TemplateFilterGroup)[vs[1].(int)]
-	}).(TemplateFilterGroupOutput)
-}
-
-type TemplateFilterListConfiguration struct {
-	// The list of category values for the filter.
-	CategoryValues []string `pulumi:"categoryValues"`
-	// The match operator that is used to determine if a filter should be applied.
-	MatchOperator TemplateCategoryFilterMatchOperator `pulumi:"matchOperator"`
-	// This option determines how null values should be treated when filtering data.
-	//
-	// - `ALL_VALUES` : Include null values in filtered results.
-	// - `NULLS_ONLY` : Only include null values in filtered results.
-	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
-	NullOption *TemplateFilterNullOption `pulumi:"nullOption"`
-	// Select all of the values. Null is not the assigned value of select all.
-	//
-	// - `FILTER_ALL_VALUES`
-	SelectAllOptions *TemplateCategoryFilterSelectAllOptions `pulumi:"selectAllOptions"`
-}
-
-// TemplateFilterListConfigurationInput is an input type that accepts TemplateFilterListConfigurationArgs and TemplateFilterListConfigurationOutput values.
-// You can construct a concrete instance of `TemplateFilterListConfigurationInput` via:
-//
-//	TemplateFilterListConfigurationArgs{...}
-type TemplateFilterListConfigurationInput interface {
-	pulumi.Input
-
-	ToTemplateFilterListConfigurationOutput() TemplateFilterListConfigurationOutput
-	ToTemplateFilterListConfigurationOutputWithContext(context.Context) TemplateFilterListConfigurationOutput
-}
-
-type TemplateFilterListConfigurationArgs struct {
-	// The list of category values for the filter.
-	CategoryValues pulumi.StringArrayInput `pulumi:"categoryValues"`
-	// The match operator that is used to determine if a filter should be applied.
-	MatchOperator TemplateCategoryFilterMatchOperatorInput `pulumi:"matchOperator"`
-	// This option determines how null values should be treated when filtering data.
-	//
-	// - `ALL_VALUES` : Include null values in filtered results.
-	// - `NULLS_ONLY` : Only include null values in filtered results.
-	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
-	NullOption TemplateFilterNullOptionPtrInput `pulumi:"nullOption"`
-	// Select all of the values. Null is not the assigned value of select all.
-	//
-	// - `FILTER_ALL_VALUES`
-	SelectAllOptions TemplateCategoryFilterSelectAllOptionsPtrInput `pulumi:"selectAllOptions"`
-}
-
-func (TemplateFilterListConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterListConfiguration)(nil)).Elem()
-}
-
-func (i TemplateFilterListConfigurationArgs) ToTemplateFilterListConfigurationOutput() TemplateFilterListConfigurationOutput {
-	return i.ToTemplateFilterListConfigurationOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterListConfigurationArgs) ToTemplateFilterListConfigurationOutputWithContext(ctx context.Context) TemplateFilterListConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterListConfigurationOutput)
-}
-
-func (i TemplateFilterListConfigurationArgs) ToTemplateFilterListConfigurationPtrOutput() TemplateFilterListConfigurationPtrOutput {
-	return i.ToTemplateFilterListConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterListConfigurationArgs) ToTemplateFilterListConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterListConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterListConfigurationOutput).ToTemplateFilterListConfigurationPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterListConfigurationPtrInput is an input type that accepts TemplateFilterListConfigurationArgs, TemplateFilterListConfigurationPtr and TemplateFilterListConfigurationPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterListConfigurationPtrInput` via:
-//
-//	        TemplateFilterListConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterListConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterListConfigurationPtrOutput() TemplateFilterListConfigurationPtrOutput
-	ToTemplateFilterListConfigurationPtrOutputWithContext(context.Context) TemplateFilterListConfigurationPtrOutput
-}
-
-type templateFilterListConfigurationPtrType TemplateFilterListConfigurationArgs
-
-func TemplateFilterListConfigurationPtr(v *TemplateFilterListConfigurationArgs) TemplateFilterListConfigurationPtrInput {
-	return (*templateFilterListConfigurationPtrType)(v)
-}
-
-func (*templateFilterListConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterListConfiguration)(nil)).Elem()
-}
-
-func (i *templateFilterListConfigurationPtrType) ToTemplateFilterListConfigurationPtrOutput() TemplateFilterListConfigurationPtrOutput {
-	return i.ToTemplateFilterListConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterListConfigurationPtrType) ToTemplateFilterListConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterListConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterListConfigurationPtrOutput)
-}
-
-type TemplateFilterListConfigurationOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterListConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterListConfiguration)(nil)).Elem()
-}
-
-func (o TemplateFilterListConfigurationOutput) ToTemplateFilterListConfigurationOutput() TemplateFilterListConfigurationOutput {
-	return o
-}
-
-func (o TemplateFilterListConfigurationOutput) ToTemplateFilterListConfigurationOutputWithContext(ctx context.Context) TemplateFilterListConfigurationOutput {
-	return o
-}
-
-func (o TemplateFilterListConfigurationOutput) ToTemplateFilterListConfigurationPtrOutput() TemplateFilterListConfigurationPtrOutput {
-	return o.ToTemplateFilterListConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterListConfigurationOutput) ToTemplateFilterListConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterListConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterListConfiguration) *TemplateFilterListConfiguration {
-		return &v
-	}).(TemplateFilterListConfigurationPtrOutput)
-}
-
-// The list of category values for the filter.
-func (o TemplateFilterListConfigurationOutput) CategoryValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TemplateFilterListConfiguration) []string { return v.CategoryValues }).(pulumi.StringArrayOutput)
-}
-
-// The match operator that is used to determine if a filter should be applied.
-func (o TemplateFilterListConfigurationOutput) MatchOperator() TemplateCategoryFilterMatchOperatorOutput {
-	return o.ApplyT(func(v TemplateFilterListConfiguration) TemplateCategoryFilterMatchOperator { return v.MatchOperator }).(TemplateCategoryFilterMatchOperatorOutput)
-}
-
-// This option determines how null values should be treated when filtering data.
-//
-// - `ALL_VALUES` : Include null values in filtered results.
-// - `NULLS_ONLY` : Only include null values in filtered results.
-// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
-func (o TemplateFilterListConfigurationOutput) NullOption() TemplateFilterNullOptionPtrOutput {
-	return o.ApplyT(func(v TemplateFilterListConfiguration) *TemplateFilterNullOption { return v.NullOption }).(TemplateFilterNullOptionPtrOutput)
-}
-
-// Select all of the values. Null is not the assigned value of select all.
-//
-// - `FILTER_ALL_VALUES`
-func (o TemplateFilterListConfigurationOutput) SelectAllOptions() TemplateCategoryFilterSelectAllOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateFilterListConfiguration) *TemplateCategoryFilterSelectAllOptions {
-		return v.SelectAllOptions
-	}).(TemplateCategoryFilterSelectAllOptionsPtrOutput)
-}
-
-type TemplateFilterListConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterListConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterListConfiguration)(nil)).Elem()
-}
-
-func (o TemplateFilterListConfigurationPtrOutput) ToTemplateFilterListConfigurationPtrOutput() TemplateFilterListConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateFilterListConfigurationPtrOutput) ToTemplateFilterListConfigurationPtrOutputWithContext(ctx context.Context) TemplateFilterListConfigurationPtrOutput {
-	return o
-}
-
-func (o TemplateFilterListConfigurationPtrOutput) Elem() TemplateFilterListConfigurationOutput {
-	return o.ApplyT(func(v *TemplateFilterListConfiguration) TemplateFilterListConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterListConfiguration
-		return ret
-	}).(TemplateFilterListConfigurationOutput)
-}
-
-// The list of category values for the filter.
-func (o TemplateFilterListConfigurationPtrOutput) CategoryValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TemplateFilterListConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CategoryValues
-	}).(pulumi.StringArrayOutput)
-}
-
-// The match operator that is used to determine if a filter should be applied.
-func (o TemplateFilterListConfigurationPtrOutput) MatchOperator() TemplateCategoryFilterMatchOperatorPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListConfiguration) *TemplateCategoryFilterMatchOperator {
-		if v == nil {
-			return nil
-		}
-		return &v.MatchOperator
-	}).(TemplateCategoryFilterMatchOperatorPtrOutput)
-}
-
-// This option determines how null values should be treated when filtering data.
-//
-// - `ALL_VALUES` : Include null values in filtered results.
-// - `NULLS_ONLY` : Only include null values in filtered results.
-// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
-func (o TemplateFilterListConfigurationPtrOutput) NullOption() TemplateFilterNullOptionPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListConfiguration) *TemplateFilterNullOption {
-		if v == nil {
-			return nil
-		}
-		return v.NullOption
-	}).(TemplateFilterNullOptionPtrOutput)
-}
-
-// Select all of the values. Null is not the assigned value of select all.
-//
-// - `FILTER_ALL_VALUES`
-func (o TemplateFilterListConfigurationPtrOutput) SelectAllOptions() TemplateCategoryFilterSelectAllOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListConfiguration) *TemplateCategoryFilterSelectAllOptions {
-		if v == nil {
-			return nil
-		}
-		return v.SelectAllOptions
-	}).(TemplateCategoryFilterSelectAllOptionsPtrOutput)
-}
-
-type TemplateFilterListControl struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
-	// The display options of a control.
-	DisplayOptions *TemplateListControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `FilterListControl` .
-	FilterControlId string `pulumi:"filterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues *TemplateFilterSelectableValues `pulumi:"selectableValues"`
-	// The source filter ID of the `FilterListControl` .
-	SourceFilterId string `pulumi:"sourceFilterId"`
-	// The title of the `FilterListControl` .
-	Title string `pulumi:"title"`
-	// The type of the `FilterListControl` . Choose one of the following options:
-	//
-	// - `MULTI_SELECT` : The user can select multiple entries from the list.
-	// - `SINGLE_SELECT` : The user can select a single entry from the list.
-	Type *TemplateSheetControlListType `pulumi:"type"`
-}
-
-// TemplateFilterListControlInput is an input type that accepts TemplateFilterListControlArgs and TemplateFilterListControlOutput values.
-// You can construct a concrete instance of `TemplateFilterListControlInput` via:
-//
-//	TemplateFilterListControlArgs{...}
-type TemplateFilterListControlInput interface {
-	pulumi.Input
-
-	ToTemplateFilterListControlOutput() TemplateFilterListControlOutput
-	ToTemplateFilterListControlOutputWithContext(context.Context) TemplateFilterListControlOutput
-}
-
-type TemplateFilterListControlArgs struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
-	// The display options of a control.
-	DisplayOptions TemplateListControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `FilterListControl` .
-	FilterControlId pulumi.StringInput `pulumi:"filterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues TemplateFilterSelectableValuesPtrInput `pulumi:"selectableValues"`
-	// The source filter ID of the `FilterListControl` .
-	SourceFilterId pulumi.StringInput `pulumi:"sourceFilterId"`
-	// The title of the `FilterListControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-	// The type of the `FilterListControl` . Choose one of the following options:
-	//
-	// - `MULTI_SELECT` : The user can select multiple entries from the list.
-	// - `SINGLE_SELECT` : The user can select a single entry from the list.
-	Type TemplateSheetControlListTypePtrInput `pulumi:"type"`
-}
-
-func (TemplateFilterListControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterListControl)(nil)).Elem()
-}
-
-func (i TemplateFilterListControlArgs) ToTemplateFilterListControlOutput() TemplateFilterListControlOutput {
-	return i.ToTemplateFilterListControlOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterListControlArgs) ToTemplateFilterListControlOutputWithContext(ctx context.Context) TemplateFilterListControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterListControlOutput)
-}
-
-func (i TemplateFilterListControlArgs) ToTemplateFilterListControlPtrOutput() TemplateFilterListControlPtrOutput {
-	return i.ToTemplateFilterListControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterListControlArgs) ToTemplateFilterListControlPtrOutputWithContext(ctx context.Context) TemplateFilterListControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterListControlOutput).ToTemplateFilterListControlPtrOutputWithContext(ctx)
-}
-
-// TemplateFilterListControlPtrInput is an input type that accepts TemplateFilterListControlArgs, TemplateFilterListControlPtr and TemplateFilterListControlPtrOutput values.
-// You can construct a concrete instance of `TemplateFilterListControlPtrInput` via:
-//
-//	        TemplateFilterListControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFilterListControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFilterListControlPtrOutput() TemplateFilterListControlPtrOutput
-	ToTemplateFilterListControlPtrOutputWithContext(context.Context) TemplateFilterListControlPtrOutput
-}
-
-type templateFilterListControlPtrType TemplateFilterListControlArgs
-
-func TemplateFilterListControlPtr(v *TemplateFilterListControlArgs) TemplateFilterListControlPtrInput {
-	return (*templateFilterListControlPtrType)(v)
-}
-
-func (*templateFilterListControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterListControl)(nil)).Elem()
-}
-
-func (i *templateFilterListControlPtrType) ToTemplateFilterListControlPtrOutput() TemplateFilterListControlPtrOutput {
-	return i.ToTemplateFilterListControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFilterListControlPtrType) ToTemplateFilterListControlPtrOutputWithContext(ctx context.Context) TemplateFilterListControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterListControlPtrOutput)
-}
-
-type TemplateFilterListControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterListControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilterListControl)(nil)).Elem()
-}
-
-func (o TemplateFilterListControlOutput) ToTemplateFilterListControlOutput() TemplateFilterListControlOutput {
-	return o
-}
-
-func (o TemplateFilterListControlOutput) ToTemplateFilterListControlOutputWithContext(ctx context.Context) TemplateFilterListControlOutput {
-	return o
-}
-
-func (o TemplateFilterListControlOutput) ToTemplateFilterListControlPtrOutput() TemplateFilterListControlPtrOutput {
-	return o.ToTemplateFilterListControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFilterListControlOutput) ToTemplateFilterListControlPtrOutputWithContext(ctx context.Context) TemplateFilterListControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFilterListControl) *TemplateFilterListControl {
-		return &v
-	}).(TemplateFilterListControlPtrOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateFilterListControlOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateFilterListControl) *TemplateCascadingControlConfiguration {
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateFilterListControlOutput) DisplayOptions() TemplateListControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateFilterListControl) *TemplateListControlDisplayOptions { return v.DisplayOptions }).(TemplateListControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterListControl` .
-func (o TemplateFilterListControlOutput) FilterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterListControl) string { return v.FilterControlId }).(pulumi.StringOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateFilterListControlOutput) SelectableValues() TemplateFilterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v TemplateFilterListControl) *TemplateFilterSelectableValues { return v.SelectableValues }).(TemplateFilterSelectableValuesPtrOutput)
-}
-
-// The source filter ID of the `FilterListControl` .
-func (o TemplateFilterListControlOutput) SourceFilterId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterListControl) string { return v.SourceFilterId }).(pulumi.StringOutput)
-}
-
-// The title of the `FilterListControl` .
-func (o TemplateFilterListControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFilterListControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-// The type of the `FilterListControl` . Choose one of the following options:
-//
-// - `MULTI_SELECT` : The user can select multiple entries from the list.
-// - `SINGLE_SELECT` : The user can select a single entry from the list.
-func (o TemplateFilterListControlOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v TemplateFilterListControl) *TemplateSheetControlListType { return v.Type }).(TemplateSheetControlListTypePtrOutput)
-}
-
-type TemplateFilterListControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterListControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFilterListControl)(nil)).Elem()
-}
-
-func (o TemplateFilterListControlPtrOutput) ToTemplateFilterListControlPtrOutput() TemplateFilterListControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterListControlPtrOutput) ToTemplateFilterListControlPtrOutputWithContext(ctx context.Context) TemplateFilterListControlPtrOutput {
-	return o
-}
-
-func (o TemplateFilterListControlPtrOutput) Elem() TemplateFilterListControlOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) TemplateFilterListControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFilterListControl
-		return ret
-	}).(TemplateFilterListControlOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateFilterListControlPtrOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) *TemplateCascadingControlConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateFilterListControlPtrOutput) DisplayOptions() TemplateListControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) *TemplateListControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateListControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `FilterListControl` .
-func (o TemplateFilterListControlPtrOutput) FilterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateFilterListControlPtrOutput) SelectableValues() TemplateFilterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) *TemplateFilterSelectableValues {
-		if v == nil {
-			return nil
-		}
-		return v.SelectableValues
-	}).(TemplateFilterSelectableValuesPtrOutput)
-}
-
-// The source filter ID of the `FilterListControl` .
-func (o TemplateFilterListControlPtrOutput) SourceFilterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceFilterId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `FilterListControl` .
-func (o TemplateFilterListControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the `FilterListControl` . Choose one of the following options:
-//
-// - `MULTI_SELECT` : The user can select multiple entries from the list.
-// - `SINGLE_SELECT` : The user can select a single entry from the list.
-func (o TemplateFilterListControlPtrOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v *TemplateFilterListControl) *TemplateSheetControlListType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(TemplateSheetControlListTypePtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualPtrInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRangeEndsLabelTypeInput)(nil)).Elem(), DashboardRangeEndsLabelTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRangeEndsLabelTypePtrInput)(nil)).Elem(), DashboardRangeEndsLabelTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineInput)(nil)).Elem(), DashboardReferenceLineArgs{})
@@ -83184,6 +82339,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTrinoParametersPtrInput)(nil)).Elem(), DataSourceTrinoParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesPtrInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingLabelActionMappingInput)(nil)).Elem(), DlpSettingLabelActionMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingLabelActionMappingArrayInput)(nil)).Elem(), DlpSettingLabelActionMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingMicrosoftPurviewCredentialsInput)(nil)).Elem(), DlpSettingMicrosoftPurviewCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingMicrosoftPurviewProviderConfigInput)(nil)).Elem(), DlpSettingMicrosoftPurviewProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DlpSettingProviderConfigPropertiesInput)(nil)).Elem(), DlpSettingProviderConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPermissionInput)(nil)).Elem(), FlowPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPermissionArrayInput)(nil)).Elem(), FlowPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderResourcePermissionInput)(nil)).Elem(), FolderResourcePermissionArgs{})
@@ -83542,20 +82702,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilledMapVisualPtrInput)(nil)).Elem(), TemplateFilledMapVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterInput)(nil)).Elem(), TemplateFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterArrayInput)(nil)).Elem(), TemplateFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterControlInput)(nil)).Elem(), TemplateFilterControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterControlArrayInput)(nil)).Elem(), TemplateFilterControlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterCrossSheetControlInput)(nil)).Elem(), TemplateFilterCrossSheetControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterCrossSheetControlPtrInput)(nil)).Elem(), TemplateFilterCrossSheetControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterDateTimePickerControlInput)(nil)).Elem(), TemplateFilterDateTimePickerControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterDateTimePickerControlPtrInput)(nil)).Elem(), TemplateFilterDateTimePickerControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterDropDownControlInput)(nil)).Elem(), TemplateFilterDropDownControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterDropDownControlPtrInput)(nil)).Elem(), TemplateFilterDropDownControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterGroupInput)(nil)).Elem(), TemplateFilterGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterGroupArrayInput)(nil)).Elem(), TemplateFilterGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterListConfigurationInput)(nil)).Elem(), TemplateFilterListConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterListConfigurationPtrInput)(nil)).Elem(), TemplateFilterListConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterListControlInput)(nil)).Elem(), TemplateFilterListControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterListControlPtrInput)(nil)).Elem(), TemplateFilterListControlArgs{})
+	pulumi.RegisterOutputType(DashboardRadarChartVisualOutput{})
+	pulumi.RegisterOutputType(DashboardRadarChartVisualPtrOutput{})
 	pulumi.RegisterOutputType(DashboardRangeEndsLabelTypeOutput{})
 	pulumi.RegisterOutputType(DashboardRangeEndsLabelTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardReferenceLineOutput{})
@@ -84162,6 +83310,14 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceTrinoParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DlpSettingLabelActionMappingOutput{})
+	pulumi.RegisterOutputType(DlpSettingLabelActionMappingArrayOutput{})
+	pulumi.RegisterOutputType(DlpSettingMicrosoftPurviewCredentialsOutput{})
+	pulumi.RegisterOutputType(DlpSettingMicrosoftPurviewCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(DlpSettingMicrosoftPurviewProviderConfigOutput{})
+	pulumi.RegisterOutputType(DlpSettingMicrosoftPurviewProviderConfigPtrOutput{})
+	pulumi.RegisterOutputType(DlpSettingProviderConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(DlpSettingProviderConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowPermissionOutput{})
 	pulumi.RegisterOutputType(FlowPermissionArrayOutput{})
 	pulumi.RegisterOutputType(FlowStepAliasMappingOutput{})
@@ -84527,18 +83683,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateFilledMapVisualPtrOutput{})
 	pulumi.RegisterOutputType(TemplateFilterOutput{})
 	pulumi.RegisterOutputType(TemplateFilterArrayOutput{})
-	pulumi.RegisterOutputType(TemplateFilterControlOutput{})
-	pulumi.RegisterOutputType(TemplateFilterControlArrayOutput{})
-	pulumi.RegisterOutputType(TemplateFilterCrossSheetControlOutput{})
-	pulumi.RegisterOutputType(TemplateFilterCrossSheetControlPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterDateTimePickerControlOutput{})
-	pulumi.RegisterOutputType(TemplateFilterDateTimePickerControlPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterDropDownControlOutput{})
-	pulumi.RegisterOutputType(TemplateFilterDropDownControlPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterGroupOutput{})
-	pulumi.RegisterOutputType(TemplateFilterGroupArrayOutput{})
-	pulumi.RegisterOutputType(TemplateFilterListConfigurationOutput{})
-	pulumi.RegisterOutputType(TemplateFilterListConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterListControlOutput{})
-	pulumi.RegisterOutputType(TemplateFilterListControlPtrOutput{})
 }

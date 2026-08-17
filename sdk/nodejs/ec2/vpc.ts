@@ -90,6 +90,10 @@ export class Vpc extends pulumi.CustomResource {
      * The tags for the VPC.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Describes the configuration and state of VPC encryption controls.
+     *  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+     */
     declare public readonly vpcEncryptionControl: pulumi.Output<outputs.ec2.VpcEncryptionControl | undefined>;
     /**
      * The ID of the VPC.
@@ -181,5 +185,9 @@ export interface VpcArgs {
      * The tags for the VPC.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    /**
+     * Describes the configuration and state of VPC encryption controls.
+     *  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+     */
     vpcEncryptionControl?: pulumi.Input<inputs.ec2.VpcEncryptionControlArgs | undefined>;
 }

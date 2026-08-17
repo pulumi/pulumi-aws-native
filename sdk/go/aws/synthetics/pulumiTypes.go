@@ -694,6 +694,309 @@ func (o CanaryDependencyArrayOutput) Index(i pulumi.IntInput) CanaryDependencyOu
 	}).(CanaryDependencyOutput)
 }
 
+// Configuration and status for a replica location in a multi-location canary
+type CanaryReplica struct {
+	// State of the replica canary (CREATING, READY, RUNNING, etc.)
+	CanaryState *string `pulumi:"canaryState"`
+	// ARN of the KMS key used to encrypt the replica canary's Lambda function environment variables
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Last modified timestamp of the replica
+	LastModified *float64 `pulumi:"lastModified"`
+	// AWS region for the replica (e.g., us-east-1)
+	Location string `pulumi:"location"`
+	// Replication status for this replica
+	ReplicationStatus *CanaryReplicaReplicationStatus `pulumi:"replicationStatus"`
+	// Resources to replicate tags to for this replica (e.g., lambda-function)
+	ResourcesToReplicateTags []CanaryResourceToTag `pulumi:"resourcesToReplicateTags"`
+	// Tags to apply to this replica canary and optionally its Lambda function
+	Tags []CanaryTag `pulumi:"tags"`
+	// VPC configuration for this replica location
+	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
+}
+
+// CanaryReplicaInput is an input type that accepts CanaryReplicaArgs and CanaryReplicaOutput values.
+// You can construct a concrete instance of `CanaryReplicaInput` via:
+//
+//	CanaryReplicaArgs{...}
+type CanaryReplicaInput interface {
+	pulumi.Input
+
+	ToCanaryReplicaOutput() CanaryReplicaOutput
+	ToCanaryReplicaOutputWithContext(context.Context) CanaryReplicaOutput
+}
+
+// Configuration and status for a replica location in a multi-location canary
+type CanaryReplicaArgs struct {
+	// State of the replica canary (CREATING, READY, RUNNING, etc.)
+	CanaryState pulumi.StringPtrInput `pulumi:"canaryState"`
+	// ARN of the KMS key used to encrypt the replica canary's Lambda function environment variables
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Last modified timestamp of the replica
+	LastModified pulumi.Float64PtrInput `pulumi:"lastModified"`
+	// AWS region for the replica (e.g., us-east-1)
+	Location pulumi.StringInput `pulumi:"location"`
+	// Replication status for this replica
+	ReplicationStatus CanaryReplicaReplicationStatusPtrInput `pulumi:"replicationStatus"`
+	// Resources to replicate tags to for this replica (e.g., lambda-function)
+	ResourcesToReplicateTags CanaryResourceToTagArrayInput `pulumi:"resourcesToReplicateTags"`
+	// Tags to apply to this replica canary and optionally its Lambda function
+	Tags CanaryTagArrayInput `pulumi:"tags"`
+	// VPC configuration for this replica location
+	VpcConfig CanaryVpcConfigPtrInput `pulumi:"vpcConfig"`
+}
+
+func (CanaryReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryReplica)(nil)).Elem()
+}
+
+func (i CanaryReplicaArgs) ToCanaryReplicaOutput() CanaryReplicaOutput {
+	return i.ToCanaryReplicaOutputWithContext(context.Background())
+}
+
+func (i CanaryReplicaArgs) ToCanaryReplicaOutputWithContext(ctx context.Context) CanaryReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryReplicaOutput)
+}
+
+// CanaryReplicaArrayInput is an input type that accepts CanaryReplicaArray and CanaryReplicaArrayOutput values.
+// You can construct a concrete instance of `CanaryReplicaArrayInput` via:
+//
+//	CanaryReplicaArray{ CanaryReplicaArgs{...} }
+type CanaryReplicaArrayInput interface {
+	pulumi.Input
+
+	ToCanaryReplicaArrayOutput() CanaryReplicaArrayOutput
+	ToCanaryReplicaArrayOutputWithContext(context.Context) CanaryReplicaArrayOutput
+}
+
+type CanaryReplicaArray []CanaryReplicaInput
+
+func (CanaryReplicaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryReplica)(nil)).Elem()
+}
+
+func (i CanaryReplicaArray) ToCanaryReplicaArrayOutput() CanaryReplicaArrayOutput {
+	return i.ToCanaryReplicaArrayOutputWithContext(context.Background())
+}
+
+func (i CanaryReplicaArray) ToCanaryReplicaArrayOutputWithContext(ctx context.Context) CanaryReplicaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryReplicaArrayOutput)
+}
+
+// Configuration and status for a replica location in a multi-location canary
+type CanaryReplicaOutput struct{ *pulumi.OutputState }
+
+func (CanaryReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryReplica)(nil)).Elem()
+}
+
+func (o CanaryReplicaOutput) ToCanaryReplicaOutput() CanaryReplicaOutput {
+	return o
+}
+
+func (o CanaryReplicaOutput) ToCanaryReplicaOutputWithContext(ctx context.Context) CanaryReplicaOutput {
+	return o
+}
+
+// State of the replica canary (CREATING, READY, RUNNING, etc.)
+func (o CanaryReplicaOutput) CanaryState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryReplica) *string { return v.CanaryState }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the KMS key used to encrypt the replica canary's Lambda function environment variables
+func (o CanaryReplicaOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryReplica) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Last modified timestamp of the replica
+func (o CanaryReplicaOutput) LastModified() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CanaryReplica) *float64 { return v.LastModified }).(pulumi.Float64PtrOutput)
+}
+
+// AWS region for the replica (e.g., us-east-1)
+func (o CanaryReplicaOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryReplica) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Replication status for this replica
+func (o CanaryReplicaOutput) ReplicationStatus() CanaryReplicaReplicationStatusPtrOutput {
+	return o.ApplyT(func(v CanaryReplica) *CanaryReplicaReplicationStatus { return v.ReplicationStatus }).(CanaryReplicaReplicationStatusPtrOutput)
+}
+
+// Resources to replicate tags to for this replica (e.g., lambda-function)
+func (o CanaryReplicaOutput) ResourcesToReplicateTags() CanaryResourceToTagArrayOutput {
+	return o.ApplyT(func(v CanaryReplica) []CanaryResourceToTag { return v.ResourcesToReplicateTags }).(CanaryResourceToTagArrayOutput)
+}
+
+// Tags to apply to this replica canary and optionally its Lambda function
+func (o CanaryReplicaOutput) Tags() CanaryTagArrayOutput {
+	return o.ApplyT(func(v CanaryReplica) []CanaryTag { return v.Tags }).(CanaryTagArrayOutput)
+}
+
+// VPC configuration for this replica location
+func (o CanaryReplicaOutput) VpcConfig() CanaryVpcConfigPtrOutput {
+	return o.ApplyT(func(v CanaryReplica) *CanaryVpcConfig { return v.VpcConfig }).(CanaryVpcConfigPtrOutput)
+}
+
+type CanaryReplicaArrayOutput struct{ *pulumi.OutputState }
+
+func (CanaryReplicaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryReplica)(nil)).Elem()
+}
+
+func (o CanaryReplicaArrayOutput) ToCanaryReplicaArrayOutput() CanaryReplicaArrayOutput {
+	return o
+}
+
+func (o CanaryReplicaArrayOutput) ToCanaryReplicaArrayOutputWithContext(ctx context.Context) CanaryReplicaArrayOutput {
+	return o
+}
+
+func (o CanaryReplicaArrayOutput) Index(i pulumi.IntInput) CanaryReplicaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryReplica {
+		return vs[0].([]CanaryReplica)[vs[1].(int)]
+	}).(CanaryReplicaOutput)
+}
+
+// Replication status details
+type CanaryReplicaReplicationStatus struct {
+	// Replication state: InProgress, InSync, or Inconsistent
+	State *string `pulumi:"state"`
+}
+
+// CanaryReplicaReplicationStatusInput is an input type that accepts CanaryReplicaReplicationStatusArgs and CanaryReplicaReplicationStatusOutput values.
+// You can construct a concrete instance of `CanaryReplicaReplicationStatusInput` via:
+//
+//	CanaryReplicaReplicationStatusArgs{...}
+type CanaryReplicaReplicationStatusInput interface {
+	pulumi.Input
+
+	ToCanaryReplicaReplicationStatusOutput() CanaryReplicaReplicationStatusOutput
+	ToCanaryReplicaReplicationStatusOutputWithContext(context.Context) CanaryReplicaReplicationStatusOutput
+}
+
+// Replication status details
+type CanaryReplicaReplicationStatusArgs struct {
+	// Replication state: InProgress, InSync, or Inconsistent
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (CanaryReplicaReplicationStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryReplicaReplicationStatus)(nil)).Elem()
+}
+
+func (i CanaryReplicaReplicationStatusArgs) ToCanaryReplicaReplicationStatusOutput() CanaryReplicaReplicationStatusOutput {
+	return i.ToCanaryReplicaReplicationStatusOutputWithContext(context.Background())
+}
+
+func (i CanaryReplicaReplicationStatusArgs) ToCanaryReplicaReplicationStatusOutputWithContext(ctx context.Context) CanaryReplicaReplicationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryReplicaReplicationStatusOutput)
+}
+
+func (i CanaryReplicaReplicationStatusArgs) ToCanaryReplicaReplicationStatusPtrOutput() CanaryReplicaReplicationStatusPtrOutput {
+	return i.ToCanaryReplicaReplicationStatusPtrOutputWithContext(context.Background())
+}
+
+func (i CanaryReplicaReplicationStatusArgs) ToCanaryReplicaReplicationStatusPtrOutputWithContext(ctx context.Context) CanaryReplicaReplicationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryReplicaReplicationStatusOutput).ToCanaryReplicaReplicationStatusPtrOutputWithContext(ctx)
+}
+
+// CanaryReplicaReplicationStatusPtrInput is an input type that accepts CanaryReplicaReplicationStatusArgs, CanaryReplicaReplicationStatusPtr and CanaryReplicaReplicationStatusPtrOutput values.
+// You can construct a concrete instance of `CanaryReplicaReplicationStatusPtrInput` via:
+//
+//	        CanaryReplicaReplicationStatusArgs{...}
+//
+//	or:
+//
+//	        nil
+type CanaryReplicaReplicationStatusPtrInput interface {
+	pulumi.Input
+
+	ToCanaryReplicaReplicationStatusPtrOutput() CanaryReplicaReplicationStatusPtrOutput
+	ToCanaryReplicaReplicationStatusPtrOutputWithContext(context.Context) CanaryReplicaReplicationStatusPtrOutput
+}
+
+type canaryReplicaReplicationStatusPtrType CanaryReplicaReplicationStatusArgs
+
+func CanaryReplicaReplicationStatusPtr(v *CanaryReplicaReplicationStatusArgs) CanaryReplicaReplicationStatusPtrInput {
+	return (*canaryReplicaReplicationStatusPtrType)(v)
+}
+
+func (*canaryReplicaReplicationStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryReplicaReplicationStatus)(nil)).Elem()
+}
+
+func (i *canaryReplicaReplicationStatusPtrType) ToCanaryReplicaReplicationStatusPtrOutput() CanaryReplicaReplicationStatusPtrOutput {
+	return i.ToCanaryReplicaReplicationStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *canaryReplicaReplicationStatusPtrType) ToCanaryReplicaReplicationStatusPtrOutputWithContext(ctx context.Context) CanaryReplicaReplicationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryReplicaReplicationStatusPtrOutput)
+}
+
+// Replication status details
+type CanaryReplicaReplicationStatusOutput struct{ *pulumi.OutputState }
+
+func (CanaryReplicaReplicationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryReplicaReplicationStatus)(nil)).Elem()
+}
+
+func (o CanaryReplicaReplicationStatusOutput) ToCanaryReplicaReplicationStatusOutput() CanaryReplicaReplicationStatusOutput {
+	return o
+}
+
+func (o CanaryReplicaReplicationStatusOutput) ToCanaryReplicaReplicationStatusOutputWithContext(ctx context.Context) CanaryReplicaReplicationStatusOutput {
+	return o
+}
+
+func (o CanaryReplicaReplicationStatusOutput) ToCanaryReplicaReplicationStatusPtrOutput() CanaryReplicaReplicationStatusPtrOutput {
+	return o.ToCanaryReplicaReplicationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryReplicaReplicationStatusOutput) ToCanaryReplicaReplicationStatusPtrOutputWithContext(ctx context.Context) CanaryReplicaReplicationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryReplicaReplicationStatus) *CanaryReplicaReplicationStatus {
+		return &v
+	}).(CanaryReplicaReplicationStatusPtrOutput)
+}
+
+// Replication state: InProgress, InSync, or Inconsistent
+func (o CanaryReplicaReplicationStatusOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CanaryReplicaReplicationStatus) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type CanaryReplicaReplicationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryReplicaReplicationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryReplicaReplicationStatus)(nil)).Elem()
+}
+
+func (o CanaryReplicaReplicationStatusPtrOutput) ToCanaryReplicaReplicationStatusPtrOutput() CanaryReplicaReplicationStatusPtrOutput {
+	return o
+}
+
+func (o CanaryReplicaReplicationStatusPtrOutput) ToCanaryReplicaReplicationStatusPtrOutputWithContext(ctx context.Context) CanaryReplicaReplicationStatusPtrOutput {
+	return o
+}
+
+func (o CanaryReplicaReplicationStatusPtrOutput) Elem() CanaryReplicaReplicationStatusOutput {
+	return o.ApplyT(func(v *CanaryReplicaReplicationStatus) CanaryReplicaReplicationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryReplicaReplicationStatus
+		return ret
+	}).(CanaryReplicaReplicationStatusOutput)
+}
+
+// Replication state: InProgress, InSync, or Inconsistent
+func (o CanaryReplicaReplicationStatusPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CanaryReplicaReplicationStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
 type CanaryRetryConfig struct {
 	// maximum times the canary will be retried upon the scheduled run failure
 	MaxRetries int `pulumi:"maxRetries"`
@@ -1364,6 +1667,107 @@ type CanaryTag struct {
 	Value string `pulumi:"value"`
 }
 
+// CanaryTagInput is an input type that accepts CanaryTagArgs and CanaryTagOutput values.
+// You can construct a concrete instance of `CanaryTagInput` via:
+//
+//	CanaryTagArgs{...}
+type CanaryTagInput interface {
+	pulumi.Input
+
+	ToCanaryTagOutput() CanaryTagOutput
+	ToCanaryTagOutputWithContext(context.Context) CanaryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CanaryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CanaryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryTag)(nil)).Elem()
+}
+
+func (i CanaryTagArgs) ToCanaryTagOutput() CanaryTagOutput {
+	return i.ToCanaryTagOutputWithContext(context.Background())
+}
+
+func (i CanaryTagArgs) ToCanaryTagOutputWithContext(ctx context.Context) CanaryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagOutput)
+}
+
+// CanaryTagArrayInput is an input type that accepts CanaryTagArray and CanaryTagArrayOutput values.
+// You can construct a concrete instance of `CanaryTagArrayInput` via:
+//
+//	CanaryTagArray{ CanaryTagArgs{...} }
+type CanaryTagArrayInput interface {
+	pulumi.Input
+
+	ToCanaryTagArrayOutput() CanaryTagArrayOutput
+	ToCanaryTagArrayOutputWithContext(context.Context) CanaryTagArrayOutput
+}
+
+type CanaryTagArray []CanaryTagInput
+
+func (CanaryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryTag)(nil)).Elem()
+}
+
+func (i CanaryTagArray) ToCanaryTagArrayOutput() CanaryTagArrayOutput {
+	return i.ToCanaryTagArrayOutputWithContext(context.Background())
+}
+
+func (i CanaryTagArray) ToCanaryTagArrayOutputWithContext(ctx context.Context) CanaryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CanaryTagOutput struct{ *pulumi.OutputState }
+
+func (CanaryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryTag)(nil)).Elem()
+}
+
+func (o CanaryTagOutput) ToCanaryTagOutput() CanaryTagOutput {
+	return o
+}
+
+func (o CanaryTagOutput) ToCanaryTagOutputWithContext(ctx context.Context) CanaryTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CanaryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CanaryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CanaryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CanaryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryTag)(nil)).Elem()
+}
+
+func (o CanaryTagArrayOutput) ToCanaryTagArrayOutput() CanaryTagArrayOutput {
+	return o
+}
+
+func (o CanaryTagArrayOutput) ToCanaryTagArrayOutputWithContext(ctx context.Context) CanaryTagArrayOutput {
+	return o
+}
+
+func (o CanaryTagArrayOutput) Index(i pulumi.IntInput) CanaryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryTag {
+		return vs[0].([]CanaryTag)[vs[1].(int)]
+	}).(CanaryTagOutput)
+}
+
 type CanaryVisualReference struct {
 	// Canary run id to be used as base reference for visual testing
 	BaseCanaryRunId string `pulumi:"baseCanaryRunId"`
@@ -1796,6 +2200,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryCodeInput)(nil)).Elem(), CanaryCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyInput)(nil)).Elem(), CanaryDependencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryDependencyArrayInput)(nil)).Elem(), CanaryDependencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryReplicaInput)(nil)).Elem(), CanaryReplicaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryReplicaArrayInput)(nil)).Elem(), CanaryReplicaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryReplicaReplicationStatusInput)(nil)).Elem(), CanaryReplicaReplicationStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryReplicaReplicationStatusPtrInput)(nil)).Elem(), CanaryReplicaReplicationStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRetryConfigInput)(nil)).Elem(), CanaryRetryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRetryConfigPtrInput)(nil)).Elem(), CanaryRetryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigInput)(nil)).Elem(), CanaryRunConfigArgs{})
@@ -1803,6 +2211,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryS3EncryptionInput)(nil)).Elem(), CanaryS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryS3EncryptionPtrInput)(nil)).Elem(), CanaryS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryScheduleInput)(nil)).Elem(), CanaryScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagInput)(nil)).Elem(), CanaryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTagArrayInput)(nil)).Elem(), CanaryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferenceInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferencePtrInput)(nil)).Elem(), CanaryVisualReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVisualReferenceArrayInput)(nil)).Elem(), CanaryVisualReferenceArray{})
@@ -1818,6 +2228,10 @@ func init() {
 	pulumi.RegisterOutputType(CanaryCodePtrOutput{})
 	pulumi.RegisterOutputType(CanaryDependencyOutput{})
 	pulumi.RegisterOutputType(CanaryDependencyArrayOutput{})
+	pulumi.RegisterOutputType(CanaryReplicaOutput{})
+	pulumi.RegisterOutputType(CanaryReplicaArrayOutput{})
+	pulumi.RegisterOutputType(CanaryReplicaReplicationStatusOutput{})
+	pulumi.RegisterOutputType(CanaryReplicaReplicationStatusPtrOutput{})
 	pulumi.RegisterOutputType(CanaryRetryConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRetryConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
@@ -1826,6 +2240,8 @@ func init() {
 	pulumi.RegisterOutputType(CanaryS3EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})
 	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
+	pulumi.RegisterOutputType(CanaryTagOutput{})
+	pulumi.RegisterOutputType(CanaryTagArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferenceOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferencePtrOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferenceArrayOutput{})

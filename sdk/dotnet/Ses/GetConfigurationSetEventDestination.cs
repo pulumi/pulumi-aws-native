@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class GetConfigurationSetEventDestinationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the configuration set that contains the event destination.
+        /// </summary>
+        [Input("configurationSetName", required: true)]
+        public string ConfigurationSetName { get; set; } = null!;
+
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -44,6 +50,12 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class GetConfigurationSetEventDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the configuration set that contains the event destination.
+        /// </summary>
+        [Input("configurationSetName", required: true)]
+        public Input<string> ConfigurationSetName { get; set; } = null!;
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

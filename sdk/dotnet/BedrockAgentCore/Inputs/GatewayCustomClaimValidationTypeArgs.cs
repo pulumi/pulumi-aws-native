@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 {
 
-    /// <summary>
-    /// Required custom claim
-    /// </summary>
     public sealed class GatewayCustomClaimValidationTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizingClaimMatchValue", required: true)]

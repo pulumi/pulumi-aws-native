@@ -180,6 +180,9 @@ export const FunctionCodeS3ObjectStorageMode = {
     Reference: "REFERENCE",
 } as const;
 
+/**
+ * Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
+ */
 export type FunctionCodeS3ObjectStorageMode = (typeof FunctionCodeS3ObjectStorageMode)[keyof typeof FunctionCodeS3ObjectStorageMode];
 
 export const FunctionLoggingConfigApplicationLogLevel = {

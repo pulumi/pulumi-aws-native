@@ -25,6 +25,8 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_aws_native.accessanalyzer as __accessanalyzer
     accessanalyzer = __accessanalyzer
+    import pulumi_aws_native.accountaccess as __accountaccess
+    accountaccess = __accountaccess
     import pulumi_aws_native.acmpca as __acmpca
     acmpca = __acmpca
     import pulumi_aws_native.aiops as __aiops
@@ -115,6 +117,8 @@ if typing.TYPE_CHECKING:
     cloudformation = __cloudformation
     import pulumi_aws_native.cloudfront as __cloudfront
     cloudfront = __cloudfront
+    import pulumi_aws_native.cloudhsm as __cloudhsm
+    cloudhsm = __cloudhsm
     import pulumi_aws_native.cloudtrail as __cloudtrail
     cloudtrail = __cloudtrail
     import pulumi_aws_native.cloudwatch as __cloudwatch
@@ -159,6 +163,8 @@ if typing.TYPE_CHECKING:
     customerprofiles = __customerprofiles
     import pulumi_aws_native.databrew as __databrew
     databrew = __databrew
+    import pulumi_aws_native.dataexchange as __dataexchange
+    dataexchange = __dataexchange
     import pulumi_aws_native.datapipeline as __datapipeline
     datapipeline = __datapipeline
     import pulumi_aws_native.datasync as __datasync
@@ -373,6 +379,8 @@ if typing.TYPE_CHECKING:
     odb = __odb
     import pulumi_aws_native.omics as __omics
     omics = __omics
+    import pulumi_aws_native.opensearch as __opensearch
+    opensearch = __opensearch
     import pulumi_aws_native.opensearchserverless as __opensearchserverless
     opensearchserverless = __opensearchserverless
     import pulumi_aws_native.opensearchservice as __opensearchservice
@@ -477,6 +485,8 @@ if typing.TYPE_CHECKING:
     securityhub = __securityhub
     import pulumi_aws_native.securitylake as __securitylake
     securitylake = __securitylake
+    import pulumi_aws_native.serverlessrepo as __serverlessrepo
+    serverlessrepo = __serverlessrepo
     import pulumi_aws_native.servicecatalog as __servicecatalog
     servicecatalog = __servicecatalog
     import pulumi_aws_native.servicecatalogappregistry as __servicecatalogappregistry
@@ -525,6 +535,8 @@ if typing.TYPE_CHECKING:
     transcribe = __transcribe
     import pulumi_aws_native.transfer as __transfer
     transfer = __transfer
+    import pulumi_aws_native.uxc as __uxc
+    uxc = __uxc
     import pulumi_aws_native.verifiedpermissions as __verifiedpermissions
     verifiedpermissions = __verifiedpermissions
     import pulumi_aws_native.voiceid as __voiceid
@@ -549,6 +561,7 @@ if typing.TYPE_CHECKING:
     xray = __xray
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws_native.accessanalyzer')
+    accountaccess = _utilities.lazy_import('pulumi_aws_native.accountaccess')
     acmpca = _utilities.lazy_import('pulumi_aws_native.acmpca')
     aiops = _utilities.lazy_import('pulumi_aws_native.aiops')
     amazonmq = _utilities.lazy_import('pulumi_aws_native.amazonmq')
@@ -594,6 +607,7 @@ else:
     cleanroomsml = _utilities.lazy_import('pulumi_aws_native.cleanroomsml')
     cloudformation = _utilities.lazy_import('pulumi_aws_native.cloudformation')
     cloudfront = _utilities.lazy_import('pulumi_aws_native.cloudfront')
+    cloudhsm = _utilities.lazy_import('pulumi_aws_native.cloudhsm')
     cloudtrail = _utilities.lazy_import('pulumi_aws_native.cloudtrail')
     cloudwatch = _utilities.lazy_import('pulumi_aws_native.cloudwatch')
     codeartifact = _utilities.lazy_import('pulumi_aws_native.codeartifact')
@@ -616,6 +630,7 @@ else:
     controltower = _utilities.lazy_import('pulumi_aws_native.controltower')
     customerprofiles = _utilities.lazy_import('pulumi_aws_native.customerprofiles')
     databrew = _utilities.lazy_import('pulumi_aws_native.databrew')
+    dataexchange = _utilities.lazy_import('pulumi_aws_native.dataexchange')
     datapipeline = _utilities.lazy_import('pulumi_aws_native.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws_native.datasync')
     datazone = _utilities.lazy_import('pulumi_aws_native.datazone')
@@ -723,6 +738,7 @@ else:
     observabilityadmin = _utilities.lazy_import('pulumi_aws_native.observabilityadmin')
     odb = _utilities.lazy_import('pulumi_aws_native.odb')
     omics = _utilities.lazy_import('pulumi_aws_native.omics')
+    opensearch = _utilities.lazy_import('pulumi_aws_native.opensearch')
     opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
@@ -775,6 +791,7 @@ else:
     securityagent = _utilities.lazy_import('pulumi_aws_native.securityagent')
     securityhub = _utilities.lazy_import('pulumi_aws_native.securityhub')
     securitylake = _utilities.lazy_import('pulumi_aws_native.securitylake')
+    serverlessrepo = _utilities.lazy_import('pulumi_aws_native.serverlessrepo')
     servicecatalog = _utilities.lazy_import('pulumi_aws_native.servicecatalog')
     servicecatalogappregistry = _utilities.lazy_import('pulumi_aws_native.servicecatalogappregistry')
     servicediscovery = _utilities.lazy_import('pulumi_aws_native.servicediscovery')
@@ -799,6 +816,7 @@ else:
     timestream = _utilities.lazy_import('pulumi_aws_native.timestream')
     transcribe = _utilities.lazy_import('pulumi_aws_native.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws_native.transfer')
+    uxc = _utilities.lazy_import('pulumi_aws_native.uxc')
     verifiedpermissions = _utilities.lazy_import('pulumi_aws_native.verifiedpermissions')
     voiceid = _utilities.lazy_import('pulumi_aws_native.voiceid')
     vpclattice = _utilities.lazy_import('pulumi_aws_native.vpclattice')
@@ -819,7 +837,17 @@ _utilities.register(
   "mod": "accessanalyzer",
   "fqn": "pulumi_aws_native.accessanalyzer",
   "classes": {
-   "aws-native:accessanalyzer:Analyzer": "Analyzer"
+   "aws-native:accessanalyzer:Analyzer": "Analyzer",
+   "aws-native:accessanalyzer:ArchiveRule": "ArchiveRule"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "accountaccess",
+  "fqn": "pulumi_aws_native.accountaccess",
+  "classes": {
+   "aws-native:accountaccess:Application": "Application",
+   "aws-native:accountaccess:Entitlement": "Entitlement"
   }
  },
  {
@@ -905,6 +933,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.apigatewayv2",
   "classes": {
    "aws-native:apigatewayv2:Api": "Api",
+   "aws-native:apigatewayv2:ApiGatewayManagedOverrides": "ApiGatewayManagedOverrides",
    "aws-native:apigatewayv2:ApiMapping": "ApiMapping",
    "aws-native:apigatewayv2:Authorizer": "Authorizer",
    "aws-native:apigatewayv2:Deployment": "Deployment",
@@ -912,6 +941,7 @@ _utilities.register(
    "aws-native:apigatewayv2:Integration": "Integration",
    "aws-native:apigatewayv2:IntegrationResponse": "IntegrationResponse",
    "aws-native:apigatewayv2:Model": "Model",
+   "aws-native:apigatewayv2:PortalProduct": "PortalProduct",
    "aws-native:apigatewayv2:Route": "Route",
    "aws-native:apigatewayv2:RouteResponse": "RouteResponse",
    "aws-native:apigatewayv2:RoutingRule": "RoutingRule",
@@ -1196,7 +1226,8 @@ _utilities.register(
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
    "aws-native:bedrock:Prompt": "Prompt",
    "aws-native:bedrock:PromptVersion": "PromptVersion",
-   "aws-native:bedrock:ResourcePolicy": "ResourcePolicy"
+   "aws-native:bedrock:ResourcePolicy": "ResourcePolicy",
+   "aws-native:bedrock:Session": "Session"
   }
  },
  {
@@ -1207,11 +1238,14 @@ _utilities.register(
    "aws-native:bedrockagentcore:ApiKeyCredentialProvider": "ApiKeyCredentialProvider",
    "aws-native:bedrockagentcore:BrowserCustom": "BrowserCustom",
    "aws-native:bedrockagentcore:BrowserProfile": "BrowserProfile",
+   "aws-native:bedrockagentcore:CapacityProvider": "CapacityProvider",
    "aws-native:bedrockagentcore:CodeInterpreterCustom": "CodeInterpreterCustom",
    "aws-native:bedrockagentcore:ConfigurationBundle": "ConfigurationBundle",
    "aws-native:bedrockagentcore:Dataset": "Dataset",
    "aws-native:bedrockagentcore:Evaluator": "Evaluator",
    "aws-native:bedrockagentcore:Gateway": "Gateway",
+   "aws-native:bedrockagentcore:GatewayRateLimit": "GatewayRateLimit",
+   "aws-native:bedrockagentcore:GatewayRule": "GatewayRule",
    "aws-native:bedrockagentcore:GatewayTarget": "GatewayTarget",
    "aws-native:bedrockagentcore:Harness": "Harness",
    "aws-native:bedrockagentcore:HarnessEndpoint": "HarnessEndpoint",
@@ -1391,6 +1425,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "cloudhsm",
+  "fqn": "pulumi_aws_native.cloudhsm",
+  "classes": {
+   "aws-native:cloudhsm:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "cloudtrail",
   "fqn": "pulumi_aws_native.cloudtrail",
   "classes": {
@@ -1548,6 +1590,7 @@ _utilities.register(
    "aws-native:configuration:ConfigurationAggregator": "ConfigurationAggregator",
    "aws-native:configuration:ConformancePack": "ConformancePack",
    "aws-native:configuration:Connector": "Connector",
+   "aws-native:configuration:DeliveryChannel": "DeliveryChannel",
    "aws-native:configuration:OrganizationConformancePack": "OrganizationConformancePack",
    "aws-native:configuration:RemediationConfiguration": "RemediationConfiguration",
    "aws-native:configuration:StoredQuery": "StoredQuery"
@@ -1649,6 +1692,14 @@ _utilities.register(
    "aws-native:databrew:Recipe": "Recipe",
    "aws-native:databrew:Ruleset": "Ruleset",
    "aws-native:databrew:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "dataexchange",
+  "fqn": "pulumi_aws_native.dataexchange",
+  "classes": {
+   "aws-native:dataexchange:DataSet": "DataSet"
   }
  },
  {
@@ -1759,9 +1810,11 @@ _utilities.register(
   "fqn": "pulumi_aws_native.devopsagent",
   "classes": {
    "aws-native:devopsagent:AgentSpace": "AgentSpace",
+   "aws-native:devopsagent:Asset": "Asset",
    "aws-native:devopsagent:Association": "Association",
    "aws-native:devopsagent:PrivateConnection": "PrivateConnection",
-   "aws-native:devopsagent:Service": "Service"
+   "aws-native:devopsagent:Service": "Service",
+   "aws-native:devopsagent:Trigger": "Trigger"
   }
  },
  {
@@ -1805,9 +1858,11 @@ _utilities.register(
    "aws-native:dms:DataMigration": "DataMigration",
    "aws-native:dms:DataProvider": "DataProvider",
    "aws-native:dms:Endpoint": "Endpoint",
+   "aws-native:dms:EventSubscription": "EventSubscription",
    "aws-native:dms:InstanceProfile": "InstanceProfile",
    "aws-native:dms:MigrationProject": "MigrationProject",
-   "aws-native:dms:ReplicationConfig": "ReplicationConfig"
+   "aws-native:dms:ReplicationConfig": "ReplicationConfig",
+   "aws-native:dms:ReplicationSubnetGroup": "ReplicationSubnetGroup"
   }
  },
  {
@@ -1815,6 +1870,8 @@ _utilities.register(
   "mod": "docdb",
   "fqn": "pulumi_aws_native.docdb",
   "classes": {
+   "aws-native:docdb:DbClusterParameterGroup": "DbClusterParameterGroup",
+   "aws-native:docdb:DbSubnetGroup": "DbSubnetGroup",
    "aws-native:docdb:EventSubscription": "EventSubscription",
    "aws-native:docdb:GlobalCluster": "GlobalCluster"
   }
@@ -2027,6 +2084,7 @@ _utilities.register(
    "aws-native:elasticache:ParameterGroup": "ParameterGroup",
    "aws-native:elasticache:ReplicationGroup": "ReplicationGroup",
    "aws-native:elasticache:ServerlessCache": "ServerlessCache",
+   "aws-native:elasticache:ServerlessCacheSnapshot": "ServerlessCacheSnapshot",
    "aws-native:elasticache:SubnetGroup": "SubnetGroup",
    "aws-native:elasticache:User": "User",
    "aws-native:elasticache:UserGroup": "UserGroup"
@@ -2264,20 +2322,27 @@ _utilities.register(
   "classes": {
    "aws-native:glue:Blueprint": "Blueprint",
    "aws-native:glue:Catalog": "Catalog",
+   "aws-native:glue:Classifier": "Classifier",
    "aws-native:glue:Crawler": "Crawler",
+   "aws-native:glue:CustomEntityType": "CustomEntityType",
    "aws-native:glue:DataCatalogEncryptionSettings": "DataCatalogEncryptionSettings",
+   "aws-native:glue:DataQualityRuleset": "DataQualityRuleset",
    "aws-native:glue:Database": "Database",
    "aws-native:glue:IdentityCenterConfiguration": "IdentityCenterConfiguration",
    "aws-native:glue:Integration": "Integration",
    "aws-native:glue:IntegrationResourceProperty": "IntegrationResourceProperty",
    "aws-native:glue:Job": "Job",
+   "aws-native:glue:MlTransform": "MlTransform",
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",
    "aws-native:glue:SchemaVersion": "SchemaVersion",
    "aws-native:glue:SchemaVersionMetadata": "SchemaVersionMetadata",
+   "aws-native:glue:SecurityConfiguration": "SecurityConfiguration",
+   "aws-native:glue:TableOptimizer": "TableOptimizer",
    "aws-native:glue:Trigger": "Trigger",
    "aws-native:glue:UsageProfile": "UsageProfile",
-   "aws-native:glue:UserDefinedFunction": "UserDefinedFunction"
+   "aws-native:glue:UserDefinedFunction": "UserDefinedFunction",
+   "aws-native:glue:Workflow": "Workflow"
   }
  },
  {
@@ -2413,6 +2478,7 @@ _utilities.register(
    "aws-native:inspectorv2:CisScanConfiguration": "CisScanConfiguration",
    "aws-native:inspectorv2:CodeSecurityIntegration": "CodeSecurityIntegration",
    "aws-native:inspectorv2:CodeSecurityScanConfiguration": "CodeSecurityScanConfiguration",
+   "aws-native:inspectorv2:Connector": "Connector",
    "aws-native:inspectorv2:Filter": "Filter"
   }
  },
@@ -2457,6 +2523,7 @@ _utilities.register(
    "aws-native:iot:DomainConfiguration": "DomainConfiguration",
    "aws-native:iot:EncryptionConfiguration": "EncryptionConfiguration",
    "aws-native:iot:FleetMetric": "FleetMetric",
+   "aws-native:iot:Job": "Job",
    "aws-native:iot:JobTemplate": "JobTemplate",
    "aws-native:iot:Logging": "Logging",
    "aws-native:iot:MitigationAction": "MitigationAction",
@@ -2710,7 +2777,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.licensemanager",
   "classes": {
    "aws-native:licensemanager:Grant": "Grant",
-   "aws-native:licensemanager:License": "License"
+   "aws-native:licensemanager:License": "License",
+   "aws-native:licensemanager:LicenseAssetRuleSet": "LicenseAssetRuleSet"
   }
  },
  {
@@ -2765,6 +2833,7 @@ _utilities.register(
    "aws-native:logs:QueryDefinition": "QueryDefinition",
    "aws-native:logs:ResourcePolicy": "ResourcePolicy",
    "aws-native:logs:ScheduledQuery": "ScheduledQuery",
+   "aws-native:logs:StorageTierPolicy": "StorageTierPolicy",
    "aws-native:logs:SubscriptionFilter": "SubscriptionFilter",
    "aws-native:logs:Transformer": "Transformer"
   }
@@ -2875,6 +2944,7 @@ _utilities.register(
   "classes": {
    "aws-native:mediatailor:Channel": "Channel",
    "aws-native:mediatailor:ChannelPolicy": "ChannelPolicy",
+   "aws-native:mediatailor:Function": "Function",
    "aws-native:mediatailor:LiveSource": "LiveSource",
    "aws-native:mediatailor:PlaybackConfiguration": "PlaybackConfiguration",
    "aws-native:mediatailor:SourceLocation": "SourceLocation",
@@ -3056,6 +3126,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "opensearch",
+  "fqn": "pulumi_aws_native.opensearch",
+  "classes": {
+   "aws-native:opensearch:DataSource": "DataSource"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "opensearchserverless",
   "fqn": "pulumi_aws_native.opensearchserverless",
   "classes": {
@@ -3172,6 +3250,7 @@ _utilities.register(
   "classes": {
    "aws-native:personalize:Dataset": "Dataset",
    "aws-native:personalize:DatasetGroup": "DatasetGroup",
+   "aws-native:personalize:EventTracker": "EventTracker",
    "aws-native:personalize:Schema": "Schema",
    "aws-native:personalize:Solution": "Solution"
   }
@@ -3233,10 +3312,12 @@ _utilities.register(
    "aws-native:quicksight:ActionConnector": "ActionConnector",
    "aws-native:quicksight:Agent": "Agent",
    "aws-native:quicksight:Analysis": "Analysis",
+   "aws-native:quicksight:ApprovalPolicy": "ApprovalPolicy",
    "aws-native:quicksight:CustomPermissions": "CustomPermissions",
    "aws-native:quicksight:Dashboard": "Dashboard",
    "aws-native:quicksight:DataSet": "DataSet",
    "aws-native:quicksight:DataSource": "DataSource",
+   "aws-native:quicksight:DlpSetting": "DlpSetting",
    "aws-native:quicksight:Flow": "Flow",
    "aws-native:quicksight:Folder": "Folder",
    "aws-native:quicksight:KnowledgeBase": "KnowledgeBase",
@@ -3246,6 +3327,7 @@ _utilities.register(
    "aws-native:quicksight:Template": "Template",
    "aws-native:quicksight:Theme": "Theme",
    "aws-native:quicksight:Topic": "Topic",
+   "aws-native:quicksight:TopicV2": "TopicV2",
    "aws-native:quicksight:VpcConnection": "VpcConnection"
   }
  },
@@ -3299,7 +3381,8 @@ _utilities.register(
    "aws-native:redshift:EndpointAuthorization": "EndpointAuthorization",
    "aws-native:redshift:EventSubscription": "EventSubscription",
    "aws-native:redshift:Integration": "Integration",
-   "aws-native:redshift:ScheduledAction": "ScheduledAction"
+   "aws-native:redshift:ScheduledAction": "ScheduledAction",
+   "aws-native:redshift:SnapshotSchedule": "SnapshotSchedule"
   }
  },
  {
@@ -3329,6 +3412,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.rekognition",
   "classes": {
    "aws-native:rekognition:Collection": "Collection",
+   "aws-native:rekognition:Dataset": "Dataset",
    "aws-native:rekognition:Project": "Project",
    "aws-native:rekognition:StreamProcessor": "StreamProcessor"
   }
@@ -3582,6 +3666,7 @@ _utilities.register(
    "aws-native:sagemaker:Algorithm": "Algorithm",
    "aws-native:sagemaker:App": "App",
    "aws-native:sagemaker:AppImageConfig": "AppImageConfig",
+   "aws-native:sagemaker:Artifact": "Artifact",
    "aws-native:sagemaker:Cluster": "Cluster",
    "aws-native:sagemaker:Context": "Context",
    "aws-native:sagemaker:DataQualityJobDefinition": "DataQualityJobDefinition",
@@ -3593,6 +3678,7 @@ _utilities.register(
    "aws-native:sagemaker:ExperimentTrialComponent": "ExperimentTrialComponent",
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
    "aws-native:sagemaker:Hub": "Hub",
+   "aws-native:sagemaker:HumanTaskUi": "HumanTaskUi",
    "aws-native:sagemaker:Image": "Image",
    "aws-native:sagemaker:ImageVersion": "ImageVersion",
    "aws-native:sagemaker:InferenceComponent": "InferenceComponent",
@@ -3614,7 +3700,8 @@ _utilities.register(
    "aws-native:sagemaker:Space": "Space",
    "aws-native:sagemaker:StudioLifecycleConfig": "StudioLifecycleConfig",
    "aws-native:sagemaker:TrialComponent": "TrialComponent",
-   "aws-native:sagemaker:UserProfile": "UserProfile"
+   "aws-native:sagemaker:UserProfile": "UserProfile",
+   "aws-native:sagemaker:Workforce": "Workforce"
   }
  },
  {
@@ -3644,6 +3731,7 @@ _utilities.register(
   "classes": {
    "aws-native:securityagent:AgentSpace": "AgentSpace",
    "aws-native:securityagent:Application": "Application",
+   "aws-native:securityagent:Artifact": "Artifact",
    "aws-native:securityagent:Pentest": "Pentest",
    "aws-native:securityagent:SecurityRequirementPack": "SecurityRequirementPack",
    "aws-native:securityagent:TargetDomain": "TargetDomain"
@@ -3685,6 +3773,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "serverlessrepo",
+  "fqn": "pulumi_aws_native.serverlessrepo",
+  "classes": {
+   "aws-native:serverlessrepo:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "servicecatalog",
   "fqn": "pulumi_aws_native.servicecatalog",
   "classes": {
@@ -3721,6 +3817,8 @@ _utilities.register(
   "mod": "servicediscovery",
   "fqn": "pulumi_aws_native.servicediscovery",
   "classes": {
+   "aws-native:servicediscovery:PrivateDnsNamespace": "PrivateDnsNamespace",
+   "aws-native:servicediscovery:PublicDnsNamespace": "PublicDnsNamespace",
    "aws-native:servicediscovery:Service": "Service"
   }
  },
@@ -3744,6 +3842,8 @@ _utilities.register(
    "aws-native:ses:MailManagerRuleSet": "MailManagerRuleSet",
    "aws-native:ses:MailManagerTrafficPolicy": "MailManagerTrafficPolicy",
    "aws-native:ses:MultiRegionEndpoint": "MultiRegionEndpoint",
+   "aws-native:ses:ReceiptRule": "ReceiptRule",
+   "aws-native:ses:ReceiptRuleSet": "ReceiptRuleSet",
    "aws-native:ses:Template": "Template",
    "aws-native:ses:Tenant": "Tenant",
    "aws-native:ses:VdmAttributes": "VdmAttributes"
@@ -3818,6 +3918,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ssm",
   "classes": {
    "aws-native:ssm:Association": "Association",
+   "aws-native:ssm:CloudConnector": "CloudConnector",
    "aws-native:ssm:Document": "Document",
    "aws-native:ssm:MaintenanceWindow": "MaintenanceWindow",
    "aws-native:ssm:MaintenanceWindowTarget": "MaintenanceWindowTarget",
@@ -3954,11 +4055,20 @@ _utilities.register(
    "aws-native:transfer:Agreement": "Agreement",
    "aws-native:transfer:Certificate": "Certificate",
    "aws-native:transfer:Connector": "Connector",
+   "aws-native:transfer:HostKey": "HostKey",
    "aws-native:transfer:Profile": "Profile",
    "aws-native:transfer:Server": "Server",
    "aws-native:transfer:User": "User",
    "aws-native:transfer:WebApp": "WebApp",
    "aws-native:transfer:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "uxc",
+  "fqn": "pulumi_aws_native.uxc",
+  "classes": {
+   "aws-native:uxc:AccountCustomization": "AccountCustomization"
   }
  },
  {
@@ -4022,7 +4132,8 @@ _utilities.register(
   "classes": {
    "aws-native:wellarchitected:Lens": "Lens",
    "aws-native:wellarchitected:Profile": "Profile",
-   "aws-native:wellarchitected:ReviewTemplate": "ReviewTemplate"
+   "aws-native:wellarchitected:ReviewTemplate": "ReviewTemplate",
+   "aws-native:wellarchitected:Workload": "Workload"
   }
  },
  {

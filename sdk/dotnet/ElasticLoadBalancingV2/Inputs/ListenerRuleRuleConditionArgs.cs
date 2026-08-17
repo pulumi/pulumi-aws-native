@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     public sealed class ListenerRuleRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The field in the HTTP request. The following are the possible values:
-        ///   +   ``http-header`` 
-        ///   +   ``http-request-method`` 
-        ///   +   ``host-header`` 
-        ///   +   ``path-pattern`` 
-        ///   +   ``query-string`` 
-        ///   +   ``source-ip``
+        /// The name of the field. The possible values are:
+        ///   +  ``http-header`` – [ALB] Matches on an HTTP header field.
+        ///   +  ``http-request-method`` – [ALB] Matches on the HTTP request method.
+        ///   +  ``host-header`` – [ALB] Matches on the host header.
+        ///   +  ``path-pattern`` – [ALB] Matches on the URL path of the request.
+        ///   +  ``query-string`` – [ALB] Matches on a query string parameter.
+        ///   +  ``source-ip`` – [ALB, NLB] Matches on the source IP address. For ALB, use ``SourceIpConfig`` with ``Values`` to specify CIDR ranges. For NLB, use ``SourceIpConfig`` with ``IpAddressType`` to match the IP address type (``ipv4`` or ``ipv6``).
         /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }

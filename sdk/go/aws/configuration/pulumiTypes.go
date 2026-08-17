@@ -1592,6 +1592,145 @@ type ConnectorTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DeliveryChannelConfigSnapshotDeliveryProperties struct {
+	// The frequency with which AWS Config delivers configuration snapshots.
+	DeliveryFrequency *DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency `pulumi:"deliveryFrequency"`
+}
+
+// DeliveryChannelConfigSnapshotDeliveryPropertiesInput is an input type that accepts DeliveryChannelConfigSnapshotDeliveryPropertiesArgs and DeliveryChannelConfigSnapshotDeliveryPropertiesOutput values.
+// You can construct a concrete instance of `DeliveryChannelConfigSnapshotDeliveryPropertiesInput` via:
+//
+//	DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
+type DeliveryChannelConfigSnapshotDeliveryPropertiesInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesOutput
+}
+
+type DeliveryChannelConfigSnapshotDeliveryPropertiesArgs struct {
+	// The frequency with which AWS Config delivers configuration snapshots.
+	DeliveryFrequency DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrInput `pulumi:"deliveryFrequency"`
+}
+
+func (DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(context.Background())
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput)
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput).ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx)
+}
+
+// DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput is an input type that accepts DeliveryChannelConfigSnapshotDeliveryPropertiesArgs, DeliveryChannelConfigSnapshotDeliveryPropertiesPtr and DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput values.
+// You can construct a concrete instance of `DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput` via:
+//
+//	        DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput
+}
+
+type deliveryChannelConfigSnapshotDeliveryPropertiesPtrType DeliveryChannelConfigSnapshotDeliveryPropertiesArgs
+
+func DeliveryChannelConfigSnapshotDeliveryPropertiesPtr(v *DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput {
+	return (*deliveryChannelConfigSnapshotDeliveryPropertiesPtrType)(v)
+}
+
+func (*deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (i *deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
+}
+
+type DeliveryChannelConfigSnapshotDeliveryPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o.ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryChannelConfigSnapshotDeliveryProperties) *DeliveryChannelConfigSnapshotDeliveryProperties {
+		return &v
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
+}
+
+// The frequency with which AWS Config delivers configuration snapshots.
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) DeliveryFrequency() DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput {
+	return o.ApplyT(func(v DeliveryChannelConfigSnapshotDeliveryProperties) *DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency {
+		return v.DeliveryFrequency
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput)
+}
+
+type DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return o.ApplyT(func(v *DeliveryChannelConfigSnapshotDeliveryProperties) DeliveryChannelConfigSnapshotDeliveryProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryChannelConfigSnapshotDeliveryProperties
+		return ret
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput)
+}
+
+// The frequency with which AWS Config delivers configuration snapshots.
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannelConfigSnapshotDeliveryProperties) *DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryFrequency
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput)
+}
+
 // Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameter struct {
 	// One part of a key-value pair.
@@ -2200,6 +2339,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureConnectorConfigurationInput)(nil)).Elem(), ConnectorAzureConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureConnectorConfigurationPtrInput)(nil)).Elem(), ConnectorAzureConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorConfigurationInput)(nil)).Elem(), ConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterArrayInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
@@ -2229,6 +2370,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorAzureConnectorConfigurationOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureConnectorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput{})
+	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsOutput{})

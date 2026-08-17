@@ -8,6 +8,44 @@ using Pulumi;
 namespace Pulumi.AwsNative.SecurityAgent
 {
     /// <summary>
+    /// The file type of the artifact.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArtifactType : IEquatable<ArtifactType>
+    {
+        private readonly string _value;
+
+        private ArtifactType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArtifactType Txt { get; } = new ArtifactType("TXT");
+        public static ArtifactType Png { get; } = new ArtifactType("PNG");
+        public static ArtifactType Jpeg { get; } = new ArtifactType("JPEG");
+        public static ArtifactType Md { get; } = new ArtifactType("MD");
+        public static ArtifactType Pdf { get; } = new ArtifactType("PDF");
+        public static ArtifactType Docx { get; } = new ArtifactType("DOCX");
+        public static ArtifactType Doc { get; } = new ArtifactType("DOC");
+        public static ArtifactType Json { get; } = new ArtifactType("JSON");
+        public static ArtifactType Yaml { get; } = new ArtifactType("YAML");
+
+        public static bool operator ==(ArtifactType left, ArtifactType right) => left.Equals(right);
+        public static bool operator !=(ArtifactType left, ArtifactType right) => !left.Equals(right);
+
+        public static explicit operator string(ArtifactType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArtifactType other && Equals(other);
+        public bool Equals(ArtifactType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of authentication provider
     /// </summary>
     [EnumType]

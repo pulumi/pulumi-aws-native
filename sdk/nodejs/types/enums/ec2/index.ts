@@ -71,21 +71,6 @@ export const Ec2FleetCapacityReservationOptionsRequestUsageStrategy = {
  */
 export type Ec2FleetCapacityReservationOptionsRequestUsageStrategy = (typeof Ec2FleetCapacityReservationOptionsRequestUsageStrategy)[keyof typeof Ec2FleetCapacityReservationOptionsRequestUsageStrategy];
 
-export const Ec2FleetEbsBlockDeviceVolumeType = {
-    Gp2: "gp2",
-    Gp3: "gp3",
-    Io1: "io1",
-    Io2: "io2",
-    Sc1: "sc1",
-    St1: "st1",
-    Standard: "standard",
-} as const;
-
-/**
- * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
- */
-export type Ec2FleetEbsBlockDeviceVolumeType = (typeof Ec2FleetEbsBlockDeviceVolumeType)[keyof typeof Ec2FleetEbsBlockDeviceVolumeType];
-
 export const Ec2FleetExcessCapacityTerminationPolicy = {
     Termination: "termination",
     NoTermination: "no-termination",
@@ -788,21 +773,6 @@ export const SnapshotBlockPublicAccessState = {
  */
 export type SnapshotBlockPublicAccessState = (typeof SnapshotBlockPublicAccessState)[keyof typeof SnapshotBlockPublicAccessState];
 
-export const SpotFleetEbsBlockDeviceVolumeType = {
-    Gp2: "gp2",
-    Gp3: "gp3",
-    Io1: "io1",
-    Io2: "io2",
-    Sc1: "sc1",
-    St1: "st1",
-    Standard: "standard",
-} as const;
-
-/**
- * The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
- */
-export type SpotFleetEbsBlockDeviceVolumeType = (typeof SpotFleetEbsBlockDeviceVolumeType)[keyof typeof SpotFleetEbsBlockDeviceVolumeType];
-
 export const SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
     AmazonWebServices: "amazon-web-services",
     Amd: "amd",
@@ -1154,9 +1124,6 @@ export const VpcEncryptionControlEgressOnlyInternetGatewayExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for Egress-Only Internet Gateways.
- */
 export type VpcEncryptionControlEgressOnlyInternetGatewayExclusion = (typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusion)[keyof typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusion];
 
 export const VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput = {
@@ -1174,9 +1141,6 @@ export const VpcEncryptionControlElasticFileSystemExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for Elastic File System.
- */
 export type VpcEncryptionControlElasticFileSystemExclusion = (typeof VpcEncryptionControlElasticFileSystemExclusion)[keyof typeof VpcEncryptionControlElasticFileSystemExclusion];
 
 export const VpcEncryptionControlElasticFileSystemExclusionInput = {
@@ -1194,9 +1158,6 @@ export const VpcEncryptionControlInternetGatewayExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for Internet Gateways.
- */
 export type VpcEncryptionControlInternetGatewayExclusion = (typeof VpcEncryptionControlInternetGatewayExclusion)[keyof typeof VpcEncryptionControlInternetGatewayExclusion];
 
 export const VpcEncryptionControlInternetGatewayExclusionInput = {
@@ -1214,9 +1175,6 @@ export const VpcEncryptionControlLambdaExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for Lambda.
- */
 export type VpcEncryptionControlLambdaExclusion = (typeof VpcEncryptionControlLambdaExclusion)[keyof typeof VpcEncryptionControlLambdaExclusion];
 
 export const VpcEncryptionControlLambdaExclusionInput = {
@@ -1244,9 +1202,6 @@ export const VpcEncryptionControlNatGatewayExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for NAT Gateways.
- */
 export type VpcEncryptionControlNatGatewayExclusion = (typeof VpcEncryptionControlNatGatewayExclusion)[keyof typeof VpcEncryptionControlNatGatewayExclusion];
 
 export const VpcEncryptionControlNatGatewayExclusionInput = {
@@ -1281,9 +1236,6 @@ export const VpcEncryptionControlVirtualPrivateGatewayExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for Virtual Private Gateways.
- */
 export type VpcEncryptionControlVirtualPrivateGatewayExclusion = (typeof VpcEncryptionControlVirtualPrivateGatewayExclusion)[keyof typeof VpcEncryptionControlVirtualPrivateGatewayExclusion];
 
 export const VpcEncryptionControlVirtualPrivateGatewayExclusionInput = {
@@ -1301,9 +1253,6 @@ export const VpcEncryptionControlVpcLatticeExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for VPC Lattice.
- */
 export type VpcEncryptionControlVpcLatticeExclusion = (typeof VpcEncryptionControlVpcLatticeExclusion)[keyof typeof VpcEncryptionControlVpcLatticeExclusion];
 
 export const VpcEncryptionControlVpcLatticeExclusionInput = {
@@ -1321,9 +1270,6 @@ export const VpcEncryptionControlVpcPeeringExclusion = {
     Disable: "disable",
 } as const;
 
-/**
- * The desired exclusion mode for VPC Peering.
- */
 export type VpcEncryptionControlVpcPeeringExclusion = (typeof VpcEncryptionControlVpcPeeringExclusion)[keyof typeof VpcEncryptionControlVpcPeeringExclusion];
 
 export const VpcEncryptionControlVpcPeeringExclusionInput = {

@@ -16,12 +16,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class EvaluatorModelConfig
     {
-        public readonly Outputs.EvaluatorBedrockEvaluatorModelConfig BedrockEvaluatorModelConfig;
+        public readonly Outputs.EvaluatorBedrockEvaluatorModelConfig? BedrockEvaluatorModelConfig;
+        public readonly Outputs.EvaluatorOpenResponsesEvaluatorModelConfig? ResponsesEvaluatorModelConfig;
 
         [OutputConstructor]
-        private EvaluatorModelConfig(Outputs.EvaluatorBedrockEvaluatorModelConfig bedrockEvaluatorModelConfig)
+        private EvaluatorModelConfig(
+            Outputs.EvaluatorBedrockEvaluatorModelConfig? bedrockEvaluatorModelConfig,
+
+            Outputs.EvaluatorOpenResponsesEvaluatorModelConfig? responsesEvaluatorModelConfig)
         {
             BedrockEvaluatorModelConfig = bedrockEvaluatorModelConfig;
+            ResponsesEvaluatorModelConfig = responsesEvaluatorModelConfig;
         }
     }
 }

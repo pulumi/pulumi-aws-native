@@ -6820,6 +6820,13 @@ type EndpointTag struct {
 	Value string `pulumi:"value"`
 }
 
+type EventSubscriptionTag struct {
+	// A key is the required name of the tag. The string value can be 1-128 Unicode characters in length and can't be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	Key string `pulumi:"key"`
+	// A value is the optional value of the tag. The string value can be 1-256 Unicode characters in length and can't be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type InstanceProfileTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -7249,6 +7256,13 @@ type ReplicationConfigTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
 	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
+type ReplicationSubnetGroupTag struct {
+	// A key is the required name of the tag. The string value can be 1-128 Unicode characters in length and can't be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
+	Key string `pulumi:"key"`
+	// A value is the optional value of the tag. The string value can be 1-256 Unicode characters in length and can't be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regular expressions: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 	Value string `pulumi:"value"`
 }
 

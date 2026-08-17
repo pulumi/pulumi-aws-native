@@ -16,9 +16,14 @@ import (
 type StackFleetAssociation struct {
 	pulumi.CustomResourceState
 
-	// The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The name of the fleet.
+	//
+	// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	FleetName pulumi.StringOutput `pulumi:"fleetName"`
-	// The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
+	// The name of the stack.
+	//
+	// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
 
@@ -35,11 +40,6 @@ func NewStackFleetAssociation(ctx *pulumi.Context,
 	if args.StackName == nil {
 		return nil, errors.New("invalid value for required argument 'StackName'")
 	}
-	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"fleetName",
-		"stackName",
-	})
-	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StackFleetAssociation
 	err := ctx.RegisterResource("aws-native:appstream:StackFleetAssociation", name, args, &resource, opts...)
@@ -73,17 +73,25 @@ func (StackFleetAssociationState) ElementType() reflect.Type {
 }
 
 type stackFleetAssociationArgs struct {
-	// The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+	// The name of the fleet.
+	//
+	// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	FleetName string `pulumi:"fleetName"`
-	// The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
+	// The name of the stack.
+	//
+	// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	StackName string `pulumi:"stackName"`
 }
 
 // The set of arguments for constructing a StackFleetAssociation resource.
 type StackFleetAssociationArgs struct {
-	// The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+	// The name of the fleet.
+	//
+	// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	FleetName pulumi.StringInput
-	// The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
+	// The name of the stack.
+	//
+	// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 	StackName pulumi.StringInput
 }
 
@@ -124,12 +132,20 @@ func (o StackFleetAssociationOutput) ToStackFleetAssociationOutputWithContext(ct
 	return o
 }
 
-// The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+func (o StackFleetAssociationOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackFleetAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// The name of the fleet.
+//
+// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 func (o StackFleetAssociationOutput) FleetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackFleetAssociation) pulumi.StringOutput { return v.FleetName }).(pulumi.StringOutput)
 }
 
-// The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
+// The name of the stack.
+//
+// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
 func (o StackFleetAssociationOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackFleetAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }

@@ -511,6 +511,7 @@ namespace Pulumi.AwsNative.GameLift
         public static ContainerFleetStatus Active { get; } = new ContainerFleetStatus("ACTIVE");
         public static ContainerFleetStatus Updating { get; } = new ContainerFleetStatus("UPDATING");
         public static ContainerFleetStatus Deleting { get; } = new ContainerFleetStatus("DELETING");
+        public static ContainerFleetStatus Expired { get; } = new ContainerFleetStatus("EXPIRED");
 
         public static bool operator ==(ContainerFleetStatus left, ContainerFleetStatus right) => left.Equals(right);
         public static bool operator !=(ContainerFleetStatus left, ContainerFleetStatus right) => !left.Equals(right);

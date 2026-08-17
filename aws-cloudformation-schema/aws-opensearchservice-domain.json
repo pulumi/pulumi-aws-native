@@ -460,6 +460,9 @@
       "properties" : {
         "AutoSoftwareUpdateEnabled" : {
           "type" : "boolean"
+        },
+        "UseLatestServiceSoftwareForBlueGreen" : {
+          "type" : "boolean"
         }
       }
     },

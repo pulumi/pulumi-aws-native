@@ -15,6 +15,22 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'LicenseAssetRuleSetAndRuleStatementArgs',
+    'LicenseAssetRuleSetAndRuleStatementArgsDict',
+    'LicenseAssetRuleSetInstanceRuleStatementArgs',
+    'LicenseAssetRuleSetInstanceRuleStatementArgsDict',
+    'LicenseAssetRuleSetLicenseAssetRuleArgs',
+    'LicenseAssetRuleSetLicenseAssetRuleArgsDict',
+    'LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs',
+    'LicenseAssetRuleSetLicenseConfigurationRuleStatementArgsDict',
+    'LicenseAssetRuleSetLicenseRuleStatementArgs',
+    'LicenseAssetRuleSetLicenseRuleStatementArgsDict',
+    'LicenseAssetRuleSetMatchingRuleStatementArgs',
+    'LicenseAssetRuleSetMatchingRuleStatementArgsDict',
+    'LicenseAssetRuleSetOrRuleStatementArgs',
+    'LicenseAssetRuleSetOrRuleStatementArgsDict',
+    'LicenseAssetRuleSetRuleStatementArgs',
+    'LicenseAssetRuleSetRuleStatementArgsDict',
     'LicenseBorrowConfigurationArgs',
     'LicenseBorrowConfigurationArgsDict',
     'LicenseConsumptionConfigurationArgs',
@@ -30,6 +46,362 @@ __all__ = [
     'LicenseValidityDateFormatArgs',
     'LicenseValidityDateFormatArgsDict',
 ]
+
+class LicenseAssetRuleSetAndRuleStatementArgsDict(TypedDict):
+    """
+    AND rule statement.
+    """
+    matching_rule_statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgsDict']]]]]
+
+@pulumi.input_type
+class LicenseAssetRuleSetAndRuleStatementArgs:
+    def __init__(__self__, *,
+                 matching_rule_statements: pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgs']]]] = None):
+        """
+        AND rule statement.
+        """
+        if matching_rule_statements is not None:
+            pulumi.set(__self__, "matching_rule_statements", matching_rule_statements)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatements")
+    def matching_rule_statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgs']]]]:
+        return pulumi.get(self, "matching_rule_statements")
+
+    @matching_rule_statements.setter
+    def matching_rule_statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgs']]]]):
+        pulumi.set(self, "matching_rule_statements", value)
+
+
+class LicenseAssetRuleSetInstanceRuleStatementArgsDict(TypedDict):
+    """
+    Instance rule statement.
+    """
+    and_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgsDict']]]
+    matching_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgsDict']]]
+    or_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgsDict']]]
+
+@pulumi.input_type
+class LicenseAssetRuleSetInstanceRuleStatementArgs:
+    def __init__(__self__, *,
+                 and_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']] = None,
+                 matching_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']] = None,
+                 or_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']] = None):
+        """
+        Instance rule statement.
+        """
+        if and_rule_statement is not None:
+            pulumi.set(__self__, "and_rule_statement", and_rule_statement)
+        if matching_rule_statement is not None:
+            pulumi.set(__self__, "matching_rule_statement", matching_rule_statement)
+        if or_rule_statement is not None:
+            pulumi.set(__self__, "or_rule_statement", or_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="andRuleStatement")
+    def and_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']]:
+        return pulumi.get(self, "and_rule_statement")
+
+    @and_rule_statement.setter
+    def and_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']]):
+        pulumi.set(self, "and_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatement")
+    def matching_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']]:
+        return pulumi.get(self, "matching_rule_statement")
+
+    @matching_rule_statement.setter
+    def matching_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']]):
+        pulumi.set(self, "matching_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orRuleStatement")
+    def or_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']]:
+        return pulumi.get(self, "or_rule_statement")
+
+    @or_rule_statement.setter
+    def or_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']]):
+        pulumi.set(self, "or_rule_statement", value)
+
+
+class LicenseAssetRuleSetLicenseAssetRuleArgsDict(TypedDict):
+    """
+    License asset rule.
+    """
+    rule_statement: pulumi.Input['LicenseAssetRuleSetRuleStatementArgsDict']
+
+@pulumi.input_type
+class LicenseAssetRuleSetLicenseAssetRuleArgs:
+    def __init__(__self__, *,
+                 rule_statement: pulumi.Input['LicenseAssetRuleSetRuleStatementArgs']):
+        """
+        License asset rule.
+        """
+        pulumi.set(__self__, "rule_statement", rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleStatement")
+    def rule_statement(self) -> pulumi.Input['LicenseAssetRuleSetRuleStatementArgs']:
+        return pulumi.get(self, "rule_statement")
+
+    @rule_statement.setter
+    def rule_statement(self, value: pulumi.Input['LicenseAssetRuleSetRuleStatementArgs']):
+        pulumi.set(self, "rule_statement", value)
+
+
+class LicenseAssetRuleSetLicenseConfigurationRuleStatementArgsDict(TypedDict):
+    """
+    License configuration rule statement.
+    """
+    and_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgsDict']]]
+    matching_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgsDict']]]
+    or_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgsDict']]]
+
+@pulumi.input_type
+class LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs:
+    def __init__(__self__, *,
+                 and_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']] = None,
+                 matching_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']] = None,
+                 or_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']] = None):
+        """
+        License configuration rule statement.
+        """
+        if and_rule_statement is not None:
+            pulumi.set(__self__, "and_rule_statement", and_rule_statement)
+        if matching_rule_statement is not None:
+            pulumi.set(__self__, "matching_rule_statement", matching_rule_statement)
+        if or_rule_statement is not None:
+            pulumi.set(__self__, "or_rule_statement", or_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="andRuleStatement")
+    def and_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']]:
+        return pulumi.get(self, "and_rule_statement")
+
+    @and_rule_statement.setter
+    def and_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']]):
+        pulumi.set(self, "and_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatement")
+    def matching_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']]:
+        return pulumi.get(self, "matching_rule_statement")
+
+    @matching_rule_statement.setter
+    def matching_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']]):
+        pulumi.set(self, "matching_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orRuleStatement")
+    def or_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']]:
+        return pulumi.get(self, "or_rule_statement")
+
+    @or_rule_statement.setter
+    def or_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']]):
+        pulumi.set(self, "or_rule_statement", value)
+
+
+class LicenseAssetRuleSetLicenseRuleStatementArgsDict(TypedDict):
+    """
+    License rule statement.
+    """
+    and_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgsDict']]]
+    matching_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgsDict']]]
+    or_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgsDict']]]
+
+@pulumi.input_type
+class LicenseAssetRuleSetLicenseRuleStatementArgs:
+    def __init__(__self__, *,
+                 and_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']] = None,
+                 matching_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']] = None,
+                 or_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']] = None):
+        """
+        License rule statement.
+        """
+        if and_rule_statement is not None:
+            pulumi.set(__self__, "and_rule_statement", and_rule_statement)
+        if matching_rule_statement is not None:
+            pulumi.set(__self__, "matching_rule_statement", matching_rule_statement)
+        if or_rule_statement is not None:
+            pulumi.set(__self__, "or_rule_statement", or_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="andRuleStatement")
+    def and_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']]:
+        return pulumi.get(self, "and_rule_statement")
+
+    @and_rule_statement.setter
+    def and_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetAndRuleStatementArgs']]):
+        pulumi.set(self, "and_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatement")
+    def matching_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']]:
+        return pulumi.get(self, "matching_rule_statement")
+
+    @matching_rule_statement.setter
+    def matching_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetMatchingRuleStatementArgs']]):
+        pulumi.set(self, "matching_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orRuleStatement")
+    def or_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']]:
+        return pulumi.get(self, "or_rule_statement")
+
+    @or_rule_statement.setter
+    def or_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetOrRuleStatementArgs']]):
+        pulumi.set(self, "or_rule_statement", value)
+
+
+class LicenseAssetRuleSetMatchingRuleStatementArgsDict(TypedDict):
+    """
+    Matching rule statement.
+    """
+    constraint: pulumi.Input[_builtins.str]
+    """
+    Constraint (e.g. Equals, Not_Equals).
+    """
+    key_to_match: pulumi.Input[_builtins.str]
+    """
+    Key to match.
+    """
+    value_to_match: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values to match.
+    """
+
+@pulumi.input_type
+class LicenseAssetRuleSetMatchingRuleStatementArgs:
+    def __init__(__self__, *,
+                 constraint: pulumi.Input[_builtins.str],
+                 key_to_match: pulumi.Input[_builtins.str],
+                 value_to_match: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Matching rule statement.
+
+        :param pulumi.Input[_builtins.str] constraint: Constraint (e.g. Equals, Not_Equals).
+        :param pulumi.Input[_builtins.str] key_to_match: Key to match.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] value_to_match: Values to match.
+        """
+        pulumi.set(__self__, "constraint", constraint)
+        pulumi.set(__self__, "key_to_match", key_to_match)
+        pulumi.set(__self__, "value_to_match", value_to_match)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraint(self) -> pulumi.Input[_builtins.str]:
+        """
+        Constraint (e.g. Equals, Not_Equals).
+        """
+        return pulumi.get(self, "constraint")
+
+    @constraint.setter
+    def constraint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "constraint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyToMatch")
+    def key_to_match(self) -> pulumi.Input[_builtins.str]:
+        """
+        Key to match.
+        """
+        return pulumi.get(self, "key_to_match")
+
+    @key_to_match.setter
+    def key_to_match(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_to_match", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueToMatch")
+    def value_to_match(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Values to match.
+        """
+        return pulumi.get(self, "value_to_match")
+
+    @value_to_match.setter
+    def value_to_match(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "value_to_match", value)
+
+
+class LicenseAssetRuleSetOrRuleStatementArgsDict(TypedDict):
+    """
+    OR rule statement.
+    """
+    matching_rule_statements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgsDict']]]]]
+
+@pulumi.input_type
+class LicenseAssetRuleSetOrRuleStatementArgs:
+    def __init__(__self__, *,
+                 matching_rule_statements: pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgs']]]] = None):
+        """
+        OR rule statement.
+        """
+        if matching_rule_statements is not None:
+            pulumi.set(__self__, "matching_rule_statements", matching_rule_statements)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatements")
+    def matching_rule_statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgs']]]]:
+        return pulumi.get(self, "matching_rule_statements")
+
+    @matching_rule_statements.setter
+    def matching_rule_statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LicenseAssetRuleSetMatchingRuleStatementArgs']]]]):
+        pulumi.set(self, "matching_rule_statements", value)
+
+
+class LicenseAssetRuleSetRuleStatementArgsDict(TypedDict):
+    """
+    Rule statement. Specify exactly one of InstanceRuleStatement, LicenseRuleStatement, or LicenseConfigurationRuleStatement.
+    """
+    instance_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetInstanceRuleStatementArgsDict']]]
+    license_configuration_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetLicenseConfigurationRuleStatementArgsDict']]]
+    license_rule_statement: NotRequired[pulumi.Input[Optional['LicenseAssetRuleSetLicenseRuleStatementArgsDict']]]
+
+@pulumi.input_type
+class LicenseAssetRuleSetRuleStatementArgs:
+    def __init__(__self__, *,
+                 instance_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetInstanceRuleStatementArgs']] = None,
+                 license_configuration_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs']] = None,
+                 license_rule_statement: pulumi.Input[Optional['LicenseAssetRuleSetLicenseRuleStatementArgs']] = None):
+        """
+        Rule statement. Specify exactly one of InstanceRuleStatement, LicenseRuleStatement, or LicenseConfigurationRuleStatement.
+        """
+        if instance_rule_statement is not None:
+            pulumi.set(__self__, "instance_rule_statement", instance_rule_statement)
+        if license_configuration_rule_statement is not None:
+            pulumi.set(__self__, "license_configuration_rule_statement", license_configuration_rule_statement)
+        if license_rule_statement is not None:
+            pulumi.set(__self__, "license_rule_statement", license_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceRuleStatement")
+    def instance_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetInstanceRuleStatementArgs']]:
+        return pulumi.get(self, "instance_rule_statement")
+
+    @instance_rule_statement.setter
+    def instance_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetInstanceRuleStatementArgs']]):
+        pulumi.set(self, "instance_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseConfigurationRuleStatement")
+    def license_configuration_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs']]:
+        return pulumi.get(self, "license_configuration_rule_statement")
+
+    @license_configuration_rule_statement.setter
+    def license_configuration_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetLicenseConfigurationRuleStatementArgs']]):
+        pulumi.set(self, "license_configuration_rule_statement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseRuleStatement")
+    def license_rule_statement(self) -> pulumi.Input[Optional['LicenseAssetRuleSetLicenseRuleStatementArgs']]:
+        return pulumi.get(self, "license_rule_statement")
+
+    @license_rule_statement.setter
+    def license_rule_statement(self, value: pulumi.Input[Optional['LicenseAssetRuleSetLicenseRuleStatementArgs']]):
+        pulumi.set(self, "license_rule_statement", value)
+
 
 class LicenseBorrowConfigurationArgsDict(TypedDict):
     allow_early_check_in: pulumi.Input[_builtins.bool]

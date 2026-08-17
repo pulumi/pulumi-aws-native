@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, control_plane_scaling_config=None, deletion_protection=None, encryption_config_key_arn=None, endpoint=None, id=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, remote_network_config=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, control_plane_scaling_config=None, deletion_protection=None, encryption_config_key_arn=None, endpoint=None, id=None, kube_api_server_config=None, kube_controller_manager_config=None, kube_scheduler_config=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, remote_network_config=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
@@ -57,6 +57,15 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kube_api_server_config and not isinstance(kube_api_server_config, dict):
+            raise TypeError("Expected argument 'kube_api_server_config' to be a dict")
+        pulumi.set(__self__, "kube_api_server_config", kube_api_server_config)
+        if kube_controller_manager_config and not isinstance(kube_controller_manager_config, dict):
+            raise TypeError("Expected argument 'kube_controller_manager_config' to be a dict")
+        pulumi.set(__self__, "kube_controller_manager_config", kube_controller_manager_config)
+        if kube_scheduler_config and not isinstance(kube_scheduler_config, dict):
+            raise TypeError("Expected argument 'kube_scheduler_config' to be a dict")
+        pulumi.set(__self__, "kube_scheduler_config", kube_scheduler_config)
         if kubernetes_network_config and not isinstance(kubernetes_network_config, dict):
             raise TypeError("Expected argument 'kubernetes_network_config' to be a dict")
         pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
@@ -169,6 +178,21 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfig")
+    def kube_api_server_config(self) -> Optional['outputs.ClusterKubeApiServerConfig']:
+        return pulumi.get(self, "kube_api_server_config")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfig")
+    def kube_controller_manager_config(self) -> Optional['outputs.ClusterKubeControllerManagerConfig']:
+        return pulumi.get(self, "kube_controller_manager_config")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfig")
+    def kube_scheduler_config(self) -> Optional['outputs.ClusterKubeSchedulerConfig']:
+        return pulumi.get(self, "kube_scheduler_config")
+
+    @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfig")
     def kubernetes_network_config(self) -> Optional['outputs.ClusterKubernetesNetworkConfig']:
         """
@@ -267,6 +291,9 @@ class AwaitableGetClusterResult(GetClusterResult):
             encryption_config_key_arn=self.encryption_config_key_arn,
             endpoint=self.endpoint,
             id=self.id,
+            kube_api_server_config=self.kube_api_server_config,
+            kube_controller_manager_config=self.kube_controller_manager_config,
+            kube_scheduler_config=self.kube_scheduler_config,
             kubernetes_network_config=self.kubernetes_network_config,
             logging=self.logging,
             open_id_connect_issuer_url=self.open_id_connect_issuer_url,
@@ -302,6 +329,9 @@ def get_cluster(name: Optional[_builtins.str] = None,
         encryption_config_key_arn=pulumi.get(__ret__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
+        kube_api_server_config=pulumi.get(__ret__, 'kube_api_server_config'),
+        kube_controller_manager_config=pulumi.get(__ret__, 'kube_controller_manager_config'),
+        kube_scheduler_config=pulumi.get(__ret__, 'kube_scheduler_config'),
         kubernetes_network_config=pulumi.get(__ret__, 'kubernetes_network_config'),
         logging=pulumi.get(__ret__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__ret__, 'open_id_connect_issuer_url'),
@@ -334,6 +364,9 @@ def get_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         encryption_config_key_arn=pulumi.get(__response__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
+        kube_api_server_config=pulumi.get(__response__, 'kube_api_server_config'),
+        kube_controller_manager_config=pulumi.get(__response__, 'kube_controller_manager_config'),
+        kube_scheduler_config=pulumi.get(__response__, 'kube_scheduler_config'),
         kubernetes_network_config=pulumi.get(__response__, 'kubernetes_network_config'),
         logging=pulumi.get(__response__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__response__, 'open_id_connect_issuer_url'),

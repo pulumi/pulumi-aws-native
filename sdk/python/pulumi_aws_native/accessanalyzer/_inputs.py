@@ -35,6 +35,8 @@ __all__ = [
     'AnalyzerUnusedAccessConfigurationArgsDict',
     'AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs',
     'AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgsDict',
+    'FilterValuePropertiesArgs',
+    'FilterValuePropertiesArgsDict',
 ]
 
 class AnalyzerAnalysisRuleCriteriaArgsDict(TypedDict):
@@ -598,5 +600,64 @@ class AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs:
     @exclusions.setter
     def exclusions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerAnalysisRuleCriteriaArgs']]]]):
         pulumi.set(self, "exclusions", value)
+
+
+class FilterValuePropertiesArgsDict(TypedDict):
+    contains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    eq: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    exists: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    neq: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class FilterValuePropertiesArgs:
+    def __init__(__self__, *,
+                 contains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 eq: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 neq: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if contains is not None:
+            pulumi.set(__self__, "contains", contains)
+        if eq is not None:
+            pulumi.set(__self__, "eq", eq)
+        if exists is not None:
+            pulumi.set(__self__, "exists", exists)
+        if neq is not None:
+            pulumi.set(__self__, "neq", neq)
+
+    @_builtins.property
+    @pulumi.getter
+    def contains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "contains")
+
+    @contains.setter
+    def contains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "contains", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def eq(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "eq")
+
+    @eq.setter
+    def eq(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "eq", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "exists")
+
+    @exists.setter
+    def exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "exists", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def neq(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "neq")
+
+    @neq.setter
+    def neq(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "neq", value)
 
 

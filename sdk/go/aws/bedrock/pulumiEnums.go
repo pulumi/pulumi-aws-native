@@ -17996,6 +17996,98 @@ func (o PromptVersionPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current status of the session.
+type SessionStatus string
+
+const (
+	SessionStatusActive  = SessionStatus("ACTIVE")
+	SessionStatusExpired = SessionStatus("EXPIRED")
+	SessionStatusEnded   = SessionStatus("ENDED")
+)
+
+type SessionStatusOutput struct{ *pulumi.OutputState }
+
+func (SessionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionStatus)(nil)).Elem()
+}
+
+func (o SessionStatusOutput) ToSessionStatusOutput() SessionStatusOutput {
+	return o
+}
+
+func (o SessionStatusOutput) ToSessionStatusOutputWithContext(ctx context.Context) SessionStatusOutput {
+	return o
+}
+
+func (o SessionStatusOutput) ToSessionStatusPtrOutput() SessionStatusPtrOutput {
+	return o.ToSessionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SessionStatusOutput) ToSessionStatusPtrOutputWithContext(ctx context.Context) SessionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionStatus) *SessionStatus {
+		return &v
+	}).(SessionStatusPtrOutput)
+}
+
+func (o SessionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionStatus)(nil)).Elem()
+}
+
+func (o SessionStatusPtrOutput) ToSessionStatusPtrOutput() SessionStatusPtrOutput {
+	return o
+}
+
+func (o SessionStatusPtrOutput) ToSessionStatusPtrOutputWithContext(ctx context.Context) SessionStatusPtrOutput {
+	return o
+}
+
+func (o SessionStatusPtrOutput) Elem() SessionStatusOutput {
+	return o.ApplyT(func(v *SessionStatus) SessionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SessionStatus
+		return ret
+	}).(SessionStatusOutput)
+}
+
+func (o SessionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupSignatureInput)(nil)).Elem(), AgentActionGroupSignature("AMAZON.UserInput"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentActionGroupSignaturePtrInput)(nil)).Elem(), AgentActionGroupSignature("AMAZON.UserInput"))
@@ -18431,4 +18523,6 @@ func init() {
 	pulumi.RegisterOutputType(PromptVersionConversationRolePtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(SessionStatusOutput{})
+	pulumi.RegisterOutputType(SessionStatusPtrOutput{})
 }

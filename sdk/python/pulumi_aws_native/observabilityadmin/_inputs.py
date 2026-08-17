@@ -477,6 +477,7 @@ class OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict(TypedDic
     """
     Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
     """
+    encryption_scope: NotRequired[pulumi.Input[Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope']]]
     kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     KMS Key ARN belonging to the primary destination account and region, to encrypt newly created central log groups in the primary destination.
@@ -487,6 +488,7 @@ class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_strategy: pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy'],
                  encryption_conflict_resolution_strategy: pulumi.Input[Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']] = None,
+                 encryption_scope: pulumi.Input[Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope']] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy'] encryption_strategy: Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
@@ -496,6 +498,8 @@ class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs:
         pulumi.set(__self__, "encryption_strategy", encryption_strategy)
         if encryption_conflict_resolution_strategy is not None:
             pulumi.set(__self__, "encryption_conflict_resolution_strategy", encryption_conflict_resolution_strategy)
+        if encryption_scope is not None:
+            pulumi.set(__self__, "encryption_scope", encryption_scope)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
@@ -522,6 +526,15 @@ class OrganizationCentralizationRuleLogsEncryptionConfigurationArgs:
     @encryption_conflict_resolution_strategy.setter
     def encryption_conflict_resolution_strategy(self, value: pulumi.Input[Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy']]):
         pulumi.set(self, "encryption_conflict_resolution_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> pulumi.Input[Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope']]:
+        return pulumi.get(self, "encryption_scope")
+
+    @encryption_scope.setter
+    def encryption_scope(self, value: pulumi.Input[Optional['OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope']]):
+        pulumi.set(self, "encryption_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -1275,6 +1288,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDi
     """
     Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
     """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     log_delivery_parameters: NotRequired[pulumi.Input[Optional['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict']]]
     """
     Parameters for log delivery configuration
@@ -1299,6 +1313,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
                  destination_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_type: pulumi.Input[Optional['OrganizationTelemetryRuleDestinationType']] = None,
                  elb_load_balancer_logging_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  vpc_flow_log_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleVpcFlowLogParametersArgs']] = None,
@@ -1323,6 +1338,8 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
             pulumi.set(__self__, "destination_type", destination_type)
         if elb_load_balancer_logging_parameters is not None:
             pulumi.set(__self__, "elb_load_balancer_logging_parameters", elb_load_balancer_logging_parameters)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if log_delivery_parameters is not None:
             pulumi.set(__self__, "log_delivery_parameters", log_delivery_parameters)
         if retention_in_days is not None:
@@ -1379,6 +1396,15 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
     @elb_load_balancer_logging_parameters.setter
     def elb_load_balancer_logging_parameters(self, value: pulumi.Input[Optional['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs']]):
         pulumi.set(self, "elb_load_balancer_logging_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryParameters")
@@ -2753,6 +2779,7 @@ class TelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
     """
     Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
     """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     log_delivery_parameters: NotRequired[pulumi.Input[Optional['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict']]]
     """
     Parameters for log delivery configuration
@@ -2777,6 +2804,7 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
                  destination_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_type: pulumi.Input[Optional['TelemetryRuleDestinationType']] = None,
                  elb_load_balancer_logging_parameters: pulumi.Input[Optional['TelemetryRuleElbLoadBalancerLoggingParametersArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_parameters: pulumi.Input[Optional['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  vpc_flow_log_parameters: pulumi.Input[Optional['TelemetryRuleVpcFlowLogParametersArgs']] = None,
@@ -2801,6 +2829,8 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
             pulumi.set(__self__, "destination_type", destination_type)
         if elb_load_balancer_logging_parameters is not None:
             pulumi.set(__self__, "elb_load_balancer_logging_parameters", elb_load_balancer_logging_parameters)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if log_delivery_parameters is not None:
             pulumi.set(__self__, "log_delivery_parameters", log_delivery_parameters)
         if retention_in_days is not None:
@@ -2857,6 +2887,15 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
     @elb_load_balancer_logging_parameters.setter
     def elb_load_balancer_logging_parameters(self, value: pulumi.Input[Optional['TelemetryRuleElbLoadBalancerLoggingParametersArgs']]):
         pulumi.set(self, "elb_load_balancer_logging_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryParameters")

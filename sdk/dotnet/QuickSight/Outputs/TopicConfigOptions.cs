@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
-    /// <summary>
-    /// Model for configuration of a Topic
-    /// </summary>
     [OutputType]
     public sealed class TopicConfigOptions
     {

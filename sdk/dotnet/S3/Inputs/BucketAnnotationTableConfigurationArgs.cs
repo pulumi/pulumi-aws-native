@@ -10,16 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Inputs
 {
 
+    /// <summary>
+    /// The annotation table configuration for an S3 Metadata configuration. The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+    ///   If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
+    /// </summary>
     public sealed class BucketAnnotationTableConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether annotation table configuration is enabled or disabled.
+        /// Specifies whether the annotation table configuration is enabled or disabled.
         /// </summary>
         [Input("configurationState", required: true)]
         public Input<Pulumi.AwsNative.S3.BucketAnnotationTableConfigurationConfigurationState> ConfigurationState { get; set; } = null!;
 
         /// <summary>
-        /// The encryption configuration for the annotation table.
+        /// The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set ``SseAlgorithm`` to ``aws:kms``. You must also set ``KmsKeyArn`` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.BucketMetadataTableEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
@@ -31,7 +35,7 @@ namespace Pulumi.AwsNative.S3.Inputs
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The ARN of the annotation table.
+        /// The Amazon Resource Name (ARN) for the annotation table.
         /// </summary>
         [Input("tableArn")]
         public Input<string>? TableArn { get; set; }

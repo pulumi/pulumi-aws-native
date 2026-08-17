@@ -35,10 +35,9 @@ export class Preset extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+     * The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The new category for the preset, if you are changing it.
      */
@@ -53,8 +52,6 @@ export class Preset extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-     *
-     * For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
      */
@@ -88,10 +85,8 @@ export class Preset extends pulumi.CustomResource {
             resourceInputs["settingsJson"] = args?.settingsJson;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -123,8 +118,6 @@ export interface PresetArgs {
     name?: pulumi.Input<string | undefined>;
     /**
      * Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-     *
-     * For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
      */

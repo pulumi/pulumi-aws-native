@@ -187,6 +187,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<int?> FailureRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the canary.
         /// </summary>
         [Output("name")]
@@ -197,6 +203,12 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Output("provisionedResourceCleanup")]
         public Output<Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup?> ProvisionedResourceCleanup { get; private set; } = null!;
+
+        /// <summary>
+        /// List of replica locations for multi-location canary execution
+        /// </summary>
+        [Output("replicas")]
+        public Output<ImmutableArray<Outputs.CanaryReplica>> Replicas { get; private set; } = null!;
 
         /// <summary>
         /// List of resources which canary tags should be replicated to.
@@ -368,6 +380,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Input<int>? FailureRetentionPeriod { get; set; }
 
         /// <summary>
+        /// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
         /// Name of the canary.
         /// </summary>
         [Input("name")]
@@ -378,6 +396,18 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("provisionedResourceCleanup")]
         public Input<Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup>? ProvisionedResourceCleanup { get; set; }
+
+        [Input("replicas")]
+        private InputList<Inputs.CanaryReplicaArgs>? _replicas;
+
+        /// <summary>
+        /// List of replica locations for multi-location canary execution
+        /// </summary>
+        public InputList<Inputs.CanaryReplicaArgs> Replicas
+        {
+            get => _replicas ?? (_replicas = new InputList<Inputs.CanaryReplicaArgs>());
+            set => _replicas = value;
+        }
 
         [Input("resourcesToReplicateTags")]
         private InputList<Pulumi.AwsNative.Synthetics.CanaryResourceToTag>? _resourcesToReplicateTags;

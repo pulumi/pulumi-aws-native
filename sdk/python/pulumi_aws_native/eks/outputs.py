@@ -34,16 +34,24 @@ __all__ = [
     'ClusterElasticLoadBalancing',
     'ClusterEncryptionConfig',
     'ClusterEtcdPlacement',
+    'ClusterHorizontalPodAutoscalerControllerConfig',
+    'ClusterKubeApiServerConfig',
+    'ClusterKubeControllerManagerConfig',
+    'ClusterKubeSchedulerConfig',
     'ClusterKubernetesNetworkConfig',
     'ClusterLoggingEnabledTypes',
     'ClusterLoggingTypeConfig',
+    'ClusterNodeResourcesFitConfig',
     'ClusterOutpostConfig',
     'ClusterProvider',
     'ClusterRemoteNetworkConfig',
     'ClusterRemoteNodeNetwork',
     'ClusterRemotePodNetwork',
+    'ClusterResourceWeight',
     'ClusterResourcesVpcConfig',
     'ClusterRollbackConfig',
+    'ClusterScoringStrategy',
+    'ClusterServiceNodePortRange',
     'ClusterStorageConfig',
     'ClusterUpgradePolicy',
     'ClusterZonalShiftConfig',
@@ -415,12 +423,20 @@ class CapabilityConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 ack: Optional[Any] = None,
                  argo_cd: Optional['outputs.CapabilityArgoCd'] = None):
         """
         Configuration settings for a capability. The structure of this object varies depending on the capability type.
         """
+        if ack is not None:
+            pulumi.set(__self__, "ack", ack)
         if argo_cd is not None:
             pulumi.set(__self__, "argo_cd", argo_cd)
+
+    @_builtins.property
+    @pulumi.getter
+    def ack(self) -> Optional[Any]:
+        return pulumi.get(self, "ack")
 
     @_builtins.property
     @pulumi.getter(name="argoCd")
@@ -830,6 +846,170 @@ class ClusterEtcdPlacement(dict):
 
 
 @pulumi.output_type
+class ClusterHorizontalPodAutoscalerControllerConfig(dict):
+    """
+    The horizontal pod autoscaler controller configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "horizontalPodAutoscalerSyncPeriod":
+            suggest = "horizontal_pod_autoscaler_sync_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterHorizontalPodAutoscalerControllerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterHorizontalPodAutoscalerControllerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterHorizontalPodAutoscalerControllerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_sync_period: Optional[_builtins.str] = None):
+        """
+        The horizontal pod autoscaler controller configuration.
+
+        :param _builtins.str horizontal_pod_autoscaler_sync_period: The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+        """
+        if horizontal_pod_autoscaler_sync_period is not None:
+            pulumi.set(__self__, "horizontal_pod_autoscaler_sync_period", horizontal_pod_autoscaler_sync_period)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerSyncPeriod")
+    def horizontal_pod_autoscaler_sync_period(self) -> Optional[_builtins.str]:
+        """
+        The interval between each sync of the horizontal pod autoscaler (e.g., 15s, 1m).
+        """
+        return pulumi.get(self, "horizontal_pod_autoscaler_sync_period")
+
+
+@pulumi.output_type
+class ClusterKubeApiServerConfig(dict):
+    """
+    The configuration for the Kubernetes API server on an Amazon EKS cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventTtl":
+            suggest = "event_ttl"
+        elif key == "serviceNodePortRange":
+            suggest = "service_node_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeApiServerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeApiServerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeApiServerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_ttl: Optional[_builtins.str] = None,
+                 service_node_port_range: Optional['outputs.ClusterServiceNodePortRange'] = None):
+        """
+        The configuration for the Kubernetes API server on an Amazon EKS cluster.
+
+        :param _builtins.str event_ttl: The duration that Kubernetes events are retained (e.g., 30m, 1h).
+        """
+        if event_ttl is not None:
+            pulumi.set(__self__, "event_ttl", event_ttl)
+        if service_node_port_range is not None:
+            pulumi.set(__self__, "service_node_port_range", service_node_port_range)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTtl")
+    def event_ttl(self) -> Optional[_builtins.str]:
+        """
+        The duration that Kubernetes events are retained (e.g., 30m, 1h).
+        """
+        return pulumi.get(self, "event_ttl")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNodePortRange")
+    def service_node_port_range(self) -> Optional['outputs.ClusterServiceNodePortRange']:
+        return pulumi.get(self, "service_node_port_range")
+
+
+@pulumi.output_type
+class ClusterKubeControllerManagerConfig(dict):
+    """
+    The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "horizontalPodAutoscalerControllerConfig":
+            suggest = "horizontal_pod_autoscaler_controller_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeControllerManagerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeControllerManagerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeControllerManagerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 horizontal_pod_autoscaler_controller_config: Optional['outputs.ClusterHorizontalPodAutoscalerControllerConfig'] = None):
+        """
+        The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
+        """
+        if horizontal_pod_autoscaler_controller_config is not None:
+            pulumi.set(__self__, "horizontal_pod_autoscaler_controller_config", horizontal_pod_autoscaler_controller_config)
+
+    @_builtins.property
+    @pulumi.getter(name="horizontalPodAutoscalerControllerConfig")
+    def horizontal_pod_autoscaler_controller_config(self) -> Optional['outputs.ClusterHorizontalPodAutoscalerControllerConfig']:
+        return pulumi.get(self, "horizontal_pod_autoscaler_controller_config")
+
+
+@pulumi.output_type
+class ClusterKubeSchedulerConfig(dict):
+    """
+    The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeResourcesFit":
+            suggest = "node_resources_fit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterKubeSchedulerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterKubeSchedulerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterKubeSchedulerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_resources_fit: Optional['outputs.ClusterNodeResourcesFitConfig'] = None):
+        """
+        The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
+        """
+        if node_resources_fit is not None:
+            pulumi.set(__self__, "node_resources_fit", node_resources_fit)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeResourcesFit")
+    def node_resources_fit(self) -> Optional['outputs.ClusterNodeResourcesFitConfig']:
+        return pulumi.get(self, "node_resources_fit")
+
+
+@pulumi.output_type
 class ClusterKubernetesNetworkConfig(dict):
     """
     The Kubernetes network configuration for the cluster.
@@ -979,6 +1159,42 @@ class ClusterLoggingTypeConfig(dict):
         name of the log type
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ClusterNodeResourcesFitConfig(dict):
+    """
+    The NodeResourcesFit plugin configuration for the Kubernetes scheduler.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scoringStrategy":
+            suggest = "scoring_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNodeResourcesFitConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNodeResourcesFitConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNodeResourcesFitConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scoring_strategy: Optional['outputs.ClusterScoringStrategy'] = None):
+        """
+        The NodeResourcesFit plugin configuration for the Kubernetes scheduler.
+        """
+        if scoring_strategy is not None:
+            pulumi.set(__self__, "scoring_strategy", scoring_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="scoringStrategy")
+    def scoring_strategy(self) -> Optional['outputs.ClusterScoringStrategy']:
+        return pulumi.get(self, "scoring_strategy")
 
 
 @pulumi.output_type
@@ -1214,6 +1430,42 @@ class ClusterRemotePodNetwork(dict):
 
 
 @pulumi.output_type
+class ClusterResourceWeight(dict):
+    """
+    A resource weight entry for the scheduler scoring strategy.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 weight: Optional[_builtins.int] = None):
+        """
+        A resource weight entry for the scheduler scoring strategy.
+
+        :param _builtins.str name: The name of the resource (for example, cpu or memory).
+        :param _builtins.int weight: The weight assigned to the resource for scoring. Must be between 1 and 100.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the resource (for example, cpu or memory).
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> Optional[_builtins.int]:
+        """
+        The weight assigned to the resource for scoring. Must be between 1 and 100.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
 class ClusterResourcesVpcConfig(dict):
     """
     An object representing the VPC configuration to use for an Amazon EKS cluster.
@@ -1362,6 +1614,97 @@ class ClusterRollbackConfig(dict):
         The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
         """
         return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class ClusterScoringStrategy(dict):
+    """
+    The scoring strategy configuration for the NodeResourcesFit scheduler plugin.
+    """
+    def __init__(__self__, *,
+                 resources: Optional[Sequence['outputs.ClusterResourceWeight']] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        The scoring strategy configuration for the NodeResourcesFit scheduler plugin.
+
+        :param Sequence['ClusterResourceWeight'] resources: The resource weights used for scoring nodes.
+        :param _builtins.str type: The scoring strategy type (LeastAllocated or MostAllocated).
+        """
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence['outputs.ClusterResourceWeight']]:
+        """
+        The resource weights used for scoring nodes.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The scoring strategy type (LeastAllocated or MostAllocated).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ClusterServiceNodePortRange(dict):
+    """
+    The port range for Kubernetes NodePort services.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPort":
+            suggest = "max_port"
+        elif key == "minPort":
+            suggest = "min_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServiceNodePortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServiceNodePortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServiceNodePortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_port: Optional[_builtins.int] = None,
+                 min_port: Optional[_builtins.int] = None):
+        """
+        The port range for Kubernetes NodePort services.
+
+        :param _builtins.int max_port: The maximum port number in the range.
+        :param _builtins.int min_port: The minimum port number in the range.
+        """
+        if max_port is not None:
+            pulumi.set(__self__, "max_port", max_port)
+        if min_port is not None:
+            pulumi.set(__self__, "min_port", min_port)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPort")
+    def max_port(self) -> Optional[_builtins.int]:
+        """
+        The maximum port number in the range.
+        """
+        return pulumi.get(self, "max_port")
+
+    @_builtins.property
+    @pulumi.getter(name="minPort")
+    def min_port(self) -> Optional[_builtins.int]:
+        """
+        The minimum port number in the range.
+        """
+        return pulumi.get(self, "min_port")
 
 
 @pulumi.output_type

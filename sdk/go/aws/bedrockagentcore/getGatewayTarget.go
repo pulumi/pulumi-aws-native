@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
+// Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
 func LookupGatewayTarget(ctx *pulumi.Context, args *LookupGatewayTargetArgs, opts ...pulumi.InvokeOption) (*LookupGatewayTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayTargetResult

@@ -88,7 +88,7 @@ export class CodeSecurityScanConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["level", "name", "scopeSettings", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["level", "name", "scopeSettings"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CodeSecurityScanConfiguration.__pulumiType, name, resourceInputs, opts);
     }

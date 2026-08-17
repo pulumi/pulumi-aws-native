@@ -49,6 +49,8 @@ class VpcArgs:
                 You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         :param pulumi.Input[_builtins.int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the VPC.
+        :param pulumi.Input['VpcEncryptionControlArgs'] vpc_encryption_control: Describes the configuration and state of VPC encryption controls.
+                For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
@@ -161,6 +163,10 @@ class VpcArgs:
     @_builtins.property
     @pulumi.getter(name="vpcEncryptionControl")
     def vpc_encryption_control(self) -> pulumi.Input[Optional['VpcEncryptionControlArgs']]:
+        """
+        Describes the configuration and state of VPC encryption controls.
+         For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+        """
         return pulumi.get(self, "vpc_encryption_control")
 
     @vpc_encryption_control.setter
@@ -204,6 +210,8 @@ class Vpc(pulumi.CustomResource):
                 You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         :param pulumi.Input[_builtins.int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the VPC.
+        :param pulumi.Input[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict']] vpc_encryption_control: Describes the configuration and state of VPC encryption controls.
+                For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
         """
         ...
     @overload
@@ -398,6 +406,10 @@ class Vpc(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpcEncryptionControl")
     def vpc_encryption_control(self) -> pulumi.Output[Optional['outputs.VpcEncryptionControl']]:
+        """
+        Describes the configuration and state of VPC encryption controls.
+         For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+        """
         return pulumi.get(self, "vpc_encryption_control")
 
     @_builtins.property

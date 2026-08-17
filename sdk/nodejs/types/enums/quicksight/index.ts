@@ -2528,6 +2528,27 @@ export const DataSourceType = {
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
+export const DlpSettingDlpAction = {
+    Allow: "ALLOW",
+    Warn: "WARN",
+    Block: "BLOCK",
+} as const;
+
+export type DlpSettingDlpAction = (typeof DlpSettingDlpAction)[keyof typeof DlpSettingDlpAction];
+
+export const DlpSettingDlpProviderType = {
+    MicrosoftPurview: "MICROSOFT_PURVIEW",
+} as const;
+
+export type DlpSettingDlpProviderType = (typeof DlpSettingDlpProviderType)[keyof typeof DlpSettingDlpProviderType];
+
+export const DlpSettingStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+export type DlpSettingStatus = (typeof DlpSettingStatus)[keyof typeof DlpSettingStatus];
+
 export const FlowPublishState = {
     Published: "PUBLISHED",
     Draft: "DRAFT",
@@ -3814,6 +3835,7 @@ export const TopicFilterClass = {
     EnforcedValueFilter: "ENFORCED_VALUE_FILTER",
     ConditionalValueFilter: "CONDITIONAL_VALUE_FILTER",
     NamedValueFilter: "NAMED_VALUE_FILTER",
+    DashboardDefaultFilter: "DASHBOARD_DEFAULT_FILTER",
 } as const;
 
 export type TopicFilterClass = (typeof TopicFilterClass)[keyof typeof TopicFilterClass];
@@ -3859,6 +3881,7 @@ export const TopicNamedFilterType = {
     NumericRangeFilter: "NUMERIC_RANGE_FILTER",
     DateRangeFilter: "DATE_RANGE_FILTER",
     RelativeDateFilter: "RELATIVE_DATE_FILTER",
+    NullFilter: "NULL_FILTER",
 } as const;
 
 export type TopicNamedFilterType = (typeof TopicNamedFilterType)[keyof typeof TopicNamedFilterType];

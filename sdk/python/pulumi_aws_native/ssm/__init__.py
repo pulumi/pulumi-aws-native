@@ -8,8 +8,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .association import *
+from .cloud_connector import *
 from .document import *
 from .get_association import *
+from .get_cloud_connector import *
 from .get_document import *
 from .get_maintenance_window import *
 from .get_maintenance_window_target import *

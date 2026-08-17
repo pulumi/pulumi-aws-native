@@ -65,6 +65,9 @@ export interface GetClusterResult {
      * The unique ID given to your cluster.
      */
     readonly id?: string;
+    readonly kubeApiServerConfig?: outputs.eks.ClusterKubeApiServerConfig;
+    readonly kubeControllerManagerConfig?: outputs.eks.ClusterKubeControllerManagerConfig;
+    readonly kubeSchedulerConfig?: outputs.eks.ClusterKubeSchedulerConfig;
     /**
      * The Kubernetes network configuration for the cluster.
      */

@@ -525,6 +525,133 @@ type AgentSpaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A single file inside an Asset's bundle. Path is the diff key on update; Content is write-only and not repopulated by Read.
+type AssetFile struct {
+	// Base64-encoded binary contents of the file. Mutually exclusive with ContentText (max 6 MiB).
+	ContentBytes *string `pulumi:"contentBytes"`
+	// UTF-8 text contents of the file. Mutually exclusive with ContentBytes (max 1.5 MiB).
+	ContentText *string `pulumi:"contentText"`
+	// Per-file metadata document. Values may be strings, numbers, booleans, or lists of any of those (validated server-side).
+	Metadata interface{} `pulumi:"metadata"`
+	// Path of this file within the asset bundle.
+	Path string `pulumi:"path"`
+}
+
+// AssetFileInput is an input type that accepts AssetFileArgs and AssetFileOutput values.
+// You can construct a concrete instance of `AssetFileInput` via:
+//
+//	AssetFileArgs{...}
+type AssetFileInput interface {
+	pulumi.Input
+
+	ToAssetFileOutput() AssetFileOutput
+	ToAssetFileOutputWithContext(context.Context) AssetFileOutput
+}
+
+// A single file inside an Asset's bundle. Path is the diff key on update; Content is write-only and not repopulated by Read.
+type AssetFileArgs struct {
+	// Base64-encoded binary contents of the file. Mutually exclusive with ContentText (max 6 MiB).
+	ContentBytes pulumi.StringPtrInput `pulumi:"contentBytes"`
+	// UTF-8 text contents of the file. Mutually exclusive with ContentBytes (max 1.5 MiB).
+	ContentText pulumi.StringPtrInput `pulumi:"contentText"`
+	// Per-file metadata document. Values may be strings, numbers, booleans, or lists of any of those (validated server-side).
+	Metadata pulumi.Input `pulumi:"metadata"`
+	// Path of this file within the asset bundle.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (AssetFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFile)(nil)).Elem()
+}
+
+func (i AssetFileArgs) ToAssetFileOutput() AssetFileOutput {
+	return i.ToAssetFileOutputWithContext(context.Background())
+}
+
+func (i AssetFileArgs) ToAssetFileOutputWithContext(ctx context.Context) AssetFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFileOutput)
+}
+
+// AssetFileArrayInput is an input type that accepts AssetFileArray and AssetFileArrayOutput values.
+// You can construct a concrete instance of `AssetFileArrayInput` via:
+//
+//	AssetFileArray{ AssetFileArgs{...} }
+type AssetFileArrayInput interface {
+	pulumi.Input
+
+	ToAssetFileArrayOutput() AssetFileArrayOutput
+	ToAssetFileArrayOutputWithContext(context.Context) AssetFileArrayOutput
+}
+
+type AssetFileArray []AssetFileInput
+
+func (AssetFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFile)(nil)).Elem()
+}
+
+func (i AssetFileArray) ToAssetFileArrayOutput() AssetFileArrayOutput {
+	return i.ToAssetFileArrayOutputWithContext(context.Background())
+}
+
+func (i AssetFileArray) ToAssetFileArrayOutputWithContext(ctx context.Context) AssetFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFileArrayOutput)
+}
+
+// A single file inside an Asset's bundle. Path is the diff key on update; Content is write-only and not repopulated by Read.
+type AssetFileOutput struct{ *pulumi.OutputState }
+
+func (AssetFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFile)(nil)).Elem()
+}
+
+func (o AssetFileOutput) ToAssetFileOutput() AssetFileOutput {
+	return o
+}
+
+func (o AssetFileOutput) ToAssetFileOutputWithContext(ctx context.Context) AssetFileOutput {
+	return o
+}
+
+// Base64-encoded binary contents of the file. Mutually exclusive with ContentText (max 6 MiB).
+func (o AssetFileOutput) ContentBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFile) *string { return v.ContentBytes }).(pulumi.StringPtrOutput)
+}
+
+// UTF-8 text contents of the file. Mutually exclusive with ContentBytes (max 1.5 MiB).
+func (o AssetFileOutput) ContentText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFile) *string { return v.ContentText }).(pulumi.StringPtrOutput)
+}
+
+// Per-file metadata document. Values may be strings, numbers, booleans, or lists of any of those (validated server-side).
+func (o AssetFileOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v AssetFile) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Path of this file within the asset bundle.
+func (o AssetFileOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetFile) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type AssetFileArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFile)(nil)).Elem()
+}
+
+func (o AssetFileArrayOutput) ToAssetFileArrayOutput() AssetFileArrayOutput {
+	return o
+}
+
+func (o AssetFileArrayOutput) ToAssetFileArrayOutputWithContext(ctx context.Context) AssetFileArrayOutput {
+	return o
+}
+
+func (o AssetFileArrayOutput) Index(i pulumi.IntInput) AssetFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetFile {
+		return vs[0].([]AssetFile)[vs[1].(int)]
+	}).(AssetFileOutput)
+}
+
 // AWS association for 'monitor' account
 type AssociationAwsConfiguration struct {
 	// AWS Account Id corresponding to provided resources
@@ -10093,6 +10220,113 @@ type ServiceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The condition that causes the trigger to fire.
+type TriggerCondition struct {
+	Schedule TriggerSchedule `pulumi:"schedule"`
+}
+
+// TriggerConditionInput is an input type that accepts TriggerConditionArgs and TriggerConditionOutput values.
+// You can construct a concrete instance of `TriggerConditionInput` via:
+//
+//	TriggerConditionArgs{...}
+type TriggerConditionInput interface {
+	pulumi.Input
+
+	ToTriggerConditionOutput() TriggerConditionOutput
+	ToTriggerConditionOutputWithContext(context.Context) TriggerConditionOutput
+}
+
+// The condition that causes the trigger to fire.
+type TriggerConditionArgs struct {
+	Schedule TriggerScheduleInput `pulumi:"schedule"`
+}
+
+func (TriggerConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCondition)(nil)).Elem()
+}
+
+func (i TriggerConditionArgs) ToTriggerConditionOutput() TriggerConditionOutput {
+	return i.ToTriggerConditionOutputWithContext(context.Background())
+}
+
+func (i TriggerConditionArgs) ToTriggerConditionOutputWithContext(ctx context.Context) TriggerConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionOutput)
+}
+
+// The condition that causes the trigger to fire.
+type TriggerConditionOutput struct{ *pulumi.OutputState }
+
+func (TriggerConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCondition)(nil)).Elem()
+}
+
+func (o TriggerConditionOutput) ToTriggerConditionOutput() TriggerConditionOutput {
+	return o
+}
+
+func (o TriggerConditionOutput) ToTriggerConditionOutputWithContext(ctx context.Context) TriggerConditionOutput {
+	return o
+}
+
+func (o TriggerConditionOutput) Schedule() TriggerScheduleOutput {
+	return o.ApplyT(func(v TriggerCondition) TriggerSchedule { return v.Schedule }).(TriggerScheduleOutput)
+}
+
+// Schedule configuration for a time-based trigger.
+type TriggerSchedule struct {
+	// A cron or rate expression that defines when the trigger fires.
+	Expression string `pulumi:"expression"`
+}
+
+// TriggerScheduleInput is an input type that accepts TriggerScheduleArgs and TriggerScheduleOutput values.
+// You can construct a concrete instance of `TriggerScheduleInput` via:
+//
+//	TriggerScheduleArgs{...}
+type TriggerScheduleInput interface {
+	pulumi.Input
+
+	ToTriggerScheduleOutput() TriggerScheduleOutput
+	ToTriggerScheduleOutputWithContext(context.Context) TriggerScheduleOutput
+}
+
+// Schedule configuration for a time-based trigger.
+type TriggerScheduleArgs struct {
+	// A cron or rate expression that defines when the trigger fires.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (TriggerScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerSchedule)(nil)).Elem()
+}
+
+func (i TriggerScheduleArgs) ToTriggerScheduleOutput() TriggerScheduleOutput {
+	return i.ToTriggerScheduleOutputWithContext(context.Background())
+}
+
+func (i TriggerScheduleArgs) ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerScheduleOutput)
+}
+
+// Schedule configuration for a time-based trigger.
+type TriggerScheduleOutput struct{ *pulumi.OutputState }
+
+func (TriggerScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerSchedule)(nil)).Elem()
+}
+
+func (o TriggerScheduleOutput) ToTriggerScheduleOutput() TriggerScheduleOutput {
+	return o
+}
+
+func (o TriggerScheduleOutput) ToTriggerScheduleOutputWithContext(ctx context.Context) TriggerScheduleOutput {
+	return o
+}
+
+// A cron or rate expression that defines when the trigger fires.
+func (o TriggerScheduleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v TriggerSchedule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIamAuthConfigurationInput)(nil)).Elem(), AgentSpaceIamAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIamAuthConfigurationPtrInput)(nil)).Elem(), AgentSpaceIamAuthConfigurationArgs{})
@@ -10100,6 +10334,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdcAuthConfigurationPtrInput)(nil)).Elem(), AgentSpaceIdcAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppPtrInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetFileInput)(nil)).Elem(), AssetFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetFileArrayInput)(nil)).Elem(), AssetFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationInput)(nil)).Elem(), AssociationAwsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationPtrInput)(nil)).Elem(), AssociationAwsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceInput)(nil)).Elem(), AssociationAwsResourceArgs{})
@@ -10194,12 +10430,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePagerDutyAuthorizationConfigPtrInput)(nil)).Elem(), ServicePagerDutyAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePagerDutyDetailsInput)(nil)).Elem(), ServicePagerDutyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePagerDutyDetailsPtrInput)(nil)).Elem(), ServicePagerDutyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerConditionInput)(nil)).Elem(), TriggerConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerScheduleInput)(nil)).Elem(), TriggerScheduleArgs{})
 	pulumi.RegisterOutputType(AgentSpaceIamAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIamAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIdcAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIdcAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppPtrOutput{})
+	pulumi.RegisterOutputType(AssetFileOutput{})
+	pulumi.RegisterOutputType(AssetFileArrayOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationAwsResourceOutput{})
@@ -10315,4 +10555,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceRegisteredPagerDutyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredServiceNowDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredServiceNowDetailsPtrOutput{})
+	pulumi.RegisterOutputType(TriggerConditionOutput{})
+	pulumi.RegisterOutputType(TriggerScheduleOutput{})
 }

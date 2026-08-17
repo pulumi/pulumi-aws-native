@@ -304,7 +304,7 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "auditmanager:TagResource", "auditmanager:ListTagsForResource", "auditmanager:UntagResource" ]
@@ -313,17 +313,17 @@
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/AssessmentId", "/properties/Arn", "/properties/CreationTime" ],
   "createOnlyProperties" : [ "/properties/FrameworkId", "/properties/AwsAccount" ],
-  "writeOnlyProperties" : [ "/properties/Name", "/properties/Description" ],
+  "writeOnlyProperties" : [ "/properties/Name", "/properties/Description", "/properties/Scope/AwsAccounts/*/Name", "/properties/Scope/AwsAccounts/*/EmailAddress", "/properties/Scope/AwsServices", "/properties/AwsAccount/Name", "/properties/AwsAccount/EmailAddress", "/properties/Delegations/*/AssessmentId", "/properties/Delegations/*/AssessmentName" ],
   "primaryIdentifier" : [ "/properties/AssessmentId" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "auditmanager:CreateAssessment", "auditmanager:TagResource", "auditmanager:ListTagsForResource", "auditmanager:BatchCreateDelegationByAssessment", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "auditmanager:GetAssessment" ]
+      "permissions" : [ "auditmanager:GetAssessment", "auditmanager:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "auditmanager:UpdateAssessment", "auditmanager:UpdateAssessmentStatus", "auditmanager:BatchCreateDelegationByAssessment", "auditmanager:BatchDeleteDelegationByAssessment" ]
+      "permissions" : [ "auditmanager:UpdateAssessment", "auditmanager:UpdateAssessmentStatus", "auditmanager:BatchCreateDelegationByAssessment", "auditmanager:BatchDeleteDelegationByAssessment", "auditmanager:TagResource", "auditmanager:UntagResource", "auditmanager:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "auditmanager:DeleteAssessment", "auditmanager:UntagResource" ]

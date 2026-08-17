@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .dataset import *
 from .dataset_group import *
+from .event_tracker import *
 from .get_dataset import *
 from .get_dataset_group import *
+from .get_event_tracker import *
 from .get_schema import *
 from .get_solution import *
 from .schema import *

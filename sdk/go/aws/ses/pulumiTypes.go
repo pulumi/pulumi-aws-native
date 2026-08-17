@@ -9469,6 +9469,1758 @@ type MultiRegionEndpointTag struct {
 	Value string `pulumi:"value"`
 }
 
+// An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
+type ReceiptRuleAction struct {
+	// Adds a header to the received email.
+	AddHeaderAction *ReceiptRuleAddHeaderAction `pulumi:"addHeaderAction"`
+	// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+	BounceAction *ReceiptRuleBounceAction `pulumi:"bounceAction"`
+	// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+	ConnectAction *ReceiptRuleConnectAction `pulumi:"connectAction"`
+	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+	LambdaAction *ReceiptRuleLambdaAction `pulumi:"lambdaAction"`
+	// Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
+	S3Action *ReceiptRuleS3Action `pulumi:"s3Action"`
+	// Publishes the email content within a notification to Amazon SNS.
+	SnsAction *ReceiptRuleSnsAction `pulumi:"snsAction"`
+	// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+	StopAction *ReceiptRuleStopAction `pulumi:"stopAction"`
+	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+	WorkmailAction *ReceiptRuleWorkmailAction `pulumi:"workmailAction"`
+}
+
+// ReceiptRuleActionInput is an input type that accepts ReceiptRuleActionArgs and ReceiptRuleActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleActionInput` via:
+//
+//	ReceiptRuleActionArgs{...}
+type ReceiptRuleActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleActionOutput() ReceiptRuleActionOutput
+	ToReceiptRuleActionOutputWithContext(context.Context) ReceiptRuleActionOutput
+}
+
+// An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
+type ReceiptRuleActionArgs struct {
+	// Adds a header to the received email.
+	AddHeaderAction ReceiptRuleAddHeaderActionPtrInput `pulumi:"addHeaderAction"`
+	// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+	BounceAction ReceiptRuleBounceActionPtrInput `pulumi:"bounceAction"`
+	// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+	ConnectAction ReceiptRuleConnectActionPtrInput `pulumi:"connectAction"`
+	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+	LambdaAction ReceiptRuleLambdaActionPtrInput `pulumi:"lambdaAction"`
+	// Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
+	S3Action ReceiptRuleS3ActionPtrInput `pulumi:"s3Action"`
+	// Publishes the email content within a notification to Amazon SNS.
+	SnsAction ReceiptRuleSnsActionPtrInput `pulumi:"snsAction"`
+	// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+	StopAction ReceiptRuleStopActionPtrInput `pulumi:"stopAction"`
+	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+	WorkmailAction ReceiptRuleWorkmailActionPtrInput `pulumi:"workmailAction"`
+}
+
+func (ReceiptRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleActionArgs) ToReceiptRuleActionOutput() ReceiptRuleActionOutput {
+	return i.ToReceiptRuleActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleActionArgs) ToReceiptRuleActionOutputWithContext(ctx context.Context) ReceiptRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleActionOutput)
+}
+
+// ReceiptRuleActionArrayInput is an input type that accepts ReceiptRuleActionArray and ReceiptRuleActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleActionArrayInput` via:
+//
+//	ReceiptRuleActionArray{ ReceiptRuleActionArgs{...} }
+type ReceiptRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleActionArrayOutput() ReceiptRuleActionArrayOutput
+	ToReceiptRuleActionArrayOutputWithContext(context.Context) ReceiptRuleActionArrayOutput
+}
+
+type ReceiptRuleActionArray []ReceiptRuleActionInput
+
+func (ReceiptRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReceiptRuleAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleActionArray) ToReceiptRuleActionArrayOutput() ReceiptRuleActionArrayOutput {
+	return i.ToReceiptRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleActionArray) ToReceiptRuleActionArrayOutputWithContext(ctx context.Context) ReceiptRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleActionArrayOutput)
+}
+
+// An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
+type ReceiptRuleActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleActionOutput) ToReceiptRuleActionOutput() ReceiptRuleActionOutput {
+	return o
+}
+
+func (o ReceiptRuleActionOutput) ToReceiptRuleActionOutputWithContext(ctx context.Context) ReceiptRuleActionOutput {
+	return o
+}
+
+// Adds a header to the received email.
+func (o ReceiptRuleActionOutput) AddHeaderAction() ReceiptRuleAddHeaderActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleAddHeaderAction { return v.AddHeaderAction }).(ReceiptRuleAddHeaderActionPtrOutput)
+}
+
+// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+func (o ReceiptRuleActionOutput) BounceAction() ReceiptRuleBounceActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleBounceAction { return v.BounceAction }).(ReceiptRuleBounceActionPtrOutput)
+}
+
+// The action that informs a traffic policy resource to either allow or block the email if it matches a condition in the policy statement.
+func (o ReceiptRuleActionOutput) ConnectAction() ReceiptRuleConnectActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleConnectAction { return v.ConnectAction }).(ReceiptRuleConnectActionPtrOutput)
+}
+
+// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+func (o ReceiptRuleActionOutput) LambdaAction() ReceiptRuleLambdaActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleLambdaAction { return v.LambdaAction }).(ReceiptRuleLambdaActionPtrOutput)
+}
+
+// Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
+func (o ReceiptRuleActionOutput) S3Action() ReceiptRuleS3ActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleS3Action { return v.S3Action }).(ReceiptRuleS3ActionPtrOutput)
+}
+
+// Publishes the email content within a notification to Amazon SNS.
+func (o ReceiptRuleActionOutput) SnsAction() ReceiptRuleSnsActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleSnsAction { return v.SnsAction }).(ReceiptRuleSnsActionPtrOutput)
+}
+
+// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+func (o ReceiptRuleActionOutput) StopAction() ReceiptRuleStopActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleStopAction { return v.StopAction }).(ReceiptRuleStopActionPtrOutput)
+}
+
+// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
+func (o ReceiptRuleActionOutput) WorkmailAction() ReceiptRuleWorkmailActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleWorkmailAction { return v.WorkmailAction }).(ReceiptRuleWorkmailActionPtrOutput)
+}
+
+type ReceiptRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReceiptRuleAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleActionArrayOutput) ToReceiptRuleActionArrayOutput() ReceiptRuleActionArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleActionArrayOutput) ToReceiptRuleActionArrayOutputWithContext(ctx context.Context) ReceiptRuleActionArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReceiptRuleAction {
+		return vs[0].([]ReceiptRuleAction)[vs[1].(int)]
+	}).(ReceiptRuleActionOutput)
+}
+
+// When included in a receipt rule, this action adds a header to the received email.
+type ReceiptRuleAddHeaderAction struct {
+	// The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a-z, A-Z, 0-9) characters and dashes.
+	HeaderName string `pulumi:"headerName"`
+	// The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (\n) or carriage return (\r) characters.
+	HeaderValue string `pulumi:"headerValue"`
+}
+
+// ReceiptRuleAddHeaderActionInput is an input type that accepts ReceiptRuleAddHeaderActionArgs and ReceiptRuleAddHeaderActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleAddHeaderActionInput` via:
+//
+//	ReceiptRuleAddHeaderActionArgs{...}
+type ReceiptRuleAddHeaderActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleAddHeaderActionOutput() ReceiptRuleAddHeaderActionOutput
+	ToReceiptRuleAddHeaderActionOutputWithContext(context.Context) ReceiptRuleAddHeaderActionOutput
+}
+
+// When included in a receipt rule, this action adds a header to the received email.
+type ReceiptRuleAddHeaderActionArgs struct {
+	// The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a-z, A-Z, 0-9) characters and dashes.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (\n) or carriage return (\r) characters.
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (ReceiptRuleAddHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionOutput() ReceiptRuleAddHeaderActionOutput {
+	return i.ToReceiptRuleAddHeaderActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionOutput)
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return i.ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionOutput).ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleAddHeaderActionPtrInput is an input type that accepts ReceiptRuleAddHeaderActionArgs, ReceiptRuleAddHeaderActionPtr and ReceiptRuleAddHeaderActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleAddHeaderActionPtrInput` via:
+//
+//	        ReceiptRuleAddHeaderActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleAddHeaderActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput
+	ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Context) ReceiptRuleAddHeaderActionPtrOutput
+}
+
+type receiptRuleAddHeaderActionPtrType ReceiptRuleAddHeaderActionArgs
+
+func ReceiptRuleAddHeaderActionPtr(v *ReceiptRuleAddHeaderActionArgs) ReceiptRuleAddHeaderActionPtrInput {
+	return (*receiptRuleAddHeaderActionPtrType)(v)
+}
+
+func (*receiptRuleAddHeaderActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (i *receiptRuleAddHeaderActionPtrType) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return i.ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleAddHeaderActionPtrType) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionPtrOutput)
+}
+
+// When included in a receipt rule, this action adds a header to the received email.
+type ReceiptRuleAddHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleAddHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionOutput() ReceiptRuleAddHeaderActionOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return o.ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleAddHeaderAction) *ReceiptRuleAddHeaderAction {
+		return &v
+	}).(ReceiptRuleAddHeaderActionPtrOutput)
+}
+
+// The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a-z, A-Z, 0-9) characters and dashes.
+func (o ReceiptRuleAddHeaderActionOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleAddHeaderAction) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (\n) or carriage return (\r) characters.
+func (o ReceiptRuleAddHeaderActionOutput) HeaderValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleAddHeaderAction) string { return v.HeaderValue }).(pulumi.StringOutput)
+}
+
+type ReceiptRuleAddHeaderActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleAddHeaderActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleAddHeaderActionPtrOutput) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionPtrOutput) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionPtrOutput) Elem() ReceiptRuleAddHeaderActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleAddHeaderAction) ReceiptRuleAddHeaderAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleAddHeaderAction
+		return ret
+	}).(ReceiptRuleAddHeaderActionOutput)
+}
+
+// The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a-z, A-Z, 0-9) characters and dashes.
+func (o ReceiptRuleAddHeaderActionPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleAddHeaderAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content to include in the header. This value can contain up to 2048 characters. It can't contain newline (\n) or carriage return (\r) characters.
+func (o ReceiptRuleAddHeaderActionPtrOutput) HeaderValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleAddHeaderAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleBounceAction struct {
+	// Human-readable text to include in the bounce message.
+	Message string `pulumi:"message"`
+	// The email address of the sender of the bounced email. This is the address from which the bounce message is sent.
+	Sender string `pulumi:"sender"`
+	// The SMTP reply code, as defined by RFC 5321.
+	SmtpReplyCode string `pulumi:"smtpReplyCode"`
+	// The SMTP enhanced status code, as defined by RFC 3463.
+	StatusCode *string `pulumi:"statusCode"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleBounceActionInput is an input type that accepts ReceiptRuleBounceActionArgs and ReceiptRuleBounceActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleBounceActionInput` via:
+//
+//	ReceiptRuleBounceActionArgs{...}
+type ReceiptRuleBounceActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleBounceActionOutput() ReceiptRuleBounceActionOutput
+	ToReceiptRuleBounceActionOutputWithContext(context.Context) ReceiptRuleBounceActionOutput
+}
+
+// When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleBounceActionArgs struct {
+	// Human-readable text to include in the bounce message.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The email address of the sender of the bounced email. This is the address from which the bounce message is sent.
+	Sender pulumi.StringInput `pulumi:"sender"`
+	// The SMTP reply code, as defined by RFC 5321.
+	SmtpReplyCode pulumi.StringInput `pulumi:"smtpReplyCode"`
+	// The SMTP enhanced status code, as defined by RFC 3463.
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleBounceActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionOutput() ReceiptRuleBounceActionOutput {
+	return i.ToReceiptRuleBounceActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionOutputWithContext(ctx context.Context) ReceiptRuleBounceActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionOutput)
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return i.ToReceiptRuleBounceActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionOutput).ToReceiptRuleBounceActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleBounceActionPtrInput is an input type that accepts ReceiptRuleBounceActionArgs, ReceiptRuleBounceActionPtr and ReceiptRuleBounceActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleBounceActionPtrInput` via:
+//
+//	        ReceiptRuleBounceActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleBounceActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput
+	ToReceiptRuleBounceActionPtrOutputWithContext(context.Context) ReceiptRuleBounceActionPtrOutput
+}
+
+type receiptRuleBounceActionPtrType ReceiptRuleBounceActionArgs
+
+func ReceiptRuleBounceActionPtr(v *ReceiptRuleBounceActionArgs) ReceiptRuleBounceActionPtrInput {
+	return (*receiptRuleBounceActionPtrType)(v)
+}
+
+func (*receiptRuleBounceActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (i *receiptRuleBounceActionPtrType) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return i.ToReceiptRuleBounceActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleBounceActionPtrType) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionPtrOutput)
+}
+
+// When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleBounceActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleBounceActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionOutput() ReceiptRuleBounceActionOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionOutputWithContext(ctx context.Context) ReceiptRuleBounceActionOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return o.ToReceiptRuleBounceActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleBounceAction) *ReceiptRuleBounceAction {
+		return &v
+	}).(ReceiptRuleBounceActionPtrOutput)
+}
+
+// Human-readable text to include in the bounce message.
+func (o ReceiptRuleBounceActionOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The email address of the sender of the bounced email. This is the address from which the bounce message is sent.
+func (o ReceiptRuleBounceActionOutput) Sender() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.Sender }).(pulumi.StringOutput)
+}
+
+// The SMTP reply code, as defined by RFC 5321.
+func (o ReceiptRuleBounceActionOutput) SmtpReplyCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.SmtpReplyCode }).(pulumi.StringOutput)
+}
+
+// The SMTP enhanced status code, as defined by RFC 3463.
+func (o ReceiptRuleBounceActionOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleBounceActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleBounceActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleBounceActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleBounceActionPtrOutput) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionPtrOutput) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionPtrOutput) Elem() ReceiptRuleBounceActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) ReceiptRuleBounceAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleBounceAction
+		return ret
+	}).(ReceiptRuleBounceActionOutput)
+}
+
+// Human-readable text to include in the bounce message.
+func (o ReceiptRuleBounceActionPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email address of the sender of the bounced email. This is the address from which the bounce message is sent.
+func (o ReceiptRuleBounceActionPtrOutput) Sender() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sender
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SMTP reply code, as defined by RFC 5321.
+func (o ReceiptRuleBounceActionPtrOutput) SmtpReplyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SmtpReplyCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SMTP enhanced status code, as defined by RFC 3463.
+func (o ReceiptRuleBounceActionPtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleBounceActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// When included in a receipt rule, this action parses the received message and starts an email contact in Amazon Connect on your behalf.
+type ReceiptRuleConnectAction struct {
+	// The Amazon Resource Name (ARN) of the IAM role to be used by Amazon Simple Email Service while starting email contacts to the Amazon Connect instance. This role should have permission to invoke connect:StartEmailContact for the given Amazon Connect instance.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+	// The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting email contacts.
+	InstanceArn string `pulumi:"instanceArn"`
+}
+
+// ReceiptRuleConnectActionInput is an input type that accepts ReceiptRuleConnectActionArgs and ReceiptRuleConnectActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleConnectActionInput` via:
+//
+//	ReceiptRuleConnectActionArgs{...}
+type ReceiptRuleConnectActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleConnectActionOutput() ReceiptRuleConnectActionOutput
+	ToReceiptRuleConnectActionOutputWithContext(context.Context) ReceiptRuleConnectActionOutput
+}
+
+// When included in a receipt rule, this action parses the received message and starts an email contact in Amazon Connect on your behalf.
+type ReceiptRuleConnectActionArgs struct {
+	// The Amazon Resource Name (ARN) of the IAM role to be used by Amazon Simple Email Service while starting email contacts to the Amazon Connect instance. This role should have permission to invoke connect:StartEmailContact for the given Amazon Connect instance.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+	// The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting email contacts.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+}
+
+func (ReceiptRuleConnectActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleConnectAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleConnectActionArgs) ToReceiptRuleConnectActionOutput() ReceiptRuleConnectActionOutput {
+	return i.ToReceiptRuleConnectActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleConnectActionArgs) ToReceiptRuleConnectActionOutputWithContext(ctx context.Context) ReceiptRuleConnectActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleConnectActionOutput)
+}
+
+func (i ReceiptRuleConnectActionArgs) ToReceiptRuleConnectActionPtrOutput() ReceiptRuleConnectActionPtrOutput {
+	return i.ToReceiptRuleConnectActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleConnectActionArgs) ToReceiptRuleConnectActionPtrOutputWithContext(ctx context.Context) ReceiptRuleConnectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleConnectActionOutput).ToReceiptRuleConnectActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleConnectActionPtrInput is an input type that accepts ReceiptRuleConnectActionArgs, ReceiptRuleConnectActionPtr and ReceiptRuleConnectActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleConnectActionPtrInput` via:
+//
+//	        ReceiptRuleConnectActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleConnectActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleConnectActionPtrOutput() ReceiptRuleConnectActionPtrOutput
+	ToReceiptRuleConnectActionPtrOutputWithContext(context.Context) ReceiptRuleConnectActionPtrOutput
+}
+
+type receiptRuleConnectActionPtrType ReceiptRuleConnectActionArgs
+
+func ReceiptRuleConnectActionPtr(v *ReceiptRuleConnectActionArgs) ReceiptRuleConnectActionPtrInput {
+	return (*receiptRuleConnectActionPtrType)(v)
+}
+
+func (*receiptRuleConnectActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleConnectAction)(nil)).Elem()
+}
+
+func (i *receiptRuleConnectActionPtrType) ToReceiptRuleConnectActionPtrOutput() ReceiptRuleConnectActionPtrOutput {
+	return i.ToReceiptRuleConnectActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleConnectActionPtrType) ToReceiptRuleConnectActionPtrOutputWithContext(ctx context.Context) ReceiptRuleConnectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleConnectActionPtrOutput)
+}
+
+// When included in a receipt rule, this action parses the received message and starts an email contact in Amazon Connect on your behalf.
+type ReceiptRuleConnectActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleConnectActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleConnectAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleConnectActionOutput) ToReceiptRuleConnectActionOutput() ReceiptRuleConnectActionOutput {
+	return o
+}
+
+func (o ReceiptRuleConnectActionOutput) ToReceiptRuleConnectActionOutputWithContext(ctx context.Context) ReceiptRuleConnectActionOutput {
+	return o
+}
+
+func (o ReceiptRuleConnectActionOutput) ToReceiptRuleConnectActionPtrOutput() ReceiptRuleConnectActionPtrOutput {
+	return o.ToReceiptRuleConnectActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleConnectActionOutput) ToReceiptRuleConnectActionPtrOutputWithContext(ctx context.Context) ReceiptRuleConnectActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleConnectAction) *ReceiptRuleConnectAction {
+		return &v
+	}).(ReceiptRuleConnectActionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role to be used by Amazon Simple Email Service while starting email contacts to the Amazon Connect instance. This role should have permission to invoke connect:StartEmailContact for the given Amazon Connect instance.
+func (o ReceiptRuleConnectActionOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleConnectAction) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting email contacts.
+func (o ReceiptRuleConnectActionOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleConnectAction) string { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+type ReceiptRuleConnectActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleConnectActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleConnectAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleConnectActionPtrOutput) ToReceiptRuleConnectActionPtrOutput() ReceiptRuleConnectActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleConnectActionPtrOutput) ToReceiptRuleConnectActionPtrOutputWithContext(ctx context.Context) ReceiptRuleConnectActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleConnectActionPtrOutput) Elem() ReceiptRuleConnectActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleConnectAction) ReceiptRuleConnectAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleConnectAction
+		return ret
+	}).(ReceiptRuleConnectActionOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role to be used by Amazon Simple Email Service while starting email contacts to the Amazon Connect instance. This role should have permission to invoke connect:StartEmailContact for the given Amazon Connect instance.
+func (o ReceiptRuleConnectActionPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleConnectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting email contacts.
+func (o ReceiptRuleConnectActionPtrOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleConnectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleLambdaAction struct {
+	// The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction. For more information about AWS Lambda, see the AWS Lambda Developer Guide.
+	FunctionArn string `pulumi:"functionArn"`
+	// The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function immediately results in a response, and a value of Event means that the function is invoked asynchronously. The default value is Event. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide. There is a 30-second timeout on RequestResponse invocations. You should use Event invocation in most cases. Use RequestResponse only to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+	InvocationType *string `pulumi:"invocationType"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleLambdaActionInput is an input type that accepts ReceiptRuleLambdaActionArgs and ReceiptRuleLambdaActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleLambdaActionInput` via:
+//
+//	ReceiptRuleLambdaActionArgs{...}
+type ReceiptRuleLambdaActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleLambdaActionOutput() ReceiptRuleLambdaActionOutput
+	ToReceiptRuleLambdaActionOutputWithContext(context.Context) ReceiptRuleLambdaActionOutput
+}
+
+// When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleLambdaActionArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction. For more information about AWS Lambda, see the AWS Lambda Developer Guide.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function immediately results in a response, and a value of Event means that the function is invoked asynchronously. The default value is Event. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide. There is a 30-second timeout on RequestResponse invocations. You should use Event invocation in most cases. Use RequestResponse only to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+	InvocationType pulumi.StringPtrInput `pulumi:"invocationType"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleLambdaActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionOutput() ReceiptRuleLambdaActionOutput {
+	return i.ToReceiptRuleLambdaActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionOutput)
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return i.ToReceiptRuleLambdaActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionOutput).ToReceiptRuleLambdaActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleLambdaActionPtrInput is an input type that accepts ReceiptRuleLambdaActionArgs, ReceiptRuleLambdaActionPtr and ReceiptRuleLambdaActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleLambdaActionPtrInput` via:
+//
+//	        ReceiptRuleLambdaActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleLambdaActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput
+	ToReceiptRuleLambdaActionPtrOutputWithContext(context.Context) ReceiptRuleLambdaActionPtrOutput
+}
+
+type receiptRuleLambdaActionPtrType ReceiptRuleLambdaActionArgs
+
+func ReceiptRuleLambdaActionPtr(v *ReceiptRuleLambdaActionArgs) ReceiptRuleLambdaActionPtrInput {
+	return (*receiptRuleLambdaActionPtrType)(v)
+}
+
+func (*receiptRuleLambdaActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (i *receiptRuleLambdaActionPtrType) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return i.ToReceiptRuleLambdaActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleLambdaActionPtrType) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionPtrOutput)
+}
+
+// When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleLambdaActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleLambdaActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionOutput() ReceiptRuleLambdaActionOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return o.ToReceiptRuleLambdaActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleLambdaAction) *ReceiptRuleLambdaAction {
+		return &v
+	}).(ReceiptRuleLambdaActionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction. For more information about AWS Lambda, see the AWS Lambda Developer Guide.
+func (o ReceiptRuleLambdaActionOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleLambdaAction) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+// The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function immediately results in a response, and a value of Event means that the function is invoked asynchronously. The default value is Event. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide. There is a 30-second timeout on RequestResponse invocations. You should use Event invocation in most cases. Use RequestResponse only to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+func (o ReceiptRuleLambdaActionOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleLambdaAction) *string { return v.InvocationType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleLambdaActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleLambdaAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleLambdaActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleLambdaActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleLambdaActionPtrOutput) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionPtrOutput) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionPtrOutput) Elem() ReceiptRuleLambdaActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) ReceiptRuleLambdaAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleLambdaAction
+		return ret
+	}).(ReceiptRuleLambdaActionOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction. For more information about AWS Lambda, see the AWS Lambda Developer Guide.
+func (o ReceiptRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function immediately results in a response, and a value of Event means that the function is invoked asynchronously. The default value is Event. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide. There is a 30-second timeout on RequestResponse invocations. You should use Event invocation in most cases. Use RequestResponse only to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+func (o ReceiptRuleLambdaActionPtrOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleLambdaActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+type ReceiptRuleRule struct {
+	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+	Actions []ReceiptRuleAction `pulumi:"actions"`
+	// If true, the receipt rule is active. The default value is false.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the receipt rule. The name must meet the following requirements: Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.). Start and end with a letter or number. Contain 64 characters or fewer.
+	Name *string `pulumi:"name"`
+	// The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
+	Recipients []string `pulumi:"recipients"`
+	// If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.
+	ScanEnabled *bool `pulumi:"scanEnabled"`
+	// Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to Require, Amazon SES bounces emails that are not received over TLS. The default is Optional.
+	TlsPolicy *string `pulumi:"tlsPolicy"`
+}
+
+// ReceiptRuleRuleInput is an input type that accepts ReceiptRuleRuleArgs and ReceiptRuleRuleOutput values.
+// You can construct a concrete instance of `ReceiptRuleRuleInput` via:
+//
+//	ReceiptRuleRuleArgs{...}
+type ReceiptRuleRuleInput interface {
+	pulumi.Input
+
+	ToReceiptRuleRuleOutput() ReceiptRuleRuleOutput
+	ToReceiptRuleRuleOutputWithContext(context.Context) ReceiptRuleRuleOutput
+}
+
+// A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+type ReceiptRuleRuleArgs struct {
+	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+	Actions ReceiptRuleActionArrayInput `pulumi:"actions"`
+	// If true, the receipt rule is active. The default value is false.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name of the receipt rule. The name must meet the following requirements: Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.). Start and end with a letter or number. Contain 64 characters or fewer.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
+	Recipients pulumi.StringArrayInput `pulumi:"recipients"`
+	// If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.
+	ScanEnabled pulumi.BoolPtrInput `pulumi:"scanEnabled"`
+	// Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to Require, Amazon SES bounces emails that are not received over TLS. The default is Optional.
+	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
+}
+
+func (ReceiptRuleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleRule)(nil)).Elem()
+}
+
+func (i ReceiptRuleRuleArgs) ToReceiptRuleRuleOutput() ReceiptRuleRuleOutput {
+	return i.ToReceiptRuleRuleOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleRuleArgs) ToReceiptRuleRuleOutputWithContext(ctx context.Context) ReceiptRuleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleRuleOutput)
+}
+
+// A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+type ReceiptRuleRuleOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleRule)(nil)).Elem()
+}
+
+func (o ReceiptRuleRuleOutput) ToReceiptRuleRuleOutput() ReceiptRuleRuleOutput {
+	return o
+}
+
+func (o ReceiptRuleRuleOutput) ToReceiptRuleRuleOutputWithContext(ctx context.Context) ReceiptRuleRuleOutput {
+	return o
+}
+
+// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+func (o ReceiptRuleRuleOutput) Actions() ReceiptRuleActionArrayOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) []ReceiptRuleAction { return v.Actions }).(ReceiptRuleActionArrayOutput)
+}
+
+// If true, the receipt rule is active. The default value is false.
+func (o ReceiptRuleRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the receipt rule. The name must meet the following requirements: Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.). Start and end with a letter or number. Contain 64 characters or fewer.
+func (o ReceiptRuleRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
+func (o ReceiptRuleRuleOutput) Recipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) []string { return v.Recipients }).(pulumi.StringArrayOutput)
+}
+
+// If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.
+func (o ReceiptRuleRuleOutput) ScanEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *bool { return v.ScanEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to Require, Amazon SES bounces emails that are not received over TLS. The default is Optional.
+func (o ReceiptRuleRuleOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleRule)(nil)).Elem()
+}
+
+func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
+	return o
+}
+
+func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
+	return o
+}
+
+func (o ReceiptRuleRulePtrOutput) Elem() ReceiptRuleRuleOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) ReceiptRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleRule
+		return ret
+	}).(ReceiptRuleRuleOutput)
+}
+
+// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+func (o ReceiptRuleRulePtrOutput) Actions() ReceiptRuleActionArrayOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) []ReceiptRuleAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(ReceiptRuleActionArrayOutput)
+}
+
+// If true, the receipt rule is active. The default value is false.
+func (o ReceiptRuleRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the receipt rule. The name must meet the following requirements: Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or periods (.). Start and end with a letter or number. Contain 64 characters or fewer.
+func (o ReceiptRuleRulePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule matches all recipients on all verified domains.
+func (o ReceiptRuleRulePtrOutput) Recipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Recipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.
+func (o ReceiptRuleRulePtrOutput) ScanEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScanEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to Require, Amazon SES bounces emails that are not received over TLS. The default is Optional.
+func (o ReceiptRuleRulePtrOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleS3Action struct {
+	// The name of the Amazon S3 bucket for incoming email.
+	BucketName string `pulumi:"bucketName"`
+	// The ARN of the IAM role to be used by Amazon SES while writing to the Amazon S3 bucket.
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// The customer managed key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the AWS managed key or a customer managed key that you created in AWS KMS as follows: To use the AWS managed key, provide an ARN in the form of arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses. For example, if your AWS account ID is 123456789012 and you want to use the AWS managed key in the US West (Oregon) Region, the ARN of the AWS managed key would be arn:aws:kms:us-west-2:123456789012:alias/aws/ses. If you use the AWS managed key, you don't need to perform any extra steps to give Amazon SES permission to use the key. To use a customer managed key that you created in AWS KMS, provide the ARN of the customer managed key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the Amazon SES Developer Guide. For more information about key policies, see the AWS KMS Developer Guide. If you do not specify an AWS KMS key, Amazon SES does not encrypt your emails. Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the AWS SDK for Java and AWS SDK for Ruby only. For more information about client-side encryption using AWS KMS managed keys, see the Amazon S3 Developer Guide.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
+	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
+	// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleS3ActionInput is an input type that accepts ReceiptRuleS3ActionArgs and ReceiptRuleS3ActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleS3ActionInput` via:
+//
+//	ReceiptRuleS3ActionArgs{...}
+type ReceiptRuleS3ActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleS3ActionOutput() ReceiptRuleS3ActionOutput
+	ToReceiptRuleS3ActionOutputWithContext(context.Context) ReceiptRuleS3ActionOutput
+}
+
+// When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleS3ActionArgs struct {
+	// The name of the Amazon S3 bucket for incoming email.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The ARN of the IAM role to be used by Amazon SES while writing to the Amazon S3 bucket.
+	IamRoleArn pulumi.StringPtrInput `pulumi:"iamRoleArn"`
+	// The customer managed key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the AWS managed key or a customer managed key that you created in AWS KMS as follows: To use the AWS managed key, provide an ARN in the form of arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses. For example, if your AWS account ID is 123456789012 and you want to use the AWS managed key in the US West (Oregon) Region, the ARN of the AWS managed key would be arn:aws:kms:us-west-2:123456789012:alias/aws/ses. If you use the AWS managed key, you don't need to perform any extra steps to give Amazon SES permission to use the key. To use a customer managed key that you created in AWS KMS, provide the ARN of the customer managed key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the Amazon SES Developer Guide. For more information about key policies, see the AWS KMS Developer Guide. If you do not specify an AWS KMS key, Amazon SES does not encrypt your emails. Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the AWS SDK for Java and AWS SDK for Ruby only. For more information about client-side encryption using AWS KMS managed keys, see the Amazon S3 Developer Guide.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
+	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
+	// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleS3ActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionOutput() ReceiptRuleS3ActionOutput {
+	return i.ToReceiptRuleS3ActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionOutputWithContext(ctx context.Context) ReceiptRuleS3ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionOutput)
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return i.ToReceiptRuleS3ActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionOutput).ToReceiptRuleS3ActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleS3ActionPtrInput is an input type that accepts ReceiptRuleS3ActionArgs, ReceiptRuleS3ActionPtr and ReceiptRuleS3ActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleS3ActionPtrInput` via:
+//
+//	        ReceiptRuleS3ActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleS3ActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput
+	ToReceiptRuleS3ActionPtrOutputWithContext(context.Context) ReceiptRuleS3ActionPtrOutput
+}
+
+type receiptRuleS3ActionPtrType ReceiptRuleS3ActionArgs
+
+func ReceiptRuleS3ActionPtr(v *ReceiptRuleS3ActionArgs) ReceiptRuleS3ActionPtrInput {
+	return (*receiptRuleS3ActionPtrType)(v)
+}
+
+func (*receiptRuleS3ActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (i *receiptRuleS3ActionPtrType) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return i.ToReceiptRuleS3ActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleS3ActionPtrType) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionPtrOutput)
+}
+
+// When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleS3ActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleS3ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutput() ReceiptRuleS3ActionOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutputWithContext(ctx context.Context) ReceiptRuleS3ActionOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return o.ToReceiptRuleS3ActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleS3Action) *ReceiptRuleS3Action {
+		return &v
+	}).(ReceiptRuleS3ActionPtrOutput)
+}
+
+// The name of the Amazon S3 bucket for incoming email.
+func (o ReceiptRuleS3ActionOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role to be used by Amazon SES while writing to the Amazon S3 bucket.
+func (o ReceiptRuleS3ActionOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The customer managed key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the AWS managed key or a customer managed key that you created in AWS KMS as follows: To use the AWS managed key, provide an ARN in the form of arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses. For example, if your AWS account ID is 123456789012 and you want to use the AWS managed key in the US West (Oregon) Region, the ARN of the AWS managed key would be arn:aws:kms:us-west-2:123456789012:alias/aws/ses. If you use the AWS managed key, you don't need to perform any extra steps to give Amazon SES permission to use the key. To use a customer managed key that you created in AWS KMS, provide the ARN of the customer managed key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the Amazon SES Developer Guide. For more information about key policies, see the AWS KMS Developer Guide. If you do not specify an AWS KMS key, Amazon SES does not encrypt your emails. Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the AWS SDK for Java and AWS SDK for Ruby only. For more information about client-side encryption using AWS KMS managed keys, see the Amazon S3 Developer Guide.
+func (o ReceiptRuleS3ActionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
+func (o ReceiptRuleS3ActionOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.ObjectKeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleS3ActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleS3ActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleS3ActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (o ReceiptRuleS3ActionPtrOutput) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionPtrOutput) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionPtrOutput) Elem() ReceiptRuleS3ActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) ReceiptRuleS3Action {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleS3Action
+		return ret
+	}).(ReceiptRuleS3ActionOutput)
+}
+
+// The name of the Amazon S3 bucket for incoming email.
+func (o ReceiptRuleS3ActionPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role to be used by Amazon SES while writing to the Amazon S3 bucket.
+func (o ReceiptRuleS3ActionPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer managed key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the AWS managed key or a customer managed key that you created in AWS KMS as follows: To use the AWS managed key, provide an ARN in the form of arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses. For example, if your AWS account ID is 123456789012 and you want to use the AWS managed key in the US West (Oregon) Region, the ARN of the AWS managed key would be arn:aws:kms:us-west-2:123456789012:alias/aws/ses. If you use the AWS managed key, you don't need to perform any extra steps to give Amazon SES permission to use the key. To use a customer managed key that you created in AWS KMS, provide the ARN of the customer managed key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the Amazon SES Developer Guide. For more information about key policies, see the AWS KMS Developer Guide. If you do not specify an AWS KMS key, Amazon SES does not encrypt your emails. Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the AWS SDK for Java and AWS SDK for Ruby only. For more information about client-side encryption using AWS KMS managed keys, see the Amazon S3 Developer Guide.
+func (o ReceiptRuleS3ActionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
+func (o ReceiptRuleS3ActionPtrOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectKeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleS3ActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.
+type ReceiptRuleSnsAction struct {
+	// The encoding to use for the email within the Amazon SNS notification. The default value is UTF-8. Use BASE64 if you need to preserve all special characters, especially when the original message uses a different encoding format.
+	Encoding *string `pulumi:"encoding"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS Topic to which notification for the email received will be published.
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleSnsActionInput is an input type that accepts ReceiptRuleSnsActionArgs and ReceiptRuleSnsActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleSnsActionInput` via:
+//
+//	ReceiptRuleSnsActionArgs{...}
+type ReceiptRuleSnsActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSnsActionOutput() ReceiptRuleSnsActionOutput
+	ToReceiptRuleSnsActionOutputWithContext(context.Context) ReceiptRuleSnsActionOutput
+}
+
+// The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.
+type ReceiptRuleSnsActionArgs struct {
+	// The encoding to use for the email within the Amazon SNS notification. The default value is UTF-8. Use BASE64 if you need to preserve all special characters, especially when the original message uses a different encoding format.
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS Topic to which notification for the email received will be published.
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleSnsActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSnsAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionOutput() ReceiptRuleSnsActionOutput {
+	return i.ToReceiptRuleSnsActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionOutputWithContext(ctx context.Context) ReceiptRuleSnsActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionOutput)
+}
+
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
+	return i.ToReceiptRuleSnsActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleSnsActionArgs) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionOutput).ToReceiptRuleSnsActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleSnsActionPtrInput is an input type that accepts ReceiptRuleSnsActionArgs, ReceiptRuleSnsActionPtr and ReceiptRuleSnsActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleSnsActionPtrInput` via:
+//
+//	        ReceiptRuleSnsActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleSnsActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput
+	ToReceiptRuleSnsActionPtrOutputWithContext(context.Context) ReceiptRuleSnsActionPtrOutput
+}
+
+type receiptRuleSnsActionPtrType ReceiptRuleSnsActionArgs
+
+func ReceiptRuleSnsActionPtr(v *ReceiptRuleSnsActionArgs) ReceiptRuleSnsActionPtrInput {
+	return (*receiptRuleSnsActionPtrType)(v)
+}
+
+func (*receiptRuleSnsActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSnsAction)(nil)).Elem()
+}
+
+func (i *receiptRuleSnsActionPtrType) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
+	return i.ToReceiptRuleSnsActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleSnsActionPtrType) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSnsActionPtrOutput)
+}
+
+// The action to publish the email content to an Amazon SNS topic. When executed, this action will send the email as a notification to the specified SNS topic.
+type ReceiptRuleSnsActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleSnsActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSnsAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutput() ReceiptRuleSnsActionOutput {
+	return o
+}
+
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionOutputWithContext(ctx context.Context) ReceiptRuleSnsActionOutput {
+	return o
+}
+
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
+	return o.ToReceiptRuleSnsActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleSnsActionOutput) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleSnsAction) *ReceiptRuleSnsAction {
+		return &v
+	}).(ReceiptRuleSnsActionPtrOutput)
+}
+
+// The encoding to use for the email within the Amazon SNS notification. The default value is UTF-8. Use BASE64 if you need to preserve all special characters, especially when the original message uses a different encoding format.
+func (o ReceiptRuleSnsActionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSnsAction) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS Topic to which notification for the email received will be published.
+func (o ReceiptRuleSnsActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSnsAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleSnsActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleSnsActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSnsAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleSnsActionPtrOutput) ToReceiptRuleSnsActionPtrOutput() ReceiptRuleSnsActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleSnsActionPtrOutput) ToReceiptRuleSnsActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSnsActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleSnsActionPtrOutput) Elem() ReceiptRuleSnsActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleSnsAction) ReceiptRuleSnsAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleSnsAction
+		return ret
+	}).(ReceiptRuleSnsActionOutput)
+}
+
+// The encoding to use for the email within the Amazon SNS notification. The default value is UTF-8. Use BASE64 if you need to preserve all special characters, especially when the original message uses a different encoding format.
+func (o ReceiptRuleSnsActionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSnsAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS Topic to which notification for the email received will be published.
+func (o ReceiptRuleSnsActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSnsAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleStopAction struct {
+	// The scope of the StopAction. The only acceptable value is RuleSet.
+	Scope string `pulumi:"scope"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics Amazon SNS operation.
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleStopActionInput is an input type that accepts ReceiptRuleStopActionArgs and ReceiptRuleStopActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleStopActionInput` via:
+//
+//	ReceiptRuleStopActionArgs{...}
+type ReceiptRuleStopActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleStopActionOutput() ReceiptRuleStopActionOutput
+	ToReceiptRuleStopActionOutputWithContext(context.Context) ReceiptRuleStopActionOutput
+}
+
+// When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleStopActionArgs struct {
+	// The scope of the StopAction. The only acceptable value is RuleSet.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics Amazon SNS operation.
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleStopActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionOutput() ReceiptRuleStopActionOutput {
+	return i.ToReceiptRuleStopActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionOutputWithContext(ctx context.Context) ReceiptRuleStopActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionOutput)
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return i.ToReceiptRuleStopActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionOutput).ToReceiptRuleStopActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleStopActionPtrInput is an input type that accepts ReceiptRuleStopActionArgs, ReceiptRuleStopActionPtr and ReceiptRuleStopActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleStopActionPtrInput` via:
+//
+//	        ReceiptRuleStopActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleStopActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput
+	ToReceiptRuleStopActionPtrOutputWithContext(context.Context) ReceiptRuleStopActionPtrOutput
+}
+
+type receiptRuleStopActionPtrType ReceiptRuleStopActionArgs
+
+func ReceiptRuleStopActionPtr(v *ReceiptRuleStopActionArgs) ReceiptRuleStopActionPtrInput {
+	return (*receiptRuleStopActionPtrType)(v)
+}
+
+func (*receiptRuleStopActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (i *receiptRuleStopActionPtrType) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return i.ToReceiptRuleStopActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleStopActionPtrType) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionPtrOutput)
+}
+
+// When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
+type ReceiptRuleStopActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleStopActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionOutput() ReceiptRuleStopActionOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionOutputWithContext(ctx context.Context) ReceiptRuleStopActionOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return o.ToReceiptRuleStopActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleStopAction) *ReceiptRuleStopAction {
+		return &v
+	}).(ReceiptRuleStopActionPtrOutput)
+}
+
+// The scope of the StopAction. The only acceptable value is RuleSet.
+func (o ReceiptRuleStopActionOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleStopAction) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics Amazon SNS operation.
+func (o ReceiptRuleStopActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleStopAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleStopActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleStopActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleStopActionPtrOutput) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionPtrOutput) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionPtrOutput) Elem() ReceiptRuleStopActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleStopAction) ReceiptRuleStopAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleStopAction
+		return ret
+	}).(ReceiptRuleStopActionOutput)
+}
+
+// The scope of the StopAction. The only acceptable value is RuleSet.
+func (o ReceiptRuleStopActionPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleStopAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics Amazon SNS operation.
+func (o ReceiptRuleStopActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleStopAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). It usually isn't necessary to set this up manually, because Amazon WorkMail adds the rule automatically during its setup procedure.
+type ReceiptRuleWorkmailAction struct {
+	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization. Amazon WorkMail ARNs use the following format: arn:aws:workmail:<region>:<awsAccountId>:organization/<workmailOrganizationId>. You can find the ID of your organization by using the ListOrganizations operation in Amazon WorkMail. Amazon WorkMail organization IDs begin with "m-", followed by a string of alphanumeric characters.
+	OrganizationArn string `pulumi:"organizationArn"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleWorkmailActionInput is an input type that accepts ReceiptRuleWorkmailActionArgs and ReceiptRuleWorkmailActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleWorkmailActionInput` via:
+//
+//	ReceiptRuleWorkmailActionArgs{...}
+type ReceiptRuleWorkmailActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleWorkmailActionOutput() ReceiptRuleWorkmailActionOutput
+	ToReceiptRuleWorkmailActionOutputWithContext(context.Context) ReceiptRuleWorkmailActionOutput
+}
+
+// When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). It usually isn't necessary to set this up manually, because Amazon WorkMail adds the rule automatically during its setup procedure.
+type ReceiptRuleWorkmailActionArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization. Amazon WorkMail ARNs use the following format: arn:aws:workmail:<region>:<awsAccountId>:organization/<workmailOrganizationId>. You can find the ID of your organization by using the ListOrganizations operation in Amazon WorkMail. Amazon WorkMail organization IDs begin with "m-", followed by a string of alphanumeric characters.
+	OrganizationArn pulumi.StringInput `pulumi:"organizationArn"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleWorkmailActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionOutput() ReceiptRuleWorkmailActionOutput {
+	return i.ToReceiptRuleWorkmailActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionOutput)
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return i.ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionOutput).ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleWorkmailActionPtrInput is an input type that accepts ReceiptRuleWorkmailActionArgs, ReceiptRuleWorkmailActionPtr and ReceiptRuleWorkmailActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleWorkmailActionPtrInput` via:
+//
+//	        ReceiptRuleWorkmailActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReceiptRuleWorkmailActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput
+	ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Context) ReceiptRuleWorkmailActionPtrOutput
+}
+
+type receiptRuleWorkmailActionPtrType ReceiptRuleWorkmailActionArgs
+
+func ReceiptRuleWorkmailActionPtr(v *ReceiptRuleWorkmailActionArgs) ReceiptRuleWorkmailActionPtrInput {
+	return (*receiptRuleWorkmailActionPtrType)(v)
+}
+
+func (*receiptRuleWorkmailActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (i *receiptRuleWorkmailActionPtrType) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return i.ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleWorkmailActionPtrType) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionPtrOutput)
+}
+
+// When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). It usually isn't necessary to set this up manually, because Amazon WorkMail adds the rule automatically during its setup procedure.
+type ReceiptRuleWorkmailActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleWorkmailActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionOutput() ReceiptRuleWorkmailActionOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return o.ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleWorkmailAction) *ReceiptRuleWorkmailAction {
+		return &v
+	}).(ReceiptRuleWorkmailActionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon WorkMail organization. Amazon WorkMail ARNs use the following format: arn:aws:workmail:<region>:<awsAccountId>:organization/<workmailOrganizationId>. You can find the ID of your organization by using the ListOrganizations operation in Amazon WorkMail. Amazon WorkMail organization IDs begin with "m-", followed by a string of alphanumeric characters.
+func (o ReceiptRuleWorkmailActionOutput) OrganizationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleWorkmailAction) string { return v.OrganizationArn }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleWorkmailActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleWorkmailAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleWorkmailActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleWorkmailActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleWorkmailActionPtrOutput) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionPtrOutput) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionPtrOutput) Elem() ReceiptRuleWorkmailActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleWorkmailAction) ReceiptRuleWorkmailAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleWorkmailAction
+		return ret
+	}).(ReceiptRuleWorkmailActionOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon WorkMail organization. Amazon WorkMail ARNs use the following format: arn:aws:workmail:<region>:<awsAccountId>:organization/<workmailOrganizationId>. You can find the ID of your organization by using the ListOrganizations operation in Amazon WorkMail. Amazon WorkMail organization IDs begin with "m-", followed by a string of alphanumeric characters.
+func (o ReceiptRuleWorkmailActionPtrOutput) OrganizationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleWorkmailAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OrganizationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. You can find the ARN of a topic by using the ListTopics operation in Amazon SNS.
+func (o ReceiptRuleWorkmailActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleWorkmailAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The content of the email, composed of a subject line, an HTML part, and a text-only part
 type TemplateType struct {
 	// The HTML body of the email.
@@ -10205,6 +11957,25 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointDetailsInput)(nil)).Elem(), MultiRegionEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemPropertiesInput)(nil)).Elem(), MultiRegionEndpointRouteDetailsItemPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemPropertiesArrayInput)(nil)).Elem(), MultiRegionEndpointRouteDetailsItemPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleActionInput)(nil)).Elem(), ReceiptRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleActionArrayInput)(nil)).Elem(), ReceiptRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleAddHeaderActionInput)(nil)).Elem(), ReceiptRuleAddHeaderActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleAddHeaderActionPtrInput)(nil)).Elem(), ReceiptRuleAddHeaderActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleBounceActionInput)(nil)).Elem(), ReceiptRuleBounceActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleBounceActionPtrInput)(nil)).Elem(), ReceiptRuleBounceActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleConnectActionInput)(nil)).Elem(), ReceiptRuleConnectActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleConnectActionPtrInput)(nil)).Elem(), ReceiptRuleConnectActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleLambdaActionInput)(nil)).Elem(), ReceiptRuleLambdaActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleLambdaActionPtrInput)(nil)).Elem(), ReceiptRuleLambdaActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleRuleInput)(nil)).Elem(), ReceiptRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleS3ActionInput)(nil)).Elem(), ReceiptRuleS3ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleS3ActionPtrInput)(nil)).Elem(), ReceiptRuleS3ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSnsActionInput)(nil)).Elem(), ReceiptRuleSnsActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSnsActionPtrInput)(nil)).Elem(), ReceiptRuleSnsActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleStopActionInput)(nil)).Elem(), ReceiptRuleStopActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleStopActionPtrInput)(nil)).Elem(), ReceiptRuleStopActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionInput)(nil)).Elem(), ReceiptRuleWorkmailActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionPtrInput)(nil)).Elem(), ReceiptRuleWorkmailActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypePtrInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TenantResourceAssociationInput)(nil)).Elem(), TenantResourceAssociationArgs{})
@@ -10362,6 +12133,26 @@ func init() {
 	pulumi.RegisterOutputType(MultiRegionEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(MultiRegionEndpointRouteDetailsItemPropertiesOutput{})
 	pulumi.RegisterOutputType(MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleBounceActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleBounceActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleConnectActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleConnectActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleLambdaActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleLambdaActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleRuleOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleS3ActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleS3ActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSnsActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSnsActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleStopActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleStopActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTypeOutput{})
 	pulumi.RegisterOutputType(TemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(TenantResourceAssociationOutput{})

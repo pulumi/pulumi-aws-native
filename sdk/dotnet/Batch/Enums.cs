@@ -7,6 +7,35 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Batch
 {
+    [EnumType]
+    public readonly struct ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType : IEquatable<ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType OnDemand { get; } = new ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND");
+        public static ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType Spot { get; } = new ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("SPOT");
+        public static ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType Reserved { get; } = new ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("RESERVED");
+
+        public static bool operator ==(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType left, ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType left, ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType other && Equals(other);
+        public bool Equals(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
     /// </summary>
@@ -62,6 +91,34 @@ namespace Pulumi.AwsNative.Batch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ComputeEnvironmentLaunchTemplateSpecificationUserdataType other && Equals(other);
         public bool Equals(ComputeEnvironmentLaunchTemplateSpecificationUserdataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ComputeEnvironmentManagedInstancesProviderPropagateTags : IEquatable<ComputeEnvironmentManagedInstancesProviderPropagateTags>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentManagedInstancesProviderPropagateTags(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentManagedInstancesProviderPropagateTags CapacityProvider { get; } = new ComputeEnvironmentManagedInstancesProviderPropagateTags("CAPACITY_PROVIDER");
+        public static ComputeEnvironmentManagedInstancesProviderPropagateTags None { get; } = new ComputeEnvironmentManagedInstancesProviderPropagateTags("NONE");
+
+        public static bool operator ==(ComputeEnvironmentManagedInstancesProviderPropagateTags left, ComputeEnvironmentManagedInstancesProviderPropagateTags right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentManagedInstancesProviderPropagateTags left, ComputeEnvironmentManagedInstancesProviderPropagateTags right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentManagedInstancesProviderPropagateTags value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentManagedInstancesProviderPropagateTags other && Equals(other);
+        public bool Equals(ComputeEnvironmentManagedInstancesProviderPropagateTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

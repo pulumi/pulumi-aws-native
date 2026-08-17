@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class GatewaySessionConfiguration
     {
-        public readonly int? SessionTimeoutInSeconds;
+        public readonly double? SessionTimeoutInSeconds;
 
         [OutputConstructor]
-        private GatewaySessionConfiguration(int? sessionTimeoutInSeconds)
+        private GatewaySessionConfiguration(double? sessionTimeoutInSeconds)
         {
             SessionTimeoutInSeconds = sessionTimeoutInSeconds;
         }

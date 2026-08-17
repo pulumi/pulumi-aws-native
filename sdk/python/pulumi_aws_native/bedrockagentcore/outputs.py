@@ -27,6 +27,22 @@ __all__ = [
     'BrowserCustomRecordingConfig',
     'BrowserCustomS3Location',
     'BrowserCustomVpcConfig',
+    'CapacityProviderCapacityReservationSpecification',
+    'CapacityProviderCapacityReservationTarget',
+    'CapacityProviderComputeConfiguration',
+    'CapacityProviderEbsVolumeConfiguration',
+    'CapacityProviderEc2Configuration',
+    'CapacityProviderEphemeralBlockDeviceMapping',
+    'CapacityProviderEphemeralEbsVolumeConfiguration',
+    'CapacityProviderInstanceLifecycleConfiguration',
+    'CapacityProviderInstanceRequirements',
+    'CapacityProviderLaunchParameters',
+    'CapacityProviderLaunchTemplateSource',
+    'CapacityProviderLicenseSpecification',
+    'CapacityProviderPermissionsConfiguration',
+    'CapacityProviderRootVolumeConfiguration',
+    'CapacityProviderVolumeConfiguration',
+    'CapacityProviderVpcConfiguration',
     'CodeInterpreterCustomCertificate',
     'CodeInterpreterCustomCertificateLocation',
     'CodeInterpreterCustomCodeInterpreterNetworkConfiguration',
@@ -46,18 +62,48 @@ __all__ = [
     'EvaluatorLlmAsAJudgeEvaluatorConfig',
     'EvaluatorModelConfig',
     'EvaluatorNumericalScaleDefinition',
+    'EvaluatorOpenResponsesEvaluatorModelConfig',
     'EvaluatorRatingScale',
+    'EvaluatorReasoningConfiguration',
     'GatewayAuthorizerConfigurationProperties',
     'GatewayAuthorizingClaimMatchValueType',
-    'GatewayClaimMatchValueType',
+    'GatewayClaimMatchValueType0Properties',
+    'GatewayClaimMatchValueType1Properties',
     'GatewayCustomClaimValidationType',
     'GatewayCustomJwtAuthorizerConfiguration',
     'GatewayInterceptorConfiguration',
     'GatewayInterceptorInputConfiguration',
+    'GatewayInterceptorPayloadExclusionSelectorProperties',
+    'GatewayInterceptorPayloadFilter',
     'GatewayLambdaInterceptorConfiguration',
+    'GatewayManagedVpcResource',
     'GatewayMcpGatewayConfiguration',
     'GatewayPolicyEngineConfiguration',
+    'GatewayPrivateEndpoint0Properties',
+    'GatewayPrivateEndpoint1Properties',
     'GatewayProtocolConfigurationProperties',
+    'GatewayRateLimitLimitEntry',
+    'GatewayRateLimitRateConfig',
+    'GatewayRuleAction0Properties',
+    'GatewayRuleAction1Properties',
+    'GatewayRuleCondition0Properties',
+    'GatewayRuleCondition1Properties',
+    'GatewayRuleConfigurationBundleAction0Properties',
+    'GatewayRuleConfigurationBundleAction1Properties',
+    'GatewayRuleConfigurationBundleReference',
+    'GatewayRuleIamPrincipal',
+    'GatewayRuleMatchPaths',
+    'GatewayRuleMatchPrincipalEntryProperties',
+    'GatewayRuleMatchPrincipals',
+    'GatewayRuleRouteToTargetAction0Properties',
+    'GatewayRuleRouteToTargetAction1Properties',
+    'GatewayRuleStaticOverride',
+    'GatewayRuleStaticRoute',
+    'GatewayRuleTargetTrafficSplitEntry',
+    'GatewayRuleTrafficSplitEntry',
+    'GatewayRuleWeightedOverride',
+    'GatewayRuleWeightedRoute',
+    'GatewaySelfManagedLatticeResourceProperties',
     'GatewaySessionConfiguration',
     'GatewayStreamingConfiguration',
     'GatewayTargetApiGatewayTargetConfiguration',
@@ -214,15 +260,22 @@ __all__ = [
     'OAuth2CredentialProviderGithubOauth2ProviderConfigInput',
     'OAuth2CredentialProviderGoogleOauth2ProviderConfigInput',
     'OAuth2CredentialProviderIncludedOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderKmsKeySourceType',
     'OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput',
+    'OAuth2CredentialProviderManagedVpcResource',
     'OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInput',
     'OAuth2CredentialProviderOauth2AuthorizationServerMetadata',
     'OAuth2CredentialProviderOauth2Discovery',
     'OAuth2CredentialProviderOauth2ProviderConfigInput',
     'OAuth2CredentialProviderOauth2ProviderConfigOutput',
     'OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig',
+    'OAuth2CredentialProviderPrivateEndpoint',
+    'OAuth2CredentialProviderPrivateEndpointOverride',
+    'OAuth2CredentialProviderPrivateKeyJwtConfig',
+    'OAuth2CredentialProviderPrivateKeySource',
     'OAuth2CredentialProviderSalesforceOauth2ProviderConfigInput',
     'OAuth2CredentialProviderSecretReference',
+    'OAuth2CredentialProviderSelfManagedLatticeResource',
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInput',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfig',
     'OnlineEvaluationConfigCloudWatchLogsInputConfig',
@@ -676,6 +729,1105 @@ class BrowserCustomVpcConfig(dict):
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class CapacityProviderCapacityReservationSpecification(dict):
+    """
+    The Capacity Reservation targeting option.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderCapacityReservationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderCapacityReservationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderCapacityReservationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional['CapacityProviderCapacityReservationSpecificationCapacityReservationPreference'] = None,
+                 capacity_reservation_target: Optional['outputs.CapacityProviderCapacityReservationTarget'] = None):
+        """
+        The Capacity Reservation targeting option.
+
+        :param 'CapacityProviderCapacityReservationSpecificationCapacityReservationPreference' capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional['CapacityProviderCapacityReservationSpecificationCapacityReservationPreference']:
+        """
+        Indicates the instance's Capacity Reservation preferences.
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.CapacityProviderCapacityReservationTarget']:
+        return pulumi.get(self, "capacity_reservation_target")
+
+
+@pulumi.output_type
+class CapacityProviderCapacityReservationTarget(dict):
+    """
+    Information about the target Capacity Reservation or Capacity Reservation group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationId":
+            suggest = "capacity_reservation_id"
+        elif key == "capacityReservationResourceGroupArn":
+            suggest = "capacity_reservation_resource_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderCapacityReservationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderCapacityReservationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[_builtins.str] = None,
+                 capacity_reservation_resource_group_arn: Optional[_builtins.str] = None):
+        """
+        Information about the target Capacity Reservation or Capacity Reservation group.
+
+        :param _builtins.str capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        :param _builtins.str capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Capacity Reservation in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+
+@pulumi.output_type
+class CapacityProviderComputeConfiguration(dict):
+    """
+    The capacity configuration for the capacity provider. Defines the compute resources for this capacity provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ec2Configuration":
+            suggest = "ec2_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderComputeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderComputeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderComputeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ec2_configuration: 'outputs.CapacityProviderEc2Configuration'):
+        """
+        The capacity configuration for the capacity provider. Defines the compute resources for this capacity provider.
+        """
+        pulumi.set(__self__, "ec2_configuration", ec2_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="ec2Configuration")
+    def ec2_configuration(self) -> 'outputs.CapacityProviderEc2Configuration':
+        return pulumi.get(self, "ec2_configuration")
+
+
+@pulumi.output_type
+class CapacityProviderEbsVolumeConfiguration(dict):
+    """
+    Configuration for an EBS-backed persistent volume.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeGiB":
+            suggest = "size_gi_b"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderEbsVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderEbsVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderEbsVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 size_gi_b: _builtins.int,
+                 encrypted: Optional[_builtins.bool] = None,
+                 iops: Optional[_builtins.int] = None,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 snapshot_id: Optional[_builtins.str] = None,
+                 throughput: Optional[_builtins.int] = None,
+                 volume_type: Optional['CapacityProviderEbsVolumeConfigurationVolumeType'] = None):
+        """
+        Configuration for an EBS-backed persistent volume.
+
+        :param _builtins.str name: The logical name of the volume, used to reference it when mounting.
+        :param _builtins.int size_gi_b: The size of the volume in GiB.
+        :param _builtins.bool encrypted: Whether to encrypt the volume. Defaults to true.
+        :param _builtins.int iops: The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+        :param _builtins.str kms_key_id: Identifier of the KMS key to use for encryption.
+        :param _builtins.str snapshot_id: Optional EBS snapshot ID to initialize the volume from.
+        :param _builtins.int throughput: The throughput in MiB/s. Only valid for gp3 volumes.
+        :param 'CapacityProviderEbsVolumeConfigurationVolumeType' volume_type: The EBS volume type. Defaults to gp3 if not specified.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size_gi_b", size_gi_b)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The logical name of the volume, used to reference it when mounting.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeGiB")
+    def size_gi_b(self) -> _builtins.int:
+        """
+        The size of the volume in GiB.
+        """
+        return pulumi.get(self, "size_gi_b")
+
+    @_builtins.property
+    @pulumi.getter
+    def encrypted(self) -> Optional[_builtins.bool]:
+        """
+        Whether to encrypt the volume. Defaults to true.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        """
+        The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the KMS key to use for encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[_builtins.str]:
+        """
+        Optional EBS snapshot ID to initialize the volume from.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def throughput(self) -> Optional[_builtins.int]:
+        """
+        The throughput in MiB/s. Only valid for gp3 volumes.
+        """
+        return pulumi.get(self, "throughput")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional['CapacityProviderEbsVolumeConfigurationVolumeType']:
+        """
+        The EBS volume type. Defaults to gp3 if not specified.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class CapacityProviderEc2Configuration(dict):
+    """
+    Configuration for EC2-based capacity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateSource":
+            suggest = "launch_template_source"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
+        elif key == "lifecycleConfiguration":
+            suggest = "lifecycle_configuration"
+        elif key == "rootVolume":
+            suggest = "root_volume"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderEc2Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderEc2Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderEc2Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 launch_template_source: 'outputs.CapacityProviderLaunchTemplateSource',
+                 vpc_configuration: 'outputs.CapacityProviderVpcConfiguration',
+                 lifecycle_configuration: Optional['outputs.CapacityProviderInstanceLifecycleConfiguration'] = None,
+                 root_volume: Optional['outputs.CapacityProviderRootVolumeConfiguration'] = None,
+                 volumes: Optional[Sequence['outputs.CapacityProviderVolumeConfiguration']] = None):
+        """
+        Configuration for EC2-based capacity.
+
+        :param Sequence['CapacityProviderVolumeConfiguration'] volumes: Named persistent EBS volumes for this capacity provider.
+        """
+        pulumi.set(__self__, "launch_template_source", launch_template_source)
+        pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+        if lifecycle_configuration is not None:
+            pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if root_volume is not None:
+            pulumi.set(__self__, "root_volume", root_volume)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @_builtins.property
+    @pulumi.getter(name="launchTemplateSource")
+    def launch_template_source(self) -> 'outputs.CapacityProviderLaunchTemplateSource':
+        return pulumi.get(self, "launch_template_source")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> 'outputs.CapacityProviderVpcConfiguration':
+        return pulumi.get(self, "vpc_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> Optional['outputs.CapacityProviderInstanceLifecycleConfiguration']:
+        return pulumi.get(self, "lifecycle_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="rootVolume")
+    def root_volume(self) -> Optional['outputs.CapacityProviderRootVolumeConfiguration']:
+        return pulumi.get(self, "root_volume")
+
+    @_builtins.property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.CapacityProviderVolumeConfiguration']]:
+        """
+        Named persistent EBS volumes for this capacity provider.
+        """
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class CapacityProviderEphemeralBlockDeviceMapping(dict):
+    """
+    Describes an ephemeral block device mapping.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderEphemeralBlockDeviceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderEphemeralBlockDeviceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderEphemeralBlockDeviceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_name: Optional[_builtins.str] = None,
+                 ebs: Optional['outputs.CapacityProviderEphemeralEbsVolumeConfiguration'] = None,
+                 virtual_name: Optional[_builtins.str] = None):
+        """
+        Describes an ephemeral block device mapping.
+
+        :param _builtins.str device_name: The device name (for example, /dev/sdh or xvdh).
+        :param _builtins.str virtual_name: The virtual device name (ephemeralN).
+        """
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[_builtins.str]:
+        """
+        The device name (for example, /dev/sdh or xvdh).
+        """
+        return pulumi.get(self, "device_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def ebs(self) -> Optional['outputs.CapacityProviderEphemeralEbsVolumeConfiguration']:
+        return pulumi.get(self, "ebs")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[_builtins.str]:
+        """
+        The virtual device name (ephemeralN).
+        """
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class CapacityProviderEphemeralEbsVolumeConfiguration(dict):
+    """
+    Parameters used to automatically set up EBS volumes when the instance is launched.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsCardIndex":
+            suggest = "ebs_card_index"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeInitializationRate":
+            suggest = "volume_initialization_rate"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderEphemeralEbsVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderEphemeralEbsVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderEphemeralEbsVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_card_index: Optional[_builtins.int] = None,
+                 encrypted: Optional[_builtins.bool] = None,
+                 iops: Optional[_builtins.int] = None,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 snapshot_id: Optional[_builtins.str] = None,
+                 throughput: Optional[_builtins.int] = None,
+                 volume_initialization_rate: Optional[_builtins.int] = None,
+                 volume_size: Optional[_builtins.int] = None,
+                 volume_type: Optional['CapacityProviderEphemeralEbsVolumeConfigurationVolumeType'] = None):
+        """
+        Parameters used to automatically set up EBS volumes when the instance is launched.
+
+        :param _builtins.int ebs_card_index: The index of the EBS card. Applies to instances with multiple EBS cards.
+        :param _builtins.bool encrypted: Indicates whether the EBS volume is encrypted.
+        :param _builtins.int iops: The number of I/O operations per second (IOPS).
+        :param _builtins.str kms_key_id: Identifier of the customer managed KMS key to use for EBS encryption.
+        :param _builtins.str snapshot_id: The ID of the snapshot.
+        :param _builtins.int throughput: The throughput to provision for a gp3 volume, in MiB/s.
+        :param _builtins.int volume_initialization_rate: The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. If the snapshot is enabled for fast snapshot restore and a volume initialization rate is also specified, the volume is initialized at the specified rate instead of by fast snapshot restore. Valid range: 100-300 MiB/s.
+        :param _builtins.int volume_size: The size of the volume, in GiBs.
+        :param 'CapacityProviderEphemeralEbsVolumeConfigurationVolumeType' volume_type: The volume type. Defaults to gp3 if not specified.
+        """
+        if ebs_card_index is not None:
+            pulumi.set(__self__, "ebs_card_index", ebs_card_index)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsCardIndex")
+    def ebs_card_index(self) -> Optional[_builtins.int]:
+        """
+        The index of the EBS card. Applies to instances with multiple EBS cards.
+        """
+        return pulumi.get(self, "ebs_card_index")
+
+    @_builtins.property
+    @pulumi.getter
+    def encrypted(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the EBS volume is encrypted.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        """
+        The number of I/O operations per second (IOPS).
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the customer managed KMS key to use for EBS encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the snapshot.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def throughput(self) -> Optional[_builtins.int]:
+        """
+        The throughput to provision for a gp3 volume, in MiB/s.
+        """
+        return pulumi.get(self, "throughput")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[_builtins.int]:
+        """
+        The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. If the snapshot is enabled for fast snapshot restore and a volume initialization rate is also specified, the volume is initialized at the specified rate instead of by fast snapshot restore. Valid range: 100-300 MiB/s.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[_builtins.int]:
+        """
+        The size of the volume, in GiBs.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional['CapacityProviderEphemeralEbsVolumeConfigurationVolumeType']:
+        """
+        The volume type. Defaults to gp3 if not specified.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class CapacityProviderInstanceLifecycleConfiguration(dict):
+    """
+    Configuration for managing the lifecycle of instances in a capacity provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleInstanceTimeout":
+            suggest = "idle_instance_timeout"
+        elif key == "maxLifetime":
+            suggest = "max_lifetime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderInstanceLifecycleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderInstanceLifecycleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderInstanceLifecycleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_instance_timeout: Optional[_builtins.int] = None,
+                 max_lifetime: Optional[_builtins.int] = None):
+        """
+        Configuration for managing the lifecycle of instances in a capacity provider.
+
+        :param _builtins.int idle_instance_timeout: The number of seconds an instance can remain idle before it is stopped.
+        :param _builtins.int max_lifetime: Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated regardless of activity. Default: 28800 seconds (8 hours). Maximum: 1209600 seconds (14 days).
+        """
+        if idle_instance_timeout is not None:
+            pulumi.set(__self__, "idle_instance_timeout", idle_instance_timeout)
+        if max_lifetime is not None:
+            pulumi.set(__self__, "max_lifetime", max_lifetime)
+
+    @_builtins.property
+    @pulumi.getter(name="idleInstanceTimeout")
+    def idle_instance_timeout(self) -> Optional[_builtins.int]:
+        """
+        The number of seconds an instance can remain idle before it is stopped.
+        """
+        return pulumi.get(self, "idle_instance_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="maxLifetime")
+    def max_lifetime(self) -> Optional[_builtins.int]:
+        """
+        Maximum lifetime for the instance in seconds. Once reached, instances will be automatically terminated regardless of activity. Default: 28800 seconds (8 hours). Maximum: 1209600 seconds (14 days).
+        """
+        return pulumi.get(self, "max_lifetime")
+
+
+@pulumi.output_type
+class CapacityProviderInstanceRequirements(dict):
+    """
+    Requirements for EC2 instance types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedInstanceTypes":
+            suggest = "allowed_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderInstanceRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderInstanceRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderInstanceRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_instance_types: Sequence[_builtins.str]):
+        """
+        Requirements for EC2 instance types.
+
+        :param Sequence[_builtins.str] allowed_instance_types: List of allowed instance types.
+        """
+        pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Sequence[_builtins.str]:
+        """
+        List of allowed instance types.
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+
+@pulumi.output_type
+class CapacityProviderLaunchParameters(dict):
+    """
+    Parameters for launching EC2 instances.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceRequirements":
+            suggest = "instance_requirements"
+        elif key == "operatingSystem":
+            suggest = "operating_system"
+        elif key == "capacityReservationSpecification":
+            suggest = "capacity_reservation_specification"
+        elif key == "ephemeralVolumes":
+            suggest = "ephemeral_volumes"
+        elif key == "instanceProfileArn":
+            suggest = "instance_profile_arn"
+        elif key == "licenseSpecifications":
+            suggest = "license_specifications"
+        elif key == "propagatedTags":
+            suggest = "propagated_tags"
+        elif key == "sshKeyName":
+            suggest = "ssh_key_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderLaunchParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderLaunchParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderLaunchParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_requirements: 'outputs.CapacityProviderInstanceRequirements',
+                 operating_system: 'CapacityProviderLaunchParametersOperatingSystem',
+                 capacity_reservation_specification: Optional['outputs.CapacityProviderCapacityReservationSpecification'] = None,
+                 ephemeral_volumes: Optional[Sequence['outputs.CapacityProviderEphemeralBlockDeviceMapping']] = None,
+                 instance_profile_arn: Optional[_builtins.str] = None,
+                 license_specifications: Optional[Sequence['outputs.CapacityProviderLicenseSpecification']] = None,
+                 monitoring: Optional['CapacityProviderLaunchParametersMonitoring'] = None,
+                 propagated_tags: Optional[Mapping[str, _builtins.str]] = None,
+                 ssh_key_name: Optional[_builtins.str] = None):
+        """
+        Parameters for launching EC2 instances.
+
+        :param 'CapacityProviderLaunchParametersOperatingSystem' operating_system: The operating system and CPU architecture for the instances.
+        :param Sequence['CapacityProviderEphemeralBlockDeviceMapping'] ephemeral_volumes: The block device mapping for ephemeral (instance store) volumes.
+        :param _builtins.str instance_profile_arn: The ARN of the IAM instance profile to associate with launched instances.
+        :param Sequence['CapacityProviderLicenseSpecification'] license_specifications: The license configurations.
+        :param 'CapacityProviderLaunchParametersMonitoring' monitoring: The monitoring level for the instance.
+        :param Mapping[str, _builtins.str] propagated_tags: Tags to apply to all EC2 resources (instances, volumes, and network interfaces) created by this capacity provider.
+        :param _builtins.str ssh_key_name: The name of the SSH key pair to configure on instances for SSH connectivity.
+        """
+        pulumi.set(__self__, "instance_requirements", instance_requirements)
+        pulumi.set(__self__, "operating_system", operating_system)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+        if ephemeral_volumes is not None:
+            pulumi.set(__self__, "ephemeral_volumes", ephemeral_volumes)
+        if instance_profile_arn is not None:
+            pulumi.set(__self__, "instance_profile_arn", instance_profile_arn)
+        if license_specifications is not None:
+            pulumi.set(__self__, "license_specifications", license_specifications)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if propagated_tags is not None:
+            pulumi.set(__self__, "propagated_tags", propagated_tags)
+        if ssh_key_name is not None:
+            pulumi.set(__self__, "ssh_key_name", ssh_key_name)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> 'outputs.CapacityProviderInstanceRequirements':
+        return pulumi.get(self, "instance_requirements")
+
+    @_builtins.property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> 'CapacityProviderLaunchParametersOperatingSystem':
+        """
+        The operating system and CPU architecture for the instances.
+        """
+        return pulumi.get(self, "operating_system")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional['outputs.CapacityProviderCapacityReservationSpecification']:
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="ephemeralVolumes")
+    def ephemeral_volumes(self) -> Optional[Sequence['outputs.CapacityProviderEphemeralBlockDeviceMapping']]:
+        """
+        The block device mapping for ephemeral (instance store) volumes.
+        """
+        return pulumi.get(self, "ephemeral_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceProfileArn")
+    def instance_profile_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the IAM instance profile to associate with launched instances.
+        """
+        return pulumi.get(self, "instance_profile_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="licenseSpecifications")
+    def license_specifications(self) -> Optional[Sequence['outputs.CapacityProviderLicenseSpecification']]:
+        """
+        The license configurations.
+        """
+        return pulumi.get(self, "license_specifications")
+
+    @_builtins.property
+    @pulumi.getter
+    def monitoring(self) -> Optional['CapacityProviderLaunchParametersMonitoring']:
+        """
+        The monitoring level for the instance.
+        """
+        return pulumi.get(self, "monitoring")
+
+    @_builtins.property
+    @pulumi.getter(name="propagatedTags")
+    def propagated_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to apply to all EC2 resources (instances, volumes, and network interfaces) created by this capacity provider.
+        """
+        return pulumi.get(self, "propagated_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="sshKeyName")
+    def ssh_key_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the SSH key pair to configure on instances for SSH connectivity.
+        """
+        return pulumi.get(self, "ssh_key_name")
+
+
+@pulumi.output_type
+class CapacityProviderLaunchTemplateSource(dict):
+    """
+    How the launch template is specified.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchParameters":
+            suggest = "launch_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderLaunchTemplateSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderLaunchTemplateSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderLaunchTemplateSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 launch_parameters: 'outputs.CapacityProviderLaunchParameters'):
+        """
+        How the launch template is specified.
+        """
+        pulumi.set(__self__, "launch_parameters", launch_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="launchParameters")
+    def launch_parameters(self) -> 'outputs.CapacityProviderLaunchParameters':
+        return pulumi.get(self, "launch_parameters")
+
+
+@pulumi.output_type
+class CapacityProviderLicenseSpecification(dict):
+    """
+    Describes a license configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseConfigurationArn":
+            suggest = "license_configuration_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderLicenseSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderLicenseSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderLicenseSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_configuration_arn: _builtins.str):
+        """
+        Describes a license configuration.
+
+        :param _builtins.str license_configuration_arn: The ARN of the license configuration.
+        """
+        pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> _builtins.str:
+        """
+        The ARN of the license configuration.
+        """
+        return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
+class CapacityProviderPermissionsConfiguration(dict):
+    """
+    Configuration for permissions associated with a capacity provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProviderOperatorRoleArn":
+            suggest = "capacity_provider_operator_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderPermissionsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderPermissionsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderPermissionsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_provider_operator_role_arn: _builtins.str):
+        """
+        Configuration for permissions associated with a capacity provider.
+
+        :param _builtins.str capacity_provider_operator_role_arn: The ARN of the IAM role that operators use to manage the capacity provider.
+        """
+        pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderOperatorRoleArn")
+    def capacity_provider_operator_role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role that operators use to manage the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider_operator_role_arn")
+
+
+@pulumi.output_type
+class CapacityProviderRootVolumeConfiguration(dict):
+    """
+    Customer-facing configuration for the (service-managed) root volume. The service provisions the root volume at its own AMI size estimate plus FreeSpaceGiB, and pins the visible free space to FreeSpaceGiB with a filler file, so the space you are guaranteed does not change as the underlying AMI grows. The device name and the delete-on-termination behavior are service-owned and are not configurable.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "freeSpaceGiB":
+            suggest = "free_space_gi_b"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderRootVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderRootVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderRootVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encrypted: Optional[_builtins.bool] = None,
+                 free_space_gi_b: Optional[_builtins.int] = None,
+                 iops: Optional[_builtins.int] = None,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 throughput: Optional[_builtins.int] = None,
+                 volume_type: Optional['CapacityProviderRootVolumeConfigurationVolumeType'] = None):
+        """
+        Customer-facing configuration for the (service-managed) root volume. The service provisions the root volume at its own AMI size estimate plus FreeSpaceGiB, and pins the visible free space to FreeSpaceGiB with a filler file, so the space you are guaranteed does not change as the underlying AMI grows. The device name and the delete-on-termination behavior are service-owned and are not configurable.
+
+        :param _builtins.bool encrypted: Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+        :param _builtins.int free_space_gi_b: The free space guaranteed on the root volume, in GiB. The service adds the operating system overhead on top of this value. Defaults to 8 GiB. The maximum is below the 65,536 GiB gp3 ceiling because the service adds the AMI size bucket on top of this value, and the resulting total must still be a provisionable gp3 volume.
+        :param _builtins.int iops: The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+        :param _builtins.str kms_key_id: Identifier of the customer managed KMS key to use for EBS encryption.
+        :param _builtins.int throughput: The throughput to provision for a gp3 volume, in MiB/s. Valid range: 125-2000 MiB/s.
+        :param 'CapacityProviderRootVolumeConfigurationVolumeType' volume_type: The EBS volume type. Defaults to gp3 if not specified.
+        """
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if free_space_gi_b is not None:
+            pulumi.set(__self__, "free_space_gi_b", free_space_gi_b)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def encrypted(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @_builtins.property
+    @pulumi.getter(name="freeSpaceGiB")
+    def free_space_gi_b(self) -> Optional[_builtins.int]:
+        """
+        The free space guaranteed on the root volume, in GiB. The service adds the operating system overhead on top of this value. Defaults to 8 GiB. The maximum is below the 65,536 GiB gp3 ceiling because the service adds the AMI size bucket on top of this value, and the resulting total must still be a provisionable gp3 volume.
+        """
+        return pulumi.get(self, "free_space_gi_b")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        """
+        The number of IOPS to provision. Only valid for gp3, io1, and io2 volumes.
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the customer managed KMS key to use for EBS encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def throughput(self) -> Optional[_builtins.int]:
+        """
+        The throughput to provision for a gp3 volume, in MiB/s. Valid range: 125-2000 MiB/s.
+        """
+        return pulumi.get(self, "throughput")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional['CapacityProviderRootVolumeConfigurationVolumeType']:
+        """
+        The EBS volume type. Defaults to gp3 if not specified.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class CapacityProviderVolumeConfiguration(dict):
+    """
+    Configuration for a persistent volume attached to a capacity provider session.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsConfiguration":
+            suggest = "ebs_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_configuration: 'outputs.CapacityProviderEbsVolumeConfiguration'):
+        """
+        Configuration for a persistent volume attached to a capacity provider session.
+        """
+        pulumi.set(__self__, "ebs_configuration", ebs_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsConfiguration")
+    def ebs_configuration(self) -> 'outputs.CapacityProviderEbsVolumeConfiguration':
+        return pulumi.get(self, "ebs_configuration")
+
+
+@pulumi.output_type
+class CapacityProviderVpcConfiguration(dict):
+    """
+    VPC configuration for launching EC2 instances.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        VPC configuration for launching EC2 instances.
+
+        :param Sequence[_builtins.str] security_groups: The IDs of the security groups to associate with the instances.
+        :param Sequence[_builtins.str] subnets: The IDs of the subnets in which to launch instances.
+        """
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[_builtins.str]:
+        """
+        The IDs of the security groups to associate with the instances.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        The IDs of the subnets in which to launch instances.
+        """
         return pulumi.get(self, "subnets")
 
 
@@ -1463,6 +2615,8 @@ class EvaluatorModelConfig(dict):
         suggest = None
         if key == "bedrockEvaluatorModelConfig":
             suggest = "bedrock_evaluator_model_config"
+        elif key == "responsesEvaluatorModelConfig":
+            suggest = "responses_evaluator_model_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluatorModelConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1476,16 +2630,25 @@ class EvaluatorModelConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 bedrock_evaluator_model_config: 'outputs.EvaluatorBedrockEvaluatorModelConfig'):
+                 bedrock_evaluator_model_config: Optional['outputs.EvaluatorBedrockEvaluatorModelConfig'] = None,
+                 responses_evaluator_model_config: Optional['outputs.EvaluatorOpenResponsesEvaluatorModelConfig'] = None):
         """
         The model configuration that specifies which foundation model to use for evaluation.
         """
-        pulumi.set(__self__, "bedrock_evaluator_model_config", bedrock_evaluator_model_config)
+        if bedrock_evaluator_model_config is not None:
+            pulumi.set(__self__, "bedrock_evaluator_model_config", bedrock_evaluator_model_config)
+        if responses_evaluator_model_config is not None:
+            pulumi.set(__self__, "responses_evaluator_model_config", responses_evaluator_model_config)
 
     @_builtins.property
     @pulumi.getter(name="bedrockEvaluatorModelConfig")
-    def bedrock_evaluator_model_config(self) -> 'outputs.EvaluatorBedrockEvaluatorModelConfig':
+    def bedrock_evaluator_model_config(self) -> Optional['outputs.EvaluatorBedrockEvaluatorModelConfig']:
         return pulumi.get(self, "bedrock_evaluator_model_config")
+
+    @_builtins.property
+    @pulumi.getter(name="responsesEvaluatorModelConfig")
+    def responses_evaluator_model_config(self) -> Optional['outputs.EvaluatorOpenResponsesEvaluatorModelConfig']:
+        return pulumi.get(self, "responses_evaluator_model_config")
 
 
 @pulumi.output_type
@@ -1534,6 +2697,94 @@ class EvaluatorNumericalScaleDefinition(dict):
 
 
 @pulumi.output_type
+class EvaluatorOpenResponsesEvaluatorModelConfig(dict):
+    """
+    The configuration for using OpenResponses-compatible models in evaluator assessments.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelId":
+            suggest = "model_id"
+        elif key == "maxOutputTokens":
+            suggest = "max_output_tokens"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluatorOpenResponsesEvaluatorModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluatorOpenResponsesEvaluatorModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluatorOpenResponsesEvaluatorModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_id: _builtins.str,
+                 max_output_tokens: Optional[_builtins.int] = None,
+                 reasoning: Optional['outputs.EvaluatorReasoningConfiguration'] = None,
+                 temperature: Optional[_builtins.float] = None,
+                 top_p: Optional[_builtins.float] = None):
+        """
+        The configuration for using OpenResponses-compatible models in evaluator assessments.
+
+        :param _builtins.str model_id: The identifier of the model to use for evaluation.
+        :param _builtins.int max_output_tokens: The maximum number of output tokens to generate, including visible output and reasoning tokens.
+        :param _builtins.float temperature: The sampling temperature between 0 and 2.
+        :param _builtins.float top_p: The nucleus sampling probability mass between 0 and 1.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        if max_output_tokens is not None:
+            pulumi.set(__self__, "max_output_tokens", max_output_tokens)
+        if reasoning is not None:
+            pulumi.set(__self__, "reasoning", reasoning)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> _builtins.str:
+        """
+        The identifier of the model to use for evaluation.
+        """
+        return pulumi.get(self, "model_id")
+
+    @_builtins.property
+    @pulumi.getter(name="maxOutputTokens")
+    def max_output_tokens(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of output tokens to generate, including visible output and reasoning tokens.
+        """
+        return pulumi.get(self, "max_output_tokens")
+
+    @_builtins.property
+    @pulumi.getter
+    def reasoning(self) -> Optional['outputs.EvaluatorReasoningConfiguration']:
+        return pulumi.get(self, "reasoning")
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> Optional[_builtins.float]:
+        """
+        The sampling temperature between 0 and 2.
+        """
+        return pulumi.get(self, "temperature")
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> Optional[_builtins.float]:
+        """
+        The nucleus sampling probability mass between 0 and 1.
+        """
+        return pulumi.get(self, "top_p")
+
+
+@pulumi.output_type
 class EvaluatorRatingScale(dict):
     """
     The rating scale that defines how evaluators should score agent performance.
@@ -1558,6 +2809,30 @@ class EvaluatorRatingScale(dict):
     @pulumi.getter
     def numerical(self) -> Optional[Sequence['outputs.EvaluatorNumericalScaleDefinition']]:
         return pulumi.get(self, "numerical")
+
+
+@pulumi.output_type
+class EvaluatorReasoningConfiguration(dict):
+    """
+    The reasoning configuration for reasoning models.
+    """
+    def __init__(__self__, *,
+                 effort: Optional[_builtins.str] = None):
+        """
+        The reasoning configuration for reasoning models.
+
+        :param _builtins.str effort: The level of reasoning effort the model applies.
+        """
+        if effort is not None:
+            pulumi.set(__self__, "effort", effort)
+
+    @_builtins.property
+    @pulumi.getter
+    def effort(self) -> Optional[_builtins.str]:
+        """
+        The level of reasoning effort the model applies.
+        """
+        return pulumi.get(self, "effort")
 
 
 @pulumi.output_type
@@ -1591,9 +2866,6 @@ class GatewayAuthorizerConfigurationProperties(dict):
 
 @pulumi.output_type
 class GatewayAuthorizingClaimMatchValueType(dict):
-    """
-    The value or values in the custom claim to match and relationship of match
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1614,76 +2886,82 @@ class GatewayAuthorizingClaimMatchValueType(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 claim_match_operator: 'GatewayClaimMatchOperator',
-                 claim_match_value: 'outputs.GatewayClaimMatchValueType'):
-        """
-        The value or values in the custom claim to match and relationship of match
-        """
+                 claim_match_operator: 'GatewayClaimMatchOperatorType',
+                 claim_match_value: Any):
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
 
     @_builtins.property
     @pulumi.getter(name="claimMatchOperator")
-    def claim_match_operator(self) -> 'GatewayClaimMatchOperator':
+    def claim_match_operator(self) -> 'GatewayClaimMatchOperatorType':
         return pulumi.get(self, "claim_match_operator")
 
     @_builtins.property
     @pulumi.getter(name="claimMatchValue")
-    def claim_match_value(self) -> 'outputs.GatewayClaimMatchValueType':
+    def claim_match_value(self) -> Any:
         return pulumi.get(self, "claim_match_value")
 
 
 @pulumi.output_type
-class GatewayClaimMatchValueType(dict):
-    """
-    The value or values in the custom claim to match for
-    """
+class GatewayClaimMatchValueType0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "matchValueString":
             suggest = "match_value_string"
-        elif key == "matchValueStringList":
-            suggest = "match_value_string_list"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayClaimMatchValueType. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GatewayClaimMatchValueType0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GatewayClaimMatchValueType.__key_warning(key)
+        GatewayClaimMatchValueType0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GatewayClaimMatchValueType.__key_warning(key)
+        GatewayClaimMatchValueType0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_value_string: Optional[_builtins.str] = None,
-                 match_value_string_list: Optional[Sequence[_builtins.str]] = None):
-        """
-        The value or values in the custom claim to match for
-        """
-        if match_value_string is not None:
-            pulumi.set(__self__, "match_value_string", match_value_string)
-        if match_value_string_list is not None:
-            pulumi.set(__self__, "match_value_string_list", match_value_string_list)
+                 match_value_string: _builtins.str):
+        pulumi.set(__self__, "match_value_string", match_value_string)
 
     @_builtins.property
     @pulumi.getter(name="matchValueString")
-    def match_value_string(self) -> Optional[_builtins.str]:
+    def match_value_string(self) -> _builtins.str:
         return pulumi.get(self, "match_value_string")
+
+
+@pulumi.output_type
+class GatewayClaimMatchValueType1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValueStringList":
+            suggest = "match_value_string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayClaimMatchValueType1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayClaimMatchValueType1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayClaimMatchValueType1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_value_string_list: Sequence[_builtins.str]):
+        pulumi.set(__self__, "match_value_string_list", match_value_string_list)
 
     @_builtins.property
     @pulumi.getter(name="matchValueStringList")
-    def match_value_string_list(self) -> Optional[Sequence[_builtins.str]]:
+    def match_value_string_list(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "match_value_string_list")
 
 
 @pulumi.output_type
 class GatewayCustomClaimValidationType(dict):
-    """
-    Required custom claim
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1709,9 +2987,6 @@ class GatewayCustomClaimValidationType(dict):
                  authorizing_claim_match_value: 'outputs.GatewayAuthorizingClaimMatchValueType',
                  inbound_token_claim_name: _builtins.str,
                  inbound_token_claim_value_type: 'GatewayInboundTokenClaimValueType'):
-        """
-        Required custom claim
-        """
         pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
         pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
         pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
@@ -1739,6 +3014,8 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
         suggest = None
         if key == "discoveryUrl":
             suggest = "discovery_url"
+        elif key == "advertisedScopeMapping":
+            suggest = "advertised_scope_mapping"
         elif key == "allowedAudience":
             suggest = "allowed_audience"
         elif key == "allowedClients":
@@ -1747,6 +3024,8 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
             suggest = "allowed_scopes"
         elif key == "customClaims":
             suggest = "custom_claims"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayCustomJwtAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1761,11 +3040,15 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
 
     def __init__(__self__, *,
                  discovery_url: _builtins.str,
+                 advertised_scope_mapping: Optional[Mapping[str, _builtins.str]] = None,
                  allowed_audience: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
-                 custom_claims: Optional[Sequence['outputs.GatewayCustomClaimValidationType']] = None):
+                 custom_claims: Optional[Sequence['outputs.GatewayCustomClaimValidationType']] = None,
+                 private_endpoint: Optional[Any] = None):
         pulumi.set(__self__, "discovery_url", discovery_url)
+        if advertised_scope_mapping is not None:
+            pulumi.set(__self__, "advertised_scope_mapping", advertised_scope_mapping)
         if allowed_audience is not None:
             pulumi.set(__self__, "allowed_audience", allowed_audience)
         if allowed_clients is not None:
@@ -1774,11 +3057,18 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
     def discovery_url(self) -> _builtins.str:
         return pulumi.get(self, "discovery_url")
+
+    @_builtins.property
+    @pulumi.getter(name="advertisedScopeMapping")
+    def advertised_scope_mapping(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "advertised_scope_mapping")
 
     @_builtins.property
     @pulumi.getter(name="allowedAudience")
@@ -1799,6 +3089,11 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.GatewayCustomClaimValidationType']]:
         return pulumi.get(self, "custom_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[Any]:
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type
@@ -1854,6 +3149,8 @@ class GatewayInterceptorInputConfiguration(dict):
         suggest = None
         if key == "passRequestHeaders":
             suggest = "pass_request_headers"
+        elif key == "payloadFilter":
+            suggest = "payload_filter"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GatewayInterceptorInputConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1867,13 +3164,45 @@ class GatewayInterceptorInputConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 pass_request_headers: _builtins.bool):
+                 pass_request_headers: _builtins.bool,
+                 payload_filter: Optional['outputs.GatewayInterceptorPayloadFilter'] = None):
         pulumi.set(__self__, "pass_request_headers", pass_request_headers)
+        if payload_filter is not None:
+            pulumi.set(__self__, "payload_filter", payload_filter)
 
     @_builtins.property
     @pulumi.getter(name="passRequestHeaders")
     def pass_request_headers(self) -> _builtins.bool:
         return pulumi.get(self, "pass_request_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="payloadFilter")
+    def payload_filter(self) -> Optional['outputs.GatewayInterceptorPayloadFilter']:
+        return pulumi.get(self, "payload_filter")
+
+
+@pulumi.output_type
+class GatewayInterceptorPayloadExclusionSelectorProperties(dict):
+    def __init__(__self__, *,
+                 field: 'GatewayInterceptorPayloadExclusion'):
+        pulumi.set(__self__, "field", field)
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> 'GatewayInterceptorPayloadExclusion':
+        return pulumi.get(self, "field")
+
+
+@pulumi.output_type
+class GatewayInterceptorPayloadFilter(dict):
+    def __init__(__self__, *,
+                 exclude: Sequence['outputs.GatewayInterceptorPayloadExclusionSelectorProperties']):
+        pulumi.set(__self__, "exclude", exclude)
+
+    @_builtins.property
+    @pulumi.getter
+    def exclude(self) -> Sequence['outputs.GatewayInterceptorPayloadExclusionSelectorProperties']:
+        return pulumi.get(self, "exclude")
 
 
 @pulumi.output_type
@@ -1886,6 +3215,73 @@ class GatewayLambdaInterceptorConfiguration(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class GatewayManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: 'GatewayEndpointIpAddressType',
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> 'GatewayEndpointIpAddressType':
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "security_group_ids")
 
 
 @pulumi.output_type
@@ -1958,32 +3354,79 @@ class GatewayMcpGatewayConfiguration(dict):
 
 @pulumi.output_type
 class GatewayPolicyEngineConfiguration(dict):
-    """
-    The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
-    """
     def __init__(__self__, *,
                  arn: _builtins.str,
                  mode: 'GatewayPolicyEngineMode'):
-        """
-        The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
-
-        :param _builtins.str arn: The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "mode", mode)
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
-        """
-        The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
-        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> 'GatewayPolicyEngineMode':
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class GatewayPrivateEndpoint0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayPrivateEndpoint0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayPrivateEndpoint0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayPrivateEndpoint0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 self_managed_lattice_resource: 'outputs.GatewaySelfManagedLatticeResourceProperties'):
+        pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> 'outputs.GatewaySelfManagedLatticeResourceProperties':
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class GatewayPrivateEndpoint1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayPrivateEndpoint1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayPrivateEndpoint1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayPrivateEndpoint1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: 'outputs.GatewayManagedVpcResource'):
+        pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> 'outputs.GatewayManagedVpcResource':
+        return pulumi.get(self, "managed_vpc_resource")
 
 
 @pulumi.output_type
@@ -1996,6 +3439,735 @@ class GatewayProtocolConfigurationProperties(dict):
     @pulumi.getter
     def mcp(self) -> 'outputs.GatewayMcpGatewayConfiguration':
         return pulumi.get(self, "mcp")
+
+
+@pulumi.output_type
+class GatewayRateLimitLimitEntry(dict):
+    """
+    A single rule entry within a limit, mapping dimension values to rate configurations
+    """
+    def __init__(__self__, *,
+                 dimensions: Mapping[str, _builtins.str],
+                 connections: Optional[Sequence['outputs.GatewayRateLimitRateConfig']] = None,
+                 requests: Optional[Sequence['outputs.GatewayRateLimitRateConfig']] = None,
+                 tokens: Optional[Sequence['outputs.GatewayRateLimitRateConfig']] = None):
+        """
+        A single rule entry within a limit, mapping dimension values to rate configurations
+
+        :param Sequence['GatewayRateLimitRateConfig'] connections: Connection rate limits (per second only). Limited to 1 entry for now. — P2
+        :param Sequence['GatewayRateLimitRateConfig'] requests: Request rate limits (RPS or RPM). Limited to 1 entry for now.
+        :param Sequence['GatewayRateLimitRateConfig'] tokens: Token rate limits (TPM). Limited to 1 entry for now. — P1
+        """
+        pulumi.set(__self__, "dimensions", dimensions)
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if tokens is not None:
+            pulumi.set(__self__, "tokens", tokens)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter
+    def connections(self) -> Optional[Sequence['outputs.GatewayRateLimitRateConfig']]:
+        """
+        Connection rate limits (per second only). Limited to 1 entry for now. — P2
+        """
+        return pulumi.get(self, "connections")
+
+    @_builtins.property
+    @pulumi.getter
+    def requests(self) -> Optional[Sequence['outputs.GatewayRateLimitRateConfig']]:
+        """
+        Request rate limits (RPS or RPM). Limited to 1 entry for now.
+        """
+        return pulumi.get(self, "requests")
+
+    @_builtins.property
+    @pulumi.getter
+    def tokens(self) -> Optional[Sequence['outputs.GatewayRateLimitRateConfig']]:
+        """
+        Token rate limits (TPM). Limited to 1 entry for now. — P1
+        """
+        return pulumi.get(self, "tokens")
+
+
+@pulumi.output_type
+class GatewayRateLimitRateConfig(dict):
+    """
+    Rate configuration for a metric (requests or tokens)
+    """
+    def __init__(__self__, *,
+                 period: 'GatewayRateLimitPeriod',
+                 rate: _builtins.float):
+        """
+        Rate configuration for a metric (requests or tokens)
+        """
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "rate", rate)
+
+    @_builtins.property
+    @pulumi.getter
+    def period(self) -> 'GatewayRateLimitPeriod':
+        return pulumi.get(self, "period")
+
+    @_builtins.property
+    @pulumi.getter
+    def rate(self) -> _builtins.float:
+        return pulumi.get(self, "rate")
+
+
+@pulumi.output_type
+class GatewayRuleAction0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationBundle":
+            suggest = "configuration_bundle"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleAction0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleAction0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleAction0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_bundle: Any):
+        pulumi.set(__self__, "configuration_bundle", configuration_bundle)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationBundle")
+    def configuration_bundle(self) -> Any:
+        return pulumi.get(self, "configuration_bundle")
+
+
+@pulumi.output_type
+class GatewayRuleAction1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routeToTarget":
+            suggest = "route_to_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleAction1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleAction1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleAction1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 route_to_target: Any):
+        pulumi.set(__self__, "route_to_target", route_to_target)
+
+    @_builtins.property
+    @pulumi.getter(name="routeToTarget")
+    def route_to_target(self) -> Any:
+        return pulumi.get(self, "route_to_target")
+
+
+@pulumi.output_type
+class GatewayRuleCondition0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPrincipals":
+            suggest = "match_principals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleCondition0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleCondition0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleCondition0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_principals: 'outputs.GatewayRuleMatchPrincipals'):
+        pulumi.set(__self__, "match_principals", match_principals)
+
+    @_builtins.property
+    @pulumi.getter(name="matchPrincipals")
+    def match_principals(self) -> 'outputs.GatewayRuleMatchPrincipals':
+        return pulumi.get(self, "match_principals")
+
+
+@pulumi.output_type
+class GatewayRuleCondition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPaths":
+            suggest = "match_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleCondition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleCondition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleCondition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_paths: 'outputs.GatewayRuleMatchPaths'):
+        pulumi.set(__self__, "match_paths", match_paths)
+
+    @_builtins.property
+    @pulumi.getter(name="matchPaths")
+    def match_paths(self) -> 'outputs.GatewayRuleMatchPaths':
+        return pulumi.get(self, "match_paths")
+
+
+@pulumi.output_type
+class GatewayRuleConfigurationBundleAction0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticOverride":
+            suggest = "static_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleConfigurationBundleAction0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleConfigurationBundleAction0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleConfigurationBundleAction0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_override: 'outputs.GatewayRuleStaticOverride'):
+        pulumi.set(__self__, "static_override", static_override)
+
+    @_builtins.property
+    @pulumi.getter(name="staticOverride")
+    def static_override(self) -> 'outputs.GatewayRuleStaticOverride':
+        return pulumi.get(self, "static_override")
+
+
+@pulumi.output_type
+class GatewayRuleConfigurationBundleAction1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weightedOverride":
+            suggest = "weighted_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleConfigurationBundleAction1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleConfigurationBundleAction1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleConfigurationBundleAction1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 weighted_override: 'outputs.GatewayRuleWeightedOverride'):
+        pulumi.set(__self__, "weighted_override", weighted_override)
+
+    @_builtins.property
+    @pulumi.getter(name="weightedOverride")
+    def weighted_override(self) -> 'outputs.GatewayRuleWeightedOverride':
+        return pulumi.get(self, "weighted_override")
+
+
+@pulumi.output_type
+class GatewayRuleConfigurationBundleReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bundleArn":
+            suggest = "bundle_arn"
+        elif key == "bundleVersion":
+            suggest = "bundle_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleConfigurationBundleReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleConfigurationBundleReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleConfigurationBundleReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bundle_arn: _builtins.str,
+                 bundle_version: _builtins.str):
+        pulumi.set(__self__, "bundle_arn", bundle_arn)
+        pulumi.set(__self__, "bundle_version", bundle_version)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleArn")
+    def bundle_arn(self) -> _builtins.str:
+        return pulumi.get(self, "bundle_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bundleVersion")
+    def bundle_version(self) -> _builtins.str:
+        return pulumi.get(self, "bundle_version")
+
+
+@pulumi.output_type
+class GatewayRuleIamPrincipal(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 operator: Optional['GatewayRulePrincipalMatchOperator'] = None):
+        pulumi.set(__self__, "arn", arn)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> Optional['GatewayRulePrincipalMatchOperator']:
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class GatewayRuleMatchPaths(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyOf":
+            suggest = "any_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleMatchPaths. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleMatchPaths.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleMatchPaths.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_of: Sequence[_builtins.str]):
+        pulumi.set(__self__, "any_of", any_of)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOf")
+    def any_of(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "any_of")
+
+
+@pulumi.output_type
+class GatewayRuleMatchPrincipalEntryProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamPrincipal":
+            suggest = "iam_principal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleMatchPrincipalEntryProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleMatchPrincipalEntryProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleMatchPrincipalEntryProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_principal: 'outputs.GatewayRuleIamPrincipal'):
+        pulumi.set(__self__, "iam_principal", iam_principal)
+
+    @_builtins.property
+    @pulumi.getter(name="iamPrincipal")
+    def iam_principal(self) -> 'outputs.GatewayRuleIamPrincipal':
+        return pulumi.get(self, "iam_principal")
+
+
+@pulumi.output_type
+class GatewayRuleMatchPrincipals(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyOf":
+            suggest = "any_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleMatchPrincipals. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleMatchPrincipals.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleMatchPrincipals.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_of: Sequence['outputs.GatewayRuleMatchPrincipalEntryProperties']):
+        pulumi.set(__self__, "any_of", any_of)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOf")
+    def any_of(self) -> Sequence['outputs.GatewayRuleMatchPrincipalEntryProperties']:
+        return pulumi.get(self, "any_of")
+
+
+@pulumi.output_type
+class GatewayRuleRouteToTargetAction0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticRoute":
+            suggest = "static_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleRouteToTargetAction0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleRouteToTargetAction0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleRouteToTargetAction0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_route: 'outputs.GatewayRuleStaticRoute'):
+        pulumi.set(__self__, "static_route", static_route)
+
+    @_builtins.property
+    @pulumi.getter(name="staticRoute")
+    def static_route(self) -> 'outputs.GatewayRuleStaticRoute':
+        return pulumi.get(self, "static_route")
+
+
+@pulumi.output_type
+class GatewayRuleRouteToTargetAction1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weightedRoute":
+            suggest = "weighted_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleRouteToTargetAction1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleRouteToTargetAction1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleRouteToTargetAction1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 weighted_route: 'outputs.GatewayRuleWeightedRoute'):
+        pulumi.set(__self__, "weighted_route", weighted_route)
+
+    @_builtins.property
+    @pulumi.getter(name="weightedRoute")
+    def weighted_route(self) -> 'outputs.GatewayRuleWeightedRoute':
+        return pulumi.get(self, "weighted_route")
+
+
+@pulumi.output_type
+class GatewayRuleStaticOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bundleArn":
+            suggest = "bundle_arn"
+        elif key == "bundleVersion":
+            suggest = "bundle_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleStaticOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleStaticOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleStaticOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bundle_arn: _builtins.str,
+                 bundle_version: _builtins.str):
+        pulumi.set(__self__, "bundle_arn", bundle_arn)
+        pulumi.set(__self__, "bundle_version", bundle_version)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleArn")
+    def bundle_arn(self) -> _builtins.str:
+        return pulumi.get(self, "bundle_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bundleVersion")
+    def bundle_version(self) -> _builtins.str:
+        return pulumi.get(self, "bundle_version")
+
+
+@pulumi.output_type
+class GatewayRuleStaticRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleStaticRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleStaticRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleStaticRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_name: _builtins.str):
+        pulumi.set(__self__, "target_name", target_name)
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> _builtins.str:
+        return pulumi.get(self, "target_name")
+
+
+@pulumi.output_type
+class GatewayRuleTargetTrafficSplitEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleTargetTrafficSplitEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleTargetTrafficSplitEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleTargetTrafficSplitEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 target_name: _builtins.str,
+                 weight: _builtins.float,
+                 description: Optional[_builtins.str] = None,
+                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "weight", weight)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> _builtins.str:
+        return pulumi.get(self, "target_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.float:
+        return pulumi.get(self, "weight")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class GatewayRuleTrafficSplitEntry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationBundle":
+            suggest = "configuration_bundle"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleTrafficSplitEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleTrafficSplitEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleTrafficSplitEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_bundle: 'outputs.GatewayRuleConfigurationBundleReference',
+                 name: _builtins.str,
+                 weight: _builtins.float,
+                 description: Optional[_builtins.str] = None,
+                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "configuration_bundle", configuration_bundle)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationBundle")
+    def configuration_bundle(self) -> 'outputs.GatewayRuleConfigurationBundleReference':
+        return pulumi.get(self, "configuration_bundle")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.float:
+        return pulumi.get(self, "weight")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class GatewayRuleWeightedOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficSplit":
+            suggest = "traffic_split"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleWeightedOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleWeightedOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleWeightedOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 traffic_split: Sequence['outputs.GatewayRuleTrafficSplitEntry']):
+        pulumi.set(__self__, "traffic_split", traffic_split)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficSplit")
+    def traffic_split(self) -> Sequence['outputs.GatewayRuleTrafficSplitEntry']:
+        return pulumi.get(self, "traffic_split")
+
+
+@pulumi.output_type
+class GatewayRuleWeightedRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficSplit":
+            suggest = "traffic_split"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleWeightedRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleWeightedRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleWeightedRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 traffic_split: Sequence['outputs.GatewayRuleTargetTrafficSplitEntry']):
+        pulumi.set(__self__, "traffic_split", traffic_split)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficSplit")
+    def traffic_split(self) -> Sequence['outputs.GatewayRuleTargetTrafficSplitEntry']:
+        return pulumi.get(self, "traffic_split")
+
+
+@pulumi.output_type
+class GatewaySelfManagedLatticeResourceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewaySelfManagedLatticeResourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewaySelfManagedLatticeResourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewaySelfManagedLatticeResourceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type
@@ -2018,13 +4190,13 @@ class GatewaySessionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 session_timeout_in_seconds: Optional[_builtins.int] = None):
+                 session_timeout_in_seconds: Optional[_builtins.float] = None):
         if session_timeout_in_seconds is not None:
             pulumi.set(__self__, "session_timeout_in_seconds", session_timeout_in_seconds)
 
     @_builtins.property
     @pulumi.getter(name="sessionTimeoutInSeconds")
-    def session_timeout_in_seconds(self) -> Optional[_builtins.int]:
+    def session_timeout_in_seconds(self) -> Optional[_builtins.float]:
         return pulumi.get(self, "session_timeout_in_seconds")
 
 
@@ -2908,7 +5080,8 @@ class GatewayTargetManagedVpcResource(dict):
                  subnet_ids: Sequence[_builtins.str],
                  vpc_identifier: _builtins.str,
                  routing_domain: Optional[_builtins.str] = None,
-                 security_group_ids: Optional[Sequence[_builtins.str]] = None):
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
         pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
@@ -2916,6 +5089,8 @@ class GatewayTargetManagedVpcResource(dict):
             pulumi.set(__self__, "routing_domain", routing_domain)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressType")
@@ -2941,6 +5116,11 @@ class GatewayTargetManagedVpcResource(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -3006,9 +5186,9 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
 
     def __init__(__self__, *,
                  endpoint: _builtins.str,
-                 listing_mode: Optional['GatewayTargetMcpServerListingMode'] = None,
+                 listing_mode: Optional['GatewayTargetListingMode'] = None,
                  mcp_tool_schema: Optional[Any] = None,
-                 resource_priority: Optional[_builtins.int] = None):
+                 resource_priority: Optional[_builtins.float] = None):
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
@@ -3024,7 +5204,7 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="listingMode")
-    def listing_mode(self) -> Optional['GatewayTargetMcpServerListingMode']:
+    def listing_mode(self) -> Optional['GatewayTargetListingMode']:
         return pulumi.get(self, "listing_mode")
 
     @_builtins.property
@@ -3034,7 +5214,7 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="resourcePriority")
-    def resource_priority(self) -> Optional[_builtins.int]:
+    def resource_priority(self) -> Optional[_builtins.float]:
         return pulumi.get(self, "resource_priority")
 
 
@@ -3397,10 +5577,7 @@ class GatewayTargetOAuthCredentialProvider(dict):
                  scopes: Sequence[_builtins.str],
                  custom_parameters: Optional[Mapping[str, _builtins.str]] = None,
                  default_return_url: Optional[_builtins.str] = None,
-                 grant_type: Optional['GatewayTargetOAuthGrantType'] = None):
-        """
-        :param _builtins.str default_return_url: Return URL for OAuth callback.
-        """
+                 grant_type: Optional[Any] = None):
         pulumi.set(__self__, "provider_arn", provider_arn)
         pulumi.set(__self__, "scopes", scopes)
         if custom_parameters is not None:
@@ -3428,14 +5605,11 @@ class GatewayTargetOAuthCredentialProvider(dict):
     @_builtins.property
     @pulumi.getter(name="defaultReturnUrl")
     def default_return_url(self) -> Optional[_builtins.str]:
-        """
-        Return URL for OAuth callback.
-        """
         return pulumi.get(self, "default_return_url")
 
     @_builtins.property
     @pulumi.getter(name="grantType")
-    def grant_type(self) -> Optional['GatewayTargetOAuthGrantType']:
+    def grant_type(self) -> Optional[Any]:
         return pulumi.get(self, "grant_type")
 
 
@@ -3715,7 +5889,7 @@ class GatewayTargetSelfManagedLatticeResourceProperties(dict):
 class GatewayTargetStickinessConfiguration(dict):
     def __init__(__self__, *,
                  identifier: _builtins.str,
-                 timeout: Optional[_builtins.int] = None):
+                 timeout: Optional[_builtins.float] = None):
         pulumi.set(__self__, "identifier", identifier)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
@@ -3727,7 +5901,7 @@ class GatewayTargetStickinessConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[_builtins.int]:
+    def timeout(self) -> Optional[_builtins.float]:
         return pulumi.get(self, "timeout")
 
 
@@ -7035,6 +9209,8 @@ class MemoryMetadataSchemaEntry(dict):
         suggest = None
         if key == "extractionConfig":
             suggest = "extraction_config"
+        elif key == "extractionType":
+            suggest = "extraction_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MemoryMetadataSchemaEntry. Access the value via the '{suggest}' property getter instead.")
@@ -7050,10 +9226,13 @@ class MemoryMetadataSchemaEntry(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  extraction_config: Optional['outputs.MemoryExtractionConfig'] = None,
+                 extraction_type: Optional['MemoryExtractionType'] = None,
                  type: Optional['MemoryMetadataValueType'] = None):
         pulumi.set(__self__, "key", key)
         if extraction_config is not None:
             pulumi.set(__self__, "extraction_config", extraction_config)
+        if extraction_type is not None:
+            pulumi.set(__self__, "extraction_type", extraction_type)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -7066,6 +9245,11 @@ class MemoryMetadataSchemaEntry(dict):
     @pulumi.getter(name="extractionConfig")
     def extraction_config(self) -> Optional['outputs.MemoryExtractionConfig']:
         return pulumi.get(self, "extraction_config")
+
+    @_builtins.property
+    @pulumi.getter(name="extractionType")
+    def extraction_type(self) -> Optional['MemoryExtractionType']:
+        return pulumi.get(self, "extraction_type")
 
     @_builtins.property
     @pulumi.getter
@@ -8282,6 +10466,12 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
             suggest = "client_secret_source"
         elif key == "onBehalfOfTokenExchangeConfig":
             suggest = "on_behalf_of_token_exchange_config"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
+        elif key == "privateKeyJwtConfig":
+            suggest = "private_key_jwt_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderCustomOauth2ProviderConfigInput. Access the value via the '{suggest}' property getter instead.")
@@ -8301,7 +10491,10 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
                  client_secret: Optional[_builtins.str] = None,
                  client_secret_config: Optional['outputs.OAuth2CredentialProviderSecretReference'] = None,
                  client_secret_source: Optional['OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource'] = None,
-                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
+                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None,
+                 private_endpoint: Optional['outputs.OAuth2CredentialProviderPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.OAuth2CredentialProviderPrivateEndpointOverride']] = None,
+                 private_key_jwt_config: Optional['outputs.OAuth2CredentialProviderPrivateKeyJwtConfig'] = None):
         """
         Input configuration for a custom OAuth2 provider
 
@@ -8309,6 +10502,7 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
         :param _builtins.str client_id: The client ID for the custom OAuth2 provider
         :param _builtins.str client_secret: The client secret for the custom OAuth2 provider
         :param 'OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientSecretSource' client_secret_source: The source of the client secret
+        :param Sequence['OAuth2CredentialProviderPrivateEndpointOverride'] private_endpoint_overrides: A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
         """
         pulumi.set(__self__, "oauth_discovery", oauth_discovery)
         if client_authentication_method is not None:
@@ -8323,6 +10517,12 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
             pulumi.set(__self__, "client_secret_source", client_secret_source)
         if on_behalf_of_token_exchange_config is not None:
             pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
+        if private_key_jwt_config is not None:
+            pulumi.set(__self__, "private_key_jwt_config", private_key_jwt_config)
 
     @_builtins.property
     @pulumi.getter(name="oauthDiscovery")
@@ -8370,6 +10570,24 @@ class OAuth2CredentialProviderCustomOauth2ProviderConfigInput(dict):
     @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
     def on_behalf_of_token_exchange_config(self) -> Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig']:
         return pulumi.get(self, "on_behalf_of_token_exchange_config")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.OAuth2CredentialProviderPrivateEndpoint']:
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.OAuth2CredentialProviderPrivateEndpointOverride']]:
+        """
+        A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyJwtConfig")
+    def private_key_jwt_config(self) -> Optional['outputs.OAuth2CredentialProviderPrivateKeyJwtConfig']:
+        return pulumi.get(self, "private_key_jwt_config")
 
 
 @pulumi.output_type
@@ -8609,6 +10827,46 @@ class OAuth2CredentialProviderIncludedOauth2ProviderConfigInput(dict):
 
 
 @pulumi.output_type
+class OAuth2CredentialProviderKmsKeySourceType(dict):
+    """
+    Contains the KMS key configuration for a JWT client assertion
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderKmsKeySourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderKmsKeySourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderKmsKeySourceType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: _builtins.str):
+        """
+        Contains the KMS key configuration for a JWT client assertion
+
+        :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the KMS key used to sign the JWT client assertion
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
 class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput(dict):
     """
     Input configuration for a LinkedIn OAuth2 provider
@@ -8671,6 +10929,112 @@ class OAuth2CredentialProviderLinkedinOauth2ProviderConfigInput(dict):
     @pulumi.getter(name="clientSecretSource")
     def client_secret_source(self) -> Optional['OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource']:
         return pulumi.get(self, "client_secret_source")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderManagedVpcResource(dict):
+    """
+    Configuration for a managed VPC Lattice resource. AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: 'OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType',
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Configuration for a managed VPC Lattice resource. AgentCore creates and manages the VPC Lattice resource gateway and resource configuration on your behalf.
+
+        :param 'OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType' endpoint_ip_address_type: The IP address type for the resource configuration endpoint
+        :param Sequence[_builtins.str] subnet_ids: The subnet IDs within the VPC where the VPC Lattice resource gateway is placed
+        :param _builtins.str vpc_identifier: The ID of the VPC that contains your private resource
+        :param _builtins.str routing_domain: An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint
+        :param Sequence[_builtins.str] security_group_ids: The security group IDs to associate with the VPC Lattice resource gateway
+        :param Mapping[str, _builtins.str] tags: Tags to apply to the managed VPC Lattice resource gateway
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> 'OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType':
+        """
+        The IP address type for the resource configuration endpoint
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        The subnet IDs within the VPC where the VPC Lattice resource gateway is placed
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        The ID of the VPC that contains your private resource
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        An intermediate publicly resolvable domain used as the VPC Lattice resource configuration endpoint
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The security group IDs to associate with the VPC Lattice resource gateway
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to apply to the managed VPC Lattice resource gateway
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -9014,6 +11378,12 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
             suggest = "oauth_discovery"
         elif key == "onBehalfOfTokenExchangeConfig":
             suggest = "on_behalf_of_token_exchange_config"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
+        elif key == "privateKeyJwtConfig":
+            suggest = "private_key_jwt_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderOauth2ProviderConfigOutput. Access the value via the '{suggest}' property getter instead.")
@@ -9030,11 +11400,15 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
                  client_authentication_method: Optional['OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod'] = None,
                  client_id: Optional[_builtins.str] = None,
                  oauth_discovery: Optional['outputs.OAuth2CredentialProviderOauth2Discovery'] = None,
-                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None):
+                 on_behalf_of_token_exchange_config: Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig'] = None,
+                 private_endpoint: Optional['outputs.OAuth2CredentialProviderPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.OAuth2CredentialProviderPrivateEndpointOverride']] = None,
+                 private_key_jwt_config: Optional['outputs.OAuth2CredentialProviderPrivateKeyJwtConfig'] = None):
         """
         Output configuration for an OAuth2 provider
 
         :param 'OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod' client_authentication_method: The client authentication method used when authenticating with the token endpoint
+        :param Sequence['OAuth2CredentialProviderPrivateEndpointOverride'] private_endpoint_overrides: The list of private endpoint overrides for the OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
         """
         if client_authentication_method is not None:
             pulumi.set(__self__, "client_authentication_method", client_authentication_method)
@@ -9044,6 +11418,12 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
             pulumi.set(__self__, "oauth_discovery", oauth_discovery)
         if on_behalf_of_token_exchange_config is not None:
             pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
+        if private_key_jwt_config is not None:
+            pulumi.set(__self__, "private_key_jwt_config", private_key_jwt_config)
 
     @_builtins.property
     @pulumi.getter(name="clientAuthenticationMethod")
@@ -9067,6 +11447,24 @@ class OAuth2CredentialProviderOauth2ProviderConfigOutput(dict):
     @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
     def on_behalf_of_token_exchange_config(self) -> Optional['outputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig']:
         return pulumi.get(self, "on_behalf_of_token_exchange_config")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.OAuth2CredentialProviderPrivateEndpoint']:
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.OAuth2CredentialProviderPrivateEndpointOverride']]:
+        """
+        The list of private endpoint overrides for the OAuth2 provider. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyJwtConfig")
+    def private_key_jwt_config(self) -> Optional['outputs.OAuth2CredentialProviderPrivateKeyJwtConfig']:
+        return pulumi.get(self, "private_key_jwt_config")
 
 
 @pulumi.output_type
@@ -9117,6 +11515,206 @@ class OAuth2CredentialProviderOnBehalfOfTokenExchangeConfig(dict):
     @pulumi.getter(name="tokenExchangeGrantTypeConfig")
     def token_exchange_grant_type_config(self) -> Optional['outputs.OAuth2CredentialProviderTokenExchangeGrantTypeConfig']:
         return pulumi.get(self, "token_exchange_grant_type_config")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderPrivateEndpoint(dict):
+    """
+    The private endpoint configuration for connecting to private resources in your VPC
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.OAuth2CredentialProviderManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.OAuth2CredentialProviderSelfManagedLatticeResource'] = None):
+        """
+        The private endpoint configuration for connecting to private resources in your VPC
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.OAuth2CredentialProviderManagedVpcResource']:
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.OAuth2CredentialProviderSelfManagedLatticeResource']:
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderPrivateEndpointOverride(dict):
+    """
+    A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderPrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderPrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderPrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.OAuth2CredentialProviderPrivateEndpoint'):
+        """
+        A mapping of a specific domain to a private endpoint for secure connectivity through a VPC Lattice resource configuration
+
+        :param _builtins.str domain: The domain to override with a private endpoint
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        The domain to override with a private endpoint
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.OAuth2CredentialProviderPrivateEndpoint':
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderPrivateKeyJwtConfig(dict):
+    """
+    Configuration for private_key_jwt client authentication (RFC 7523)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalHeaderClaims":
+            suggest = "additional_header_claims"
+        elif key == "additionalPayloadClaims":
+            suggest = "additional_payload_claims"
+        elif key == "privateKeySource":
+            suggest = "private_key_source"
+        elif key == "signingAlgorithm":
+            suggest = "signing_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderPrivateKeyJwtConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderPrivateKeyJwtConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderPrivateKeyJwtConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_header_claims: Optional[Mapping[str, _builtins.str]] = None,
+                 additional_payload_claims: Optional[Mapping[str, _builtins.str]] = None,
+                 private_key_source: Optional['outputs.OAuth2CredentialProviderPrivateKeySource'] = None,
+                 signing_algorithm: Optional['OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm'] = None):
+        """
+        Configuration for private_key_jwt client authentication (RFC 7523)
+
+        :param 'OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm' signing_algorithm: The algorithm used to sign the JWT client assertion
+        """
+        if additional_header_claims is not None:
+            pulumi.set(__self__, "additional_header_claims", additional_header_claims)
+        if additional_payload_claims is not None:
+            pulumi.set(__self__, "additional_payload_claims", additional_payload_claims)
+        if private_key_source is not None:
+            pulumi.set(__self__, "private_key_source", private_key_source)
+        if signing_algorithm is not None:
+            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalHeaderClaims")
+    def additional_header_claims(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "additional_header_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalPayloadClaims")
+    def additional_payload_claims(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "additional_payload_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeySource")
+    def private_key_source(self) -> Optional['outputs.OAuth2CredentialProviderPrivateKeySource']:
+        return pulumi.get(self, "private_key_source")
+
+    @_builtins.property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> Optional['OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm']:
+        """
+        The algorithm used to sign the JWT client assertion
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderPrivateKeySource(dict):
+    """
+    Contains the private key source configuration for a JWT client assertion
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeySource":
+            suggest = "kms_key_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderPrivateKeySource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderPrivateKeySource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderPrivateKeySource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_source: Optional['outputs.OAuth2CredentialProviderKmsKeySourceType'] = None):
+        """
+        Contains the private key source configuration for a JWT client assertion
+        """
+        if kms_key_source is not None:
+            pulumi.set(__self__, "kms_key_source", kms_key_source)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeySource")
+    def kms_key_source(self) -> Optional['outputs.OAuth2CredentialProviderKmsKeySourceType']:
+        return pulumi.get(self, "kms_key_source")
 
 
 @pulumi.output_type
@@ -9235,6 +11833,46 @@ class OAuth2CredentialProviderSecretReference(dict):
         The ID or ARN of the secret in AWS Secrets Manager
         """
         return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class OAuth2CredentialProviderSelfManagedLatticeResource(dict):
+    """
+    Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2CredentialProviderSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2CredentialProviderSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2CredentialProviderSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        Configuration for a self-managed VPC Lattice resource. You create and manage the VPC Lattice resource gateway and resource configuration, then provide the resource configuration identifier.
+
+        :param _builtins.str resource_configuration_identifier: The ARN or ID of the VPC Lattice resource configuration
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        The ARN or ID of the VPC Lattice resource configuration
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type

@@ -43,8 +43,12 @@ type LookupCanaryResult struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Id of the canary
 	Id *string `pulumi:"id"`
+	// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
 	ProvisionedResourceCleanup *CanaryProvisionedResourceCleanup `pulumi:"provisionedResourceCleanup"`
+	// List of replica locations for multi-location canary execution
+	Replicas []CanaryReplica `pulumi:"replicas"`
 	// Provide canary run configuration
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
 	// Runtime version of Synthetics Library
@@ -128,9 +132,19 @@ func (o LookupCanaryResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+func (o LookupCanaryResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCanaryResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
 func (o LookupCanaryResultOutput) ProvisionedResourceCleanup() CanaryProvisionedResourceCleanupPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *CanaryProvisionedResourceCleanup { return v.ProvisionedResourceCleanup }).(CanaryProvisionedResourceCleanupPtrOutput)
+}
+
+// List of replica locations for multi-location canary execution
+func (o LookupCanaryResultOutput) Replicas() CanaryReplicaArrayOutput {
+	return o.ApplyT(func(v LookupCanaryResult) []CanaryReplica { return v.Replicas }).(CanaryReplicaArrayOutput)
 }
 
 // Provide canary run configuration

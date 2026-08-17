@@ -74,6 +74,52 @@ export const CodeSecurityScanConfigurationRuleSetCategory = {
 
 export type CodeSecurityScanConfigurationRuleSetCategory = (typeof CodeSecurityScanConfigurationRuleSetCategory)[keyof typeof CodeSecurityScanConfigurationRuleSetCategory];
 
+export const ConnectorCloudProvider = {
+    Azure: "AZURE",
+} as const;
+
+export type ConnectorCloudProvider = (typeof ConnectorCloudProvider)[keyof typeof ConnectorCloudProvider];
+
+export const ConnectorHealthStatus = {
+    Connected: "CONNECTED",
+    Degraded: "DEGRADED",
+    FailedToConnect: "FAILED_TO_CONNECT",
+    PendingAuthorization: "PENDING_AUTHORIZATION",
+    PendingConfiguration: "PENDING_CONFIGURATION",
+    Unknown: "UNKNOWN",
+} as const;
+
+export type ConnectorHealthStatus = (typeof ConnectorHealthStatus)[keyof typeof ConnectorHealthStatus];
+
+export const ConnectorScopeState = {
+    Active: "ACTIVE",
+    Pending: "PENDING",
+    Error: "ERROR",
+    Disabled: "DISABLED",
+} as const;
+
+export type ConnectorScopeState = (typeof ConnectorScopeState)[keyof typeof ConnectorScopeState];
+
+export const ConnectorScopeType = {
+    Tenant: "TENANT",
+    Subscription: "SUBSCRIPTION",
+} as const;
+
+export type ConnectorScopeType = (typeof ConnectorScopeType)[keyof typeof ConnectorScopeType];
+
+export const ConnectorState = {
+    Enabled: "ENABLED",
+    PendingEnablement: "PENDING_ENABLEMENT",
+    FailedToEnable: "FAILED_TO_ENABLE",
+    PendingUpdate: "PENDING_UPDATE",
+    FailedToUpdate: "FAILED_TO_UPDATE",
+    PendingDeletion: "PENDING_DELETION",
+    Deleted: "DELETED",
+    FailedToDelete: "FAILED_TO_DELETE",
+} as const;
+
+export type ConnectorState = (typeof ConnectorState)[keyof typeof ConnectorState];
+
 export const FilterAction = {
     None: "NONE",
     Suppress: "SUPPRESS",

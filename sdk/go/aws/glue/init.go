@@ -25,10 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Blueprint{}
 	case "aws-native:glue:Catalog":
 		r = &Catalog{}
+	case "aws-native:glue:Classifier":
+		r = &Classifier{}
 	case "aws-native:glue:Crawler":
 		r = &Crawler{}
+	case "aws-native:glue:CustomEntityType":
+		r = &CustomEntityType{}
 	case "aws-native:glue:DataCatalogEncryptionSettings":
 		r = &DataCatalogEncryptionSettings{}
+	case "aws-native:glue:DataQualityRuleset":
+		r = &DataQualityRuleset{}
 	case "aws-native:glue:Database":
 		r = &Database{}
 	case "aws-native:glue:IdentityCenterConfiguration":
@@ -39,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationResourceProperty{}
 	case "aws-native:glue:Job":
 		r = &Job{}
+	case "aws-native:glue:MlTransform":
+		r = &MlTransform{}
 	case "aws-native:glue:Registry":
 		r = &Registry{}
 	case "aws-native:glue:Schema":
@@ -47,12 +55,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SchemaVersion{}
 	case "aws-native:glue:SchemaVersionMetadata":
 		r = &SchemaVersionMetadata{}
+	case "aws-native:glue:SecurityConfiguration":
+		r = &SecurityConfiguration{}
+	case "aws-native:glue:TableOptimizer":
+		r = &TableOptimizer{}
 	case "aws-native:glue:Trigger":
 		r = &Trigger{}
 	case "aws-native:glue:UsageProfile":
 		r = &UsageProfile{}
 	case "aws-native:glue:UserDefinedFunction":
 		r = &UserDefinedFunction{}
+	case "aws-native:glue:Workflow":
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

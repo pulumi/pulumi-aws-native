@@ -10,10 +10,20 @@ export type Collection = import("./collection").Collection;
 export const Collection: typeof import("./collection").Collection = null as any;
 utilities.lazyLoad(exports, ["Collection"], () => require("./collection"));
 
+export { DatasetArgs } from "./dataset";
+export type Dataset = import("./dataset").Dataset;
+export const Dataset: typeof import("./dataset").Dataset = null as any;
+utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
+
 export { GetCollectionArgs, GetCollectionResult, GetCollectionOutputArgs } from "./getCollection";
 export const getCollection: typeof import("./getCollection").getCollection = null as any;
 export const getCollectionOutput: typeof import("./getCollection").getCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getCollection","getCollectionOutput"], () => require("./getCollection"));
+
+export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
+export const getDataset: typeof import("./getDataset").getDataset = null as any;
+export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
 
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
@@ -36,12 +46,17 @@ export const StreamProcessor: typeof import("./streamProcessor").StreamProcessor
 utilities.lazyLoad(exports, ["StreamProcessor"], () => require("./streamProcessor"));
 
 
+// Export enums:
+export * from "../types/enums/rekognition";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
             case "aws-native:rekognition:Collection":
                 return new Collection(name, <any>undefined, { urn })
+            case "aws-native:rekognition:Dataset":
+                return new Dataset(name, <any>undefined, { urn })
             case "aws-native:rekognition:Project":
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:rekognition:StreamProcessor":

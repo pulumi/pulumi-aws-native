@@ -1247,3 +1247,14 @@ export const PromptVersionPromptTemplateType = {
  * Prompt template type
  */
 export type PromptVersionPromptTemplateType = (typeof PromptVersionPromptTemplateType)[keyof typeof PromptVersionPromptTemplateType];
+
+export const SessionStatus = {
+    Active: "ACTIVE",
+    Expired: "EXPIRED",
+    Ended: "ENDED",
+} as const;
+
+/**
+ * The current status of the session.
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];

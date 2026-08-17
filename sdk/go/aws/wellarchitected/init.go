@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Profile{}
 	case "aws-native:wellarchitected:ReviewTemplate":
 		r = &ReviewTemplate{}
+	case "aws-native:wellarchitected:Workload":
+		r = &Workload{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

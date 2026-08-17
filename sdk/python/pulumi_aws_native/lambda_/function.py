@@ -68,7 +68,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[_builtins.str] description: A description of the function.
-        :param pulumi.Input['FunctionDurableConfigArgs'] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+        :param pulumi.Input['FunctionDurableConfigArgs'] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Environment variables that are accessible from function code during execution.
         :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]] file_system_configs: Connection settings for an Amazon EFS or Amazon S3 Files file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) or [AWS::S3Files::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3files-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
@@ -257,7 +257,7 @@ class FunctionArgs:
     @pulumi.getter(name="durableConfig")
     def durable_config(self) -> pulumi.Input[Optional['FunctionDurableConfigArgs']]:
         """
-        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
         """
         return pulumi.get(self, "durable_config")
 
@@ -814,7 +814,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[_builtins.str] description: A description of the function.
-        :param pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+        :param pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
         :param pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']] environment: Environment variables that are accessible from function code during execution.
         :param pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]] file_system_configs: Connection settings for an Amazon EFS or Amazon S3 Files file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) or [AWS::S3Files::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3files-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
@@ -1285,7 +1285,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="durableConfig")
     def durable_config(self) -> pulumi.Output[Optional['outputs.FunctionDurableConfig']]:
         """
-        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
         """
         return pulumi.get(self, "durable_config")
 

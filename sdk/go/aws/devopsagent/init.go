@@ -23,12 +23,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:devopsagent:AgentSpace":
 		r = &AgentSpace{}
+	case "aws-native:devopsagent:Asset":
+		r = &Asset{}
 	case "aws-native:devopsagent:Association":
 		r = &Association{}
 	case "aws-native:devopsagent:PrivateConnection":
 		r = &PrivateConnection{}
 	case "aws-native:devopsagent:Service":
 		r = &Service{}
+	case "aws-native:devopsagent:Trigger":
+		r = &Trigger{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

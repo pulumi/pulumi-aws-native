@@ -1011,182 +1011,6 @@ func (in *ec2FleetCapacityReservationOptionsRequestUsageStrategyPtr) ToEc2FleetC
 	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
-// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-type Ec2FleetEbsBlockDeviceVolumeType string
-
-const (
-	Ec2FleetEbsBlockDeviceVolumeTypeGp2      = Ec2FleetEbsBlockDeviceVolumeType("gp2")
-	Ec2FleetEbsBlockDeviceVolumeTypeGp3      = Ec2FleetEbsBlockDeviceVolumeType("gp3")
-	Ec2FleetEbsBlockDeviceVolumeTypeIo1      = Ec2FleetEbsBlockDeviceVolumeType("io1")
-	Ec2FleetEbsBlockDeviceVolumeTypeIo2      = Ec2FleetEbsBlockDeviceVolumeType("io2")
-	Ec2FleetEbsBlockDeviceVolumeTypeSc1      = Ec2FleetEbsBlockDeviceVolumeType("sc1")
-	Ec2FleetEbsBlockDeviceVolumeTypeSt1      = Ec2FleetEbsBlockDeviceVolumeType("st1")
-	Ec2FleetEbsBlockDeviceVolumeTypeStandard = Ec2FleetEbsBlockDeviceVolumeType("standard")
-)
-
-func (Ec2FleetEbsBlockDeviceVolumeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ec2FleetEbsBlockDeviceVolumeType)(nil)).Elem()
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToEc2FleetEbsBlockDeviceVolumeTypeOutput() Ec2FleetEbsBlockDeviceVolumeTypeOutput {
-	return pulumi.ToOutput(e).(Ec2FleetEbsBlockDeviceVolumeTypeOutput)
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToEc2FleetEbsBlockDeviceVolumeTypeOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceVolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(Ec2FleetEbsBlockDeviceVolumeTypeOutput)
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutput() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return e.ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(context.Background())
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return Ec2FleetEbsBlockDeviceVolumeType(e).ToEc2FleetEbsBlockDeviceVolumeTypeOutputWithContext(ctx).ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx)
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Ec2FleetEbsBlockDeviceVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type Ec2FleetEbsBlockDeviceVolumeTypeOutput struct{ *pulumi.OutputState }
-
-func (Ec2FleetEbsBlockDeviceVolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ec2FleetEbsBlockDeviceVolumeType)(nil)).Elem()
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToEc2FleetEbsBlockDeviceVolumeTypeOutput() Ec2FleetEbsBlockDeviceVolumeTypeOutput {
-	return o
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToEc2FleetEbsBlockDeviceVolumeTypeOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceVolumeTypeOutput {
-	return o
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutput() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(context.Background())
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetEbsBlockDeviceVolumeType) *Ec2FleetEbsBlockDeviceVolumeType {
-		return &v
-	}).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetEbsBlockDeviceVolumeType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetEbsBlockDeviceVolumeType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type Ec2FleetEbsBlockDeviceVolumeTypePtrOutput struct{ *pulumi.OutputState }
-
-func (Ec2FleetEbsBlockDeviceVolumeTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ec2FleetEbsBlockDeviceVolumeType)(nil)).Elem()
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypePtrOutput) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutput() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypePtrOutput) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypePtrOutput) Elem() Ec2FleetEbsBlockDeviceVolumeTypeOutput {
-	return o.ApplyT(func(v *Ec2FleetEbsBlockDeviceVolumeType) Ec2FleetEbsBlockDeviceVolumeType {
-		if v != nil {
-			return *v
-		}
-		var ret Ec2FleetEbsBlockDeviceVolumeType
-		return ret
-	}).(Ec2FleetEbsBlockDeviceVolumeTypeOutput)
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o Ec2FleetEbsBlockDeviceVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ec2FleetEbsBlockDeviceVolumeType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// Ec2FleetEbsBlockDeviceVolumeTypeInput is an input type that accepts values of the Ec2FleetEbsBlockDeviceVolumeType enum
-// A concrete instance of `Ec2FleetEbsBlockDeviceVolumeTypeInput` can be one of the following:
-//
-//	Ec2FleetEbsBlockDeviceVolumeTypeGp2
-//	Ec2FleetEbsBlockDeviceVolumeTypeGp3
-//	Ec2FleetEbsBlockDeviceVolumeTypeIo1
-//	Ec2FleetEbsBlockDeviceVolumeTypeIo2
-//	Ec2FleetEbsBlockDeviceVolumeTypeSc1
-//	Ec2FleetEbsBlockDeviceVolumeTypeSt1
-//	Ec2FleetEbsBlockDeviceVolumeTypeStandard
-type Ec2FleetEbsBlockDeviceVolumeTypeInput interface {
-	pulumi.Input
-
-	ToEc2FleetEbsBlockDeviceVolumeTypeOutput() Ec2FleetEbsBlockDeviceVolumeTypeOutput
-	ToEc2FleetEbsBlockDeviceVolumeTypeOutputWithContext(context.Context) Ec2FleetEbsBlockDeviceVolumeTypeOutput
-}
-
-var ec2FleetEbsBlockDeviceVolumeTypePtrType = reflect.TypeOf((**Ec2FleetEbsBlockDeviceVolumeType)(nil)).Elem()
-
-type Ec2FleetEbsBlockDeviceVolumeTypePtrInput interface {
-	pulumi.Input
-
-	ToEc2FleetEbsBlockDeviceVolumeTypePtrOutput() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput
-	ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(context.Context) Ec2FleetEbsBlockDeviceVolumeTypePtrOutput
-}
-
-type ec2FleetEbsBlockDeviceVolumeTypePtr string
-
-func Ec2FleetEbsBlockDeviceVolumeTypePtr(v string) Ec2FleetEbsBlockDeviceVolumeTypePtrInput {
-	return (*ec2FleetEbsBlockDeviceVolumeTypePtr)(&v)
-}
-
-func (*ec2FleetEbsBlockDeviceVolumeTypePtr) ElementType() reflect.Type {
-	return ec2FleetEbsBlockDeviceVolumeTypePtrType
-}
-
-func (in *ec2FleetEbsBlockDeviceVolumeTypePtr) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutput() Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return pulumi.ToOutput(in).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
-}
-
-func (in *ec2FleetEbsBlockDeviceVolumeTypePtr) ToEc2FleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) Ec2FleetEbsBlockDeviceVolumeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput)
-}
-
 // Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
 //
 // Supported only for fleets of type `maintain` .
@@ -10968,182 +10792,6 @@ func (in *snapshotBlockPublicAccessStateEnumPtr) ToSnapshotBlockPublicAccessStat
 	return pulumi.ToOutputWithContext(ctx, in).(SnapshotBlockPublicAccessStateEnumPtrOutput)
 }
 
-// The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide* .
-type SpotFleetEbsBlockDeviceVolumeType string
-
-const (
-	SpotFleetEbsBlockDeviceVolumeTypeGp2      = SpotFleetEbsBlockDeviceVolumeType("gp2")
-	SpotFleetEbsBlockDeviceVolumeTypeGp3      = SpotFleetEbsBlockDeviceVolumeType("gp3")
-	SpotFleetEbsBlockDeviceVolumeTypeIo1      = SpotFleetEbsBlockDeviceVolumeType("io1")
-	SpotFleetEbsBlockDeviceVolumeTypeIo2      = SpotFleetEbsBlockDeviceVolumeType("io2")
-	SpotFleetEbsBlockDeviceVolumeTypeSc1      = SpotFleetEbsBlockDeviceVolumeType("sc1")
-	SpotFleetEbsBlockDeviceVolumeTypeSt1      = SpotFleetEbsBlockDeviceVolumeType("st1")
-	SpotFleetEbsBlockDeviceVolumeTypeStandard = SpotFleetEbsBlockDeviceVolumeType("standard")
-)
-
-func (SpotFleetEbsBlockDeviceVolumeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeType)(nil)).Elem()
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToSpotFleetEbsBlockDeviceVolumeTypeOutput() SpotFleetEbsBlockDeviceVolumeTypeOutput {
-	return pulumi.ToOutput(e).(SpotFleetEbsBlockDeviceVolumeTypeOutput)
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToSpotFleetEbsBlockDeviceVolumeTypeOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SpotFleetEbsBlockDeviceVolumeTypeOutput)
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutput() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return e.ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return SpotFleetEbsBlockDeviceVolumeType(e).ToSpotFleetEbsBlockDeviceVolumeTypeOutputWithContext(ctx).ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx)
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SpotFleetEbsBlockDeviceVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SpotFleetEbsBlockDeviceVolumeTypeOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetEbsBlockDeviceVolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeType)(nil)).Elem()
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToSpotFleetEbsBlockDeviceVolumeTypeOutput() SpotFleetEbsBlockDeviceVolumeTypeOutput {
-	return o
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToSpotFleetEbsBlockDeviceVolumeTypeOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypeOutput {
-	return o
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutput() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetEbsBlockDeviceVolumeType) *SpotFleetEbsBlockDeviceVolumeType {
-		return &v
-	}).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetEbsBlockDeviceVolumeType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SpotFleetEbsBlockDeviceVolumeType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetEbsBlockDeviceVolumeTypePtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetEbsBlockDeviceVolumeType)(nil)).Elem()
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutput() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return o
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) Elem() SpotFleetEbsBlockDeviceVolumeTypeOutput {
-	return o.ApplyT(func(v *SpotFleetEbsBlockDeviceVolumeType) SpotFleetEbsBlockDeviceVolumeType {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetEbsBlockDeviceVolumeType
-		return ret
-	}).(SpotFleetEbsBlockDeviceVolumeTypeOutput)
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SpotFleetEbsBlockDeviceVolumeType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SpotFleetEbsBlockDeviceVolumeTypeInput is an input type that accepts values of the SpotFleetEbsBlockDeviceVolumeType enum
-// A concrete instance of `SpotFleetEbsBlockDeviceVolumeTypeInput` can be one of the following:
-//
-//	SpotFleetEbsBlockDeviceVolumeTypeGp2
-//	SpotFleetEbsBlockDeviceVolumeTypeGp3
-//	SpotFleetEbsBlockDeviceVolumeTypeIo1
-//	SpotFleetEbsBlockDeviceVolumeTypeIo2
-//	SpotFleetEbsBlockDeviceVolumeTypeSc1
-//	SpotFleetEbsBlockDeviceVolumeTypeSt1
-//	SpotFleetEbsBlockDeviceVolumeTypeStandard
-type SpotFleetEbsBlockDeviceVolumeTypeInput interface {
-	pulumi.Input
-
-	ToSpotFleetEbsBlockDeviceVolumeTypeOutput() SpotFleetEbsBlockDeviceVolumeTypeOutput
-	ToSpotFleetEbsBlockDeviceVolumeTypeOutputWithContext(context.Context) SpotFleetEbsBlockDeviceVolumeTypeOutput
-}
-
-var spotFleetEbsBlockDeviceVolumeTypePtrType = reflect.TypeOf((**SpotFleetEbsBlockDeviceVolumeType)(nil)).Elem()
-
-type SpotFleetEbsBlockDeviceVolumeTypePtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetEbsBlockDeviceVolumeTypePtrOutput() SpotFleetEbsBlockDeviceVolumeTypePtrOutput
-	ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(context.Context) SpotFleetEbsBlockDeviceVolumeTypePtrOutput
-}
-
-type spotFleetEbsBlockDeviceVolumeTypePtr string
-
-func SpotFleetEbsBlockDeviceVolumeTypePtr(v string) SpotFleetEbsBlockDeviceVolumeTypePtrInput {
-	return (*spotFleetEbsBlockDeviceVolumeTypePtr)(&v)
-}
-
-func (*spotFleetEbsBlockDeviceVolumeTypePtr) ElementType() reflect.Type {
-	return spotFleetEbsBlockDeviceVolumeTypePtrType
-}
-
-func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutput() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return pulumi.ToOutput(in).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
-}
-
-func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
-}
-
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem string
 
 const (
@@ -15654,7 +15302,6 @@ func (in *vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ToVpcBlockPubl
 	return pulumi.ToOutputWithContext(ctx, in).(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput)
 }
 
-// The desired exclusion mode for Egress-Only Internet Gateways.
 type VpcEncryptionControlEgressOnlyInternetGatewayExclusion string
 
 const (
@@ -15986,7 +15633,6 @@ func (in *vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnumPtr) To
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnumPtrOutput)
 }
 
-// The desired exclusion mode for Elastic File System.
 type VpcEncryptionControlElasticFileSystemExclusion string
 
 const (
@@ -16318,7 +15964,6 @@ func (in *vpcEncryptionControlElasticFileSystemExclusionInputEnumPtr) ToVpcEncry
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlElasticFileSystemExclusionInputEnumPtrOutput)
 }
 
-// The desired exclusion mode for Internet Gateways.
 type VpcEncryptionControlInternetGatewayExclusion string
 
 const (
@@ -16650,7 +16295,6 @@ func (in *vpcEncryptionControlInternetGatewayExclusionInputEnumPtr) ToVpcEncrypt
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlInternetGatewayExclusionInputEnumPtrOutput)
 }
 
-// The desired exclusion mode for Lambda.
 type VpcEncryptionControlLambdaExclusion string
 
 const (
@@ -17148,7 +16792,6 @@ func (in *vpcEncryptionControlModePtr) ToVpcEncryptionControlModePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlModePtrOutput)
 }
 
-// The desired exclusion mode for NAT Gateways.
 type VpcEncryptionControlNatGatewayExclusion string
 
 const (
@@ -17578,7 +17221,6 @@ func (o VpcEncryptionControlStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired exclusion mode for Virtual Private Gateways.
 type VpcEncryptionControlVirtualPrivateGatewayExclusion string
 
 const (
@@ -17910,7 +17552,6 @@ func (in *vpcEncryptionControlVirtualPrivateGatewayExclusionInputEnumPtr) ToVpcE
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnumPtrOutput)
 }
 
-// The desired exclusion mode for VPC Lattice.
 type VpcEncryptionControlVpcLatticeExclusion string
 
 const (
@@ -18242,7 +17883,6 @@ func (in *vpcEncryptionControlVpcLatticeExclusionInputEnumPtr) ToVpcEncryptionCo
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlVpcLatticeExclusionInputEnumPtrOutput)
 }
 
-// The desired exclusion mode for VPC Peering.
 type VpcEncryptionControlVpcPeeringExclusion string
 
 const (
@@ -21505,8 +21145,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityRebalanceReplacementStrategyPtrInput)(nil)).Elem(), Ec2FleetCapacityRebalanceReplacementStrategy("launch"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestUsageStrategyInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestUsageStrategy("use-capacity-reservations-first"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestUsageStrategy("use-capacity-reservations-first"))
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetEbsBlockDeviceVolumeTypeInput)(nil)).Elem(), Ec2FleetEbsBlockDeviceVolumeType("gp2"))
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetEbsBlockDeviceVolumeTypePtrInput)(nil)).Elem(), Ec2FleetEbsBlockDeviceVolumeType("gp2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetExcessCapacityTerminationPolicyInput)(nil)).Elem(), Ec2FleetExcessCapacityTerminationPolicy("termination"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetExcessCapacityTerminationPolicyPtrInput)(nil)).Elem(), Ec2FleetExcessCapacityTerminationPolicy("termination"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceMetadataOptionsRequestHttpEndpointInput)(nil)).Elem(), Ec2FleetInstanceMetadataOptionsRequestHttpEndpoint("disabled"))
@@ -21617,8 +21255,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPersistRoutesPtrInput)(nil)).Elem(), RouteServerPersistRoutes("enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumPtrInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeTypeInput)(nil)).Elem(), SpotFleetEbsBlockDeviceVolumeType("gp2"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeTypePtrInput)(nil)).Elem(), SpotFleetEbsBlockDeviceVolumeType("gp2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{})
@@ -21753,8 +21389,6 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetCapacityRebalanceReplacementStrategyPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestUsageStrategyOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput{})
-	pulumi.RegisterOutputType(Ec2FleetEbsBlockDeviceVolumeTypeOutput{})
-	pulumi.RegisterOutputType(Ec2FleetEbsBlockDeviceVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetExcessCapacityTerminationPolicyOutput{})
 	pulumi.RegisterOutputType(Ec2FleetExcessCapacityTerminationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceMetadataOptionsRequestHttpEndpointOutput{})
@@ -21881,8 +21515,6 @@ func init() {
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypeOutput{})
-	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput{})

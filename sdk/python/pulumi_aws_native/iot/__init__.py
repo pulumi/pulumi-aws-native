@@ -31,6 +31,7 @@ from .get_dimension import *
 from .get_domain_configuration import *
 from .get_encryption_configuration import *
 from .get_fleet_metric import *
+from .get_job import *
 from .get_job_template import *
 from .get_logging import *
 from .get_mitigation_action import *
@@ -47,6 +48,7 @@ from .get_thing_group import *
 from .get_thing_type import *
 from .get_topic_rule import *
 from .get_topic_rule_destination import *
+from .job import *
 from .job_template import *
 from .logging import *
 from .mitigation_action import *

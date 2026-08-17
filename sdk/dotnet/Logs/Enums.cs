@@ -412,6 +412,36 @@ namespace Pulumi.AwsNative.Logs
     }
 
     /// <summary>
+    /// The storage tier to apply. Only INTELLIGENT_TIERING is accepted for creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageTierPolicyStorageTier : IEquatable<StorageTierPolicyStorageTier>
+    {
+        private readonly string _value;
+
+        private StorageTierPolicyStorageTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageTierPolicyStorageTier IntelligentTiering { get; } = new StorageTierPolicyStorageTier("INTELLIGENT_TIERING");
+
+        public static bool operator ==(StorageTierPolicyStorageTier left, StorageTierPolicyStorageTier right) => left.Equals(right);
+        public static bool operator !=(StorageTierPolicyStorageTier left, StorageTierPolicyStorageTier right) => !left.Equals(right);
+
+        public static explicit operator string(StorageTierPolicyStorageTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageTierPolicyStorageTier other && Equals(other);
+        public bool Equals(StorageTierPolicyStorageTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
     /// </summary>
     [EnumType]

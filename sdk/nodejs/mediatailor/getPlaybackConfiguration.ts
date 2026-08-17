@@ -35,6 +35,14 @@ export interface GetPlaybackConfigurationResult {
      */
     readonly adDecisionServerUrl?: string;
     /**
+     * The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
+     */
+    readonly adsPersonalizationConcurrency?: outputs.mediatailor.PlaybackConfigurationAdsPersonalizationConcurrency;
+    /**
+     * The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
+     */
+    readonly adsPersonalizationTimeouts?: outputs.mediatailor.PlaybackConfigurationAdsPersonalizationTimeouts;
+    /**
      * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
      */
     readonly availSuppression?: outputs.mediatailor.PlaybackConfigurationAvailSuppression;

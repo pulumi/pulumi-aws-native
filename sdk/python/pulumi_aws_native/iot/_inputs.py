@@ -64,10 +64,30 @@ __all__ = [
     'DomainConfigurationTlsConfigArgsDict',
     'FleetMetricAggregationTypeArgs',
     'FleetMetricAggregationTypeArgsDict',
+    'JobAbortConfigArgs',
+    'JobAbortConfigArgsDict',
+    'JobAbortCriteriaArgs',
+    'JobAbortCriteriaArgsDict',
+    'JobExecutionsRetryConfigArgs',
+    'JobExecutionsRetryConfigArgsDict',
     'JobExecutionsRetryConfigPropertiesArgs',
     'JobExecutionsRetryConfigPropertiesArgsDict',
+    'JobExecutionsRolloutConfigArgs',
+    'JobExecutionsRolloutConfigArgsDict',
     'JobExecutionsRolloutConfigPropertiesArgs',
     'JobExecutionsRolloutConfigPropertiesArgsDict',
+    'JobExponentialRolloutRateArgs',
+    'JobExponentialRolloutRateArgsDict',
+    'JobMaintenanceWindowArgs',
+    'JobMaintenanceWindowArgsDict',
+    'JobPresignedUrlConfigArgs',
+    'JobPresignedUrlConfigArgsDict',
+    'JobRateIncreaseCriteriaArgs',
+    'JobRateIncreaseCriteriaArgsDict',
+    'JobRetryCriteriaArgs',
+    'JobRetryCriteriaArgsDict',
+    'JobSchedulingConfigArgs',
+    'JobSchedulingConfigArgsDict',
     'JobTemplateAbortCriteriaArgs',
     'JobTemplateAbortCriteriaArgsDict',
     'JobTemplateExponentialRolloutRateArgs',
@@ -78,6 +98,8 @@ __all__ = [
     'JobTemplateRateIncreaseCriteriaArgsDict',
     'JobTemplateRetryCriteriaArgs',
     'JobTemplateRetryCriteriaArgsDict',
+    'JobTimeoutConfigArgs',
+    'JobTimeoutConfigArgsDict',
     'LoggingEventConfigurationArgs',
     'LoggingEventConfigurationArgsDict',
     'MetricsExportConfigPropertiesArgs',
@@ -1639,6 +1661,162 @@ class FleetMetricAggregationTypeArgs:
         pulumi.set(self, "values", value)
 
 
+class JobAbortConfigArgsDict(TypedDict):
+    """
+    The criteria that determine when and how a job abort takes place.
+    """
+    criteria_list: pulumi.Input[Sequence[pulumi.Input['JobAbortCriteriaArgsDict']]]
+    """
+    The list of criteria that determine when and how to abort the job.
+    """
+
+@pulumi.input_type
+class JobAbortConfigArgs:
+    def __init__(__self__, *,
+                 criteria_list: pulumi.Input[Sequence[pulumi.Input['JobAbortCriteriaArgs']]]):
+        """
+        The criteria that determine when and how a job abort takes place.
+
+        :param pulumi.Input[Sequence[pulumi.Input['JobAbortCriteriaArgs']]] criteria_list: The list of criteria that determine when and how to abort the job.
+        """
+        pulumi.set(__self__, "criteria_list", criteria_list)
+
+    @_builtins.property
+    @pulumi.getter(name="criteriaList")
+    def criteria_list(self) -> pulumi.Input[Sequence[pulumi.Input['JobAbortCriteriaArgs']]]:
+        """
+        The list of criteria that determine when and how to abort the job.
+        """
+        return pulumi.get(self, "criteria_list")
+
+    @criteria_list.setter
+    def criteria_list(self, value: pulumi.Input[Sequence[pulumi.Input['JobAbortCriteriaArgs']]]):
+        pulumi.set(self, "criteria_list", value)
+
+
+class JobAbortCriteriaArgsDict(TypedDict):
+    """
+    The criteria that determine when and how a job abort takes place.
+    """
+    action: pulumi.Input['JobAbortCriteriaAction']
+    """
+    The type of job action to take to initiate the job abort.
+    """
+    failure_type: pulumi.Input['JobAbortCriteriaFailureType']
+    """
+    The type of job execution failures that can initiate a job abort.
+    """
+    min_number_of_executed_things: pulumi.Input[_builtins.int]
+    """
+    The minimum number of things which must receive job execution notifications before the job can be aborted.
+    """
+    threshold_percentage: pulumi.Input[_builtins.float]
+    """
+    The minimum percentage of job execution failures that must occur to initiate the job abort.
+    """
+
+@pulumi.input_type
+class JobAbortCriteriaArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['JobAbortCriteriaAction'],
+                 failure_type: pulumi.Input['JobAbortCriteriaFailureType'],
+                 min_number_of_executed_things: pulumi.Input[_builtins.int],
+                 threshold_percentage: pulumi.Input[_builtins.float]):
+        """
+        The criteria that determine when and how a job abort takes place.
+
+        :param pulumi.Input['JobAbortCriteriaAction'] action: The type of job action to take to initiate the job abort.
+        :param pulumi.Input['JobAbortCriteriaFailureType'] failure_type: The type of job execution failures that can initiate a job abort.
+        :param pulumi.Input[_builtins.int] min_number_of_executed_things: The minimum number of things which must receive job execution notifications before the job can be aborted.
+        :param pulumi.Input[_builtins.float] threshold_percentage: The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['JobAbortCriteriaAction']:
+        """
+        The type of job action to take to initiate the job abort.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['JobAbortCriteriaAction']):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> pulumi.Input['JobAbortCriteriaFailureType']:
+        """
+        The type of job execution failures that can initiate a job abort.
+        """
+        return pulumi.get(self, "failure_type")
+
+    @failure_type.setter
+    def failure_type(self, value: pulumi.Input['JobAbortCriteriaFailureType']):
+        pulumi.set(self, "failure_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minNumberOfExecutedThings")
+    def min_number_of_executed_things(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum number of things which must receive job execution notifications before the job can be aborted.
+        """
+        return pulumi.get(self, "min_number_of_executed_things")
+
+    @min_number_of_executed_things.setter
+    def min_number_of_executed_things(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "min_number_of_executed_things", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> pulumi.Input[_builtins.float]:
+        """
+        The minimum percentage of job execution failures that must occur to initiate the job abort.
+        """
+        return pulumi.get(self, "threshold_percentage")
+
+    @threshold_percentage.setter
+    def threshold_percentage(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "threshold_percentage", value)
+
+
+class JobExecutionsRetryConfigArgsDict(TypedDict):
+    """
+    The configuration that determines how many retries are allowed for each failure type for a job.
+    """
+    criteria_list: pulumi.Input[Sequence[pulumi.Input['JobRetryCriteriaArgsDict']]]
+    """
+    The list of criteria that determines how many retries are allowed for each failure type for a job.
+    """
+
+@pulumi.input_type
+class JobExecutionsRetryConfigArgs:
+    def __init__(__self__, *,
+                 criteria_list: pulumi.Input[Sequence[pulumi.Input['JobRetryCriteriaArgs']]]):
+        """
+        The configuration that determines how many retries are allowed for each failure type for a job.
+
+        :param pulumi.Input[Sequence[pulumi.Input['JobRetryCriteriaArgs']]] criteria_list: The list of criteria that determines how many retries are allowed for each failure type for a job.
+        """
+        pulumi.set(__self__, "criteria_list", criteria_list)
+
+    @_builtins.property
+    @pulumi.getter(name="criteriaList")
+    def criteria_list(self) -> pulumi.Input[Sequence[pulumi.Input['JobRetryCriteriaArgs']]]:
+        """
+        The list of criteria that determines how many retries are allowed for each failure type for a job.
+        """
+        return pulumi.get(self, "criteria_list")
+
+    @criteria_list.setter
+    def criteria_list(self, value: pulumi.Input[Sequence[pulumi.Input['JobRetryCriteriaArgs']]]):
+        pulumi.set(self, "criteria_list", value)
+
+
 class JobExecutionsRetryConfigPropertiesArgsDict(TypedDict):
     """
     Allows you to create the criteria to retry a job.
@@ -1671,6 +1849,53 @@ class JobExecutionsRetryConfigPropertiesArgs:
     @retry_criteria_list.setter
     def retry_criteria_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]):
         pulumi.set(self, "retry_criteria_list", value)
+
+
+class JobExecutionsRolloutConfigArgsDict(TypedDict):
+    """
+    Allows you to create a staged rollout of a job.
+    """
+    exponential_rate: NotRequired[pulumi.Input[Optional['JobExponentialRolloutRateArgsDict']]]
+    maximum_per_minute: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+    """
+
+@pulumi.input_type
+class JobExecutionsRolloutConfigArgs:
+    def __init__(__self__, *,
+                 exponential_rate: pulumi.Input[Optional['JobExponentialRolloutRateArgs']] = None,
+                 maximum_per_minute: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Allows you to create a staged rollout of a job.
+
+        :param pulumi.Input[_builtins.int] maximum_per_minute: The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+        """
+        if exponential_rate is not None:
+            pulumi.set(__self__, "exponential_rate", exponential_rate)
+        if maximum_per_minute is not None:
+            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+
+    @_builtins.property
+    @pulumi.getter(name="exponentialRate")
+    def exponential_rate(self) -> pulumi.Input[Optional['JobExponentialRolloutRateArgs']]:
+        return pulumi.get(self, "exponential_rate")
+
+    @exponential_rate.setter
+    def exponential_rate(self, value: pulumi.Input[Optional['JobExponentialRolloutRateArgs']]):
+        pulumi.set(self, "exponential_rate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumPerMinute")
+    def maximum_per_minute(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+        """
+        return pulumi.get(self, "maximum_per_minute")
+
+    @maximum_per_minute.setter
+    def maximum_per_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_per_minute", value)
 
 
 class JobExecutionsRolloutConfigPropertiesArgsDict(TypedDict):
@@ -1725,6 +1950,376 @@ class JobExecutionsRolloutConfigPropertiesArgs:
     @maximum_per_minute.setter
     def maximum_per_minute(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_per_minute", value)
+
+
+class JobExponentialRolloutRateArgsDict(TypedDict):
+    """
+    Allows you to create an exponential rate of rollout for a job.
+    """
+    base_rate_per_minute: pulumi.Input[_builtins.int]
+    """
+    The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+    """
+    increment_factor: pulumi.Input[_builtins.float]
+    """
+    The exponential factor to increase the rate of rollout for a job.
+    """
+    rate_increase_criteria: pulumi.Input['JobRateIncreaseCriteriaArgsDict']
+
+@pulumi.input_type
+class JobExponentialRolloutRateArgs:
+    def __init__(__self__, *,
+                 base_rate_per_minute: pulumi.Input[_builtins.int],
+                 increment_factor: pulumi.Input[_builtins.float],
+                 rate_increase_criteria: pulumi.Input['JobRateIncreaseCriteriaArgs']):
+        """
+        Allows you to create an exponential rate of rollout for a job.
+
+        :param pulumi.Input[_builtins.int] base_rate_per_minute: The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+        :param pulumi.Input[_builtins.float] increment_factor: The exponential factor to increase the rate of rollout for a job.
+        """
+        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
+        pulumi.set(__self__, "increment_factor", increment_factor)
+        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="baseRatePerMinute")
+    def base_rate_per_minute(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+        """
+        return pulumi.get(self, "base_rate_per_minute")
+
+    @base_rate_per_minute.setter
+    def base_rate_per_minute(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "base_rate_per_minute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incrementFactor")
+    def increment_factor(self) -> pulumi.Input[_builtins.float]:
+        """
+        The exponential factor to increase the rate of rollout for a job.
+        """
+        return pulumi.get(self, "increment_factor")
+
+    @increment_factor.setter
+    def increment_factor(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "increment_factor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rateIncreaseCriteria")
+    def rate_increase_criteria(self) -> pulumi.Input['JobRateIncreaseCriteriaArgs']:
+        return pulumi.get(self, "rate_increase_criteria")
+
+    @rate_increase_criteria.setter
+    def rate_increase_criteria(self, value: pulumi.Input['JobRateIncreaseCriteriaArgs']):
+        pulumi.set(self, "rate_increase_criteria", value)
+
+
+class JobMaintenanceWindowArgsDict(TypedDict):
+    """
+    An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+    """
+    duration_in_minutes: pulumi.Input[_builtins.int]
+    """
+    Displays the duration of the next maintenance window.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    Displays the start time of the next maintenance window.
+    """
+
+@pulumi.input_type
+class JobMaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 duration_in_minutes: pulumi.Input[_builtins.int],
+                 start_time: pulumi.Input[_builtins.str]):
+        """
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+
+        :param pulumi.Input[_builtins.int] duration_in_minutes: Displays the duration of the next maintenance window.
+        :param pulumi.Input[_builtins.str] start_time: Displays the start time of the next maintenance window.
+        """
+        pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="durationInMinutes")
+    def duration_in_minutes(self) -> pulumi.Input[_builtins.int]:
+        """
+        Displays the duration of the next maintenance window.
+        """
+        return pulumi.get(self, "duration_in_minutes")
+
+    @duration_in_minutes.setter
+    def duration_in_minutes(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "duration_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        Displays the start time of the next maintenance window.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "start_time", value)
+
+
+class JobPresignedUrlConfigArgsDict(TypedDict):
+    """
+    Configuration for pre-signed S3 URLs.
+    """
+    expires_in_sec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+    """
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+    """
+
+@pulumi.input_type
+class JobPresignedUrlConfigArgs:
+    def __init__(__self__, *,
+                 expires_in_sec: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration for pre-signed S3 URLs.
+
+        :param pulumi.Input[_builtins.int] expires_in_sec: How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+        """
+        if expires_in_sec is not None:
+            pulumi.set(__self__, "expires_in_sec", expires_in_sec)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="expiresInSec")
+    def expires_in_sec(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds.
+        """
+        return pulumi.get(self, "expires_in_sec")
+
+    @expires_in_sec.setter
+    def expires_in_sec(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "expires_in_sec", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of an IAM role that grants permission to download files from the S3 bucket where the job data/updates are stored.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+class JobRateIncreaseCriteriaArgsDict(TypedDict):
+    """
+    Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+    """
+    number_of_notified_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The threshold for number of notified things that will initiate the increase in rate of rollout.
+    """
+    number_of_succeeded_things: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+    """
+
+@pulumi.input_type
+class JobRateIncreaseCriteriaArgs:
+    def __init__(__self__, *,
+                 number_of_notified_things: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_succeeded_things: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Allows you to define a criteria to initiate the increase in rate of rollout for a job.
+
+        :param pulumi.Input[_builtins.int] number_of_notified_things: The threshold for number of notified things that will initiate the increase in rate of rollout.
+        :param pulumi.Input[_builtins.int] number_of_succeeded_things: The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        """
+        if number_of_notified_things is not None:
+            pulumi.set(__self__, "number_of_notified_things", number_of_notified_things)
+        if number_of_succeeded_things is not None:
+            pulumi.set(__self__, "number_of_succeeded_things", number_of_succeeded_things)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfNotifiedThings")
+    def number_of_notified_things(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The threshold for number of notified things that will initiate the increase in rate of rollout.
+        """
+        return pulumi.get(self, "number_of_notified_things")
+
+    @number_of_notified_things.setter
+    def number_of_notified_things(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_notified_things", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSucceededThings")
+    def number_of_succeeded_things(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+        """
+        return pulumi.get(self, "number_of_succeeded_things")
+
+    @number_of_succeeded_things.setter
+    def number_of_succeeded_things(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_succeeded_things", value)
+
+
+class JobRetryCriteriaArgsDict(TypedDict):
+    """
+    The criteria that determines how many retries are allowed for each failure type for a job.
+    """
+    failure_type: pulumi.Input['JobRetryCriteriaFailureType']
+    """
+    The type of job execution failures that can initiate a job retry.
+    """
+    number_of_retries: pulumi.Input[_builtins.int]
+    """
+    The number of retries allowed for a failure type for the job.
+    """
+
+@pulumi.input_type
+class JobRetryCriteriaArgs:
+    def __init__(__self__, *,
+                 failure_type: pulumi.Input['JobRetryCriteriaFailureType'],
+                 number_of_retries: pulumi.Input[_builtins.int]):
+        """
+        The criteria that determines how many retries are allowed for each failure type for a job.
+
+        :param pulumi.Input['JobRetryCriteriaFailureType'] failure_type: The type of job execution failures that can initiate a job retry.
+        :param pulumi.Input[_builtins.int] number_of_retries: The number of retries allowed for a failure type for the job.
+        """
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "number_of_retries", number_of_retries)
+
+    @_builtins.property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> pulumi.Input['JobRetryCriteriaFailureType']:
+        """
+        The type of job execution failures that can initiate a job retry.
+        """
+        return pulumi.get(self, "failure_type")
+
+    @failure_type.setter
+    def failure_type(self, value: pulumi.Input['JobRetryCriteriaFailureType']):
+        pulumi.set(self, "failure_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfRetries")
+    def number_of_retries(self) -> pulumi.Input[_builtins.int]:
+        """
+        The number of retries allowed for a failure type for the job.
+        """
+        return pulumi.get(self, "number_of_retries")
+
+    @number_of_retries.setter
+    def number_of_retries(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "number_of_retries", value)
+
+
+class JobSchedulingConfigArgsDict(TypedDict):
+    """
+    Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group.
+    """
+    end_behavior: NotRequired[pulumi.Input[Optional['JobSchedulingConfigEndBehavior']]]
+    """
+    Specifies the end behavior for all job executions after a job reaches the selected endTime.
+    """
+    end_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time a job will stop rollout of the job document to all devices in the target group for a job.
+    """
+    maintenance_windows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobMaintenanceWindowArgsDict']]]]]
+    """
+    An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+    """
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time a job will begin rollout of the job document to all devices in the target group for a job.
+    """
+
+@pulumi.input_type
+class JobSchedulingConfigArgs:
+    def __init__(__self__, *,
+                 end_behavior: pulumi.Input[Optional['JobSchedulingConfigEndBehavior']] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input['JobMaintenanceWindowArgs']]]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group.
+
+        :param pulumi.Input['JobSchedulingConfigEndBehavior'] end_behavior: Specifies the end behavior for all job executions after a job reaches the selected endTime.
+        :param pulumi.Input[_builtins.str] end_time: The time a job will stop rollout of the job document to all devices in the target group for a job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobMaintenanceWindowArgs']]] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+        :param pulumi.Input[_builtins.str] start_time: The time a job will begin rollout of the job document to all devices in the target group for a job.
+        """
+        if end_behavior is not None:
+            pulumi.set(__self__, "end_behavior", end_behavior)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if maintenance_windows is not None:
+            pulumi.set(__self__, "maintenance_windows", maintenance_windows)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endBehavior")
+    def end_behavior(self) -> pulumi.Input[Optional['JobSchedulingConfigEndBehavior']]:
+        """
+        Specifies the end behavior for all job executions after a job reaches the selected endTime.
+        """
+        return pulumi.get(self, "end_behavior")
+
+    @end_behavior.setter
+    def end_behavior(self, value: pulumi.Input[Optional['JobSchedulingConfigEndBehavior']]):
+        pulumi.set(self, "end_behavior", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time a job will stop rollout of the job document to all devices in the target group for a job.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindows")
+    def maintenance_windows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobMaintenanceWindowArgs']]]]:
+        """
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window.
+        """
+        return pulumi.get(self, "maintenance_windows")
+
+    @maintenance_windows.setter
+    def maintenance_windows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobMaintenanceWindowArgs']]]]):
+        pulumi.set(self, "maintenance_windows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time a job will begin rollout of the job document to all devices in the target group for a job.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_time", value)
 
 
 class JobTemplateAbortCriteriaArgsDict(TypedDict):
@@ -2043,6 +2638,40 @@ class JobTemplateRetryCriteriaArgs:
     @number_of_retries.setter
     def number_of_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_retries", value)
+
+
+class JobTimeoutConfigArgsDict(TypedDict):
+    """
+    Specifies the amount of time each device has to finish its execution of the job.
+    """
+    in_progress_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+    """
+
+@pulumi.input_type
+class JobTimeoutConfigArgs:
+    def __init__(__self__, *,
+                 in_progress_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Specifies the amount of time each device has to finish its execution of the job.
+
+        :param pulumi.Input[_builtins.int] in_progress_timeout_in_minutes: Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+        """
+        if in_progress_timeout_in_minutes is not None:
+            pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="inProgressTimeoutInMinutes")
+    def in_progress_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+        """
+        return pulumi.get(self, "in_progress_timeout_in_minutes")
+
+    @in_progress_timeout_in_minutes.setter
+    def in_progress_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "in_progress_timeout_in_minutes", value)
 
 
 class LoggingEventConfigurationArgsDict(TypedDict):

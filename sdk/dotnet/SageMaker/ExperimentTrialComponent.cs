@@ -10,74 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// Resource type definition for AWS SageMaker Experiment Trial Component
+    /// Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ExperimentTrialComponent")]
     public partial class ExperimentTrialComponent : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the trial component.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// When the component was created.
-        /// </summary>
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// When the component ended.
-        /// </summary>
         [Output("endTime")]
         public Output<string?> EndTime { get; private set; } = null!;
 
-        /// <summary>
-        /// When the component was last modified.
-        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the lineage group.
-        /// </summary>
         [Output("lineageGroupArn")]
         public Output<string> LineageGroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Metadata properties of the tracking entity, trial, or trial component.
-        /// </summary>
         [Output("metadataProperties")]
-        public Output<Outputs.MetadataPropertiesProperties?> MetadataProperties { get; private set; } = null!;
+        public Output<Outputs.ExperimentTrialComponentMetadataProperties?> MetadataProperties { get; private set; } = null!;
 
-        /// <summary>
-        /// When the component started.
-        /// </summary>
         [Output("startTime")]
         public Output<string?> StartTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of the trial component.
-        /// </summary>
         [Output("status")]
-        public Output<Outputs.StatusProperties?> Status { get; private set; } = null!;
+        public Output<Outputs.ExperimentTrialComponentStatus?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of tags to associate with the component.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
-        /// </summary>
         [Output("trialComponentName")]
         public Output<string> TrialComponentName { get; private set; } = null!;
 
@@ -131,51 +101,29 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ExperimentTrialComponentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// When the component ended.
-        /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
-        /// <summary>
-        /// Metadata properties of the tracking entity, trial, or trial component.
-        /// </summary>
         [Input("metadataProperties")]
-        public Input<Inputs.MetadataPropertiesPropertiesArgs>? MetadataProperties { get; set; }
+        public Input<Inputs.ExperimentTrialComponentMetadataPropertiesArgs>? MetadataProperties { get; set; }
 
-        /// <summary>
-        /// When the component started.
-        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
-        /// <summary>
-        /// The status of the trial component.
-        /// </summary>
         [Input("status")]
-        public Input<Inputs.StatusPropertiesArgs>? Status { get; set; }
+        public Input<Inputs.ExperimentTrialComponentStatusArgs>? Status { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// A list of tags to associate with the component.
-        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
-        /// </summary>
         [Input("trialComponentName")]
         public Input<string>? TrialComponentName { get; set; }
 

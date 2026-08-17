@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Conflict resolution strategy for centralization if the encryption strategy is set to CUSTOMER_MANAGED and the destination log group is encrypted with an AWS_OWNED KMS Key. ALLOW lets centralization go through while SKIP prevents centralization into the destination log group.
         /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy? EncryptionConflictResolutionStrategy;
+        public readonly Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope? EncryptionScope;
         /// <summary>
         /// Configuration that determines the encryption strategy of the destination log groups. CUSTOMER_MANAGED uses the configured KmsKeyArn to encrypt newly created destination log groups.
         /// </summary>
@@ -30,11 +31,14 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         private OrganizationCentralizationRuleLogsEncryptionConfiguration(
             Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy? encryptionConflictResolutionStrategy,
 
+            Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope? encryptionScope,
+
             Pulumi.AwsNative.ObservabilityAdmin.OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy encryptionStrategy,
 
             string? kmsKeyArn)
         {
             EncryptionConflictResolutionStrategy = encryptionConflictResolutionStrategy;
+            EncryptionScope = encryptionScope;
             EncryptionStrategy = encryptionStrategy;
             KmsKeyArn = kmsKeyArn;
         }

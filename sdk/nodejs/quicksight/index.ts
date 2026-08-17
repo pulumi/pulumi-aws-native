@@ -20,6 +20,11 @@ export type Analysis = import("./analysis").Analysis;
 export const Analysis: typeof import("./analysis").Analysis = null as any;
 utilities.lazyLoad(exports, ["Analysis"], () => require("./analysis"));
 
+export { ApprovalPolicyArgs } from "./approvalPolicy";
+export type ApprovalPolicy = import("./approvalPolicy").ApprovalPolicy;
+export const ApprovalPolicy: typeof import("./approvalPolicy").ApprovalPolicy = null as any;
+utilities.lazyLoad(exports, ["ApprovalPolicy"], () => require("./approvalPolicy"));
+
 export { CustomPermissionsArgs } from "./customPermissions";
 export type CustomPermissions = import("./customPermissions").CustomPermissions;
 export const CustomPermissions: typeof import("./customPermissions").CustomPermissions = null as any;
@@ -39,6 +44,11 @@ export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+
+export { DlpSettingArgs } from "./dlpSetting";
+export type DlpSetting = import("./dlpSetting").DlpSetting;
+export const DlpSetting: typeof import("./dlpSetting").DlpSetting = null as any;
+utilities.lazyLoad(exports, ["DlpSetting"], () => require("./dlpSetting"));
 
 export { FlowArgs } from "./flow";
 export type Flow = import("./flow").Flow;
@@ -65,6 +75,11 @@ export const getAnalysis: typeof import("./getAnalysis").getAnalysis = null as a
 export const getAnalysisOutput: typeof import("./getAnalysis").getAnalysisOutput = null as any;
 utilities.lazyLoad(exports, ["getAnalysis","getAnalysisOutput"], () => require("./getAnalysis"));
 
+export { GetApprovalPolicyArgs, GetApprovalPolicyResult, GetApprovalPolicyOutputArgs } from "./getApprovalPolicy";
+export const getApprovalPolicy: typeof import("./getApprovalPolicy").getApprovalPolicy = null as any;
+export const getApprovalPolicyOutput: typeof import("./getApprovalPolicy").getApprovalPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getApprovalPolicy","getApprovalPolicyOutput"], () => require("./getApprovalPolicy"));
+
 export { GetCustomPermissionsArgs, GetCustomPermissionsResult, GetCustomPermissionsOutputArgs } from "./getCustomPermissions";
 export const getCustomPermissions: typeof import("./getCustomPermissions").getCustomPermissions = null as any;
 export const getCustomPermissionsOutput: typeof import("./getCustomPermissions").getCustomPermissionsOutput = null as any;
@@ -84,6 +99,11 @@ export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from 
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+
+export { GetDlpSettingArgs, GetDlpSettingResult, GetDlpSettingOutputArgs } from "./getDlpSetting";
+export const getDlpSetting: typeof import("./getDlpSetting").getDlpSetting = null as any;
+export const getDlpSettingOutput: typeof import("./getDlpSetting").getDlpSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getDlpSetting","getDlpSettingOutput"], () => require("./getDlpSetting"));
 
 export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
 export const getFlow: typeof import("./getFlow").getFlow = null as any;
@@ -125,6 +145,11 @@ export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
 utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
 
+export { GetTopicV2Args, GetTopicV2Result, GetTopicV2OutputArgs } from "./getTopicV2";
+export const getTopicV2: typeof import("./getTopicV2").getTopicV2 = null as any;
+export const getTopicV2Output: typeof import("./getTopicV2").getTopicV2Output = null as any;
+utilities.lazyLoad(exports, ["getTopicV2","getTopicV2Output"], () => require("./getTopicV2"));
+
 export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArgs } from "./getVpcConnection";
 export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
 export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
@@ -165,6 +190,11 @@ export type Topic = import("./topic").Topic;
 export const Topic: typeof import("./topic").Topic = null as any;
 utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
+export { TopicV2Args } from "./topicV2";
+export type TopicV2 = import("./topicV2").TopicV2;
+export const TopicV2: typeof import("./topicV2").TopicV2 = null as any;
+utilities.lazyLoad(exports, ["TopicV2"], () => require("./topicV2"));
+
 export { VpcConnectionArgs } from "./vpcConnection";
 export type VpcConnection = import("./vpcConnection").VpcConnection;
 export const VpcConnection: typeof import("./vpcConnection").VpcConnection = null as any;
@@ -184,6 +214,8 @@ const _module = {
                 return new Agent(name, <any>undefined, { urn })
             case "aws-native:quicksight:Analysis":
                 return new Analysis(name, <any>undefined, { urn })
+            case "aws-native:quicksight:ApprovalPolicy":
+                return new ApprovalPolicy(name, <any>undefined, { urn })
             case "aws-native:quicksight:CustomPermissions":
                 return new CustomPermissions(name, <any>undefined, { urn })
             case "aws-native:quicksight:Dashboard":
@@ -192,6 +224,8 @@ const _module = {
                 return new DataSet(name, <any>undefined, { urn })
             case "aws-native:quicksight:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:quicksight:DlpSetting":
+                return new DlpSetting(name, <any>undefined, { urn })
             case "aws-native:quicksight:Flow":
                 return new Flow(name, <any>undefined, { urn })
             case "aws-native:quicksight:Folder":
@@ -210,6 +244,8 @@ const _module = {
                 return new Theme(name, <any>undefined, { urn })
             case "aws-native:quicksight:Topic":
                 return new Topic(name, <any>undefined, { urn })
+            case "aws-native:quicksight:TopicV2":
+                return new TopicV2(name, <any>undefined, { urn })
             case "aws-native:quicksight:VpcConnection":
                 return new VpcConnection(name, <any>undefined, { urn })
             default:

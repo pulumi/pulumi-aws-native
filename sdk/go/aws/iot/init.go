@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EncryptionConfiguration{}
 	case "aws-native:iot:FleetMetric":
 		r = &FleetMetric{}
+	case "aws-native:iot:Job":
+		r = &Job{}
 	case "aws-native:iot:JobTemplate":
 		r = &JobTemplate{}
 	case "aws-native:iot:Logging":

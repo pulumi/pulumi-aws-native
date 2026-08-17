@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetCodeSecurityScanConfigurationResult:
-    def __init__(__self__, arn=None, configuration=None):
+    def __init__(__self__, arn=None, configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -49,6 +52,14 @@ class GetCodeSecurityScanConfigurationResult:
         """
         return pulumi.get(self, "configuration")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The tags to apply to the scan configuration.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCodeSecurityScanConfigurationResult(GetCodeSecurityScanConfigurationResult):
     # pylint: disable=using-constant-test
@@ -57,7 +68,8 @@ class AwaitableGetCodeSecurityScanConfigurationResult(GetCodeSecurityScanConfigu
             yield self
         return GetCodeSecurityScanConfigurationResult(
             arn=self.arn,
-            configuration=self.configuration)
+            configuration=self.configuration,
+            tags=self.tags)
 
 
 def get_code_security_scan_configuration(arn: Optional[_builtins.str] = None,
@@ -74,7 +86,8 @@ def get_code_security_scan_configuration(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetCodeSecurityScanConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
-        configuration=pulumi.get(__ret__, 'configuration'))
+        configuration=pulumi.get(__ret__, 'configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_code_security_scan_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSecurityScanConfigurationResult]:
     """
@@ -88,4 +101,5 @@ def get_code_security_scan_configuration_output(arn: pulumi.Input[Optional[_buil
     __ret__ = pulumi.runtime.invoke_output('aws-native:inspectorv2:getCodeSecurityScanConfiguration', __args__, opts=opts, typ=GetCodeSecurityScanConfigurationResult)
     return __ret__.apply(lambda __response__: GetCodeSecurityScanConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),
-        configuration=pulumi.get(__response__, 'configuration')))
+        configuration=pulumi.get(__response__, 'configuration'),
+        tags=pulumi.get(__response__, 'tags')))

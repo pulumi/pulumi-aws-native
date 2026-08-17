@@ -179,6 +179,7 @@ export const ContainerFleetStatus = {
     Active: "ACTIVE",
     Updating: "UPDATING",
     Deleting: "DELETING",
+    Expired: "EXPIRED",
 } as const;
 
 /**

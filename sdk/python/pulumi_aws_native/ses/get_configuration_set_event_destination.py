@@ -56,12 +56,16 @@ class AwaitableGetConfigurationSetEventDestinationResult(GetConfigurationSetEven
             id=self.id)
 
 
-def get_configuration_set_event_destination(id: Optional[_builtins.str] = None,
+def get_configuration_set_event_destination(configuration_set_name: Optional[_builtins.str] = None,
+                                            id: Optional[_builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationSetEventDestinationResult:
     """
     Resource Type definition for AWS::SES::ConfigurationSetEventDestination
+
+    :param _builtins.str configuration_set_name: The name of the configuration set that contains the event destination.
     """
     __args__ = dict()
+    __args__['configurationSetName'] = configuration_set_name
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getConfigurationSetEventDestination', __args__, opts=opts, typ=GetConfigurationSetEventDestinationResult).value
@@ -69,12 +73,16 @@ def get_configuration_set_event_destination(id: Optional[_builtins.str] = None,
     return AwaitableGetConfigurationSetEventDestinationResult(
         event_destination=pulumi.get(__ret__, 'event_destination'),
         id=pulumi.get(__ret__, 'id'))
-def get_configuration_set_event_destination_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_configuration_set_event_destination_output(configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetEventDestinationResult]:
     """
     Resource Type definition for AWS::SES::ConfigurationSetEventDestination
+
+    :param _builtins.str configuration_set_name: The name of the configuration set that contains the event destination.
     """
     __args__ = dict()
+    __args__['configurationSetName'] = configuration_set_name
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getConfigurationSetEventDestination', __args__, opts=opts, typ=GetConfigurationSetEventDestinationResult)

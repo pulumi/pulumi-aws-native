@@ -392,6 +392,37 @@ namespace Pulumi.AwsNative.Lex
     }
 
     /// <summary>
+    /// The type of a bot to create.
+    /// </summary>
+    [EnumType]
+    public readonly struct BotType : IEquatable<BotType>
+    {
+        private readonly string _value;
+
+        private BotType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotType Bot { get; } = new BotType("Bot");
+        public static BotType BotNetwork { get; } = new BotType("BotNetwork");
+
+        public static bool operator ==(BotType left, BotType right) => left.Equals(right);
+        public static bool operator !=(BotType left, BotType right) => !left.Equals(right);
+
+        public static explicit operator string(BotType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotType other && Equals(other);
+        public bool Equals(BotType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
     /// 
     /// If you do not specify a value, the default is `standard` .

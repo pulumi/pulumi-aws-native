@@ -10,10 +10,20 @@ export type Analyzer = import("./analyzer").Analyzer;
 export const Analyzer: typeof import("./analyzer").Analyzer = null as any;
 utilities.lazyLoad(exports, ["Analyzer"], () => require("./analyzer"));
 
+export { ArchiveRuleArgs } from "./archiveRule";
+export type ArchiveRule = import("./archiveRule").ArchiveRule;
+export const ArchiveRule: typeof import("./archiveRule").ArchiveRule = null as any;
+utilities.lazyLoad(exports, ["ArchiveRule"], () => require("./archiveRule"));
+
 export { GetAnalyzerArgs, GetAnalyzerResult, GetAnalyzerOutputArgs } from "./getAnalyzer";
 export const getAnalyzer: typeof import("./getAnalyzer").getAnalyzer = null as any;
 export const getAnalyzerOutput: typeof import("./getAnalyzer").getAnalyzerOutput = null as any;
 utilities.lazyLoad(exports, ["getAnalyzer","getAnalyzerOutput"], () => require("./getAnalyzer"));
+
+export { GetArchiveRuleArgs, GetArchiveRuleResult, GetArchiveRuleOutputArgs } from "./getArchiveRule";
+export const getArchiveRule: typeof import("./getArchiveRule").getArchiveRule = null as any;
+export const getArchiveRuleOutput: typeof import("./getArchiveRule").getArchiveRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getArchiveRule","getArchiveRuleOutput"], () => require("./getArchiveRule"));
 
 
 const _module = {
@@ -22,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws-native:accessanalyzer:Analyzer":
                 return new Analyzer(name, <any>undefined, { urn })
+            case "aws-native:accessanalyzer:ArchiveRule":
+                return new ArchiveRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

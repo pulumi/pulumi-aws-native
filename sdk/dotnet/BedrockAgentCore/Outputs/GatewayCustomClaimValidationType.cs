@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 {
 
-    /// <summary>
-    /// Required custom claim
-    /// </summary>
     [OutputType]
     public sealed class GatewayCustomClaimValidationType
     {

@@ -65,6 +65,7 @@ __all__ = [
     'RuleGroupNotStatement',
     'RuleGroupOrStatement',
     'RuleGroupPaymentNetwork',
+    'RuleGroupPreParseTextTransformation',
     'RuleGroupPrice',
     'RuleGroupRateBasedStatement',
     'RuleGroupRateBasedStatementCustomKey',
@@ -150,6 +151,7 @@ __all__ = [
     'WebAclOrStatement',
     'WebAclOverrideAction',
     'WebAclPaymentNetwork',
+    'WebAclPreParseTextTransformation',
     'WebAclPrice',
     'WebAclRateBasedStatement',
     'WebAclRateBasedStatementCustomKey',
@@ -742,6 +744,8 @@ class RuleGroupByteMatchStatement(dict):
             suggest = "positional_constraint"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
         elif key == "searchString":
             suggest = "search_string"
         elif key == "searchStringBase64":
@@ -762,6 +766,7 @@ class RuleGroupByteMatchStatement(dict):
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  positional_constraint: 'RuleGroupPositionalConstraint',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']] = None,
                  search_string: Optional[_builtins.str] = None,
                  search_string_base64: Optional[_builtins.str] = None):
         """
@@ -807,6 +812,8 @@ class RuleGroupByteMatchStatement(dict):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
         if search_string is not None:
             pulumi.set(__self__, "search_string", search_string)
         if search_string_base64 is not None:
@@ -858,6 +865,11 @@ class RuleGroupByteMatchStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
     @_builtins.property
     @pulumi.getter(name="searchString")
@@ -2860,6 +2872,31 @@ class RuleGroupPaymentNetwork(dict):
 
 
 @pulumi.output_type
+class RuleGroupPreParseTextTransformation(dict):
+    """
+    Text Transformation applied before parsing the query string.
+    """
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: 'RuleGroupPreParseTextTransformationType'):
+        """
+        Text Transformation applied before parsing the query string.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'RuleGroupPreParseTextTransformationType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RuleGroupPrice(dict):
     """
     A price configuration.
@@ -3672,6 +3709,8 @@ class RuleGroupRegexMatchStatement(dict):
             suggest = "regex_string"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -3687,7 +3726,8 @@ class RuleGroupRegexMatchStatement(dict):
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  regex_string: _builtins.str,
-                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']] = None):
         """
         :param 'RuleGroupFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param _builtins.str regex_string: The string representing the regular expression.
@@ -3696,6 +3736,8 @@ class RuleGroupRegexMatchStatement(dict):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="fieldToMatch")
@@ -3721,6 +3763,11 @@ class RuleGroupRegexMatchStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
+
 
 @pulumi.output_type
 class RuleGroupRegexPatternSetReferenceStatement(dict):
@@ -3731,6 +3778,8 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
@@ -3746,7 +3795,8 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
-                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']] = None):
         """
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
         :param 'RuleGroupFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
@@ -3755,6 +3805,8 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter
@@ -3779,6 +3831,11 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -4036,6 +4093,8 @@ class RuleGroupSizeConstraintStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
@@ -4052,7 +4111,8 @@ class RuleGroupSizeConstraintStatement(dict):
                  comparison_operator: 'RuleGroupSizeConstraintStatementComparisonOperator',
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  size: _builtins.float,
-                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']] = None):
         """
         Size Constraint statement.
 
@@ -4065,6 +4125,8 @@ class RuleGroupSizeConstraintStatement(dict):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
@@ -4098,6 +4160,11 @@ class RuleGroupSizeConstraintStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
+
 
 @pulumi.output_type
 class RuleGroupSqliMatchStatement(dict):
@@ -4111,6 +4178,8 @@ class RuleGroupSqliMatchStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
         elif key == "sensitivityLevel":
             suggest = "sensitivity_level"
 
@@ -4128,6 +4197,7 @@ class RuleGroupSqliMatchStatement(dict):
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']] = None,
                  sensitivity_level: Optional['RuleGroupSensitivityLevel'] = None):
         """
         Sqli Match Statement.
@@ -4144,6 +4214,8 @@ class RuleGroupSqliMatchStatement(dict):
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
         if sensitivity_level is not None:
             pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
@@ -4162,6 +4234,11 @@ class RuleGroupSqliMatchStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
     @_builtins.property
     @pulumi.getter(name="sensitivityLevel")
@@ -4716,6 +4793,8 @@ class RuleGroupXssMatchStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -4730,7 +4809,8 @@ class RuleGroupXssMatchStatement(dict):
 
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
-                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']] = None):
         """
         Xss Match Statement.
 
@@ -4739,6 +4819,8 @@ class RuleGroupXssMatchStatement(dict):
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="fieldToMatch")
@@ -4755,6 +4837,11 @@ class RuleGroupXssMatchStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.RuleGroupPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -5449,6 +5536,8 @@ class WebAclByteMatchStatement(dict):
             suggest = "positional_constraint"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
         elif key == "searchString":
             suggest = "search_string"
         elif key == "searchStringBase64":
@@ -5469,6 +5558,7 @@ class WebAclByteMatchStatement(dict):
                  field_to_match: 'outputs.WebAclFieldToMatch',
                  positional_constraint: 'WebAclPositionalConstraint',
                  text_transformations: Sequence['outputs.WebAclTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.WebAclPreParseTextTransformation']] = None,
                  search_string: Optional[_builtins.str] = None,
                  search_string_base64: Optional[_builtins.str] = None):
         """
@@ -5514,6 +5604,8 @@ class WebAclByteMatchStatement(dict):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
         if search_string is not None:
             pulumi.set(__self__, "search_string", search_string)
         if search_string_base64 is not None:
@@ -5565,6 +5657,11 @@ class WebAclByteMatchStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.WebAclPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
     @_builtins.property
     @pulumi.getter(name="searchString")
@@ -8290,6 +8387,31 @@ class WebAclPaymentNetwork(dict):
 
 
 @pulumi.output_type
+class WebAclPreParseTextTransformation(dict):
+    """
+    Text Transformation applied before parsing the query string.
+    """
+    def __init__(__self__, *,
+                 priority: _builtins.int,
+                 type: 'WebAclPreParseTextTransformationType'):
+        """
+        Text Transformation applied before parsing the query string.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'WebAclPreParseTextTransformationType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class WebAclPrice(dict):
     """
     A price configuration.
@@ -9138,6 +9260,8 @@ class WebAclRegexMatchStatement(dict):
             suggest = "regex_string"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebAclRegexMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -9153,7 +9277,8 @@ class WebAclRegexMatchStatement(dict):
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebAclFieldToMatch',
                  regex_string: _builtins.str,
-                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.WebAclPreParseTextTransformation']] = None):
         """
         :param 'WebAclFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
         :param _builtins.str regex_string: The string representing the regular expression.
@@ -9162,6 +9287,8 @@ class WebAclRegexMatchStatement(dict):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="fieldToMatch")
@@ -9187,6 +9314,11 @@ class WebAclRegexMatchStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.WebAclPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
+
 
 @pulumi.output_type
 class WebAclRegexPatternSetReferenceStatement(dict):
@@ -9197,6 +9329,8 @@ class WebAclRegexPatternSetReferenceStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebAclRegexPatternSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
@@ -9212,7 +9346,8 @@ class WebAclRegexPatternSetReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
                  field_to_match: 'outputs.WebAclFieldToMatch',
-                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.WebAclPreParseTextTransformation']] = None):
         """
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
         :param 'WebAclFieldToMatch' field_to_match: The part of the web request that you want AWS WAF to inspect.
@@ -9221,6 +9356,8 @@ class WebAclRegexPatternSetReferenceStatement(dict):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter
@@ -9245,6 +9382,11 @@ class WebAclRegexPatternSetReferenceStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.WebAclPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 
 @pulumi.output_type
@@ -10367,6 +10509,8 @@ class WebAclSizeConstraintStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebAclSizeConstraintStatement. Access the value via the '{suggest}' property getter instead.")
@@ -10383,7 +10527,8 @@ class WebAclSizeConstraintStatement(dict):
                  comparison_operator: 'WebAclSizeConstraintStatementComparisonOperator',
                  field_to_match: 'outputs.WebAclFieldToMatch',
                  size: _builtins.float,
-                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.WebAclPreParseTextTransformation']] = None):
         """
         Size Constraint statement.
 
@@ -10396,6 +10541,8 @@ class WebAclSizeConstraintStatement(dict):
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
@@ -10429,6 +10576,11 @@ class WebAclSizeConstraintStatement(dict):
         """
         return pulumi.get(self, "text_transformations")
 
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.WebAclPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
+
 
 @pulumi.output_type
 class WebAclSqliMatchStatement(dict):
@@ -10442,6 +10594,8 @@ class WebAclSqliMatchStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
         elif key == "sensitivityLevel":
             suggest = "sensitivity_level"
 
@@ -10459,6 +10613,7 @@ class WebAclSqliMatchStatement(dict):
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebAclFieldToMatch',
                  text_transformations: Sequence['outputs.WebAclTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.WebAclPreParseTextTransformation']] = None,
                  sensitivity_level: Optional['WebAclSensitivityLevel'] = None):
         """
         Sqli Match Statement.
@@ -10475,6 +10630,8 @@ class WebAclSqliMatchStatement(dict):
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
         if sensitivity_level is not None:
             pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
@@ -10493,6 +10650,11 @@ class WebAclSqliMatchStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.WebAclPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
     @_builtins.property
     @pulumi.getter(name="sensitivityLevel")
@@ -11087,6 +11249,8 @@ class WebAclXssMatchStatement(dict):
             suggest = "field_to_match"
         elif key == "textTransformations":
             suggest = "text_transformations"
+        elif key == "preParseTextTransformations":
+            suggest = "pre_parse_text_transformations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebAclXssMatchStatement. Access the value via the '{suggest}' property getter instead.")
@@ -11101,7 +11265,8 @@ class WebAclXssMatchStatement(dict):
 
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebAclFieldToMatch',
-                 text_transformations: Sequence['outputs.WebAclTextTransformation']):
+                 text_transformations: Sequence['outputs.WebAclTextTransformation'],
+                 pre_parse_text_transformations: Optional[Sequence['outputs.WebAclPreParseTextTransformation']] = None):
         """
         Xss Match Statement.
 
@@ -11110,6 +11275,8 @@ class WebAclXssMatchStatement(dict):
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
+        if pre_parse_text_transformations is not None:
+            pulumi.set(__self__, "pre_parse_text_transformations", pre_parse_text_transformations)
 
     @_builtins.property
     @pulumi.getter(name="fieldToMatch")
@@ -11126,5 +11293,10 @@ class WebAclXssMatchStatement(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         """
         return pulumi.get(self, "text_transformations")
+
+    @_builtins.property
+    @pulumi.getter(name="preParseTextTransformations")
+    def pre_parse_text_transformations(self) -> Optional[Sequence['outputs.WebAclPreParseTextTransformation']]:
+        return pulumi.get(self, "pre_parse_text_transformations")
 
 

@@ -40,6 +40,18 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region where this resource was last modified.
+        /// </summary>
+        [Output("lastModifiedRegion")]
+        public Output<string> LastModifiedRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when this resource was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<double> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of contacts that can be in the queue before it is considered full.
         /// </summary>
         [Output("maxContacts")]

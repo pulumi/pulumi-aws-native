@@ -21,7 +21,9 @@ from .get_endpoint_authorization import *
 from .get_event_subscription import *
 from .get_integration import *
 from .get_scheduled_action import *
+from .get_snapshot_schedule import *
 from .integration import *
 from .scheduled_action import *
+from .snapshot_schedule import *
 from ._inputs import *
 from . import outputs

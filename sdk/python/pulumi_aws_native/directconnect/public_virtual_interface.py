@@ -27,6 +27,7 @@ class PublicVirtualInterfaceArgs:
                  connection_id: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.int],
                  allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
@@ -37,6 +38,7 @@ class PublicVirtualInterfaceArgs:
         :param pulumi.Input[_builtins.str] connection_id: The ID or ARN of the connection or LAG.
         :param pulumi.Input[_builtins.int] vlan: The ID of the VLAN.
         :param pulumi.Input[_builtins.str] allocate_public_virtual_interface_role_arn: The Amazon Resource Name (ARN) of the role to allocate the public virtual interface. Needs directconnect:AllocatePublicVirtualInterface permissions and tag permissions if applicable.
+        :param pulumi.Input[_builtins.str] rate_limit: The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_filter_prefixes: The routes to be advertised to the AWS network in this region.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the public virtual interface.
         :param pulumi.Input[_builtins.str] virtual_interface_name: The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
@@ -46,6 +48,8 @@ class PublicVirtualInterfaceArgs:
         pulumi.set(__self__, "vlan", vlan)
         if allocate_public_virtual_interface_role_arn is not None:
             pulumi.set(__self__, "allocate_public_virtual_interface_role_arn", allocate_public_virtual_interface_role_arn)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if route_filter_prefixes is not None:
             pulumi.set(__self__, "route_filter_prefixes", route_filter_prefixes)
         if tags is not None:
@@ -102,6 +106,18 @@ class PublicVirtualInterfaceArgs:
         pulumi.set(self, "allocate_public_virtual_interface_role_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rate_limit", value)
+
+    @_builtins.property
     @pulumi.getter(name="routeFilterPrefixes")
     def route_filter_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -147,6 +163,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -160,6 +177,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] allocate_public_virtual_interface_role_arn: The Amazon Resource Name (ARN) of the role to allocate the public virtual interface. Needs directconnect:AllocatePublicVirtualInterface permissions and tag permissions if applicable.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]] bgp_peers: The BGP peers configured on this virtual interface.
         :param pulumi.Input[_builtins.str] connection_id: The ID or ARN of the connection or LAG.
+        :param pulumi.Input[_builtins.str] rate_limit: The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_filter_prefixes: The routes to be advertised to the AWS network in this region.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the public virtual interface.
         :param pulumi.Input[_builtins.str] virtual_interface_name: The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
@@ -192,6 +210,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -212,6 +231,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
             if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")
             __props__.__dict__["connection_id"] = connection_id
+            __props__.__dict__["rate_limit"] = rate_limit
             __props__.__dict__["route_filter_prefixes"] = route_filter_prefixes
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_interface_name"] = virtual_interface_name
@@ -247,6 +267,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["allocate_public_virtual_interface_role_arn"] = None
         __props__.__dict__["bgp_peers"] = None
         __props__.__dict__["connection_id"] = None
+        __props__.__dict__["rate_limit"] = None
         __props__.__dict__["route_filter_prefixes"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["virtual_interface_arn"] = None
@@ -278,6 +299,14 @@ class PublicVirtualInterface(pulumi.CustomResource):
         The ID or ARN of the connection or LAG.
         """
         return pulumi.get(self, "connection_id")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        """
+        return pulumi.get(self, "rate_limit")
 
     @_builtins.property
     @pulumi.getter(name="routeFilterPrefixes")

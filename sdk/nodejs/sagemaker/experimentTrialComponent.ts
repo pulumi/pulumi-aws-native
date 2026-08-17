@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS SageMaker Experiment Trial Component
+ * Resource Type definition for AWS::SageMaker::ExperimentTrialComponent
  */
 export class ExperimentTrialComponent extends pulumi.CustomResource {
     /**
@@ -37,49 +37,17 @@ export class ExperimentTrialComponent extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExperimentTrialComponent.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the trial component.
-     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
-    /**
-     * When the component was created.
-     */
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
-    /**
-     * The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-     */
     declare public readonly displayName: pulumi.Output<string | undefined>;
-    /**
-     * When the component ended.
-     */
     declare public readonly endTime: pulumi.Output<string | undefined>;
-    /**
-     * When the component was last modified.
-     */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the lineage group.
-     */
     declare public /*out*/ readonly lineageGroupArn: pulumi.Output<string>;
-    /**
-     * Metadata properties of the tracking entity, trial, or trial component.
-     */
-    declare public readonly metadataProperties: pulumi.Output<outputs.sagemaker.MetadataPropertiesProperties | undefined>;
-    /**
-     * When the component started.
-     */
+    declare public readonly metadataProperties: pulumi.Output<outputs.sagemaker.ExperimentTrialComponentMetadataProperties | undefined>;
     declare public readonly startTime: pulumi.Output<string | undefined>;
-    /**
-     * The status of the trial component.
-     */
-    declare public readonly status: pulumi.Output<outputs.sagemaker.StatusProperties | undefined>;
-    /**
-     * A list of tags to associate with the component.
-     */
+    declare public readonly status: pulumi.Output<outputs.sagemaker.ExperimentTrialComponentStatus | undefined>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
-     */
     declare public readonly trialComponentName: pulumi.Output<string>;
 
     /**
@@ -101,11 +69,13 @@ export class ExperimentTrialComponent extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trialComponentName"] = args?.trialComponentName;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["lineageGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["endTime"] = undefined /*out*/;
@@ -128,32 +98,11 @@ export class ExperimentTrialComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a ExperimentTrialComponent resource.
  */
 export interface ExperimentTrialComponentArgs {
-    /**
-     * The name of the component as displayed. The name doesn't need to be unique. If DisplayName isn't specified, TrialComponentName is displayed.
-     */
     displayName?: pulumi.Input<string | undefined>;
-    /**
-     * When the component ended.
-     */
     endTime?: pulumi.Input<string | undefined>;
-    /**
-     * Metadata properties of the tracking entity, trial, or trial component.
-     */
-    metadataProperties?: pulumi.Input<inputs.sagemaker.MetadataPropertiesPropertiesArgs | undefined>;
-    /**
-     * When the component started.
-     */
+    metadataProperties?: pulumi.Input<inputs.sagemaker.ExperimentTrialComponentMetadataPropertiesArgs | undefined>;
     startTime?: pulumi.Input<string | undefined>;
-    /**
-     * The status of the trial component.
-     */
-    status?: pulumi.Input<inputs.sagemaker.StatusPropertiesArgs | undefined>;
-    /**
-     * A list of tags to associate with the component.
-     */
+    status?: pulumi.Input<inputs.sagemaker.ExperimentTrialComponentStatusArgs | undefined>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
-    /**
-     * The name of the trial component. The name must be unique in your AWS account and is not case-sensitive.
-     */
     trialComponentName?: pulumi.Input<string | undefined>;
 }

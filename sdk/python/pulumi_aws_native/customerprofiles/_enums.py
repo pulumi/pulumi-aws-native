@@ -425,6 +425,7 @@ class ObjectTypeKeyStandardIdentifiersItem(_builtins.str, Enum):
     LOYALTY_PROMOTION = "LOYALTY_PROMOTION"
     WEB_ANALYTICS = "WEB_ANALYTICS"
     DEVICE = "DEVICE"
+    COMMUNICATION_RECORD = "COMMUNICATION_RECORD"
 
 
 @pulumi.type_token("aws-native:customerprofiles:RecommenderStatus")

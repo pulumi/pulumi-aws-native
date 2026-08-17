@@ -25,6 +25,11 @@ export type AppImageConfig = import("./appImageConfig").AppImageConfig;
 export const AppImageConfig: typeof import("./appImageConfig").AppImageConfig = null as any;
 utilities.lazyLoad(exports, ["AppImageConfig"], () => require("./appImageConfig"));
 
+export { ArtifactArgs } from "./artifact";
+export type Artifact = import("./artifact").Artifact;
+export const Artifact: typeof import("./artifact").Artifact = null as any;
+utilities.lazyLoad(exports, ["Artifact"], () => require("./artifact"));
+
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -95,6 +100,11 @@ export const getAppImageConfig: typeof import("./getAppImageConfig").getAppImage
 export const getAppImageConfigOutput: typeof import("./getAppImageConfig").getAppImageConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getAppImageConfig","getAppImageConfigOutput"], () => require("./getAppImageConfig"));
 
+export { GetArtifactArgs, GetArtifactResult, GetArtifactOutputArgs } from "./getArtifact";
+export const getArtifact: typeof import("./getArtifact").getArtifact = null as any;
+export const getArtifactOutput: typeof import("./getArtifact").getArtifactOutput = null as any;
+utilities.lazyLoad(exports, ["getArtifact","getArtifactOutput"], () => require("./getArtifact"));
+
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
@@ -144,6 +154,11 @@ export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
 export const getHub: typeof import("./getHub").getHub = null as any;
 export const getHubOutput: typeof import("./getHub").getHubOutput = null as any;
 utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
+
+export { GetHumanTaskUiArgs, GetHumanTaskUiResult, GetHumanTaskUiOutputArgs } from "./getHumanTaskUi";
+export const getHumanTaskUi: typeof import("./getHumanTaskUi").getHumanTaskUi = null as any;
+export const getHumanTaskUiOutput: typeof import("./getHumanTaskUi").getHumanTaskUiOutput = null as any;
+utilities.lazyLoad(exports, ["getHumanTaskUi","getHumanTaskUiOutput"], () => require("./getHumanTaskUi"));
 
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
@@ -255,10 +270,20 @@ export const getUserProfile: typeof import("./getUserProfile").getUserProfile = 
 export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getUserProfile","getUserProfileOutput"], () => require("./getUserProfile"));
 
+export { GetWorkforceArgs, GetWorkforceResult, GetWorkforceOutputArgs } from "./getWorkforce";
+export const getWorkforce: typeof import("./getWorkforce").getWorkforce = null as any;
+export const getWorkforceOutput: typeof import("./getWorkforce").getWorkforceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkforce","getWorkforceOutput"], () => require("./getWorkforce"));
+
 export { HubArgs } from "./hub";
 export type Hub = import("./hub").Hub;
 export const Hub: typeof import("./hub").Hub = null as any;
 utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
+
+export { HumanTaskUiArgs } from "./humanTaskUi";
+export type HumanTaskUi = import("./humanTaskUi").HumanTaskUi;
+export const HumanTaskUi: typeof import("./humanTaskUi").HumanTaskUi = null as any;
+utilities.lazyLoad(exports, ["HumanTaskUi"], () => require("./humanTaskUi"));
 
 export { ImageArgs } from "./image";
 export type Image = import("./image").Image;
@@ -370,6 +395,11 @@ export type UserProfile = import("./userProfile").UserProfile;
 export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
 utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
 
+export { WorkforceArgs } from "./workforce";
+export type Workforce = import("./workforce").Workforce;
+export const Workforce: typeof import("./workforce").Workforce = null as any;
+utilities.lazyLoad(exports, ["Workforce"], () => require("./workforce"));
+
 
 // Export enums:
 export * from "../types/enums/sagemaker";
@@ -386,6 +416,8 @@ const _module = {
                 return new App(name, <any>undefined, { urn })
             case "aws-native:sagemaker:AppImageConfig":
                 return new AppImageConfig(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Artifact":
+                return new Artifact(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Context":
@@ -408,6 +440,8 @@ const _module = {
                 return new FeatureGroup(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Hub":
                 return new Hub(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:HumanTaskUi":
+                return new HumanTaskUi(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Image":
                 return new Image(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ImageVersion":
@@ -452,6 +486,8 @@ const _module = {
                 return new TrialComponent(name, <any>undefined, { urn })
             case "aws-native:sagemaker:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Workforce":
+                return new Workforce(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

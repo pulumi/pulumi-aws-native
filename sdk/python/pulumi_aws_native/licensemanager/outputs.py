@@ -16,6 +16,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'LicenseAssetRuleSetAndRuleStatement',
+    'LicenseAssetRuleSetInstanceRuleStatement',
+    'LicenseAssetRuleSetLicenseAssetRule',
+    'LicenseAssetRuleSetLicenseConfigurationRuleStatement',
+    'LicenseAssetRuleSetLicenseRuleStatement',
+    'LicenseAssetRuleSetMatchingRuleStatement',
+    'LicenseAssetRuleSetOrRuleStatement',
+    'LicenseAssetRuleSetRuleStatement',
     'LicenseBorrowConfiguration',
     'LicenseConsumptionConfiguration',
     'LicenseEntitlement',
@@ -24,6 +32,401 @@ __all__ = [
     'LicenseProvisionalConfiguration',
     'LicenseValidityDateFormat',
 ]
+
+@pulumi.output_type
+class LicenseAssetRuleSetAndRuleStatement(dict):
+    """
+    AND rule statement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchingRuleStatements":
+            suggest = "matching_rule_statements"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetAndRuleStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetAndRuleStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetAndRuleStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 matching_rule_statements: Optional[Sequence['outputs.LicenseAssetRuleSetMatchingRuleStatement']] = None):
+        """
+        AND rule statement.
+        """
+        if matching_rule_statements is not None:
+            pulumi.set(__self__, "matching_rule_statements", matching_rule_statements)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatements")
+    def matching_rule_statements(self) -> Optional[Sequence['outputs.LicenseAssetRuleSetMatchingRuleStatement']]:
+        return pulumi.get(self, "matching_rule_statements")
+
+
+@pulumi.output_type
+class LicenseAssetRuleSetInstanceRuleStatement(dict):
+    """
+    Instance rule statement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andRuleStatement":
+            suggest = "and_rule_statement"
+        elif key == "matchingRuleStatement":
+            suggest = "matching_rule_statement"
+        elif key == "orRuleStatement":
+            suggest = "or_rule_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetInstanceRuleStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetInstanceRuleStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetInstanceRuleStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_rule_statement: Optional['outputs.LicenseAssetRuleSetAndRuleStatement'] = None,
+                 matching_rule_statement: Optional['outputs.LicenseAssetRuleSetMatchingRuleStatement'] = None,
+                 or_rule_statement: Optional['outputs.LicenseAssetRuleSetOrRuleStatement'] = None):
+        """
+        Instance rule statement.
+        """
+        if and_rule_statement is not None:
+            pulumi.set(__self__, "and_rule_statement", and_rule_statement)
+        if matching_rule_statement is not None:
+            pulumi.set(__self__, "matching_rule_statement", matching_rule_statement)
+        if or_rule_statement is not None:
+            pulumi.set(__self__, "or_rule_statement", or_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="andRuleStatement")
+    def and_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetAndRuleStatement']:
+        return pulumi.get(self, "and_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatement")
+    def matching_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetMatchingRuleStatement']:
+        return pulumi.get(self, "matching_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="orRuleStatement")
+    def or_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetOrRuleStatement']:
+        return pulumi.get(self, "or_rule_statement")
+
+
+@pulumi.output_type
+class LicenseAssetRuleSetLicenseAssetRule(dict):
+    """
+    License asset rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleStatement":
+            suggest = "rule_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetLicenseAssetRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetLicenseAssetRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetLicenseAssetRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_statement: 'outputs.LicenseAssetRuleSetRuleStatement'):
+        """
+        License asset rule.
+        """
+        pulumi.set(__self__, "rule_statement", rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleStatement")
+    def rule_statement(self) -> 'outputs.LicenseAssetRuleSetRuleStatement':
+        return pulumi.get(self, "rule_statement")
+
+
+@pulumi.output_type
+class LicenseAssetRuleSetLicenseConfigurationRuleStatement(dict):
+    """
+    License configuration rule statement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andRuleStatement":
+            suggest = "and_rule_statement"
+        elif key == "matchingRuleStatement":
+            suggest = "matching_rule_statement"
+        elif key == "orRuleStatement":
+            suggest = "or_rule_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetLicenseConfigurationRuleStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetLicenseConfigurationRuleStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetLicenseConfigurationRuleStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_rule_statement: Optional['outputs.LicenseAssetRuleSetAndRuleStatement'] = None,
+                 matching_rule_statement: Optional['outputs.LicenseAssetRuleSetMatchingRuleStatement'] = None,
+                 or_rule_statement: Optional['outputs.LicenseAssetRuleSetOrRuleStatement'] = None):
+        """
+        License configuration rule statement.
+        """
+        if and_rule_statement is not None:
+            pulumi.set(__self__, "and_rule_statement", and_rule_statement)
+        if matching_rule_statement is not None:
+            pulumi.set(__self__, "matching_rule_statement", matching_rule_statement)
+        if or_rule_statement is not None:
+            pulumi.set(__self__, "or_rule_statement", or_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="andRuleStatement")
+    def and_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetAndRuleStatement']:
+        return pulumi.get(self, "and_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatement")
+    def matching_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetMatchingRuleStatement']:
+        return pulumi.get(self, "matching_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="orRuleStatement")
+    def or_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetOrRuleStatement']:
+        return pulumi.get(self, "or_rule_statement")
+
+
+@pulumi.output_type
+class LicenseAssetRuleSetLicenseRuleStatement(dict):
+    """
+    License rule statement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andRuleStatement":
+            suggest = "and_rule_statement"
+        elif key == "matchingRuleStatement":
+            suggest = "matching_rule_statement"
+        elif key == "orRuleStatement":
+            suggest = "or_rule_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetLicenseRuleStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetLicenseRuleStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetLicenseRuleStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_rule_statement: Optional['outputs.LicenseAssetRuleSetAndRuleStatement'] = None,
+                 matching_rule_statement: Optional['outputs.LicenseAssetRuleSetMatchingRuleStatement'] = None,
+                 or_rule_statement: Optional['outputs.LicenseAssetRuleSetOrRuleStatement'] = None):
+        """
+        License rule statement.
+        """
+        if and_rule_statement is not None:
+            pulumi.set(__self__, "and_rule_statement", and_rule_statement)
+        if matching_rule_statement is not None:
+            pulumi.set(__self__, "matching_rule_statement", matching_rule_statement)
+        if or_rule_statement is not None:
+            pulumi.set(__self__, "or_rule_statement", or_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="andRuleStatement")
+    def and_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetAndRuleStatement']:
+        return pulumi.get(self, "and_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatement")
+    def matching_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetMatchingRuleStatement']:
+        return pulumi.get(self, "matching_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="orRuleStatement")
+    def or_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetOrRuleStatement']:
+        return pulumi.get(self, "or_rule_statement")
+
+
+@pulumi.output_type
+class LicenseAssetRuleSetMatchingRuleStatement(dict):
+    """
+    Matching rule statement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyToMatch":
+            suggest = "key_to_match"
+        elif key == "valueToMatch":
+            suggest = "value_to_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetMatchingRuleStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetMatchingRuleStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetMatchingRuleStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 constraint: _builtins.str,
+                 key_to_match: _builtins.str,
+                 value_to_match: Sequence[_builtins.str]):
+        """
+        Matching rule statement.
+
+        :param _builtins.str constraint: Constraint (e.g. Equals, Not_Equals).
+        :param _builtins.str key_to_match: Key to match.
+        :param Sequence[_builtins.str] value_to_match: Values to match.
+        """
+        pulumi.set(__self__, "constraint", constraint)
+        pulumi.set(__self__, "key_to_match", key_to_match)
+        pulumi.set(__self__, "value_to_match", value_to_match)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraint(self) -> _builtins.str:
+        """
+        Constraint (e.g. Equals, Not_Equals).
+        """
+        return pulumi.get(self, "constraint")
+
+    @_builtins.property
+    @pulumi.getter(name="keyToMatch")
+    def key_to_match(self) -> _builtins.str:
+        """
+        Key to match.
+        """
+        return pulumi.get(self, "key_to_match")
+
+    @_builtins.property
+    @pulumi.getter(name="valueToMatch")
+    def value_to_match(self) -> Sequence[_builtins.str]:
+        """
+        Values to match.
+        """
+        return pulumi.get(self, "value_to_match")
+
+
+@pulumi.output_type
+class LicenseAssetRuleSetOrRuleStatement(dict):
+    """
+    OR rule statement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchingRuleStatements":
+            suggest = "matching_rule_statements"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetOrRuleStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetOrRuleStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetOrRuleStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 matching_rule_statements: Optional[Sequence['outputs.LicenseAssetRuleSetMatchingRuleStatement']] = None):
+        """
+        OR rule statement.
+        """
+        if matching_rule_statements is not None:
+            pulumi.set(__self__, "matching_rule_statements", matching_rule_statements)
+
+    @_builtins.property
+    @pulumi.getter(name="matchingRuleStatements")
+    def matching_rule_statements(self) -> Optional[Sequence['outputs.LicenseAssetRuleSetMatchingRuleStatement']]:
+        return pulumi.get(self, "matching_rule_statements")
+
+
+@pulumi.output_type
+class LicenseAssetRuleSetRuleStatement(dict):
+    """
+    Rule statement. Specify exactly one of InstanceRuleStatement, LicenseRuleStatement, or LicenseConfigurationRuleStatement.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceRuleStatement":
+            suggest = "instance_rule_statement"
+        elif key == "licenseConfigurationRuleStatement":
+            suggest = "license_configuration_rule_statement"
+        elif key == "licenseRuleStatement":
+            suggest = "license_rule_statement"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetRuleSetRuleStatement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetRuleSetRuleStatement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetRuleSetRuleStatement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_rule_statement: Optional['outputs.LicenseAssetRuleSetInstanceRuleStatement'] = None,
+                 license_configuration_rule_statement: Optional['outputs.LicenseAssetRuleSetLicenseConfigurationRuleStatement'] = None,
+                 license_rule_statement: Optional['outputs.LicenseAssetRuleSetLicenseRuleStatement'] = None):
+        """
+        Rule statement. Specify exactly one of InstanceRuleStatement, LicenseRuleStatement, or LicenseConfigurationRuleStatement.
+        """
+        if instance_rule_statement is not None:
+            pulumi.set(__self__, "instance_rule_statement", instance_rule_statement)
+        if license_configuration_rule_statement is not None:
+            pulumi.set(__self__, "license_configuration_rule_statement", license_configuration_rule_statement)
+        if license_rule_statement is not None:
+            pulumi.set(__self__, "license_rule_statement", license_rule_statement)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceRuleStatement")
+    def instance_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetInstanceRuleStatement']:
+        return pulumi.get(self, "instance_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="licenseConfigurationRuleStatement")
+    def license_configuration_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetLicenseConfigurationRuleStatement']:
+        return pulumi.get(self, "license_configuration_rule_statement")
+
+    @_builtins.property
+    @pulumi.getter(name="licenseRuleStatement")
+    def license_rule_statement(self) -> Optional['outputs.LicenseAssetRuleSetLicenseRuleStatement']:
+        return pulumi.get(self, "license_rule_statement")
+
 
 @pulumi.output_type
 class LicenseBorrowConfiguration(dict):

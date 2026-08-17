@@ -90,6 +90,11 @@ export const getScheduledQuery: typeof import("./getScheduledQuery").getSchedule
 export const getScheduledQueryOutput: typeof import("./getScheduledQuery").getScheduledQueryOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledQuery","getScheduledQueryOutput"], () => require("./getScheduledQuery"));
 
+export { GetStorageTierPolicyArgs, GetStorageTierPolicyResult, GetStorageTierPolicyOutputArgs } from "./getStorageTierPolicy";
+export const getStorageTierPolicy: typeof import("./getStorageTierPolicy").getStorageTierPolicy = null as any;
+export const getStorageTierPolicyOutput: typeof import("./getStorageTierPolicy").getStorageTierPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageTierPolicy","getStorageTierPolicyOutput"], () => require("./getStorageTierPolicy"));
+
 export { GetSubscriptionFilterArgs, GetSubscriptionFilterResult, GetSubscriptionFilterOutputArgs } from "./getSubscriptionFilter";
 export const getSubscriptionFilter: typeof import("./getSubscriptionFilter").getSubscriptionFilter = null as any;
 export const getSubscriptionFilterOutput: typeof import("./getSubscriptionFilter").getSubscriptionFilterOutput = null as any;
@@ -140,6 +145,11 @@ export type ScheduledQuery = import("./scheduledQuery").ScheduledQuery;
 export const ScheduledQuery: typeof import("./scheduledQuery").ScheduledQuery = null as any;
 utilities.lazyLoad(exports, ["ScheduledQuery"], () => require("./scheduledQuery"));
 
+export { StorageTierPolicyArgs } from "./storageTierPolicy";
+export type StorageTierPolicy = import("./storageTierPolicy").StorageTierPolicy;
+export const StorageTierPolicy: typeof import("./storageTierPolicy").StorageTierPolicy = null as any;
+utilities.lazyLoad(exports, ["StorageTierPolicy"], () => require("./storageTierPolicy"));
+
 export { SubscriptionFilterArgs } from "./subscriptionFilter";
 export type SubscriptionFilter = import("./subscriptionFilter").SubscriptionFilter;
 export const SubscriptionFilter: typeof import("./subscriptionFilter").SubscriptionFilter = null as any;
@@ -184,6 +194,8 @@ const _module = {
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:logs:ScheduledQuery":
                 return new ScheduledQuery(name, <any>undefined, { urn })
+            case "aws-native:logs:StorageTierPolicy":
+                return new StorageTierPolicy(name, <any>undefined, { urn })
             case "aws-native:logs:SubscriptionFilter":
                 return new SubscriptionFilter(name, <any>undefined, { urn })
             case "aws-native:logs:Transformer":

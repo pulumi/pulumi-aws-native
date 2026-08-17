@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.DirectConnect
         /// </summary>
         public readonly string? ConnectionId;
         /// <summary>
+        /// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        /// </summary>
+        public readonly string? RateLimit;
+        /// <summary>
         /// The tags associated with the public virtual interface.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.DirectConnect
 
             string? connectionId,
 
+            string? rateLimit,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? virtualInterfaceArn,
@@ -104,6 +110,7 @@ namespace Pulumi.AwsNative.DirectConnect
         {
             BgpPeers = bgpPeers;
             ConnectionId = connectionId;
+            RateLimit = rateLimit;
             Tags = tags;
             VirtualInterfaceArn = virtualInterfaceArn;
             VirtualInterfaceId = virtualInterfaceId;

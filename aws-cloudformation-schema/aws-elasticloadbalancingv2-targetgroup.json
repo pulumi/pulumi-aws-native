@@ -198,11 +198,11 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "elasticloadbalancing:AddTags", "elasticloadbalancing:DescribeTags", "elasticloadbalancing:RemoveTags" ]
+    "permissions" : [ "elasticloadbalancing:AddTags", "elasticloadbalancing:DescribeTags", "elasticloadbalancing:RemoveTags", "ec2:DescribeVpcs" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticloadbalancing:CreateTargetGroup", "elasticloadbalancing:DescribeTargetGroups", "elasticloadbalancing:RegisterTargets", "elasticloadbalancing:ModifyTargetGroupAttributes", "elasticloadbalancing:DescribeTargetHealth", "elasticloadbalancing:AddTags" ]
+      "permissions" : [ "elasticloadbalancing:CreateTargetGroup", "elasticloadbalancing:DescribeTargetGroups", "elasticloadbalancing:RegisterTargets", "elasticloadbalancing:ModifyTargetGroupAttributes", "elasticloadbalancing:DescribeTargetHealth", "elasticloadbalancing:AddTags", "ec2:DescribeVpcs" ]
     },
     "delete" : {
       "permissions" : [ "elasticloadbalancing:DeleteTargetGroup", "elasticloadbalancing:DescribeTargetGroups" ]
@@ -214,7 +214,7 @@
       "permissions" : [ "elasticloadbalancing:DescribeTargetGroups", "elasticloadbalancing:DescribeTargetGroupAttributes", "elasticloadbalancing:DescribeTargetHealth", "elasticloadbalancing:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "elasticloadbalancing:DescribeTargetGroups", "elasticloadbalancing:ModifyTargetGroup", "elasticloadbalancing:ModifyTargetGroupAttributes", "elasticloadbalancing:RegisterTargets", "elasticloadbalancing:DescribeTargetHealth", "elasticloadbalancing:DeregisterTargets", "elasticloadbalancing:AddTags", "elasticloadbalancing:RemoveTags" ]
+      "permissions" : [ "elasticloadbalancing:DescribeTargetGroups", "elasticloadbalancing:ModifyTargetGroup", "elasticloadbalancing:ModifyTargetGroupAttributes", "elasticloadbalancing:RegisterTargets", "elasticloadbalancing:DescribeTargetHealth", "elasticloadbalancing:DeregisterTargets", "elasticloadbalancing:AddTags", "elasticloadbalancing:RemoveTags", "ec2:DescribeVpcs" ]
     }
   }
 }

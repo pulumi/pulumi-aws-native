@@ -2373,6 +2373,7 @@ const (
 	EvaluationFormLanguageConfigurationFormLanguageJaJp = EvaluationFormLanguageConfigurationFormLanguage("ja-JP")
 	EvaluationFormLanguageConfigurationFormLanguageKoKr = EvaluationFormLanguageConfigurationFormLanguage("ko-KR")
 	EvaluationFormLanguageConfigurationFormLanguageZhCn = EvaluationFormLanguageConfigurationFormLanguage("zh-CN")
+	EvaluationFormLanguageConfigurationFormLanguageMsMy = EvaluationFormLanguageConfigurationFormLanguage("ms-MY")
 )
 
 func (EvaluationFormLanguageConfigurationFormLanguage) ElementType() reflect.Type {
@@ -2506,6 +2507,7 @@ func (o EvaluationFormLanguageConfigurationFormLanguagePtrOutput) ToStringPtrOut
 //	EvaluationFormLanguageConfigurationFormLanguageJaJp
 //	EvaluationFormLanguageConfigurationFormLanguageKoKr
 //	EvaluationFormLanguageConfigurationFormLanguageZhCn
+//	EvaluationFormLanguageConfigurationFormLanguageMsMy
 type EvaluationFormLanguageConfigurationFormLanguageInput interface {
 	pulumi.Input
 

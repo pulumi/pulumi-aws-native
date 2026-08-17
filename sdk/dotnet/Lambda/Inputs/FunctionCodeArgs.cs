@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
 
+        /// <summary>
+        /// Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
+        /// </summary>
         [Input("s3ObjectStorageMode")]
         public Input<Pulumi.AwsNative.Lambda.FunctionCodeS3ObjectStorageMode>? S3ObjectStorageMode { get; set; }
 

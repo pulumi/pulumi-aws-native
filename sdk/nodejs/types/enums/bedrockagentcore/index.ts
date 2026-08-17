@@ -58,6 +58,98 @@ export const BrowserProfileStatus = {
  */
 export type BrowserProfileStatus = (typeof BrowserProfileStatus)[keyof typeof BrowserProfileStatus];
 
+export const CapacityProviderCapacityReservationSpecificationCapacityReservationPreference = {
+    CapacityReservationsOnly: "capacity-reservations-only",
+    Open: "open",
+    None: "none",
+} as const;
+
+/**
+ * Indicates the instance's Capacity Reservation preferences.
+ */
+export type CapacityProviderCapacityReservationSpecificationCapacityReservationPreference = (typeof CapacityProviderCapacityReservationSpecificationCapacityReservationPreference)[keyof typeof CapacityProviderCapacityReservationSpecificationCapacityReservationPreference];
+
+export const CapacityProviderEbsVolumeConfigurationVolumeType = {
+    Standard: "standard",
+    Io1: "io1",
+    Io2: "io2",
+    Gp2: "gp2",
+    Sc1: "sc1",
+    St1: "st1",
+    Gp3: "gp3",
+} as const;
+
+/**
+ * The EBS volume type. Defaults to gp3 if not specified.
+ */
+export type CapacityProviderEbsVolumeConfigurationVolumeType = (typeof CapacityProviderEbsVolumeConfigurationVolumeType)[keyof typeof CapacityProviderEbsVolumeConfigurationVolumeType];
+
+export const CapacityProviderEphemeralEbsVolumeConfigurationVolumeType = {
+    Standard: "standard",
+    Io1: "io1",
+    Io2: "io2",
+    Gp2: "gp2",
+    Sc1: "sc1",
+    St1: "st1",
+    Gp3: "gp3",
+} as const;
+
+/**
+ * The volume type. Defaults to gp3 if not specified.
+ */
+export type CapacityProviderEphemeralEbsVolumeConfigurationVolumeType = (typeof CapacityProviderEphemeralEbsVolumeConfigurationVolumeType)[keyof typeof CapacityProviderEphemeralEbsVolumeConfigurationVolumeType];
+
+export const CapacityProviderLaunchParametersMonitoring = {
+    Basic: "BASIC",
+    Detailed: "DETAILED",
+} as const;
+
+/**
+ * The monitoring level for the instance.
+ */
+export type CapacityProviderLaunchParametersMonitoring = (typeof CapacityProviderLaunchParametersMonitoring)[keyof typeof CapacityProviderLaunchParametersMonitoring];
+
+export const CapacityProviderLaunchParametersOperatingSystem = {
+    LinuxX8664: "LINUX_X86_64",
+    LinuxArm64: "LINUX_ARM64",
+    MacArm64: "MAC_ARM64",
+    WindowsX8664: "WINDOWS_X86_64",
+} as const;
+
+/**
+ * The operating system and CPU architecture for the instances.
+ */
+export type CapacityProviderLaunchParametersOperatingSystem = (typeof CapacityProviderLaunchParametersOperatingSystem)[keyof typeof CapacityProviderLaunchParametersOperatingSystem];
+
+export const CapacityProviderRootVolumeConfigurationVolumeType = {
+    Standard: "standard",
+    Io1: "io1",
+    Io2: "io2",
+    Gp2: "gp2",
+    Sc1: "sc1",
+    St1: "st1",
+    Gp3: "gp3",
+} as const;
+
+/**
+ * The EBS volume type. Defaults to gp3 if not specified.
+ */
+export type CapacityProviderRootVolumeConfigurationVolumeType = (typeof CapacityProviderRootVolumeConfigurationVolumeType)[keyof typeof CapacityProviderRootVolumeConfigurationVolumeType];
+
+export const CapacityProviderStatus = {
+    Creating: "CREATING",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Ready: "READY",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * The current status of the capacity provider.
+ */
+export type CapacityProviderStatus = (typeof CapacityProviderStatus)[keyof typeof CapacityProviderStatus];
+
 export const CodeInterpreterCustomCodeInterpreterNetworkMode = {
     Public: "PUBLIC",
     Sandbox: "SANDBOX",
@@ -136,16 +228,20 @@ export const GatewayAuthorizerType = {
 
 export type GatewayAuthorizerType = (typeof GatewayAuthorizerType)[keyof typeof GatewayAuthorizerType];
 
-export const GatewayClaimMatchOperator = {
+export const GatewayClaimMatchOperatorType = {
     Equals: "EQUALS",
     Contains: "CONTAINS",
     ContainsAny: "CONTAINS_ANY",
 } as const;
 
-/**
- * The relationship between the claim field value and the value or values being matched
- */
-export type GatewayClaimMatchOperator = (typeof GatewayClaimMatchOperator)[keyof typeof GatewayClaimMatchOperator];
+export type GatewayClaimMatchOperatorType = (typeof GatewayClaimMatchOperatorType)[keyof typeof GatewayClaimMatchOperatorType];
+
+export const GatewayEndpointIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+export type GatewayEndpointIpAddressType = (typeof GatewayEndpointIpAddressType)[keyof typeof GatewayEndpointIpAddressType];
 
 export const GatewayExceptionLevel = {
     Debug: "DEBUG",
@@ -158,9 +254,6 @@ export const GatewayInboundTokenClaimValueType = {
     StringArray: "STRING_ARRAY",
 } as const;
 
-/**
- * Token claim data type
- */
 export type GatewayInboundTokenClaimValueType = (typeof GatewayInboundTokenClaimValueType)[keyof typeof GatewayInboundTokenClaimValueType];
 
 export const GatewayInterceptionPoint = {
@@ -170,15 +263,56 @@ export const GatewayInterceptionPoint = {
 
 export type GatewayInterceptionPoint = (typeof GatewayInterceptionPoint)[keyof typeof GatewayInterceptionPoint];
 
+export const GatewayInterceptorPayloadExclusion = {
+    ResponseBody: "RESPONSE_BODY",
+} as const;
+
+export type GatewayInterceptorPayloadExclusion = (typeof GatewayInterceptorPayloadExclusion)[keyof typeof GatewayInterceptorPayloadExclusion];
+
 export const GatewayPolicyEngineMode = {
     LogOnly: "LOG_ONLY",
     Enforce: "ENFORCE",
 } as const;
 
-/**
- * The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
- */
 export type GatewayPolicyEngineMode = (typeof GatewayPolicyEngineMode)[keyof typeof GatewayPolicyEngineMode];
+
+export const GatewayRateLimitPeriod = {
+    Second: "second",
+    Minute: "minute",
+} as const;
+
+/**
+ * Time period for rate limiting
+ */
+export type GatewayRateLimitPeriod = (typeof GatewayRateLimitPeriod)[keyof typeof GatewayRateLimitPeriod];
+
+export const GatewayRateLimitStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * Status of a gateway limit
+ */
+export type GatewayRateLimitStatus = (typeof GatewayRateLimitStatus)[keyof typeof GatewayRateLimitStatus];
+
+export const GatewayRulePrincipalMatchOperator = {
+    StringEquals: "StringEquals",
+    StringLike: "StringLike",
+} as const;
+
+export type GatewayRulePrincipalMatchOperator = (typeof GatewayRulePrincipalMatchOperator)[keyof typeof GatewayRulePrincipalMatchOperator];
+
+export const GatewayRuleStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+} as const;
+
+export type GatewayRuleStatus = (typeof GatewayRuleStatus)[keyof typeof GatewayRuleStatus];
 
 export const GatewaySearchType = {
     Semantic: "SEMANTIC",
@@ -221,20 +355,12 @@ export const GatewayTargetEndpointIpAddressType = {
 
 export type GatewayTargetEndpointIpAddressType = (typeof GatewayTargetEndpointIpAddressType)[keyof typeof GatewayTargetEndpointIpAddressType];
 
-export const GatewayTargetMcpServerListingMode = {
+export const GatewayTargetListingMode = {
     Default: "DEFAULT",
     Dynamic: "DYNAMIC",
 } as const;
 
-export type GatewayTargetMcpServerListingMode = (typeof GatewayTargetMcpServerListingMode)[keyof typeof GatewayTargetMcpServerListingMode];
-
-export const GatewayTargetOAuthGrantType = {
-    AuthorizationCode: "AUTHORIZATION_CODE",
-    ClientCredentials: "CLIENT_CREDENTIALS",
-    TokenExchange: "TOKEN_EXCHANGE",
-} as const;
-
-export type GatewayTargetOAuthGrantType = (typeof GatewayTargetOAuthGrantType)[keyof typeof GatewayTargetOAuthGrantType];
+export type GatewayTargetListingMode = (typeof GatewayTargetListingMode)[keyof typeof GatewayTargetListingMode];
 
 export const GatewayTargetPassthroughProtocolType = {
     Mcp: "MCP",
@@ -271,7 +397,6 @@ export type GatewayTargetSchemaType = (typeof GatewayTargetSchemaType)[keyof typ
 export const GatewayTargetTargetProtocolType = {
     Mcp: "MCP",
     Http: "HTTP",
-    Inference: "INFERENCE",
 } as const;
 
 export type GatewayTargetTargetProtocolType = (typeof GatewayTargetTargetProtocolType)[keyof typeof GatewayTargetTargetProtocolType];
@@ -463,6 +588,16 @@ export const MemoryEpisodicMemoryStrategyType = {
  */
 export type MemoryEpisodicMemoryStrategyType = (typeof MemoryEpisodicMemoryStrategyType)[keyof typeof MemoryEpisodicMemoryStrategyType];
 
+export const MemoryExtractionType = {
+    LlmInferred: "LLM_INFERRED",
+    StrictlyConsistent: "STRICTLY_CONSISTENT",
+} as const;
+
+/**
+ * Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event
+ */
+export type MemoryExtractionType = (typeof MemoryExtractionType)[keyof typeof MemoryExtractionType];
+
 export const MemoryMetadataValueType = {
     String: "STRING",
     Stringlist: "STRINGLIST",
@@ -615,6 +750,7 @@ export const OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthen
     ClientSecretBasic: "CLIENT_SECRET_BASIC",
     ClientSecretPost: "CLIENT_SECRET_POST",
     AwsIamIdTokenJwt: "AWS_IAM_ID_TOKEN_JWT",
+    PrivateKeyJwt: "PRIVATE_KEY_JWT",
 } as const;
 
 /**
@@ -660,6 +796,16 @@ export const OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecr
 
 export type OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderLinkedinOauth2ProviderConfigInputClientSecretSource];
 
+export const OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+/**
+ * The IP address type for the resource configuration endpoint
+ */
+export type OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType = (typeof OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType)[keyof typeof OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType];
+
 export const OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource = {
     Managed: "MANAGED",
     External: "EXTERNAL",
@@ -671,6 +817,7 @@ export const OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticat
     ClientSecretBasic: "CLIENT_SECRET_BASIC",
     ClientSecretPost: "CLIENT_SECRET_POST",
     AwsIamIdTokenJwt: "AWS_IAM_ID_TOKEN_JWT",
+    PrivateKeyJwt: "PRIVATE_KEY_JWT",
 } as const;
 
 /**
@@ -688,6 +835,17 @@ export const OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = {
  */
 export type OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType = (typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType)[keyof typeof OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType];
 
+export const OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm = {
+    Rs256: "RS256",
+    Ps256: "PS256",
+    Es256: "ES256",
+} as const;
+
+/**
+ * The algorithm used to sign the JWT client assertion
+ */
+export type OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm = (typeof OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm)[keyof typeof OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm];
+
 export const OAuth2CredentialProviderSalesforceOauth2ProviderConfigInputClientSecretSource = {
     Managed: "MANAGED",
     External: "EXTERNAL",
@@ -701,6 +859,21 @@ export const OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretS
 } as const;
 
 export type OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource = (typeof OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource)[keyof typeof OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource];
+
+export const OAuth2CredentialProviderStatus = {
+    Creating: "CREATING",
+    CreateFailed: "CREATE_FAILED",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
+    Ready: "READY",
+    Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
+} as const;
+
+/**
+ * The current status of the OAuth2 credential provider
+ */
+export type OAuth2CredentialProviderStatus = (typeof OAuth2CredentialProviderStatus)[keyof typeof OAuth2CredentialProviderStatus];
 
 export const OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = {
     None: "NONE",

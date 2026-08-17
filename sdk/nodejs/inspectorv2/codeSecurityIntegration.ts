@@ -118,7 +118,7 @@ export class CodeSecurityIntegration extends pulumi.CustomResource {
             resourceInputs["updateIntegrationDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["createIntegrationDetails", "tags.*"] };
+        const replaceOnChanges = { replaceOnChanges: ["createIntegrationDetails"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CodeSecurityIntegration.__pulumiType, name, resourceInputs, opts);
     }

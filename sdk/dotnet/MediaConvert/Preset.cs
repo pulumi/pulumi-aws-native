@@ -16,13 +16,10 @@ namespace Pulumi.AwsNative.MediaConvert
     public partial class Preset : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+        /// The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
-
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
         /// The new category for the preset, if you are changing it.
@@ -44,8 +41,6 @@ namespace Pulumi.AwsNative.MediaConvert
 
         /// <summary>
         /// Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-        /// 
-        /// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         /// </summary>
@@ -131,8 +126,6 @@ namespace Pulumi.AwsNative.MediaConvert
 
         /// <summary>
         /// Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-        /// 
-        /// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         /// </summary>

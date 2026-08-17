@@ -54,6 +54,10 @@ export interface GetCodeSecurityIntegrationResult {
      */
     readonly statusReason?: string;
     /**
+     * The tags to apply to the code security integration.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * Integration Type
      */
     readonly type?: enums.inspectorv2.CodeSecurityIntegrationIntegrationType;

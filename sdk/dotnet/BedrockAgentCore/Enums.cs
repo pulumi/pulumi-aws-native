@@ -169,6 +169,245 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// Indicates the instance's Capacity Reservation preferences.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderCapacityReservationSpecificationCapacityReservationPreference : IEquatable<CapacityProviderCapacityReservationSpecificationCapacityReservationPreference>
+    {
+        private readonly string _value;
+
+        private CapacityProviderCapacityReservationSpecificationCapacityReservationPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderCapacityReservationSpecificationCapacityReservationPreference CapacityReservationsOnly { get; } = new CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("capacity-reservations-only");
+        public static CapacityProviderCapacityReservationSpecificationCapacityReservationPreference Open { get; } = new CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("open");
+        public static CapacityProviderCapacityReservationSpecificationCapacityReservationPreference None { get; } = new CapacityProviderCapacityReservationSpecificationCapacityReservationPreference("none");
+
+        public static bool operator ==(CapacityProviderCapacityReservationSpecificationCapacityReservationPreference left, CapacityProviderCapacityReservationSpecificationCapacityReservationPreference right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderCapacityReservationSpecificationCapacityReservationPreference left, CapacityProviderCapacityReservationSpecificationCapacityReservationPreference right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderCapacityReservationSpecificationCapacityReservationPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderCapacityReservationSpecificationCapacityReservationPreference other && Equals(other);
+        public bool Equals(CapacityProviderCapacityReservationSpecificationCapacityReservationPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The EBS volume type. Defaults to gp3 if not specified.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderEbsVolumeConfigurationVolumeType : IEquatable<CapacityProviderEbsVolumeConfigurationVolumeType>
+    {
+        private readonly string _value;
+
+        private CapacityProviderEbsVolumeConfigurationVolumeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderEbsVolumeConfigurationVolumeType Standard { get; } = new CapacityProviderEbsVolumeConfigurationVolumeType("standard");
+        public static CapacityProviderEbsVolumeConfigurationVolumeType Io1 { get; } = new CapacityProviderEbsVolumeConfigurationVolumeType("io1");
+        public static CapacityProviderEbsVolumeConfigurationVolumeType Io2 { get; } = new CapacityProviderEbsVolumeConfigurationVolumeType("io2");
+        public static CapacityProviderEbsVolumeConfigurationVolumeType Gp2 { get; } = new CapacityProviderEbsVolumeConfigurationVolumeType("gp2");
+        public static CapacityProviderEbsVolumeConfigurationVolumeType Sc1 { get; } = new CapacityProviderEbsVolumeConfigurationVolumeType("sc1");
+        public static CapacityProviderEbsVolumeConfigurationVolumeType St1 { get; } = new CapacityProviderEbsVolumeConfigurationVolumeType("st1");
+        public static CapacityProviderEbsVolumeConfigurationVolumeType Gp3 { get; } = new CapacityProviderEbsVolumeConfigurationVolumeType("gp3");
+
+        public static bool operator ==(CapacityProviderEbsVolumeConfigurationVolumeType left, CapacityProviderEbsVolumeConfigurationVolumeType right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderEbsVolumeConfigurationVolumeType left, CapacityProviderEbsVolumeConfigurationVolumeType right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderEbsVolumeConfigurationVolumeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderEbsVolumeConfigurationVolumeType other && Equals(other);
+        public bool Equals(CapacityProviderEbsVolumeConfigurationVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The volume type. Defaults to gp3 if not specified.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderEphemeralEbsVolumeConfigurationVolumeType : IEquatable<CapacityProviderEphemeralEbsVolumeConfigurationVolumeType>
+    {
+        private readonly string _value;
+
+        private CapacityProviderEphemeralEbsVolumeConfigurationVolumeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderEphemeralEbsVolumeConfigurationVolumeType Standard { get; } = new CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("standard");
+        public static CapacityProviderEphemeralEbsVolumeConfigurationVolumeType Io1 { get; } = new CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("io1");
+        public static CapacityProviderEphemeralEbsVolumeConfigurationVolumeType Io2 { get; } = new CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("io2");
+        public static CapacityProviderEphemeralEbsVolumeConfigurationVolumeType Gp2 { get; } = new CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("gp2");
+        public static CapacityProviderEphemeralEbsVolumeConfigurationVolumeType Sc1 { get; } = new CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("sc1");
+        public static CapacityProviderEphemeralEbsVolumeConfigurationVolumeType St1 { get; } = new CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("st1");
+        public static CapacityProviderEphemeralEbsVolumeConfigurationVolumeType Gp3 { get; } = new CapacityProviderEphemeralEbsVolumeConfigurationVolumeType("gp3");
+
+        public static bool operator ==(CapacityProviderEphemeralEbsVolumeConfigurationVolumeType left, CapacityProviderEphemeralEbsVolumeConfigurationVolumeType right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderEphemeralEbsVolumeConfigurationVolumeType left, CapacityProviderEphemeralEbsVolumeConfigurationVolumeType right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderEphemeralEbsVolumeConfigurationVolumeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderEphemeralEbsVolumeConfigurationVolumeType other && Equals(other);
+        public bool Equals(CapacityProviderEphemeralEbsVolumeConfigurationVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The monitoring level for the instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderLaunchParametersMonitoring : IEquatable<CapacityProviderLaunchParametersMonitoring>
+    {
+        private readonly string _value;
+
+        private CapacityProviderLaunchParametersMonitoring(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderLaunchParametersMonitoring Basic { get; } = new CapacityProviderLaunchParametersMonitoring("BASIC");
+        public static CapacityProviderLaunchParametersMonitoring Detailed { get; } = new CapacityProviderLaunchParametersMonitoring("DETAILED");
+
+        public static bool operator ==(CapacityProviderLaunchParametersMonitoring left, CapacityProviderLaunchParametersMonitoring right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderLaunchParametersMonitoring left, CapacityProviderLaunchParametersMonitoring right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderLaunchParametersMonitoring value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderLaunchParametersMonitoring other && Equals(other);
+        public bool Equals(CapacityProviderLaunchParametersMonitoring other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operating system and CPU architecture for the instances.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderLaunchParametersOperatingSystem : IEquatable<CapacityProviderLaunchParametersOperatingSystem>
+    {
+        private readonly string _value;
+
+        private CapacityProviderLaunchParametersOperatingSystem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderLaunchParametersOperatingSystem LinuxX8664 { get; } = new CapacityProviderLaunchParametersOperatingSystem("LINUX_X86_64");
+        public static CapacityProviderLaunchParametersOperatingSystem LinuxArm64 { get; } = new CapacityProviderLaunchParametersOperatingSystem("LINUX_ARM64");
+        public static CapacityProviderLaunchParametersOperatingSystem MacArm64 { get; } = new CapacityProviderLaunchParametersOperatingSystem("MAC_ARM64");
+        public static CapacityProviderLaunchParametersOperatingSystem WindowsX8664 { get; } = new CapacityProviderLaunchParametersOperatingSystem("WINDOWS_X86_64");
+
+        public static bool operator ==(CapacityProviderLaunchParametersOperatingSystem left, CapacityProviderLaunchParametersOperatingSystem right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderLaunchParametersOperatingSystem left, CapacityProviderLaunchParametersOperatingSystem right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderLaunchParametersOperatingSystem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderLaunchParametersOperatingSystem other && Equals(other);
+        public bool Equals(CapacityProviderLaunchParametersOperatingSystem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The EBS volume type. Defaults to gp3 if not specified.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderRootVolumeConfigurationVolumeType : IEquatable<CapacityProviderRootVolumeConfigurationVolumeType>
+    {
+        private readonly string _value;
+
+        private CapacityProviderRootVolumeConfigurationVolumeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderRootVolumeConfigurationVolumeType Standard { get; } = new CapacityProviderRootVolumeConfigurationVolumeType("standard");
+        public static CapacityProviderRootVolumeConfigurationVolumeType Io1 { get; } = new CapacityProviderRootVolumeConfigurationVolumeType("io1");
+        public static CapacityProviderRootVolumeConfigurationVolumeType Io2 { get; } = new CapacityProviderRootVolumeConfigurationVolumeType("io2");
+        public static CapacityProviderRootVolumeConfigurationVolumeType Gp2 { get; } = new CapacityProviderRootVolumeConfigurationVolumeType("gp2");
+        public static CapacityProviderRootVolumeConfigurationVolumeType Sc1 { get; } = new CapacityProviderRootVolumeConfigurationVolumeType("sc1");
+        public static CapacityProviderRootVolumeConfigurationVolumeType St1 { get; } = new CapacityProviderRootVolumeConfigurationVolumeType("st1");
+        public static CapacityProviderRootVolumeConfigurationVolumeType Gp3 { get; } = new CapacityProviderRootVolumeConfigurationVolumeType("gp3");
+
+        public static bool operator ==(CapacityProviderRootVolumeConfigurationVolumeType left, CapacityProviderRootVolumeConfigurationVolumeType right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderRootVolumeConfigurationVolumeType left, CapacityProviderRootVolumeConfigurationVolumeType right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderRootVolumeConfigurationVolumeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderRootVolumeConfigurationVolumeType other && Equals(other);
+        public bool Equals(CapacityProviderRootVolumeConfigurationVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the capacity provider.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderStatus : IEquatable<CapacityProviderStatus>
+    {
+        private readonly string _value;
+
+        private CapacityProviderStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderStatus Creating { get; } = new CapacityProviderStatus("CREATING");
+        public static CapacityProviderStatus CreateFailed { get; } = new CapacityProviderStatus("CREATE_FAILED");
+        public static CapacityProviderStatus Updating { get; } = new CapacityProviderStatus("UPDATING");
+        public static CapacityProviderStatus UpdateFailed { get; } = new CapacityProviderStatus("UPDATE_FAILED");
+        public static CapacityProviderStatus Ready { get; } = new CapacityProviderStatus("READY");
+        public static CapacityProviderStatus Deleting { get; } = new CapacityProviderStatus("DELETING");
+
+        public static bool operator ==(CapacityProviderStatus left, CapacityProviderStatus right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderStatus left, CapacityProviderStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderStatus other && Equals(other);
+        public bool Equals(CapacityProviderStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Network modes supported by code interpreter
     /// </summary>
     [EnumType]
@@ -393,31 +632,56 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The relationship between the claim field value and the value or values being matched
-    /// </summary>
     [EnumType]
-    public readonly struct GatewayClaimMatchOperator : IEquatable<GatewayClaimMatchOperator>
+    public readonly struct GatewayClaimMatchOperatorType : IEquatable<GatewayClaimMatchOperatorType>
     {
         private readonly string _value;
 
-        private GatewayClaimMatchOperator(string value)
+        private GatewayClaimMatchOperatorType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static GatewayClaimMatchOperator EqualsValue { get; } = new GatewayClaimMatchOperator("EQUALS");
-        public static GatewayClaimMatchOperator Contains { get; } = new GatewayClaimMatchOperator("CONTAINS");
-        public static GatewayClaimMatchOperator ContainsAny { get; } = new GatewayClaimMatchOperator("CONTAINS_ANY");
+        public static GatewayClaimMatchOperatorType EqualsValue { get; } = new GatewayClaimMatchOperatorType("EQUALS");
+        public static GatewayClaimMatchOperatorType Contains { get; } = new GatewayClaimMatchOperatorType("CONTAINS");
+        public static GatewayClaimMatchOperatorType ContainsAny { get; } = new GatewayClaimMatchOperatorType("CONTAINS_ANY");
 
-        public static bool operator ==(GatewayClaimMatchOperator left, GatewayClaimMatchOperator right) => left.Equals(right);
-        public static bool operator !=(GatewayClaimMatchOperator left, GatewayClaimMatchOperator right) => !left.Equals(right);
+        public static bool operator ==(GatewayClaimMatchOperatorType left, GatewayClaimMatchOperatorType right) => left.Equals(right);
+        public static bool operator !=(GatewayClaimMatchOperatorType left, GatewayClaimMatchOperatorType right) => !left.Equals(right);
 
-        public static explicit operator string(GatewayClaimMatchOperator value) => value._value;
+        public static explicit operator string(GatewayClaimMatchOperatorType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GatewayClaimMatchOperator other && Equals(other);
-        public bool Equals(GatewayClaimMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is GatewayClaimMatchOperatorType other && Equals(other);
+        public bool Equals(GatewayClaimMatchOperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayEndpointIpAddressType : IEquatable<GatewayEndpointIpAddressType>
+    {
+        private readonly string _value;
+
+        private GatewayEndpointIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayEndpointIpAddressType Ipv4 { get; } = new GatewayEndpointIpAddressType("IPV4");
+        public static GatewayEndpointIpAddressType Ipv6 { get; } = new GatewayEndpointIpAddressType("IPV6");
+
+        public static bool operator ==(GatewayEndpointIpAddressType left, GatewayEndpointIpAddressType right) => left.Equals(right);
+        public static bool operator !=(GatewayEndpointIpAddressType left, GatewayEndpointIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayEndpointIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayEndpointIpAddressType other && Equals(other);
+        public bool Equals(GatewayEndpointIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -452,9 +716,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Token claim data type
-    /// </summary>
     [EnumType]
     public readonly struct GatewayInboundTokenClaimValueType : IEquatable<GatewayInboundTokenClaimValueType>
     {
@@ -511,9 +772,33 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
-    /// </summary>
+    [EnumType]
+    public readonly struct GatewayInterceptorPayloadExclusion : IEquatable<GatewayInterceptorPayloadExclusion>
+    {
+        private readonly string _value;
+
+        private GatewayInterceptorPayloadExclusion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayInterceptorPayloadExclusion ResponseBody { get; } = new GatewayInterceptorPayloadExclusion("RESPONSE_BODY");
+
+        public static bool operator ==(GatewayInterceptorPayloadExclusion left, GatewayInterceptorPayloadExclusion right) => left.Equals(right);
+        public static bool operator !=(GatewayInterceptorPayloadExclusion left, GatewayInterceptorPayloadExclusion right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayInterceptorPayloadExclusion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayInterceptorPayloadExclusion other && Equals(other);
+        public bool Equals(GatewayInterceptorPayloadExclusion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct GatewayPolicyEngineMode : IEquatable<GatewayPolicyEngineMode>
     {
@@ -535,6 +820,128 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayPolicyEngineMode other && Equals(other);
         public bool Equals(GatewayPolicyEngineMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Time period for rate limiting
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayRateLimitPeriod : IEquatable<GatewayRateLimitPeriod>
+    {
+        private readonly string _value;
+
+        private GatewayRateLimitPeriod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayRateLimitPeriod Second { get; } = new GatewayRateLimitPeriod("second");
+        public static GatewayRateLimitPeriod Minute { get; } = new GatewayRateLimitPeriod("minute");
+
+        public static bool operator ==(GatewayRateLimitPeriod left, GatewayRateLimitPeriod right) => left.Equals(right);
+        public static bool operator !=(GatewayRateLimitPeriod left, GatewayRateLimitPeriod right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayRateLimitPeriod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayRateLimitPeriod other && Equals(other);
+        public bool Equals(GatewayRateLimitPeriod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of a gateway limit
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayRateLimitStatus : IEquatable<GatewayRateLimitStatus>
+    {
+        private readonly string _value;
+
+        private GatewayRateLimitStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayRateLimitStatus Creating { get; } = new GatewayRateLimitStatus("CREATING");
+        public static GatewayRateLimitStatus Active { get; } = new GatewayRateLimitStatus("ACTIVE");
+        public static GatewayRateLimitStatus Updating { get; } = new GatewayRateLimitStatus("UPDATING");
+        public static GatewayRateLimitStatus Deleting { get; } = new GatewayRateLimitStatus("DELETING");
+
+        public static bool operator ==(GatewayRateLimitStatus left, GatewayRateLimitStatus right) => left.Equals(right);
+        public static bool operator !=(GatewayRateLimitStatus left, GatewayRateLimitStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayRateLimitStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayRateLimitStatus other && Equals(other);
+        public bool Equals(GatewayRateLimitStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayRulePrincipalMatchOperator : IEquatable<GatewayRulePrincipalMatchOperator>
+    {
+        private readonly string _value;
+
+        private GatewayRulePrincipalMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayRulePrincipalMatchOperator StringEquals { get; } = new GatewayRulePrincipalMatchOperator("StringEquals");
+        public static GatewayRulePrincipalMatchOperator StringLike { get; } = new GatewayRulePrincipalMatchOperator("StringLike");
+
+        public static bool operator ==(GatewayRulePrincipalMatchOperator left, GatewayRulePrincipalMatchOperator right) => left.Equals(right);
+        public static bool operator !=(GatewayRulePrincipalMatchOperator left, GatewayRulePrincipalMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayRulePrincipalMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayRulePrincipalMatchOperator other && Equals(other);
+        public bool Equals(GatewayRulePrincipalMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayRuleStatus : IEquatable<GatewayRuleStatus>
+    {
+        private readonly string _value;
+
+        private GatewayRuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayRuleStatus Creating { get; } = new GatewayRuleStatus("CREATING");
+        public static GatewayRuleStatus Active { get; } = new GatewayRuleStatus("ACTIVE");
+        public static GatewayRuleStatus Updating { get; } = new GatewayRuleStatus("UPDATING");
+        public static GatewayRuleStatus Deleting { get; } = new GatewayRuleStatus("DELETING");
+
+        public static bool operator ==(GatewayRuleStatus left, GatewayRuleStatus right) => left.Equals(right);
+        public static bool operator !=(GatewayRuleStatus left, GatewayRuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayRuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayRuleStatus other && Equals(other);
+        public bool Equals(GatewayRuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -689,55 +1096,26 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
-    public readonly struct GatewayTargetMcpServerListingMode : IEquatable<GatewayTargetMcpServerListingMode>
+    public readonly struct GatewayTargetListingMode : IEquatable<GatewayTargetListingMode>
     {
         private readonly string _value;
 
-        private GatewayTargetMcpServerListingMode(string value)
+        private GatewayTargetListingMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static GatewayTargetMcpServerListingMode Default { get; } = new GatewayTargetMcpServerListingMode("DEFAULT");
-        public static GatewayTargetMcpServerListingMode Dynamic { get; } = new GatewayTargetMcpServerListingMode("DYNAMIC");
+        public static GatewayTargetListingMode Default { get; } = new GatewayTargetListingMode("DEFAULT");
+        public static GatewayTargetListingMode Dynamic { get; } = new GatewayTargetListingMode("DYNAMIC");
 
-        public static bool operator ==(GatewayTargetMcpServerListingMode left, GatewayTargetMcpServerListingMode right) => left.Equals(right);
-        public static bool operator !=(GatewayTargetMcpServerListingMode left, GatewayTargetMcpServerListingMode right) => !left.Equals(right);
+        public static bool operator ==(GatewayTargetListingMode left, GatewayTargetListingMode right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetListingMode left, GatewayTargetListingMode right) => !left.Equals(right);
 
-        public static explicit operator string(GatewayTargetMcpServerListingMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GatewayTargetMcpServerListingMode other && Equals(other);
-        public bool Equals(GatewayTargetMcpServerListingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public static explicit operator string(GatewayTargetListingMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct GatewayTargetOAuthGrantType : IEquatable<GatewayTargetOAuthGrantType>
-    {
-        private readonly string _value;
-
-        private GatewayTargetOAuthGrantType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GatewayTargetOAuthGrantType AuthorizationCode { get; } = new GatewayTargetOAuthGrantType("AUTHORIZATION_CODE");
-        public static GatewayTargetOAuthGrantType ClientCredentials { get; } = new GatewayTargetOAuthGrantType("CLIENT_CREDENTIALS");
-        public static GatewayTargetOAuthGrantType TokenExchange { get; } = new GatewayTargetOAuthGrantType("TOKEN_EXCHANGE");
-
-        public static bool operator ==(GatewayTargetOAuthGrantType left, GatewayTargetOAuthGrantType right) => left.Equals(right);
-        public static bool operator !=(GatewayTargetOAuthGrantType left, GatewayTargetOAuthGrantType right) => !left.Equals(right);
-
-        public static explicit operator string(GatewayTargetOAuthGrantType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GatewayTargetOAuthGrantType other && Equals(other);
-        public bool Equals(GatewayTargetOAuthGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is GatewayTargetListingMode other && Equals(other);
+        public bool Equals(GatewayTargetListingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -852,7 +1230,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static GatewayTargetTargetProtocolType Mcp { get; } = new GatewayTargetTargetProtocolType("MCP");
         public static GatewayTargetTargetProtocolType Http { get; } = new GatewayTargetTargetProtocolType("HTTP");
-        public static GatewayTargetTargetProtocolType Inference { get; } = new GatewayTargetTargetProtocolType("INFERENCE");
 
         public static bool operator ==(GatewayTargetTargetProtocolType left, GatewayTargetTargetProtocolType right) => left.Equals(right);
         public static bool operator !=(GatewayTargetTargetProtocolType left, GatewayTargetTargetProtocolType right) => !left.Equals(right);
@@ -1456,6 +1833,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     /// <summary>
+    /// Specifies whether the metadata value is extracted by the LLM or passed through deterministically from the event
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryExtractionType : IEquatable<MemoryExtractionType>
+    {
+        private readonly string _value;
+
+        private MemoryExtractionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryExtractionType LlmInferred { get; } = new MemoryExtractionType("LLM_INFERRED");
+        public static MemoryExtractionType StrictlyConsistent { get; } = new MemoryExtractionType("STRICTLY_CONSISTENT");
+
+        public static bool operator ==(MemoryExtractionType left, MemoryExtractionType right) => left.Equals(right);
+        public static bool operator !=(MemoryExtractionType left, MemoryExtractionType right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryExtractionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryExtractionType other && Equals(other);
+        public bool Equals(MemoryExtractionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Supported data types for metadata values
     /// </summary>
     [EnumType]
@@ -1850,6 +2258,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod ClientSecretBasic { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("CLIENT_SECRET_BASIC");
         public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod ClientSecretPost { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("CLIENT_SECRET_POST");
         public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod AwsIamIdTokenJwt { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("AWS_IAM_ID_TOKEN_JWT");
+        public static OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod PrivateKeyJwt { get; } = new OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod("PRIVATE_KEY_JWT");
 
         public static bool operator ==(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod left, OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod right) => left.Equals(right);
         public static bool operator !=(OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod left, OAuth2CredentialProviderCustomOauth2ProviderConfigInputClientAuthenticationMethod right) => !left.Equals(right);
@@ -2009,6 +2418,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The IP address type for the resource configuration endpoint
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType : IEquatable<OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType Ipv4 { get; } = new OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType("IPV4");
+        public static OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType Ipv6 { get; } = new OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType("IPV6");
+
+        public static bool operator ==(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType left, OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType left, OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderManagedVpcResourceEndpointIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource : IEquatable<OAuth2CredentialProviderMicrosoftOauth2ProviderConfigInputClientSecretSource>
     {
@@ -2053,6 +2493,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod ClientSecretBasic { get; } = new OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("CLIENT_SECRET_BASIC");
         public static OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod ClientSecretPost { get; } = new OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("CLIENT_SECRET_POST");
         public static OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod AwsIamIdTokenJwt { get; } = new OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("AWS_IAM_ID_TOKEN_JWT");
+        public static OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod PrivateKeyJwt { get; } = new OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod("PRIVATE_KEY_JWT");
 
         public static bool operator ==(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod left, OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod right) => left.Equals(right);
         public static bool operator !=(OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod left, OAuth2CredentialProviderOauth2ProviderConfigOutputClientAuthenticationMethod right) => !left.Equals(right);
@@ -2093,6 +2534,38 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType other && Equals(other);
         public bool Equals(OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The algorithm used to sign the JWT client assertion
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm : IEquatable<OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm Rs256 { get; } = new OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("RS256");
+        public static OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm Ps256 { get; } = new OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("PS256");
+        public static OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm Es256 { get; } = new OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm("ES256");
+
+        public static bool operator ==(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm left, OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm left, OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderPrivateKeyJwtConfigSigningAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2149,6 +2622,42 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource other && Equals(other);
         public bool Equals(OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the OAuth2 credential provider
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2CredentialProviderStatus : IEquatable<OAuth2CredentialProviderStatus>
+    {
+        private readonly string _value;
+
+        private OAuth2CredentialProviderStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuth2CredentialProviderStatus Creating { get; } = new OAuth2CredentialProviderStatus("CREATING");
+        public static OAuth2CredentialProviderStatus CreateFailed { get; } = new OAuth2CredentialProviderStatus("CREATE_FAILED");
+        public static OAuth2CredentialProviderStatus Updating { get; } = new OAuth2CredentialProviderStatus("UPDATING");
+        public static OAuth2CredentialProviderStatus UpdateFailed { get; } = new OAuth2CredentialProviderStatus("UPDATE_FAILED");
+        public static OAuth2CredentialProviderStatus Ready { get; } = new OAuth2CredentialProviderStatus("READY");
+        public static OAuth2CredentialProviderStatus Deleting { get; } = new OAuth2CredentialProviderStatus("DELETING");
+        public static OAuth2CredentialProviderStatus DeleteFailed { get; } = new OAuth2CredentialProviderStatus("DELETE_FAILED");
+
+        public static bool operator ==(OAuth2CredentialProviderStatus left, OAuth2CredentialProviderStatus right) => left.Equals(right);
+        public static bool operator !=(OAuth2CredentialProviderStatus left, OAuth2CredentialProviderStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2CredentialProviderStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2CredentialProviderStatus other && Equals(other);
+        public bool Equals(OAuth2CredentialProviderStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

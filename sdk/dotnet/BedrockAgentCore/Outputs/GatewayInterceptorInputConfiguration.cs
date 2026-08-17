@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class GatewayInterceptorInputConfiguration
     {
         public readonly bool PassRequestHeaders;
+        public readonly Outputs.GatewayInterceptorPayloadFilter? PayloadFilter;
 
         [OutputConstructor]
-        private GatewayInterceptorInputConfiguration(bool passRequestHeaders)
+        private GatewayInterceptorInputConfiguration(
+            bool passRequestHeaders,
+
+            Outputs.GatewayInterceptorPayloadFilter? payloadFilter)
         {
             PassRequestHeaders = passRequestHeaders;
+            PayloadFilter = payloadFilter;
         }
     }
 }

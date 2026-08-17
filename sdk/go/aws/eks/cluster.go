@@ -42,7 +42,10 @@ type Cluster struct {
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Force cluster version update
-	Force pulumi.BoolPtrOutput `pulumi:"force"`
+	Force                       pulumi.BoolPtrOutput                        `pulumi:"force"`
+	KubeApiServerConfig         ClusterKubeApiServerConfigPtrOutput         `pulumi:"kubeApiServerConfig"`
+	KubeControllerManagerConfig ClusterKubeControllerManagerConfigPtrOutput `pulumi:"kubeControllerManagerConfig"`
+	KubeSchedulerConfig         ClusterKubeSchedulerConfigPtrOutput         `pulumi:"kubeSchedulerConfig"`
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrOutput `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
@@ -144,7 +147,10 @@ type clusterArgs struct {
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Force cluster version update
-	Force *bool `pulumi:"force"`
+	Force                       *bool                               `pulumi:"force"`
+	KubeApiServerConfig         *ClusterKubeApiServerConfig         `pulumi:"kubeApiServerConfig"`
+	KubeControllerManagerConfig *ClusterKubeControllerManagerConfig `pulumi:"kubeControllerManagerConfig"`
+	KubeSchedulerConfig         *ClusterKubeSchedulerConfig         `pulumi:"kubeSchedulerConfig"`
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
@@ -189,7 +195,10 @@ type ClusterArgs struct {
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
 	// Force cluster version update
-	Force pulumi.BoolPtrInput
+	Force                       pulumi.BoolPtrInput
+	KubeApiServerConfig         ClusterKubeApiServerConfigPtrInput
+	KubeControllerManagerConfig ClusterKubeControllerManagerConfigPtrInput
+	KubeSchedulerConfig         ClusterKubeSchedulerConfigPtrInput
 	// The Kubernetes network configuration for the cluster.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// The logging configuration for your cluster.
@@ -319,6 +328,18 @@ func (o ClusterOutput) Endpoint() pulumi.StringOutput {
 // Force cluster version update
 func (o ClusterOutput) Force() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Force }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterOutput) KubeApiServerConfig() ClusterKubeApiServerConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubeApiServerConfigPtrOutput { return v.KubeApiServerConfig }).(ClusterKubeApiServerConfigPtrOutput)
+}
+
+func (o ClusterOutput) KubeControllerManagerConfig() ClusterKubeControllerManagerConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubeControllerManagerConfigPtrOutput { return v.KubeControllerManagerConfig }).(ClusterKubeControllerManagerConfigPtrOutput)
+}
+
+func (o ClusterOutput) KubeSchedulerConfig() ClusterKubeSchedulerConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubeSchedulerConfigPtrOutput { return v.KubeSchedulerConfig }).(ClusterKubeSchedulerConfigPtrOutput)
 }
 
 // The Kubernetes network configuration for the cluster.

@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .agent_space import *
 from .application import *
+from .artifact import *
 from .get_agent_space import *
 from .get_application import *
+from .get_artifact import *
 from .get_pentest import *
 from .get_security_requirement_pack import *
 from .get_target_domain import *

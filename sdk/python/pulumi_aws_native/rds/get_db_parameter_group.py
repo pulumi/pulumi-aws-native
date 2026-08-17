@@ -24,13 +24,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbParameterGroupResult:
-    def __init__(__self__, parameters=None, tags=None):
+    def __init__(__self__, db_parameter_group_arn=None, parameters=None, tags=None):
+        if db_parameter_group_arn and not isinstance(db_parameter_group_arn, str):
+            raise TypeError("Expected argument 'db_parameter_group_arn' to be a str")
+        pulumi.set(__self__, "db_parameter_group_arn", db_parameter_group_arn)
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="dbParameterGroupArn")
+    def db_parameter_group_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "db_parameter_group_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -59,6 +67,7 @@ class AwaitableGetDbParameterGroupResult(GetDbParameterGroupResult):
         if False:
             yield self
         return GetDbParameterGroupResult(
+            db_parameter_group_arn=self.db_parameter_group_arn,
             parameters=self.parameters,
             tags=self.tags)
 
@@ -87,6 +96,7 @@ def get_db_parameter_group(db_parameter_group_name: Optional[_builtins.str] = No
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDbParameterGroup', __args__, opts=opts, typ=GetDbParameterGroupResult).value
 
     return AwaitableGetDbParameterGroupResult(
+        db_parameter_group_arn=pulumi.get(__ret__, 'db_parameter_group_arn'),
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_db_parameter_group_output(db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -112,5 +122,6 @@ def get_db_parameter_group_output(db_parameter_group_name: pulumi.Input[Optional
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbParameterGroup', __args__, opts=opts, typ=GetDbParameterGroupResult)
     return __ret__.apply(lambda __response__: GetDbParameterGroupResult(
+        db_parameter_group_arn=pulumi.get(__response__, 'db_parameter_group_arn'),
         parameters=pulumi.get(__response__, 'parameters'),
         tags=pulumi.get(__response__, 'tags')))

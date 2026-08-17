@@ -1845,6 +1845,8 @@ class DomainSoftwareUpdateOptions(dict):
         suggest = None
         if key == "autoSoftwareUpdateEnabled":
             suggest = "auto_software_update_enabled"
+        elif key == "useLatestServiceSoftwareForBlueGreen":
+            suggest = "use_latest_service_software_for_blue_green"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainSoftwareUpdateOptions. Access the value via the '{suggest}' property getter instead.")
@@ -1858,12 +1860,15 @@ class DomainSoftwareUpdateOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auto_software_update_enabled: Optional[_builtins.bool] = None):
+                 auto_software_update_enabled: Optional[_builtins.bool] = None,
+                 use_latest_service_software_for_blue_green: Optional[_builtins.bool] = None):
         """
         :param _builtins.bool auto_software_update_enabled: Specifies whether automatic service software updates are enabled for the domain.
         """
         if auto_software_update_enabled is not None:
             pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+        if use_latest_service_software_for_blue_green is not None:
+            pulumi.set(__self__, "use_latest_service_software_for_blue_green", use_latest_service_software_for_blue_green)
 
     @_builtins.property
     @pulumi.getter(name="autoSoftwareUpdateEnabled")
@@ -1872,6 +1877,11 @@ class DomainSoftwareUpdateOptions(dict):
         Specifies whether automatic service software updates are enabled for the domain.
         """
         return pulumi.get(self, "auto_software_update_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="useLatestServiceSoftwareForBlueGreen")
+    def use_latest_service_software_for_blue_green(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_latest_service_software_for_blue_green")
 
 
 @pulumi.output_type

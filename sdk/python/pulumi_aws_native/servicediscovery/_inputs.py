@@ -15,6 +15,18 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'PrivateDnsNamespacePrivateDnsPropertiesMutableArgs',
+    'PrivateDnsNamespacePrivateDnsPropertiesMutableArgsDict',
+    'PrivateDnsNamespacePropertiesArgs',
+    'PrivateDnsNamespacePropertiesArgsDict',
+    'PrivateDnsNamespaceSoaArgs',
+    'PrivateDnsNamespaceSoaArgsDict',
+    'PublicDnsNamespacePropertiesArgs',
+    'PublicDnsNamespacePropertiesArgsDict',
+    'PublicDnsNamespacePublicDnsPropertiesMutableArgs',
+    'PublicDnsNamespacePublicDnsPropertiesMutableArgsDict',
+    'PublicDnsNamespaceSoaArgs',
+    'PublicDnsNamespaceSoaArgsDict',
     'ServiceDnsConfigArgs',
     'ServiceDnsConfigArgsDict',
     'ServiceDnsRecordArgs',
@@ -24,6 +36,180 @@ __all__ = [
     'ServiceHealthCheckCustomConfigArgs',
     'ServiceHealthCheckCustomConfigArgsDict',
 ]
+
+class PrivateDnsNamespacePrivateDnsPropertiesMutableArgsDict(TypedDict):
+    soa: NotRequired[pulumi.Input[Optional['PrivateDnsNamespaceSoaArgsDict']]]
+    """
+    Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
+    """
+
+@pulumi.input_type
+class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs:
+    def __init__(__self__, *,
+                 soa: pulumi.Input[Optional['PrivateDnsNamespaceSoaArgs']] = None):
+        """
+        :param pulumi.Input['PrivateDnsNamespaceSoaArgs'] soa: Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
+        """
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
+
+    @_builtins.property
+    @pulumi.getter
+    def soa(self) -> pulumi.Input[Optional['PrivateDnsNamespaceSoaArgs']]:
+        """
+        Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
+        """
+        return pulumi.get(self, "soa")
+
+    @soa.setter
+    def soa(self, value: pulumi.Input[Optional['PrivateDnsNamespaceSoaArgs']]):
+        pulumi.set(self, "soa", value)
+
+
+class PrivateDnsNamespacePropertiesArgsDict(TypedDict):
+    dns_properties: NotRequired[pulumi.Input[Optional['PrivateDnsNamespacePrivateDnsPropertiesMutableArgsDict']]]
+    """
+    DNS properties for the private DNS namespace.
+    """
+
+@pulumi.input_type
+class PrivateDnsNamespacePropertiesArgs:
+    def __init__(__self__, *,
+                 dns_properties: pulumi.Input[Optional['PrivateDnsNamespacePrivateDnsPropertiesMutableArgs']] = None):
+        """
+        :param pulumi.Input['PrivateDnsNamespacePrivateDnsPropertiesMutableArgs'] dns_properties: DNS properties for the private DNS namespace.
+        """
+        if dns_properties is not None:
+            pulumi.set(__self__, "dns_properties", dns_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsProperties")
+    def dns_properties(self) -> pulumi.Input[Optional['PrivateDnsNamespacePrivateDnsPropertiesMutableArgs']]:
+        """
+        DNS properties for the private DNS namespace.
+        """
+        return pulumi.get(self, "dns_properties")
+
+    @dns_properties.setter
+    def dns_properties(self, value: pulumi.Input[Optional['PrivateDnsNamespacePrivateDnsPropertiesMutableArgs']]):
+        pulumi.set(self, "dns_properties", value)
+
+
+class PrivateDnsNamespaceSoaArgsDict(TypedDict):
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The time to live (TTL) for purposes of negative caching.
+    """
+
+@pulumi.input_type
+class PrivateDnsNamespaceSoaArgs:
+    def __init__(__self__, *,
+                 ttl: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.float] ttl: The time to live (TTL) for purposes of negative caching.
+        """
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @_builtins.property
+    @pulumi.getter
+    def ttl(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The time to live (TTL) for purposes of negative caching.
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "ttl", value)
+
+
+class PublicDnsNamespacePropertiesArgsDict(TypedDict):
+    dns_properties: NotRequired[pulumi.Input[Optional['PublicDnsNamespacePublicDnsPropertiesMutableArgsDict']]]
+    """
+    DNS properties for the public DNS namespace.
+    """
+
+@pulumi.input_type
+class PublicDnsNamespacePropertiesArgs:
+    def __init__(__self__, *,
+                 dns_properties: pulumi.Input[Optional['PublicDnsNamespacePublicDnsPropertiesMutableArgs']] = None):
+        """
+        :param pulumi.Input['PublicDnsNamespacePublicDnsPropertiesMutableArgs'] dns_properties: DNS properties for the public DNS namespace.
+        """
+        if dns_properties is not None:
+            pulumi.set(__self__, "dns_properties", dns_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsProperties")
+    def dns_properties(self) -> pulumi.Input[Optional['PublicDnsNamespacePublicDnsPropertiesMutableArgs']]:
+        """
+        DNS properties for the public DNS namespace.
+        """
+        return pulumi.get(self, "dns_properties")
+
+    @dns_properties.setter
+    def dns_properties(self, value: pulumi.Input[Optional['PublicDnsNamespacePublicDnsPropertiesMutableArgs']]):
+        pulumi.set(self, "dns_properties", value)
+
+
+class PublicDnsNamespacePublicDnsPropertiesMutableArgsDict(TypedDict):
+    soa: NotRequired[pulumi.Input[Optional['PublicDnsNamespaceSoaArgsDict']]]
+    """
+    Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
+    """
+
+@pulumi.input_type
+class PublicDnsNamespacePublicDnsPropertiesMutableArgs:
+    def __init__(__self__, *,
+                 soa: pulumi.Input[Optional['PublicDnsNamespaceSoaArgs']] = None):
+        """
+        :param pulumi.Input['PublicDnsNamespaceSoaArgs'] soa: Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
+        """
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
+
+    @_builtins.property
+    @pulumi.getter
+    def soa(self) -> pulumi.Input[Optional['PublicDnsNamespaceSoaArgs']]:
+        """
+        Start of Authority (SOA) record for the hosted zone for the public DNS namespace.
+        """
+        return pulumi.get(self, "soa")
+
+    @soa.setter
+    def soa(self, value: pulumi.Input[Optional['PublicDnsNamespaceSoaArgs']]):
+        pulumi.set(self, "soa", value)
+
+
+class PublicDnsNamespaceSoaArgsDict(TypedDict):
+    ttl: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The time to live (TTL) for purposes of negative caching.
+    """
+
+@pulumi.input_type
+class PublicDnsNamespaceSoaArgs:
+    def __init__(__self__, *,
+                 ttl: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.float] ttl: The time to live (TTL) for purposes of negative caching.
+        """
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @_builtins.property
+    @pulumi.getter
+    def ttl(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The time to live (TTL) for purposes of negative caching.
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "ttl", value)
+
 
 class ServiceDnsConfigArgsDict(TypedDict):
     """

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:apigatewayv2:Api":
 		r = &Api{}
+	case "aws-native:apigatewayv2:ApiGatewayManagedOverrides":
+		r = &ApiGatewayManagedOverrides{}
 	case "aws-native:apigatewayv2:ApiMapping":
 		r = &ApiMapping{}
 	case "aws-native:apigatewayv2:Authorizer":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationResponse{}
 	case "aws-native:apigatewayv2:Model":
 		r = &Model{}
+	case "aws-native:apigatewayv2:PortalProduct":
+		r = &PortalProduct{}
 	case "aws-native:apigatewayv2:Route":
 		r = &Route{}
 	case "aws-native:apigatewayv2:RouteResponse":

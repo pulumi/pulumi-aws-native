@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:docdb:DbClusterParameterGroup":
+		r = &DbClusterParameterGroup{}
+	case "aws-native:docdb:DbSubnetGroup":
+		r = &DbSubnetGroup{}
 	case "aws-native:docdb:EventSubscription":
 		r = &EventSubscription{}
 	case "aws-native:docdb:GlobalCluster":

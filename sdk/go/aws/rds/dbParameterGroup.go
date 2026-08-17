@@ -22,6 +22,7 @@ import (
 type DbParameterGroup struct {
 	pulumi.CustomResourceState
 
+	DbParameterGroupArn pulumi.StringOutput `pulumi:"dbParameterGroupArn"`
 	// The name of the DB parameter group.
 	//  Constraints:
 	//   +  Must be 1 to 255 letters, numbers, or hyphens.
@@ -243,6 +244,10 @@ func (o DbParameterGroupOutput) ToDbParameterGroupOutput() DbParameterGroupOutpu
 
 func (o DbParameterGroupOutput) ToDbParameterGroupOutputWithContext(ctx context.Context) DbParameterGroupOutput {
 	return o
+}
+
+func (o DbParameterGroupOutput) DbParameterGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbParameterGroup) pulumi.StringOutput { return v.DbParameterGroupArn }).(pulumi.StringOutput)
 }
 
 // The name of the DB parameter group.

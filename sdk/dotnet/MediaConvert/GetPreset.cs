@@ -33,8 +33,11 @@ namespace Pulumi.AwsNative.MediaConvert
 
     public sealed class GetPresetArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the preset that you are modifying.
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetPresetArgs()
         {
@@ -44,8 +47,11 @@ namespace Pulumi.AwsNative.MediaConvert
 
     public sealed class GetPresetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the preset that you are modifying.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetPresetInvokeArgs()
         {
@@ -58,7 +64,7 @@ namespace Pulumi.AwsNative.MediaConvert
     public sealed class GetPresetResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+        /// The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
         /// </summary>
         public readonly string? Arn;
         /// <summary>
@@ -69,11 +75,8 @@ namespace Pulumi.AwsNative.MediaConvert
         /// The new description for the preset, if you are changing it.
         /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
         /// <summary>
         /// Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-        /// 
-        /// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
         /// </summary>
@@ -95,8 +98,6 @@ namespace Pulumi.AwsNative.MediaConvert
 
             string? description,
 
-            string? id,
-
             object? settingsJson,
 
             object? tags)
@@ -104,7 +105,6 @@ namespace Pulumi.AwsNative.MediaConvert
             Arn = arn;
             Category = category;
             Description = description;
-            Id = id;
             SettingsJson = settingsJson;
             Tags = tags;
         }

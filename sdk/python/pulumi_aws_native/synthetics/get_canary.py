@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCanaryResult:
-    def __init__(__self__, artifact_config=None, artifact_s3_location=None, browser_configs=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, provisioned_resource_cleanup=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, vpc_config=None):
+    def __init__(__self__, artifact_config=None, artifact_s3_location=None, browser_configs=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, kms_key_arn=None, provisioned_resource_cleanup=None, replicas=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, vpc_config=None):
         if artifact_config and not isinstance(artifact_config, dict):
             raise TypeError("Expected argument 'artifact_config' to be a dict")
         pulumi.set(__self__, "artifact_config", artifact_config)
@@ -48,9 +48,15 @@ class GetCanaryResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if provisioned_resource_cleanup and not isinstance(provisioned_resource_cleanup, str):
             raise TypeError("Expected argument 'provisioned_resource_cleanup' to be a str")
         pulumi.set(__self__, "provisioned_resource_cleanup", provisioned_resource_cleanup)
+        if replicas and not isinstance(replicas, list):
+            raise TypeError("Expected argument 'replicas' to be a list")
+        pulumi.set(__self__, "replicas", replicas)
         if run_config and not isinstance(run_config, dict):
             raise TypeError("Expected argument 'run_config' to be a dict")
         pulumi.set(__self__, "run_config", run_config)
@@ -130,12 +136,28 @@ class GetCanaryResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
     @pulumi.getter(name="provisionedResourceCleanup")
     def provisioned_resource_cleanup(self) -> Optional['CanaryProvisionedResourceCleanup']:
         """
         Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
         """
         return pulumi.get(self, "provisioned_resource_cleanup")
+
+    @_builtins.property
+    @pulumi.getter
+    def replicas(self) -> Optional[Sequence['outputs.CanaryReplica']]:
+        """
+        List of replica locations for multi-location canary execution
+        """
+        return pulumi.get(self, "replicas")
 
     @_builtins.property
     @pulumi.getter(name="runConfig")
@@ -207,7 +229,9 @@ class AwaitableGetCanaryResult(GetCanaryResult):
             execution_role_arn=self.execution_role_arn,
             failure_retention_period=self.failure_retention_period,
             id=self.id,
+            kms_key_arn=self.kms_key_arn,
             provisioned_resource_cleanup=self.provisioned_resource_cleanup,
+            replicas=self.replicas,
             run_config=self.run_config,
             runtime_version=self.runtime_version,
             schedule=self.schedule,
@@ -237,7 +261,9 @@ def get_canary(name: Optional[_builtins.str] = None,
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         failure_retention_period=pulumi.get(__ret__, 'failure_retention_period'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         provisioned_resource_cleanup=pulumi.get(__ret__, 'provisioned_resource_cleanup'),
+        replicas=pulumi.get(__ret__, 'replicas'),
         run_config=pulumi.get(__ret__, 'run_config'),
         runtime_version=pulumi.get(__ret__, 'runtime_version'),
         schedule=pulumi.get(__ret__, 'schedule'),
@@ -264,7 +290,9 @@ def get_canary_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
         failure_retention_period=pulumi.get(__response__, 'failure_retention_period'),
         id=pulumi.get(__response__, 'id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         provisioned_resource_cleanup=pulumi.get(__response__, 'provisioned_resource_cleanup'),
+        replicas=pulumi.get(__response__, 'replicas'),
         run_config=pulumi.get(__response__, 'run_config'),
         runtime_version=pulumi.get(__response__, 'runtime_version'),
         schedule=pulumi.get(__response__, 'schedule'),

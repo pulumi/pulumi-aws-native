@@ -10,61 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Describes the configuration and state of VPC encryption controls.
+    ///  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+    /// </summary>
     [OutputType]
     public sealed class VpcEncryptionControl
     {
-        /// <summary>
-        /// The desired exclusion mode for Egress-Only Internet Gateways.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlEgressOnlyInternetGatewayExclusion? EgressOnlyInternetGatewayExclusion;
-        /// <summary>
-        /// The desired exclusion mode for Elastic File System.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlElasticFileSystemExclusion? ElasticFileSystemExclusion;
-        /// <summary>
-        /// The desired exclusion mode for Internet Gateways.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlInternetGatewayExclusion? InternetGatewayExclusion;
-        /// <summary>
-        /// The desired exclusion mode for Lambda.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlLambdaExclusion? LambdaExclusion;
         /// <summary>
-        /// The mode of the VPC encryption control.
+        /// The encryption mode for the VPC Encryption Control configuration.
         /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlMode? Mode;
-        /// <summary>
-        /// The desired exclusion mode for NAT Gateways.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlNatGatewayExclusion? NatGatewayExclusion;
+        /// <summary>
+        /// Information about resource exclusions for the VPC Encryption Control configuration.
+        /// </summary>
         public readonly Outputs.VpcEncryptionControlExclusions? ResourceExclusions;
         /// <summary>
-        /// The state of the VPC encryption control.
+        /// The current state of the VPC Encryption Control configuration.
         /// </summary>
         public readonly string? State;
         /// <summary>
-        /// A message describing the state of the VPC encryption control.
+        /// A message providing additional information about the encryption control state.
         /// </summary>
         public readonly string? StateMessage;
-        /// <summary>
-        /// The desired exclusion mode for Virtual Private Gateways.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlVirtualPrivateGatewayExclusion? VirtualPrivateGatewayExclusion;
         /// <summary>
-        /// The ID of the VPC encryption control.
+        /// The ID of the VPC Encryption Control configuration.
         /// </summary>
         public readonly string? VpcEncryptionControlId;
         /// <summary>
-        /// The ID of the VPC.
+        /// The ID of the VPC associated with the encryption control configuration.
         /// </summary>
         public readonly string? VpcId;
-        /// <summary>
-        /// The desired exclusion mode for VPC Lattice.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlVpcLatticeExclusion? VpcLatticeExclusion;
-        /// <summary>
-        /// The desired exclusion mode for VPC Peering.
-        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEncryptionControlVpcPeeringExclusion? VpcPeeringExclusion;
 
         [OutputConstructor]

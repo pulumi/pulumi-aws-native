@@ -1190,14 +1190,17 @@ func (o BucketAnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) Bucket
 	}).(BucketAnalyticsConfigurationOutput)
 }
 
+// The annotation table configuration for an S3 Metadata configuration. The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+//
+//	If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
 type BucketAnnotationTableConfiguration struct {
-	// Specifies whether annotation table configuration is enabled or disabled.
+	// Specifies whether the annotation table configuration is enabled or disabled.
 	ConfigurationState BucketAnnotationTableConfigurationConfigurationState `pulumi:"configurationState"`
-	// The encryption configuration for the annotation table.
+	// The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set ``SseAlgorithm`` to ``aws:kms``. You must also set ``KmsKeyArn`` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
 	EncryptionConfiguration *BucketMetadataTableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
 	Role *string `pulumi:"role"`
-	// The ARN of the annotation table.
+	// The Amazon Resource Name (ARN) for the annotation table.
 	TableArn *string `pulumi:"tableArn"`
 	// The name of the annotation table.
 	TableName *string `pulumi:"tableName"`
@@ -1214,14 +1217,17 @@ type BucketAnnotationTableConfigurationInput interface {
 	ToBucketAnnotationTableConfigurationOutputWithContext(context.Context) BucketAnnotationTableConfigurationOutput
 }
 
+// The annotation table configuration for an S3 Metadata configuration. The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+//
+//	If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
 type BucketAnnotationTableConfigurationArgs struct {
-	// Specifies whether annotation table configuration is enabled or disabled.
+	// Specifies whether the annotation table configuration is enabled or disabled.
 	ConfigurationState BucketAnnotationTableConfigurationConfigurationStateInput `pulumi:"configurationState"`
-	// The encryption configuration for the annotation table.
+	// The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set ``SseAlgorithm`` to ``aws:kms``. You must also set ``KmsKeyArn`` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
 	EncryptionConfiguration BucketMetadataTableEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 	// The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
 	Role pulumi.StringPtrInput `pulumi:"role"`
-	// The ARN of the annotation table.
+	// The Amazon Resource Name (ARN) for the annotation table.
 	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
 	// The name of the annotation table.
 	TableName pulumi.StringPtrInput `pulumi:"tableName"`
@@ -1280,6 +1286,9 @@ func (i *bucketAnnotationTableConfigurationPtrType) ToBucketAnnotationTableConfi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAnnotationTableConfigurationPtrOutput)
 }
 
+// The annotation table configuration for an S3 Metadata configuration. The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+//
+//	If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
 type BucketAnnotationTableConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketAnnotationTableConfigurationOutput) ElementType() reflect.Type {
@@ -1304,14 +1313,14 @@ func (o BucketAnnotationTableConfigurationOutput) ToBucketAnnotationTableConfigu
 	}).(BucketAnnotationTableConfigurationPtrOutput)
 }
 
-// Specifies whether annotation table configuration is enabled or disabled.
+// Specifies whether the annotation table configuration is enabled or disabled.
 func (o BucketAnnotationTableConfigurationOutput) ConfigurationState() BucketAnnotationTableConfigurationConfigurationStateOutput {
 	return o.ApplyT(func(v BucketAnnotationTableConfiguration) BucketAnnotationTableConfigurationConfigurationState {
 		return v.ConfigurationState
 	}).(BucketAnnotationTableConfigurationConfigurationStateOutput)
 }
 
-// The encryption configuration for the annotation table.
+// The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set “SseAlgorithm“ to “aws:kms“. You must also set “KmsKeyArn“ to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
 func (o BucketAnnotationTableConfigurationOutput) EncryptionConfiguration() BucketMetadataTableEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v BucketAnnotationTableConfiguration) *BucketMetadataTableEncryptionConfiguration {
 		return v.EncryptionConfiguration
@@ -1323,7 +1332,7 @@ func (o BucketAnnotationTableConfigurationOutput) Role() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v BucketAnnotationTableConfiguration) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the annotation table.
+// The Amazon Resource Name (ARN) for the annotation table.
 func (o BucketAnnotationTableConfigurationOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAnnotationTableConfiguration) *string { return v.TableArn }).(pulumi.StringPtrOutput)
 }
@@ -1357,7 +1366,7 @@ func (o BucketAnnotationTableConfigurationPtrOutput) Elem() BucketAnnotationTabl
 	}).(BucketAnnotationTableConfigurationOutput)
 }
 
-// Specifies whether annotation table configuration is enabled or disabled.
+// Specifies whether the annotation table configuration is enabled or disabled.
 func (o BucketAnnotationTableConfigurationPtrOutput) ConfigurationState() BucketAnnotationTableConfigurationConfigurationStatePtrOutput {
 	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *BucketAnnotationTableConfigurationConfigurationState {
 		if v == nil {
@@ -1367,7 +1376,7 @@ func (o BucketAnnotationTableConfigurationPtrOutput) ConfigurationState() Bucket
 	}).(BucketAnnotationTableConfigurationConfigurationStatePtrOutput)
 }
 
-// The encryption configuration for the annotation table.
+// The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set “SseAlgorithm“ to “aws:kms“. You must also set “KmsKeyArn“ to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
 func (o BucketAnnotationTableConfigurationPtrOutput) EncryptionConfiguration() BucketMetadataTableEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *BucketMetadataTableEncryptionConfiguration {
 		if v == nil {
@@ -1387,7 +1396,7 @@ func (o BucketAnnotationTableConfigurationPtrOutput) Role() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the annotation table.
+// The Amazon Resource Name (ARN) for the annotation table.
 func (o BucketAnnotationTableConfigurationPtrOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAnnotationTableConfiguration) *string {
 		if v == nil {
@@ -3414,6 +3423,8 @@ func (o BucketInventoryConfigurationArrayOutput) Index(i pulumi.IntInput) Bucket
 }
 
 // The inventory table configuration for an S3 Metadata configuration.
+//
+//	If you've disabled your inventory table configuration and now want to re-enable it, you must first manually delete the old inventory table from your AWS managed table bucket. Otherwise, the newly re-enabled inventory table configuration will enter a failed state because the inventory table already exists in the table bucket.
 type BucketInventoryTableConfiguration struct {
 	// The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
 	ConfigurationState BucketInventoryTableConfigurationConfigurationState `pulumi:"configurationState"`
@@ -3437,6 +3448,8 @@ type BucketInventoryTableConfigurationInput interface {
 }
 
 // The inventory table configuration for an S3 Metadata configuration.
+//
+//	If you've disabled your inventory table configuration and now want to re-enable it, you must first manually delete the old inventory table from your AWS managed table bucket. Otherwise, the newly re-enabled inventory table configuration will enter a failed state because the inventory table already exists in the table bucket.
 type BucketInventoryTableConfigurationArgs struct {
 	// The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
 	ConfigurationState BucketInventoryTableConfigurationConfigurationStateInput `pulumi:"configurationState"`
@@ -3502,6 +3515,8 @@ func (i *bucketInventoryTableConfigurationPtrType) ToBucketInventoryTableConfigu
 }
 
 // The inventory table configuration for an S3 Metadata configuration.
+//
+//	If you've disabled your inventory table configuration and now want to re-enable it, you must first manually delete the old inventory table from your AWS managed table bucket. Otherwise, the newly re-enabled inventory table configuration will enter a failed state because the inventory table already exists in the table bucket.
 type BucketInventoryTableConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketInventoryTableConfigurationOutput) ElementType() reflect.Type {
@@ -3614,7 +3629,9 @@ func (o BucketInventoryTableConfigurationPtrOutput) TableName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The journal table configuration for an S3 Metadata configuration.
+// The journal table configuration for an S3 Metadata configuration. The journal table is required for each metadata table configuration and cannot be disabled.
+//
+//	The journal configuration will enter a failed state if a journal table already exists in the table bucket. The journal table of a previous configuration must be deleted before a new journal table can be created successfully.
 type BucketJournalTableConfiguration struct {
 	// The encryption configuration for the journal table.
 	EncryptionConfiguration *BucketMetadataTableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
@@ -3637,7 +3654,9 @@ type BucketJournalTableConfigurationInput interface {
 	ToBucketJournalTableConfigurationOutputWithContext(context.Context) BucketJournalTableConfigurationOutput
 }
 
-// The journal table configuration for an S3 Metadata configuration.
+// The journal table configuration for an S3 Metadata configuration. The journal table is required for each metadata table configuration and cannot be disabled.
+//
+//	The journal configuration will enter a failed state if a journal table already exists in the table bucket. The journal table of a previous configuration must be deleted before a new journal table can be created successfully.
 type BucketJournalTableConfigurationArgs struct {
 	// The encryption configuration for the journal table.
 	EncryptionConfiguration BucketMetadataTableEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
@@ -3702,7 +3721,9 @@ func (i *bucketJournalTableConfigurationPtrType) ToBucketJournalTableConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketJournalTableConfigurationPtrOutput)
 }
 
-// The journal table configuration for an S3 Metadata configuration.
+// The journal table configuration for an S3 Metadata configuration. The journal table is required for each metadata table configuration and cannot be disabled.
+//
+//	The journal configuration will enter a failed state if a journal table already exists in the table bucket. The journal table of a previous configuration must be deleted before a new journal table can be created successfully.
 type BucketJournalTableConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketJournalTableConfigurationOutput) ElementType() reflect.Type {
@@ -4300,6 +4321,7 @@ func (o BucketLoggingConfigurationPtrOutput) TargetObjectKeyFormat() BucketTarge
 
 // Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
 type BucketMetadataConfiguration struct {
+	// The annotation table configuration for a metadata configuration.
 	AnnotationTableConfiguration *BucketAnnotationTableConfiguration `pulumi:"annotationTableConfiguration"`
 	// The destination information for the S3 Metadata configuration.
 	Destination *BucketMetadataDestination `pulumi:"destination"`
@@ -4322,6 +4344,7 @@ type BucketMetadataConfigurationInput interface {
 
 // Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
 type BucketMetadataConfigurationArgs struct {
+	// The annotation table configuration for a metadata configuration.
 	AnnotationTableConfiguration BucketAnnotationTableConfigurationPtrInput `pulumi:"annotationTableConfiguration"`
 	// The destination information for the S3 Metadata configuration.
 	Destination BucketMetadataDestinationPtrInput `pulumi:"destination"`
@@ -4409,6 +4432,7 @@ func (o BucketMetadataConfigurationOutput) ToBucketMetadataConfigurationPtrOutpu
 	}).(BucketMetadataConfigurationPtrOutput)
 }
 
+// The annotation table configuration for a metadata configuration.
 func (o BucketMetadataConfigurationOutput) AnnotationTableConfiguration() BucketAnnotationTableConfigurationPtrOutput {
 	return o.ApplyT(func(v BucketMetadataConfiguration) *BucketAnnotationTableConfiguration {
 		return v.AnnotationTableConfiguration
@@ -4458,6 +4482,7 @@ func (o BucketMetadataConfigurationPtrOutput) Elem() BucketMetadataConfiguration
 	}).(BucketMetadataConfigurationOutput)
 }
 
+// The annotation table configuration for a metadata configuration.
 func (o BucketMetadataConfigurationPtrOutput) AnnotationTableConfiguration() BucketAnnotationTableConfigurationPtrOutput {
 	return o.ApplyT(func(v *BucketMetadataConfiguration) *BucketAnnotationTableConfiguration {
 		if v == nil {
@@ -10980,7 +11005,7 @@ type BucketTransition struct {
 	StorageClass BucketTransitionStorageClass `pulumi:"storageClass"`
 	// Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
 	TransitionDate *string `pulumi:"transitionDate"`
-	// Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+	// Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be ``0`` or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
 	TransitionInDays *int `pulumi:"transitionInDays"`
 }
 
@@ -11001,7 +11026,7 @@ type BucketTransitionArgs struct {
 	StorageClass BucketTransitionStorageClassInput `pulumi:"storageClass"`
 	// Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
 	TransitionDate pulumi.StringPtrInput `pulumi:"transitionDate"`
-	// Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+	// Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be ``0`` or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
 	TransitionInDays pulumi.IntPtrInput `pulumi:"transitionInDays"`
 }
 
@@ -11118,7 +11143,7 @@ func (o BucketTransitionOutput) TransitionDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketTransition) *string { return v.TransitionDate }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is “INTELLIGENT_TIERING“, “GLACIER_IR“, “GLACIER“, or “DEEP_ARCHIVE“, valid values are “0“ or positive integers. If the specified storage class is “STANDARD_IA“ or “ONEZONE_IA“, valid values are positive integers greater than “30“. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+// Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be “0“ or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
 func (o BucketTransitionOutput) TransitionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketTransition) *int { return v.TransitionInDays }).(pulumi.IntPtrOutput)
 }
@@ -11167,7 +11192,7 @@ func (o BucketTransitionPtrOutput) TransitionDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is “INTELLIGENT_TIERING“, “GLACIER_IR“, “GLACIER“, or “DEEP_ARCHIVE“, valid values are “0“ or positive integers. If the specified storage class is “STANDARD_IA“ or “ONEZONE_IA“, valid values are positive integers greater than “30“. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+// Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be “0“ or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
 func (o BucketTransitionPtrOutput) TransitionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketTransition) *int {
 		if v == nil {

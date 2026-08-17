@@ -13,14 +13,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class GatewayCustomJwtAuthorizerConfiguration
     {
+        public readonly ImmutableDictionary<string, string>? AdvertisedScopeMapping;
         public readonly ImmutableArray<string> AllowedAudience;
         public readonly ImmutableArray<string> AllowedClients;
         public readonly ImmutableArray<string> AllowedScopes;
         public readonly ImmutableArray<Outputs.GatewayCustomClaimValidationType> CustomClaims;
         public readonly string DiscoveryUrl;
+        public readonly Union<Outputs.GatewayPrivateEndpoint0Properties, Outputs.GatewayPrivateEndpoint1Properties>? PrivateEndpoint;
 
         [OutputConstructor]
         private GatewayCustomJwtAuthorizerConfiguration(
+            ImmutableDictionary<string, string>? advertisedScopeMapping,
+
             ImmutableArray<string> allowedAudience,
 
             ImmutableArray<string> allowedClients,
@@ -29,13 +33,17 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<Outputs.GatewayCustomClaimValidationType> customClaims,
 
-            string discoveryUrl)
+            string discoveryUrl,
+
+            Union<Outputs.GatewayPrivateEndpoint0Properties, Outputs.GatewayPrivateEndpoint1Properties>? privateEndpoint)
         {
+            AdvertisedScopeMapping = advertisedScopeMapping;
             AllowedAudience = allowedAudience;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
             CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
+            PrivateEndpoint = privateEndpoint;
         }
     }
 }

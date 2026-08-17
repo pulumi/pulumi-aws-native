@@ -90,6 +90,10 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the configuration and state of VPC encryption controls.
+        ///  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+        /// </summary>
         [Output("vpcEncryptionControl")]
         public Output<Outputs.VpcEncryptionControl?> VpcEncryptionControl { get; private set; } = null!;
 
@@ -206,6 +210,10 @@ namespace Pulumi.AwsNative.Ec2
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Describes the configuration and state of VPC encryption controls.
+        ///  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
+        /// </summary>
         [Input("vpcEncryptionControl")]
         public Input<Inputs.VpcEncryptionControlArgs>? VpcEncryptionControl { get; set; }
 

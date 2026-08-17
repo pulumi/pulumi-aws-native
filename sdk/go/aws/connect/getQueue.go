@@ -37,6 +37,10 @@ type LookupQueueResult struct {
 	HoursOfOperationArn *string `pulumi:"hoursOfOperationArn"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn *string `pulumi:"instanceArn"`
+	// The AWS Region where this resource was last modified.
+	LastModifiedRegion *string `pulumi:"lastModifiedRegion"`
+	// The timestamp when this resource was last modified.
+	LastModifiedTime *float64 `pulumi:"lastModifiedTime"`
 	// The maximum number of contacts that can be in the queue before it is considered full.
 	MaxContacts *int `pulumi:"maxContacts"`
 	// The name of the queue.
@@ -107,6 +111,16 @@ func (o LookupQueueResultOutput) HoursOfOperationArn() pulumi.StringPtrOutput {
 // The identifier of the Amazon Connect instance.
 func (o LookupQueueResultOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region where this resource was last modified.
+func (o LookupQueueResultOutput) LastModifiedRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *string { return v.LastModifiedRegion }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when this resource was last modified.
+func (o LookupQueueResultOutput) LastModifiedTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *float64 { return v.LastModifiedTime }).(pulumi.Float64PtrOutput)
 }
 
 // The maximum number of contacts that can be in the queue before it is considered full.

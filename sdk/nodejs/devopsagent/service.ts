@@ -50,9 +50,17 @@ export class Service extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+     */
+    declare public readonly exchangeUrlPrivateConnectionName: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the KMS key to use for encryption.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    /**
+     * The name of the private connection to use for VPC connectivity.
+     */
+    declare public readonly privateConnectionName: pulumi.Output<string | undefined>;
     /**
      * Service-specific configuration details for create operation
      */
@@ -69,6 +77,10 @@ export class Service extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+     */
+    declare public readonly targetUrlPrivateConnectionName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -84,10 +96,13 @@ export class Service extends pulumi.CustomResource {
             if (args?.serviceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceType'");
             }
+            resourceInputs["exchangeUrlPrivateConnectionName"] = args?.exchangeUrlPrivateConnectionName;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["privateConnectionName"] = args?.privateConnectionName;
             resourceInputs["serviceDetails"] = args?.serviceDetails;
             resourceInputs["serviceType"] = args?.serviceType;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetUrlPrivateConnectionName"] = args?.targetUrlPrivateConnectionName;
             resourceInputs["accessibleResources"] = undefined /*out*/;
             resourceInputs["additionalServiceDetails"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -96,14 +111,17 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["accessibleResources"] = undefined /*out*/;
             resourceInputs["additionalServiceDetails"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["exchangeUrlPrivateConnectionName"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
+            resourceInputs["privateConnectionName"] = undefined /*out*/;
             resourceInputs["serviceDetails"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
             resourceInputs["serviceType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetUrlPrivateConnectionName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKeyArn", "serviceDetails.azureIdentity", "serviceDetails.dynatrace", "serviceDetails.mcpServerSplunk", "serviceDetails.pagerDuty", "serviceDetails.serviceNow", "serviceType"] };
+        const replaceOnChanges = { replaceOnChanges: ["exchangeUrlPrivateConnectionName", "kmsKeyArn", "privateConnectionName", "serviceDetails.azureIdentity", "serviceDetails.dynatrace", "serviceDetails.mcpServerSplunk", "serviceDetails.pagerDuty", "serviceDetails.serviceNow", "serviceType", "targetUrlPrivateConnectionName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
@@ -114,9 +132,17 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceArgs {
     /**
+     * The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
+     */
+    exchangeUrlPrivateConnectionName?: pulumi.Input<string | undefined>;
+    /**
      * The ARN of the KMS key to use for encryption.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
+    /**
+     * The name of the private connection to use for VPC connectivity.
+     */
+    privateConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Service-specific configuration details for create operation
      */
@@ -129,4 +155,8 @@ export interface ServiceArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    /**
+     * The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
+     */
+    targetUrlPrivateConnectionName?: pulumi.Input<string | undefined>;
 }

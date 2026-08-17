@@ -497,4 +497,65 @@ namespace Pulumi.AwsNative.DevOpsAgent
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The status of the trigger. Active triggers fire on schedule; Inactive triggers are paused.
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerStatus : IEquatable<TriggerStatus>
+    {
+        private readonly string _value;
+
+        private TriggerStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerStatus Active { get; } = new TriggerStatus("Active");
+        public static TriggerStatus Inactive { get; } = new TriggerStatus("Inactive");
+
+        public static bool operator ==(TriggerStatus left, TriggerStatus right) => left.Equals(right);
+        public static bool operator !=(TriggerStatus left, TriggerStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerStatus other && Equals(other);
+        public bool Equals(TriggerStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of trigger.
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerType : IEquatable<TriggerType>
+    {
+        private readonly string _value;
+
+        private TriggerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerType TimeBased { get; } = new TriggerType("TIME_BASED");
+
+        public static bool operator ==(TriggerType left, TriggerType right) => left.Equals(right);
+        public static bool operator !=(TriggerType left, TriggerType right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerType other && Equals(other);
+        public bool Equals(TriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

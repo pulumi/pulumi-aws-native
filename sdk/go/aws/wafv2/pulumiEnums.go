@@ -3553,6 +3553,178 @@ func (in *ruleGroupPositionalConstraintPtr) ToRuleGroupPositionalConstraintPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupPositionalConstraintPtrOutput)
 }
 
+// Type of pre-parse text transformation.
+type RuleGroupPreParseTextTransformationType string
+
+const (
+	RuleGroupPreParseTextTransformationTypeNone                             = RuleGroupPreParseTextTransformationType("NONE")
+	RuleGroupPreParseTextTransformationTypeUrlDecode                        = RuleGroupPreParseTextTransformationType("URL_DECODE")
+	RuleGroupPreParseTextTransformationTypeUrlDecodeUni                     = RuleGroupPreParseTextTransformationType("URL_DECODE_UNI")
+	RuleGroupPreParseTextTransformationTypeCombineDuplicateQueryArgsByComma = RuleGroupPreParseTextTransformationType("COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA")
+	RuleGroupPreParseTextTransformationTypeReplaceSemicolonsWithAmpersands  = RuleGroupPreParseTextTransformationType("REPLACE_SEMICOLONS_WITH_AMPERSANDS")
+)
+
+func (RuleGroupPreParseTextTransformationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPreParseTextTransformationType)(nil)).Elem()
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToRuleGroupPreParseTextTransformationTypeOutput() RuleGroupPreParseTextTransformationTypeOutput {
+	return pulumi.ToOutput(e).(RuleGroupPreParseTextTransformationTypeOutput)
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToRuleGroupPreParseTextTransformationTypeOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupPreParseTextTransformationTypeOutput)
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToRuleGroupPreParseTextTransformationTypePtrOutput() RuleGroupPreParseTextTransformationTypePtrOutput {
+	return e.ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationTypePtrOutput {
+	return RuleGroupPreParseTextTransformationType(e).ToRuleGroupPreParseTextTransformationTypeOutputWithContext(ctx).ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(ctx)
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleGroupPreParseTextTransformationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleGroupPreParseTextTransformationTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPreParseTextTransformationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupPreParseTextTransformationType)(nil)).Elem()
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToRuleGroupPreParseTextTransformationTypeOutput() RuleGroupPreParseTextTransformationTypeOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToRuleGroupPreParseTextTransformationTypeOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationTypeOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToRuleGroupPreParseTextTransformationTypePtrOutput() RuleGroupPreParseTextTransformationTypePtrOutput {
+	return o.ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupPreParseTextTransformationType) *RuleGroupPreParseTextTransformationType {
+		return &v
+	}).(RuleGroupPreParseTextTransformationTypePtrOutput)
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupPreParseTextTransformationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupPreParseTextTransformationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupPreParseTextTransformationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupPreParseTextTransformationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupPreParseTextTransformationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupPreParseTextTransformationType)(nil)).Elem()
+}
+
+func (o RuleGroupPreParseTextTransformationTypePtrOutput) ToRuleGroupPreParseTextTransformationTypePtrOutput() RuleGroupPreParseTextTransformationTypePtrOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationTypePtrOutput) ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationTypePtrOutput {
+	return o
+}
+
+func (o RuleGroupPreParseTextTransformationTypePtrOutput) Elem() RuleGroupPreParseTextTransformationTypeOutput {
+	return o.ApplyT(func(v *RuleGroupPreParseTextTransformationType) RuleGroupPreParseTextTransformationType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupPreParseTextTransformationType
+		return ret
+	}).(RuleGroupPreParseTextTransformationTypeOutput)
+}
+
+func (o RuleGroupPreParseTextTransformationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupPreParseTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupPreParseTextTransformationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleGroupPreParseTextTransformationTypeInput is an input type that accepts values of the RuleGroupPreParseTextTransformationType enum
+// A concrete instance of `RuleGroupPreParseTextTransformationTypeInput` can be one of the following:
+//
+//	RuleGroupPreParseTextTransformationTypeNone
+//	RuleGroupPreParseTextTransformationTypeUrlDecode
+//	RuleGroupPreParseTextTransformationTypeUrlDecodeUni
+//	RuleGroupPreParseTextTransformationTypeCombineDuplicateQueryArgsByComma
+//	RuleGroupPreParseTextTransformationTypeReplaceSemicolonsWithAmpersands
+type RuleGroupPreParseTextTransformationTypeInput interface {
+	pulumi.Input
+
+	ToRuleGroupPreParseTextTransformationTypeOutput() RuleGroupPreParseTextTransformationTypeOutput
+	ToRuleGroupPreParseTextTransformationTypeOutputWithContext(context.Context) RuleGroupPreParseTextTransformationTypeOutput
+}
+
+var ruleGroupPreParseTextTransformationTypePtrType = reflect.TypeOf((**RuleGroupPreParseTextTransformationType)(nil)).Elem()
+
+type RuleGroupPreParseTextTransformationTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupPreParseTextTransformationTypePtrOutput() RuleGroupPreParseTextTransformationTypePtrOutput
+	ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(context.Context) RuleGroupPreParseTextTransformationTypePtrOutput
+}
+
+type ruleGroupPreParseTextTransformationTypePtr string
+
+func RuleGroupPreParseTextTransformationTypePtr(v string) RuleGroupPreParseTextTransformationTypePtrInput {
+	return (*ruleGroupPreParseTextTransformationTypePtr)(&v)
+}
+
+func (*ruleGroupPreParseTextTransformationTypePtr) ElementType() reflect.Type {
+	return ruleGroupPreParseTextTransformationTypePtrType
+}
+
+func (in *ruleGroupPreParseTextTransformationTypePtr) ToRuleGroupPreParseTextTransformationTypePtrOutput() RuleGroupPreParseTextTransformationTypePtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupPreParseTextTransformationTypePtrOutput)
+}
+
+func (in *ruleGroupPreParseTextTransformationTypePtr) ToRuleGroupPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) RuleGroupPreParseTextTransformationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupPreParseTextTransformationTypePtrOutput)
+}
+
 // Setting that indicates how to aggregate the request counts.
 //
 // > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
@@ -4783,6 +4955,16 @@ const (
 	RuleGroupTextTransformationTypeBase64DecodeExt    = RuleGroupTextTransformationType("BASE64_DECODE_EXT")
 	RuleGroupTextTransformationTypeUrlDecodeUni       = RuleGroupTextTransformationType("URL_DECODE_UNI")
 	RuleGroupTextTransformationTypeUtf8ToUnicode      = RuleGroupTextTransformationType("UTF8_TO_UNICODE")
+	RuleGroupTextTransformationTypeRemoveWhitespace   = RuleGroupTextTransformationType("REMOVE_WHITESPACE")
+	RuleGroupTextTransformationTypeTrim               = RuleGroupTextTransformationType("TRIM")
+	RuleGroupTextTransformationTypeTrimLeft           = RuleGroupTextTransformationType("TRIM_LEFT")
+	RuleGroupTextTransformationTypeTrimRight          = RuleGroupTextTransformationType("TRIM_RIGHT")
+	RuleGroupTextTransformationTypeRemoveCommentsChar = RuleGroupTextTransformationType("REMOVE_COMMENTS_CHAR")
+	RuleGroupTextTransformationTypeUppercase          = RuleGroupTextTransformationType("UPPERCASE")
+	RuleGroupTextTransformationTypeCmdLineWin         = RuleGroupTextTransformationType("CMD_LINE_WIN")
+	RuleGroupTextTransformationTypeCmdLineUnix        = RuleGroupTextTransformationType("CMD_LINE_UNIX")
+	RuleGroupTextTransformationTypeJsDecodeExt        = RuleGroupTextTransformationType("JS_DECODE_EXT")
+	RuleGroupTextTransformationTypeSha256             = RuleGroupTextTransformationType("SHA256")
 )
 
 func (RuleGroupTextTransformationType) ElementType() reflect.Type {
@@ -4928,6 +5110,16 @@ func (o RuleGroupTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(c
 //	RuleGroupTextTransformationTypeBase64DecodeExt
 //	RuleGroupTextTransformationTypeUrlDecodeUni
 //	RuleGroupTextTransformationTypeUtf8ToUnicode
+//	RuleGroupTextTransformationTypeRemoveWhitespace
+//	RuleGroupTextTransformationTypeTrim
+//	RuleGroupTextTransformationTypeTrimLeft
+//	RuleGroupTextTransformationTypeTrimRight
+//	RuleGroupTextTransformationTypeRemoveCommentsChar
+//	RuleGroupTextTransformationTypeUppercase
+//	RuleGroupTextTransformationTypeCmdLineWin
+//	RuleGroupTextTransformationTypeCmdLineUnix
+//	RuleGroupTextTransformationTypeJsDecodeExt
+//	RuleGroupTextTransformationTypeSha256
 type RuleGroupTextTransformationTypeInput interface {
 	pulumi.Input
 
@@ -8344,6 +8536,178 @@ func (in *webAclPositionalConstraintPtr) ToWebAclPositionalConstraintPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(WebAclPositionalConstraintPtrOutput)
 }
 
+// Type of pre-parse text transformation.
+type WebAclPreParseTextTransformationType string
+
+const (
+	WebAclPreParseTextTransformationTypeNone                             = WebAclPreParseTextTransformationType("NONE")
+	WebAclPreParseTextTransformationTypeUrlDecode                        = WebAclPreParseTextTransformationType("URL_DECODE")
+	WebAclPreParseTextTransformationTypeUrlDecodeUni                     = WebAclPreParseTextTransformationType("URL_DECODE_UNI")
+	WebAclPreParseTextTransformationTypeCombineDuplicateQueryArgsByComma = WebAclPreParseTextTransformationType("COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA")
+	WebAclPreParseTextTransformationTypeReplaceSemicolonsWithAmpersands  = WebAclPreParseTextTransformationType("REPLACE_SEMICOLONS_WITH_AMPERSANDS")
+)
+
+func (WebAclPreParseTextTransformationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPreParseTextTransformationType)(nil)).Elem()
+}
+
+func (e WebAclPreParseTextTransformationType) ToWebAclPreParseTextTransformationTypeOutput() WebAclPreParseTextTransformationTypeOutput {
+	return pulumi.ToOutput(e).(WebAclPreParseTextTransformationTypeOutput)
+}
+
+func (e WebAclPreParseTextTransformationType) ToWebAclPreParseTextTransformationTypeOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebAclPreParseTextTransformationTypeOutput)
+}
+
+func (e WebAclPreParseTextTransformationType) ToWebAclPreParseTextTransformationTypePtrOutput() WebAclPreParseTextTransformationTypePtrOutput {
+	return e.ToWebAclPreParseTextTransformationTypePtrOutputWithContext(context.Background())
+}
+
+func (e WebAclPreParseTextTransformationType) ToWebAclPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationTypePtrOutput {
+	return WebAclPreParseTextTransformationType(e).ToWebAclPreParseTextTransformationTypeOutputWithContext(ctx).ToWebAclPreParseTextTransformationTypePtrOutputWithContext(ctx)
+}
+
+func (e WebAclPreParseTextTransformationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclPreParseTextTransformationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebAclPreParseTextTransformationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebAclPreParseTextTransformationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebAclPreParseTextTransformationTypeOutput struct{ *pulumi.OutputState }
+
+func (WebAclPreParseTextTransformationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclPreParseTextTransformationType)(nil)).Elem()
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToWebAclPreParseTextTransformationTypeOutput() WebAclPreParseTextTransformationTypeOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToWebAclPreParseTextTransformationTypeOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationTypeOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToWebAclPreParseTextTransformationTypePtrOutput() WebAclPreParseTextTransformationTypePtrOutput {
+	return o.ToWebAclPreParseTextTransformationTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToWebAclPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclPreParseTextTransformationType) *WebAclPreParseTextTransformationType {
+		return &v
+	}).(WebAclPreParseTextTransformationTypePtrOutput)
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclPreParseTextTransformationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclPreParseTextTransformationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebAclPreParseTextTransformationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclPreParseTextTransformationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclPreParseTextTransformationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclPreParseTextTransformationType)(nil)).Elem()
+}
+
+func (o WebAclPreParseTextTransformationTypePtrOutput) ToWebAclPreParseTextTransformationTypePtrOutput() WebAclPreParseTextTransformationTypePtrOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationTypePtrOutput) ToWebAclPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationTypePtrOutput {
+	return o
+}
+
+func (o WebAclPreParseTextTransformationTypePtrOutput) Elem() WebAclPreParseTextTransformationTypeOutput {
+	return o.ApplyT(func(v *WebAclPreParseTextTransformationType) WebAclPreParseTextTransformationType {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclPreParseTextTransformationType
+		return ret
+	}).(WebAclPreParseTextTransformationTypeOutput)
+}
+
+func (o WebAclPreParseTextTransformationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclPreParseTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebAclPreParseTextTransformationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebAclPreParseTextTransformationTypeInput is an input type that accepts values of the WebAclPreParseTextTransformationType enum
+// A concrete instance of `WebAclPreParseTextTransformationTypeInput` can be one of the following:
+//
+//	WebAclPreParseTextTransformationTypeNone
+//	WebAclPreParseTextTransformationTypeUrlDecode
+//	WebAclPreParseTextTransformationTypeUrlDecodeUni
+//	WebAclPreParseTextTransformationTypeCombineDuplicateQueryArgsByComma
+//	WebAclPreParseTextTransformationTypeReplaceSemicolonsWithAmpersands
+type WebAclPreParseTextTransformationTypeInput interface {
+	pulumi.Input
+
+	ToWebAclPreParseTextTransformationTypeOutput() WebAclPreParseTextTransformationTypeOutput
+	ToWebAclPreParseTextTransformationTypeOutputWithContext(context.Context) WebAclPreParseTextTransformationTypeOutput
+}
+
+var webAclPreParseTextTransformationTypePtrType = reflect.TypeOf((**WebAclPreParseTextTransformationType)(nil)).Elem()
+
+type WebAclPreParseTextTransformationTypePtrInput interface {
+	pulumi.Input
+
+	ToWebAclPreParseTextTransformationTypePtrOutput() WebAclPreParseTextTransformationTypePtrOutput
+	ToWebAclPreParseTextTransformationTypePtrOutputWithContext(context.Context) WebAclPreParseTextTransformationTypePtrOutput
+}
+
+type webAclPreParseTextTransformationTypePtr string
+
+func WebAclPreParseTextTransformationTypePtr(v string) WebAclPreParseTextTransformationTypePtrInput {
+	return (*webAclPreParseTextTransformationTypePtr)(&v)
+}
+
+func (*webAclPreParseTextTransformationTypePtr) ElementType() reflect.Type {
+	return webAclPreParseTextTransformationTypePtrType
+}
+
+func (in *webAclPreParseTextTransformationTypePtr) ToWebAclPreParseTextTransformationTypePtrOutput() WebAclPreParseTextTransformationTypePtrOutput {
+	return pulumi.ToOutput(in).(WebAclPreParseTextTransformationTypePtrOutput)
+}
+
+func (in *webAclPreParseTextTransformationTypePtr) ToWebAclPreParseTextTransformationTypePtrOutputWithContext(ctx context.Context) WebAclPreParseTextTransformationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebAclPreParseTextTransformationTypePtrOutput)
+}
+
 // Setting that indicates how to aggregate the request counts.
 //
 // > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
@@ -10242,6 +10606,16 @@ const (
 	WebAclTextTransformationTypeBase64DecodeExt    = WebAclTextTransformationType("BASE64_DECODE_EXT")
 	WebAclTextTransformationTypeUrlDecodeUni       = WebAclTextTransformationType("URL_DECODE_UNI")
 	WebAclTextTransformationTypeUtf8ToUnicode      = WebAclTextTransformationType("UTF8_TO_UNICODE")
+	WebAclTextTransformationTypeRemoveWhitespace   = WebAclTextTransformationType("REMOVE_WHITESPACE")
+	WebAclTextTransformationTypeTrim               = WebAclTextTransformationType("TRIM")
+	WebAclTextTransformationTypeTrimLeft           = WebAclTextTransformationType("TRIM_LEFT")
+	WebAclTextTransformationTypeTrimRight          = WebAclTextTransformationType("TRIM_RIGHT")
+	WebAclTextTransformationTypeRemoveCommentsChar = WebAclTextTransformationType("REMOVE_COMMENTS_CHAR")
+	WebAclTextTransformationTypeUppercase          = WebAclTextTransformationType("UPPERCASE")
+	WebAclTextTransformationTypeCmdLineWin         = WebAclTextTransformationType("CMD_LINE_WIN")
+	WebAclTextTransformationTypeCmdLineUnix        = WebAclTextTransformationType("CMD_LINE_UNIX")
+	WebAclTextTransformationTypeJsDecodeExt        = WebAclTextTransformationType("JS_DECODE_EXT")
+	WebAclTextTransformationTypeSha256             = WebAclTextTransformationType("SHA256")
 )
 
 func (WebAclTextTransformationType) ElementType() reflect.Type {
@@ -10387,6 +10761,16 @@ func (o WebAclTextTransformationTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 //	WebAclTextTransformationTypeBase64DecodeExt
 //	WebAclTextTransformationTypeUrlDecodeUni
 //	WebAclTextTransformationTypeUtf8ToUnicode
+//	WebAclTextTransformationTypeRemoveWhitespace
+//	WebAclTextTransformationTypeTrim
+//	WebAclTextTransformationTypeTrimLeft
+//	WebAclTextTransformationTypeTrimRight
+//	WebAclTextTransformationTypeRemoveCommentsChar
+//	WebAclTextTransformationTypeUppercase
+//	WebAclTextTransformationTypeCmdLineWin
+//	WebAclTextTransformationTypeCmdLineUnix
+//	WebAclTextTransformationTypeJsDecodeExt
+//	WebAclTextTransformationTypeSha256
 type WebAclTextTransformationTypeInput interface {
 	pulumi.Input
 
@@ -10805,6 +11189,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOversizeHandlingPtrInput)(nil)).Elem(), RuleGroupOversizeHandling("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPositionalConstraintPtrInput)(nil)).Elem(), RuleGroupPositionalConstraint("EXACTLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPreParseTextTransformationTypeInput)(nil)).Elem(), RuleGroupPreParseTextTransformationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPreParseTextTransformationTypePtrInput)(nil)).Elem(), RuleGroupPreParseTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), RuleGroupRateBasedStatementAggregateKeyType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitJa3FingerprintFallbackBehaviorInput)(nil)).Elem(), RuleGroupRateLimitJa3FingerprintFallbackBehavior("MATCH"))
@@ -10861,6 +11247,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclOversizeHandlingPtrInput)(nil)).Elem(), WebAclOversizeHandling("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPositionalConstraintInput)(nil)).Elem(), WebAclPositionalConstraint("EXACTLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPositionalConstraintPtrInput)(nil)).Elem(), WebAclPositionalConstraint("EXACTLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPreParseTextTransformationTypeInput)(nil)).Elem(), WebAclPreParseTextTransformationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPreParseTextTransformationTypePtrInput)(nil)).Elem(), WebAclPreParseTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyTypeInput)(nil)).Elem(), WebAclRateBasedStatementAggregateKeyType("CONSTANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateBasedStatementAggregateKeyTypePtrInput)(nil)).Elem(), WebAclRateBasedStatementAggregateKeyType("CONSTANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRateLimitJa3FingerprintFallbackBehaviorInput)(nil)).Elem(), WebAclRateLimitJa3FingerprintFallbackBehavior("MATCH"))
@@ -10931,6 +11319,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupOversizeHandlingPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupPositionalConstraintOutput{})
 	pulumi.RegisterOutputType(RuleGroupPositionalConstraintPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupPreParseTextTransformationTypeOutput{})
+	pulumi.RegisterOutputType(RuleGroupPreParseTextTransformationTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateLimitJa3FingerprintFallbackBehaviorOutput{})
@@ -10987,6 +11377,8 @@ func init() {
 	pulumi.RegisterOutputType(WebAclOversizeHandlingPtrOutput{})
 	pulumi.RegisterOutputType(WebAclPositionalConstraintOutput{})
 	pulumi.RegisterOutputType(WebAclPositionalConstraintPtrOutput{})
+	pulumi.RegisterOutputType(WebAclPreParseTextTransformationTypeOutput{})
+	pulumi.RegisterOutputType(WebAclPreParseTextTransformationTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementAggregateKeyTypeOutput{})
 	pulumi.RegisterOutputType(WebAclRateBasedStatementAggregateKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(WebAclRateLimitJa3FingerprintFallbackBehaviorOutput{})

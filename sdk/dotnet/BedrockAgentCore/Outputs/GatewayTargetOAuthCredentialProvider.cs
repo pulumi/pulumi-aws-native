@@ -14,11 +14,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class GatewayTargetOAuthCredentialProvider
     {
         public readonly ImmutableDictionary<string, string>? CustomParameters;
-        /// <summary>
-        /// Return URL for OAuth callback.
-        /// </summary>
         public readonly string? DefaultReturnUrl;
-        public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayTargetOAuthGrantType? GrantType;
+        public readonly object? GrantType;
         public readonly string ProviderArn;
         public readonly ImmutableArray<string> Scopes;
 
@@ -28,7 +25,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             string? defaultReturnUrl,
 
-            Pulumi.AwsNative.BedrockAgentCore.GatewayTargetOAuthGrantType? grantType,
+            object? grantType,
 
             string providerArn,
 

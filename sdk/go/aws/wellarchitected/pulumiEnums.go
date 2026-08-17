@@ -101,7 +101,659 @@ func (o ReviewTemplateUpdateStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+// Discovery integration status in respect to Trusted Advisor for the workload.
+type WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus string
+
+const (
+	WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusEnabled  = WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus("ENABLED")
+	WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusDisabled = WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus("DISABLED")
+)
+
+func (WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus)(nil)).Elem()
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput {
+	return pulumi.ToOutput(e).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return e.ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus(e).ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutputWithContext(ctx).ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(ctx)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput struct{ *pulumi.OutputState }
+
+func (WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus)(nil)).Elem()
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return o.ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) *WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus {
+		return &v
+	}).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput)
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus)(nil)).Elem()
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput) Elem() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput {
+	return o.ApplyT(func(v *WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus
+		return ret
+	}).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput)
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusInput is an input type that accepts values of the WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus enum
+// A concrete instance of `WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusInput` can be one of the following:
+//
+//	WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusEnabled
+//	WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusDisabled
+type WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusInput interface {
+	pulumi.Input
+
+	ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput
+	ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutputWithContext(context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput
+}
+
+var workloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrType = reflect.TypeOf((**WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus)(nil)).Elem()
+
+type WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput
+	ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput
+}
+
+type workloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtr string
+
+func WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtr(v string) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrInput {
+	return (*workloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtr)(&v)
+}
+
+func (*workloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtr) ElementType() reflect.Type {
+	return workloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrType
+}
+
+func (in *workloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtr) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return pulumi.ToOutput(in).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput)
+}
+
+func (in *workloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtr) ToWorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput)
+}
+
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem string
+
+const (
+	WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemWorkloadMetadata = WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem("WORKLOAD_METADATA")
+	WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemAppRegistry      = WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem("APP_REGISTRY")
+)
+
+func (WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)(nil)).Elem()
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput {
+	return pulumi.ToOutput(e).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return e.ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(context.Background())
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem(e).ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutputWithContext(ctx).ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(ctx)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput struct{ *pulumi.OutputState }
+
+func (WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)(nil)).Elem()
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return o.ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) *WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem {
+		return &v
+	}).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput)
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)(nil)).Elem()
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput) Elem() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput {
+	return o.ApplyT(func(v *WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem
+		return ret
+	}).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput)
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemInput is an input type that accepts values of the WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem enum
+// A concrete instance of `WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemInput` can be one of the following:
+//
+//	WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemWorkloadMetadata
+//	WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemAppRegistry
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemInput interface {
+	pulumi.Input
+
+	ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput
+	ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutputWithContext(context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput
+}
+
+var workloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrType = reflect.TypeOf((**WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)(nil)).Elem()
+
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput
+	ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput
+}
+
+type workloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtr string
+
+func WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtr(v string) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrInput {
+	return (*workloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtr)(&v)
+}
+
+func (*workloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtr) ElementType() reflect.Type {
+	return workloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrType
+}
+
+func (in *workloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtr) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return pulumi.ToOutput(in).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput)
+}
+
+func (in *workloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtr) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput)
+}
+
+// WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayInput is an input type that accepts WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray and WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput values.
+// You can construct a concrete instance of `WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayInput` via:
+//
+//	WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray{ WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArgs{...} }
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput
+	ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutputWithContext(context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput
+}
+
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray []WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem
+
+func (WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)(nil)).Elem()
+}
+
+func (i WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput {
+	return i.ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput)
+}
+
+type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)(nil)).Elem()
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput) ToWorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutputWithContext(ctx context.Context) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput {
+	return o
+}
+
+func (o WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput) Index(i pulumi.IntInput) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem {
+		return vs[0].([]WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)[vs[1].(int)]
+	}).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput)
+}
+
+// The environment for the workload.
+type WorkloadEnvironment string
+
+const (
+	WorkloadEnvironmentProduction    = WorkloadEnvironment("PRODUCTION")
+	WorkloadEnvironmentPreproduction = WorkloadEnvironment("PREPRODUCTION")
+)
+
+func (WorkloadEnvironment) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadEnvironment)(nil)).Elem()
+}
+
+func (e WorkloadEnvironment) ToWorkloadEnvironmentOutput() WorkloadEnvironmentOutput {
+	return pulumi.ToOutput(e).(WorkloadEnvironmentOutput)
+}
+
+func (e WorkloadEnvironment) ToWorkloadEnvironmentOutputWithContext(ctx context.Context) WorkloadEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkloadEnvironmentOutput)
+}
+
+func (e WorkloadEnvironment) ToWorkloadEnvironmentPtrOutput() WorkloadEnvironmentPtrOutput {
+	return e.ToWorkloadEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (e WorkloadEnvironment) ToWorkloadEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadEnvironmentPtrOutput {
+	return WorkloadEnvironment(e).ToWorkloadEnvironmentOutputWithContext(ctx).ToWorkloadEnvironmentPtrOutputWithContext(ctx)
+}
+
+func (e WorkloadEnvironment) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadEnvironment) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkloadEnvironment) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkloadEnvironment) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkloadEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (WorkloadEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadEnvironment)(nil)).Elem()
+}
+
+func (o WorkloadEnvironmentOutput) ToWorkloadEnvironmentOutput() WorkloadEnvironmentOutput {
+	return o
+}
+
+func (o WorkloadEnvironmentOutput) ToWorkloadEnvironmentOutputWithContext(ctx context.Context) WorkloadEnvironmentOutput {
+	return o
+}
+
+func (o WorkloadEnvironmentOutput) ToWorkloadEnvironmentPtrOutput() WorkloadEnvironmentPtrOutput {
+	return o.ToWorkloadEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadEnvironmentOutput) ToWorkloadEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadEnvironment) *WorkloadEnvironment {
+		return &v
+	}).(WorkloadEnvironmentPtrOutput)
+}
+
+func (o WorkloadEnvironmentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkloadEnvironmentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadEnvironment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkloadEnvironmentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadEnvironmentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadEnvironment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadEnvironment)(nil)).Elem()
+}
+
+func (o WorkloadEnvironmentPtrOutput) ToWorkloadEnvironmentPtrOutput() WorkloadEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkloadEnvironmentPtrOutput) ToWorkloadEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkloadEnvironmentPtrOutput) Elem() WorkloadEnvironmentOutput {
+	return o.ApplyT(func(v *WorkloadEnvironment) WorkloadEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadEnvironment
+		return ret
+	}).(WorkloadEnvironmentOutput)
+}
+
+func (o WorkloadEnvironmentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadEnvironmentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkloadEnvironment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkloadEnvironmentInput is an input type that accepts values of the WorkloadEnvironment enum
+// A concrete instance of `WorkloadEnvironmentInput` can be one of the following:
+//
+//	WorkloadEnvironmentProduction
+//	WorkloadEnvironmentPreproduction
+type WorkloadEnvironmentInput interface {
+	pulumi.Input
+
+	ToWorkloadEnvironmentOutput() WorkloadEnvironmentOutput
+	ToWorkloadEnvironmentOutputWithContext(context.Context) WorkloadEnvironmentOutput
+}
+
+var workloadEnvironmentPtrType = reflect.TypeOf((**WorkloadEnvironment)(nil)).Elem()
+
+type WorkloadEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadEnvironmentPtrOutput() WorkloadEnvironmentPtrOutput
+	ToWorkloadEnvironmentPtrOutputWithContext(context.Context) WorkloadEnvironmentPtrOutput
+}
+
+type workloadEnvironmentPtr string
+
+func WorkloadEnvironmentPtr(v string) WorkloadEnvironmentPtrInput {
+	return (*workloadEnvironmentPtr)(&v)
+}
+
+func (*workloadEnvironmentPtr) ElementType() reflect.Type {
+	return workloadEnvironmentPtrType
+}
+
+func (in *workloadEnvironmentPtr) ToWorkloadEnvironmentPtrOutput() WorkloadEnvironmentPtrOutput {
+	return pulumi.ToOutput(in).(WorkloadEnvironmentPtrOutput)
+}
+
+func (in *workloadEnvironmentPtr) ToWorkloadEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkloadEnvironmentPtrOutput)
+}
+
+// The improvement status for a workload.
+type WorkloadImprovementStatus string
+
+const (
+	WorkloadImprovementStatusNotApplicable    = WorkloadImprovementStatus("NOT_APPLICABLE")
+	WorkloadImprovementStatusNotStarted       = WorkloadImprovementStatus("NOT_STARTED")
+	WorkloadImprovementStatusInProgress       = WorkloadImprovementStatus("IN_PROGRESS")
+	WorkloadImprovementStatusComplete         = WorkloadImprovementStatus("COMPLETE")
+	WorkloadImprovementStatusRiskAcknowledged = WorkloadImprovementStatus("RISK_ACKNOWLEDGED")
+)
+
+type WorkloadImprovementStatusOutput struct{ *pulumi.OutputState }
+
+func (WorkloadImprovementStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadImprovementStatus)(nil)).Elem()
+}
+
+func (o WorkloadImprovementStatusOutput) ToWorkloadImprovementStatusOutput() WorkloadImprovementStatusOutput {
+	return o
+}
+
+func (o WorkloadImprovementStatusOutput) ToWorkloadImprovementStatusOutputWithContext(ctx context.Context) WorkloadImprovementStatusOutput {
+	return o
+}
+
+func (o WorkloadImprovementStatusOutput) ToWorkloadImprovementStatusPtrOutput() WorkloadImprovementStatusPtrOutput {
+	return o.ToWorkloadImprovementStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadImprovementStatusOutput) ToWorkloadImprovementStatusPtrOutputWithContext(ctx context.Context) WorkloadImprovementStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadImprovementStatus) *WorkloadImprovementStatus {
+		return &v
+	}).(WorkloadImprovementStatusPtrOutput)
+}
+
+func (o WorkloadImprovementStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkloadImprovementStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadImprovementStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkloadImprovementStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadImprovementStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkloadImprovementStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadImprovementStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadImprovementStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadImprovementStatus)(nil)).Elem()
+}
+
+func (o WorkloadImprovementStatusPtrOutput) ToWorkloadImprovementStatusPtrOutput() WorkloadImprovementStatusPtrOutput {
+	return o
+}
+
+func (o WorkloadImprovementStatusPtrOutput) ToWorkloadImprovementStatusPtrOutputWithContext(ctx context.Context) WorkloadImprovementStatusPtrOutput {
+	return o
+}
+
+func (o WorkloadImprovementStatusPtrOutput) Elem() WorkloadImprovementStatusOutput {
+	return o.ApplyT(func(v *WorkloadImprovementStatus) WorkloadImprovementStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadImprovementStatus
+		return ret
+	}).(WorkloadImprovementStatusOutput)
+}
+
+func (o WorkloadImprovementStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadImprovementStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkloadImprovementStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem("WORKLOAD_METADATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem("WORKLOAD_METADATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEnvironmentInput)(nil)).Elem(), WorkloadEnvironment("PRODUCTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEnvironmentPtrInput)(nil)).Elem(), WorkloadEnvironment("PRODUCTION"))
 	pulumi.RegisterOutputType(ReviewTemplateUpdateStatusOutput{})
 	pulumi.RegisterOutputType(ReviewTemplateUpdateStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput{})
+	pulumi.RegisterOutputType(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemOutput{})
+	pulumi.RegisterOutputType(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadEnvironmentOutput{})
+	pulumi.RegisterOutputType(WorkloadEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadImprovementStatusOutput{})
+	pulumi.RegisterOutputType(WorkloadImprovementStatusPtrOutput{})
 }

@@ -16,9 +16,8 @@ import (
 type Preset struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
-	Arn   pulumi.StringOutput `pulumi:"arn"`
-	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The new category for the preset, if you are changing it.
 	Category pulumi.StringPtrOutput `pulumi:"category"`
 	// The new description for the preset, if you are changing it.
@@ -26,8 +25,6 @@ type Preset struct {
 	// The name of the preset that you are modifying.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-	//
-	// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 	SettingsJson pulumi.AnyOutput `pulumi:"settingsJson"`
@@ -94,8 +91,6 @@ type presetArgs struct {
 	Name *string `pulumi:"name"`
 	// Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
 	//
-	// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
-	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 	SettingsJson interface{} `pulumi:"settingsJson"`
 	// An array of key-value pairs to apply to this resource.
@@ -115,8 +110,6 @@ type PresetArgs struct {
 	// The name of the preset that you are modifying.
 	Name pulumi.StringPtrInput
 	// Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-	//
-	// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 	SettingsJson pulumi.Input
@@ -165,13 +158,9 @@ func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the output preset, such as `arn:aws:mediaconvert:us-west-2:123456789012` .
+// The Amazon Resource Name (ARN) of the output preset, such as arn:aws:mediaconvert:us-west-2:123456789012
 func (o PresetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
-}
-
-func (o PresetOutput) AwsId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The new category for the preset, if you are changing it.
@@ -190,8 +179,6 @@ func (o PresetOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Specify, in JSON format, the transcoding job settings for this output preset. This specification must conform to the AWS Elemental MediaConvert job validation. For information about forming this specification, see the Remarks section later in this topic.
-//
-// For more information about MediaConvert output presets, see [Working with AWS Elemental MediaConvert Output Presets](https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-presets.html) in the ** .
 //
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaConvert::Preset` for more information about the expected schema for this property.
 func (o PresetOutput) SettingsJson() pulumi.AnyOutput {

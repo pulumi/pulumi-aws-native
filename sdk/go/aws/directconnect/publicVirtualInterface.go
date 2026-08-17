@@ -23,6 +23,8 @@ type PublicVirtualInterface struct {
 	BgpPeers PublicVirtualInterfaceBgpPeerArrayOutput `pulumi:"bgpPeers"`
 	// The ID or ARN of the connection or LAG.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit pulumi.StringPtrOutput `pulumi:"rateLimit"`
 	// The routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
 	// The tags associated with the public virtual interface.
@@ -98,6 +100,8 @@ type publicVirtualInterfaceArgs struct {
 	BgpPeers []PublicVirtualInterfaceBgpPeer `pulumi:"bgpPeers"`
 	// The ID or ARN of the connection or LAG.
 	ConnectionId string `pulumi:"connectionId"`
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit *string `pulumi:"rateLimit"`
 	// The routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
 	// The tags associated with the public virtual interface.
@@ -116,6 +120,8 @@ type PublicVirtualInterfaceArgs struct {
 	BgpPeers PublicVirtualInterfaceBgpPeerArrayInput
 	// The ID or ARN of the connection or LAG.
 	ConnectionId pulumi.StringInput
+	// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+	RateLimit pulumi.StringPtrInput
 	// The routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
 	// The tags associated with the public virtual interface.
@@ -176,6 +182,11 @@ func (o PublicVirtualInterfaceOutput) BgpPeers() PublicVirtualInterfaceBgpPeerAr
 // The ID or ARN of the connection or LAG.
 func (o PublicVirtualInterfaceOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicVirtualInterface) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
+}
+
+// The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+func (o PublicVirtualInterfaceOutput) RateLimit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicVirtualInterface) pulumi.StringPtrOutput { return v.RateLimit }).(pulumi.StringPtrOutput)
 }
 
 // The routes to be advertised to the AWS network in this region.

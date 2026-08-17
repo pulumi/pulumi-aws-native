@@ -34,8 +34,10 @@ class CanaryArgs:
                  delete_lambda_resources_on_canary_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
                  dry_run_and_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_resource_cleanup: pulumi.Input[Optional['CanaryProvisionedResourceCleanup']] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryReplicaArgs']]]] = None,
                  resources_to_replicate_tags: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryResourceToTag']]]] = None,
                  run_config: pulumi.Input[Optional['CanaryRunConfigArgs']] = None,
                  start_canary_after_creation: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -57,8 +59,10 @@ class CanaryArgs:
         :param pulumi.Input[_builtins.bool] delete_lambda_resources_on_canary_deletion: Deletes associated lambda resources created by Synthetics if set to True. Default is False
         :param pulumi.Input[_builtins.bool] dry_run_and_update: Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
         :param pulumi.Input[_builtins.int] failure_retention_period: Retention period of failed canary runs represented in number of days
+        :param pulumi.Input[_builtins.str] kms_key_arn: KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
         :param pulumi.Input[_builtins.str] name: Name of the canary.
         :param pulumi.Input['CanaryProvisionedResourceCleanup'] provisioned_resource_cleanup: Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryReplicaArgs']]] replicas: List of replica locations for multi-location canary execution
         :param pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]] resources_to_replicate_tags: List of resources which canary tags should be replicated to.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
         :param pulumi.Input[_builtins.bool] start_canary_after_creation: Runs canary if set to True. Default is False
@@ -83,10 +87,14 @@ class CanaryArgs:
             pulumi.set(__self__, "dry_run_and_update", dry_run_and_update)
         if failure_retention_period is not None:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if provisioned_resource_cleanup is not None:
             pulumi.set(__self__, "provisioned_resource_cleanup", provisioned_resource_cleanup)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
         if resources_to_replicate_tags is not None:
             pulumi.set(__self__, "resources_to_replicate_tags", resources_to_replicate_tags)
         if run_config is not None:
@@ -225,6 +233,18 @@ class CanaryArgs:
         pulumi.set(self, "failure_retention_period", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -247,6 +267,18 @@ class CanaryArgs:
     @provisioned_resource_cleanup.setter
     def provisioned_resource_cleanup(self, value: pulumi.Input[Optional['CanaryProvisionedResourceCleanup']]):
         pulumi.set(self, "provisioned_resource_cleanup", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def replicas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CanaryReplicaArgs']]]]:
+        """
+        List of replica locations for multi-location canary execution
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryReplicaArgs']]]]):
+        pulumi.set(self, "replicas", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcesToReplicateTags")
@@ -359,8 +391,10 @@ class Canary(pulumi.CustomResource):
                  dry_run_and_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_resource_cleanup: pulumi.Input[Optional['CanaryProvisionedResourceCleanup']] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CanaryReplicaArgs', 'CanaryReplicaArgsDict']]]]] = None,
                  resources_to_replicate_tags: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryResourceToTag']]]] = None,
                  run_config: pulumi.Input[Optional[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -473,8 +507,10 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dry_run_and_update: Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
         :param pulumi.Input[_builtins.str] execution_role_arn: Lambda Execution role used to run your canaries
         :param pulumi.Input[_builtins.int] failure_retention_period: Retention period of failed canary runs represented in number of days
+        :param pulumi.Input[_builtins.str] kms_key_arn: KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
         :param pulumi.Input[_builtins.str] name: Name of the canary.
         :param pulumi.Input['CanaryProvisionedResourceCleanup'] provisioned_resource_cleanup: Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CanaryReplicaArgs', 'CanaryReplicaArgsDict']]]] replicas: List of replica locations for multi-location canary execution
         :param pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]] resources_to_replicate_tags: List of resources which canary tags should be replicated to.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Provide canary run configuration
         :param pulumi.Input[_builtins.str] runtime_version: Runtime version of Synthetics Library
@@ -606,8 +642,10 @@ class Canary(pulumi.CustomResource):
                  dry_run_and_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  failure_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_resource_cleanup: pulumi.Input[Optional['CanaryProvisionedResourceCleanup']] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CanaryReplicaArgs', 'CanaryReplicaArgsDict']]]]] = None,
                  resources_to_replicate_tags: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryResourceToTag']]]] = None,
                  run_config: pulumi.Input[Optional[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -641,8 +679,10 @@ class Canary(pulumi.CustomResource):
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["failure_retention_period"] = failure_retention_period
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["provisioned_resource_cleanup"] = provisioned_resource_cleanup
+            __props__.__dict__["replicas"] = replicas
             __props__.__dict__["resources_to_replicate_tags"] = resources_to_replicate_tags
             __props__.__dict__["run_config"] = run_config
             if runtime_version is None and not opts.urn:
@@ -692,8 +732,10 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["dry_run_and_update"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["failure_retention_period"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioned_resource_cleanup"] = None
+        __props__.__dict__["replicas"] = None
         __props__.__dict__["resources_to_replicate_tags"] = None
         __props__.__dict__["run_config"] = None
         __props__.__dict__["runtime_version"] = None
@@ -780,6 +822,14 @@ class Canary(pulumi.CustomResource):
         return pulumi.get(self, "failure_retention_period")
 
     @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -794,6 +844,14 @@ class Canary(pulumi.CustomResource):
         Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
         """
         return pulumi.get(self, "provisioned_resource_cleanup")
+
+    @_builtins.property
+    @pulumi.getter
+    def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.CanaryReplica']]]:
+        """
+        List of replica locations for multi-location canary execution
+        """
+        return pulumi.get(self, "replicas")
 
     @_builtins.property
     @pulumi.getter(name="resourcesToReplicateTags")

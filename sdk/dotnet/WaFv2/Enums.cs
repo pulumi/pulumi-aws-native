@@ -700,6 +700,40 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// Type of pre-parse text transformation.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleGroupPreParseTextTransformationType : IEquatable<RuleGroupPreParseTextTransformationType>
+    {
+        private readonly string _value;
+
+        private RuleGroupPreParseTextTransformationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleGroupPreParseTextTransformationType None { get; } = new RuleGroupPreParseTextTransformationType("NONE");
+        public static RuleGroupPreParseTextTransformationType UrlDecode { get; } = new RuleGroupPreParseTextTransformationType("URL_DECODE");
+        public static RuleGroupPreParseTextTransformationType UrlDecodeUni { get; } = new RuleGroupPreParseTextTransformationType("URL_DECODE_UNI");
+        public static RuleGroupPreParseTextTransformationType CombineDuplicateQueryArgsByComma { get; } = new RuleGroupPreParseTextTransformationType("COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA");
+        public static RuleGroupPreParseTextTransformationType ReplaceSemicolonsWithAmpersands { get; } = new RuleGroupPreParseTextTransformationType("REPLACE_SEMICOLONS_WITH_AMPERSANDS");
+
+        public static bool operator ==(RuleGroupPreParseTextTransformationType left, RuleGroupPreParseTextTransformationType right) => left.Equals(right);
+        public static bool operator !=(RuleGroupPreParseTextTransformationType left, RuleGroupPreParseTextTransformationType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleGroupPreParseTextTransformationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleGroupPreParseTextTransformationType other && Equals(other);
+        public bool Equals(RuleGroupPreParseTextTransformationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Setting that indicates how to aggregate the request counts.
     /// 
     /// &gt; Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
@@ -986,6 +1020,16 @@ namespace Pulumi.AwsNative.WaFv2
         public static RuleGroupTextTransformationType Base64DecodeExt { get; } = new RuleGroupTextTransformationType("BASE64_DECODE_EXT");
         public static RuleGroupTextTransformationType UrlDecodeUni { get; } = new RuleGroupTextTransformationType("URL_DECODE_UNI");
         public static RuleGroupTextTransformationType Utf8ToUnicode { get; } = new RuleGroupTextTransformationType("UTF8_TO_UNICODE");
+        public static RuleGroupTextTransformationType RemoveWhitespace { get; } = new RuleGroupTextTransformationType("REMOVE_WHITESPACE");
+        public static RuleGroupTextTransformationType Trim { get; } = new RuleGroupTextTransformationType("TRIM");
+        public static RuleGroupTextTransformationType TrimLeft { get; } = new RuleGroupTextTransformationType("TRIM_LEFT");
+        public static RuleGroupTextTransformationType TrimRight { get; } = new RuleGroupTextTransformationType("TRIM_RIGHT");
+        public static RuleGroupTextTransformationType RemoveCommentsChar { get; } = new RuleGroupTextTransformationType("REMOVE_COMMENTS_CHAR");
+        public static RuleGroupTextTransformationType Uppercase { get; } = new RuleGroupTextTransformationType("UPPERCASE");
+        public static RuleGroupTextTransformationType CmdLineWin { get; } = new RuleGroupTextTransformationType("CMD_LINE_WIN");
+        public static RuleGroupTextTransformationType CmdLineUnix { get; } = new RuleGroupTextTransformationType("CMD_LINE_UNIX");
+        public static RuleGroupTextTransformationType JsDecodeExt { get; } = new RuleGroupTextTransformationType("JS_DECODE_EXT");
+        public static RuleGroupTextTransformationType Sha256 { get; } = new RuleGroupTextTransformationType("SHA256");
 
         public static bool operator ==(RuleGroupTextTransformationType left, RuleGroupTextTransformationType right) => left.Equals(right);
         public static bool operator !=(RuleGroupTextTransformationType left, RuleGroupTextTransformationType right) => !left.Equals(right);
@@ -1669,6 +1713,40 @@ namespace Pulumi.AwsNative.WaFv2
     }
 
     /// <summary>
+    /// Type of pre-parse text transformation.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebAclPreParseTextTransformationType : IEquatable<WebAclPreParseTextTransformationType>
+    {
+        private readonly string _value;
+
+        private WebAclPreParseTextTransformationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebAclPreParseTextTransformationType None { get; } = new WebAclPreParseTextTransformationType("NONE");
+        public static WebAclPreParseTextTransformationType UrlDecode { get; } = new WebAclPreParseTextTransformationType("URL_DECODE");
+        public static WebAclPreParseTextTransformationType UrlDecodeUni { get; } = new WebAclPreParseTextTransformationType("URL_DECODE_UNI");
+        public static WebAclPreParseTextTransformationType CombineDuplicateQueryArgsByComma { get; } = new WebAclPreParseTextTransformationType("COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA");
+        public static WebAclPreParseTextTransformationType ReplaceSemicolonsWithAmpersands { get; } = new WebAclPreParseTextTransformationType("REPLACE_SEMICOLONS_WITH_AMPERSANDS");
+
+        public static bool operator ==(WebAclPreParseTextTransformationType left, WebAclPreParseTextTransformationType right) => left.Equals(right);
+        public static bool operator !=(WebAclPreParseTextTransformationType left, WebAclPreParseTextTransformationType right) => !left.Equals(right);
+
+        public static explicit operator string(WebAclPreParseTextTransformationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebAclPreParseTextTransformationType other && Equals(other);
+        public bool Equals(WebAclPreParseTextTransformationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Setting that indicates how to aggregate the request counts.
     /// 
     /// &gt; Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
@@ -2076,6 +2154,16 @@ namespace Pulumi.AwsNative.WaFv2
         public static WebAclTextTransformationType Base64DecodeExt { get; } = new WebAclTextTransformationType("BASE64_DECODE_EXT");
         public static WebAclTextTransformationType UrlDecodeUni { get; } = new WebAclTextTransformationType("URL_DECODE_UNI");
         public static WebAclTextTransformationType Utf8ToUnicode { get; } = new WebAclTextTransformationType("UTF8_TO_UNICODE");
+        public static WebAclTextTransformationType RemoveWhitespace { get; } = new WebAclTextTransformationType("REMOVE_WHITESPACE");
+        public static WebAclTextTransformationType Trim { get; } = new WebAclTextTransformationType("TRIM");
+        public static WebAclTextTransformationType TrimLeft { get; } = new WebAclTextTransformationType("TRIM_LEFT");
+        public static WebAclTextTransformationType TrimRight { get; } = new WebAclTextTransformationType("TRIM_RIGHT");
+        public static WebAclTextTransformationType RemoveCommentsChar { get; } = new WebAclTextTransformationType("REMOVE_COMMENTS_CHAR");
+        public static WebAclTextTransformationType Uppercase { get; } = new WebAclTextTransformationType("UPPERCASE");
+        public static WebAclTextTransformationType CmdLineWin { get; } = new WebAclTextTransformationType("CMD_LINE_WIN");
+        public static WebAclTextTransformationType CmdLineUnix { get; } = new WebAclTextTransformationType("CMD_LINE_UNIX");
+        public static WebAclTextTransformationType JsDecodeExt { get; } = new WebAclTextTransformationType("JS_DECODE_EXT");
+        public static WebAclTextTransformationType Sha256 { get; } = new WebAclTextTransformationType("SHA256");
 
         public static bool operator ==(WebAclTextTransformationType left, WebAclTextTransformationType right) => left.Equals(right);
         public static bool operator !=(WebAclTextTransformationType left, WebAclTextTransformationType right) => !left.Equals(right);

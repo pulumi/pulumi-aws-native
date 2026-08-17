@@ -1003,6 +1003,820 @@ func (o CatalogTargetRedshiftCatalogPtrOutput) CatalogArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClassifierCsvClassifier struct {
+	// Enables the processing of files that contain only one column.
+	AllowSingleColumn *bool `pulumi:"allowSingleColumn"`
+	// Indicates whether the CSV file contains custom data types.
+	ContainsCustomDatatype []string `pulumi:"containsCustomDatatype"`
+	// Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+	ContainsHeader *string `pulumi:"containsHeader"`
+	// Enables the configuration of custom data types.
+	CustomDatatypeConfigured *bool `pulumi:"customDatatypeConfigured"`
+	// A custom symbol to denote what separates each column entry in the row.
+	Delimiter *string `pulumi:"delimiter"`
+	// Specifies not to trim values before identifying the type of column values. The default value is true.
+	DisableValueTrimming *bool `pulumi:"disableValueTrimming"`
+	// A list of strings representing column names.
+	Header []string `pulumi:"header"`
+	// The name of the classifier.
+	Name *string `pulumi:"name"`
+	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+	QuoteSymbol *string `pulumi:"quoteSymbol"`
+}
+
+// ClassifierCsvClassifierInput is an input type that accepts ClassifierCsvClassifierArgs and ClassifierCsvClassifierOutput values.
+// You can construct a concrete instance of `ClassifierCsvClassifierInput` via:
+//
+//	ClassifierCsvClassifierArgs{...}
+type ClassifierCsvClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierCsvClassifierOutput() ClassifierCsvClassifierOutput
+	ToClassifierCsvClassifierOutputWithContext(context.Context) ClassifierCsvClassifierOutput
+}
+
+type ClassifierCsvClassifierArgs struct {
+	// Enables the processing of files that contain only one column.
+	AllowSingleColumn pulumi.BoolPtrInput `pulumi:"allowSingleColumn"`
+	// Indicates whether the CSV file contains custom data types.
+	ContainsCustomDatatype pulumi.StringArrayInput `pulumi:"containsCustomDatatype"`
+	// Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+	ContainsHeader pulumi.StringPtrInput `pulumi:"containsHeader"`
+	// Enables the configuration of custom data types.
+	CustomDatatypeConfigured pulumi.BoolPtrInput `pulumi:"customDatatypeConfigured"`
+	// A custom symbol to denote what separates each column entry in the row.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// Specifies not to trim values before identifying the type of column values. The default value is true.
+	DisableValueTrimming pulumi.BoolPtrInput `pulumi:"disableValueTrimming"`
+	// A list of strings representing column names.
+	Header pulumi.StringArrayInput `pulumi:"header"`
+	// The name of the classifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
+}
+
+func (ClassifierCsvClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierOutput() ClassifierCsvClassifierOutput {
+	return i.ToClassifierCsvClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierOutputWithContext(ctx context.Context) ClassifierCsvClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierOutput)
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return i.ToClassifierCsvClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierOutput).ToClassifierCsvClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierCsvClassifierPtrInput is an input type that accepts ClassifierCsvClassifierArgs, ClassifierCsvClassifierPtr and ClassifierCsvClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierCsvClassifierPtrInput` via:
+//
+//	        ClassifierCsvClassifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClassifierCsvClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput
+	ToClassifierCsvClassifierPtrOutputWithContext(context.Context) ClassifierCsvClassifierPtrOutput
+}
+
+type classifierCsvClassifierPtrType ClassifierCsvClassifierArgs
+
+func ClassifierCsvClassifierPtr(v *ClassifierCsvClassifierArgs) ClassifierCsvClassifierPtrInput {
+	return (*classifierCsvClassifierPtrType)(v)
+}
+
+func (*classifierCsvClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (i *classifierCsvClassifierPtrType) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return i.ToClassifierCsvClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierCsvClassifierPtrType) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierPtrOutput)
+}
+
+type ClassifierCsvClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierCsvClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierOutput() ClassifierCsvClassifierOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierOutputWithContext(ctx context.Context) ClassifierCsvClassifierOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return o.ToClassifierCsvClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierCsvClassifier) *ClassifierCsvClassifier {
+		return &v
+	}).(ClassifierCsvClassifierPtrOutput)
+}
+
+// Enables the processing of files that contain only one column.
+func (o ClassifierCsvClassifierOutput) AllowSingleColumn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the CSV file contains custom data types.
+func (o ClassifierCsvClassifierOutput) ContainsCustomDatatype() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.ContainsCustomDatatype }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+func (o ClassifierCsvClassifierOutput) ContainsHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
+}
+
+// Enables the configuration of custom data types.
+func (o ClassifierCsvClassifierOutput) CustomDatatypeConfigured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.CustomDatatypeConfigured }).(pulumi.BoolPtrOutput)
+}
+
+// A custom symbol to denote what separates each column entry in the row.
+func (o ClassifierCsvClassifierOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// Specifies not to trim values before identifying the type of column values. The default value is true.
+func (o ClassifierCsvClassifierOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.DisableValueTrimming }).(pulumi.BoolPtrOutput)
+}
+
+// A list of strings representing column names.
+func (o ClassifierCsvClassifierOutput) Header() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.Header }).(pulumi.StringArrayOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierCsvClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+func (o ClassifierCsvClassifierOutput) QuoteSymbol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
+}
+
+type ClassifierCsvClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierCsvClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (o ClassifierCsvClassifierPtrOutput) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierPtrOutput) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierPtrOutput) Elem() ClassifierCsvClassifierOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) ClassifierCsvClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierCsvClassifier
+		return ret
+	}).(ClassifierCsvClassifierOutput)
+}
+
+// Enables the processing of files that contain only one column.
+func (o ClassifierCsvClassifierPtrOutput) AllowSingleColumn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowSingleColumn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the CSV file contains custom data types.
+func (o ClassifierCsvClassifierPtrOutput) ContainsCustomDatatype() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsCustomDatatype
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the CSV file contains a header. A value of UNKNOWN specifies that the classifier will detect whether the CSV file contains headings. A value of PRESENT specifies that the CSV file contains headings. A value of ABSENT specifies that the CSV file does not contain headings.
+func (o ClassifierCsvClassifierPtrOutput) ContainsHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables the configuration of custom data types.
+func (o ClassifierCsvClassifierPtrOutput) CustomDatatypeConfigured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDatatypeConfigured
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A custom symbol to denote what separates each column entry in the row.
+func (o ClassifierCsvClassifierPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies not to trim values before identifying the type of column values. The default value is true.
+func (o ClassifierCsvClassifierPtrOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableValueTrimming
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of strings representing column names.
+func (o ClassifierCsvClassifierPtrOutput) Header() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierCsvClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QuoteSymbol
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClassifierGrokClassifier struct {
+	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+	Classification string `pulumi:"classification"`
+	// Optional custom grok patterns defined by this classifier.
+	CustomPatterns *string `pulumi:"customPatterns"`
+	// The grok pattern applied to a data store by this classifier.
+	GrokPattern string `pulumi:"grokPattern"`
+	// The name of the classifier.
+	Name *string `pulumi:"name"`
+}
+
+// ClassifierGrokClassifierInput is an input type that accepts ClassifierGrokClassifierArgs and ClassifierGrokClassifierOutput values.
+// You can construct a concrete instance of `ClassifierGrokClassifierInput` via:
+//
+//	ClassifierGrokClassifierArgs{...}
+type ClassifierGrokClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierGrokClassifierOutput() ClassifierGrokClassifierOutput
+	ToClassifierGrokClassifierOutputWithContext(context.Context) ClassifierGrokClassifierOutput
+}
+
+type ClassifierGrokClassifierArgs struct {
+	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+	Classification pulumi.StringInput `pulumi:"classification"`
+	// Optional custom grok patterns defined by this classifier.
+	CustomPatterns pulumi.StringPtrInput `pulumi:"customPatterns"`
+	// The grok pattern applied to a data store by this classifier.
+	GrokPattern pulumi.StringInput `pulumi:"grokPattern"`
+	// The name of the classifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ClassifierGrokClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierOutput() ClassifierGrokClassifierOutput {
+	return i.ToClassifierGrokClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierOutputWithContext(ctx context.Context) ClassifierGrokClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierOutput)
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return i.ToClassifierGrokClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierOutput).ToClassifierGrokClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierGrokClassifierPtrInput is an input type that accepts ClassifierGrokClassifierArgs, ClassifierGrokClassifierPtr and ClassifierGrokClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierGrokClassifierPtrInput` via:
+//
+//	        ClassifierGrokClassifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClassifierGrokClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput
+	ToClassifierGrokClassifierPtrOutputWithContext(context.Context) ClassifierGrokClassifierPtrOutput
+}
+
+type classifierGrokClassifierPtrType ClassifierGrokClassifierArgs
+
+func ClassifierGrokClassifierPtr(v *ClassifierGrokClassifierArgs) ClassifierGrokClassifierPtrInput {
+	return (*classifierGrokClassifierPtrType)(v)
+}
+
+func (*classifierGrokClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (i *classifierGrokClassifierPtrType) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return i.ToClassifierGrokClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierGrokClassifierPtrType) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierPtrOutput)
+}
+
+type ClassifierGrokClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierGrokClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierOutput() ClassifierGrokClassifierOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierOutputWithContext(ctx context.Context) ClassifierGrokClassifierOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return o.ToClassifierGrokClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierGrokClassifier) *ClassifierGrokClassifier {
+		return &v
+	}).(ClassifierGrokClassifierPtrOutput)
+}
+
+// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+func (o ClassifierGrokClassifierOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+// Optional custom grok patterns defined by this classifier.
+func (o ClassifierGrokClassifierOutput) CustomPatterns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) *string { return v.CustomPatterns }).(pulumi.StringPtrOutput)
+}
+
+// The grok pattern applied to a data store by this classifier.
+func (o ClassifierGrokClassifierOutput) GrokPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.GrokPattern }).(pulumi.StringOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierGrokClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ClassifierGrokClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierGrokClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (o ClassifierGrokClassifierPtrOutput) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierPtrOutput) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierPtrOutput) Elem() ClassifierGrokClassifierOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) ClassifierGrokClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierGrokClassifier
+		return ret
+	}).(ClassifierGrokClassifierOutput)
+}
+
+// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+func (o ClassifierGrokClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional custom grok patterns defined by this classifier.
+func (o ClassifierGrokClassifierPtrOutput) CustomPatterns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPatterns
+	}).(pulumi.StringPtrOutput)
+}
+
+// The grok pattern applied to a data store by this classifier.
+func (o ClassifierGrokClassifierPtrOutput) GrokPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GrokPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierGrokClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClassifierJsonClassifier struct {
+	// A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+	JsonPath string `pulumi:"jsonPath"`
+	// The name of the classifier.
+	Name *string `pulumi:"name"`
+}
+
+// ClassifierJsonClassifierInput is an input type that accepts ClassifierJsonClassifierArgs and ClassifierJsonClassifierOutput values.
+// You can construct a concrete instance of `ClassifierJsonClassifierInput` via:
+//
+//	ClassifierJsonClassifierArgs{...}
+type ClassifierJsonClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierJsonClassifierOutput() ClassifierJsonClassifierOutput
+	ToClassifierJsonClassifierOutputWithContext(context.Context) ClassifierJsonClassifierOutput
+}
+
+type ClassifierJsonClassifierArgs struct {
+	// A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
+	// The name of the classifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ClassifierJsonClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierOutput() ClassifierJsonClassifierOutput {
+	return i.ToClassifierJsonClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierOutputWithContext(ctx context.Context) ClassifierJsonClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierOutput)
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return i.ToClassifierJsonClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierOutput).ToClassifierJsonClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierJsonClassifierPtrInput is an input type that accepts ClassifierJsonClassifierArgs, ClassifierJsonClassifierPtr and ClassifierJsonClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierJsonClassifierPtrInput` via:
+//
+//	        ClassifierJsonClassifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClassifierJsonClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput
+	ToClassifierJsonClassifierPtrOutputWithContext(context.Context) ClassifierJsonClassifierPtrOutput
+}
+
+type classifierJsonClassifierPtrType ClassifierJsonClassifierArgs
+
+func ClassifierJsonClassifierPtr(v *ClassifierJsonClassifierArgs) ClassifierJsonClassifierPtrInput {
+	return (*classifierJsonClassifierPtrType)(v)
+}
+
+func (*classifierJsonClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (i *classifierJsonClassifierPtrType) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return i.ToClassifierJsonClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierJsonClassifierPtrType) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierPtrOutput)
+}
+
+type ClassifierJsonClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierJsonClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierOutput() ClassifierJsonClassifierOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierOutputWithContext(ctx context.Context) ClassifierJsonClassifierOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return o.ToClassifierJsonClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierJsonClassifier) *ClassifierJsonClassifier {
+		return &v
+	}).(ClassifierJsonClassifierPtrOutput)
+}
+
+// A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+func (o ClassifierJsonClassifierOutput) JsonPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierJsonClassifier) string { return v.JsonPath }).(pulumi.StringOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierJsonClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierJsonClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ClassifierJsonClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierJsonClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (o ClassifierJsonClassifierPtrOutput) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierPtrOutput) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierPtrOutput) Elem() ClassifierJsonClassifierOutput {
+	return o.ApplyT(func(v *ClassifierJsonClassifier) ClassifierJsonClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierJsonClassifier
+		return ret
+	}).(ClassifierJsonClassifierOutput)
+}
+
+// A JsonPath string defining the JSON data for the classifier to classify. AWS Glue supports a subset of JsonPath, as described in Writing JsonPath Custom Classifiers.
+func (o ClassifierJsonClassifierPtrOutput) JsonPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierJsonClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JsonPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierJsonClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierJsonClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClassifierXmlClassifier struct {
+	// An identifier of the data format that the classifier matches.
+	Classification string `pulumi:"classification"`
+	// The name of the classifier.
+	Name *string `pulumi:"name"`
+	// The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+	RowTag string `pulumi:"rowTag"`
+}
+
+// ClassifierXmlClassifierInput is an input type that accepts ClassifierXmlClassifierArgs and ClassifierXmlClassifierOutput values.
+// You can construct a concrete instance of `ClassifierXmlClassifierInput` via:
+//
+//	ClassifierXmlClassifierArgs{...}
+type ClassifierXmlClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierXmlClassifierOutput() ClassifierXmlClassifierOutput
+	ToClassifierXmlClassifierOutputWithContext(context.Context) ClassifierXmlClassifierOutput
+}
+
+type ClassifierXmlClassifierArgs struct {
+	// An identifier of the data format that the classifier matches.
+	Classification pulumi.StringInput `pulumi:"classification"`
+	// The name of the classifier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+	RowTag pulumi.StringInput `pulumi:"rowTag"`
+}
+
+func (ClassifierXmlClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierXmlClassifier)(nil)).Elem()
+}
+
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierOutput() ClassifierXmlClassifierOutput {
+	return i.ToClassifierXmlClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierOutputWithContext(ctx context.Context) ClassifierXmlClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierOutput)
+}
+
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
+	return i.ToClassifierXmlClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierXmlClassifierArgs) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierOutput).ToClassifierXmlClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierXmlClassifierPtrInput is an input type that accepts ClassifierXmlClassifierArgs, ClassifierXmlClassifierPtr and ClassifierXmlClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierXmlClassifierPtrInput` via:
+//
+//	        ClassifierXmlClassifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClassifierXmlClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput
+	ToClassifierXmlClassifierPtrOutputWithContext(context.Context) ClassifierXmlClassifierPtrOutput
+}
+
+type classifierXmlClassifierPtrType ClassifierXmlClassifierArgs
+
+func ClassifierXmlClassifierPtr(v *ClassifierXmlClassifierArgs) ClassifierXmlClassifierPtrInput {
+	return (*classifierXmlClassifierPtrType)(v)
+}
+
+func (*classifierXmlClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierXmlClassifier)(nil)).Elem()
+}
+
+func (i *classifierXmlClassifierPtrType) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
+	return i.ToClassifierXmlClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierXmlClassifierPtrType) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXmlClassifierPtrOutput)
+}
+
+type ClassifierXmlClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierXmlClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierXmlClassifier)(nil)).Elem()
+}
+
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierOutput() ClassifierXmlClassifierOutput {
+	return o
+}
+
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierOutputWithContext(ctx context.Context) ClassifierXmlClassifierOutput {
+	return o
+}
+
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
+	return o.ToClassifierXmlClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierXmlClassifier) *ClassifierXmlClassifier {
+		return &v
+	}).(ClassifierXmlClassifierPtrOutput)
+}
+
+// An identifier of the data format that the classifier matches.
+func (o ClassifierXmlClassifierOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierXmlClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierXmlClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+func (o ClassifierXmlClassifierOutput) RowTag() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.RowTag }).(pulumi.StringOutput)
+}
+
+type ClassifierXmlClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierXmlClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierXmlClassifier)(nil)).Elem()
+}
+
+func (o ClassifierXmlClassifierPtrOutput) ToClassifierXmlClassifierPtrOutput() ClassifierXmlClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierXmlClassifierPtrOutput) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierXmlClassifierPtrOutput) Elem() ClassifierXmlClassifierOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) ClassifierXmlClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierXmlClassifier
+		return ret
+	}).(ClassifierXmlClassifierOutput)
+}
+
+// An identifier of the data format that the classifier matches.
+func (o ClassifierXmlClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the classifier.
+func (o ClassifierXmlClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
+func (o ClassifierXmlClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RowTag
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies an AWS Glue Data Catalog target.
 type CrawlerCatalogTarget struct {
 	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
@@ -3302,6 +4116,165 @@ func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) SseAwsKmsKeyId()
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object representing an AWS Glue table.
+type DataQualityRulesetDataQualityTargetTable struct {
+	// The name of the database where the AWS Glue table exists.
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the AWS Glue table.
+	TableName string `pulumi:"tableName"`
+}
+
+// DataQualityRulesetDataQualityTargetTableInput is an input type that accepts DataQualityRulesetDataQualityTargetTableArgs and DataQualityRulesetDataQualityTargetTableOutput values.
+// You can construct a concrete instance of `DataQualityRulesetDataQualityTargetTableInput` via:
+//
+//	DataQualityRulesetDataQualityTargetTableArgs{...}
+type DataQualityRulesetDataQualityTargetTableInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetDataQualityTargetTableOutput() DataQualityRulesetDataQualityTargetTableOutput
+	ToDataQualityRulesetDataQualityTargetTableOutputWithContext(context.Context) DataQualityRulesetDataQualityTargetTableOutput
+}
+
+// An object representing an AWS Glue table.
+type DataQualityRulesetDataQualityTargetTableArgs struct {
+	// The name of the database where the AWS Glue table exists.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the AWS Glue table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (DataQualityRulesetDataQualityTargetTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTableOutput() DataQualityRulesetDataQualityTargetTableOutput {
+	return i.ToDataQualityRulesetDataQualityTargetTableOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetDataQualityTargetTableOutput)
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return i.ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetDataQualityTargetTableArgs) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetDataQualityTargetTableOutput).ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx)
+}
+
+// DataQualityRulesetDataQualityTargetTablePtrInput is an input type that accepts DataQualityRulesetDataQualityTargetTableArgs, DataQualityRulesetDataQualityTargetTablePtr and DataQualityRulesetDataQualityTargetTablePtrOutput values.
+// You can construct a concrete instance of `DataQualityRulesetDataQualityTargetTablePtrInput` via:
+//
+//	        DataQualityRulesetDataQualityTargetTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityRulesetDataQualityTargetTablePtrInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput
+	ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput
+}
+
+type dataQualityRulesetDataQualityTargetTablePtrType DataQualityRulesetDataQualityTargetTableArgs
+
+func DataQualityRulesetDataQualityTargetTablePtr(v *DataQualityRulesetDataQualityTargetTableArgs) DataQualityRulesetDataQualityTargetTablePtrInput {
+	return (*dataQualityRulesetDataQualityTargetTablePtrType)(v)
+}
+
+func (*dataQualityRulesetDataQualityTargetTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (i *dataQualityRulesetDataQualityTargetTablePtrType) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return i.ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityRulesetDataQualityTargetTablePtrType) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetDataQualityTargetTablePtrOutput)
+}
+
+// An object representing an AWS Glue table.
+type DataQualityRulesetDataQualityTargetTableOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetDataQualityTargetTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTableOutput() DataQualityRulesetDataQualityTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o.ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityRulesetDataQualityTargetTableOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityRulesetDataQualityTargetTable) *DataQualityRulesetDataQualityTargetTable {
+		return &v
+	}).(DataQualityRulesetDataQualityTargetTablePtrOutput)
+}
+
+// The name of the database where the AWS Glue table exists.
+func (o DataQualityRulesetDataQualityTargetTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityRulesetDataQualityTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the AWS Glue table.
+func (o DataQualityRulesetDataQualityTargetTableOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityRulesetDataQualityTargetTable) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type DataQualityRulesetDataQualityTargetTablePtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetDataQualityTargetTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetDataQualityTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutput() DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) ToDataQualityRulesetDataQualityTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetDataQualityTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) Elem() DataQualityRulesetDataQualityTargetTableOutput {
+	return o.ApplyT(func(v *DataQualityRulesetDataQualityTargetTable) DataQualityRulesetDataQualityTargetTable {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityRulesetDataQualityTargetTable
+		return ret
+	}).(DataQualityRulesetDataQualityTargetTableOutput)
+}
+
+// The name of the database where the AWS Glue table exists.
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetDataQualityTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the AWS Glue table.
+func (o DataQualityRulesetDataQualityTargetTablePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetDataQualityTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The AWS Lake Formation principal.
 type DatabaseDataLakePrincipal struct {
 	// An identifier for the AWS Lake Formation principal.
@@ -4839,6 +5812,813 @@ func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// The parameters to configure the find matches transform.
+type MlTransformFindMatchesParameters struct {
+	// The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+	AccuracyCostTradeoff *float64 `pulumi:"accuracyCostTradeoff"`
+	// If true, forces the output to match the provided labels.
+	EnforceProvidedLabels *bool `pulumi:"enforceProvidedLabels"`
+	// The value for precision and recall tradeoff. A value of 0.5 means no preference.
+	PrecisionRecallTradeoff *float64 `pulumi:"precisionRecallTradeoff"`
+	// The name of a column that uniquely identifies rows in the source table.
+	PrimaryKeyColumnName string `pulumi:"primaryKeyColumnName"`
+}
+
+// MlTransformFindMatchesParametersInput is an input type that accepts MlTransformFindMatchesParametersArgs and MlTransformFindMatchesParametersOutput values.
+// You can construct a concrete instance of `MlTransformFindMatchesParametersInput` via:
+//
+//	MlTransformFindMatchesParametersArgs{...}
+type MlTransformFindMatchesParametersInput interface {
+	pulumi.Input
+
+	ToMlTransformFindMatchesParametersOutput() MlTransformFindMatchesParametersOutput
+	ToMlTransformFindMatchesParametersOutputWithContext(context.Context) MlTransformFindMatchesParametersOutput
+}
+
+// The parameters to configure the find matches transform.
+type MlTransformFindMatchesParametersArgs struct {
+	// The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+	AccuracyCostTradeoff pulumi.Float64PtrInput `pulumi:"accuracyCostTradeoff"`
+	// If true, forces the output to match the provided labels.
+	EnforceProvidedLabels pulumi.BoolPtrInput `pulumi:"enforceProvidedLabels"`
+	// The value for precision and recall tradeoff. A value of 0.5 means no preference.
+	PrecisionRecallTradeoff pulumi.Float64PtrInput `pulumi:"precisionRecallTradeoff"`
+	// The name of a column that uniquely identifies rows in the source table.
+	PrimaryKeyColumnName pulumi.StringInput `pulumi:"primaryKeyColumnName"`
+}
+
+func (MlTransformFindMatchesParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersOutput() MlTransformFindMatchesParametersOutput {
+	return i.ToMlTransformFindMatchesParametersOutputWithContext(context.Background())
+}
+
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformFindMatchesParametersOutput)
+}
+
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
+	return i.ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MlTransformFindMatchesParametersArgs) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformFindMatchesParametersOutput).ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx)
+}
+
+// MlTransformFindMatchesParametersPtrInput is an input type that accepts MlTransformFindMatchesParametersArgs, MlTransformFindMatchesParametersPtr and MlTransformFindMatchesParametersPtrOutput values.
+// You can construct a concrete instance of `MlTransformFindMatchesParametersPtrInput` via:
+//
+//	        MlTransformFindMatchesParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type MlTransformFindMatchesParametersPtrInput interface {
+	pulumi.Input
+
+	ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput
+	ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Context) MlTransformFindMatchesParametersPtrOutput
+}
+
+type mlTransformFindMatchesParametersPtrType MlTransformFindMatchesParametersArgs
+
+func MlTransformFindMatchesParametersPtr(v *MlTransformFindMatchesParametersArgs) MlTransformFindMatchesParametersPtrInput {
+	return (*mlTransformFindMatchesParametersPtrType)(v)
+}
+
+func (*mlTransformFindMatchesParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (i *mlTransformFindMatchesParametersPtrType) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
+	return i.ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *mlTransformFindMatchesParametersPtrType) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformFindMatchesParametersPtrOutput)
+}
+
+// The parameters to configure the find matches transform.
+type MlTransformFindMatchesParametersOutput struct{ *pulumi.OutputState }
+
+func (MlTransformFindMatchesParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersOutput() MlTransformFindMatchesParametersOutput {
+	return o
+}
+
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersOutput {
+	return o
+}
+
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
+	return o.ToMlTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MlTransformFindMatchesParametersOutput) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlTransformFindMatchesParameters) *MlTransformFindMatchesParameters {
+		return &v
+	}).(MlTransformFindMatchesParametersPtrOutput)
+}
+
+// The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+func (o MlTransformFindMatchesParametersOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) *float64 { return v.AccuracyCostTradeoff }).(pulumi.Float64PtrOutput)
+}
+
+// If true, forces the output to match the provided labels.
+func (o MlTransformFindMatchesParametersOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) *bool { return v.EnforceProvidedLabels }).(pulumi.BoolPtrOutput)
+}
+
+// The value for precision and recall tradeoff. A value of 0.5 means no preference.
+func (o MlTransformFindMatchesParametersOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) *float64 { return v.PrecisionRecallTradeoff }).(pulumi.Float64PtrOutput)
+}
+
+// The name of a column that uniquely identifies rows in the source table.
+func (o MlTransformFindMatchesParametersOutput) PrimaryKeyColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformFindMatchesParameters) string { return v.PrimaryKeyColumnName }).(pulumi.StringOutput)
+}
+
+type MlTransformFindMatchesParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MlTransformFindMatchesParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (o MlTransformFindMatchesParametersPtrOutput) ToMlTransformFindMatchesParametersPtrOutput() MlTransformFindMatchesParametersPtrOutput {
+	return o
+}
+
+func (o MlTransformFindMatchesParametersPtrOutput) ToMlTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MlTransformFindMatchesParametersPtrOutput {
+	return o
+}
+
+func (o MlTransformFindMatchesParametersPtrOutput) Elem() MlTransformFindMatchesParametersOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) MlTransformFindMatchesParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MlTransformFindMatchesParameters
+		return ret
+	}).(MlTransformFindMatchesParametersOutput)
+}
+
+// The value for accuracy and cost tradeoff. A value of 0.5 means balance.
+func (o MlTransformFindMatchesParametersPtrOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AccuracyCostTradeoff
+	}).(pulumi.Float64PtrOutput)
+}
+
+// If true, forces the output to match the provided labels.
+func (o MlTransformFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceProvidedLabels
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value for precision and recall tradeoff. A value of 0.5 means no preference.
+func (o MlTransformFindMatchesParametersPtrOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PrecisionRecallTradeoff
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The name of a column that uniquely identifies rows in the source table.
+func (o MlTransformFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformFindMatchesParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKeyColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The database and table in the AWS Glue Data Catalog that is used for input or output data.
+type MlTransformGlueTables struct {
+	// A unique identifier for the AWS Glue Data Catalog.
+	CatalogId *string `pulumi:"catalogId"`
+	// The name of the connection to the AWS Glue Data Catalog.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A database name in the AWS Glue Data Catalog.
+	DatabaseName string `pulumi:"databaseName"`
+	// A table name in the AWS Glue Data Catalog.
+	TableName string `pulumi:"tableName"`
+}
+
+// MlTransformGlueTablesInput is an input type that accepts MlTransformGlueTablesArgs and MlTransformGlueTablesOutput values.
+// You can construct a concrete instance of `MlTransformGlueTablesInput` via:
+//
+//	MlTransformGlueTablesArgs{...}
+type MlTransformGlueTablesInput interface {
+	pulumi.Input
+
+	ToMlTransformGlueTablesOutput() MlTransformGlueTablesOutput
+	ToMlTransformGlueTablesOutputWithContext(context.Context) MlTransformGlueTablesOutput
+}
+
+// The database and table in the AWS Glue Data Catalog that is used for input or output data.
+type MlTransformGlueTablesArgs struct {
+	// A unique identifier for the AWS Glue Data Catalog.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// The name of the connection to the AWS Glue Data Catalog.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A database name in the AWS Glue Data Catalog.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// A table name in the AWS Glue Data Catalog.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (MlTransformGlueTablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformGlueTables)(nil)).Elem()
+}
+
+func (i MlTransformGlueTablesArgs) ToMlTransformGlueTablesOutput() MlTransformGlueTablesOutput {
+	return i.ToMlTransformGlueTablesOutputWithContext(context.Background())
+}
+
+func (i MlTransformGlueTablesArgs) ToMlTransformGlueTablesOutputWithContext(ctx context.Context) MlTransformGlueTablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformGlueTablesOutput)
+}
+
+// MlTransformGlueTablesArrayInput is an input type that accepts MlTransformGlueTablesArray and MlTransformGlueTablesArrayOutput values.
+// You can construct a concrete instance of `MlTransformGlueTablesArrayInput` via:
+//
+//	MlTransformGlueTablesArray{ MlTransformGlueTablesArgs{...} }
+type MlTransformGlueTablesArrayInput interface {
+	pulumi.Input
+
+	ToMlTransformGlueTablesArrayOutput() MlTransformGlueTablesArrayOutput
+	ToMlTransformGlueTablesArrayOutputWithContext(context.Context) MlTransformGlueTablesArrayOutput
+}
+
+type MlTransformGlueTablesArray []MlTransformGlueTablesInput
+
+func (MlTransformGlueTablesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MlTransformGlueTables)(nil)).Elem()
+}
+
+func (i MlTransformGlueTablesArray) ToMlTransformGlueTablesArrayOutput() MlTransformGlueTablesArrayOutput {
+	return i.ToMlTransformGlueTablesArrayOutputWithContext(context.Background())
+}
+
+func (i MlTransformGlueTablesArray) ToMlTransformGlueTablesArrayOutputWithContext(ctx context.Context) MlTransformGlueTablesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformGlueTablesArrayOutput)
+}
+
+// The database and table in the AWS Glue Data Catalog that is used for input or output data.
+type MlTransformGlueTablesOutput struct{ *pulumi.OutputState }
+
+func (MlTransformGlueTablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformGlueTables)(nil)).Elem()
+}
+
+func (o MlTransformGlueTablesOutput) ToMlTransformGlueTablesOutput() MlTransformGlueTablesOutput {
+	return o
+}
+
+func (o MlTransformGlueTablesOutput) ToMlTransformGlueTablesOutputWithContext(ctx context.Context) MlTransformGlueTablesOutput {
+	return o
+}
+
+// A unique identifier for the AWS Glue Data Catalog.
+func (o MlTransformGlueTablesOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the connection to the AWS Glue Data Catalog.
+func (o MlTransformGlueTablesOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A database name in the AWS Glue Data Catalog.
+func (o MlTransformGlueTablesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// A table name in the AWS Glue Data Catalog.
+func (o MlTransformGlueTablesOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformGlueTables) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type MlTransformGlueTablesArrayOutput struct{ *pulumi.OutputState }
+
+func (MlTransformGlueTablesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MlTransformGlueTables)(nil)).Elem()
+}
+
+func (o MlTransformGlueTablesArrayOutput) ToMlTransformGlueTablesArrayOutput() MlTransformGlueTablesArrayOutput {
+	return o
+}
+
+func (o MlTransformGlueTablesArrayOutput) ToMlTransformGlueTablesArrayOutputWithContext(ctx context.Context) MlTransformGlueTablesArrayOutput {
+	return o
+}
+
+func (o MlTransformGlueTablesArrayOutput) Index(i pulumi.IntInput) MlTransformGlueTablesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MlTransformGlueTables {
+		return vs[0].([]MlTransformGlueTables)[vs[1].(int)]
+	}).(MlTransformGlueTablesOutput)
+}
+
+// A list of AWS Glue table definitions used by the transform.
+type MlTransformInputRecordTables struct {
+	// The database and table in the AWS Glue Data Catalog that is used for input or output data.
+	GlueTables []MlTransformGlueTables `pulumi:"glueTables"`
+}
+
+// MlTransformInputRecordTablesInput is an input type that accepts MlTransformInputRecordTablesArgs and MlTransformInputRecordTablesOutput values.
+// You can construct a concrete instance of `MlTransformInputRecordTablesInput` via:
+//
+//	MlTransformInputRecordTablesArgs{...}
+type MlTransformInputRecordTablesInput interface {
+	pulumi.Input
+
+	ToMlTransformInputRecordTablesOutput() MlTransformInputRecordTablesOutput
+	ToMlTransformInputRecordTablesOutputWithContext(context.Context) MlTransformInputRecordTablesOutput
+}
+
+// A list of AWS Glue table definitions used by the transform.
+type MlTransformInputRecordTablesArgs struct {
+	// The database and table in the AWS Glue Data Catalog that is used for input or output data.
+	GlueTables MlTransformGlueTablesArrayInput `pulumi:"glueTables"`
+}
+
+func (MlTransformInputRecordTablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformInputRecordTables)(nil)).Elem()
+}
+
+func (i MlTransformInputRecordTablesArgs) ToMlTransformInputRecordTablesOutput() MlTransformInputRecordTablesOutput {
+	return i.ToMlTransformInputRecordTablesOutputWithContext(context.Background())
+}
+
+func (i MlTransformInputRecordTablesArgs) ToMlTransformInputRecordTablesOutputWithContext(ctx context.Context) MlTransformInputRecordTablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformInputRecordTablesOutput)
+}
+
+// A list of AWS Glue table definitions used by the transform.
+type MlTransformInputRecordTablesOutput struct{ *pulumi.OutputState }
+
+func (MlTransformInputRecordTablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformInputRecordTables)(nil)).Elem()
+}
+
+func (o MlTransformInputRecordTablesOutput) ToMlTransformInputRecordTablesOutput() MlTransformInputRecordTablesOutput {
+	return o
+}
+
+func (o MlTransformInputRecordTablesOutput) ToMlTransformInputRecordTablesOutputWithContext(ctx context.Context) MlTransformInputRecordTablesOutput {
+	return o
+}
+
+// The database and table in the AWS Glue Data Catalog that is used for input or output data.
+func (o MlTransformInputRecordTablesOutput) GlueTables() MlTransformGlueTablesArrayOutput {
+	return o.ApplyT(func(v MlTransformInputRecordTables) []MlTransformGlueTables { return v.GlueTables }).(MlTransformGlueTablesArrayOutput)
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+type MlTransformMlUserDataEncryption struct {
+	// The ID for the customer-provided KMS key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The encryption mode applied to user data.
+	MlUserDataEncryptionMode string `pulumi:"mlUserDataEncryptionMode"`
+}
+
+// MlTransformMlUserDataEncryptionInput is an input type that accepts MlTransformMlUserDataEncryptionArgs and MlTransformMlUserDataEncryptionOutput values.
+// You can construct a concrete instance of `MlTransformMlUserDataEncryptionInput` via:
+//
+//	MlTransformMlUserDataEncryptionArgs{...}
+type MlTransformMlUserDataEncryptionInput interface {
+	pulumi.Input
+
+	ToMlTransformMlUserDataEncryptionOutput() MlTransformMlUserDataEncryptionOutput
+	ToMlTransformMlUserDataEncryptionOutputWithContext(context.Context) MlTransformMlUserDataEncryptionOutput
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+type MlTransformMlUserDataEncryptionArgs struct {
+	// The ID for the customer-provided KMS key.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The encryption mode applied to user data.
+	MlUserDataEncryptionMode pulumi.StringInput `pulumi:"mlUserDataEncryptionMode"`
+}
+
+func (MlTransformMlUserDataEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformMlUserDataEncryption)(nil)).Elem()
+}
+
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionOutput() MlTransformMlUserDataEncryptionOutput {
+	return i.ToMlTransformMlUserDataEncryptionOutputWithContext(context.Background())
+}
+
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformMlUserDataEncryptionOutput)
+}
+
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
+	return i.ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i MlTransformMlUserDataEncryptionArgs) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformMlUserDataEncryptionOutput).ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx)
+}
+
+// MlTransformMlUserDataEncryptionPtrInput is an input type that accepts MlTransformMlUserDataEncryptionArgs, MlTransformMlUserDataEncryptionPtr and MlTransformMlUserDataEncryptionPtrOutput values.
+// You can construct a concrete instance of `MlTransformMlUserDataEncryptionPtrInput` via:
+//
+//	        MlTransformMlUserDataEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type MlTransformMlUserDataEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput
+	ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Context) MlTransformMlUserDataEncryptionPtrOutput
+}
+
+type mlTransformMlUserDataEncryptionPtrType MlTransformMlUserDataEncryptionArgs
+
+func MlTransformMlUserDataEncryptionPtr(v *MlTransformMlUserDataEncryptionArgs) MlTransformMlUserDataEncryptionPtrInput {
+	return (*mlTransformMlUserDataEncryptionPtrType)(v)
+}
+
+func (*mlTransformMlUserDataEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformMlUserDataEncryption)(nil)).Elem()
+}
+
+func (i *mlTransformMlUserDataEncryptionPtrType) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
+	return i.ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *mlTransformMlUserDataEncryptionPtrType) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformMlUserDataEncryptionPtrOutput)
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+type MlTransformMlUserDataEncryptionOutput struct{ *pulumi.OutputState }
+
+func (MlTransformMlUserDataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformMlUserDataEncryption)(nil)).Elem()
+}
+
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionOutput() MlTransformMlUserDataEncryptionOutput {
+	return o
+}
+
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionOutput {
+	return o
+}
+
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ToMlTransformMlUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o MlTransformMlUserDataEncryptionOutput) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlTransformMlUserDataEncryption) *MlTransformMlUserDataEncryption {
+		return &v
+	}).(MlTransformMlUserDataEncryptionPtrOutput)
+}
+
+// The ID for the customer-provided KMS key.
+func (o MlTransformMlUserDataEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformMlUserDataEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The encryption mode applied to user data.
+func (o MlTransformMlUserDataEncryptionOutput) MlUserDataEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformMlUserDataEncryption) string { return v.MlUserDataEncryptionMode }).(pulumi.StringOutput)
+}
+
+type MlTransformMlUserDataEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (MlTransformMlUserDataEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformMlUserDataEncryption)(nil)).Elem()
+}
+
+func (o MlTransformMlUserDataEncryptionPtrOutput) ToMlTransformMlUserDataEncryptionPtrOutput() MlTransformMlUserDataEncryptionPtrOutput {
+	return o
+}
+
+func (o MlTransformMlUserDataEncryptionPtrOutput) ToMlTransformMlUserDataEncryptionPtrOutputWithContext(ctx context.Context) MlTransformMlUserDataEncryptionPtrOutput {
+	return o
+}
+
+func (o MlTransformMlUserDataEncryptionPtrOutput) Elem() MlTransformMlUserDataEncryptionOutput {
+	return o.ApplyT(func(v *MlTransformMlUserDataEncryption) MlTransformMlUserDataEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret MlTransformMlUserDataEncryption
+		return ret
+	}).(MlTransformMlUserDataEncryptionOutput)
+}
+
+// The ID for the customer-provided KMS key.
+func (o MlTransformMlUserDataEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformMlUserDataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption mode applied to user data.
+func (o MlTransformMlUserDataEncryptionPtrOutput) MlUserDataEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformMlUserDataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MlUserDataEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+type MlTransformTransformEncryption struct {
+	// The encryption-at-rest settings of the transform that apply to accessing user data.
+	MlUserDataEncryption *MlTransformMlUserDataEncryption `pulumi:"mlUserDataEncryption"`
+	// The name of the security configuration.
+	TaskRunSecurityConfigurationName *string `pulumi:"taskRunSecurityConfigurationName"`
+}
+
+// MlTransformTransformEncryptionInput is an input type that accepts MlTransformTransformEncryptionArgs and MlTransformTransformEncryptionOutput values.
+// You can construct a concrete instance of `MlTransformTransformEncryptionInput` via:
+//
+//	MlTransformTransformEncryptionArgs{...}
+type MlTransformTransformEncryptionInput interface {
+	pulumi.Input
+
+	ToMlTransformTransformEncryptionOutput() MlTransformTransformEncryptionOutput
+	ToMlTransformTransformEncryptionOutputWithContext(context.Context) MlTransformTransformEncryptionOutput
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+type MlTransformTransformEncryptionArgs struct {
+	// The encryption-at-rest settings of the transform that apply to accessing user data.
+	MlUserDataEncryption MlTransformMlUserDataEncryptionPtrInput `pulumi:"mlUserDataEncryption"`
+	// The name of the security configuration.
+	TaskRunSecurityConfigurationName pulumi.StringPtrInput `pulumi:"taskRunSecurityConfigurationName"`
+}
+
+func (MlTransformTransformEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformEncryption)(nil)).Elem()
+}
+
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionOutput() MlTransformTransformEncryptionOutput {
+	return i.ToMlTransformTransformEncryptionOutputWithContext(context.Background())
+}
+
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionOutputWithContext(ctx context.Context) MlTransformTransformEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformEncryptionOutput)
+}
+
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
+	return i.ToMlTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i MlTransformTransformEncryptionArgs) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformEncryptionOutput).ToMlTransformTransformEncryptionPtrOutputWithContext(ctx)
+}
+
+// MlTransformTransformEncryptionPtrInput is an input type that accepts MlTransformTransformEncryptionArgs, MlTransformTransformEncryptionPtr and MlTransformTransformEncryptionPtrOutput values.
+// You can construct a concrete instance of `MlTransformTransformEncryptionPtrInput` via:
+//
+//	        MlTransformTransformEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type MlTransformTransformEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput
+	ToMlTransformTransformEncryptionPtrOutputWithContext(context.Context) MlTransformTransformEncryptionPtrOutput
+}
+
+type mlTransformTransformEncryptionPtrType MlTransformTransformEncryptionArgs
+
+func MlTransformTransformEncryptionPtr(v *MlTransformTransformEncryptionArgs) MlTransformTransformEncryptionPtrInput {
+	return (*mlTransformTransformEncryptionPtrType)(v)
+}
+
+func (*mlTransformTransformEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformTransformEncryption)(nil)).Elem()
+}
+
+func (i *mlTransformTransformEncryptionPtrType) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
+	return i.ToMlTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *mlTransformTransformEncryptionPtrType) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformEncryptionPtrOutput)
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+type MlTransformTransformEncryptionOutput struct{ *pulumi.OutputState }
+
+func (MlTransformTransformEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformEncryption)(nil)).Elem()
+}
+
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionOutput() MlTransformTransformEncryptionOutput {
+	return o
+}
+
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionOutputWithContext(ctx context.Context) MlTransformTransformEncryptionOutput {
+	return o
+}
+
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
+	return o.ToMlTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o MlTransformTransformEncryptionOutput) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MlTransformTransformEncryption) *MlTransformTransformEncryption {
+		return &v
+	}).(MlTransformTransformEncryptionPtrOutput)
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+func (o MlTransformTransformEncryptionOutput) MlUserDataEncryption() MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v MlTransformTransformEncryption) *MlTransformMlUserDataEncryption { return v.MlUserDataEncryption }).(MlTransformMlUserDataEncryptionPtrOutput)
+}
+
+// The name of the security configuration.
+func (o MlTransformTransformEncryptionOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MlTransformTransformEncryption) *string { return v.TaskRunSecurityConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+type MlTransformTransformEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (MlTransformTransformEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformTransformEncryption)(nil)).Elem()
+}
+
+func (o MlTransformTransformEncryptionPtrOutput) ToMlTransformTransformEncryptionPtrOutput() MlTransformTransformEncryptionPtrOutput {
+	return o
+}
+
+func (o MlTransformTransformEncryptionPtrOutput) ToMlTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MlTransformTransformEncryptionPtrOutput {
+	return o
+}
+
+func (o MlTransformTransformEncryptionPtrOutput) Elem() MlTransformTransformEncryptionOutput {
+	return o.ApplyT(func(v *MlTransformTransformEncryption) MlTransformTransformEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret MlTransformTransformEncryption
+		return ret
+	}).(MlTransformTransformEncryptionOutput)
+}
+
+// The encryption-at-rest settings of the transform that apply to accessing user data.
+func (o MlTransformTransformEncryptionPtrOutput) MlUserDataEncryption() MlTransformMlUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformEncryption) *MlTransformMlUserDataEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.MlUserDataEncryption
+	}).(MlTransformMlUserDataEncryptionPtrOutput)
+}
+
+// The name of the security configuration.
+func (o MlTransformTransformEncryptionPtrOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskRunSecurityConfigurationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The algorithm-specific parameters that are associated with the machine learning transform.
+type MlTransformTransformParameters struct {
+	// The parameters for the find matches algorithm.
+	FindMatchesParameters *MlTransformFindMatchesParameters `pulumi:"findMatchesParameters"`
+	// The type of machine learning transform.
+	TransformType string `pulumi:"transformType"`
+}
+
+// MlTransformTransformParametersInput is an input type that accepts MlTransformTransformParametersArgs and MlTransformTransformParametersOutput values.
+// You can construct a concrete instance of `MlTransformTransformParametersInput` via:
+//
+//	MlTransformTransformParametersArgs{...}
+type MlTransformTransformParametersInput interface {
+	pulumi.Input
+
+	ToMlTransformTransformParametersOutput() MlTransformTransformParametersOutput
+	ToMlTransformTransformParametersOutputWithContext(context.Context) MlTransformTransformParametersOutput
+}
+
+// The algorithm-specific parameters that are associated with the machine learning transform.
+type MlTransformTransformParametersArgs struct {
+	// The parameters for the find matches algorithm.
+	FindMatchesParameters MlTransformFindMatchesParametersPtrInput `pulumi:"findMatchesParameters"`
+	// The type of machine learning transform.
+	TransformType pulumi.StringInput `pulumi:"transformType"`
+}
+
+func (MlTransformTransformParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformParameters)(nil)).Elem()
+}
+
+func (i MlTransformTransformParametersArgs) ToMlTransformTransformParametersOutput() MlTransformTransformParametersOutput {
+	return i.ToMlTransformTransformParametersOutputWithContext(context.Background())
+}
+
+func (i MlTransformTransformParametersArgs) ToMlTransformTransformParametersOutputWithContext(ctx context.Context) MlTransformTransformParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MlTransformTransformParametersOutput)
+}
+
+// The algorithm-specific parameters that are associated with the machine learning transform.
+type MlTransformTransformParametersOutput struct{ *pulumi.OutputState }
+
+func (MlTransformTransformParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MlTransformTransformParameters)(nil)).Elem()
+}
+
+func (o MlTransformTransformParametersOutput) ToMlTransformTransformParametersOutput() MlTransformTransformParametersOutput {
+	return o
+}
+
+func (o MlTransformTransformParametersOutput) ToMlTransformTransformParametersOutputWithContext(ctx context.Context) MlTransformTransformParametersOutput {
+	return o
+}
+
+// The parameters for the find matches algorithm.
+func (o MlTransformTransformParametersOutput) FindMatchesParameters() MlTransformFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v MlTransformTransformParameters) *MlTransformFindMatchesParameters {
+		return v.FindMatchesParameters
+	}).(MlTransformFindMatchesParametersPtrOutput)
+}
+
+// The type of machine learning transform.
+func (o MlTransformTransformParametersOutput) TransformType() pulumi.StringOutput {
+	return o.ApplyT(func(v MlTransformTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
+}
+
+type MlTransformTransformParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MlTransformTransformParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MlTransformTransformParameters)(nil)).Elem()
+}
+
+func (o MlTransformTransformParametersPtrOutput) ToMlTransformTransformParametersPtrOutput() MlTransformTransformParametersPtrOutput {
+	return o
+}
+
+func (o MlTransformTransformParametersPtrOutput) ToMlTransformTransformParametersPtrOutputWithContext(ctx context.Context) MlTransformTransformParametersPtrOutput {
+	return o
+}
+
+func (o MlTransformTransformParametersPtrOutput) Elem() MlTransformTransformParametersOutput {
+	return o.ApplyT(func(v *MlTransformTransformParameters) MlTransformTransformParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MlTransformTransformParameters
+		return ret
+	}).(MlTransformTransformParametersOutput)
+}
+
+// The parameters for the find matches algorithm.
+func (o MlTransformTransformParametersPtrOutput) FindMatchesParameters() MlTransformFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformParameters) *MlTransformFindMatchesParameters {
+		if v == nil {
+			return nil
+		}
+		return v.FindMatchesParameters
+	}).(MlTransformFindMatchesParametersPtrOutput)
+}
+
+// The type of machine learning transform.
+func (o MlTransformTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MlTransformTransformParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TransformType
+	}).(pulumi.StringPtrOutput)
+}
+
 type RegistryTag struct {
 	// A key to identify the tag.
 	Key string `pulumi:"key"`
@@ -5244,6 +7024,566 @@ func (o SchemaVersionSchemaOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchemaVersionSchema) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
+// The encryption configuration for Amazon CloudWatch.
+type SecurityConfigurationCloudWatchEncryption struct {
+	// The encryption mode to use for CloudWatch data.
+	CloudWatchEncryptionMode *string `pulumi:"cloudWatchEncryptionMode"`
+	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// SecurityConfigurationCloudWatchEncryptionInput is an input type that accepts SecurityConfigurationCloudWatchEncryptionArgs and SecurityConfigurationCloudWatchEncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationCloudWatchEncryptionInput` via:
+//
+//	SecurityConfigurationCloudWatchEncryptionArgs{...}
+type SecurityConfigurationCloudWatchEncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationCloudWatchEncryptionOutput() SecurityConfigurationCloudWatchEncryptionOutput
+	ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(context.Context) SecurityConfigurationCloudWatchEncryptionOutput
+}
+
+// The encryption configuration for Amazon CloudWatch.
+type SecurityConfigurationCloudWatchEncryptionArgs struct {
+	// The encryption mode to use for CloudWatch data.
+	CloudWatchEncryptionMode pulumi.StringPtrInput `pulumi:"cloudWatchEncryptionMode"`
+	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (SecurityConfigurationCloudWatchEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionOutput() SecurityConfigurationCloudWatchEncryptionOutput {
+	return i.ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationCloudWatchEncryptionOutput)
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return i.ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationCloudWatchEncryptionOutput).ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationCloudWatchEncryptionPtrInput is an input type that accepts SecurityConfigurationCloudWatchEncryptionArgs, SecurityConfigurationCloudWatchEncryptionPtr and SecurityConfigurationCloudWatchEncryptionPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationCloudWatchEncryptionPtrInput` via:
+//
+//	        SecurityConfigurationCloudWatchEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationCloudWatchEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput
+	ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput
+}
+
+type securityConfigurationCloudWatchEncryptionPtrType SecurityConfigurationCloudWatchEncryptionArgs
+
+func SecurityConfigurationCloudWatchEncryptionPtr(v *SecurityConfigurationCloudWatchEncryptionArgs) SecurityConfigurationCloudWatchEncryptionPtrInput {
+	return (*securityConfigurationCloudWatchEncryptionPtrType)(v)
+}
+
+func (*securityConfigurationCloudWatchEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (i *securityConfigurationCloudWatchEncryptionPtrType) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return i.ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationCloudWatchEncryptionPtrType) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// The encryption configuration for Amazon CloudWatch.
+type SecurityConfigurationCloudWatchEncryptionOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationCloudWatchEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionOutput() SecurityConfigurationCloudWatchEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationCloudWatchEncryption) *SecurityConfigurationCloudWatchEncryption {
+		return &v
+	}).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// The encryption mode to use for CloudWatch data.
+func (o SecurityConfigurationCloudWatchEncryptionOutput) CloudWatchEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationCloudWatchEncryption) *string { return v.CloudWatchEncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationCloudWatchEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationCloudWatchEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationCloudWatchEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationCloudWatchEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) Elem() SecurityConfigurationCloudWatchEncryptionOutput {
+	return o.ApplyT(func(v *SecurityConfigurationCloudWatchEncryption) SecurityConfigurationCloudWatchEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationCloudWatchEncryption
+		return ret
+	}).(SecurityConfigurationCloudWatchEncryptionOutput)
+}
+
+// The encryption mode to use for CloudWatch data.
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) CloudWatchEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationCloudWatchEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationCloudWatchEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption configuration for the security configuration.
+type SecurityConfigurationEncryptionConfiguration struct {
+	// The encryption configuration for Amazon CloudWatch.
+	CloudWatchEncryption *SecurityConfigurationCloudWatchEncryption `pulumi:"cloudWatchEncryption"`
+	// The encryption configuration for job bookmarks.
+	JobBookmarksEncryption *SecurityConfigurationJobBookmarksEncryption `pulumi:"jobBookmarksEncryption"`
+	// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+	S3Encryptions []SecurityConfigurationS3Encryption `pulumi:"s3Encryptions"`
+}
+
+// SecurityConfigurationEncryptionConfigurationInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs and SecurityConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationInput` via:
+//
+//	SecurityConfigurationEncryptionConfigurationArgs{...}
+type SecurityConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput
+	ToSecurityConfigurationEncryptionConfigurationOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationOutput
+}
+
+// The encryption configuration for the security configuration.
+type SecurityConfigurationEncryptionConfigurationArgs struct {
+	// The encryption configuration for Amazon CloudWatch.
+	CloudWatchEncryption SecurityConfigurationCloudWatchEncryptionPtrInput `pulumi:"cloudWatchEncryption"`
+	// The encryption configuration for job bookmarks.
+	JobBookmarksEncryption SecurityConfigurationJobBookmarksEncryptionPtrInput `pulumi:"jobBookmarksEncryption"`
+	// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+	S3Encryptions SecurityConfigurationS3EncryptionArrayInput `pulumi:"s3Encryptions"`
+}
+
+func (SecurityConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return i.ToSecurityConfigurationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+// The encryption configuration for the security configuration.
+type SecurityConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+// The encryption configuration for Amazon CloudWatch.
+func (o SecurityConfigurationEncryptionConfigurationOutput) CloudWatchEncryption() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationCloudWatchEncryption {
+		return v.CloudWatchEncryption
+	}).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// The encryption configuration for job bookmarks.
+func (o SecurityConfigurationEncryptionConfigurationOutput) JobBookmarksEncryption() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationJobBookmarksEncryption {
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+func (o SecurityConfigurationEncryptionConfigurationOutput) S3Encryptions() SecurityConfigurationS3EncryptionArrayOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) []SecurityConfigurationS3Encryption {
+		return v.S3Encryptions
+	}).(SecurityConfigurationS3EncryptionArrayOutput)
+}
+
+type SecurityConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+// The encryption configuration for Amazon CloudWatch.
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) CloudWatchEncryption() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationCloudWatchEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchEncryption
+	}).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// The encryption configuration for job bookmarks.
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) JobBookmarksEncryption() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationJobBookmarksEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) S3Encryptions() SecurityConfigurationS3EncryptionArrayOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) []SecurityConfigurationS3Encryption {
+		if v == nil {
+			return nil
+		}
+		return v.S3Encryptions
+	}).(SecurityConfigurationS3EncryptionArrayOutput)
+}
+
+// The encryption configuration for job bookmarks.
+type SecurityConfigurationJobBookmarksEncryption struct {
+	// The encryption mode to use for job bookmarks data.
+	JobBookmarksEncryptionMode *string `pulumi:"jobBookmarksEncryptionMode"`
+	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// SecurityConfigurationJobBookmarksEncryptionInput is an input type that accepts SecurityConfigurationJobBookmarksEncryptionArgs and SecurityConfigurationJobBookmarksEncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationJobBookmarksEncryptionInput` via:
+//
+//	SecurityConfigurationJobBookmarksEncryptionArgs{...}
+type SecurityConfigurationJobBookmarksEncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationJobBookmarksEncryptionOutput
+	ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(context.Context) SecurityConfigurationJobBookmarksEncryptionOutput
+}
+
+// The encryption configuration for job bookmarks.
+type SecurityConfigurationJobBookmarksEncryptionArgs struct {
+	// The encryption mode to use for job bookmarks data.
+	JobBookmarksEncryptionMode pulumi.StringPtrInput `pulumi:"jobBookmarksEncryptionMode"`
+	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (SecurityConfigurationJobBookmarksEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationJobBookmarksEncryptionOutput {
+	return i.ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationJobBookmarksEncryptionOutput)
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return i.ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationJobBookmarksEncryptionOutput).ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationJobBookmarksEncryptionPtrInput is an input type that accepts SecurityConfigurationJobBookmarksEncryptionArgs, SecurityConfigurationJobBookmarksEncryptionPtr and SecurityConfigurationJobBookmarksEncryptionPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationJobBookmarksEncryptionPtrInput` via:
+//
+//	        SecurityConfigurationJobBookmarksEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigurationJobBookmarksEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput
+	ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput
+}
+
+type securityConfigurationJobBookmarksEncryptionPtrType SecurityConfigurationJobBookmarksEncryptionArgs
+
+func SecurityConfigurationJobBookmarksEncryptionPtr(v *SecurityConfigurationJobBookmarksEncryptionArgs) SecurityConfigurationJobBookmarksEncryptionPtrInput {
+	return (*securityConfigurationJobBookmarksEncryptionPtrType)(v)
+}
+
+func (*securityConfigurationJobBookmarksEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (i *securityConfigurationJobBookmarksEncryptionPtrType) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return i.ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationJobBookmarksEncryptionPtrType) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// The encryption configuration for job bookmarks.
+type SecurityConfigurationJobBookmarksEncryptionOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationJobBookmarksEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationJobBookmarksEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationJobBookmarksEncryption) *SecurityConfigurationJobBookmarksEncryption {
+		return &v
+	}).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// The encryption mode to use for job bookmarks data.
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) JobBookmarksEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationJobBookmarksEncryption) *string { return v.JobBookmarksEncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationJobBookmarksEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationJobBookmarksEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationJobBookmarksEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) Elem() SecurityConfigurationJobBookmarksEncryptionOutput {
+	return o.ApplyT(func(v *SecurityConfigurationJobBookmarksEncryption) SecurityConfigurationJobBookmarksEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationJobBookmarksEncryption
+		return ret
+	}).(SecurityConfigurationJobBookmarksEncryptionOutput)
+}
+
+// The encryption mode to use for job bookmarks data.
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) JobBookmarksEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationJobBookmarksEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JobBookmarksEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationJobBookmarksEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+type SecurityConfigurationS3Encryption struct {
+	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The encryption mode to use for Amazon S3 data.
+	S3EncryptionMode *string `pulumi:"s3EncryptionMode"`
+}
+
+// SecurityConfigurationS3EncryptionInput is an input type that accepts SecurityConfigurationS3EncryptionArgs and SecurityConfigurationS3EncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationS3EncryptionInput` via:
+//
+//	SecurityConfigurationS3EncryptionArgs{...}
+type SecurityConfigurationS3EncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationS3EncryptionOutput() SecurityConfigurationS3EncryptionOutput
+	ToSecurityConfigurationS3EncryptionOutputWithContext(context.Context) SecurityConfigurationS3EncryptionOutput
+}
+
+// Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+type SecurityConfigurationS3EncryptionArgs struct {
+	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The encryption mode to use for Amazon S3 data.
+	S3EncryptionMode pulumi.StringPtrInput `pulumi:"s3EncryptionMode"`
+}
+
+func (SecurityConfigurationS3EncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3Encryption)(nil)).Elem()
+}
+
+func (i SecurityConfigurationS3EncryptionArgs) ToSecurityConfigurationS3EncryptionOutput() SecurityConfigurationS3EncryptionOutput {
+	return i.ToSecurityConfigurationS3EncryptionOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationS3EncryptionArgs) ToSecurityConfigurationS3EncryptionOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionOutput)
+}
+
+// SecurityConfigurationS3EncryptionArrayInput is an input type that accepts SecurityConfigurationS3EncryptionArray and SecurityConfigurationS3EncryptionArrayOutput values.
+// You can construct a concrete instance of `SecurityConfigurationS3EncryptionArrayInput` via:
+//
+//	SecurityConfigurationS3EncryptionArray{ SecurityConfigurationS3EncryptionArgs{...} }
+type SecurityConfigurationS3EncryptionArrayInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationS3EncryptionArrayOutput() SecurityConfigurationS3EncryptionArrayOutput
+	ToSecurityConfigurationS3EncryptionArrayOutputWithContext(context.Context) SecurityConfigurationS3EncryptionArrayOutput
+}
+
+type SecurityConfigurationS3EncryptionArray []SecurityConfigurationS3EncryptionInput
+
+func (SecurityConfigurationS3EncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityConfigurationS3Encryption)(nil)).Elem()
+}
+
+func (i SecurityConfigurationS3EncryptionArray) ToSecurityConfigurationS3EncryptionArrayOutput() SecurityConfigurationS3EncryptionArrayOutput {
+	return i.ToSecurityConfigurationS3EncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationS3EncryptionArray) ToSecurityConfigurationS3EncryptionArrayOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionArrayOutput)
+}
+
+// Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
+type SecurityConfigurationS3EncryptionOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationS3EncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3Encryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationS3EncryptionOutput) ToSecurityConfigurationS3EncryptionOutput() SecurityConfigurationS3EncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionOutput) ToSecurityConfigurationS3EncryptionOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+func (o SecurityConfigurationS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The encryption mode to use for Amazon S3 data.
+func (o SecurityConfigurationS3EncryptionOutput) S3EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationS3Encryption) *string { return v.S3EncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationS3EncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationS3EncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityConfigurationS3Encryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationS3EncryptionArrayOutput) ToSecurityConfigurationS3EncryptionArrayOutput() SecurityConfigurationS3EncryptionArrayOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionArrayOutput) ToSecurityConfigurationS3EncryptionArrayOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionArrayOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionArrayOutput) Index(i pulumi.IntInput) SecurityConfigurationS3EncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityConfigurationS3Encryption {
+		return vs[0].([]SecurityConfigurationS3Encryption)[vs[1].(int)]
+	}).(SecurityConfigurationS3EncryptionOutput)
+}
+
 // The resource properties associated with the integration source.
 type SourceProcessingPropertiesProperties struct {
 	// The IAM role to access the Glue connection.
@@ -5381,6 +7721,1241 @@ func (o SourceProcessingPropertiesPropertiesPtrOutput) RoleArn() pulumi.StringPt
 			return nil
 		}
 		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableOptimizerCompactionConfiguration struct {
+	// The configuration for an Iceberg compaction optimizer.
+	IcebergConfiguration *TableOptimizerIcebergCompactionConfiguration `pulumi:"icebergConfiguration"`
+}
+
+// TableOptimizerCompactionConfigurationInput is an input type that accepts TableOptimizerCompactionConfigurationArgs and TableOptimizerCompactionConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerCompactionConfigurationInput` via:
+//
+//	TableOptimizerCompactionConfigurationArgs{...}
+type TableOptimizerCompactionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerCompactionConfigurationOutput() TableOptimizerCompactionConfigurationOutput
+	ToTableOptimizerCompactionConfigurationOutputWithContext(context.Context) TableOptimizerCompactionConfigurationOutput
+}
+
+type TableOptimizerCompactionConfigurationArgs struct {
+	// The configuration for an Iceberg compaction optimizer.
+	IcebergConfiguration TableOptimizerIcebergCompactionConfigurationPtrInput `pulumi:"icebergConfiguration"`
+}
+
+func (TableOptimizerCompactionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerCompactionConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerCompactionConfigurationArgs) ToTableOptimizerCompactionConfigurationOutput() TableOptimizerCompactionConfigurationOutput {
+	return i.ToTableOptimizerCompactionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerCompactionConfigurationArgs) ToTableOptimizerCompactionConfigurationOutputWithContext(ctx context.Context) TableOptimizerCompactionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerCompactionConfigurationOutput)
+}
+
+func (i TableOptimizerCompactionConfigurationArgs) ToTableOptimizerCompactionConfigurationPtrOutput() TableOptimizerCompactionConfigurationPtrOutput {
+	return i.ToTableOptimizerCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerCompactionConfigurationArgs) ToTableOptimizerCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerCompactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerCompactionConfigurationOutput).ToTableOptimizerCompactionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableOptimizerCompactionConfigurationPtrInput is an input type that accepts TableOptimizerCompactionConfigurationArgs, TableOptimizerCompactionConfigurationPtr and TableOptimizerCompactionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableOptimizerCompactionConfigurationPtrInput` via:
+//
+//	        TableOptimizerCompactionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOptimizerCompactionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableOptimizerCompactionConfigurationPtrOutput() TableOptimizerCompactionConfigurationPtrOutput
+	ToTableOptimizerCompactionConfigurationPtrOutputWithContext(context.Context) TableOptimizerCompactionConfigurationPtrOutput
+}
+
+type tableOptimizerCompactionConfigurationPtrType TableOptimizerCompactionConfigurationArgs
+
+func TableOptimizerCompactionConfigurationPtr(v *TableOptimizerCompactionConfigurationArgs) TableOptimizerCompactionConfigurationPtrInput {
+	return (*tableOptimizerCompactionConfigurationPtrType)(v)
+}
+
+func (*tableOptimizerCompactionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerCompactionConfiguration)(nil)).Elem()
+}
+
+func (i *tableOptimizerCompactionConfigurationPtrType) ToTableOptimizerCompactionConfigurationPtrOutput() TableOptimizerCompactionConfigurationPtrOutput {
+	return i.ToTableOptimizerCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOptimizerCompactionConfigurationPtrType) ToTableOptimizerCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerCompactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerCompactionConfigurationPtrOutput)
+}
+
+type TableOptimizerCompactionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerCompactionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerCompactionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerCompactionConfigurationOutput) ToTableOptimizerCompactionConfigurationOutput() TableOptimizerCompactionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerCompactionConfigurationOutput) ToTableOptimizerCompactionConfigurationOutputWithContext(ctx context.Context) TableOptimizerCompactionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerCompactionConfigurationOutput) ToTableOptimizerCompactionConfigurationPtrOutput() TableOptimizerCompactionConfigurationPtrOutput {
+	return o.ToTableOptimizerCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableOptimizerCompactionConfigurationOutput) ToTableOptimizerCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerCompactionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOptimizerCompactionConfiguration) *TableOptimizerCompactionConfiguration {
+		return &v
+	}).(TableOptimizerCompactionConfigurationPtrOutput)
+}
+
+// The configuration for an Iceberg compaction optimizer.
+func (o TableOptimizerCompactionConfigurationOutput) IcebergConfiguration() TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return o.ApplyT(func(v TableOptimizerCompactionConfiguration) *TableOptimizerIcebergCompactionConfiguration {
+		return v.IcebergConfiguration
+	}).(TableOptimizerIcebergCompactionConfigurationPtrOutput)
+}
+
+type TableOptimizerCompactionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerCompactionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerCompactionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerCompactionConfigurationPtrOutput) ToTableOptimizerCompactionConfigurationPtrOutput() TableOptimizerCompactionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerCompactionConfigurationPtrOutput) ToTableOptimizerCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerCompactionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerCompactionConfigurationPtrOutput) Elem() TableOptimizerCompactionConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerCompactionConfiguration) TableOptimizerCompactionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerCompactionConfiguration
+		return ret
+	}).(TableOptimizerCompactionConfigurationOutput)
+}
+
+// The configuration for an Iceberg compaction optimizer.
+func (o TableOptimizerCompactionConfigurationPtrOutput) IcebergConfiguration() TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerCompactionConfiguration) *TableOptimizerIcebergCompactionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergConfiguration
+	}).(TableOptimizerIcebergCompactionConfigurationPtrOutput)
+}
+
+type TableOptimizerConfiguration struct {
+	// The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+	CompactionConfiguration *TableOptimizerCompactionConfiguration `pulumi:"compactionConfiguration"`
+	// Whether the table optimization is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+	OrphanFileDeletionConfiguration *TableOptimizerOrphanFileDeletionConfiguration `pulumi:"orphanFileDeletionConfiguration"`
+	// The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+	RetentionConfiguration *TableOptimizerRetentionConfiguration `pulumi:"retentionConfiguration"`
+	// A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+	RoleArn string `pulumi:"roleArn"`
+	// An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+	VpcConfiguration *TableOptimizerVpcConfiguration `pulumi:"vpcConfiguration"`
+}
+
+// TableOptimizerConfigurationInput is an input type that accepts TableOptimizerConfigurationArgs and TableOptimizerConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerConfigurationInput` via:
+//
+//	TableOptimizerConfigurationArgs{...}
+type TableOptimizerConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerConfigurationOutput() TableOptimizerConfigurationOutput
+	ToTableOptimizerConfigurationOutputWithContext(context.Context) TableOptimizerConfigurationOutput
+}
+
+type TableOptimizerConfigurationArgs struct {
+	// The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+	CompactionConfiguration TableOptimizerCompactionConfigurationPtrInput `pulumi:"compactionConfiguration"`
+	// Whether the table optimization is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+	OrphanFileDeletionConfiguration TableOptimizerOrphanFileDeletionConfigurationPtrInput `pulumi:"orphanFileDeletionConfiguration"`
+	// The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+	RetentionConfiguration TableOptimizerRetentionConfigurationPtrInput `pulumi:"retentionConfiguration"`
+	// A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+	VpcConfiguration TableOptimizerVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
+}
+
+func (TableOptimizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerConfigurationArgs) ToTableOptimizerConfigurationOutput() TableOptimizerConfigurationOutput {
+	return i.ToTableOptimizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerConfigurationArgs) ToTableOptimizerConfigurationOutputWithContext(ctx context.Context) TableOptimizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerConfigurationOutput)
+}
+
+type TableOptimizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerConfigurationOutput) ToTableOptimizerConfigurationOutput() TableOptimizerConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerConfigurationOutput) ToTableOptimizerConfigurationOutputWithContext(ctx context.Context) TableOptimizerConfigurationOutput {
+	return o
+}
+
+// The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+func (o TableOptimizerConfigurationOutput) CompactionConfiguration() TableOptimizerCompactionConfigurationPtrOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) *TableOptimizerCompactionConfiguration {
+		return v.CompactionConfiguration
+	}).(TableOptimizerCompactionConfigurationPtrOutput)
+}
+
+// Whether the table optimization is enabled.
+func (o TableOptimizerConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+func (o TableOptimizerConfigurationOutput) OrphanFileDeletionConfiguration() TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) *TableOptimizerOrphanFileDeletionConfiguration {
+		return v.OrphanFileDeletionConfiguration
+	}).(TableOptimizerOrphanFileDeletionConfigurationPtrOutput)
+}
+
+// The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+func (o TableOptimizerConfigurationOutput) RetentionConfiguration() TableOptimizerRetentionConfigurationPtrOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) *TableOptimizerRetentionConfiguration {
+		return v.RetentionConfiguration
+	}).(TableOptimizerRetentionConfigurationPtrOutput)
+}
+
+// A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+func (o TableOptimizerConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+func (o TableOptimizerConfigurationOutput) VpcConfiguration() TableOptimizerVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v TableOptimizerConfiguration) *TableOptimizerVpcConfiguration { return v.VpcConfiguration }).(TableOptimizerVpcConfigurationPtrOutput)
+}
+
+type TableOptimizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerConfigurationPtrOutput) ToTableOptimizerConfigurationPtrOutput() TableOptimizerConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerConfigurationPtrOutput) ToTableOptimizerConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerConfigurationPtrOutput) Elem() TableOptimizerConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) TableOptimizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerConfiguration
+		return ret
+	}).(TableOptimizerConfigurationOutput)
+}
+
+// The configuration for a compaction optimizer. This configuration defines how data files in your table will be compacted to improve query performance and reduce storage costs.
+func (o TableOptimizerConfigurationPtrOutput) CompactionConfiguration() TableOptimizerCompactionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *TableOptimizerCompactionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CompactionConfiguration
+	}).(TableOptimizerCompactionConfigurationPtrOutput)
+}
+
+// Whether the table optimization is enabled.
+func (o TableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// OrphanFileDeletionConfiguration is a property that can be included within the TableOptimizer resource. It controls the automatic deletion of orphaned files - files that are not tracked by the table metadata, and older than the configured age limit.
+func (o TableOptimizerConfigurationPtrOutput) OrphanFileDeletionConfiguration() TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *TableOptimizerOrphanFileDeletionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OrphanFileDeletionConfiguration
+	}).(TableOptimizerOrphanFileDeletionConfigurationPtrOutput)
+}
+
+// The configuration for a snapshot retention optimizer for Apache Iceberg tables.
+func (o TableOptimizerConfigurationPtrOutput) RetentionConfiguration() TableOptimizerRetentionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *TableOptimizerRetentionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionConfiguration
+	}).(TableOptimizerRetentionConfigurationPtrOutput)
+}
+
+// A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.
+func (o TableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that describes the VPC configuration for a table optimizer. This configuration is necessary to perform optimization on tables that are in a customer VPC.
+func (o TableOptimizerConfigurationPtrOutput) VpcConfiguration() TableOptimizerVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerConfiguration) *TableOptimizerVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfiguration
+	}).(TableOptimizerVpcConfigurationPtrOutput)
+}
+
+type TableOptimizerIcebergCompactionConfiguration struct {
+	// The minimum number of deletes in a data file to make it eligible for compaction.
+	DeleteFileThreshold *int `pulumi:"deleteFileThreshold"`
+	// The minimum number of input files before compaction is triggered.
+	MinInputFiles *int `pulumi:"minInputFiles"`
+	// The compaction strategy to use. Valid values are binpack, sort, and z-order.
+	Strategy *string `pulumi:"strategy"`
+}
+
+// TableOptimizerIcebergCompactionConfigurationInput is an input type that accepts TableOptimizerIcebergCompactionConfigurationArgs and TableOptimizerIcebergCompactionConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerIcebergCompactionConfigurationInput` via:
+//
+//	TableOptimizerIcebergCompactionConfigurationArgs{...}
+type TableOptimizerIcebergCompactionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerIcebergCompactionConfigurationOutput() TableOptimizerIcebergCompactionConfigurationOutput
+	ToTableOptimizerIcebergCompactionConfigurationOutputWithContext(context.Context) TableOptimizerIcebergCompactionConfigurationOutput
+}
+
+type TableOptimizerIcebergCompactionConfigurationArgs struct {
+	// The minimum number of deletes in a data file to make it eligible for compaction.
+	DeleteFileThreshold pulumi.IntPtrInput `pulumi:"deleteFileThreshold"`
+	// The minimum number of input files before compaction is triggered.
+	MinInputFiles pulumi.IntPtrInput `pulumi:"minInputFiles"`
+	// The compaction strategy to use. Valid values are binpack, sort, and z-order.
+	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
+}
+
+func (TableOptimizerIcebergCompactionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerIcebergCompactionConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerIcebergCompactionConfigurationArgs) ToTableOptimizerIcebergCompactionConfigurationOutput() TableOptimizerIcebergCompactionConfigurationOutput {
+	return i.ToTableOptimizerIcebergCompactionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerIcebergCompactionConfigurationArgs) ToTableOptimizerIcebergCompactionConfigurationOutputWithContext(ctx context.Context) TableOptimizerIcebergCompactionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergCompactionConfigurationOutput)
+}
+
+func (i TableOptimizerIcebergCompactionConfigurationArgs) ToTableOptimizerIcebergCompactionConfigurationPtrOutput() TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return i.ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerIcebergCompactionConfigurationArgs) ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergCompactionConfigurationOutput).ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableOptimizerIcebergCompactionConfigurationPtrInput is an input type that accepts TableOptimizerIcebergCompactionConfigurationArgs, TableOptimizerIcebergCompactionConfigurationPtr and TableOptimizerIcebergCompactionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableOptimizerIcebergCompactionConfigurationPtrInput` via:
+//
+//	        TableOptimizerIcebergCompactionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOptimizerIcebergCompactionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableOptimizerIcebergCompactionConfigurationPtrOutput() TableOptimizerIcebergCompactionConfigurationPtrOutput
+	ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(context.Context) TableOptimizerIcebergCompactionConfigurationPtrOutput
+}
+
+type tableOptimizerIcebergCompactionConfigurationPtrType TableOptimizerIcebergCompactionConfigurationArgs
+
+func TableOptimizerIcebergCompactionConfigurationPtr(v *TableOptimizerIcebergCompactionConfigurationArgs) TableOptimizerIcebergCompactionConfigurationPtrInput {
+	return (*tableOptimizerIcebergCompactionConfigurationPtrType)(v)
+}
+
+func (*tableOptimizerIcebergCompactionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerIcebergCompactionConfiguration)(nil)).Elem()
+}
+
+func (i *tableOptimizerIcebergCompactionConfigurationPtrType) ToTableOptimizerIcebergCompactionConfigurationPtrOutput() TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return i.ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOptimizerIcebergCompactionConfigurationPtrType) ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergCompactionConfigurationPtrOutput)
+}
+
+type TableOptimizerIcebergCompactionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerIcebergCompactionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerIcebergCompactionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerIcebergCompactionConfigurationOutput) ToTableOptimizerIcebergCompactionConfigurationOutput() TableOptimizerIcebergCompactionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergCompactionConfigurationOutput) ToTableOptimizerIcebergCompactionConfigurationOutputWithContext(ctx context.Context) TableOptimizerIcebergCompactionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergCompactionConfigurationOutput) ToTableOptimizerIcebergCompactionConfigurationPtrOutput() TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return o.ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableOptimizerIcebergCompactionConfigurationOutput) ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOptimizerIcebergCompactionConfiguration) *TableOptimizerIcebergCompactionConfiguration {
+		return &v
+	}).(TableOptimizerIcebergCompactionConfigurationPtrOutput)
+}
+
+// The minimum number of deletes in a data file to make it eligible for compaction.
+func (o TableOptimizerIcebergCompactionConfigurationOutput) DeleteFileThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergCompactionConfiguration) *int { return v.DeleteFileThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of input files before compaction is triggered.
+func (o TableOptimizerIcebergCompactionConfigurationOutput) MinInputFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergCompactionConfiguration) *int { return v.MinInputFiles }).(pulumi.IntPtrOutput)
+}
+
+// The compaction strategy to use. Valid values are binpack, sort, and z-order.
+func (o TableOptimizerIcebergCompactionConfigurationOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergCompactionConfiguration) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+}
+
+type TableOptimizerIcebergCompactionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerIcebergCompactionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerIcebergCompactionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerIcebergCompactionConfigurationPtrOutput) ToTableOptimizerIcebergCompactionConfigurationPtrOutput() TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergCompactionConfigurationPtrOutput) ToTableOptimizerIcebergCompactionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergCompactionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergCompactionConfigurationPtrOutput) Elem() TableOptimizerIcebergCompactionConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergCompactionConfiguration) TableOptimizerIcebergCompactionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerIcebergCompactionConfiguration
+		return ret
+	}).(TableOptimizerIcebergCompactionConfigurationOutput)
+}
+
+// The minimum number of deletes in a data file to make it eligible for compaction.
+func (o TableOptimizerIcebergCompactionConfigurationPtrOutput) DeleteFileThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergCompactionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteFileThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of input files before compaction is triggered.
+func (o TableOptimizerIcebergCompactionConfigurationPtrOutput) MinInputFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergCompactionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinInputFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// The compaction strategy to use. Valid values are binpack, sort, and z-order.
+func (o TableOptimizerIcebergCompactionConfigurationPtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergCompactionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableOptimizerIcebergConfiguration struct {
+	// Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+	Location *string `pulumi:"location"`
+	// The specific number of days you want to keep the orphan files.
+	OrphanFileRetentionPeriodInDays *int `pulumi:"orphanFileRetentionPeriodInDays"`
+}
+
+// TableOptimizerIcebergConfigurationInput is an input type that accepts TableOptimizerIcebergConfigurationArgs and TableOptimizerIcebergConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerIcebergConfigurationInput` via:
+//
+//	TableOptimizerIcebergConfigurationArgs{...}
+type TableOptimizerIcebergConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerIcebergConfigurationOutput() TableOptimizerIcebergConfigurationOutput
+	ToTableOptimizerIcebergConfigurationOutputWithContext(context.Context) TableOptimizerIcebergConfigurationOutput
+}
+
+type TableOptimizerIcebergConfigurationArgs struct {
+	// Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The specific number of days you want to keep the orphan files.
+	OrphanFileRetentionPeriodInDays pulumi.IntPtrInput `pulumi:"orphanFileRetentionPeriodInDays"`
+}
+
+func (TableOptimizerIcebergConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerIcebergConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerIcebergConfigurationArgs) ToTableOptimizerIcebergConfigurationOutput() TableOptimizerIcebergConfigurationOutput {
+	return i.ToTableOptimizerIcebergConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerIcebergConfigurationArgs) ToTableOptimizerIcebergConfigurationOutputWithContext(ctx context.Context) TableOptimizerIcebergConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergConfigurationOutput)
+}
+
+func (i TableOptimizerIcebergConfigurationArgs) ToTableOptimizerIcebergConfigurationPtrOutput() TableOptimizerIcebergConfigurationPtrOutput {
+	return i.ToTableOptimizerIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerIcebergConfigurationArgs) ToTableOptimizerIcebergConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergConfigurationOutput).ToTableOptimizerIcebergConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableOptimizerIcebergConfigurationPtrInput is an input type that accepts TableOptimizerIcebergConfigurationArgs, TableOptimizerIcebergConfigurationPtr and TableOptimizerIcebergConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableOptimizerIcebergConfigurationPtrInput` via:
+//
+//	        TableOptimizerIcebergConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOptimizerIcebergConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableOptimizerIcebergConfigurationPtrOutput() TableOptimizerIcebergConfigurationPtrOutput
+	ToTableOptimizerIcebergConfigurationPtrOutputWithContext(context.Context) TableOptimizerIcebergConfigurationPtrOutput
+}
+
+type tableOptimizerIcebergConfigurationPtrType TableOptimizerIcebergConfigurationArgs
+
+func TableOptimizerIcebergConfigurationPtr(v *TableOptimizerIcebergConfigurationArgs) TableOptimizerIcebergConfigurationPtrInput {
+	return (*tableOptimizerIcebergConfigurationPtrType)(v)
+}
+
+func (*tableOptimizerIcebergConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerIcebergConfiguration)(nil)).Elem()
+}
+
+func (i *tableOptimizerIcebergConfigurationPtrType) ToTableOptimizerIcebergConfigurationPtrOutput() TableOptimizerIcebergConfigurationPtrOutput {
+	return i.ToTableOptimizerIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOptimizerIcebergConfigurationPtrType) ToTableOptimizerIcebergConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergConfigurationPtrOutput)
+}
+
+type TableOptimizerIcebergConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerIcebergConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerIcebergConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerIcebergConfigurationOutput) ToTableOptimizerIcebergConfigurationOutput() TableOptimizerIcebergConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergConfigurationOutput) ToTableOptimizerIcebergConfigurationOutputWithContext(ctx context.Context) TableOptimizerIcebergConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergConfigurationOutput) ToTableOptimizerIcebergConfigurationPtrOutput() TableOptimizerIcebergConfigurationPtrOutput {
+	return o.ToTableOptimizerIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableOptimizerIcebergConfigurationOutput) ToTableOptimizerIcebergConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOptimizerIcebergConfiguration) *TableOptimizerIcebergConfiguration {
+		return &v
+	}).(TableOptimizerIcebergConfigurationPtrOutput)
+}
+
+// Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+func (o TableOptimizerIcebergConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergConfiguration) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The specific number of days you want to keep the orphan files.
+func (o TableOptimizerIcebergConfigurationOutput) OrphanFileRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergConfiguration) *int { return v.OrphanFileRetentionPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+type TableOptimizerIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerIcebergConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerIcebergConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerIcebergConfigurationPtrOutput) ToTableOptimizerIcebergConfigurationPtrOutput() TableOptimizerIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergConfigurationPtrOutput) ToTableOptimizerIcebergConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergConfigurationPtrOutput) Elem() TableOptimizerIcebergConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergConfiguration) TableOptimizerIcebergConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerIcebergConfiguration
+		return ret
+	}).(TableOptimizerIcebergConfigurationOutput)
+}
+
+// Specifies a directory in which to look for orphan files (defaults to the table's location). You may choose a sub-directory rather than the top-level table location.
+func (o TableOptimizerIcebergConfigurationPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specific number of days you want to keep the orphan files.
+func (o TableOptimizerIcebergConfigurationPtrOutput) OrphanFileRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OrphanFileRetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type TableOptimizerIcebergRetentionConfiguration struct {
+	CleanExpiredFiles             *bool `pulumi:"cleanExpiredFiles"`
+	NumberOfSnapshotsToRetain     *int  `pulumi:"numberOfSnapshotsToRetain"`
+	SnapshotRetentionPeriodInDays *int  `pulumi:"snapshotRetentionPeriodInDays"`
+}
+
+// TableOptimizerIcebergRetentionConfigurationInput is an input type that accepts TableOptimizerIcebergRetentionConfigurationArgs and TableOptimizerIcebergRetentionConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerIcebergRetentionConfigurationInput` via:
+//
+//	TableOptimizerIcebergRetentionConfigurationArgs{...}
+type TableOptimizerIcebergRetentionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerIcebergRetentionConfigurationOutput() TableOptimizerIcebergRetentionConfigurationOutput
+	ToTableOptimizerIcebergRetentionConfigurationOutputWithContext(context.Context) TableOptimizerIcebergRetentionConfigurationOutput
+}
+
+type TableOptimizerIcebergRetentionConfigurationArgs struct {
+	CleanExpiredFiles             pulumi.BoolPtrInput `pulumi:"cleanExpiredFiles"`
+	NumberOfSnapshotsToRetain     pulumi.IntPtrInput  `pulumi:"numberOfSnapshotsToRetain"`
+	SnapshotRetentionPeriodInDays pulumi.IntPtrInput  `pulumi:"snapshotRetentionPeriodInDays"`
+}
+
+func (TableOptimizerIcebergRetentionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerIcebergRetentionConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerIcebergRetentionConfigurationArgs) ToTableOptimizerIcebergRetentionConfigurationOutput() TableOptimizerIcebergRetentionConfigurationOutput {
+	return i.ToTableOptimizerIcebergRetentionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerIcebergRetentionConfigurationArgs) ToTableOptimizerIcebergRetentionConfigurationOutputWithContext(ctx context.Context) TableOptimizerIcebergRetentionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergRetentionConfigurationOutput)
+}
+
+func (i TableOptimizerIcebergRetentionConfigurationArgs) ToTableOptimizerIcebergRetentionConfigurationPtrOutput() TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return i.ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerIcebergRetentionConfigurationArgs) ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergRetentionConfigurationOutput).ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableOptimizerIcebergRetentionConfigurationPtrInput is an input type that accepts TableOptimizerIcebergRetentionConfigurationArgs, TableOptimizerIcebergRetentionConfigurationPtr and TableOptimizerIcebergRetentionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableOptimizerIcebergRetentionConfigurationPtrInput` via:
+//
+//	        TableOptimizerIcebergRetentionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOptimizerIcebergRetentionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableOptimizerIcebergRetentionConfigurationPtrOutput() TableOptimizerIcebergRetentionConfigurationPtrOutput
+	ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(context.Context) TableOptimizerIcebergRetentionConfigurationPtrOutput
+}
+
+type tableOptimizerIcebergRetentionConfigurationPtrType TableOptimizerIcebergRetentionConfigurationArgs
+
+func TableOptimizerIcebergRetentionConfigurationPtr(v *TableOptimizerIcebergRetentionConfigurationArgs) TableOptimizerIcebergRetentionConfigurationPtrInput {
+	return (*tableOptimizerIcebergRetentionConfigurationPtrType)(v)
+}
+
+func (*tableOptimizerIcebergRetentionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerIcebergRetentionConfiguration)(nil)).Elem()
+}
+
+func (i *tableOptimizerIcebergRetentionConfigurationPtrType) ToTableOptimizerIcebergRetentionConfigurationPtrOutput() TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return i.ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOptimizerIcebergRetentionConfigurationPtrType) ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerIcebergRetentionConfigurationPtrOutput)
+}
+
+type TableOptimizerIcebergRetentionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerIcebergRetentionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerIcebergRetentionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationOutput) ToTableOptimizerIcebergRetentionConfigurationOutput() TableOptimizerIcebergRetentionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationOutput) ToTableOptimizerIcebergRetentionConfigurationOutputWithContext(ctx context.Context) TableOptimizerIcebergRetentionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationOutput) ToTableOptimizerIcebergRetentionConfigurationPtrOutput() TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return o.ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationOutput) ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOptimizerIcebergRetentionConfiguration) *TableOptimizerIcebergRetentionConfiguration {
+		return &v
+	}).(TableOptimizerIcebergRetentionConfigurationPtrOutput)
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationOutput) CleanExpiredFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergRetentionConfiguration) *bool { return v.CleanExpiredFiles }).(pulumi.BoolPtrOutput)
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationOutput) NumberOfSnapshotsToRetain() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergRetentionConfiguration) *int { return v.NumberOfSnapshotsToRetain }).(pulumi.IntPtrOutput)
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationOutput) SnapshotRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableOptimizerIcebergRetentionConfiguration) *int { return v.SnapshotRetentionPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+type TableOptimizerIcebergRetentionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerIcebergRetentionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerIcebergRetentionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationPtrOutput) ToTableOptimizerIcebergRetentionConfigurationPtrOutput() TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationPtrOutput) ToTableOptimizerIcebergRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationPtrOutput) Elem() TableOptimizerIcebergRetentionConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergRetentionConfiguration) TableOptimizerIcebergRetentionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerIcebergRetentionConfiguration
+		return ret
+	}).(TableOptimizerIcebergRetentionConfigurationOutput)
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationPtrOutput) CleanExpiredFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergRetentionConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CleanExpiredFiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationPtrOutput) NumberOfSnapshotsToRetain() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergRetentionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfSnapshotsToRetain
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableOptimizerIcebergRetentionConfigurationPtrOutput) SnapshotRetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerIcebergRetentionConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotRetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type TableOptimizerOrphanFileDeletionConfiguration struct {
+	// The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+	IcebergConfiguration *TableOptimizerIcebergConfiguration `pulumi:"icebergConfiguration"`
+}
+
+// TableOptimizerOrphanFileDeletionConfigurationInput is an input type that accepts TableOptimizerOrphanFileDeletionConfigurationArgs and TableOptimizerOrphanFileDeletionConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerOrphanFileDeletionConfigurationInput` via:
+//
+//	TableOptimizerOrphanFileDeletionConfigurationArgs{...}
+type TableOptimizerOrphanFileDeletionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerOrphanFileDeletionConfigurationOutput() TableOptimizerOrphanFileDeletionConfigurationOutput
+	ToTableOptimizerOrphanFileDeletionConfigurationOutputWithContext(context.Context) TableOptimizerOrphanFileDeletionConfigurationOutput
+}
+
+type TableOptimizerOrphanFileDeletionConfigurationArgs struct {
+	// The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+	IcebergConfiguration TableOptimizerIcebergConfigurationPtrInput `pulumi:"icebergConfiguration"`
+}
+
+func (TableOptimizerOrphanFileDeletionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerOrphanFileDeletionConfigurationArgs) ToTableOptimizerOrphanFileDeletionConfigurationOutput() TableOptimizerOrphanFileDeletionConfigurationOutput {
+	return i.ToTableOptimizerOrphanFileDeletionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerOrphanFileDeletionConfigurationArgs) ToTableOptimizerOrphanFileDeletionConfigurationOutputWithContext(ctx context.Context) TableOptimizerOrphanFileDeletionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerOrphanFileDeletionConfigurationOutput)
+}
+
+func (i TableOptimizerOrphanFileDeletionConfigurationArgs) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutput() TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return i.ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerOrphanFileDeletionConfigurationArgs) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerOrphanFileDeletionConfigurationOutput).ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableOptimizerOrphanFileDeletionConfigurationPtrInput is an input type that accepts TableOptimizerOrphanFileDeletionConfigurationArgs, TableOptimizerOrphanFileDeletionConfigurationPtr and TableOptimizerOrphanFileDeletionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableOptimizerOrphanFileDeletionConfigurationPtrInput` via:
+//
+//	        TableOptimizerOrphanFileDeletionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOptimizerOrphanFileDeletionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableOptimizerOrphanFileDeletionConfigurationPtrOutput() TableOptimizerOrphanFileDeletionConfigurationPtrOutput
+	ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(context.Context) TableOptimizerOrphanFileDeletionConfigurationPtrOutput
+}
+
+type tableOptimizerOrphanFileDeletionConfigurationPtrType TableOptimizerOrphanFileDeletionConfigurationArgs
+
+func TableOptimizerOrphanFileDeletionConfigurationPtr(v *TableOptimizerOrphanFileDeletionConfigurationArgs) TableOptimizerOrphanFileDeletionConfigurationPtrInput {
+	return (*tableOptimizerOrphanFileDeletionConfigurationPtrType)(v)
+}
+
+func (*tableOptimizerOrphanFileDeletionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (i *tableOptimizerOrphanFileDeletionConfigurationPtrType) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutput() TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return i.ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOptimizerOrphanFileDeletionConfigurationPtrType) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerOrphanFileDeletionConfigurationPtrOutput)
+}
+
+type TableOptimizerOrphanFileDeletionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerOrphanFileDeletionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerOrphanFileDeletionConfigurationOutput) ToTableOptimizerOrphanFileDeletionConfigurationOutput() TableOptimizerOrphanFileDeletionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerOrphanFileDeletionConfigurationOutput) ToTableOptimizerOrphanFileDeletionConfigurationOutputWithContext(ctx context.Context) TableOptimizerOrphanFileDeletionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerOrphanFileDeletionConfigurationOutput) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutput() TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return o.ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableOptimizerOrphanFileDeletionConfigurationOutput) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOptimizerOrphanFileDeletionConfiguration) *TableOptimizerOrphanFileDeletionConfiguration {
+		return &v
+	}).(TableOptimizerOrphanFileDeletionConfigurationPtrOutput)
+}
+
+// The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+func (o TableOptimizerOrphanFileDeletionConfigurationOutput) IcebergConfiguration() TableOptimizerIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v TableOptimizerOrphanFileDeletionConfiguration) *TableOptimizerIcebergConfiguration {
+		return v.IcebergConfiguration
+	}).(TableOptimizerIcebergConfigurationPtrOutput)
+}
+
+type TableOptimizerOrphanFileDeletionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerOrphanFileDeletionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerOrphanFileDeletionConfigurationPtrOutput) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutput() TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerOrphanFileDeletionConfigurationPtrOutput) ToTableOptimizerOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerOrphanFileDeletionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerOrphanFileDeletionConfigurationPtrOutput) Elem() TableOptimizerOrphanFileDeletionConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerOrphanFileDeletionConfiguration) TableOptimizerOrphanFileDeletionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerOrphanFileDeletionConfiguration
+		return ret
+	}).(TableOptimizerOrphanFileDeletionConfigurationOutput)
+}
+
+// The IcebergConfiguration property helps optimize your Iceberg tables in AWS Glue by allowing you to specify format-specific settings that control how data is stored, compressed, and managed.
+func (o TableOptimizerOrphanFileDeletionConfigurationPtrOutput) IcebergConfiguration() TableOptimizerIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerOrphanFileDeletionConfiguration) *TableOptimizerIcebergConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergConfiguration
+	}).(TableOptimizerIcebergConfigurationPtrOutput)
+}
+
+type TableOptimizerRetentionConfiguration struct {
+	// The configuration for an Iceberg snapshot retention optimizer.
+	IcebergConfiguration *TableOptimizerIcebergRetentionConfiguration `pulumi:"icebergConfiguration"`
+}
+
+// TableOptimizerRetentionConfigurationInput is an input type that accepts TableOptimizerRetentionConfigurationArgs and TableOptimizerRetentionConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerRetentionConfigurationInput` via:
+//
+//	TableOptimizerRetentionConfigurationArgs{...}
+type TableOptimizerRetentionConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerRetentionConfigurationOutput() TableOptimizerRetentionConfigurationOutput
+	ToTableOptimizerRetentionConfigurationOutputWithContext(context.Context) TableOptimizerRetentionConfigurationOutput
+}
+
+type TableOptimizerRetentionConfigurationArgs struct {
+	// The configuration for an Iceberg snapshot retention optimizer.
+	IcebergConfiguration TableOptimizerIcebergRetentionConfigurationPtrInput `pulumi:"icebergConfiguration"`
+}
+
+func (TableOptimizerRetentionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerRetentionConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerRetentionConfigurationArgs) ToTableOptimizerRetentionConfigurationOutput() TableOptimizerRetentionConfigurationOutput {
+	return i.ToTableOptimizerRetentionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerRetentionConfigurationArgs) ToTableOptimizerRetentionConfigurationOutputWithContext(ctx context.Context) TableOptimizerRetentionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerRetentionConfigurationOutput)
+}
+
+func (i TableOptimizerRetentionConfigurationArgs) ToTableOptimizerRetentionConfigurationPtrOutput() TableOptimizerRetentionConfigurationPtrOutput {
+	return i.ToTableOptimizerRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerRetentionConfigurationArgs) ToTableOptimizerRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerRetentionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerRetentionConfigurationOutput).ToTableOptimizerRetentionConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableOptimizerRetentionConfigurationPtrInput is an input type that accepts TableOptimizerRetentionConfigurationArgs, TableOptimizerRetentionConfigurationPtr and TableOptimizerRetentionConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableOptimizerRetentionConfigurationPtrInput` via:
+//
+//	        TableOptimizerRetentionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOptimizerRetentionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableOptimizerRetentionConfigurationPtrOutput() TableOptimizerRetentionConfigurationPtrOutput
+	ToTableOptimizerRetentionConfigurationPtrOutputWithContext(context.Context) TableOptimizerRetentionConfigurationPtrOutput
+}
+
+type tableOptimizerRetentionConfigurationPtrType TableOptimizerRetentionConfigurationArgs
+
+func TableOptimizerRetentionConfigurationPtr(v *TableOptimizerRetentionConfigurationArgs) TableOptimizerRetentionConfigurationPtrInput {
+	return (*tableOptimizerRetentionConfigurationPtrType)(v)
+}
+
+func (*tableOptimizerRetentionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerRetentionConfiguration)(nil)).Elem()
+}
+
+func (i *tableOptimizerRetentionConfigurationPtrType) ToTableOptimizerRetentionConfigurationPtrOutput() TableOptimizerRetentionConfigurationPtrOutput {
+	return i.ToTableOptimizerRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOptimizerRetentionConfigurationPtrType) ToTableOptimizerRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerRetentionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerRetentionConfigurationPtrOutput)
+}
+
+type TableOptimizerRetentionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerRetentionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerRetentionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerRetentionConfigurationOutput) ToTableOptimizerRetentionConfigurationOutput() TableOptimizerRetentionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerRetentionConfigurationOutput) ToTableOptimizerRetentionConfigurationOutputWithContext(ctx context.Context) TableOptimizerRetentionConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerRetentionConfigurationOutput) ToTableOptimizerRetentionConfigurationPtrOutput() TableOptimizerRetentionConfigurationPtrOutput {
+	return o.ToTableOptimizerRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableOptimizerRetentionConfigurationOutput) ToTableOptimizerRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerRetentionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOptimizerRetentionConfiguration) *TableOptimizerRetentionConfiguration {
+		return &v
+	}).(TableOptimizerRetentionConfigurationPtrOutput)
+}
+
+// The configuration for an Iceberg snapshot retention optimizer.
+func (o TableOptimizerRetentionConfigurationOutput) IcebergConfiguration() TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return o.ApplyT(func(v TableOptimizerRetentionConfiguration) *TableOptimizerIcebergRetentionConfiguration {
+		return v.IcebergConfiguration
+	}).(TableOptimizerIcebergRetentionConfigurationPtrOutput)
+}
+
+type TableOptimizerRetentionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerRetentionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerRetentionConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerRetentionConfigurationPtrOutput) ToTableOptimizerRetentionConfigurationPtrOutput() TableOptimizerRetentionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerRetentionConfigurationPtrOutput) ToTableOptimizerRetentionConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerRetentionConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerRetentionConfigurationPtrOutput) Elem() TableOptimizerRetentionConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerRetentionConfiguration) TableOptimizerRetentionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerRetentionConfiguration
+		return ret
+	}).(TableOptimizerRetentionConfigurationOutput)
+}
+
+// The configuration for an Iceberg snapshot retention optimizer.
+func (o TableOptimizerRetentionConfigurationPtrOutput) IcebergConfiguration() TableOptimizerIcebergRetentionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerRetentionConfiguration) *TableOptimizerIcebergRetentionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergConfiguration
+	}).(TableOptimizerIcebergRetentionConfigurationPtrOutput)
+}
+
+type TableOptimizerVpcConfiguration struct {
+	// The name of the AWS Glue connection used for the VPC for the table optimizer.
+	GlueConnectionName *string `pulumi:"glueConnectionName"`
+}
+
+// TableOptimizerVpcConfigurationInput is an input type that accepts TableOptimizerVpcConfigurationArgs and TableOptimizerVpcConfigurationOutput values.
+// You can construct a concrete instance of `TableOptimizerVpcConfigurationInput` via:
+//
+//	TableOptimizerVpcConfigurationArgs{...}
+type TableOptimizerVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToTableOptimizerVpcConfigurationOutput() TableOptimizerVpcConfigurationOutput
+	ToTableOptimizerVpcConfigurationOutputWithContext(context.Context) TableOptimizerVpcConfigurationOutput
+}
+
+type TableOptimizerVpcConfigurationArgs struct {
+	// The name of the AWS Glue connection used for the VPC for the table optimizer.
+	GlueConnectionName pulumi.StringPtrInput `pulumi:"glueConnectionName"`
+}
+
+func (TableOptimizerVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerVpcConfiguration)(nil)).Elem()
+}
+
+func (i TableOptimizerVpcConfigurationArgs) ToTableOptimizerVpcConfigurationOutput() TableOptimizerVpcConfigurationOutput {
+	return i.ToTableOptimizerVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerVpcConfigurationArgs) ToTableOptimizerVpcConfigurationOutputWithContext(ctx context.Context) TableOptimizerVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerVpcConfigurationOutput)
+}
+
+func (i TableOptimizerVpcConfigurationArgs) ToTableOptimizerVpcConfigurationPtrOutput() TableOptimizerVpcConfigurationPtrOutput {
+	return i.ToTableOptimizerVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableOptimizerVpcConfigurationArgs) ToTableOptimizerVpcConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerVpcConfigurationOutput).ToTableOptimizerVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableOptimizerVpcConfigurationPtrInput is an input type that accepts TableOptimizerVpcConfigurationArgs, TableOptimizerVpcConfigurationPtr and TableOptimizerVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableOptimizerVpcConfigurationPtrInput` via:
+//
+//	        TableOptimizerVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOptimizerVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableOptimizerVpcConfigurationPtrOutput() TableOptimizerVpcConfigurationPtrOutput
+	ToTableOptimizerVpcConfigurationPtrOutputWithContext(context.Context) TableOptimizerVpcConfigurationPtrOutput
+}
+
+type tableOptimizerVpcConfigurationPtrType TableOptimizerVpcConfigurationArgs
+
+func TableOptimizerVpcConfigurationPtr(v *TableOptimizerVpcConfigurationArgs) TableOptimizerVpcConfigurationPtrInput {
+	return (*tableOptimizerVpcConfigurationPtrType)(v)
+}
+
+func (*tableOptimizerVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerVpcConfiguration)(nil)).Elem()
+}
+
+func (i *tableOptimizerVpcConfigurationPtrType) ToTableOptimizerVpcConfigurationPtrOutput() TableOptimizerVpcConfigurationPtrOutput {
+	return i.ToTableOptimizerVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOptimizerVpcConfigurationPtrType) ToTableOptimizerVpcConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOptimizerVpcConfigurationPtrOutput)
+}
+
+type TableOptimizerVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOptimizerVpcConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerVpcConfigurationOutput) ToTableOptimizerVpcConfigurationOutput() TableOptimizerVpcConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerVpcConfigurationOutput) ToTableOptimizerVpcConfigurationOutputWithContext(ctx context.Context) TableOptimizerVpcConfigurationOutput {
+	return o
+}
+
+func (o TableOptimizerVpcConfigurationOutput) ToTableOptimizerVpcConfigurationPtrOutput() TableOptimizerVpcConfigurationPtrOutput {
+	return o.ToTableOptimizerVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableOptimizerVpcConfigurationOutput) ToTableOptimizerVpcConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOptimizerVpcConfiguration) *TableOptimizerVpcConfiguration {
+		return &v
+	}).(TableOptimizerVpcConfigurationPtrOutput)
+}
+
+// The name of the AWS Glue connection used for the VPC for the table optimizer.
+func (o TableOptimizerVpcConfigurationOutput) GlueConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableOptimizerVpcConfiguration) *string { return v.GlueConnectionName }).(pulumi.StringPtrOutput)
+}
+
+type TableOptimizerVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOptimizerVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOptimizerVpcConfiguration)(nil)).Elem()
+}
+
+func (o TableOptimizerVpcConfigurationPtrOutput) ToTableOptimizerVpcConfigurationPtrOutput() TableOptimizerVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerVpcConfigurationPtrOutput) ToTableOptimizerVpcConfigurationPtrOutputWithContext(ctx context.Context) TableOptimizerVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o TableOptimizerVpcConfigurationPtrOutput) Elem() TableOptimizerVpcConfigurationOutput {
+	return o.ApplyT(func(v *TableOptimizerVpcConfiguration) TableOptimizerVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableOptimizerVpcConfiguration
+		return ret
+	}).(TableOptimizerVpcConfigurationOutput)
+}
+
+// The name of the AWS Glue connection used for the VPC for the table optimizer.
+func (o TableOptimizerVpcConfigurationPtrOutput) GlueConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableOptimizerVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GlueConnectionName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6715,6 +10290,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPropertiesPtrInput)(nil)).Elem(), CatalogPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTargetRedshiftCatalogPtrInput)(nil)).Elem(), CatalogTargetRedshiftCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierCsvClassifierInput)(nil)).Elem(), ClassifierCsvClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierCsvClassifierPtrInput)(nil)).Elem(), ClassifierCsvClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierGrokClassifierInput)(nil)).Elem(), ClassifierGrokClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierGrokClassifierPtrInput)(nil)).Elem(), ClassifierGrokClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierJsonClassifierInput)(nil)).Elem(), ClassifierJsonClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierJsonClassifierPtrInput)(nil)).Elem(), ClassifierJsonClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierPtrInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetInput)(nil)).Elem(), CrawlerDeltaTargetArgs{})
@@ -6745,6 +10328,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRestInput)(nil)).Elem(), DataCatalogEncryptionSettingsEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRestPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsEncryptionAtRestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetDataQualityTargetTableInput)(nil)).Elem(), DataQualityRulesetDataQualityTargetTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetDataQualityTargetTablePtrInput)(nil)).Elem(), DataQualityRulesetDataQualityTargetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalPtrInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabaseInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
@@ -6763,13 +10348,45 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyPtrInput)(nil)).Elem(), JobExecutionPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyInput)(nil)).Elem(), JobNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyPtrInput)(nil)).Elem(), JobNotificationPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformFindMatchesParametersInput)(nil)).Elem(), MlTransformFindMatchesParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformFindMatchesParametersPtrInput)(nil)).Elem(), MlTransformFindMatchesParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformGlueTablesInput)(nil)).Elem(), MlTransformGlueTablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformGlueTablesArrayInput)(nil)).Elem(), MlTransformGlueTablesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformInputRecordTablesInput)(nil)).Elem(), MlTransformInputRecordTablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformMlUserDataEncryptionInput)(nil)).Elem(), MlTransformMlUserDataEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformMlUserDataEncryptionPtrInput)(nil)).Elem(), MlTransformMlUserDataEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformEncryptionInput)(nil)).Elem(), MlTransformTransformEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformEncryptionPtrInput)(nil)).Elem(), MlTransformTransformEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformParametersInput)(nil)).Elem(), MlTransformTransformParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryPtrInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypeInput)(nil)).Elem(), SchemaVersionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypePtrInput)(nil)).Elem(), SchemaVersionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionSchemaInput)(nil)).Elem(), SchemaVersionSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationCloudWatchEncryptionInput)(nil)).Elem(), SecurityConfigurationCloudWatchEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationCloudWatchEncryptionPtrInput)(nil)).Elem(), SecurityConfigurationCloudWatchEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationJobBookmarksEncryptionInput)(nil)).Elem(), SecurityConfigurationJobBookmarksEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationJobBookmarksEncryptionPtrInput)(nil)).Elem(), SecurityConfigurationJobBookmarksEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationS3EncryptionInput)(nil)).Elem(), SecurityConfigurationS3EncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationS3EncryptionArrayInput)(nil)).Elem(), SecurityConfigurationS3EncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesPtrInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerCompactionConfigurationInput)(nil)).Elem(), TableOptimizerCompactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerCompactionConfigurationPtrInput)(nil)).Elem(), TableOptimizerCompactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerConfigurationInput)(nil)).Elem(), TableOptimizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerIcebergCompactionConfigurationInput)(nil)).Elem(), TableOptimizerIcebergCompactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerIcebergCompactionConfigurationPtrInput)(nil)).Elem(), TableOptimizerIcebergCompactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerIcebergConfigurationInput)(nil)).Elem(), TableOptimizerIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerIcebergConfigurationPtrInput)(nil)).Elem(), TableOptimizerIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerIcebergRetentionConfigurationInput)(nil)).Elem(), TableOptimizerIcebergRetentionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerIcebergRetentionConfigurationPtrInput)(nil)).Elem(), TableOptimizerIcebergRetentionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerOrphanFileDeletionConfigurationInput)(nil)).Elem(), TableOptimizerOrphanFileDeletionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerOrphanFileDeletionConfigurationPtrInput)(nil)).Elem(), TableOptimizerOrphanFileDeletionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerRetentionConfigurationInput)(nil)).Elem(), TableOptimizerRetentionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerRetentionConfigurationPtrInput)(nil)).Elem(), TableOptimizerRetentionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerVpcConfigurationInput)(nil)).Elem(), TableOptimizerVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerVpcConfigurationPtrInput)(nil)).Elem(), TableOptimizerVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetProcessingPropertiesPropertiesInput)(nil)).Elem(), TargetProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetProcessingPropertiesPropertiesPtrInput)(nil)).Elem(), TargetProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionInput)(nil)).Elem(), TriggerActionArgs{})
@@ -6800,6 +10417,14 @@ func init() {
 	pulumi.RegisterOutputType(CatalogPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogOutput{})
 	pulumi.RegisterOutputType(CatalogTargetRedshiftCatalogPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierCsvClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierCsvClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierGrokClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierGrokClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierJsonClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierJsonClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierXmlClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierXmlClassifierPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})
@@ -6832,6 +10457,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetDataQualityTargetTableOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetDataQualityTargetTablePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseFederatedDatabaseOutput{})
@@ -6852,13 +10479,48 @@ func init() {
 	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformFindMatchesParametersOutput{})
+	pulumi.RegisterOutputType(MlTransformFindMatchesParametersPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformGlueTablesOutput{})
+	pulumi.RegisterOutputType(MlTransformGlueTablesArrayOutput{})
+	pulumi.RegisterOutputType(MlTransformInputRecordTablesOutput{})
+	pulumi.RegisterOutputType(MlTransformMlUserDataEncryptionOutput{})
+	pulumi.RegisterOutputType(MlTransformMlUserDataEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformEncryptionOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformParametersOutput{})
+	pulumi.RegisterOutputType(MlTransformTransformParametersPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypeOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionSchemaOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationJobBookmarksEncryptionOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationJobBookmarksEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionArrayOutput{})
 	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerCompactionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerCompactionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerIcebergCompactionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerIcebergCompactionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerIcebergConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerIcebergConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerIcebergRetentionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerIcebergRetentionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerOrphanFileDeletionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerOrphanFileDeletionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerRetentionConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerRetentionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableOptimizerVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(TableOptimizerVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TargetProcessingPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(TargetProcessingPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TriggerActionOutput{})

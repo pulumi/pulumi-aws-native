@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Rds
     [AwsNativeResourceType("aws-native:rds:DbParameterGroup")]
     public partial class DbParameterGroup : global::Pulumi.CustomResource
     {
+        [Output("dbParameterGroupArn")]
+        public Output<string> DbParameterGroupArn { get; private set; } = null!;
+
         /// <summary>
         /// The name of the DB parameter group.
         ///  Constraints:

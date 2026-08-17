@@ -75,6 +75,11 @@ export const getScheduledAction: typeof import("./getScheduledAction").getSchedu
 export const getScheduledActionOutput: typeof import("./getScheduledAction").getScheduledActionOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
 
+export { GetSnapshotScheduleArgs, GetSnapshotScheduleResult, GetSnapshotScheduleOutputArgs } from "./getSnapshotSchedule";
+export const getSnapshotSchedule: typeof import("./getSnapshotSchedule").getSnapshotSchedule = null as any;
+export const getSnapshotScheduleOutput: typeof import("./getSnapshotSchedule").getSnapshotScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshotSchedule","getSnapshotScheduleOutput"], () => require("./getSnapshotSchedule"));
+
 export { IntegrationArgs } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
@@ -84,6 +89,11 @@ export { ScheduledActionArgs } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
 utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
+
+export { SnapshotScheduleArgs } from "./snapshotSchedule";
+export type SnapshotSchedule = import("./snapshotSchedule").SnapshotSchedule;
+export const SnapshotSchedule: typeof import("./snapshotSchedule").SnapshotSchedule = null as any;
+utilities.lazyLoad(exports, ["SnapshotSchedule"], () => require("./snapshotSchedule"));
 
 
 // Export enums:
@@ -109,6 +119,8 @@ const _module = {
                 return new Integration(name, <any>undefined, { urn })
             case "aws-native:redshift:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
+            case "aws-native:redshift:SnapshotSchedule":
+                return new SnapshotSchedule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

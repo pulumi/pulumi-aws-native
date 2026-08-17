@@ -4933,7 +4933,8 @@ type FunctionCode struct {
 	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key               *string                          `pulumi:"s3Key"`
+	S3Key *string `pulumi:"s3Key"`
+	// Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
 	S3ObjectStorageMode *FunctionCodeS3ObjectStorageMode `pulumi:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
@@ -4968,7 +4969,8 @@ type FunctionCodeArgs struct {
 	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key               pulumi.StringPtrInput                   `pulumi:"s3Key"`
+	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
+	// Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
 	S3ObjectStorageMode FunctionCodeS3ObjectStorageModePtrInput `pulumi:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
@@ -5027,6 +5029,7 @@ func (o FunctionCodeOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.S3Key }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the storage mode for the deployment package. Use “COPY“ to store the package in LAMlong-managed storage. Use “REFERENCE“ to read the package directly from the Amazon S3 bucket. If omitted, the default is “COPY“.
 func (o FunctionCodeOutput) S3ObjectStorageMode() FunctionCodeS3ObjectStorageModePtrOutput {
 	return o.ApplyT(func(v FunctionCode) *FunctionCodeS3ObjectStorageMode { return v.S3ObjectStorageMode }).(FunctionCodeS3ObjectStorageModePtrOutput)
 }
@@ -5105,6 +5108,7 @@ func (o FunctionCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the storage mode for the deployment package. Use “COPY“ to store the package in LAMlong-managed storage. Use “REFERENCE“ to read the package directly from the Amazon S3 bucket. If omitted, the default is “COPY“.
 func (o FunctionCodePtrOutput) S3ObjectStorageMode() FunctionCodeS3ObjectStorageModePtrOutput {
 	return o.ApplyT(func(v *FunctionCode) *FunctionCodeS3ObjectStorageMode {
 		if v == nil {
@@ -5289,11 +5293,12 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
 type FunctionDurableConfig struct {
 	// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
-	ExecutionTimeout int     `pulumi:"executionTimeout"`
-	KmsKeyArn        *string `pulumi:"kmsKeyArn"`
+	ExecutionTimeout int `pulumi:"executionTimeout"`
+	// The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
 }
@@ -5309,11 +5314,12 @@ type FunctionDurableConfigInput interface {
 	ToFunctionDurableConfigOutputWithContext(context.Context) FunctionDurableConfigOutput
 }
 
-// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
 type FunctionDurableConfigArgs struct {
 	// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
-	ExecutionTimeout pulumi.IntInput       `pulumi:"executionTimeout"`
-	KmsKeyArn        pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
+	// The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
 }
@@ -5371,7 +5377,7 @@ func (i *functionDurableConfigPtrType) ToFunctionDurableConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigPtrOutput)
 }
 
-// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
 type FunctionDurableConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionDurableConfigOutput) ElementType() reflect.Type {
@@ -5401,6 +5407,7 @@ func (o FunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
 }
 
+// The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
 func (o FunctionDurableConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -5444,6 +5451,7 @@ func (o FunctionDurableConfigPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
 func (o FunctionDurableConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionDurableConfig) *string {
 		if v == nil {

@@ -82,6 +82,7 @@ __all__ = [
     'BotIntentOverride',
     'BotKendraConfiguration',
     'BotLocale',
+    'BotMember',
     'BotMessage',
     'BotMessageGroup',
     'BotMultipleValuesSetting',
@@ -3584,6 +3585,98 @@ class BotLocale(dict):
         - `generative`
         """
         return pulumi.get(self, "voice_settings")
+
+
+@pulumi.output_type
+class BotMember(dict):
+    """
+    A bot that is a member of a bot network.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "botMemberAliasId":
+            suggest = "bot_member_alias_id"
+        elif key == "botMemberAliasName":
+            suggest = "bot_member_alias_name"
+        elif key == "botMemberId":
+            suggest = "bot_member_id"
+        elif key == "botMemberName":
+            suggest = "bot_member_name"
+        elif key == "botMemberVersion":
+            suggest = "bot_member_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bot_member_alias_id: _builtins.str,
+                 bot_member_alias_name: _builtins.str,
+                 bot_member_id: _builtins.str,
+                 bot_member_name: _builtins.str,
+                 bot_member_version: _builtins.str):
+        """
+        A bot that is a member of a bot network.
+
+        :param _builtins.str bot_member_alias_id: The alias ID of a bot that is a member of this network of bots.
+        :param _builtins.str bot_member_alias_name: The alias name of a bot that is a member of this network of bots.
+        :param _builtins.str bot_member_id: The unique ID of a bot that is a member of this network of bots.
+        :param _builtins.str bot_member_name: The unique name of a bot that is a member of this network of bots.
+        :param _builtins.str bot_member_version: The version of a bot that is a member of this network of bots.
+        """
+        pulumi.set(__self__, "bot_member_alias_id", bot_member_alias_id)
+        pulumi.set(__self__, "bot_member_alias_name", bot_member_alias_name)
+        pulumi.set(__self__, "bot_member_id", bot_member_id)
+        pulumi.set(__self__, "bot_member_name", bot_member_name)
+        pulumi.set(__self__, "bot_member_version", bot_member_version)
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberAliasId")
+    def bot_member_alias_id(self) -> _builtins.str:
+        """
+        The alias ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_alias_id")
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberAliasName")
+    def bot_member_alias_name(self) -> _builtins.str:
+        """
+        The alias name of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_alias_name")
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberId")
+    def bot_member_id(self) -> _builtins.str:
+        """
+        The unique ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_id")
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberName")
+    def bot_member_name(self) -> _builtins.str:
+        """
+        The unique name of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_name")
+
+    @_builtins.property
+    @pulumi.getter(name="botMemberVersion")
+    def bot_member_version(self) -> _builtins.str:
+        """
+        The version of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "bot_member_version")
 
 
 @pulumi.output_type

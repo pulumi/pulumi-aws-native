@@ -15,6 +15,11 @@ export const getLicense: typeof import("./getLicense").getLicense = null as any;
 export const getLicenseOutput: typeof import("./getLicense").getLicenseOutput = null as any;
 utilities.lazyLoad(exports, ["getLicense","getLicenseOutput"], () => require("./getLicense"));
 
+export { GetLicenseAssetRuleSetArgs, GetLicenseAssetRuleSetResult, GetLicenseAssetRuleSetOutputArgs } from "./getLicenseAssetRuleSet";
+export const getLicenseAssetRuleSet: typeof import("./getLicenseAssetRuleSet").getLicenseAssetRuleSet = null as any;
+export const getLicenseAssetRuleSetOutput: typeof import("./getLicenseAssetRuleSet").getLicenseAssetRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getLicenseAssetRuleSet","getLicenseAssetRuleSetOutput"], () => require("./getLicenseAssetRuleSet"));
+
 export { GrantArgs } from "./grant";
 export type Grant = import("./grant").Grant;
 export const Grant: typeof import("./grant").Grant = null as any;
@@ -25,6 +30,11 @@ export type License = import("./license").License;
 export const License: typeof import("./license").License = null as any;
 utilities.lazyLoad(exports, ["License"], () => require("./license"));
 
+export { LicenseAssetRuleSetArgs } from "./licenseAssetRuleSet";
+export type LicenseAssetRuleSet = import("./licenseAssetRuleSet").LicenseAssetRuleSet;
+export const LicenseAssetRuleSet: typeof import("./licenseAssetRuleSet").LicenseAssetRuleSet = null as any;
+utilities.lazyLoad(exports, ["LicenseAssetRuleSet"], () => require("./licenseAssetRuleSet"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -34,6 +44,8 @@ const _module = {
                 return new Grant(name, <any>undefined, { urn })
             case "aws-native:licensemanager:License":
                 return new License(name, <any>undefined, { urn })
+            case "aws-native:licensemanager:LicenseAssetRuleSet":
+                return new LicenseAssetRuleSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

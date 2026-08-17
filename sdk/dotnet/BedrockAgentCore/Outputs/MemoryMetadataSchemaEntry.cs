@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class MemoryMetadataSchemaEntry
     {
         public readonly Outputs.MemoryExtractionConfig? ExtractionConfig;
+        public readonly Pulumi.AwsNative.BedrockAgentCore.MemoryExtractionType? ExtractionType;
         public readonly string Key;
         public readonly Pulumi.AwsNative.BedrockAgentCore.MemoryMetadataValueType? Type;
 
@@ -21,11 +22,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         private MemoryMetadataSchemaEntry(
             Outputs.MemoryExtractionConfig? extractionConfig,
 
+            Pulumi.AwsNative.BedrockAgentCore.MemoryExtractionType? extractionType,
+
             string key,
 
             Pulumi.AwsNative.BedrockAgentCore.MemoryMetadataValueType? type)
         {
             ExtractionConfig = extractionConfig;
+            ExtractionType = extractionType;
             Key = key;
             Type = type;
         }

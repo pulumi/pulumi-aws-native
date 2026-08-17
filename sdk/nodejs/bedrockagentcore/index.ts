@@ -20,6 +20,11 @@ export type BrowserProfile = import("./browserProfile").BrowserProfile;
 export const BrowserProfile: typeof import("./browserProfile").BrowserProfile = null as any;
 utilities.lazyLoad(exports, ["BrowserProfile"], () => require("./browserProfile"));
 
+export { CapacityProviderArgs } from "./capacityProvider";
+export type CapacityProvider = import("./capacityProvider").CapacityProvider;
+export const CapacityProvider: typeof import("./capacityProvider").CapacityProvider = null as any;
+utilities.lazyLoad(exports, ["CapacityProvider"], () => require("./capacityProvider"));
+
 export { CodeInterpreterCustomArgs } from "./codeInterpreterCustom";
 export type CodeInterpreterCustom = import("./codeInterpreterCustom").CodeInterpreterCustom;
 export const CodeInterpreterCustom: typeof import("./codeInterpreterCustom").CodeInterpreterCustom = null as any;
@@ -45,6 +50,16 @@ export type Gateway = import("./gateway").Gateway;
 export const Gateway: typeof import("./gateway").Gateway = null as any;
 utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
 
+export { GatewayRateLimitArgs } from "./gatewayRateLimit";
+export type GatewayRateLimit = import("./gatewayRateLimit").GatewayRateLimit;
+export const GatewayRateLimit: typeof import("./gatewayRateLimit").GatewayRateLimit = null as any;
+utilities.lazyLoad(exports, ["GatewayRateLimit"], () => require("./gatewayRateLimit"));
+
+export { GatewayRuleArgs } from "./gatewayRule";
+export type GatewayRule = import("./gatewayRule").GatewayRule;
+export const GatewayRule: typeof import("./gatewayRule").GatewayRule = null as any;
+utilities.lazyLoad(exports, ["GatewayRule"], () => require("./gatewayRule"));
+
 export { GatewayTargetArgs } from "./gatewayTarget";
 export type GatewayTarget = import("./gatewayTarget").GatewayTarget;
 export const GatewayTarget: typeof import("./gatewayTarget").GatewayTarget = null as any;
@@ -64,6 +79,11 @@ export { GetBrowserProfileArgs, GetBrowserProfileResult, GetBrowserProfileOutput
 export const getBrowserProfile: typeof import("./getBrowserProfile").getBrowserProfile = null as any;
 export const getBrowserProfileOutput: typeof import("./getBrowserProfile").getBrowserProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getBrowserProfile","getBrowserProfileOutput"], () => require("./getBrowserProfile"));
+
+export { GetCapacityProviderArgs, GetCapacityProviderResult, GetCapacityProviderOutputArgs } from "./getCapacityProvider";
+export const getCapacityProvider: typeof import("./getCapacityProvider").getCapacityProvider = null as any;
+export const getCapacityProviderOutput: typeof import("./getCapacityProvider").getCapacityProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityProvider","getCapacityProviderOutput"], () => require("./getCapacityProvider"));
 
 export { GetCodeInterpreterCustomArgs, GetCodeInterpreterCustomResult, GetCodeInterpreterCustomOutputArgs } from "./getCodeInterpreterCustom";
 export const getCodeInterpreterCustom: typeof import("./getCodeInterpreterCustom").getCodeInterpreterCustom = null as any;
@@ -89,6 +109,16 @@ export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGat
 export const getGateway: typeof import("./getGateway").getGateway = null as any;
 export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+
+export { GetGatewayRateLimitArgs, GetGatewayRateLimitResult, GetGatewayRateLimitOutputArgs } from "./getGatewayRateLimit";
+export const getGatewayRateLimit: typeof import("./getGatewayRateLimit").getGatewayRateLimit = null as any;
+export const getGatewayRateLimitOutput: typeof import("./getGatewayRateLimit").getGatewayRateLimitOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayRateLimit","getGatewayRateLimitOutput"], () => require("./getGatewayRateLimit"));
+
+export { GetGatewayRuleArgs, GetGatewayRuleResult, GetGatewayRuleOutputArgs } from "./getGatewayRule";
+export const getGatewayRule: typeof import("./getGatewayRule").getGatewayRule = null as any;
+export const getGatewayRuleOutput: typeof import("./getGatewayRule").getGatewayRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getGatewayRule","getGatewayRuleOutput"], () => require("./getGatewayRule"));
 
 export { GetGatewayTargetArgs, GetGatewayTargetResult, GetGatewayTargetOutputArgs } from "./getGatewayTarget";
 export const getGatewayTarget: typeof import("./getGatewayTarget").getGatewayTarget = null as any;
@@ -249,6 +279,8 @@ const _module = {
                 return new BrowserCustom(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:BrowserProfile":
                 return new BrowserProfile(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:CapacityProvider":
+                return new CapacityProvider(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:CodeInterpreterCustom":
                 return new CodeInterpreterCustom(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:ConfigurationBundle":
@@ -259,6 +291,10 @@ const _module = {
                 return new Evaluator(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:GatewayRateLimit":
+                return new GatewayRateLimit(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:GatewayRule":
+                return new GatewayRule(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:GatewayTarget":
                 return new GatewayTarget(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Harness":

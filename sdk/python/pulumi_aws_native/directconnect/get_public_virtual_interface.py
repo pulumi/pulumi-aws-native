@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetPublicVirtualInterfaceResult:
-    def __init__(__self__, bgp_peers=None, connection_id=None, tags=None, virtual_interface_arn=None, virtual_interface_id=None, virtual_interface_name=None):
+    def __init__(__self__, bgp_peers=None, connection_id=None, rate_limit=None, tags=None, virtual_interface_arn=None, virtual_interface_id=None, virtual_interface_name=None):
         if bgp_peers and not isinstance(bgp_peers, list):
             raise TypeError("Expected argument 'bgp_peers' to be a list")
         pulumi.set(__self__, "bgp_peers", bgp_peers)
         if connection_id and not isinstance(connection_id, str):
             raise TypeError("Expected argument 'connection_id' to be a str")
         pulumi.set(__self__, "connection_id", connection_id)
+        if rate_limit and not isinstance(rate_limit, str):
+            raise TypeError("Expected argument 'rate_limit' to be a str")
+        pulumi.set(__self__, "rate_limit", rate_limit)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -60,6 +63,14 @@ class GetPublicVirtualInterfaceResult:
         The ID or ARN of the connection or LAG.
         """
         return pulumi.get(self, "connection_id")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[_builtins.str]:
+        """
+        The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
+        """
+        return pulumi.get(self, "rate_limit")
 
     @_builtins.property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetPublicVirtualInterfaceResult(GetPublicVirtualInterfaceResult):
         return GetPublicVirtualInterfaceResult(
             bgp_peers=self.bgp_peers,
             connection_id=self.connection_id,
+            rate_limit=self.rate_limit,
             tags=self.tags,
             virtual_interface_arn=self.virtual_interface_arn,
             virtual_interface_id=self.virtual_interface_id,
@@ -123,6 +135,7 @@ def get_public_virtual_interface(virtual_interface_arn: Optional[_builtins.str] 
     return AwaitableGetPublicVirtualInterfaceResult(
         bgp_peers=pulumi.get(__ret__, 'bgp_peers'),
         connection_id=pulumi.get(__ret__, 'connection_id'),
+        rate_limit=pulumi.get(__ret__, 'rate_limit'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_interface_arn=pulumi.get(__ret__, 'virtual_interface_arn'),
         virtual_interface_id=pulumi.get(__ret__, 'virtual_interface_id'),
@@ -141,6 +154,7 @@ def get_public_virtual_interface_output(virtual_interface_arn: pulumi.Input[Opti
     return __ret__.apply(lambda __response__: GetPublicVirtualInterfaceResult(
         bgp_peers=pulumi.get(__response__, 'bgp_peers'),
         connection_id=pulumi.get(__response__, 'connection_id'),
+        rate_limit=pulumi.get(__response__, 'rate_limit'),
         tags=pulumi.get(__response__, 'tags'),
         virtual_interface_arn=pulumi.get(__response__, 'virtual_interface_arn'),
         virtual_interface_id=pulumi.get(__response__, 'virtual_interface_id'),

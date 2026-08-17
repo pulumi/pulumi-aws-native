@@ -48,6 +48,24 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("onBehalfOfTokenExchangeConfig")]
         public Input<Inputs.OAuth2CredentialProviderOnBehalfOfTokenExchangeConfigArgs>? OnBehalfOfTokenExchangeConfig { get; set; }
 
+        [Input("privateEndpoint")]
+        public Input<Inputs.OAuth2CredentialProviderPrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.OAuth2CredentialProviderPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+
+        /// <summary>
+        /// A list of private endpoint overrides. Each override maps a specific domain to a private endpoint, enabling secure connectivity through VPC Lattice resource configurations.
+        /// </summary>
+        public InputList<Inputs.OAuth2CredentialProviderPrivateEndpointOverrideArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.OAuth2CredentialProviderPrivateEndpointOverrideArgs>());
+            set => _privateEndpointOverrides = value;
+        }
+
+        [Input("privateKeyJwtConfig")]
+        public Input<Inputs.OAuth2CredentialProviderPrivateKeyJwtConfigArgs>? PrivateKeyJwtConfig { get; set; }
+
         public OAuth2CredentialProviderCustomOauth2ProviderConfigInputArgs()
         {
         }

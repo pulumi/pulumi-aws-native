@@ -2,6 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ArtifactType = {
+    Txt: "TXT",
+    Png: "PNG",
+    Jpeg: "JPEG",
+    Md: "MD",
+    Pdf: "PDF",
+    Docx: "DOCX",
+    Doc: "DOC",
+    Json: "JSON",
+    Yaml: "YAML",
+} as const;
+
+/**
+ * The file type of the artifact.
+ */
+export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
+
 export const PentestAuthenticationProviderType = {
     SecretsManager: "SECRETS_MANAGER",
     AwsLambda: "AWS_LAMBDA",

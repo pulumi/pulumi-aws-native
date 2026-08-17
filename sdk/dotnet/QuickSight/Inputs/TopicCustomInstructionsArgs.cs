@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Instructions that provide additional guidance and context for response generation.&lt;/p&gt;
+    /// </summary>
     public sealed class TopicCustomInstructionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// &lt;p&gt;A text field for providing additional guidance or context for response generation.&lt;/p&gt;
+        /// </summary>
         [Input("customInstructionsString", required: true)]
         public Input<string> CustomInstructionsString { get; set; } = null!;
 

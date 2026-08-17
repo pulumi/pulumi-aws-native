@@ -33,6 +33,10 @@ export interface GetCodeSecurityScanConfigurationResult {
      * Code Security Scan Configuration
      */
     readonly configuration?: outputs.inspectorv2.CodeSecurityScanConfiguration;
+    /**
+     * The tags to apply to the scan configuration.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Inspector CodeSecurityScanConfiguration resource schema

@@ -89,6 +89,7 @@ namespace Pulumi.AwsNative.Rds
     [OutputType]
     public sealed class GetDbParameterGroupResult
     {
+        public readonly string? DbParameterGroupArn;
         /// <summary>
         /// A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
         ///  For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
@@ -104,10 +105,13 @@ namespace Pulumi.AwsNative.Rds
 
         [OutputConstructor]
         private GetDbParameterGroupResult(
+            string? dbParameterGroupArn,
+
             object? parameters,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            DbParameterGroupArn = dbParameterGroupArn;
             Parameters = parameters;
             Tags = tags;
         }

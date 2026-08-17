@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// Model for configuration of a Topic
-    /// </summary>
     public sealed class TopicConfigOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

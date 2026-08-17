@@ -47,6 +47,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// The value of `SearchString` must appear at the end of the specified part of the web request.
         /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.RuleGroupPositionalConstraint PositionalConstraint;
+        public readonly ImmutableArray<Outputs.RuleGroupPreParseTextTransformation> PreParseTextTransformations;
         /// <summary>
         /// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `FieldToMatch` . The maximum length of the value is 200 bytes. For alphabetic characters A-Z and a-z, the value is case sensitive.
         /// 
@@ -74,6 +75,8 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
 
             Pulumi.AwsNative.WaFv2.RuleGroupPositionalConstraint positionalConstraint,
 
+            ImmutableArray<Outputs.RuleGroupPreParseTextTransformation> preParseTextTransformations,
+
             string? searchString,
 
             string? searchStringBase64,
@@ -82,6 +85,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         {
             FieldToMatch = fieldToMatch;
             PositionalConstraint = positionalConstraint;
+            PreParseTextTransformations = preParseTextTransformations;
             SearchString = searchString;
             SearchStringBase64 = searchStringBase64;
             TextTransformations = textTransformations;

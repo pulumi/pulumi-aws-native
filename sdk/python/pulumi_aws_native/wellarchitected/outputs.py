@@ -16,8 +16,64 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DiscoveryConfigProperties',
     'ProfileQuestionUpdate',
 ]
+
+@pulumi.output_type
+class DiscoveryConfigProperties(dict):
+    """
+    Discovery configuration associated to the workload.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustedAdvisorIntegrationStatus":
+            suggest = "trusted_advisor_integration_status"
+        elif key == "workloadResourceDefinition":
+            suggest = "workload_resource_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscoveryConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscoveryConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscoveryConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trusted_advisor_integration_status: Optional['WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus'] = None,
+                 workload_resource_definition: Optional[Sequence['WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem']] = None):
+        """
+        Discovery configuration associated to the workload.
+
+        :param 'WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus' trusted_advisor_integration_status: Discovery integration status in respect to Trusted Advisor for the workload.
+        :param Sequence['WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem'] workload_resource_definition: The mode to use for identifying resources associated with the workload.
+        """
+        if trusted_advisor_integration_status is not None:
+            pulumi.set(__self__, "trusted_advisor_integration_status", trusted_advisor_integration_status)
+        if workload_resource_definition is not None:
+            pulumi.set(__self__, "workload_resource_definition", workload_resource_definition)
+
+    @_builtins.property
+    @pulumi.getter(name="trustedAdvisorIntegrationStatus")
+    def trusted_advisor_integration_status(self) -> Optional['WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus']:
+        """
+        Discovery integration status in respect to Trusted Advisor for the workload.
+        """
+        return pulumi.get(self, "trusted_advisor_integration_status")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadResourceDefinition")
+    def workload_resource_definition(self) -> Optional[Sequence['WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem']]:
+        """
+        The mode to use for identifying resources associated with the workload.
+        """
+        return pulumi.get(self, "workload_resource_definition")
+
 
 @pulumi.output_type
 class ProfileQuestionUpdate(dict):

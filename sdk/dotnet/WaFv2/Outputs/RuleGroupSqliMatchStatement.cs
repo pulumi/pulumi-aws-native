@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// The part of the web request that you want AWS WAF to inspect.
         /// </summary>
         public readonly Outputs.RuleGroupFieldToMatch FieldToMatch;
+        public readonly ImmutableArray<Outputs.RuleGroupPreParseTextTransformation> PreParseTextTransformations;
         /// <summary>
         /// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
         /// 
@@ -39,11 +40,14 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         private RuleGroupSqliMatchStatement(
             Outputs.RuleGroupFieldToMatch fieldToMatch,
 
+            ImmutableArray<Outputs.RuleGroupPreParseTextTransformation> preParseTextTransformations,
+
             Pulumi.AwsNative.WaFv2.RuleGroupSensitivityLevel? sensitivityLevel,
 
             ImmutableArray<Outputs.RuleGroupTextTransformation> textTransformations)
         {
             FieldToMatch = fieldToMatch;
+            PreParseTextTransformations = preParseTextTransformations;
             SensitivityLevel = sensitivityLevel;
             TextTransformations = textTransformations;
         }

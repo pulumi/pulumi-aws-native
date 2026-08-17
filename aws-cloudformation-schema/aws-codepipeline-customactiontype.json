@@ -144,7 +144,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "codepipeline:TagResource", "codepipeline:UntagResource", "codepipeline:ListTagsForResource" ]
   },

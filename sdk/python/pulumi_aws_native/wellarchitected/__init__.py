@@ -10,8 +10,10 @@ from ._enums import *
 from .get_lens import *
 from .get_profile import *
 from .get_review_template import *
+from .get_workload import *
 from .lens import *
 from .profile import *
 from .review_template import *
+from .workload import *
 from ._inputs import *
 from . import outputs

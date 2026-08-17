@@ -88,7 +88,7 @@ export const BucketAnnotationTableConfigurationConfigurationState = {
 } as const;
 
 /**
- * Specifies whether annotation table configuration is enabled or disabled.
+ * Specifies whether the annotation table configuration is enabled or disabled.
  */
 export type BucketAnnotationTableConfigurationConfigurationState = (typeof BucketAnnotationTableConfigurationConfigurationState)[keyof typeof BucketAnnotationTableConfigurationConfigurationState];
 
@@ -172,6 +172,8 @@ export const BucketInventoryConfigurationOptionalFieldsItem = {
     ObjectLockRetainUntilDate: "ObjectLockRetainUntilDate",
     ObjectLockMode: "ObjectLockMode",
     ObjectLockLegalHoldStatus: "ObjectLockLegalHoldStatus",
+    ObjectLockEventHoldStatus: "ObjectLockEventHoldStatus",
+    ObjectLockEventHoldDuration: "ObjectLockEventHoldDuration",
     IntelligentTieringAccessTier: "IntelligentTieringAccessTier",
     BucketKeyStatus: "BucketKeyStatus",
     ChecksumAlgorithm: "ChecksumAlgorithm",

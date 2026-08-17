@@ -26,6 +26,10 @@ __all__ = [
     'CanaryCodeArgsDict',
     'CanaryDependencyArgs',
     'CanaryDependencyArgsDict',
+    'CanaryReplicaArgs',
+    'CanaryReplicaArgsDict',
+    'CanaryReplicaReplicationStatusArgs',
+    'CanaryReplicaReplicationStatusArgsDict',
     'CanaryRetryConfigArgs',
     'CanaryRetryConfigArgsDict',
     'CanaryRunConfigArgs',
@@ -34,6 +38,8 @@ __all__ = [
     'CanaryS3EncryptionArgsDict',
     'CanaryScheduleArgs',
     'CanaryScheduleArgsDict',
+    'CanaryTagArgs',
+    'CanaryTagArgsDict',
     'CanaryVisualReferenceArgs',
     'CanaryVisualReferenceArgsDict',
     'CanaryVpcConfigArgs',
@@ -374,6 +380,213 @@ class CanaryDependencyArgs:
         pulumi.set(self, "type", value)
 
 
+class CanaryReplicaArgsDict(TypedDict):
+    """
+    Configuration and status for a replica location in a multi-location canary
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    AWS region for the replica (e.g., us-east-1)
+    """
+    canary_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    State of the replica canary (CREATING, READY, RUNNING, etc.)
+    """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the KMS key used to encrypt the replica canary's Lambda function environment variables
+    """
+    last_modified: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Last modified timestamp of the replica
+    """
+    replication_status: NotRequired[pulumi.Input[Optional['CanaryReplicaReplicationStatusArgsDict']]]
+    """
+    Replication status for this replica
+    """
+    resources_to_replicate_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CanaryResourceToTag']]]]]
+    """
+    Resources to replicate tags to for this replica (e.g., lambda-function)
+    """
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CanaryTagArgsDict']]]]]
+    """
+    Tags to apply to this replica canary and optionally its Lambda function
+    """
+    vpc_config: NotRequired[pulumi.Input[Optional['CanaryVpcConfigArgsDict']]]
+    """
+    VPC configuration for this replica location
+    """
+
+@pulumi.input_type
+class CanaryReplicaArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[_builtins.str],
+                 canary_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_modified: pulumi.Input[Optional[_builtins.float]] = None,
+                 replication_status: pulumi.Input[Optional['CanaryReplicaReplicationStatusArgs']] = None,
+                 resources_to_replicate_tags: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryResourceToTag']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryTagArgs']]]] = None,
+                 vpc_config: pulumi.Input[Optional['CanaryVpcConfigArgs']] = None):
+        """
+        Configuration and status for a replica location in a multi-location canary
+
+        :param pulumi.Input[_builtins.str] location: AWS region for the replica (e.g., us-east-1)
+        :param pulumi.Input[_builtins.str] canary_state: State of the replica canary (CREATING, READY, RUNNING, etc.)
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the replica canary's Lambda function environment variables
+        :param pulumi.Input[_builtins.float] last_modified: Last modified timestamp of the replica
+        :param pulumi.Input['CanaryReplicaReplicationStatusArgs'] replication_status: Replication status for this replica
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryResourceToTag']]] resources_to_replicate_tags: Resources to replicate tags to for this replica (e.g., lambda-function)
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]] tags: Tags to apply to this replica canary and optionally its Lambda function
+        :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: VPC configuration for this replica location
+        """
+        pulumi.set(__self__, "location", location)
+        if canary_state is not None:
+            pulumi.set(__self__, "canary_state", canary_state)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if last_modified is not None:
+            pulumi.set(__self__, "last_modified", last_modified)
+        if replication_status is not None:
+            pulumi.set(__self__, "replication_status", replication_status)
+        if resources_to_replicate_tags is not None:
+            pulumi.set(__self__, "resources_to_replicate_tags", resources_to_replicate_tags)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS region for the replica (e.g., us-east-1)
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="canaryState")
+    def canary_state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        State of the replica canary (CREATING, READY, RUNNING, etc.)
+        """
+        return pulumi.get(self, "canary_state")
+
+    @canary_state.setter
+    def canary_state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "canary_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the KMS key used to encrypt the replica canary's Lambda function environment variables
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Last modified timestamp of the replica
+        """
+        return pulumi.get(self, "last_modified")
+
+    @last_modified.setter
+    def last_modified(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "last_modified", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicationStatus")
+    def replication_status(self) -> pulumi.Input[Optional['CanaryReplicaReplicationStatusArgs']]:
+        """
+        Replication status for this replica
+        """
+        return pulumi.get(self, "replication_status")
+
+    @replication_status.setter
+    def replication_status(self, value: pulumi.Input[Optional['CanaryReplicaReplicationStatusArgs']]):
+        pulumi.set(self, "replication_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourcesToReplicateTags")
+    def resources_to_replicate_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CanaryResourceToTag']]]]:
+        """
+        Resources to replicate tags to for this replica (e.g., lambda-function)
+        """
+        return pulumi.get(self, "resources_to_replicate_tags")
+
+    @resources_to_replicate_tags.setter
+    def resources_to_replicate_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryResourceToTag']]]]):
+        pulumi.set(self, "resources_to_replicate_tags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CanaryTagArgs']]]]:
+        """
+        Tags to apply to this replica canary and optionally its Lambda function
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CanaryTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> pulumi.Input[Optional['CanaryVpcConfigArgs']]:
+        """
+        VPC configuration for this replica location
+        """
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: pulumi.Input[Optional['CanaryVpcConfigArgs']]):
+        pulumi.set(self, "vpc_config", value)
+
+
+class CanaryReplicaReplicationStatusArgsDict(TypedDict):
+    """
+    Replication status details
+    """
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Replication state: InProgress, InSync, or Inconsistent
+    """
+
+@pulumi.input_type
+class CanaryReplicaReplicationStatusArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Replication status details
+
+        :param pulumi.Input[_builtins.str] state: Replication state: InProgress, InSync, or Inconsistent
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Replication state: InProgress, InSync, or Inconsistent
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+
 class CanaryRetryConfigArgsDict(TypedDict):
     max_retries: pulumi.Input[_builtins.int]
     """
@@ -650,6 +863,58 @@ class CanaryScheduleArgs:
     @retry_config.setter
     def retry_config(self, value: pulumi.Input[Optional['CanaryRetryConfigArgs']]):
         pulumi.set(self, "retry_config", value)
+
+
+class CanaryTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+
+@pulumi.input_type
+class CanaryTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        A key-value pair to associate with a resource.
+
+        :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 class CanaryVisualReferenceArgsDict(TypedDict):

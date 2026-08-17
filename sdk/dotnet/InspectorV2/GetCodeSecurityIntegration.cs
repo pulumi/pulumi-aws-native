@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.InspectorV2
         /// </summary>
         public readonly string? StatusReason;
         /// <summary>
+        /// The tags to apply to the code security integration.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// Integration Type
         /// </summary>
         public readonly Pulumi.AwsNative.InspectorV2.CodeSecurityIntegrationIntegrationType? Type;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.InspectorV2
 
             string? statusReason,
 
+            ImmutableDictionary<string, string>? tags,
+
             Pulumi.AwsNative.InspectorV2.CodeSecurityIntegrationIntegrationType? type)
         {
             Arn = arn;
@@ -121,6 +127,7 @@ namespace Pulumi.AwsNative.InspectorV2
             Name = name;
             Status = status;
             StatusReason = statusReason;
+            Tags = tags;
             Type = type;
         }
     }

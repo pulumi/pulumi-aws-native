@@ -516,6 +516,9 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.
+    /// </summary>
     [EnumType]
     public readonly struct FunctionCodeS3ObjectStorageMode : IEquatable<FunctionCodeS3ObjectStorageMode>
     {

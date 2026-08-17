@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourcePolicy{}
 	case "aws-native:logs:ScheduledQuery":
 		r = &ScheduledQuery{}
+	case "aws-native:logs:StorageTierPolicy":
+		r = &StorageTierPolicy{}
 	case "aws-native:logs:SubscriptionFilter":
 		r = &SubscriptionFilter{}
 	case "aws-native:logs:Transformer":

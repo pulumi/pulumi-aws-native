@@ -192,13 +192,13 @@
       "required" : [ "UpdateRuntimeOn" ]
     },
     "DurableConfig" : {
-      "description" : "Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.",
+      "description" : "Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "KMSKeyArn" : {
           "pattern" : "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
-          "description" : "",
+          "description" : "The ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.",
           "type" : "string"
         },
         "ExecutionTimeout" : {
@@ -281,7 +281,7 @@
           "maxLength" : 1024
         },
         "S3ObjectStorageMode" : {
-          "description" : "",
+          "description" : "Specifies the storage mode for the deployment package. Use ``COPY`` to store the package in LAMlong-managed storage. Use ``REFERENCE`` to read the package directly from the Amazon S3 bucket. If omitted, the default is ``COPY``.",
           "type" : "string",
           "enum" : [ "COPY", "REFERENCE" ]
         },
@@ -433,7 +433,7 @@
       "$ref" : "#/definitions/RuntimeManagementConfig"
     },
     "DurableConfig" : {
-      "description" : "Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.",
+      "description" : "Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.",
       "$ref" : "#/definitions/DurableConfig"
     },
     "ReservedConcurrentExecutions" : {

@@ -279,6 +279,7 @@ class DbParameterGroup(pulumi.CustomResource):
             __props__.__dict__["family"] = family
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["db_parameter_group_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dbParameterGroupName", "description", "family"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbParameterGroup, __self__).__init__(
@@ -303,12 +304,18 @@ class DbParameterGroup(pulumi.CustomResource):
 
         __props__ = DbParameterGroupArgs.__new__(DbParameterGroupArgs)
 
+        __props__.__dict__["db_parameter_group_arn"] = None
         __props__.__dict__["db_parameter_group_name"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["family"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["tags"] = None
         return DbParameterGroup(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="dbParameterGroupArn")
+    def db_parameter_group_arn(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "db_parameter_group_arn")
 
     @_builtins.property
     @pulumi.getter(name="dbParameterGroupName")

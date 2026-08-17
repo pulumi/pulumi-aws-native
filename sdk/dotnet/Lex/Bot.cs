@@ -46,10 +46,22 @@ namespace Pulumi.AwsNative.Lex
         public Output<ImmutableArray<Outputs.BotLocale>> BotLocales { get; private set; } = null!;
 
         /// <summary>
+        /// The list of bot members in a network to be created.
+        /// </summary>
+        [Output("botMembers")]
+        public Output<ImmutableArray<Outputs.BotMember>> BotMembers { get; private set; } = null!;
+
+        /// <summary>
         /// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         /// </summary>
         [Output("botTags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> BotTags { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of a bot to create.
+        /// </summary>
+        [Output("botType")]
+        public Output<Pulumi.AwsNative.Lex.BotType?> BotType { get; private set; } = null!;
 
         /// <summary>
         /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
@@ -126,6 +138,10 @@ namespace Pulumi.AwsNative.Lex
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "botType",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -172,6 +188,18 @@ namespace Pulumi.AwsNative.Lex
             set => _botLocales = value;
         }
 
+        [Input("botMembers")]
+        private InputList<Inputs.BotMemberArgs>? _botMembers;
+
+        /// <summary>
+        /// The list of bot members in a network to be created.
+        /// </summary>
+        public InputList<Inputs.BotMemberArgs> BotMembers
+        {
+            get => _botMembers ?? (_botMembers = new InputList<Inputs.BotMemberArgs>());
+            set => _botMembers = value;
+        }
+
         [Input("botTags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _botTags;
 
@@ -183,6 +211,12 @@ namespace Pulumi.AwsNative.Lex
             get => _botTags ?? (_botTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _botTags = value;
         }
+
+        /// <summary>
+        /// The type of a bot to create.
+        /// </summary>
+        [Input("botType")]
+        public Input<Pulumi.AwsNative.Lex.BotType>? BotType { get; set; }
 
         /// <summary>
         /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.

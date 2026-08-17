@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy',
+    'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope',
     'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy',
     'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy',
     'OrganizationTelemetryRuleAction',
@@ -44,6 +45,12 @@ class OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflic
     """
     ALLOW = "ALLOW"
     SKIP = "SKIP"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope")
+class OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope(_builtins.str, Enum):
+    ENCRYPTED_SOURCE_ONLY = "ENCRYPTED_SOURCE_ONLY"
+    NEW_DESTINATION_LOG_GROUPS = "NEW_DESTINATION_LOG_GROUPS"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy")

@@ -11,3 +11,43 @@ export const ReviewTemplateUpdateStatus = {
  * The latest status of the review template.
  */
 export type ReviewTemplateUpdateStatus = (typeof ReviewTemplateUpdateStatus)[keyof typeof ReviewTemplateUpdateStatus];
+
+export const WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Discovery integration status in respect to Trusted Advisor for the workload.
+ */
+export type WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus = (typeof WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus)[keyof typeof WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus];
+
+export const WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem = {
+    WorkloadMetadata: "WORKLOAD_METADATA",
+    AppRegistry: "APP_REGISTRY",
+} as const;
+
+export type WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem = (typeof WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem)[keyof typeof WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem];
+
+export const WorkloadEnvironment = {
+    Production: "PRODUCTION",
+    Preproduction: "PREPRODUCTION",
+} as const;
+
+/**
+ * The environment for the workload.
+ */
+export type WorkloadEnvironment = (typeof WorkloadEnvironment)[keyof typeof WorkloadEnvironment];
+
+export const WorkloadImprovementStatus = {
+    NotApplicable: "NOT_APPLICABLE",
+    NotStarted: "NOT_STARTED",
+    InProgress: "IN_PROGRESS",
+    Complete: "COMPLETE",
+    RiskAcknowledged: "RISK_ACKNOWLEDGED",
+} as const;
+
+/**
+ * The improvement status for a workload.
+ */
+export type WorkloadImprovementStatus = (typeof WorkloadImprovementStatus)[keyof typeof WorkloadImprovementStatus];

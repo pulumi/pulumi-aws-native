@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         [Input("autoSoftwareUpdateEnabled")]
         public Input<bool>? AutoSoftwareUpdateEnabled { get; set; }
 
+        [Input("useLatestServiceSoftwareForBlueGreen")]
+        public Input<bool>? UseLatestServiceSoftwareForBlueGreen { get; set; }
+
         public DomainSoftwareUpdateOptionsArgs()
         {
         }

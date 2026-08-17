@@ -19,6 +19,7 @@ __all__ = [
     'QueryDefinitionQueryLanguage',
     'ScheduledQueryLastExecutionStatus',
     'ScheduledQueryState',
+    'StorageTierPolicyStorageTier',
     'SubscriptionFilterDistribution',
     'TransformerEventSource',
     'TransformerOcsfVersion',
@@ -165,6 +166,14 @@ class ScheduledQueryLastExecutionStatus(_builtins.str, Enum):
 class ScheduledQueryState(_builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:logs:StorageTierPolicyStorageTier")
+class StorageTierPolicyStorageTier(_builtins.str, Enum):
+    """
+    The storage tier to apply. Only INTELLIGENT_TIERING is accepted for creation.
+    """
+    INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
 
 
 @pulumi.type_token("aws-native:logs:SubscriptionFilterDistribution")

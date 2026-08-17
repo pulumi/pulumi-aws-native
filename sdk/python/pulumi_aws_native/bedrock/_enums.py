@@ -123,6 +123,7 @@ __all__ = [
     'PromptVersionCachePointType',
     'PromptVersionConversationRole',
     'PromptVersionPromptTemplateType',
+    'SessionStatus',
 ]
 
 
@@ -1254,3 +1255,13 @@ class PromptVersionPromptTemplateType(_builtins.str, Enum):
     """
     TEXT = "TEXT"
     CHAT = "CHAT"
+
+
+@pulumi.type_token("aws-native:bedrock:SessionStatus")
+class SessionStatus(_builtins.str, Enum):
+    """
+    The current status of the session.
+    """
+    ACTIVE = "ACTIVE"
+    EXPIRED = "EXPIRED"
+    ENDED = "ENDED"

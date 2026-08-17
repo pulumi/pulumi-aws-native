@@ -180,7 +180,7 @@ class CodeSecurityIntegration(pulumi.CustomResource):
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reason"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["createIntegrationDetails", "tags.*"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["createIntegrationDetails"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CodeSecurityIntegration, __self__).__init__(
             'aws-native:inspectorv2:CodeSecurityIntegration',

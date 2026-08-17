@@ -151,7 +151,7 @@
   "required" : [ "ConfigurationSetName", "EventDestination" ],
   "createOnlyProperties" : [ "/properties/ConfigurationSetName" ],
   "readOnlyProperties" : [ "/properties/Id" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
+  "primaryIdentifier" : [ "/properties/Id", "/properties/ConfigurationSetName" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ses:CreateConfigurationSetEventDestination", "ses:GetConfigurationSetEventDestinations", "ses:DescribeConfigurationSet" ]

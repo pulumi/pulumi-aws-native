@@ -1288,6 +1288,13 @@ func (o ScheduledActionTypePtrOutput) ResumeCluster() ScheduledActionResumeClust
 	}).(ScheduledActionResumeClusterMessagePtrOutput)
 }
 
+type SnapshotScheduleTag struct {
+	// The key, or name, for the resource tag.
+	Key string `pulumi:"key"`
+	// The value for the resource tag.
+	Value string `pulumi:"value"`
+}
+
 // The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
 type VpcEndpointProperties struct {
 	// One or more network interfaces of the endpoint. Also known as an interface endpoint.

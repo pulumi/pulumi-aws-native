@@ -13,11 +13,16 @@ import * as utilities from "../utilities";
 export function getConfigurationSetEventDestination(args: GetConfigurationSetEventDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetEventDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getConfigurationSetEventDestination", {
+        "configurationSetName": args.configurationSetName,
         "id": args.id,
     }, opts);
 }
 
 export interface GetConfigurationSetEventDestinationArgs {
+    /**
+     * The name of the configuration set that contains the event destination.
+     */
+    configurationSetName: string;
     id: string;
 }
 
@@ -34,10 +39,15 @@ export interface GetConfigurationSetEventDestinationResult {
 export function getConfigurationSetEventDestinationOutput(args: GetConfigurationSetEventDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationSetEventDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getConfigurationSetEventDestination", {
+        "configurationSetName": args.configurationSetName,
         "id": args.id,
     }, opts);
 }
 
 export interface GetConfigurationSetEventDestinationOutputArgs {
+    /**
+     * The name of the configuration set that contains the event destination.
+     */
+    configurationSetName: pulumi.Input<string>;
     id: pulumi.Input<string>;
 }

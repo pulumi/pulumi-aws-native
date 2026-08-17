@@ -269,6 +269,157 @@ namespace Pulumi.AwsNative.InspectorV2
     }
 
     [EnumType]
+    public readonly struct ConnectorCloudProvider : IEquatable<ConnectorCloudProvider>
+    {
+        private readonly string _value;
+
+        private ConnectorCloudProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorCloudProvider Azure { get; } = new ConnectorCloudProvider("AZURE");
+
+        public static bool operator ==(ConnectorCloudProvider left, ConnectorCloudProvider right) => left.Equals(right);
+        public static bool operator !=(ConnectorCloudProvider left, ConnectorCloudProvider right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorCloudProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorCloudProvider other && Equals(other);
+        public bool Equals(ConnectorCloudProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectorHealthStatus : IEquatable<ConnectorHealthStatus>
+    {
+        private readonly string _value;
+
+        private ConnectorHealthStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorHealthStatus Connected { get; } = new ConnectorHealthStatus("CONNECTED");
+        public static ConnectorHealthStatus Degraded { get; } = new ConnectorHealthStatus("DEGRADED");
+        public static ConnectorHealthStatus FailedToConnect { get; } = new ConnectorHealthStatus("FAILED_TO_CONNECT");
+        public static ConnectorHealthStatus PendingAuthorization { get; } = new ConnectorHealthStatus("PENDING_AUTHORIZATION");
+        public static ConnectorHealthStatus PendingConfiguration { get; } = new ConnectorHealthStatus("PENDING_CONFIGURATION");
+        public static ConnectorHealthStatus Unknown { get; } = new ConnectorHealthStatus("UNKNOWN");
+
+        public static bool operator ==(ConnectorHealthStatus left, ConnectorHealthStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectorHealthStatus left, ConnectorHealthStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorHealthStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorHealthStatus other && Equals(other);
+        public bool Equals(ConnectorHealthStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectorScopeState : IEquatable<ConnectorScopeState>
+    {
+        private readonly string _value;
+
+        private ConnectorScopeState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorScopeState Active { get; } = new ConnectorScopeState("ACTIVE");
+        public static ConnectorScopeState Pending { get; } = new ConnectorScopeState("PENDING");
+        public static ConnectorScopeState Error { get; } = new ConnectorScopeState("ERROR");
+        public static ConnectorScopeState Disabled { get; } = new ConnectorScopeState("DISABLED");
+
+        public static bool operator ==(ConnectorScopeState left, ConnectorScopeState right) => left.Equals(right);
+        public static bool operator !=(ConnectorScopeState left, ConnectorScopeState right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorScopeState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorScopeState other && Equals(other);
+        public bool Equals(ConnectorScopeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectorScopeType : IEquatable<ConnectorScopeType>
+    {
+        private readonly string _value;
+
+        private ConnectorScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorScopeType Tenant { get; } = new ConnectorScopeType("TENANT");
+        public static ConnectorScopeType Subscription { get; } = new ConnectorScopeType("SUBSCRIPTION");
+
+        public static bool operator ==(ConnectorScopeType left, ConnectorScopeType right) => left.Equals(right);
+        public static bool operator !=(ConnectorScopeType left, ConnectorScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorScopeType other && Equals(other);
+        public bool Equals(ConnectorScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectorState : IEquatable<ConnectorState>
+    {
+        private readonly string _value;
+
+        private ConnectorState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorState Enabled { get; } = new ConnectorState("ENABLED");
+        public static ConnectorState PendingEnablement { get; } = new ConnectorState("PENDING_ENABLEMENT");
+        public static ConnectorState FailedToEnable { get; } = new ConnectorState("FAILED_TO_ENABLE");
+        public static ConnectorState PendingUpdate { get; } = new ConnectorState("PENDING_UPDATE");
+        public static ConnectorState FailedToUpdate { get; } = new ConnectorState("FAILED_TO_UPDATE");
+        public static ConnectorState PendingDeletion { get; } = new ConnectorState("PENDING_DELETION");
+        public static ConnectorState Deleted { get; } = new ConnectorState("DELETED");
+        public static ConnectorState FailedToDelete { get; } = new ConnectorState("FAILED_TO_DELETE");
+
+        public static bool operator ==(ConnectorState left, ConnectorState right) => left.Equals(right);
+        public static bool operator !=(ConnectorState left, ConnectorState right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorState other && Equals(other);
+        public bool Equals(ConnectorState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FilterAction : IEquatable<FilterAction>
     {
         private readonly string _value;

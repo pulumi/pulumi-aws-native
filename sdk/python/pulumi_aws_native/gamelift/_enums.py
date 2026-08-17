@@ -223,6 +223,7 @@ class ContainerFleetStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
     UPDATING = "UPDATING"
     DELETING = "DELETING"
+    EXPIRED = "EXPIRED"
 
 
 @pulumi.type_token("aws-native:gamelift:ContainerFleetStoppedActionsItem")

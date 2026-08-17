@@ -5128,13 +5128,13 @@ func (o ListenerRuleRewriteConfigObjectPtrOutput) Rewrites() ListenerRuleRewrite
 
 // Specifies a condition for a listener rule.
 type ListenerRuleRuleCondition struct {
-	// The field in the HTTP request. The following are the possible values:
-	//   +   ``http-header``
-	//   +   ``http-request-method``
-	//   +   ``host-header``
-	//   +   ``path-pattern``
-	//   +   ``query-string``
-	//   +   ``source-ip``
+	// The name of the field. The possible values are:
+	//   +  ``http-header`` – [ALB] Matches on an HTTP header field.
+	//   +  ``http-request-method`` – [ALB] Matches on the HTTP request method.
+	//   +  ``host-header`` – [ALB] Matches on the host header.
+	//   +  ``path-pattern`` – [ALB] Matches on the URL path of the request.
+	//   +  ``query-string`` – [ALB] Matches on a query string parameter.
+	//   +  ``source-ip`` – [ALB, NLB] Matches on the source IP address. For ALB, use ``SourceIpConfig`` with ``Values`` to specify CIDR ranges. For NLB, use ``SourceIpConfig`` with ``IpAddressType`` to match the IP address type (``ipv4`` or ``ipv6``).
 	Field *string `pulumi:"field"`
 	// Information for a host header condition. Specify only when ``Field`` is ``host-header``.
 	HostHeaderConfig *ListenerRuleHostHeaderConfig `pulumi:"hostHeaderConfig"`
@@ -5179,13 +5179,13 @@ type ListenerRuleRuleConditionInput interface {
 
 // Specifies a condition for a listener rule.
 type ListenerRuleRuleConditionArgs struct {
-	// The field in the HTTP request. The following are the possible values:
-	//   +   ``http-header``
-	//   +   ``http-request-method``
-	//   +   ``host-header``
-	//   +   ``path-pattern``
-	//   +   ``query-string``
-	//   +   ``source-ip``
+	// The name of the field. The possible values are:
+	//   +  ``http-header`` – [ALB] Matches on an HTTP header field.
+	//   +  ``http-request-method`` – [ALB] Matches on the HTTP request method.
+	//   +  ``host-header`` – [ALB] Matches on the host header.
+	//   +  ``path-pattern`` – [ALB] Matches on the URL path of the request.
+	//   +  ``query-string`` – [ALB] Matches on a query string parameter.
+	//   +  ``source-ip`` – [ALB, NLB] Matches on the source IP address. For ALB, use ``SourceIpConfig`` with ``Values`` to specify CIDR ranges. For NLB, use ``SourceIpConfig`` with ``IpAddressType`` to match the IP address type (``ipv4`` or ``ipv6``).
 	Field pulumi.StringPtrInput `pulumi:"field"`
 	// Information for a host header condition. Specify only when ``Field`` is ``host-header``.
 	HostHeaderConfig ListenerRuleHostHeaderConfigPtrInput `pulumi:"hostHeaderConfig"`
@@ -5269,13 +5269,13 @@ func (o ListenerRuleRuleConditionOutput) ToListenerRuleRuleConditionOutputWithCo
 	return o
 }
 
-// The field in the HTTP request. The following are the possible values:
-//   - “http-header“
-//   - “http-request-method“
-//   - “host-header“
-//   - “path-pattern“
-//   - “query-string“
-//   - “source-ip“
+// The name of the field. The possible values are:
+//   - “http-header“ – [ALB] Matches on an HTTP header field.
+//   - “http-request-method“ – [ALB] Matches on the HTTP request method.
+//   - “host-header“ – [ALB] Matches on the host header.
+//   - “path-pattern“ – [ALB] Matches on the URL path of the request.
+//   - “query-string“ – [ALB] Matches on a query string parameter.
+//   - “source-ip“ – [ALB, NLB] Matches on the source IP address. For ALB, use “SourceIpConfig“ with “Values“ to specify CIDR ranges. For NLB, use “SourceIpConfig“ with “IpAddressType“ to match the IP address type (“ipv4“ or “ipv6“).
 func (o ListenerRuleRuleConditionOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -5358,6 +5358,7 @@ func (o ListenerRuleRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerR
 // Information about a source IP condition.
 //
 //	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+//	For Application Load Balancers, use ``Values`` to specify CIDR ranges. For Network Load Balancers, use ``IpAddressType`` to match on the IP address type of the source traffic.
 type ListenerRuleSourceIpConfig struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
@@ -5379,6 +5380,7 @@ type ListenerRuleSourceIpConfigInput interface {
 // Information about a source IP condition.
 //
 //	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+//	For Application Load Balancers, use ``Values`` to specify CIDR ranges. For Network Load Balancers, use ``IpAddressType`` to match on the IP address type of the source traffic.
 type ListenerRuleSourceIpConfigArgs struct {
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.
@@ -5442,6 +5444,7 @@ func (i *listenerRuleSourceIpConfigPtrType) ToListenerRuleSourceIpConfigPtrOutpu
 // Information about a source IP condition.
 //
 //	You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+//	For Application Load Balancers, use ``Values`` to specify CIDR ranges. For Network Load Balancers, use ``IpAddressType`` to match on the IP address type of the source traffic.
 type ListenerRuleSourceIpConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleSourceIpConfigOutput) ElementType() reflect.Type {
@@ -5522,8 +5525,11 @@ func (o ListenerRuleSourceIpConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about a tag.
 type ListenerRuleTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -5901,8 +5907,11 @@ func (o ListenerRuleTransformArrayOutput) Index(i pulumi.IntInput) ListenerRuleT
 	}).(ListenerRuleTransformOutput)
 }
 
+// Information about a tag.
 type ListenerTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

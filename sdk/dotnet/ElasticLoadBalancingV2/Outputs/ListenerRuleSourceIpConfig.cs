@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     /// <summary>
     /// Information about a source IP condition.
     ///  You can use this condition to route based on the IP address of the source that connects to the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the IP address of the client.
+    ///  For Application Load Balancers, use ``Values`` to specify CIDR ranges. For Network Load Balancers, use ``IpAddressType`` to match on the IP address type of the source traffic.
     /// </summary>
     [OutputType]
     public sealed class ListenerRuleSourceIpConfig

@@ -22,6 +22,8 @@ __all__ = [
     'ServiceRegisteredMcpServerGrafanaDetailsAuthorizationMethod',
     'ServiceRegisteredNewRelicDetailsRegion',
     'ServiceType',
+    'TriggerStatus',
+    'TriggerType',
 ]
 
 
@@ -184,3 +186,20 @@ class ServiceType(_builtins.str, Enum):
     AZUREIDENTITY = "azureidentity"
     MCPSERVERSIGV4 = "mcpserversigv4"
     MCPSERVERGRAFANA = "mcpservergrafana"
+
+
+@pulumi.type_token("aws-native:devopsagent:TriggerStatus")
+class TriggerStatus(_builtins.str, Enum):
+    """
+    The status of the trigger. Active triggers fire on schedule; Inactive triggers are paused.
+    """
+    ACTIVE = "Active"
+    INACTIVE = "Inactive"
+
+
+@pulumi.type_token("aws-native:devopsagent:TriggerType")
+class TriggerType(_builtins.str, Enum):
+    """
+    The type of trigger.
+    """
+    TIME_BASED = "TIME_BASED"

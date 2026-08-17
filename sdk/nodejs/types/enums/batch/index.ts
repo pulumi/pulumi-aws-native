@@ -2,6 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType = {
+    OnDemand: "ON_DEMAND",
+    Spot: "SPOT",
+    Reserved: "RESERVED",
+} as const;
+
+export type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType = (typeof ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType)[keyof typeof ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType];
+
 export const ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType = {
     EksBootstrapSh: "EKS_BOOTSTRAP_SH",
     EksNodeadm: "EKS_NODEADM",
@@ -21,6 +29,13 @@ export const ComputeEnvironmentLaunchTemplateSpecificationUserdataType = {
  * The EKS node initialization process to use. You only need to specify this value if you are using a custom AMI. The default value is `EKS_BOOTSTRAP_SH` . If *imageType* is a custom AMI based on EKS_AL2023 or EKS_AL2023_NVIDIA then you must choose `EKS_NODEADM` .
  */
 export type ComputeEnvironmentLaunchTemplateSpecificationUserdataType = (typeof ComputeEnvironmentLaunchTemplateSpecificationUserdataType)[keyof typeof ComputeEnvironmentLaunchTemplateSpecificationUserdataType];
+
+export const ComputeEnvironmentManagedInstancesProviderPropagateTags = {
+    CapacityProvider: "CAPACITY_PROVIDER",
+    None: "NONE",
+} as const;
+
+export type ComputeEnvironmentManagedInstancesProviderPropagateTags = (typeof ComputeEnvironmentManagedInstancesProviderPropagateTags)[keyof typeof ComputeEnvironmentManagedInstancesProviderPropagateTags];
 
 export const ConsumableResourceResourceType = {
     Replenishable: "REPLENISHABLE",

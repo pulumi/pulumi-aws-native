@@ -630,13 +630,17 @@ class BucketAnalyticsConfigurationArgs:
 
 
 class BucketAnnotationTableConfigurationArgsDict(TypedDict):
+    """
+    The annotation table configuration for an S3 Metadata configuration. The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+      If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
+    """
     configuration_state: pulumi.Input['BucketAnnotationTableConfigurationConfigurationState']
     """
-    Specifies whether annotation table configuration is enabled or disabled.
+    Specifies whether the annotation table configuration is enabled or disabled.
     """
     encryption_configuration: NotRequired[pulumi.Input[Optional['BucketMetadataTableEncryptionConfigurationArgsDict']]]
     """
-    The encryption configuration for the annotation table.
+    The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set ``SseAlgorithm`` to ``aws:kms``. You must also set ``KmsKeyArn`` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
     """
     role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -644,7 +648,7 @@ class BucketAnnotationTableConfigurationArgsDict(TypedDict):
     """
     table_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the annotation table.
+    The Amazon Resource Name (ARN) for the annotation table.
     """
     table_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -660,10 +664,13 @@ class BucketAnnotationTableConfigurationArgs:
                  table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['BucketAnnotationTableConfigurationConfigurationState'] configuration_state: Specifies whether annotation table configuration is enabled or disabled.
-        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the annotation table.
+        The annotation table configuration for an S3 Metadata configuration. The annotation table tracks all annotations on objects in your bucket so that you can query annotation data at scale.
+          If you've disabled your annotation table configuration and now want to re-enable it, you must first manually delete the old annotation table from your AWS managed table bucket. Otherwise, the newly re-enabled annotation table configuration will enter a failed state because the annotation table already exists in the table bucket.
+
+        :param pulumi.Input['BucketAnnotationTableConfigurationConfigurationState'] configuration_state: Specifies whether the annotation table configuration is enabled or disabled.
+        :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set ``SseAlgorithm`` to ``aws:kms``. You must also set ``KmsKeyArn`` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
         :param pulumi.Input[_builtins.str] role: The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
-        :param pulumi.Input[_builtins.str] table_arn: The ARN of the annotation table.
+        :param pulumi.Input[_builtins.str] table_arn: The Amazon Resource Name (ARN) for the annotation table.
         :param pulumi.Input[_builtins.str] table_name: The name of the annotation table.
         """
         pulumi.set(__self__, "configuration_state", configuration_state)
@@ -680,7 +687,7 @@ class BucketAnnotationTableConfigurationArgs:
     @pulumi.getter(name="configurationState")
     def configuration_state(self) -> pulumi.Input['BucketAnnotationTableConfigurationConfigurationState']:
         """
-        Specifies whether annotation table configuration is enabled or disabled.
+        Specifies whether the annotation table configuration is enabled or disabled.
         """
         return pulumi.get(self, "configuration_state")
 
@@ -692,7 +699,7 @@ class BucketAnnotationTableConfigurationArgs:
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Input[Optional['BucketMetadataTableEncryptionConfigurationArgs']]:
         """
-        The encryption configuration for the annotation table.
+        The encryption configuration for the annotation table. To encrypt your annotation table with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS), set ``SseAlgorithm`` to ``aws:kms``. You must also set ``KmsKeyArn`` to the ARN of a customer managed KMS key in the same Region where your general purpose bucket is located.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -716,7 +723,7 @@ class BucketAnnotationTableConfigurationArgs:
     @pulumi.getter(name="tableArn")
     def table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the annotation table.
+        The Amazon Resource Name (ARN) for the annotation table.
         """
         return pulumi.get(self, "table_arn")
 
@@ -1643,6 +1650,7 @@ class BucketInventoryConfigurationArgs:
 class BucketInventoryTableConfigurationArgsDict(TypedDict):
     """
     The inventory table configuration for an S3 Metadata configuration.
+      If you've disabled your inventory table configuration and now want to re-enable it, you must first manually delete the old inventory table from your AWS managed table bucket. Otherwise, the newly re-enabled inventory table configuration will enter a failed state because the inventory table already exists in the table bucket.
     """
     configuration_state: pulumi.Input['BucketInventoryTableConfigurationConfigurationState']
     """
@@ -1670,6 +1678,7 @@ class BucketInventoryTableConfigurationArgs:
                  table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The inventory table configuration for an S3 Metadata configuration.
+          If you've disabled your inventory table configuration and now want to re-enable it, you must first manually delete the old inventory table from your AWS managed table bucket. Otherwise, the newly re-enabled inventory table configuration will enter a failed state because the inventory table already exists in the table bucket.
 
         :param pulumi.Input['BucketInventoryTableConfigurationConfigurationState'] configuration_state: The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.
         :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the inventory table.
@@ -1735,7 +1744,8 @@ class BucketInventoryTableConfigurationArgs:
 
 class BucketJournalTableConfigurationArgsDict(TypedDict):
     """
-    The journal table configuration for an S3 Metadata configuration.
+    The journal table configuration for an S3 Metadata configuration. The journal table is required for each metadata table configuration and cannot be disabled.
+      The journal configuration will enter a failed state if a journal table already exists in the table bucket. The journal table of a previous configuration must be deleted before a new journal table can be created successfully.
     """
     record_expiration: pulumi.Input['BucketRecordExpirationArgsDict']
     """
@@ -1762,7 +1772,8 @@ class BucketJournalTableConfigurationArgs:
                  table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        The journal table configuration for an S3 Metadata configuration.
+        The journal table configuration for an S3 Metadata configuration. The journal table is required for each metadata table configuration and cannot be disabled.
+          The journal configuration will enter a failed state if a journal table already exists in the table bucket. The journal table of a previous configuration must be deleted before a new journal table can be created successfully.
 
         :param pulumi.Input['BucketRecordExpirationArgs'] record_expiration: The journal table record expiration settings for the journal table.
         :param pulumi.Input['BucketMetadataTableEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for the journal table.
@@ -2051,6 +2062,9 @@ class BucketMetadataConfigurationArgsDict(TypedDict):
     The journal table configuration for a metadata configuration.
     """
     annotation_table_configuration: NotRequired[pulumi.Input[Optional['BucketAnnotationTableConfigurationArgsDict']]]
+    """
+    The annotation table configuration for a metadata configuration.
+    """
     destination: NotRequired[pulumi.Input[Optional['BucketMetadataDestinationArgsDict']]]
     """
     The destination information for the S3 Metadata configuration.
@@ -2071,6 +2085,7 @@ class BucketMetadataConfigurationArgs:
         Creates a V2 S3 Metadata configuration of a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
 
         :param pulumi.Input['BucketJournalTableConfigurationArgs'] journal_table_configuration: The journal table configuration for a metadata configuration.
+        :param pulumi.Input['BucketAnnotationTableConfigurationArgs'] annotation_table_configuration: The annotation table configuration for a metadata configuration.
         :param pulumi.Input['BucketMetadataDestinationArgs'] destination: The destination information for the S3 Metadata configuration.
         :param pulumi.Input['BucketInventoryTableConfigurationArgs'] inventory_table_configuration: The inventory table configuration for a metadata configuration.
         """
@@ -2097,6 +2112,9 @@ class BucketMetadataConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="annotationTableConfiguration")
     def annotation_table_configuration(self) -> pulumi.Input[Optional['BucketAnnotationTableConfigurationArgs']]:
+        """
+        The annotation table configuration for a metadata configuration.
+        """
         return pulumi.get(self, "annotation_table_configuration")
 
     @annotation_table_configuration.setter
@@ -5108,7 +5126,7 @@ class BucketTransitionArgsDict(TypedDict):
     """
     transition_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+    Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be ``0`` or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
     """
 
 @pulumi.input_type
@@ -5122,7 +5140,7 @@ class BucketTransitionArgs:
 
         :param pulumi.Input['BucketTransitionStorageClass'] storage_class: The storage class to which you want the object to transition.
         :param pulumi.Input[_builtins.str] transition_date: Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.
-        :param pulumi.Input[_builtins.int] transition_in_days: Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+        :param pulumi.Input[_builtins.int] transition_in_days: Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be ``0`` or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
         """
         pulumi.set(__self__, "storage_class", storage_class)
         if transition_date is not None:
@@ -5158,7 +5176,7 @@ class BucketTransitionArgs:
     @pulumi.getter(name="transitionInDays")
     def transition_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
+        Indicates the number of days after creation when objects are transitioned to the specified storage class. The value can be ``0`` or any positive integer. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "transition_in_days")
 

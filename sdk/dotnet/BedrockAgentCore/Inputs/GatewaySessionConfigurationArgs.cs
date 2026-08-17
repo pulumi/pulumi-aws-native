@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     public sealed class GatewaySessionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("sessionTimeoutInSeconds")]
-        public Input<int>? SessionTimeoutInSeconds { get; set; }
+        public Input<double>? SessionTimeoutInSeconds { get; set; }
 
         public GatewaySessionConfigurationArgs()
         {

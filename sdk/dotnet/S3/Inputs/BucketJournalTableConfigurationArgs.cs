@@ -11,7 +11,8 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// The journal table configuration for an S3 Metadata configuration.
+    /// The journal table configuration for an S3 Metadata configuration. The journal table is required for each metadata table configuration and cannot be disabled. 
+    ///   The journal configuration will enter a failed state if a journal table already exists in the table bucket. The journal table of a previous configuration must be deleted before a new journal table can be created successfully.
     /// </summary>
     public sealed class BucketJournalTableConfigurationArgs : global::Pulumi.ResourceArgs
     {

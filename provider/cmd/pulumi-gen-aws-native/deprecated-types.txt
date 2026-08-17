@@ -1,3 +1,4 @@
+AWS::AppStream::StackFleetAssociation
 AWS::DAX::SubnetGroup
 AWS::DataSync::StorageSystem
 AWS::GameCast::Application
@@ -11,6 +12,7 @@ AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
 AWS::OpsWorksCM::Server
 AWS::SNS::TopicPolicy
+AWS::SageMaker::ExperimentTrialComponent
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm

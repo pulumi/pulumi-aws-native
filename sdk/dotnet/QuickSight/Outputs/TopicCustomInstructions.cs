@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
+    /// <summary>
+    /// &lt;p&gt;Instructions that provide additional guidance and context for response generation.&lt;/p&gt;
+    /// </summary>
     [OutputType]
     public sealed class TopicCustomInstructions
     {
+        /// <summary>
+        /// &lt;p&gt;A text field for providing additional guidance or context for response generation.&lt;/p&gt;
+        /// </summary>
         public readonly string CustomInstructionsString;
 
         [OutputConstructor]

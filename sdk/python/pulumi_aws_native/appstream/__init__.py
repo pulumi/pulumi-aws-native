@@ -20,6 +20,7 @@ from .get_directory_config import *
 from .get_entitlement import *
 from .get_image_builder import *
 from .get_stack import *
+from .get_stack_fleet_association import *
 from .get_user import *
 from .image_builder import *
 from .stack import *

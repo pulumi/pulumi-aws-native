@@ -17,12 +17,20 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ComputeEnvironmentCapacityReservations',
     'ComputeEnvironmentComputeResources',
     'ComputeEnvironmentComputeScalingPolicy',
     'ComputeEnvironmentEc2ConfigurationObject',
     'ComputeEnvironmentEksConfiguration',
+    'ComputeEnvironmentInfrastructureOptimization',
+    'ComputeEnvironmentInstanceLaunchTemplate',
+    'ComputeEnvironmentInstanceRequirements',
     'ComputeEnvironmentLaunchTemplateSpecification',
     'ComputeEnvironmentLaunchTemplateSpecificationOverride',
+    'ComputeEnvironmentManagedInstancesLocalStorageConfiguration',
+    'ComputeEnvironmentManagedInstancesNetworkConfiguration',
+    'ComputeEnvironmentManagedInstancesProvider',
+    'ComputeEnvironmentManagedInstancesStorageConfiguration',
     'ComputeEnvironmentUpdatePolicy',
     'JobDefinitionConsumableResourceProperties',
     'JobDefinitionConsumableResourceRequirement',
@@ -87,6 +95,46 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class ComputeEnvironmentCapacityReservations(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reservationGroupArn":
+            suggest = "reservation_group_arn"
+        elif key == "reservationPreference":
+            suggest = "reservation_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentCapacityReservations. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentCapacityReservations.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentCapacityReservations.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reservation_group_arn: Optional[_builtins.str] = None,
+                 reservation_preference: Optional[_builtins.str] = None):
+        if reservation_group_arn is not None:
+            pulumi.set(__self__, "reservation_group_arn", reservation_group_arn)
+        if reservation_preference is not None:
+            pulumi.set(__self__, "reservation_preference", reservation_preference)
+
+    @_builtins.property
+    @pulumi.getter(name="reservationGroupArn")
+    def reservation_group_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "reservation_group_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="reservationPreference")
+    def reservation_preference(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "reservation_preference")
+
+
+@pulumi.output_type
 class ComputeEnvironmentComputeResources(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -97,6 +145,8 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "allocation_strategy"
         elif key == "bidPercentage":
             suggest = "bid_percentage"
+        elif key == "capacityTags":
+            suggest = "capacity_tags"
         elif key == "desiredvCpus":
             suggest = "desiredv_cpus"
         elif key == "ec2Configuration":
@@ -111,6 +161,8 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "instance_types"
         elif key == "launchTemplate":
             suggest = "launch_template"
+        elif key == "managedInstancesProvider":
+            suggest = "managed_instances_provider"
         elif key == "minvCpus":
             suggest = "minv_cpus"
         elif key == "placementGroup":
@@ -137,10 +189,10 @@ class ComputeEnvironmentComputeResources(dict):
 
     def __init__(__self__, *,
                  maxv_cpus: _builtins.int,
-                 subnets: Sequence[_builtins.str],
                  type: _builtins.str,
                  allocation_strategy: Optional[_builtins.str] = None,
                  bid_percentage: Optional[_builtins.int] = None,
+                 capacity_tags: Optional[Mapping[str, _builtins.str]] = None,
                  desiredv_cpus: Optional[_builtins.int] = None,
                  ec2_configuration: Optional[Sequence['outputs.ComputeEnvironmentEc2ConfigurationObject']] = None,
                  ec2_key_pair: Optional[_builtins.str] = None,
@@ -148,24 +200,19 @@ class ComputeEnvironmentComputeResources(dict):
                  instance_role: Optional[_builtins.str] = None,
                  instance_types: Optional[Sequence[_builtins.str]] = None,
                  launch_template: Optional['outputs.ComputeEnvironmentLaunchTemplateSpecification'] = None,
+                 managed_instances_provider: Optional['outputs.ComputeEnvironmentManagedInstancesProvider'] = None,
                  minv_cpus: Optional[_builtins.int] = None,
                  placement_group: Optional[_builtins.str] = None,
                  scaling_policy: Optional['outputs.ComputeEnvironmentComputeScalingPolicy'] = None,
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  spot_iam_fleet_role: Optional[_builtins.str] = None,
+                 subnets: Optional[Sequence[_builtins.str]] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  update_to_latest_image_version: Optional[_builtins.bool] = None):
         """
         :param _builtins.int maxv_cpus: The maximum number of Amazon EC2 vCPUs that an environment can reach.
                
                > With `BEST_FIT_PROGRESSIVE` , `SPOT_CAPACITY_OPTIMIZED` and `SPOT_PRICE_CAPACITY_OPTIMIZED` (recommended) strategies using On-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance.
-        :param Sequence[_builtins.str] subnets: The VPC subnets where the compute resources are launched. Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
-               
-               When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
-               
-               > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
-               > 
-               > AWS Batch on Fargate doesn't currently support Local Zones.
         :param _builtins.str type: The type of compute environment: `EC2` , `SPOT` , `FARGATE` , or `FARGATE_SPOT` . For more information, see [Compute environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
                
                If you choose `SPOT` , you must also specify an Amazon EC2 Spot Fleet role with the `spotIamFleetRole` parameter. For more information, see [Amazon EC2 spot fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide* .
@@ -192,6 +239,7 @@ class ComputeEnvironmentComputeResources(dict):
                When updating a compute environment, changing the bid percentage requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
                
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
+        :param Mapping[str, _builtins.str] capacity_tags: Capacity-level tags for compute environments.
         :param _builtins.int desiredv_cpus: The desired number of vCPUS in the compute environment. AWS Batch modifies this value between the minimum and maximum values based on job queue demand.
                
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify this parameter for compute environments using Amazon EKS clusters. > When you update the `desiredvCpus` setting, the value must be between the `minvCpus` and `maxvCpus` values.
@@ -251,6 +299,13 @@ class ComputeEnvironmentComputeResources(dict):
         :param _builtins.str spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a `SPOT` compute environment. This role is required if the allocation strategy set to `BEST_FIT` or if the allocation strategy isn't specified. For more information, see [Amazon EC2 spot fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide* .
                
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer *AmazonEC2SpotFleetTaggingRole* managed policy. The previously recommended *AmazonEC2SpotFleetRole* managed policy doesn't have the required permissions to tag Spot Instances. For more information, see [Spot instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the *AWS Batch User Guide* .
+        :param Sequence[_builtins.str] subnets: The VPC subnets where the compute resources are launched. Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+               
+               When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+               
+               > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
+               > 
+               > AWS Batch on Fargate doesn't currently support Local Zones.
         :param Mapping[str, _builtins.str] tags: A key-value pair to associate with a resource.
         :param _builtins.bool update_to_latest_image_version: Specifies whether the AMI ID is updated to the latest one that's supported by AWS Batch when the compute environment has an infrastructure update. The default value is `false` .
                
@@ -259,12 +314,13 @@ class ComputeEnvironmentComputeResources(dict):
                When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
         """
         pulumi.set(__self__, "maxv_cpus", maxv_cpus)
-        pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "type", type)
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         if bid_percentage is not None:
             pulumi.set(__self__, "bid_percentage", bid_percentage)
+        if capacity_tags is not None:
+            pulumi.set(__self__, "capacity_tags", capacity_tags)
         if desiredv_cpus is not None:
             pulumi.set(__self__, "desiredv_cpus", desiredv_cpus)
         if ec2_configuration is not None:
@@ -279,6 +335,8 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "instance_types", instance_types)
         if launch_template is not None:
             pulumi.set(__self__, "launch_template", launch_template)
+        if managed_instances_provider is not None:
+            pulumi.set(__self__, "managed_instances_provider", managed_instances_provider)
         if minv_cpus is not None:
             pulumi.set(__self__, "minv_cpus", minv_cpus)
         if placement_group is not None:
@@ -289,6 +347,8 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
             pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if update_to_latest_image_version is not None:
@@ -303,20 +363,6 @@ class ComputeEnvironmentComputeResources(dict):
         > With `BEST_FIT_PROGRESSIVE` , `SPOT_CAPACITY_OPTIMIZED` and `SPOT_PRICE_CAPACITY_OPTIMIZED` (recommended) strategies using On-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance.
         """
         return pulumi.get(self, "maxv_cpus")
-
-    @_builtins.property
-    @pulumi.getter
-    def subnets(self) -> Sequence[_builtins.str]:
-        """
-        The VPC subnets where the compute resources are launched. Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
-
-        When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
-
-        > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
-        > 
-        > AWS Batch on Fargate doesn't currently support Local Zones.
-        """
-        return pulumi.get(self, "subnets")
 
     @_builtins.property
     @pulumi.getter
@@ -364,6 +410,14 @@ class ComputeEnvironmentComputeResources(dict):
         > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
         """
         return pulumi.get(self, "bid_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityTags")
+    def capacity_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Capacity-level tags for compute environments.
+        """
+        return pulumi.get(self, "capacity_tags")
 
     @_builtins.property
     @pulumi.getter(name="desiredvCpus")
@@ -460,6 +514,11 @@ class ComputeEnvironmentComputeResources(dict):
         return pulumi.get(self, "launch_template")
 
     @_builtins.property
+    @pulumi.getter(name="managedInstancesProvider")
+    def managed_instances_provider(self) -> Optional['outputs.ComputeEnvironmentManagedInstancesProvider']:
+        return pulumi.get(self, "managed_instances_provider")
+
+    @_builtins.property
     @pulumi.getter(name="minvCpus")
     def minv_cpus(self) -> Optional[_builtins.int]:
         """
@@ -505,6 +564,20 @@ class ComputeEnvironmentComputeResources(dict):
         > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer *AmazonEC2SpotFleetTaggingRole* managed policy. The previously recommended *AmazonEC2SpotFleetRole* managed policy doesn't have the required permissions to tag Spot Instances. For more information, see [Spot instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the *AWS Batch User Guide* .
         """
         return pulumi.get(self, "spot_iam_fleet_role")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The VPC subnets where the compute resources are launched. Fargate compute resources can contain up to 16 subnets. For Fargate compute resources, providing an empty list will be handled as if this parameter wasn't specified and no change is made. For Amazon EC2 compute resources, providing an empty list removes the VPC subnets from the compute resource. For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide* .
+
+        When updating a compute environment, changing the VPC subnets requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+
+        > AWS Batch on Amazon EC2 and AWS Batch on Amazon EKS support Local Zones. For more information, see [Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones) in the *Amazon EC2 User Guide for Linux Instances* , [Amazon EKS and AWS Local Zones](https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html) in the *Amazon EKS User Guide* and [Amazon ECS clusters in Local Zones, Wavelength Zones, and AWS Outposts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones) in the *Amazon ECS Developer Guide* .
+        > 
+        > AWS Batch on Fargate doesn't currently support Local Zones.
+        """
+        return pulumi.get(self, "subnets")
 
     @_builtins.property
     @pulumi.getter
@@ -730,6 +803,182 @@ class ComputeEnvironmentEksConfiguration(dict):
         The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
         """
         return pulumi.get(self, "kubernetes_namespace")
+
+
+@pulumi.output_type
+class ComputeEnvironmentInfrastructureOptimization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleInAfter":
+            suggest = "scale_in_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentInfrastructureOptimization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentInfrastructureOptimization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentInfrastructureOptimization.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scale_in_after: Optional[_builtins.int] = None):
+        if scale_in_after is not None:
+            pulumi.set(__self__, "scale_in_after", scale_in_after)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfter")
+    def scale_in_after(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "scale_in_after")
+
+
+@pulumi.output_type
+class ComputeEnvironmentInstanceLaunchTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ec2InstanceProfileArn":
+            suggest = "ec2_instance_profile_arn"
+        elif key == "networkConfiguration":
+            suggest = "network_configuration"
+        elif key == "capacityOptionType":
+            suggest = "capacity_option_type"
+        elif key == "capacityReservations":
+            suggest = "capacity_reservations"
+        elif key == "fipsEnabled":
+            suggest = "fips_enabled"
+        elif key == "instanceMetadataTagsPropagation":
+            suggest = "instance_metadata_tags_propagation"
+        elif key == "instanceRequirements":
+            suggest = "instance_requirements"
+        elif key == "localStorageConfiguration":
+            suggest = "local_storage_configuration"
+        elif key == "storageConfiguration":
+            suggest = "storage_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentInstanceLaunchTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentInstanceLaunchTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentInstanceLaunchTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ec2_instance_profile_arn: _builtins.str,
+                 network_configuration: 'outputs.ComputeEnvironmentManagedInstancesNetworkConfiguration',
+                 capacity_option_type: Optional['ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType'] = None,
+                 capacity_reservations: Optional['outputs.ComputeEnvironmentCapacityReservations'] = None,
+                 fips_enabled: Optional[_builtins.bool] = None,
+                 instance_metadata_tags_propagation: Optional[_builtins.bool] = None,
+                 instance_requirements: Optional['outputs.ComputeEnvironmentInstanceRequirements'] = None,
+                 local_storage_configuration: Optional['outputs.ComputeEnvironmentManagedInstancesLocalStorageConfiguration'] = None,
+                 monitoring: Optional[_builtins.str] = None,
+                 storage_configuration: Optional['outputs.ComputeEnvironmentManagedInstancesStorageConfiguration'] = None):
+        pulumi.set(__self__, "ec2_instance_profile_arn", ec2_instance_profile_arn)
+        pulumi.set(__self__, "network_configuration", network_configuration)
+        if capacity_option_type is not None:
+            pulumi.set(__self__, "capacity_option_type", capacity_option_type)
+        if capacity_reservations is not None:
+            pulumi.set(__self__, "capacity_reservations", capacity_reservations)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if instance_metadata_tags_propagation is not None:
+            pulumi.set(__self__, "instance_metadata_tags_propagation", instance_metadata_tags_propagation)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
+        if local_storage_configuration is not None:
+            pulumi.set(__self__, "local_storage_configuration", local_storage_configuration)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if storage_configuration is not None:
+            pulumi.set(__self__, "storage_configuration", storage_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="ec2InstanceProfileArn")
+    def ec2_instance_profile_arn(self) -> _builtins.str:
+        return pulumi.get(self, "ec2_instance_profile_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> 'outputs.ComputeEnvironmentManagedInstancesNetworkConfiguration':
+        return pulumi.get(self, "network_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityOptionType")
+    def capacity_option_type(self) -> Optional['ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType']:
+        return pulumi.get(self, "capacity_option_type")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservations")
+    def capacity_reservations(self) -> Optional['outputs.ComputeEnvironmentCapacityReservations']:
+        return pulumi.get(self, "capacity_reservations")
+
+    @_builtins.property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "fips_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceMetadataTagsPropagation")
+    def instance_metadata_tags_propagation(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "instance_metadata_tags_propagation")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional['outputs.ComputeEnvironmentInstanceRequirements']:
+        return pulumi.get(self, "instance_requirements")
+
+    @_builtins.property
+    @pulumi.getter(name="localStorageConfiguration")
+    def local_storage_configuration(self) -> Optional['outputs.ComputeEnvironmentManagedInstancesLocalStorageConfiguration']:
+        return pulumi.get(self, "local_storage_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def monitoring(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "monitoring")
+
+    @_builtins.property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional['outputs.ComputeEnvironmentManagedInstancesStorageConfiguration']:
+        return pulumi.get(self, "storage_configuration")
+
+
+@pulumi.output_type
+class ComputeEnvironmentInstanceRequirements(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedInstanceTypes":
+            suggest = "allowed_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentInstanceRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentInstanceRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentInstanceRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_instance_types: Optional[Sequence[_builtins.str]] = None):
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_instance_types")
 
 
 @pulumi.output_type
@@ -974,6 +1223,160 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
         Latest: `$Latest`
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ComputeEnvironmentManagedInstancesLocalStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useLocalStorage":
+            suggest = "use_local_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentManagedInstancesLocalStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentManagedInstancesLocalStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentManagedInstancesLocalStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_local_storage: Optional[_builtins.bool] = None):
+        if use_local_storage is not None:
+            pulumi.set(__self__, "use_local_storage", use_local_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="useLocalStorage")
+    def use_local_storage(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_local_storage")
+
+
+@pulumi.output_type
+class ComputeEnvironmentManagedInstancesNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentManagedInstancesNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentManagedInstancesNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentManagedInstancesNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ComputeEnvironmentManagedInstancesProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "infrastructureRoleArn":
+            suggest = "infrastructure_role_arn"
+        elif key == "instanceLaunchTemplate":
+            suggest = "instance_launch_template"
+        elif key == "infrastructureOptimization":
+            suggest = "infrastructure_optimization"
+        elif key == "propagateTags":
+            suggest = "propagate_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentManagedInstancesProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentManagedInstancesProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentManagedInstancesProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 infrastructure_role_arn: _builtins.str,
+                 instance_launch_template: 'outputs.ComputeEnvironmentInstanceLaunchTemplate',
+                 infrastructure_optimization: Optional['outputs.ComputeEnvironmentInfrastructureOptimization'] = None,
+                 propagate_tags: Optional['ComputeEnvironmentManagedInstancesProviderPropagateTags'] = None):
+        pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
+        pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if infrastructure_optimization is not None:
+            pulumi.set(__self__, "infrastructure_optimization", infrastructure_optimization)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+
+    @_builtins.property
+    @pulumi.getter(name="infrastructureRoleArn")
+    def infrastructure_role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "infrastructure_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceLaunchTemplate")
+    def instance_launch_template(self) -> 'outputs.ComputeEnvironmentInstanceLaunchTemplate':
+        return pulumi.get(self, "instance_launch_template")
+
+    @_builtins.property
+    @pulumi.getter(name="infrastructureOptimization")
+    def infrastructure_optimization(self) -> Optional['outputs.ComputeEnvironmentInfrastructureOptimization']:
+        return pulumi.get(self, "infrastructure_optimization")
+
+    @_builtins.property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional['ComputeEnvironmentManagedInstancesProviderPropagateTags']:
+        return pulumi.get(self, "propagate_tags")
+
+
+@pulumi.output_type
+class ComputeEnvironmentManagedInstancesStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageSizeGiB":
+            suggest = "storage_size_gi_b"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentManagedInstancesStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentManagedInstancesStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentManagedInstancesStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_size_gi_b: Optional[_builtins.int] = None):
+        if storage_size_gi_b is not None:
+            pulumi.set(__self__, "storage_size_gi_b", storage_size_gi_b)
+
+    @_builtins.property
+    @pulumi.getter(name="storageSizeGiB")
+    def storage_size_gi_b(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "storage_size_gi_b")
 
 
 @pulumi.output_type
@@ -1630,6 +2033,8 @@ class JobDefinitionEcsTaskProperties(dict):
             suggest = "ipc_mode"
         elif key == "networkConfiguration":
             suggest = "network_configuration"
+        elif key == "networkMode":
+            suggest = "network_mode"
         elif key == "pidMode":
             suggest = "pid_mode"
         elif key == "platformVersion":
@@ -1657,6 +2062,7 @@ class JobDefinitionEcsTaskProperties(dict):
                  execution_role_arn: Optional[_builtins.str] = None,
                  ipc_mode: Optional[_builtins.str] = None,
                  network_configuration: Optional['outputs.JobDefinitionNetworkConfiguration'] = None,
+                 network_mode: Optional[_builtins.str] = None,
                  pid_mode: Optional[_builtins.str] = None,
                  platform_version: Optional[_builtins.str] = None,
                  runtime_platform: Optional['outputs.JobDefinitionRuntimePlatform'] = None,
@@ -1703,6 +2109,8 @@ class JobDefinitionEcsTaskProperties(dict):
             pulumi.set(__self__, "ipc_mode", ipc_mode)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if network_mode is not None:
+            pulumi.set(__self__, "network_mode", network_mode)
         if pid_mode is not None:
             pulumi.set(__self__, "pid_mode", pid_mode)
         if platform_version is not None:
@@ -1769,6 +2177,11 @@ class JobDefinitionEcsTaskProperties(dict):
         The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         """
         return pulumi.get(self, "network_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "network_mode")
 
     @_builtins.property
     @pulumi.getter(name="pidMode")

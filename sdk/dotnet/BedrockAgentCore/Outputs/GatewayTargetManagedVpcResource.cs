@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         public readonly string? RoutingDomain;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly ImmutableArray<string> SubnetIds;
+        public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string VpcIdentifier;
 
         [OutputConstructor]
@@ -29,12 +30,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<string> subnetIds,
 
+            ImmutableDictionary<string, string>? tags,
+
             string vpcIdentifier)
         {
             EndpointIpAddressType = endpointIpAddressType;
             RoutingDomain = routingDomain;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
+            Tags = tags;
             VpcIdentifier = vpcIdentifier;
         }
     }

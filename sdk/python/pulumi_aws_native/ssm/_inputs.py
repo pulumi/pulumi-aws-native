@@ -22,6 +22,14 @@ __all__ = [
     'AssociationS3OutputLocationArgsDict',
     'AssociationTargetArgs',
     'AssociationTargetArgsDict',
+    'CloudConnectorAzureConfigurationArgs',
+    'CloudConnectorAzureConfigurationArgsDict',
+    'CloudConnectorAzureSubscriptionArgs',
+    'CloudConnectorAzureSubscriptionArgsDict',
+    'CloudConnectorConfigurationArgs',
+    'CloudConnectorConfigurationArgsDict',
+    'CloudConnectorConfigurationTargetsArgs',
+    'CloudConnectorConfigurationTargetsArgsDict',
     'DocumentAttachmentsSourceArgs',
     'DocumentAttachmentsSourceArgsDict',
     'DocumentRequiresArgs',
@@ -213,6 +221,222 @@ class AssociationTargetArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "values", value)
+
+
+class CloudConnectorAzureConfigurationArgsDict(TypedDict):
+    """
+    Configuration for connecting to Azure.
+    """
+    application_id: pulumi.Input[_builtins.str]
+    """
+    The Azure AD application ID.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    The Azure AD tenant ID. Cannot be changed after creation.
+    """
+    application_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the Azure AD application.
+    """
+    targets: NotRequired[pulumi.Input[Optional['CloudConnectorConfigurationTargetsArgsDict']]]
+    tenant_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the Azure AD tenant.
+    """
+
+@pulumi.input_type
+class CloudConnectorAzureConfigurationArgs:
+    def __init__(__self__, *,
+                 application_id: pulumi.Input[_builtins.str],
+                 tenant_id: pulumi.Input[_builtins.str],
+                 application_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional['CloudConnectorConfigurationTargetsArgs']] = None,
+                 tenant_display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration for connecting to Azure.
+
+        :param pulumi.Input[_builtins.str] application_id: The Azure AD application ID.
+        :param pulumi.Input[_builtins.str] tenant_id: The Azure AD tenant ID. Cannot be changed after creation.
+        :param pulumi.Input[_builtins.str] application_display_name: The display name of the Azure AD application.
+        :param pulumi.Input[_builtins.str] tenant_display_name: The display name of the Azure AD tenant.
+        """
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if application_display_name is not None:
+            pulumi.set(__self__, "application_display_name", application_display_name)
+        if targets is not None:
+            pulumi.set(__self__, "targets", targets)
+        if tenant_display_name is not None:
+            pulumi.set(__self__, "tenant_display_name", tenant_display_name)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure AD application ID.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "application_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure AD tenant ID. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationDisplayName")
+    def application_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the Azure AD application.
+        """
+        return pulumi.get(self, "application_display_name")
+
+    @application_display_name.setter
+    def application_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Optional['CloudConnectorConfigurationTargetsArgs']]:
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Optional['CloudConnectorConfigurationTargetsArgs']]):
+        pulumi.set(self, "targets", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantDisplayName")
+    def tenant_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the Azure AD tenant.
+        """
+        return pulumi.get(self, "tenant_display_name")
+
+    @tenant_display_name.setter
+    def tenant_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tenant_display_name", value)
+
+
+class CloudConnectorAzureSubscriptionArgsDict(TypedDict):
+    """
+    An Azure subscription with its ID and optional display name.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The Azure subscription ID.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the Azure subscription.
+    """
+
+@pulumi.input_type
+class CloudConnectorAzureSubscriptionArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        An Azure subscription with its ID and optional display name.
+
+        :param pulumi.Input[_builtins.str] id: The Azure subscription ID.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Azure subscription.
+        """
+        pulumi.set(__self__, "id", id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Azure subscription ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the Azure subscription.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+
+class CloudConnectorConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the cloud connector. Currently supports Azure.
+    """
+    azure_configuration: pulumi.Input['CloudConnectorAzureConfigurationArgsDict']
+
+@pulumi.input_type
+class CloudConnectorConfigurationArgs:
+    def __init__(__self__, *,
+                 azure_configuration: pulumi.Input['CloudConnectorAzureConfigurationArgs']):
+        """
+        The configuration for the cloud connector. Currently supports Azure.
+        """
+        pulumi.set(__self__, "azure_configuration", azure_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="azureConfiguration")
+    def azure_configuration(self) -> pulumi.Input['CloudConnectorAzureConfigurationArgs']:
+        return pulumi.get(self, "azure_configuration")
+
+    @azure_configuration.setter
+    def azure_configuration(self, value: pulumi.Input['CloudConnectorAzureConfigurationArgs']):
+        pulumi.set(self, "azure_configuration", value)
+
+
+class CloudConnectorConfigurationTargetsArgsDict(TypedDict):
+    """
+    The targets for the cloud connector. If omitted, the entire tenant is targeted.
+    """
+    subscriptions: pulumi.Input[Sequence[pulumi.Input['CloudConnectorAzureSubscriptionArgsDict']]]
+    """
+    List of Azure subscriptions.
+    """
+
+@pulumi.input_type
+class CloudConnectorConfigurationTargetsArgs:
+    def __init__(__self__, *,
+                 subscriptions: pulumi.Input[Sequence[pulumi.Input['CloudConnectorAzureSubscriptionArgs']]]):
+        """
+        The targets for the cloud connector. If omitted, the entire tenant is targeted.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CloudConnectorAzureSubscriptionArgs']]] subscriptions: List of Azure subscriptions.
+        """
+        pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @_builtins.property
+    @pulumi.getter
+    def subscriptions(self) -> pulumi.Input[Sequence[pulumi.Input['CloudConnectorAzureSubscriptionArgs']]]:
+        """
+        List of Azure subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+    @subscriptions.setter
+    def subscriptions(self, value: pulumi.Input[Sequence[pulumi.Input['CloudConnectorAzureSubscriptionArgs']]]):
+        pulumi.set(self, "subscriptions", value)
 
 
 class DocumentAttachmentsSourceArgsDict(TypedDict):

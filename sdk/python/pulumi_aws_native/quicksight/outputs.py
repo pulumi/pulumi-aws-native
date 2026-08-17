@@ -596,6 +596,7 @@ __all__ = [
     'AnalysisWordCloudSortConfiguration',
     'AnalysisWordCloudVisual',
     'AnalysisYAxisOptions',
+    'ApprovalPolicyApplicableTo',
     'CustomPermissionsCapabilities',
     'DashboardAdHocFilteringOption',
     'DashboardAggregationFunction',
@@ -1315,6 +1316,10 @@ __all__ = [
     'DataSourceTeradataParameters',
     'DataSourceTrinoParameters',
     'DataSourceVpcConnectionProperties',
+    'DlpSettingLabelActionMapping',
+    'DlpSettingMicrosoftPurviewCredentials',
+    'DlpSettingMicrosoftPurviewProviderConfig',
+    'DlpSettingProviderConfigProperties',
     'FlowPermission',
     'FlowStepAliasMapping',
     'FolderResourcePermission',
@@ -1894,6 +1899,11 @@ __all__ = [
     'TopicSemanticEntityType',
     'TopicSemanticType',
     'TopicSingularFilterConstant',
+    'TopicV2CustomInstructions',
+    'TopicV2DataSetReference',
+    'TopicV2DataSetRelation',
+    'TopicV2DataSetRelationEndpoint',
+    'TopicV2ResourcePermission',
     'VpcConnectionNetworkInterface',
 ]
 
@@ -38858,6 +38868,56 @@ class AnalysisYAxisOptions(dict):
         If you choose `PRIMARY_Y_AXIS` , the primary Y Axis is located on the leftmost vertical axis of the chart.
         """
         return pulumi.get(self, "y_axis")
+
+
+@pulumi.output_type
+class ApprovalPolicyApplicableTo(dict):
+    """
+    Scoping: who the policy applies to.
+    GROUP: `groupArns` required (one or more group ARNs).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupArns":
+            suggest = "group_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApprovalPolicyApplicableTo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApprovalPolicyApplicableTo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApprovalPolicyApplicableTo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: Any,
+                 group_arns: Optional[Sequence[_builtins.str]] = None):
+        """
+        Scoping: who the policy applies to.
+        GROUP: `groupArns` required (one or more group ARNs).
+
+        :param Sequence[_builtins.str] group_arns: Required when type = GROUP. One or more group ARNs.
+        """
+        pulumi.set(__self__, "type", type)
+        if group_arns is not None:
+            pulumi.set(__self__, "group_arns", group_arns)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="groupArns")
+    def group_arns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Required when type = GROUP. One or more group ARNs.
+        """
+        return pulumi.get(self, "group_arns")
 
 
 @pulumi.output_type
@@ -86656,6 +86716,154 @@ class DataSourceVpcConnectionProperties(dict):
 
 
 @pulumi.output_type
+class DlpSettingLabelActionMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelId":
+            suggest = "label_id"
+        elif key == "labelName":
+            suggest = "label_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DlpSettingLabelActionMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DlpSettingLabelActionMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DlpSettingLabelActionMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'DlpSettingDlpAction',
+                 label_id: _builtins.str,
+                 label_name: _builtins.str):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "label_id", label_id)
+        pulumi.set(__self__, "label_name", label_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'DlpSettingDlpAction':
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="labelId")
+    def label_id(self) -> _builtins.str:
+        return pulumi.get(self, "label_id")
+
+    @_builtins.property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> _builtins.str:
+        return pulumi.get(self, "label_name")
+
+
+@pulumi.output_type
+class DlpSettingMicrosoftPurviewCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DlpSettingMicrosoftPurviewCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DlpSettingMicrosoftPurviewCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DlpSettingMicrosoftPurviewCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class DlpSettingMicrosoftPurviewProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelActionMappings":
+            suggest = "label_action_mappings"
+        elif key == "unmappedAction":
+            suggest = "unmapped_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DlpSettingMicrosoftPurviewProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DlpSettingMicrosoftPurviewProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DlpSettingMicrosoftPurviewProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials: 'outputs.DlpSettingMicrosoftPurviewCredentials',
+                 label_action_mappings: Sequence['outputs.DlpSettingLabelActionMapping'],
+                 unmapped_action: 'DlpSettingDlpAction'):
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "label_action_mappings", label_action_mappings)
+        pulumi.set(__self__, "unmapped_action", unmapped_action)
+
+    @_builtins.property
+    @pulumi.getter
+    def credentials(self) -> 'outputs.DlpSettingMicrosoftPurviewCredentials':
+        return pulumi.get(self, "credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="labelActionMappings")
+    def label_action_mappings(self) -> Sequence['outputs.DlpSettingLabelActionMapping']:
+        return pulumi.get(self, "label_action_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="unmappedAction")
+    def unmapped_action(self) -> 'DlpSettingDlpAction':
+        return pulumi.get(self, "unmapped_action")
+
+
+@pulumi.output_type
+class DlpSettingProviderConfigProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "microsoftPurview":
+            suggest = "microsoft_purview"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DlpSettingProviderConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DlpSettingProviderConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DlpSettingProviderConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 microsoft_purview: 'outputs.DlpSettingMicrosoftPurviewProviderConfig'):
+        pulumi.set(__self__, "microsoft_purview", microsoft_purview)
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftPurview")
+    def microsoft_purview(self) -> 'outputs.DlpSettingMicrosoftPurviewProviderConfig':
+        return pulumi.get(self, "microsoft_purview")
+
+
+@pulumi.output_type
 class FlowPermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[_builtins.str],
@@ -123258,9 +123466,6 @@ class TopicComparativeOrder(dict):
 
 @pulumi.output_type
 class TopicConfigOptions(dict):
-    """
-    Model for configuration of a Topic
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -123281,8 +123486,6 @@ class TopicConfigOptions(dict):
     def __init__(__self__, *,
                  q_business_insights_enabled: Optional[_builtins.bool] = None):
         """
-        Model for configuration of a Topic
-
         :param _builtins.bool q_business_insights_enabled: Enables Amazon Q Business Insights for a `Topic` .
         """
         if q_business_insights_enabled is not None:
@@ -123299,6 +123502,9 @@ class TopicConfigOptions(dict):
 
 @pulumi.output_type
 class TopicCustomInstructions(dict):
+    """
+    <p>Instructions that provide additional guidance and context for response generation.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -123318,11 +123524,19 @@ class TopicCustomInstructions(dict):
 
     def __init__(__self__, *,
                  custom_instructions_string: _builtins.str):
+        """
+        <p>Instructions that provide additional guidance and context for response generation.</p>
+
+        :param _builtins.str custom_instructions_string: <p>A text field for providing additional guidance or context for response generation.</p>
+        """
         pulumi.set(__self__, "custom_instructions_string", custom_instructions_string)
 
     @_builtins.property
     @pulumi.getter(name="customInstructionsString")
     def custom_instructions_string(self) -> _builtins.str:
+        """
+        <p>A text field for providing additional guidance or context for response generation.</p>
+        """
         return pulumi.get(self, "custom_instructions_string")
 
 
@@ -124653,6 +124867,162 @@ class TopicSingularFilterConstant(dict):
         The value of the singular filter constant.
         """
         return pulumi.get(self, "singular_constant")
+
+
+@pulumi.output_type
+class TopicV2CustomInstructions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customInstructionsString":
+            suggest = "custom_instructions_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicV2CustomInstructions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicV2CustomInstructions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicV2CustomInstructions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_instructions_string: _builtins.str):
+        pulumi.set(__self__, "custom_instructions_string", custom_instructions_string)
+
+    @_builtins.property
+    @pulumi.getter(name="customInstructionsString")
+    def custom_instructions_string(self) -> _builtins.str:
+        return pulumi.get(self, "custom_instructions_string")
+
+
+@pulumi.output_type
+class TopicV2DataSetReference(dict):
+    """
+    A dataset reference used by a V2 (SEMANTIC_VIEW) topic.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetArn":
+            suggest = "data_set_arn"
+        elif key == "dataSetName":
+            suggest = "data_set_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicV2DataSetReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicV2DataSetReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicV2DataSetReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_arn: _builtins.str,
+                 data_set_name: Optional[_builtins.str] = None):
+        """
+        A dataset reference used by a V2 (SEMANTIC_VIEW) topic.
+        """
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+        if data_set_name is not None:
+            pulumi.set(__self__, "data_set_name", data_set_name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> _builtins.str:
+        return pulumi.get(self, "data_set_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetName")
+    def data_set_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "data_set_name")
+
+
+@pulumi.output_type
+class TopicV2DataSetRelation(dict):
+    """
+    A relation between two datasets referenced by a V2 (SEMANTIC_VIEW) topic.
+    """
+    def __init__(__self__, *,
+                 left: 'outputs.TopicV2DataSetRelationEndpoint',
+                 right: 'outputs.TopicV2DataSetRelationEndpoint'):
+        """
+        A relation between two datasets referenced by a V2 (SEMANTIC_VIEW) topic.
+        """
+        pulumi.set(__self__, "left", left)
+        pulumi.set(__self__, "right", right)
+
+    @_builtins.property
+    @pulumi.getter
+    def left(self) -> 'outputs.TopicV2DataSetRelationEndpoint':
+        return pulumi.get(self, "left")
+
+    @_builtins.property
+    @pulumi.getter
+    def right(self) -> 'outputs.TopicV2DataSetRelationEndpoint':
+        return pulumi.get(self, "right")
+
+
+@pulumi.output_type
+class TopicV2DataSetRelationEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnNames":
+            suggest = "column_names"
+        elif key == "dataSetArn":
+            suggest = "data_set_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicV2DataSetRelationEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicV2DataSetRelationEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicV2DataSetRelationEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_names: Sequence[_builtins.str],
+                 data_set_arn: _builtins.str):
+        pulumi.set(__self__, "column_names", column_names)
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "column_names")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> _builtins.str:
+        return pulumi.get(self, "data_set_arn")
+
+
+@pulumi.output_type
+class TopicV2ResourcePermission(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[_builtins.str],
+                 principal: _builtins.str):
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def principal(self) -> _builtins.str:
+        return pulumi.get(self, "principal")
 
 
 @pulumi.output_type

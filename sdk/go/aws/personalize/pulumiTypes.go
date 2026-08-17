@@ -369,6 +369,14 @@ func (o DatasetImportJobDataSourcePropertiesPtrOutput) DataLocation() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type EventTrackerTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // Provides the name and values of a Categorical hyperparameter.
 type SolutionCategoricalHyperParameterRange struct {
 	// The name of the hyperparameter.

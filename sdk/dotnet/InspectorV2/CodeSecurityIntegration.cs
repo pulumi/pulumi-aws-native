@@ -107,7 +107,6 @@ namespace Pulumi.AwsNative.InspectorV2
                 ReplaceOnChanges =
                 {
                     "createIntegrationDetails",
-                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -75,6 +75,11 @@ export const getStack: typeof import("./getStack").getStack = null as any;
 export const getStackOutput: typeof import("./getStack").getStackOutput = null as any;
 utilities.lazyLoad(exports, ["getStack","getStackOutput"], () => require("./getStack"));
 
+export { GetStackFleetAssociationArgs, GetStackFleetAssociationResult, GetStackFleetAssociationOutputArgs } from "./getStackFleetAssociation";
+export const getStackFleetAssociation: typeof import("./getStackFleetAssociation").getStackFleetAssociation = null as any;
+export const getStackFleetAssociationOutput: typeof import("./getStackFleetAssociation").getStackFleetAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getStackFleetAssociation","getStackFleetAssociationOutput"], () => require("./getStackFleetAssociation"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;

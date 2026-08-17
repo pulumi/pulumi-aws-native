@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<Outputs.OAuth2CredentialProviderOauth2ProviderConfigOutput> Oauth2ProviderConfigOutput { get; private set; } = null!;
 
         /// <summary>
+        /// The current status of the OAuth2 credential provider
+        /// </summary>
+        [Output("status")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.OAuth2CredentialProviderStatus> Status { get; private set; } = null!;
+
+        /// <summary>
         /// Tags to assign to the OAuth2 credential provider
         /// </summary>
         [Output("tags")]

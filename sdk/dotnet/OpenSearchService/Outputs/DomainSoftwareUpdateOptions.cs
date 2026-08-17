@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         /// Specifies whether automatic service software updates are enabled for the domain.
         /// </summary>
         public readonly bool? AutoSoftwareUpdateEnabled;
+        public readonly bool? UseLatestServiceSoftwareForBlueGreen;
 
         [OutputConstructor]
-        private DomainSoftwareUpdateOptions(bool? autoSoftwareUpdateEnabled)
+        private DomainSoftwareUpdateOptions(
+            bool? autoSoftwareUpdateEnabled,
+
+            bool? useLatestServiceSoftwareForBlueGreen)
         {
             AutoSoftwareUpdateEnabled = autoSoftwareUpdateEnabled;
+            UseLatestServiceSoftwareForBlueGreen = useLatestServiceSoftwareForBlueGreen;
         }
     }
 }

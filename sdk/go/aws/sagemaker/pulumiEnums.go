@@ -1600,6 +1600,176 @@ func (in *appTypePtr) ToAppTypePtrOutputWithContext(ctx context.Context) AppType
 	return pulumi.ToOutputWithContext(ctx, in).(AppTypePtrOutput)
 }
 
+// The type of ID.
+type ArtifactSourceTypeSourceIdType string
+
+const (
+	ArtifactSourceTypeSourceIdTypeMd5Hash   = ArtifactSourceTypeSourceIdType("MD5Hash")
+	ArtifactSourceTypeSourceIdTypeS3eTag    = ArtifactSourceTypeSourceIdType("S3ETag")
+	ArtifactSourceTypeSourceIdTypeS3Version = ArtifactSourceTypeSourceIdType("S3Version")
+	ArtifactSourceTypeSourceIdTypeCustom    = ArtifactSourceTypeSourceIdType("Custom")
+)
+
+func (ArtifactSourceTypeSourceIdType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSourceTypeSourceIdType)(nil)).Elem()
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToArtifactSourceTypeSourceIdTypeOutput() ArtifactSourceTypeSourceIdTypeOutput {
+	return pulumi.ToOutput(e).(ArtifactSourceTypeSourceIdTypeOutput)
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToArtifactSourceTypeSourceIdTypeOutputWithContext(ctx context.Context) ArtifactSourceTypeSourceIdTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ArtifactSourceTypeSourceIdTypeOutput)
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToArtifactSourceTypeSourceIdTypePtrOutput() ArtifactSourceTypeSourceIdTypePtrOutput {
+	return e.ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(context.Background())
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(ctx context.Context) ArtifactSourceTypeSourceIdTypePtrOutput {
+	return ArtifactSourceTypeSourceIdType(e).ToArtifactSourceTypeSourceIdTypeOutputWithContext(ctx).ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(ctx)
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ArtifactSourceTypeSourceIdType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ArtifactSourceTypeSourceIdTypeOutput struct{ *pulumi.OutputState }
+
+func (ArtifactSourceTypeSourceIdTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactSourceTypeSourceIdType)(nil)).Elem()
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToArtifactSourceTypeSourceIdTypeOutput() ArtifactSourceTypeSourceIdTypeOutput {
+	return o
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToArtifactSourceTypeSourceIdTypeOutputWithContext(ctx context.Context) ArtifactSourceTypeSourceIdTypeOutput {
+	return o
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToArtifactSourceTypeSourceIdTypePtrOutput() ArtifactSourceTypeSourceIdTypePtrOutput {
+	return o.ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(ctx context.Context) ArtifactSourceTypeSourceIdTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactSourceTypeSourceIdType) *ArtifactSourceTypeSourceIdType {
+		return &v
+	}).(ArtifactSourceTypeSourceIdTypePtrOutput)
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ArtifactSourceTypeSourceIdType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactSourceTypeSourceIdTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ArtifactSourceTypeSourceIdType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ArtifactSourceTypeSourceIdTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ArtifactSourceTypeSourceIdTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactSourceTypeSourceIdType)(nil)).Elem()
+}
+
+func (o ArtifactSourceTypeSourceIdTypePtrOutput) ToArtifactSourceTypeSourceIdTypePtrOutput() ArtifactSourceTypeSourceIdTypePtrOutput {
+	return o
+}
+
+func (o ArtifactSourceTypeSourceIdTypePtrOutput) ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(ctx context.Context) ArtifactSourceTypeSourceIdTypePtrOutput {
+	return o
+}
+
+func (o ArtifactSourceTypeSourceIdTypePtrOutput) Elem() ArtifactSourceTypeSourceIdTypeOutput {
+	return o.ApplyT(func(v *ArtifactSourceTypeSourceIdType) ArtifactSourceTypeSourceIdType {
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactSourceTypeSourceIdType
+		return ret
+	}).(ArtifactSourceTypeSourceIdTypeOutput)
+}
+
+func (o ArtifactSourceTypeSourceIdTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactSourceTypeSourceIdTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ArtifactSourceTypeSourceIdType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ArtifactSourceTypeSourceIdTypeInput is an input type that accepts values of the ArtifactSourceTypeSourceIdType enum
+// A concrete instance of `ArtifactSourceTypeSourceIdTypeInput` can be one of the following:
+//
+//	ArtifactSourceTypeSourceIdTypeMd5Hash
+//	ArtifactSourceTypeSourceIdTypeS3eTag
+//	ArtifactSourceTypeSourceIdTypeS3Version
+//	ArtifactSourceTypeSourceIdTypeCustom
+type ArtifactSourceTypeSourceIdTypeInput interface {
+	pulumi.Input
+
+	ToArtifactSourceTypeSourceIdTypeOutput() ArtifactSourceTypeSourceIdTypeOutput
+	ToArtifactSourceTypeSourceIdTypeOutputWithContext(context.Context) ArtifactSourceTypeSourceIdTypeOutput
+}
+
+var artifactSourceTypeSourceIdTypePtrType = reflect.TypeOf((**ArtifactSourceTypeSourceIdType)(nil)).Elem()
+
+type ArtifactSourceTypeSourceIdTypePtrInput interface {
+	pulumi.Input
+
+	ToArtifactSourceTypeSourceIdTypePtrOutput() ArtifactSourceTypeSourceIdTypePtrOutput
+	ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(context.Context) ArtifactSourceTypeSourceIdTypePtrOutput
+}
+
+type artifactSourceTypeSourceIdTypePtr string
+
+func ArtifactSourceTypeSourceIdTypePtr(v string) ArtifactSourceTypeSourceIdTypePtrInput {
+	return (*artifactSourceTypeSourceIdTypePtr)(&v)
+}
+
+func (*artifactSourceTypeSourceIdTypePtr) ElementType() reflect.Type {
+	return artifactSourceTypeSourceIdTypePtrType
+}
+
+func (in *artifactSourceTypeSourceIdTypePtr) ToArtifactSourceTypeSourceIdTypePtrOutput() ArtifactSourceTypeSourceIdTypePtrOutput {
+	return pulumi.ToOutput(in).(ArtifactSourceTypeSourceIdTypePtrOutput)
+}
+
+func (in *artifactSourceTypeSourceIdTypePtr) ToArtifactSourceTypeSourceIdTypePtrOutputWithContext(ctx context.Context) ArtifactSourceTypeSourceIdTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ArtifactSourceTypeSourceIdTypePtrOutput)
+}
+
 // The patching strategy that determines when and how instances are patched. WhenIdle patches instances as they become idle. WhenAllIdle patches all instances when they are all idle.
 type ClusterAutoPatchConfigPatchingStrategy string
 
@@ -8239,178 +8409,6 @@ func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPor
 
 func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainUserSettingsStudioWebPortalPtrOutput)
-}
-
-// The status of the trial component.
-type ExperimentTrialComponentStatusPropertiesPrimaryStatus string
-
-const (
-	ExperimentTrialComponentStatusPropertiesPrimaryStatusInProgress = ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress")
-	ExperimentTrialComponentStatusPropertiesPrimaryStatusCompleted  = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Completed")
-	ExperimentTrialComponentStatusPropertiesPrimaryStatusFailed     = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Failed")
-	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopping   = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopping")
-	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopped    = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopped")
-)
-
-func (ExperimentTrialComponentStatusPropertiesPrimaryStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
-	return pulumi.ToOutput(e).(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput)
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput)
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return e.ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return ExperimentTrialComponentStatusPropertiesPrimaryStatus(e).ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(ctx).ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx)
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
-	return o
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
-	return o
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return o.ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(context.Background())
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTrialComponentStatusPropertiesPrimaryStatus) *ExperimentTrialComponentStatusPropertiesPrimaryStatus {
-		return &v
-	}).(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput)
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentTrialComponentStatusPropertiesPrimaryStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentTrialComponentStatusPropertiesPrimaryStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return o
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return o
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) Elem() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
-	return o.ApplyT(func(v *ExperimentTrialComponentStatusPropertiesPrimaryStatus) ExperimentTrialComponentStatusPropertiesPrimaryStatus {
-		if v != nil {
-			return *v
-		}
-		var ret ExperimentTrialComponentStatusPropertiesPrimaryStatus
-		return ret
-	}).(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput)
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExperimentTrialComponentStatusPropertiesPrimaryStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ExperimentTrialComponentStatusPropertiesPrimaryStatusInput is an input type that accepts values of the ExperimentTrialComponentStatusPropertiesPrimaryStatus enum
-// A concrete instance of `ExperimentTrialComponentStatusPropertiesPrimaryStatusInput` can be one of the following:
-//
-//	ExperimentTrialComponentStatusPropertiesPrimaryStatusInProgress
-//	ExperimentTrialComponentStatusPropertiesPrimaryStatusCompleted
-//	ExperimentTrialComponentStatusPropertiesPrimaryStatusFailed
-//	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopping
-//	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopped
-type ExperimentTrialComponentStatusPropertiesPrimaryStatusInput interface {
-	pulumi.Input
-
-	ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput
-	ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput
-}
-
-var experimentTrialComponentStatusPropertiesPrimaryStatusPtrType = reflect.TypeOf((**ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
-
-type ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrInput interface {
-	pulumi.Input
-
-	ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput
-	ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput
-}
-
-type experimentTrialComponentStatusPropertiesPrimaryStatusPtr string
-
-func ExperimentTrialComponentStatusPropertiesPrimaryStatusPtr(v string) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrInput {
-	return (*experimentTrialComponentStatusPropertiesPrimaryStatusPtr)(&v)
-}
-
-func (*experimentTrialComponentStatusPropertiesPrimaryStatusPtr) ElementType() reflect.Type {
-	return experimentTrialComponentStatusPropertiesPrimaryStatusPtrType
-}
-
-func (in *experimentTrialComponentStatusPropertiesPrimaryStatusPtr) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return pulumi.ToOutput(in).(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput)
-}
-
-func (in *experimentTrialComponentStatusPropertiesPrimaryStatusPtr) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput)
 }
 
 // The value type of a feature. Valid values are Integral, Fractional, or String.
@@ -26332,6 +26330,172 @@ func (in *userProfileUserSettingsStudioWebPortalPtr) ToUserProfileUserSettingsSt
 	return pulumi.ToOutputWithContext(ctx, in).(UserProfileUserSettingsStudioWebPortalPtrOutput)
 }
 
+// The IP address type for the workforce. IPv4 only or dualstack (IPv4 and IPv6).
+type WorkforceIpAddressType string
+
+const (
+	WorkforceIpAddressTypeIpv4      = WorkforceIpAddressType("ipv4")
+	WorkforceIpAddressTypeDualstack = WorkforceIpAddressType("dualstack")
+)
+
+func (WorkforceIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceIpAddressType)(nil)).Elem()
+}
+
+func (e WorkforceIpAddressType) ToWorkforceIpAddressTypeOutput() WorkforceIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(WorkforceIpAddressTypeOutput)
+}
+
+func (e WorkforceIpAddressType) ToWorkforceIpAddressTypeOutputWithContext(ctx context.Context) WorkforceIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkforceIpAddressTypeOutput)
+}
+
+func (e WorkforceIpAddressType) ToWorkforceIpAddressTypePtrOutput() WorkforceIpAddressTypePtrOutput {
+	return e.ToWorkforceIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e WorkforceIpAddressType) ToWorkforceIpAddressTypePtrOutputWithContext(ctx context.Context) WorkforceIpAddressTypePtrOutput {
+	return WorkforceIpAddressType(e).ToWorkforceIpAddressTypeOutputWithContext(ctx).ToWorkforceIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e WorkforceIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkforceIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkforceIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkforceIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkforceIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkforceIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceIpAddressType)(nil)).Elem()
+}
+
+func (o WorkforceIpAddressTypeOutput) ToWorkforceIpAddressTypeOutput() WorkforceIpAddressTypeOutput {
+	return o
+}
+
+func (o WorkforceIpAddressTypeOutput) ToWorkforceIpAddressTypeOutputWithContext(ctx context.Context) WorkforceIpAddressTypeOutput {
+	return o
+}
+
+func (o WorkforceIpAddressTypeOutput) ToWorkforceIpAddressTypePtrOutput() WorkforceIpAddressTypePtrOutput {
+	return o.ToWorkforceIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkforceIpAddressTypeOutput) ToWorkforceIpAddressTypePtrOutputWithContext(ctx context.Context) WorkforceIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkforceIpAddressType) *WorkforceIpAddressType {
+		return &v
+	}).(WorkforceIpAddressTypePtrOutput)
+}
+
+func (o WorkforceIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkforceIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkforceIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkforceIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkforceIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkforceIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkforceIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkforceIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceIpAddressType)(nil)).Elem()
+}
+
+func (o WorkforceIpAddressTypePtrOutput) ToWorkforceIpAddressTypePtrOutput() WorkforceIpAddressTypePtrOutput {
+	return o
+}
+
+func (o WorkforceIpAddressTypePtrOutput) ToWorkforceIpAddressTypePtrOutputWithContext(ctx context.Context) WorkforceIpAddressTypePtrOutput {
+	return o
+}
+
+func (o WorkforceIpAddressTypePtrOutput) Elem() WorkforceIpAddressTypeOutput {
+	return o.ApplyT(func(v *WorkforceIpAddressType) WorkforceIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret WorkforceIpAddressType
+		return ret
+	}).(WorkforceIpAddressTypeOutput)
+}
+
+func (o WorkforceIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkforceIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkforceIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkforceIpAddressTypeInput is an input type that accepts values of the WorkforceIpAddressType enum
+// A concrete instance of `WorkforceIpAddressTypeInput` can be one of the following:
+//
+//	WorkforceIpAddressTypeIpv4
+//	WorkforceIpAddressTypeDualstack
+type WorkforceIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToWorkforceIpAddressTypeOutput() WorkforceIpAddressTypeOutput
+	ToWorkforceIpAddressTypeOutputWithContext(context.Context) WorkforceIpAddressTypeOutput
+}
+
+var workforceIpAddressTypePtrType = reflect.TypeOf((**WorkforceIpAddressType)(nil)).Elem()
+
+type WorkforceIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToWorkforceIpAddressTypePtrOutput() WorkforceIpAddressTypePtrOutput
+	ToWorkforceIpAddressTypePtrOutputWithContext(context.Context) WorkforceIpAddressTypePtrOutput
+}
+
+type workforceIpAddressTypePtr string
+
+func WorkforceIpAddressTypePtr(v string) WorkforceIpAddressTypePtrInput {
+	return (*workforceIpAddressTypePtr)(&v)
+}
+
+func (*workforceIpAddressTypePtr) ElementType() reflect.Type {
+	return workforceIpAddressTypePtrType
+}
+
+func (in *workforceIpAddressTypePtr) ToWorkforceIpAddressTypePtrOutput() WorkforceIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(WorkforceIpAddressTypePtrOutput)
+}
+
+func (in *workforceIpAddressTypePtr) ToWorkforceIpAddressTypePtrOutputWithContext(ctx context.Context) WorkforceIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkforceIpAddressTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionStatusInput)(nil)).Elem(), ActionStatus("Unknown"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionStatusPtrInput)(nil)).Elem(), ActionStatus("Unknown"))
@@ -26349,6 +26513,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypePtrInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypeInput)(nil)).Elem(), AppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypePtrInput)(nil)).Elem(), AppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactSourceTypeSourceIdTypeInput)(nil)).Elem(), ArtifactSourceTypeSourceIdType("MD5Hash"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactSourceTypeSourceIdTypePtrInput)(nil)).Elem(), ArtifactSourceTypeSourceIdType("MD5Hash"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoPatchConfigPatchingStrategyInput)(nil)).Elem(), ClusterAutoPatchConfigPatchingStrategy("WhenIdle"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoPatchConfigPatchingStrategyPtrInput)(nil)).Elem(), ClusterAutoPatchConfigPatchingStrategy("WhenIdle"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigAutoScalerTypeInput)(nil)).Elem(), ClusterAutoScalingConfigAutoScalerType("Karpenter"))
@@ -26425,8 +26591,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), DomainUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatusInput)(nil)).Elem(), ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrInput)(nil)).Elem(), ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypeInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypePtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupStorageTypeInput)(nil)).Elem(), FeatureGroupStorageType("Standard"))
@@ -26620,6 +26784,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), UserProfileUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceIpAddressTypeInput)(nil)).Elem(), WorkforceIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceIpAddressTypePtrInput)(nil)).Elem(), WorkforceIpAddressType("ipv4"))
 	pulumi.RegisterOutputType(ActionStatusOutput{})
 	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
 	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput{})
@@ -26636,6 +26802,8 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(AppTypeOutput{})
 	pulumi.RegisterOutputType(AppTypePtrOutput{})
+	pulumi.RegisterOutputType(ArtifactSourceTypeSourceIdTypeOutput{})
+	pulumi.RegisterOutputType(ArtifactSourceTypeSourceIdTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterAutoPatchConfigPatchingStrategyOutput{})
 	pulumi.RegisterOutputType(ClusterAutoPatchConfigPatchingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigAutoScalerTypeOutput{})
@@ -26714,8 +26882,6 @@ func init() {
 	pulumi.RegisterOutputType(DomainUserSettingsAutoMountHomeEfsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalPtrOutput{})
-	pulumi.RegisterOutputType(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput{})
-	pulumi.RegisterOutputType(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupStorageTypeOutput{})
@@ -26929,4 +27095,6 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsAutoMountHomeEfsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsStudioWebPortalOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsStudioWebPortalPtrOutput{})
+	pulumi.RegisterOutputType(WorkforceIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(WorkforceIpAddressTypePtrOutput{})
 }

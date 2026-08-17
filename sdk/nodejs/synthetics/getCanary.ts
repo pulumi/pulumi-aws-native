@@ -54,9 +54,17 @@ export interface GetCanaryResult {
      */
     readonly id?: string;
     /**
+     * KMS key ARN for encrypting the canary's Lambda function environment variables at rest. If omitted, Lambda uses an AWS-managed key.
+     */
+    readonly kmsKeyArn?: string;
+    /**
      * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
      */
     readonly provisionedResourceCleanup?: enums.synthetics.CanaryProvisionedResourceCleanup;
+    /**
+     * List of replica locations for multi-location canary execution
+     */
+    readonly replicas?: outputs.synthetics.CanaryReplica[];
     /**
      * Provide canary run configuration
      */

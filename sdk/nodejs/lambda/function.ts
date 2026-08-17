@@ -291,7 +291,7 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
      */
     declare public readonly durableConfig: pulumi.Output<outputs.lambda.FunctionDurableConfig | undefined>;
     /**
@@ -526,7 +526,7 @@ export interface FunctionArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
      */
     durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfigArgs | undefined>;
     /**

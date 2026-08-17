@@ -20,6 +20,11 @@ export type CodeSecurityScanConfiguration = import("./codeSecurityScanConfigurat
 export const CodeSecurityScanConfiguration: typeof import("./codeSecurityScanConfiguration").CodeSecurityScanConfiguration = null as any;
 utilities.lazyLoad(exports, ["CodeSecurityScanConfiguration"], () => require("./codeSecurityScanConfiguration"));
 
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
 export { FilterArgs } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
@@ -40,6 +45,11 @@ export const getCodeSecurityScanConfiguration: typeof import("./getCodeSecurityS
 export const getCodeSecurityScanConfigurationOutput: typeof import("./getCodeSecurityScanConfiguration").getCodeSecurityScanConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getCodeSecurityScanConfiguration","getCodeSecurityScanConfigurationOutput"], () => require("./getCodeSecurityScanConfiguration"));
 
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+
 export { GetFilterArgs, GetFilterResult, GetFilterOutputArgs } from "./getFilter";
 export const getFilter: typeof import("./getFilter").getFilter = null as any;
 export const getFilterOutput: typeof import("./getFilter").getFilterOutput = null as any;
@@ -59,6 +69,8 @@ const _module = {
                 return new CodeSecurityIntegration(name, <any>undefined, { urn })
             case "aws-native:inspectorv2:CodeSecurityScanConfiguration":
                 return new CodeSecurityScanConfiguration(name, <any>undefined, { urn })
+            case "aws-native:inspectorv2:Connector":
+                return new Connector(name, <any>undefined, { urn })
             case "aws-native:inspectorv2:Filter":
                 return new Filter(name, <any>undefined, { urn })
             default:

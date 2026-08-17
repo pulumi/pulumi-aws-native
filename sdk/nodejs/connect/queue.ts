@@ -54,6 +54,14 @@ export class Queue extends pulumi.CustomResource {
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
+     * The AWS Region where this resource was last modified.
+     */
+    declare public /*out*/ readonly lastModifiedRegion: pulumi.Output<string>;
+    /**
+     * The timestamp when this resource was last modified.
+     */
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<number>;
+    /**
      * The maximum number of contacts that can be in the queue before it is considered full.
      */
     declare public readonly maxContacts: pulumi.Output<number | undefined>;
@@ -118,6 +126,8 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["quickConnectArns"] = args?.quickConnectArns;
             resourceInputs["status"] = args?.status;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["lastModifiedRegion"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["queueArn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -125,6 +135,8 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["lastModifiedRegion"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["maxContacts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundCallerConfig"] = undefined /*out*/;

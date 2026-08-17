@@ -1570,6 +1570,693 @@ func (o CodeSecurityScanConfigurationRuleSetCategoryArrayOutput) Index(i pulumi.
 	}).(CodeSecurityScanConfigurationRuleSetCategoryOutput)
 }
 
+type ConnectorCloudProvider string
+
+const (
+	ConnectorCloudProviderAzure = ConnectorCloudProvider("AZURE")
+)
+
+func (ConnectorCloudProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCloudProvider)(nil)).Elem()
+}
+
+func (e ConnectorCloudProvider) ToConnectorCloudProviderOutput() ConnectorCloudProviderOutput {
+	return pulumi.ToOutput(e).(ConnectorCloudProviderOutput)
+}
+
+func (e ConnectorCloudProvider) ToConnectorCloudProviderOutputWithContext(ctx context.Context) ConnectorCloudProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorCloudProviderOutput)
+}
+
+func (e ConnectorCloudProvider) ToConnectorCloudProviderPtrOutput() ConnectorCloudProviderPtrOutput {
+	return e.ToConnectorCloudProviderPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorCloudProvider) ToConnectorCloudProviderPtrOutputWithContext(ctx context.Context) ConnectorCloudProviderPtrOutput {
+	return ConnectorCloudProvider(e).ToConnectorCloudProviderOutputWithContext(ctx).ToConnectorCloudProviderPtrOutputWithContext(ctx)
+}
+
+func (e ConnectorCloudProvider) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorCloudProvider) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorCloudProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorCloudProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorCloudProviderOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCloudProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCloudProvider)(nil)).Elem()
+}
+
+func (o ConnectorCloudProviderOutput) ToConnectorCloudProviderOutput() ConnectorCloudProviderOutput {
+	return o
+}
+
+func (o ConnectorCloudProviderOutput) ToConnectorCloudProviderOutputWithContext(ctx context.Context) ConnectorCloudProviderOutput {
+	return o
+}
+
+func (o ConnectorCloudProviderOutput) ToConnectorCloudProviderPtrOutput() ConnectorCloudProviderPtrOutput {
+	return o.ToConnectorCloudProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorCloudProviderOutput) ToConnectorCloudProviderPtrOutputWithContext(ctx context.Context) ConnectorCloudProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCloudProvider) *ConnectorCloudProvider {
+		return &v
+	}).(ConnectorCloudProviderPtrOutput)
+}
+
+func (o ConnectorCloudProviderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorCloudProviderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorCloudProvider) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorCloudProviderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorCloudProviderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorCloudProvider) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorCloudProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCloudProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCloudProvider)(nil)).Elem()
+}
+
+func (o ConnectorCloudProviderPtrOutput) ToConnectorCloudProviderPtrOutput() ConnectorCloudProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorCloudProviderPtrOutput) ToConnectorCloudProviderPtrOutputWithContext(ctx context.Context) ConnectorCloudProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorCloudProviderPtrOutput) Elem() ConnectorCloudProviderOutput {
+	return o.ApplyT(func(v *ConnectorCloudProvider) ConnectorCloudProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorCloudProvider
+		return ret
+	}).(ConnectorCloudProviderOutput)
+}
+
+func (o ConnectorCloudProviderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorCloudProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorCloudProvider) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorCloudProviderInput is an input type that accepts values of the ConnectorCloudProvider enum
+// A concrete instance of `ConnectorCloudProviderInput` can be one of the following:
+//
+//	ConnectorCloudProviderAzure
+type ConnectorCloudProviderInput interface {
+	pulumi.Input
+
+	ToConnectorCloudProviderOutput() ConnectorCloudProviderOutput
+	ToConnectorCloudProviderOutputWithContext(context.Context) ConnectorCloudProviderOutput
+}
+
+var connectorCloudProviderPtrType = reflect.TypeOf((**ConnectorCloudProvider)(nil)).Elem()
+
+type ConnectorCloudProviderPtrInput interface {
+	pulumi.Input
+
+	ToConnectorCloudProviderPtrOutput() ConnectorCloudProviderPtrOutput
+	ToConnectorCloudProviderPtrOutputWithContext(context.Context) ConnectorCloudProviderPtrOutput
+}
+
+type connectorCloudProviderPtr string
+
+func ConnectorCloudProviderPtr(v string) ConnectorCloudProviderPtrInput {
+	return (*connectorCloudProviderPtr)(&v)
+}
+
+func (*connectorCloudProviderPtr) ElementType() reflect.Type {
+	return connectorCloudProviderPtrType
+}
+
+func (in *connectorCloudProviderPtr) ToConnectorCloudProviderPtrOutput() ConnectorCloudProviderPtrOutput {
+	return pulumi.ToOutput(in).(ConnectorCloudProviderPtrOutput)
+}
+
+func (in *connectorCloudProviderPtr) ToConnectorCloudProviderPtrOutputWithContext(ctx context.Context) ConnectorCloudProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorCloudProviderPtrOutput)
+}
+
+type ConnectorHealthStatus string
+
+const (
+	ConnectorHealthStatusConnected            = ConnectorHealthStatus("CONNECTED")
+	ConnectorHealthStatusDegraded             = ConnectorHealthStatus("DEGRADED")
+	ConnectorHealthStatusFailedToConnect      = ConnectorHealthStatus("FAILED_TO_CONNECT")
+	ConnectorHealthStatusPendingAuthorization = ConnectorHealthStatus("PENDING_AUTHORIZATION")
+	ConnectorHealthStatusPendingConfiguration = ConnectorHealthStatus("PENDING_CONFIGURATION")
+	ConnectorHealthStatusUnknown              = ConnectorHealthStatus("UNKNOWN")
+)
+
+type ConnectorHealthStatusOutput struct{ *pulumi.OutputState }
+
+func (ConnectorHealthStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorHealthStatus)(nil)).Elem()
+}
+
+func (o ConnectorHealthStatusOutput) ToConnectorHealthStatusOutput() ConnectorHealthStatusOutput {
+	return o
+}
+
+func (o ConnectorHealthStatusOutput) ToConnectorHealthStatusOutputWithContext(ctx context.Context) ConnectorHealthStatusOutput {
+	return o
+}
+
+func (o ConnectorHealthStatusOutput) ToConnectorHealthStatusPtrOutput() ConnectorHealthStatusPtrOutput {
+	return o.ToConnectorHealthStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorHealthStatusOutput) ToConnectorHealthStatusPtrOutputWithContext(ctx context.Context) ConnectorHealthStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorHealthStatus) *ConnectorHealthStatus {
+		return &v
+	}).(ConnectorHealthStatusPtrOutput)
+}
+
+func (o ConnectorHealthStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorHealthStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorHealthStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorHealthStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorHealthStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorHealthStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorHealthStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorHealthStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorHealthStatus)(nil)).Elem()
+}
+
+func (o ConnectorHealthStatusPtrOutput) ToConnectorHealthStatusPtrOutput() ConnectorHealthStatusPtrOutput {
+	return o
+}
+
+func (o ConnectorHealthStatusPtrOutput) ToConnectorHealthStatusPtrOutputWithContext(ctx context.Context) ConnectorHealthStatusPtrOutput {
+	return o
+}
+
+func (o ConnectorHealthStatusPtrOutput) Elem() ConnectorHealthStatusOutput {
+	return o.ApplyT(func(v *ConnectorHealthStatus) ConnectorHealthStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorHealthStatus
+		return ret
+	}).(ConnectorHealthStatusOutput)
+}
+
+func (o ConnectorHealthStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorHealthStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorHealthStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorScopeState string
+
+const (
+	ConnectorScopeStateActive   = ConnectorScopeState("ACTIVE")
+	ConnectorScopeStatePending  = ConnectorScopeState("PENDING")
+	ConnectorScopeStateError    = ConnectorScopeState("ERROR")
+	ConnectorScopeStateDisabled = ConnectorScopeState("DISABLED")
+)
+
+func (ConnectorScopeState) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorScopeState)(nil)).Elem()
+}
+
+func (e ConnectorScopeState) ToConnectorScopeStateOutput() ConnectorScopeStateOutput {
+	return pulumi.ToOutput(e).(ConnectorScopeStateOutput)
+}
+
+func (e ConnectorScopeState) ToConnectorScopeStateOutputWithContext(ctx context.Context) ConnectorScopeStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorScopeStateOutput)
+}
+
+func (e ConnectorScopeState) ToConnectorScopeStatePtrOutput() ConnectorScopeStatePtrOutput {
+	return e.ToConnectorScopeStatePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorScopeState) ToConnectorScopeStatePtrOutputWithContext(ctx context.Context) ConnectorScopeStatePtrOutput {
+	return ConnectorScopeState(e).ToConnectorScopeStateOutputWithContext(ctx).ToConnectorScopeStatePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorScopeState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorScopeState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorScopeState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorScopeState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorScopeStateOutput struct{ *pulumi.OutputState }
+
+func (ConnectorScopeStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorScopeState)(nil)).Elem()
+}
+
+func (o ConnectorScopeStateOutput) ToConnectorScopeStateOutput() ConnectorScopeStateOutput {
+	return o
+}
+
+func (o ConnectorScopeStateOutput) ToConnectorScopeStateOutputWithContext(ctx context.Context) ConnectorScopeStateOutput {
+	return o
+}
+
+func (o ConnectorScopeStateOutput) ToConnectorScopeStatePtrOutput() ConnectorScopeStatePtrOutput {
+	return o.ToConnectorScopeStatePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeStateOutput) ToConnectorScopeStatePtrOutputWithContext(ctx context.Context) ConnectorScopeStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorScopeState) *ConnectorScopeState {
+		return &v
+	}).(ConnectorScopeStatePtrOutput)
+}
+
+func (o ConnectorScopeStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorScopeState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorScopeStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorScopeState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorScopeStatePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorScopeStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorScopeState)(nil)).Elem()
+}
+
+func (o ConnectorScopeStatePtrOutput) ToConnectorScopeStatePtrOutput() ConnectorScopeStatePtrOutput {
+	return o
+}
+
+func (o ConnectorScopeStatePtrOutput) ToConnectorScopeStatePtrOutputWithContext(ctx context.Context) ConnectorScopeStatePtrOutput {
+	return o
+}
+
+func (o ConnectorScopeStatePtrOutput) Elem() ConnectorScopeStateOutput {
+	return o.ApplyT(func(v *ConnectorScopeState) ConnectorScopeState {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorScopeState
+		return ret
+	}).(ConnectorScopeStateOutput)
+}
+
+func (o ConnectorScopeStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorScopeState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorScopeStateInput is an input type that accepts values of the ConnectorScopeState enum
+// A concrete instance of `ConnectorScopeStateInput` can be one of the following:
+//
+//	ConnectorScopeStateActive
+//	ConnectorScopeStatePending
+//	ConnectorScopeStateError
+//	ConnectorScopeStateDisabled
+type ConnectorScopeStateInput interface {
+	pulumi.Input
+
+	ToConnectorScopeStateOutput() ConnectorScopeStateOutput
+	ToConnectorScopeStateOutputWithContext(context.Context) ConnectorScopeStateOutput
+}
+
+var connectorScopeStatePtrType = reflect.TypeOf((**ConnectorScopeState)(nil)).Elem()
+
+type ConnectorScopeStatePtrInput interface {
+	pulumi.Input
+
+	ToConnectorScopeStatePtrOutput() ConnectorScopeStatePtrOutput
+	ToConnectorScopeStatePtrOutputWithContext(context.Context) ConnectorScopeStatePtrOutput
+}
+
+type connectorScopeStatePtr string
+
+func ConnectorScopeStatePtr(v string) ConnectorScopeStatePtrInput {
+	return (*connectorScopeStatePtr)(&v)
+}
+
+func (*connectorScopeStatePtr) ElementType() reflect.Type {
+	return connectorScopeStatePtrType
+}
+
+func (in *connectorScopeStatePtr) ToConnectorScopeStatePtrOutput() ConnectorScopeStatePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorScopeStatePtrOutput)
+}
+
+func (in *connectorScopeStatePtr) ToConnectorScopeStatePtrOutputWithContext(ctx context.Context) ConnectorScopeStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorScopeStatePtrOutput)
+}
+
+type ConnectorScopeType string
+
+const (
+	ConnectorScopeTypeTenant       = ConnectorScopeType("TENANT")
+	ConnectorScopeTypeSubscription = ConnectorScopeType("SUBSCRIPTION")
+)
+
+func (ConnectorScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorScopeType)(nil)).Elem()
+}
+
+func (e ConnectorScopeType) ToConnectorScopeTypeOutput() ConnectorScopeTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorScopeTypeOutput)
+}
+
+func (e ConnectorScopeType) ToConnectorScopeTypeOutputWithContext(ctx context.Context) ConnectorScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorScopeTypeOutput)
+}
+
+func (e ConnectorScopeType) ToConnectorScopeTypePtrOutput() ConnectorScopeTypePtrOutput {
+	return e.ToConnectorScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorScopeType) ToConnectorScopeTypePtrOutputWithContext(ctx context.Context) ConnectorScopeTypePtrOutput {
+	return ConnectorScopeType(e).ToConnectorScopeTypeOutputWithContext(ctx).ToConnectorScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorScopeType)(nil)).Elem()
+}
+
+func (o ConnectorScopeTypeOutput) ToConnectorScopeTypeOutput() ConnectorScopeTypeOutput {
+	return o
+}
+
+func (o ConnectorScopeTypeOutput) ToConnectorScopeTypeOutputWithContext(ctx context.Context) ConnectorScopeTypeOutput {
+	return o
+}
+
+func (o ConnectorScopeTypeOutput) ToConnectorScopeTypePtrOutput() ConnectorScopeTypePtrOutput {
+	return o.ToConnectorScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeTypeOutput) ToConnectorScopeTypePtrOutputWithContext(ctx context.Context) ConnectorScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorScopeType) *ConnectorScopeType {
+		return &v
+	}).(ConnectorScopeTypePtrOutput)
+}
+
+func (o ConnectorScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorScopeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorScopeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorScopeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorScopeType)(nil)).Elem()
+}
+
+func (o ConnectorScopeTypePtrOutput) ToConnectorScopeTypePtrOutput() ConnectorScopeTypePtrOutput {
+	return o
+}
+
+func (o ConnectorScopeTypePtrOutput) ToConnectorScopeTypePtrOutputWithContext(ctx context.Context) ConnectorScopeTypePtrOutput {
+	return o
+}
+
+func (o ConnectorScopeTypePtrOutput) Elem() ConnectorScopeTypeOutput {
+	return o.ApplyT(func(v *ConnectorScopeType) ConnectorScopeType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorScopeType
+		return ret
+	}).(ConnectorScopeTypeOutput)
+}
+
+func (o ConnectorScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorScopeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorScopeTypeInput is an input type that accepts values of the ConnectorScopeType enum
+// A concrete instance of `ConnectorScopeTypeInput` can be one of the following:
+//
+//	ConnectorScopeTypeTenant
+//	ConnectorScopeTypeSubscription
+type ConnectorScopeTypeInput interface {
+	pulumi.Input
+
+	ToConnectorScopeTypeOutput() ConnectorScopeTypeOutput
+	ToConnectorScopeTypeOutputWithContext(context.Context) ConnectorScopeTypeOutput
+}
+
+var connectorScopeTypePtrType = reflect.TypeOf((**ConnectorScopeType)(nil)).Elem()
+
+type ConnectorScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorScopeTypePtrOutput() ConnectorScopeTypePtrOutput
+	ToConnectorScopeTypePtrOutputWithContext(context.Context) ConnectorScopeTypePtrOutput
+}
+
+type connectorScopeTypePtr string
+
+func ConnectorScopeTypePtr(v string) ConnectorScopeTypePtrInput {
+	return (*connectorScopeTypePtr)(&v)
+}
+
+func (*connectorScopeTypePtr) ElementType() reflect.Type {
+	return connectorScopeTypePtrType
+}
+
+func (in *connectorScopeTypePtr) ToConnectorScopeTypePtrOutput() ConnectorScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorScopeTypePtrOutput)
+}
+
+func (in *connectorScopeTypePtr) ToConnectorScopeTypePtrOutputWithContext(ctx context.Context) ConnectorScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorScopeTypePtrOutput)
+}
+
+type ConnectorStateEnum string
+
+const (
+	ConnectorStateEnumEnabled           = ConnectorStateEnum("ENABLED")
+	ConnectorStateEnumPendingEnablement = ConnectorStateEnum("PENDING_ENABLEMENT")
+	ConnectorStateEnumFailedToEnable    = ConnectorStateEnum("FAILED_TO_ENABLE")
+	ConnectorStateEnumPendingUpdate     = ConnectorStateEnum("PENDING_UPDATE")
+	ConnectorStateEnumFailedToUpdate    = ConnectorStateEnum("FAILED_TO_UPDATE")
+	ConnectorStateEnumPendingDeletion   = ConnectorStateEnum("PENDING_DELETION")
+	ConnectorStateEnumDeleted           = ConnectorStateEnum("DELETED")
+	ConnectorStateEnumFailedToDelete    = ConnectorStateEnum("FAILED_TO_DELETE")
+)
+
+type ConnectorStateEnumOutput struct{ *pulumi.OutputState }
+
+func (ConnectorStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorStateEnum)(nil)).Elem()
+}
+
+func (o ConnectorStateEnumOutput) ToConnectorStateEnumOutput() ConnectorStateEnumOutput {
+	return o
+}
+
+func (o ConnectorStateEnumOutput) ToConnectorStateEnumOutputWithContext(ctx context.Context) ConnectorStateEnumOutput {
+	return o
+}
+
+func (o ConnectorStateEnumOutput) ToConnectorStateEnumPtrOutput() ConnectorStateEnumPtrOutput {
+	return o.ToConnectorStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorStateEnumOutput) ToConnectorStateEnumPtrOutputWithContext(ctx context.Context) ConnectorStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorStateEnum) *ConnectorStateEnum {
+		return &v
+	}).(ConnectorStateEnumPtrOutput)
+}
+
+func (o ConnectorStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorStateEnum)(nil)).Elem()
+}
+
+func (o ConnectorStateEnumPtrOutput) ToConnectorStateEnumPtrOutput() ConnectorStateEnumPtrOutput {
+	return o
+}
+
+func (o ConnectorStateEnumPtrOutput) ToConnectorStateEnumPtrOutputWithContext(ctx context.Context) ConnectorStateEnumPtrOutput {
+	return o
+}
+
+func (o ConnectorStateEnumPtrOutput) Elem() ConnectorStateEnumOutput {
+	return o.ApplyT(func(v *ConnectorStateEnum) ConnectorStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorStateEnum
+		return ret
+	}).(ConnectorStateEnumOutput)
+}
+
+func (o ConnectorStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type FilterAction string
 
 const (
@@ -2085,6 +2772,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategoryInput)(nil)).Elem(), CodeSecurityScanConfigurationRuleSetCategory("SAST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategoryPtrInput)(nil)).Elem(), CodeSecurityScanConfigurationRuleSetCategory("SAST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSecurityScanConfigurationRuleSetCategoryArrayInput)(nil)).Elem(), CodeSecurityScanConfigurationRuleSetCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCloudProviderInput)(nil)).Elem(), ConnectorCloudProvider("AZURE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorCloudProviderPtrInput)(nil)).Elem(), ConnectorCloudProvider("AZURE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeStateInput)(nil)).Elem(), ConnectorScopeState("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeStatePtrInput)(nil)).Elem(), ConnectorScopeState("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeTypeInput)(nil)).Elem(), ConnectorScopeType("TENANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorScopeTypePtrInput)(nil)).Elem(), ConnectorScopeType("TENANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterActionInput)(nil)).Elem(), FilterAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterActionPtrInput)(nil)).Elem(), FilterAction("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterMapComparisonInput)(nil)).Elem(), FilterMapComparison("EQUALS"))
@@ -2112,6 +2805,16 @@ func init() {
 	pulumi.RegisterOutputType(CodeSecurityScanConfigurationRuleSetCategoryOutput{})
 	pulumi.RegisterOutputType(CodeSecurityScanConfigurationRuleSetCategoryPtrOutput{})
 	pulumi.RegisterOutputType(CodeSecurityScanConfigurationRuleSetCategoryArrayOutput{})
+	pulumi.RegisterOutputType(ConnectorCloudProviderOutput{})
+	pulumi.RegisterOutputType(ConnectorCloudProviderPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorHealthStatusOutput{})
+	pulumi.RegisterOutputType(ConnectorHealthStatusPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorScopeStateOutput{})
+	pulumi.RegisterOutputType(ConnectorScopeStatePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorScopeTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorStateEnumOutput{})
+	pulumi.RegisterOutputType(ConnectorStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(FilterActionOutput{})
 	pulumi.RegisterOutputType(FilterActionPtrOutput{})
 	pulumi.RegisterOutputType(FilterMapComparisonOutput{})

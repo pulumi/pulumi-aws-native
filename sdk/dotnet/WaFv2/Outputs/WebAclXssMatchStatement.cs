@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// The part of the web request that you want AWS WAF to inspect.
         /// </summary>
         public readonly Outputs.WebAclFieldToMatch FieldToMatch;
+        public readonly ImmutableArray<Outputs.WebAclPreParseTextTransformation> PreParseTextTransformations;
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
         /// </summary>
@@ -29,9 +30,12 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         private WebAclXssMatchStatement(
             Outputs.WebAclFieldToMatch fieldToMatch,
 
+            ImmutableArray<Outputs.WebAclPreParseTextTransformation> preParseTextTransformations,
+
             ImmutableArray<Outputs.WebAclTextTransformation> textTransformations)
         {
             FieldToMatch = fieldToMatch;
+            PreParseTextTransformations = preParseTextTransformations;
             TextTransformations = textTransformations;
         }
     }

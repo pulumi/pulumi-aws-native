@@ -10,6 +10,7 @@
   "typeName" : "AWS::Lex::Bot",
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "description" : "Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.",
+  "createOnlyProperties" : [ "/properties/BotType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "required" : [ "Name", "RoleArn", "DataPrivacy", "IdleSessionTTLInSeconds" ],
   "sourceUrl" : "https://docs.aws.amazon.com/lexv2/latest/dg/build-create.html",
@@ -30,7 +31,7 @@
       "permissions" : [ "lex:DeleteBot", "lex:BatchDeleteCustomVocabularyItem", "lex:DescribeBot", "lex:DescribeBotAlias", "lex:DeleteBotLocale", "lex:DeleteIntent", "lex:DeleteSlotType", "lex:DeleteSlot", "lex:DeleteBotVersion", "lex:DeleteBotChannel", "lex:DeleteBotAlias", "lex:DeleteCustomVocabulary", "lex:DeleteBotReplica", "lex:DeleteExport", "lex:DeleteUtterances", "lex:DeleteImport", "lex:DeleteSession", "lex:DeleteTestSet", "lex:DeleteResourcePolicyStatement", "lex:DeleteResourcePolicy", "lex:UntagResource" ]
     }
   },
-  "writeOnlyProperties" : [ "/properties/BotLocales", "/properties/BotFileS3Location", "/properties/AutoBuildBotLocales", "/properties/TestBotAliasTags", "/properties/Replication", "/properties/TestBotAliasSettings" ],
+  "writeOnlyProperties" : [ "/properties/BotLocales", "/properties/BotFileS3Location", "/properties/AutoBuildBotLocales", "/properties/TestBotAliasTags", "/properties/Replication", "/properties/TestBotAliasSettings", "/properties/BotMembers" ],
   "additionalProperties" : false,
   "definitions" : {
     "AttachmentTitle" : {
@@ -1984,6 +1985,44 @@
       },
       "required" : [ "ExpressionString" ]
     },
+    "BotMember" : {
+      "description" : "A bot that is a member of a bot network.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BotMemberName" : {
+          "minLength" : 1,
+          "description" : "The unique name of a bot that is a member of this network of bots.",
+          "type" : "string",
+          "maxLength" : 100
+        },
+        "BotMemberAliasName" : {
+          "minLength" : 1,
+          "description" : "The alias name of a bot that is a member of this network of bots.",
+          "type" : "string",
+          "maxLength" : 100
+        },
+        "BotMemberId" : {
+          "minLength" : 10,
+          "description" : "The unique ID of a bot that is a member of this network of bots.",
+          "type" : "string",
+          "maxLength" : 10
+        },
+        "BotMemberVersion" : {
+          "minLength" : 1,
+          "description" : "The version of a bot that is a member of this network of bots.",
+          "type" : "string",
+          "maxLength" : 5
+        },
+        "BotMemberAliasId" : {
+          "minLength" : 10,
+          "description" : "The alias ID of a bot that is a member of this network of bots.",
+          "type" : "string",
+          "maxLength" : 10
+        }
+      },
+      "required" : [ "BotMemberAliasId", "BotMemberAliasName", "BotMemberId", "BotMemberName", "BotMemberVersion" ]
+    },
     "AttachmentUrl" : {
       "minLength" : 1,
       "type" : "string",
@@ -2304,6 +2343,12 @@
     "RoleArn" : {
       "$ref" : "#/definitions/RoleArn"
     },
+    "BotType" : {
+      "default" : "Bot",
+      "description" : "The type of a bot to create.",
+      "type" : "string",
+      "enum" : [ "Bot", "BotNetwork" ]
+    },
     "Name" : {
       "$ref" : "#/definitions/Name"
     },
@@ -2346,6 +2391,16 @@
     },
     "Replication" : {
       "$ref" : "#/definitions/Replication"
+    },
+    "BotMembers" : {
+      "maxItems" : 10,
+      "uniqueItems" : true,
+      "description" : "The list of bot members in a network to be created.",
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/BotMember"
+      }
     },
     "TestBotAliasSettings" : {
       "$ref" : "#/definitions/TestBotAliasSettings"

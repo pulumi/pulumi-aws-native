@@ -13,6 +13,169 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Discovery configuration associated to the workload.
+type DiscoveryConfigProperties struct {
+	// Discovery integration status in respect to Trusted Advisor for the workload.
+	TrustedAdvisorIntegrationStatus *WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus `pulumi:"trustedAdvisorIntegrationStatus"`
+	// The mode to use for identifying resources associated with the workload.
+	WorkloadResourceDefinition []WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem `pulumi:"workloadResourceDefinition"`
+}
+
+// DiscoveryConfigPropertiesInput is an input type that accepts DiscoveryConfigPropertiesArgs and DiscoveryConfigPropertiesOutput values.
+// You can construct a concrete instance of `DiscoveryConfigPropertiesInput` via:
+//
+//	DiscoveryConfigPropertiesArgs{...}
+type DiscoveryConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToDiscoveryConfigPropertiesOutput() DiscoveryConfigPropertiesOutput
+	ToDiscoveryConfigPropertiesOutputWithContext(context.Context) DiscoveryConfigPropertiesOutput
+}
+
+// Discovery configuration associated to the workload.
+type DiscoveryConfigPropertiesArgs struct {
+	// Discovery integration status in respect to Trusted Advisor for the workload.
+	TrustedAdvisorIntegrationStatus WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrInput `pulumi:"trustedAdvisorIntegrationStatus"`
+	// The mode to use for identifying resources associated with the workload.
+	WorkloadResourceDefinition WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayInput `pulumi:"workloadResourceDefinition"`
+}
+
+func (DiscoveryConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiscoveryConfigProperties)(nil)).Elem()
+}
+
+func (i DiscoveryConfigPropertiesArgs) ToDiscoveryConfigPropertiesOutput() DiscoveryConfigPropertiesOutput {
+	return i.ToDiscoveryConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i DiscoveryConfigPropertiesArgs) ToDiscoveryConfigPropertiesOutputWithContext(ctx context.Context) DiscoveryConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryConfigPropertiesOutput)
+}
+
+func (i DiscoveryConfigPropertiesArgs) ToDiscoveryConfigPropertiesPtrOutput() DiscoveryConfigPropertiesPtrOutput {
+	return i.ToDiscoveryConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DiscoveryConfigPropertiesArgs) ToDiscoveryConfigPropertiesPtrOutputWithContext(ctx context.Context) DiscoveryConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryConfigPropertiesOutput).ToDiscoveryConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// DiscoveryConfigPropertiesPtrInput is an input type that accepts DiscoveryConfigPropertiesArgs, DiscoveryConfigPropertiesPtr and DiscoveryConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `DiscoveryConfigPropertiesPtrInput` via:
+//
+//	        DiscoveryConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DiscoveryConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDiscoveryConfigPropertiesPtrOutput() DiscoveryConfigPropertiesPtrOutput
+	ToDiscoveryConfigPropertiesPtrOutputWithContext(context.Context) DiscoveryConfigPropertiesPtrOutput
+}
+
+type discoveryConfigPropertiesPtrType DiscoveryConfigPropertiesArgs
+
+func DiscoveryConfigPropertiesPtr(v *DiscoveryConfigPropertiesArgs) DiscoveryConfigPropertiesPtrInput {
+	return (*discoveryConfigPropertiesPtrType)(v)
+}
+
+func (*discoveryConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiscoveryConfigProperties)(nil)).Elem()
+}
+
+func (i *discoveryConfigPropertiesPtrType) ToDiscoveryConfigPropertiesPtrOutput() DiscoveryConfigPropertiesPtrOutput {
+	return i.ToDiscoveryConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *discoveryConfigPropertiesPtrType) ToDiscoveryConfigPropertiesPtrOutputWithContext(ctx context.Context) DiscoveryConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiscoveryConfigPropertiesPtrOutput)
+}
+
+// Discovery configuration associated to the workload.
+type DiscoveryConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DiscoveryConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiscoveryConfigProperties)(nil)).Elem()
+}
+
+func (o DiscoveryConfigPropertiesOutput) ToDiscoveryConfigPropertiesOutput() DiscoveryConfigPropertiesOutput {
+	return o
+}
+
+func (o DiscoveryConfigPropertiesOutput) ToDiscoveryConfigPropertiesOutputWithContext(ctx context.Context) DiscoveryConfigPropertiesOutput {
+	return o
+}
+
+func (o DiscoveryConfigPropertiesOutput) ToDiscoveryConfigPropertiesPtrOutput() DiscoveryConfigPropertiesPtrOutput {
+	return o.ToDiscoveryConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DiscoveryConfigPropertiesOutput) ToDiscoveryConfigPropertiesPtrOutputWithContext(ctx context.Context) DiscoveryConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiscoveryConfigProperties) *DiscoveryConfigProperties {
+		return &v
+	}).(DiscoveryConfigPropertiesPtrOutput)
+}
+
+// Discovery integration status in respect to Trusted Advisor for the workload.
+func (o DiscoveryConfigPropertiesOutput) TrustedAdvisorIntegrationStatus() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return o.ApplyT(func(v DiscoveryConfigProperties) *WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus {
+		return v.TrustedAdvisorIntegrationStatus
+	}).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput)
+}
+
+// The mode to use for identifying resources associated with the workload.
+func (o DiscoveryConfigPropertiesOutput) WorkloadResourceDefinition() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput {
+	return o.ApplyT(func(v DiscoveryConfigProperties) []WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem {
+		return v.WorkloadResourceDefinition
+	}).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput)
+}
+
+type DiscoveryConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DiscoveryConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiscoveryConfigProperties)(nil)).Elem()
+}
+
+func (o DiscoveryConfigPropertiesPtrOutput) ToDiscoveryConfigPropertiesPtrOutput() DiscoveryConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o DiscoveryConfigPropertiesPtrOutput) ToDiscoveryConfigPropertiesPtrOutputWithContext(ctx context.Context) DiscoveryConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o DiscoveryConfigPropertiesPtrOutput) Elem() DiscoveryConfigPropertiesOutput {
+	return o.ApplyT(func(v *DiscoveryConfigProperties) DiscoveryConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DiscoveryConfigProperties
+		return ret
+	}).(DiscoveryConfigPropertiesOutput)
+}
+
+// Discovery integration status in respect to Trusted Advisor for the workload.
+func (o DiscoveryConfigPropertiesPtrOutput) TrustedAdvisorIntegrationStatus() WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput {
+	return o.ApplyT(func(v *DiscoveryConfigProperties) *WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedAdvisorIntegrationStatus
+	}).(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrOutput)
+}
+
+// The mode to use for identifying resources associated with the workload.
+func (o DiscoveryConfigPropertiesPtrOutput) WorkloadResourceDefinition() WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput {
+	return o.ApplyT(func(v *DiscoveryConfigProperties) []WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem {
+		if v == nil {
+			return nil
+		}
+		return v.WorkloadResourceDefinition
+	}).(WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayOutput)
+}
+
 // An update to a profile question.
 type ProfileQuestionUpdate struct {
 	// The ID of the question.
@@ -136,8 +299,12 @@ type TagsItemProperties struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryConfigPropertiesInput)(nil)).Elem(), DiscoveryConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryConfigPropertiesPtrInput)(nil)).Elem(), DiscoveryConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileQuestionUpdateInput)(nil)).Elem(), ProfileQuestionUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileQuestionUpdateArrayInput)(nil)).Elem(), ProfileQuestionUpdateArray{})
+	pulumi.RegisterOutputType(DiscoveryConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(DiscoveryConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProfileQuestionUpdateOutput{})
 	pulumi.RegisterOutputType(ProfileQuestionUpdateArrayOutput{})
 }
