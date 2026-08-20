@@ -53,12 +53,8 @@ type LookupRepositoryCreationTemplateResult struct {
 }
 
 func LookupRepositoryCreationTemplateOutput(ctx *pulumi.Context, args LookupRepositoryCreationTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryCreationTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRepositoryCreationTemplateResultOutput, error) {
-			args := v.(LookupRepositoryCreationTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecr:getRepositoryCreationTemplate", args, LookupRepositoryCreationTemplateResultOutput{}, options).(LookupRepositoryCreationTemplateResultOutput), nil
-		}).(LookupRepositoryCreationTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecr:getRepositoryCreationTemplate", args, LookupRepositoryCreationTemplateResultOutput{}, options).(LookupRepositoryCreationTemplateResultOutput)
 }
 
 type LookupRepositoryCreationTemplateOutputArgs struct {

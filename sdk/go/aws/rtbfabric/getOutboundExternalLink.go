@@ -41,12 +41,8 @@ type LookupOutboundExternalLinkResult struct {
 }
 
 func LookupOutboundExternalLinkOutput(ctx *pulumi.Context, args LookupOutboundExternalLinkOutputArgs, opts ...pulumi.InvokeOption) LookupOutboundExternalLinkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOutboundExternalLinkResultOutput, error) {
-			args := v.(LookupOutboundExternalLinkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rtbfabric:getOutboundExternalLink", args, LookupOutboundExternalLinkResultOutput{}, options).(LookupOutboundExternalLinkResultOutput), nil
-		}).(LookupOutboundExternalLinkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rtbfabric:getOutboundExternalLink", args, LookupOutboundExternalLinkResultOutput{}, options).(LookupOutboundExternalLinkResultOutput)
 }
 
 type LookupOutboundExternalLinkOutputArgs struct {

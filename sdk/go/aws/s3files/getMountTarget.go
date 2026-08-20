@@ -38,12 +38,8 @@ type LookupMountTargetResult struct {
 }
 
 func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputArgs, opts ...pulumi.InvokeOption) LookupMountTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMountTargetResultOutput, error) {
-			args := v.(LookupMountTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3files:getMountTarget", args, LookupMountTargetResultOutput{}, options).(LookupMountTargetResultOutput), nil
-		}).(LookupMountTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3files:getMountTarget", args, LookupMountTargetResultOutput{}, options).(LookupMountTargetResultOutput)
 }
 
 type LookupMountTargetOutputArgs struct {

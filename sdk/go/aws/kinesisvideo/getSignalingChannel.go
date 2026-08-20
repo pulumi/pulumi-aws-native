@@ -40,12 +40,8 @@ type LookupSignalingChannelResult struct {
 }
 
 func LookupSignalingChannelOutput(ctx *pulumi.Context, args LookupSignalingChannelOutputArgs, opts ...pulumi.InvokeOption) LookupSignalingChannelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSignalingChannelResultOutput, error) {
-			args := v.(LookupSignalingChannelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:kinesisvideo:getSignalingChannel", args, LookupSignalingChannelResultOutput{}, options).(LookupSignalingChannelResultOutput), nil
-		}).(LookupSignalingChannelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:kinesisvideo:getSignalingChannel", args, LookupSignalingChannelResultOutput{}, options).(LookupSignalingChannelResultOutput)
 }
 
 type LookupSignalingChannelOutputArgs struct {

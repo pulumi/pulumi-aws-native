@@ -38,12 +38,8 @@ type LookupDataSourceResult struct {
 }
 
 func LookupDataSourceOutput(ctx *pulumi.Context, args LookupDataSourceOutputArgs, opts ...pulumi.InvokeOption) LookupDataSourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataSourceResultOutput, error) {
-			args := v.(LookupDataSourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:opensearch:getDataSource", args, LookupDataSourceResultOutput{}, options).(LookupDataSourceResultOutput), nil
-		}).(LookupDataSourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:opensearch:getDataSource", args, LookupDataSourceResultOutput{}, options).(LookupDataSourceResultOutput)
 }
 
 type LookupDataSourceOutputArgs struct {

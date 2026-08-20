@@ -50,12 +50,8 @@ type LookupSlackChannelConfigurationResult struct {
 }
 
 func LookupSlackChannelConfigurationOutput(ctx *pulumi.Context, args LookupSlackChannelConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupSlackChannelConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSlackChannelConfigurationResultOutput, error) {
-			args := v.(LookupSlackChannelConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:chatbot:getSlackChannelConfiguration", args, LookupSlackChannelConfigurationResultOutput{}, options).(LookupSlackChannelConfigurationResultOutput), nil
-		}).(LookupSlackChannelConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:chatbot:getSlackChannelConfiguration", args, LookupSlackChannelConfigurationResultOutput{}, options).(LookupSlackChannelConfigurationResultOutput)
 }
 
 type LookupSlackChannelConfigurationOutputArgs struct {

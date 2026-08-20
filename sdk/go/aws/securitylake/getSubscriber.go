@@ -56,12 +56,8 @@ type LookupSubscriberResult struct {
 }
 
 func LookupSubscriberOutput(ctx *pulumi.Context, args LookupSubscriberOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriberResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubscriberResultOutput, error) {
-			args := v.(LookupSubscriberArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securitylake:getSubscriber", args, LookupSubscriberResultOutput{}, options).(LookupSubscriberResultOutput), nil
-		}).(LookupSubscriberResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securitylake:getSubscriber", args, LookupSubscriberResultOutput{}, options).(LookupSubscriberResultOutput)
 }
 
 type LookupSubscriberOutputArgs struct {

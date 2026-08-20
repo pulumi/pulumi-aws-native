@@ -35,12 +35,8 @@ type LookupSubnetGroupResult struct {
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubnetGroupResultOutput, error) {
-			args := v.(LookupSubnetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:dax:getSubnetGroup", args, LookupSubnetGroupResultOutput{}, options).(LookupSubnetGroupResultOutput), nil
-		}).(LookupSubnetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:dax:getSubnetGroup", args, LookupSubnetGroupResultOutput{}, options).(LookupSubnetGroupResultOutput)
 }
 
 type LookupSubnetGroupOutputArgs struct {

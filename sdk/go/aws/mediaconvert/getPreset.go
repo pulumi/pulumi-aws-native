@@ -47,12 +47,8 @@ type LookupPresetResult struct {
 }
 
 func LookupPresetOutput(ctx *pulumi.Context, args LookupPresetOutputArgs, opts ...pulumi.InvokeOption) LookupPresetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPresetResultOutput, error) {
-			args := v.(LookupPresetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediaconvert:getPreset", args, LookupPresetResultOutput{}, options).(LookupPresetResultOutput), nil
-		}).(LookupPresetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediaconvert:getPreset", args, LookupPresetResultOutput{}, options).(LookupPresetResultOutput)
 }
 
 type LookupPresetOutputArgs struct {

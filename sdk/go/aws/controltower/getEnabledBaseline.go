@@ -37,12 +37,8 @@ type LookupEnabledBaselineResult struct {
 }
 
 func LookupEnabledBaselineOutput(ctx *pulumi.Context, args LookupEnabledBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupEnabledBaselineResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEnabledBaselineResultOutput, error) {
-			args := v.(LookupEnabledBaselineArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:controltower:getEnabledBaseline", args, LookupEnabledBaselineResultOutput{}, options).(LookupEnabledBaselineResultOutput), nil
-		}).(LookupEnabledBaselineResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:controltower:getEnabledBaseline", args, LookupEnabledBaselineResultOutput{}, options).(LookupEnabledBaselineResultOutput)
 }
 
 type LookupEnabledBaselineOutputArgs struct {

@@ -58,12 +58,8 @@ type LookupThreatEntitySetResult struct {
 }
 
 func LookupThreatEntitySetOutput(ctx *pulumi.Context, args LookupThreatEntitySetOutputArgs, opts ...pulumi.InvokeOption) LookupThreatEntitySetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupThreatEntitySetResultOutput, error) {
-			args := v.(LookupThreatEntitySetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:guardduty:getThreatEntitySet", args, LookupThreatEntitySetResultOutput{}, options).(LookupThreatEntitySetResultOutput), nil
-		}).(LookupThreatEntitySetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:guardduty:getThreatEntitySet", args, LookupThreatEntitySetResultOutput{}, options).(LookupThreatEntitySetResultOutput)
 }
 
 type LookupThreatEntitySetOutputArgs struct {

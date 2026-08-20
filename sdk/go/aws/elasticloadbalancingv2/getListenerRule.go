@@ -49,12 +49,8 @@ type LookupListenerRuleResult struct {
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupListenerRuleResultOutput, error) {
-			args := v.(LookupListenerRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:elasticloadbalancingv2:getListenerRule", args, LookupListenerRuleResultOutput{}, options).(LookupListenerRuleResultOutput), nil
-		}).(LookupListenerRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:elasticloadbalancingv2:getListenerRule", args, LookupListenerRuleResultOutput{}, options).(LookupListenerRuleResultOutput)
 }
 
 type LookupListenerRuleOutputArgs struct {

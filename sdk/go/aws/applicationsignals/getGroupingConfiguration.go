@@ -37,12 +37,8 @@ type LookupGroupingConfigurationResult struct {
 }
 
 func LookupGroupingConfigurationOutput(ctx *pulumi.Context, args LookupGroupingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupGroupingConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGroupingConfigurationResultOutput, error) {
-			args := v.(LookupGroupingConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:applicationsignals:getGroupingConfiguration", args, LookupGroupingConfigurationResultOutput{}, options).(LookupGroupingConfigurationResultOutput), nil
-		}).(LookupGroupingConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:applicationsignals:getGroupingConfiguration", args, LookupGroupingConfigurationResultOutput{}, options).(LookupGroupingConfigurationResultOutput)
 }
 
 type LookupGroupingConfigurationOutputArgs struct {

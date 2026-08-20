@@ -33,12 +33,8 @@ type LookupStepResult struct {
 }
 
 func LookupStepOutput(ctx *pulumi.Context, args LookupStepOutputArgs, opts ...pulumi.InvokeOption) LookupStepResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStepResultOutput, error) {
-			args := v.(LookupStepArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:emr:getStep", args, LookupStepResultOutput{}, options).(LookupStepResultOutput), nil
-		}).(LookupStepResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:emr:getStep", args, LookupStepResultOutput{}, options).(LookupStepResultOutput)
 }
 
 type LookupStepOutputArgs struct {

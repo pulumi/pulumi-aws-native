@@ -52,12 +52,8 @@ type LookupModelCardResult struct {
 }
 
 func LookupModelCardOutput(ctx *pulumi.Context, args LookupModelCardOutputArgs, opts ...pulumi.InvokeOption) LookupModelCardResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupModelCardResultOutput, error) {
-			args := v.(LookupModelCardArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getModelCard", args, LookupModelCardResultOutput{}, options).(LookupModelCardResultOutput), nil
-		}).(LookupModelCardResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getModelCard", args, LookupModelCardResultOutput{}, options).(LookupModelCardResultOutput)
 }
 
 type LookupModelCardOutputArgs struct {

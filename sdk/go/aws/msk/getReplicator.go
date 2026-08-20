@@ -42,12 +42,8 @@ type LookupReplicatorResult struct {
 }
 
 func LookupReplicatorOutput(ctx *pulumi.Context, args LookupReplicatorOutputArgs, opts ...pulumi.InvokeOption) LookupReplicatorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicatorResultOutput, error) {
-			args := v.(LookupReplicatorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:msk:getReplicator", args, LookupReplicatorResultOutput{}, options).(LookupReplicatorResultOutput), nil
-		}).(LookupReplicatorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:msk:getReplicator", args, LookupReplicatorResultOutput{}, options).(LookupReplicatorResultOutput)
 }
 
 type LookupReplicatorOutputArgs struct {

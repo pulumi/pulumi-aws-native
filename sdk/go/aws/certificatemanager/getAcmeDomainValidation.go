@@ -37,12 +37,8 @@ type LookupAcmeDomainValidationResult struct {
 }
 
 func LookupAcmeDomainValidationOutput(ctx *pulumi.Context, args LookupAcmeDomainValidationOutputArgs, opts ...pulumi.InvokeOption) LookupAcmeDomainValidationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAcmeDomainValidationResultOutput, error) {
-			args := v.(LookupAcmeDomainValidationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:certificatemanager:getAcmeDomainValidation", args, LookupAcmeDomainValidationResultOutput{}, options).(LookupAcmeDomainValidationResultOutput), nil
-		}).(LookupAcmeDomainValidationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:certificatemanager:getAcmeDomainValidation", args, LookupAcmeDomainValidationResultOutput{}, options).(LookupAcmeDomainValidationResultOutput)
 }
 
 type LookupAcmeDomainValidationOutputArgs struct {

@@ -30,12 +30,8 @@ type GetSsmParameterStringResult struct {
 }
 
 func GetSsmParameterStringOutput(ctx *pulumi.Context, args GetSsmParameterStringOutputArgs, opts ...pulumi.InvokeOption) GetSsmParameterStringResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSsmParameterStringResultOutput, error) {
-			args := v.(GetSsmParameterStringArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:index:getSsmParameterString", args, GetSsmParameterStringResultOutput{}, options).(GetSsmParameterStringResultOutput), nil
-		}).(GetSsmParameterStringResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:index:getSsmParameterString", args, GetSsmParameterStringResultOutput{}, options).(GetSsmParameterStringResultOutput)
 }
 
 type GetSsmParameterStringOutputArgs struct {

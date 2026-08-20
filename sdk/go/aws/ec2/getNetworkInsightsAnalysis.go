@@ -58,12 +58,8 @@ type LookupNetworkInsightsAnalysisResult struct {
 }
 
 func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAnalysisResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInsightsAnalysisResultOutput, error) {
-			args := v.(LookupNetworkInsightsAnalysisArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getNetworkInsightsAnalysis", args, LookupNetworkInsightsAnalysisResultOutput{}, options).(LookupNetworkInsightsAnalysisResultOutput), nil
-		}).(LookupNetworkInsightsAnalysisResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getNetworkInsightsAnalysis", args, LookupNetworkInsightsAnalysisResultOutput{}, options).(LookupNetworkInsightsAnalysisResultOutput)
 }
 
 type LookupNetworkInsightsAnalysisOutputArgs struct {

@@ -48,12 +48,8 @@ type LookupSamlProviderResult struct {
 }
 
 func LookupSamlProviderOutput(ctx *pulumi.Context, args LookupSamlProviderOutputArgs, opts ...pulumi.InvokeOption) LookupSamlProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSamlProviderResultOutput, error) {
-			args := v.(LookupSamlProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iam:getSamlProvider", args, LookupSamlProviderResultOutput{}, options).(LookupSamlProviderResultOutput), nil
-		}).(LookupSamlProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iam:getSamlProvider", args, LookupSamlProviderResultOutput{}, options).(LookupSamlProviderResultOutput)
 }
 
 type LookupSamlProviderOutputArgs struct {

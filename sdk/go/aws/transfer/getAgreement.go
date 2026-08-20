@@ -58,12 +58,8 @@ type LookupAgreementResult struct {
 }
 
 func LookupAgreementOutput(ctx *pulumi.Context, args LookupAgreementOutputArgs, opts ...pulumi.InvokeOption) LookupAgreementResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAgreementResultOutput, error) {
-			args := v.(LookupAgreementArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:transfer:getAgreement", args, LookupAgreementResultOutput{}, options).(LookupAgreementResultOutput), nil
-		}).(LookupAgreementResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:transfer:getAgreement", args, LookupAgreementResultOutput{}, options).(LookupAgreementResultOutput)
 }
 
 type LookupAgreementOutputArgs struct {

@@ -49,12 +49,8 @@ type LookupLimitResult struct {
 }
 
 func LookupLimitOutput(ctx *pulumi.Context, args LookupLimitOutputArgs, opts ...pulumi.InvokeOption) LookupLimitResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLimitResultOutput, error) {
-			args := v.(LookupLimitArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:deadline:getLimit", args, LookupLimitResultOutput{}, options).(LookupLimitResultOutput), nil
-		}).(LookupLimitResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:deadline:getLimit", args, LookupLimitResultOutput{}, options).(LookupLimitResultOutput)
 }
 
 type LookupLimitOutputArgs struct {

@@ -45,12 +45,8 @@ type LookupMaintenanceWindowTargetResult struct {
 }
 
 func LookupMaintenanceWindowTargetOutput(ctx *pulumi.Context, args LookupMaintenanceWindowTargetOutputArgs, opts ...pulumi.InvokeOption) LookupMaintenanceWindowTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMaintenanceWindowTargetResultOutput, error) {
-			args := v.(LookupMaintenanceWindowTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssm:getMaintenanceWindowTarget", args, LookupMaintenanceWindowTargetResultOutput{}, options).(LookupMaintenanceWindowTargetResultOutput), nil
-		}).(LookupMaintenanceWindowTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssm:getMaintenanceWindowTarget", args, LookupMaintenanceWindowTargetResultOutput{}, options).(LookupMaintenanceWindowTargetResultOutput)
 }
 
 type LookupMaintenanceWindowTargetOutputArgs struct {

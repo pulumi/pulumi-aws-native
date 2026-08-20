@@ -66,12 +66,8 @@ type LookupInfluxDbInstanceResult struct {
 }
 
 func LookupInfluxDbInstanceOutput(ctx *pulumi.Context, args LookupInfluxDbInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInfluxDbInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInfluxDbInstanceResultOutput, error) {
-			args := v.(LookupInfluxDbInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:timestream:getInfluxDbInstance", args, LookupInfluxDbInstanceResultOutput{}, options).(LookupInfluxDbInstanceResultOutput), nil
-		}).(LookupInfluxDbInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:timestream:getInfluxDbInstance", args, LookupInfluxDbInstanceResultOutput{}, options).(LookupInfluxDbInstanceResultOutput)
 }
 
 type LookupInfluxDbInstanceOutputArgs struct {

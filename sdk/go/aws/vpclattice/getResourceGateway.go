@@ -42,12 +42,8 @@ type LookupResourceGatewayResult struct {
 }
 
 func LookupResourceGatewayOutput(ctx *pulumi.Context, args LookupResourceGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGatewayResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceGatewayResultOutput, error) {
-			args := v.(LookupResourceGatewayArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:vpclattice:getResourceGateway", args, LookupResourceGatewayResultOutput{}, options).(LookupResourceGatewayResultOutput), nil
-		}).(LookupResourceGatewayResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:vpclattice:getResourceGateway", args, LookupResourceGatewayResultOutput{}, options).(LookupResourceGatewayResultOutput)
 }
 
 type LookupResourceGatewayOutputArgs struct {

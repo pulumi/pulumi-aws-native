@@ -66,12 +66,8 @@ type LookupVerifiedAccessEndpointResult struct {
 }
 
 func LookupVerifiedAccessEndpointOutput(ctx *pulumi.Context, args LookupVerifiedAccessEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVerifiedAccessEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVerifiedAccessEndpointResultOutput, error) {
-			args := v.(LookupVerifiedAccessEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVerifiedAccessEndpoint", args, LookupVerifiedAccessEndpointResultOutput{}, options).(LookupVerifiedAccessEndpointResultOutput), nil
-		}).(LookupVerifiedAccessEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVerifiedAccessEndpoint", args, LookupVerifiedAccessEndpointResultOutput{}, options).(LookupVerifiedAccessEndpointResultOutput)
 }
 
 type LookupVerifiedAccessEndpointOutputArgs struct {

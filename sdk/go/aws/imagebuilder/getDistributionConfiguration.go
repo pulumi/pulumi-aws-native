@@ -39,12 +39,8 @@ type LookupDistributionConfigurationResult struct {
 }
 
 func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistributionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDistributionConfigurationResultOutput, error) {
-			args := v.(LookupDistributionConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:imagebuilder:getDistributionConfiguration", args, LookupDistributionConfigurationResultOutput{}, options).(LookupDistributionConfigurationResultOutput), nil
-		}).(LookupDistributionConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:imagebuilder:getDistributionConfiguration", args, LookupDistributionConfigurationResultOutput{}, options).(LookupDistributionConfigurationResultOutput)
 }
 
 type LookupDistributionConfigurationOutputArgs struct {

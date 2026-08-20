@@ -46,12 +46,8 @@ type LookupInstanceResult struct {
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInstanceResultOutput, error) {
-			args := v.(LookupInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getInstance", args, LookupInstanceResultOutput{}, options).(LookupInstanceResultOutput), nil
-		}).(LookupInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getInstance", args, LookupInstanceResultOutput{}, options).(LookupInstanceResultOutput)
 }
 
 type LookupInstanceOutputArgs struct {

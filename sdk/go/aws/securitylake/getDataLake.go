@@ -44,12 +44,8 @@ type LookupDataLakeResult struct {
 }
 
 func LookupDataLakeOutput(ctx *pulumi.Context, args LookupDataLakeOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataLakeResultOutput, error) {
-			args := v.(LookupDataLakeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securitylake:getDataLake", args, LookupDataLakeResultOutput{}, options).(LookupDataLakeResultOutput), nil
-		}).(LookupDataLakeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securitylake:getDataLake", args, LookupDataLakeResultOutput{}, options).(LookupDataLakeResultOutput)
 }
 
 type LookupDataLakeOutputArgs struct {

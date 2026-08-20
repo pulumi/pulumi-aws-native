@@ -51,12 +51,8 @@ type LookupTrialComponentResult struct {
 }
 
 func LookupTrialComponentOutput(ctx *pulumi.Context, args LookupTrialComponentOutputArgs, opts ...pulumi.InvokeOption) LookupTrialComponentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrialComponentResultOutput, error) {
-			args := v.(LookupTrialComponentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getTrialComponent", args, LookupTrialComponentResultOutput{}, options).(LookupTrialComponentResultOutput), nil
-		}).(LookupTrialComponentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getTrialComponent", args, LookupTrialComponentResultOutput{}, options).(LookupTrialComponentResultOutput)
 }
 
 type LookupTrialComponentOutputArgs struct {

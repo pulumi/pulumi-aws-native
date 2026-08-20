@@ -43,12 +43,8 @@ type LookupGroupProfileResult struct {
 }
 
 func LookupGroupProfileOutput(ctx *pulumi.Context, args LookupGroupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupGroupProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGroupProfileResultOutput, error) {
-			args := v.(LookupGroupProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datazone:getGroupProfile", args, LookupGroupProfileResultOutput{}, options).(LookupGroupProfileResultOutput), nil
-		}).(LookupGroupProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datazone:getGroupProfile", args, LookupGroupProfileResultOutput{}, options).(LookupGroupProfileResultOutput)
 }
 
 type LookupGroupProfileOutputArgs struct {

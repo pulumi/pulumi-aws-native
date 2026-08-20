@@ -50,12 +50,8 @@ type LookupStreamResult struct {
 }
 
 func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts ...pulumi.InvokeOption) LookupStreamResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStreamResultOutput, error) {
-			args := v.(LookupStreamArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:kinesis:getStream", args, LookupStreamResultOutput{}, options).(LookupStreamResultOutput), nil
-		}).(LookupStreamResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:kinesis:getStream", args, LookupStreamResultOutput{}, options).(LookupStreamResultOutput)
 }
 
 type LookupStreamOutputArgs struct {

@@ -41,12 +41,8 @@ type LookupCollectionGroupResult struct {
 }
 
 func LookupCollectionGroupOutput(ctx *pulumi.Context, args LookupCollectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupCollectionGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCollectionGroupResultOutput, error) {
-			args := v.(LookupCollectionGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:opensearchserverless:getCollectionGroup", args, LookupCollectionGroupResultOutput{}, options).(LookupCollectionGroupResultOutput), nil
-		}).(LookupCollectionGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:opensearchserverless:getCollectionGroup", args, LookupCollectionGroupResultOutput{}, options).(LookupCollectionGroupResultOutput)
 }
 
 type LookupCollectionGroupOutputArgs struct {

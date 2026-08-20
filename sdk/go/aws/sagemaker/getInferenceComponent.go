@@ -52,12 +52,8 @@ type LookupInferenceComponentResult struct {
 }
 
 func LookupInferenceComponentOutput(ctx *pulumi.Context, args LookupInferenceComponentOutputArgs, opts ...pulumi.InvokeOption) LookupInferenceComponentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInferenceComponentResultOutput, error) {
-			args := v.(LookupInferenceComponentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getInferenceComponent", args, LookupInferenceComponentResultOutput{}, options).(LookupInferenceComponentResultOutput), nil
-		}).(LookupInferenceComponentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getInferenceComponent", args, LookupInferenceComponentResultOutput{}, options).(LookupInferenceComponentResultOutput)
 }
 
 type LookupInferenceComponentOutputArgs struct {

@@ -37,12 +37,8 @@ type LookupEntitlementResult struct {
 }
 
 func LookupEntitlementOutput(ctx *pulumi.Context, args LookupEntitlementOutputArgs, opts ...pulumi.InvokeOption) LookupEntitlementResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEntitlementResultOutput, error) {
-			args := v.(LookupEntitlementArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:accountaccess:getEntitlement", args, LookupEntitlementResultOutput{}, options).(LookupEntitlementResultOutput), nil
-		}).(LookupEntitlementResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:accountaccess:getEntitlement", args, LookupEntitlementResultOutput{}, options).(LookupEntitlementResultOutput)
 }
 
 type LookupEntitlementOutputArgs struct {

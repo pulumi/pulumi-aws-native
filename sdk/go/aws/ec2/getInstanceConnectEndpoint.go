@@ -56,12 +56,8 @@ type LookupInstanceConnectEndpointResult struct {
 }
 
 func LookupInstanceConnectEndpointOutput(ctx *pulumi.Context, args LookupInstanceConnectEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceConnectEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInstanceConnectEndpointResultOutput, error) {
-			args := v.(LookupInstanceConnectEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getInstanceConnectEndpoint", args, LookupInstanceConnectEndpointResultOutput{}, options).(LookupInstanceConnectEndpointResultOutput), nil
-		}).(LookupInstanceConnectEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getInstanceConnectEndpoint", args, LookupInstanceConnectEndpointResultOutput{}, options).(LookupInstanceConnectEndpointResultOutput)
 }
 
 type LookupInstanceConnectEndpointOutputArgs struct {

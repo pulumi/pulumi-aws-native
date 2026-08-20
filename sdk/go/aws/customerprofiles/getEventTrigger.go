@@ -50,12 +50,8 @@ type LookupEventTriggerResult struct {
 }
 
 func LookupEventTriggerOutput(ctx *pulumi.Context, args LookupEventTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupEventTriggerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventTriggerResultOutput, error) {
-			args := v.(LookupEventTriggerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:customerprofiles:getEventTrigger", args, LookupEventTriggerResultOutput{}, options).(LookupEventTriggerResultOutput), nil
-		}).(LookupEventTriggerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:customerprofiles:getEventTrigger", args, LookupEventTriggerResultOutput{}, options).(LookupEventTriggerResultOutput)
 }
 
 type LookupEventTriggerOutputArgs struct {

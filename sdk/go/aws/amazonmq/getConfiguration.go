@@ -42,12 +42,8 @@ type LookupConfigurationResult struct {
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationResultOutput, error) {
-			args := v.(LookupConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:amazonmq:getConfiguration", args, LookupConfigurationResultOutput{}, options).(LookupConfigurationResultOutput), nil
-		}).(LookupConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:amazonmq:getConfiguration", args, LookupConfigurationResultOutput{}, options).(LookupConfigurationResultOutput)
 }
 
 type LookupConfigurationOutputArgs struct {

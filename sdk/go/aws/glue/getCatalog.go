@@ -55,12 +55,8 @@ type LookupCatalogResult struct {
 }
 
 func LookupCatalogOutput(ctx *pulumi.Context, args LookupCatalogOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCatalogResultOutput, error) {
-			args := v.(LookupCatalogArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getCatalog", args, LookupCatalogResultOutput{}, options).(LookupCatalogResultOutput), nil
-		}).(LookupCatalogResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getCatalog", args, LookupCatalogResultOutput{}, options).(LookupCatalogResultOutput)
 }
 
 type LookupCatalogOutputArgs struct {

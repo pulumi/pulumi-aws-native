@@ -95,12 +95,8 @@ type LookupScalableTargetResult struct {
 }
 
 func LookupScalableTargetOutput(ctx *pulumi.Context, args LookupScalableTargetOutputArgs, opts ...pulumi.InvokeOption) LookupScalableTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupScalableTargetResultOutput, error) {
-			args := v.(LookupScalableTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:applicationautoscaling:getScalableTarget", args, LookupScalableTargetResultOutput{}, options).(LookupScalableTargetResultOutput), nil
-		}).(LookupScalableTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:applicationautoscaling:getScalableTarget", args, LookupScalableTargetResultOutput{}, options).(LookupScalableTargetResultOutput)
 }
 
 type LookupScalableTargetOutputArgs struct {

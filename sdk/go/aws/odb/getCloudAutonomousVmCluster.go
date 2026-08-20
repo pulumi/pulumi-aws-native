@@ -92,12 +92,8 @@ type LookupCloudAutonomousVmClusterResult struct {
 }
 
 func LookupCloudAutonomousVmClusterOutput(ctx *pulumi.Context, args LookupCloudAutonomousVmClusterOutputArgs, opts ...pulumi.InvokeOption) LookupCloudAutonomousVmClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCloudAutonomousVmClusterResultOutput, error) {
-			args := v.(LookupCloudAutonomousVmClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:odb:getCloudAutonomousVmCluster", args, LookupCloudAutonomousVmClusterResultOutput{}, options).(LookupCloudAutonomousVmClusterResultOutput), nil
-		}).(LookupCloudAutonomousVmClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:odb:getCloudAutonomousVmCluster", args, LookupCloudAutonomousVmClusterResultOutput{}, options).(LookupCloudAutonomousVmClusterResultOutput)
 }
 
 type LookupCloudAutonomousVmClusterOutputArgs struct {

@@ -36,12 +36,8 @@ type LookupCapacityManagerDataExportResult struct {
 }
 
 func LookupCapacityManagerDataExportOutput(ctx *pulumi.Context, args LookupCapacityManagerDataExportOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityManagerDataExportResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCapacityManagerDataExportResultOutput, error) {
-			args := v.(LookupCapacityManagerDataExportArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getCapacityManagerDataExport", args, LookupCapacityManagerDataExportResultOutput{}, options).(LookupCapacityManagerDataExportResultOutput), nil
-		}).(LookupCapacityManagerDataExportResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getCapacityManagerDataExport", args, LookupCapacityManagerDataExportResultOutput{}, options).(LookupCapacityManagerDataExportResultOutput)
 }
 
 type LookupCapacityManagerDataExportOutputArgs struct {

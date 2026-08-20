@@ -59,12 +59,8 @@ type LookupRemediationConfigurationResult struct {
 }
 
 func LookupRemediationConfigurationOutput(ctx *pulumi.Context, args LookupRemediationConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupRemediationConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRemediationConfigurationResultOutput, error) {
-			args := v.(LookupRemediationConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:configuration:getRemediationConfiguration", args, LookupRemediationConfigurationResultOutput{}, options).(LookupRemediationConfigurationResultOutput), nil
-		}).(LookupRemediationConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:configuration:getRemediationConfiguration", args, LookupRemediationConfigurationResultOutput{}, options).(LookupRemediationConfigurationResultOutput)
 }
 
 type LookupRemediationConfigurationOutputArgs struct {

@@ -42,12 +42,8 @@ type LookupLicenseAssetRuleSetResult struct {
 }
 
 func LookupLicenseAssetRuleSetOutput(ctx *pulumi.Context, args LookupLicenseAssetRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupLicenseAssetRuleSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLicenseAssetRuleSetResultOutput, error) {
-			args := v.(LookupLicenseAssetRuleSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:licensemanager:getLicenseAssetRuleSet", args, LookupLicenseAssetRuleSetResultOutput{}, options).(LookupLicenseAssetRuleSetResultOutput), nil
-		}).(LookupLicenseAssetRuleSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:licensemanager:getLicenseAssetRuleSet", args, LookupLicenseAssetRuleSetResultOutput{}, options).(LookupLicenseAssetRuleSetResultOutput)
 }
 
 type LookupLicenseAssetRuleSetOutputArgs struct {

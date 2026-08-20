@@ -38,12 +38,8 @@ type LookupDimensionResult struct {
 }
 
 func LookupDimensionOutput(ctx *pulumi.Context, args LookupDimensionOutputArgs, opts ...pulumi.InvokeOption) LookupDimensionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDimensionResultOutput, error) {
-			args := v.(LookupDimensionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getDimension", args, LookupDimensionResultOutput{}, options).(LookupDimensionResultOutput), nil
-		}).(LookupDimensionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getDimension", args, LookupDimensionResultOutput{}, options).(LookupDimensionResultOutput)
 }
 
 type LookupDimensionOutputArgs struct {

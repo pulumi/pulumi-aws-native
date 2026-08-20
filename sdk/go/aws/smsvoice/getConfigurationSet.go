@@ -44,12 +44,8 @@ type LookupConfigurationSetResult struct {
 }
 
 func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationSetOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationSetResultOutput, error) {
-			args := v.(LookupConfigurationSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:smsvoice:getConfigurationSet", args, LookupConfigurationSetResultOutput{}, options).(LookupConfigurationSetResultOutput), nil
-		}).(LookupConfigurationSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:smsvoice:getConfigurationSet", args, LookupConfigurationSetResultOutput{}, options).(LookupConfigurationSetResultOutput)
 }
 
 type LookupConfigurationSetOutputArgs struct {

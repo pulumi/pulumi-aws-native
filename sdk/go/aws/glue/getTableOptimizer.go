@@ -39,12 +39,8 @@ type LookupTableOptimizerResult struct {
 }
 
 func LookupTableOptimizerOutput(ctx *pulumi.Context, args LookupTableOptimizerOutputArgs, opts ...pulumi.InvokeOption) LookupTableOptimizerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTableOptimizerResultOutput, error) {
-			args := v.(LookupTableOptimizerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getTableOptimizer", args, LookupTableOptimizerResultOutput{}, options).(LookupTableOptimizerResultOutput), nil
-		}).(LookupTableOptimizerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getTableOptimizer", args, LookupTableOptimizerResultOutput{}, options).(LookupTableOptimizerResultOutput)
 }
 
 type LookupTableOptimizerOutputArgs struct {

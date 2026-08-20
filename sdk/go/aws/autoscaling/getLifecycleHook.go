@@ -45,12 +45,8 @@ type LookupLifecycleHookResult struct {
 }
 
 func LookupLifecycleHookOutput(ctx *pulumi.Context, args LookupLifecycleHookOutputArgs, opts ...pulumi.InvokeOption) LookupLifecycleHookResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLifecycleHookResultOutput, error) {
-			args := v.(LookupLifecycleHookArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:autoscaling:getLifecycleHook", args, LookupLifecycleHookResultOutput{}, options).(LookupLifecycleHookResultOutput), nil
-		}).(LookupLifecycleHookResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:autoscaling:getLifecycleHook", args, LookupLifecycleHookResultOutput{}, options).(LookupLifecycleHookResultOutput)
 }
 
 type LookupLifecycleHookOutputArgs struct {

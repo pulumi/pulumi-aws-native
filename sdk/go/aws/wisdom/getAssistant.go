@@ -35,12 +35,8 @@ type LookupAssistantResult struct {
 }
 
 func LookupAssistantOutput(ctx *pulumi.Context, args LookupAssistantOutputArgs, opts ...pulumi.InvokeOption) LookupAssistantResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAssistantResultOutput, error) {
-			args := v.(LookupAssistantArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wisdom:getAssistant", args, LookupAssistantResultOutput{}, options).(LookupAssistantResultOutput), nil
-		}).(LookupAssistantResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wisdom:getAssistant", args, LookupAssistantResultOutput{}, options).(LookupAssistantResultOutput)
 }
 
 type LookupAssistantOutputArgs struct {

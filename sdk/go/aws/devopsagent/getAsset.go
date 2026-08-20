@@ -47,12 +47,8 @@ type LookupAssetResult struct {
 }
 
 func LookupAssetOutput(ctx *pulumi.Context, args LookupAssetOutputArgs, opts ...pulumi.InvokeOption) LookupAssetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAssetResultOutput, error) {
-			args := v.(LookupAssetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devopsagent:getAsset", args, LookupAssetResultOutput{}, options).(LookupAssetResultOutput), nil
-		}).(LookupAssetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devopsagent:getAsset", args, LookupAssetResultOutput{}, options).(LookupAssetResultOutput)
 }
 
 type LookupAssetOutputArgs struct {

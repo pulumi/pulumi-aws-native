@@ -40,12 +40,8 @@ type LookupGatewayRuleResult struct {
 }
 
 func LookupGatewayRuleOutput(ctx *pulumi.Context, args LookupGatewayRuleOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGatewayRuleResultOutput, error) {
-			args := v.(LookupGatewayRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getGatewayRule", args, LookupGatewayRuleResultOutput{}, options).(LookupGatewayRuleResultOutput), nil
-		}).(LookupGatewayRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getGatewayRule", args, LookupGatewayRuleResultOutput{}, options).(LookupGatewayRuleResultOutput)
 }
 
 type LookupGatewayRuleOutputArgs struct {

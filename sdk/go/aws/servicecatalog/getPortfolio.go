@@ -44,12 +44,8 @@ type LookupPortfolioResult struct {
 }
 
 func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, opts ...pulumi.InvokeOption) LookupPortfolioResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPortfolioResultOutput, error) {
-			args := v.(LookupPortfolioArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getPortfolio", args, LookupPortfolioResultOutput{}, options).(LookupPortfolioResultOutput), nil
-		}).(LookupPortfolioResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getPortfolio", args, LookupPortfolioResultOutput{}, options).(LookupPortfolioResultOutput)
 }
 
 type LookupPortfolioOutputArgs struct {

@@ -55,12 +55,8 @@ type LookupMlTransformResult struct {
 }
 
 func LookupMlTransformOutput(ctx *pulumi.Context, args LookupMlTransformOutputArgs, opts ...pulumi.InvokeOption) LookupMlTransformResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMlTransformResultOutput, error) {
-			args := v.(LookupMlTransformArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getMlTransform", args, LookupMlTransformResultOutput{}, options).(LookupMlTransformResultOutput), nil
-		}).(LookupMlTransformResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getMlTransform", args, LookupMlTransformResultOutput{}, options).(LookupMlTransformResultOutput)
 }
 
 type LookupMlTransformOutputArgs struct {

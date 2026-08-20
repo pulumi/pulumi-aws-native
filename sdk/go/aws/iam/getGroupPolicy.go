@@ -47,12 +47,8 @@ type LookupGroupPolicyResult struct {
 }
 
 func LookupGroupPolicyOutput(ctx *pulumi.Context, args LookupGroupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupGroupPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGroupPolicyResultOutput, error) {
-			args := v.(LookupGroupPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iam:getGroupPolicy", args, LookupGroupPolicyResultOutput{}, options).(LookupGroupPolicyResultOutput), nil
-		}).(LookupGroupPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iam:getGroupPolicy", args, LookupGroupPolicyResultOutput{}, options).(LookupGroupPolicyResultOutput)
 }
 
 type LookupGroupPolicyOutputArgs struct {

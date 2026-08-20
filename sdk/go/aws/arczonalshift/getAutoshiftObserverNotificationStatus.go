@@ -33,12 +33,8 @@ type LookupAutoshiftObserverNotificationStatusResult struct {
 }
 
 func LookupAutoshiftObserverNotificationStatusOutput(ctx *pulumi.Context, args LookupAutoshiftObserverNotificationStatusOutputArgs, opts ...pulumi.InvokeOption) LookupAutoshiftObserverNotificationStatusResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAutoshiftObserverNotificationStatusResultOutput, error) {
-			args := v.(LookupAutoshiftObserverNotificationStatusArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", args, LookupAutoshiftObserverNotificationStatusResultOutput{}, options).(LookupAutoshiftObserverNotificationStatusResultOutput), nil
-		}).(LookupAutoshiftObserverNotificationStatusResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", args, LookupAutoshiftObserverNotificationStatusResultOutput{}, options).(LookupAutoshiftObserverNotificationStatusResultOutput)
 }
 
 type LookupAutoshiftObserverNotificationStatusOutputArgs struct {

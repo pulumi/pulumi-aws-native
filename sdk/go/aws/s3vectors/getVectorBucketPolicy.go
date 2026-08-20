@@ -33,12 +33,8 @@ type LookupVectorBucketPolicyResult struct {
 }
 
 func LookupVectorBucketPolicyOutput(ctx *pulumi.Context, args LookupVectorBucketPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupVectorBucketPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVectorBucketPolicyResultOutput, error) {
-			args := v.(LookupVectorBucketPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3vectors:getVectorBucketPolicy", args, LookupVectorBucketPolicyResultOutput{}, options).(LookupVectorBucketPolicyResultOutput), nil
-		}).(LookupVectorBucketPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3vectors:getVectorBucketPolicy", args, LookupVectorBucketPolicyResultOutput{}, options).(LookupVectorBucketPolicyResultOutput)
 }
 
 type LookupVectorBucketPolicyOutputArgs struct {

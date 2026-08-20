@@ -44,12 +44,8 @@ type LookupVectorBucketResult struct {
 }
 
 func LookupVectorBucketOutput(ctx *pulumi.Context, args LookupVectorBucketOutputArgs, opts ...pulumi.InvokeOption) LookupVectorBucketResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVectorBucketResultOutput, error) {
-			args := v.(LookupVectorBucketArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3vectors:getVectorBucket", args, LookupVectorBucketResultOutput{}, options).(LookupVectorBucketResultOutput), nil
-		}).(LookupVectorBucketResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3vectors:getVectorBucket", args, LookupVectorBucketResultOutput{}, options).(LookupVectorBucketResultOutput)
 }
 
 type LookupVectorBucketOutputArgs struct {

@@ -46,12 +46,8 @@ type LookupPublishingDestinationResult struct {
 }
 
 func LookupPublishingDestinationOutput(ctx *pulumi.Context, args LookupPublishingDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupPublishingDestinationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPublishingDestinationResultOutput, error) {
-			args := v.(LookupPublishingDestinationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:guardduty:getPublishingDestination", args, LookupPublishingDestinationResultOutput{}, options).(LookupPublishingDestinationResultOutput), nil
-		}).(LookupPublishingDestinationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:guardduty:getPublishingDestination", args, LookupPublishingDestinationResultOutput{}, options).(LookupPublishingDestinationResultOutput)
 }
 
 type LookupPublishingDestinationOutputArgs struct {

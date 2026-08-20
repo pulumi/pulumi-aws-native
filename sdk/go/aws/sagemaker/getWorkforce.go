@@ -43,12 +43,8 @@ type LookupWorkforceResult struct {
 }
 
 func LookupWorkforceOutput(ctx *pulumi.Context, args LookupWorkforceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkforceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkforceResultOutput, error) {
-			args := v.(LookupWorkforceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getWorkforce", args, LookupWorkforceResultOutput{}, options).(LookupWorkforceResultOutput), nil
-		}).(LookupWorkforceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getWorkforce", args, LookupWorkforceResultOutput{}, options).(LookupWorkforceResultOutput)
 }
 
 type LookupWorkforceOutputArgs struct {

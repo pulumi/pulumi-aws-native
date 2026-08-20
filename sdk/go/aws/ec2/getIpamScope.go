@@ -52,12 +52,8 @@ type LookupIpamScopeResult struct {
 }
 
 func LookupIpamScopeOutput(ctx *pulumi.Context, args LookupIpamScopeOutputArgs, opts ...pulumi.InvokeOption) LookupIpamScopeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpamScopeResultOutput, error) {
-			args := v.(LookupIpamScopeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getIpamScope", args, LookupIpamScopeResultOutput{}, options).(LookupIpamScopeResultOutput), nil
-		}).(LookupIpamScopeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getIpamScope", args, LookupIpamScopeResultOutput{}, options).(LookupIpamScopeResultOutput)
 }
 
 type LookupIpamScopeOutputArgs struct {

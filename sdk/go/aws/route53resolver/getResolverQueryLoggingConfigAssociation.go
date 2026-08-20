@@ -41,12 +41,8 @@ type LookupResolverQueryLoggingConfigAssociationResult struct {
 }
 
 func LookupResolverQueryLoggingConfigAssociationOutput(ctx *pulumi.Context, args LookupResolverQueryLoggingConfigAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResolverQueryLoggingConfigAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverQueryLoggingConfigAssociationResultOutput, error) {
-			args := v.(LookupResolverQueryLoggingConfigAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args, LookupResolverQueryLoggingConfigAssociationResultOutput{}, options).(LookupResolverQueryLoggingConfigAssociationResultOutput), nil
-		}).(LookupResolverQueryLoggingConfigAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args, LookupResolverQueryLoggingConfigAssociationResultOutput{}, options).(LookupResolverQueryLoggingConfigAssociationResultOutput)
 }
 
 type LookupResolverQueryLoggingConfigAssociationOutputArgs struct {

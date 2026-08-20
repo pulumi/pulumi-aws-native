@@ -66,12 +66,8 @@ type LookupStateMachineResult struct {
 }
 
 func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStateMachineResultOutput, error) {
-			args := v.(LookupStateMachineArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:stepfunctions:getStateMachine", args, LookupStateMachineResultOutput{}, options).(LookupStateMachineResultOutput), nil
-		}).(LookupStateMachineResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:stepfunctions:getStateMachine", args, LookupStateMachineResultOutput{}, options).(LookupStateMachineResultOutput)
 }
 
 type LookupStateMachineOutputArgs struct {

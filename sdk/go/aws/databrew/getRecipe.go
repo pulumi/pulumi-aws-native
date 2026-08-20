@@ -38,12 +38,8 @@ type LookupRecipeResult struct {
 }
 
 func LookupRecipeOutput(ctx *pulumi.Context, args LookupRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupRecipeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRecipeResultOutput, error) {
-			args := v.(LookupRecipeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:databrew:getRecipe", args, LookupRecipeResultOutput{}, options).(LookupRecipeResultOutput), nil
-		}).(LookupRecipeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:databrew:getRecipe", args, LookupRecipeResultOutput{}, options).(LookupRecipeResultOutput)
 }
 
 type LookupRecipeOutputArgs struct {

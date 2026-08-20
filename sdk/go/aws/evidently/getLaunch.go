@@ -48,12 +48,8 @@ type LookupLaunchResult struct {
 }
 
 func LookupLaunchOutput(ctx *pulumi.Context, args LookupLaunchOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLaunchResultOutput, error) {
-			args := v.(LookupLaunchArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:evidently:getLaunch", args, LookupLaunchResultOutput{}, options).(LookupLaunchResultOutput), nil
-		}).(LookupLaunchResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:evidently:getLaunch", args, LookupLaunchResultOutput{}, options).(LookupLaunchResultOutput)
 }
 
 type LookupLaunchOutputArgs struct {

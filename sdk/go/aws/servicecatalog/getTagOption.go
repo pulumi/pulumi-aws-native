@@ -35,12 +35,8 @@ type LookupTagOptionResult struct {
 }
 
 func LookupTagOptionOutput(ctx *pulumi.Context, args LookupTagOptionOutputArgs, opts ...pulumi.InvokeOption) LookupTagOptionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTagOptionResultOutput, error) {
-			args := v.(LookupTagOptionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getTagOption", args, LookupTagOptionResultOutput{}, options).(LookupTagOptionResultOutput), nil
-		}).(LookupTagOptionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getTagOption", args, LookupTagOptionResultOutput{}, options).(LookupTagOptionResultOutput)
 }
 
 type LookupTagOptionOutputArgs struct {

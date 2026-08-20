@@ -41,12 +41,8 @@ type LookupUserDefinedFunctionResult struct {
 }
 
 func LookupUserDefinedFunctionOutput(ctx *pulumi.Context, args LookupUserDefinedFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupUserDefinedFunctionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserDefinedFunctionResultOutput, error) {
-			args := v.(LookupUserDefinedFunctionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getUserDefinedFunction", args, LookupUserDefinedFunctionResultOutput{}, options).(LookupUserDefinedFunctionResultOutput), nil
-		}).(LookupUserDefinedFunctionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getUserDefinedFunction", args, LookupUserDefinedFunctionResultOutput{}, options).(LookupUserDefinedFunctionResultOutput)
 }
 
 type LookupUserDefinedFunctionOutputArgs struct {

@@ -37,12 +37,8 @@ type LookupCodeSecurityScanConfigurationResult struct {
 }
 
 func LookupCodeSecurityScanConfigurationOutput(ctx *pulumi.Context, args LookupCodeSecurityScanConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSecurityScanConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCodeSecurityScanConfigurationResultOutput, error) {
-			args := v.(LookupCodeSecurityScanConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:inspectorv2:getCodeSecurityScanConfiguration", args, LookupCodeSecurityScanConfigurationResultOutput{}, options).(LookupCodeSecurityScanConfigurationResultOutput), nil
-		}).(LookupCodeSecurityScanConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:inspectorv2:getCodeSecurityScanConfiguration", args, LookupCodeSecurityScanConfigurationResultOutput{}, options).(LookupCodeSecurityScanConfigurationResultOutput)
 }
 
 type LookupCodeSecurityScanConfigurationOutputArgs struct {

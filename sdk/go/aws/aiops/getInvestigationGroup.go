@@ -58,12 +58,8 @@ type LookupInvestigationGroupResult struct {
 }
 
 func LookupInvestigationGroupOutput(ctx *pulumi.Context, args LookupInvestigationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupInvestigationGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInvestigationGroupResultOutput, error) {
-			args := v.(LookupInvestigationGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:aiops:getInvestigationGroup", args, LookupInvestigationGroupResultOutput{}, options).(LookupInvestigationGroupResultOutput), nil
-		}).(LookupInvestigationGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:aiops:getInvestigationGroup", args, LookupInvestigationGroupResultOutput{}, options).(LookupInvestigationGroupResultOutput)
 }
 
 type LookupInvestigationGroupOutputArgs struct {

@@ -38,12 +38,8 @@ type LookupReadinessCheckResult struct {
 }
 
 func LookupReadinessCheckOutput(ctx *pulumi.Context, args LookupReadinessCheckOutputArgs, opts ...pulumi.InvokeOption) LookupReadinessCheckResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReadinessCheckResultOutput, error) {
-			args := v.(LookupReadinessCheckArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53recoveryreadiness:getReadinessCheck", args, LookupReadinessCheckResultOutput{}, options).(LookupReadinessCheckResultOutput), nil
-		}).(LookupReadinessCheckResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53recoveryreadiness:getReadinessCheck", args, LookupReadinessCheckResultOutput{}, options).(LookupReadinessCheckResultOutput)
 }
 
 type LookupReadinessCheckOutputArgs struct {

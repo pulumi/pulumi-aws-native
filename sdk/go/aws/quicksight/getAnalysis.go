@@ -56,12 +56,8 @@ type LookupAnalysisResult struct {
 }
 
 func LookupAnalysisOutput(ctx *pulumi.Context, args LookupAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupAnalysisResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAnalysisResultOutput, error) {
-			args := v.(LookupAnalysisArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getAnalysis", args, LookupAnalysisResultOutput{}, options).(LookupAnalysisResultOutput), nil
-		}).(LookupAnalysisResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getAnalysis", args, LookupAnalysisResultOutput{}, options).(LookupAnalysisResultOutput)
 }
 
 type LookupAnalysisOutputArgs struct {

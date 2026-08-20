@@ -46,12 +46,8 @@ type LookupProvisioningTemplateResult struct {
 }
 
 func LookupProvisioningTemplateOutput(ctx *pulumi.Context, args LookupProvisioningTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupProvisioningTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProvisioningTemplateResultOutput, error) {
-			args := v.(LookupProvisioningTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getProvisioningTemplate", args, LookupProvisioningTemplateResultOutput{}, options).(LookupProvisioningTemplateResultOutput), nil
-		}).(LookupProvisioningTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getProvisioningTemplate", args, LookupProvisioningTemplateResultOutput{}, options).(LookupProvisioningTemplateResultOutput)
 }
 
 type LookupProvisioningTemplateOutputArgs struct {

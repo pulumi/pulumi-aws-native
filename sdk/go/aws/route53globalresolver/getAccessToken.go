@@ -40,12 +40,8 @@ type LookupAccessTokenResult struct {
 }
 
 func LookupAccessTokenOutput(ctx *pulumi.Context, args LookupAccessTokenOutputArgs, opts ...pulumi.InvokeOption) LookupAccessTokenResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccessTokenResultOutput, error) {
-			args := v.(LookupAccessTokenArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53globalresolver:getAccessToken", args, LookupAccessTokenResultOutput{}, options).(LookupAccessTokenResultOutput), nil
-		}).(LookupAccessTokenResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53globalresolver:getAccessToken", args, LookupAccessTokenResultOutput{}, options).(LookupAccessTokenResultOutput)
 }
 
 type LookupAccessTokenOutputArgs struct {

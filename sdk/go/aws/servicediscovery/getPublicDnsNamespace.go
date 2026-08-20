@@ -44,12 +44,8 @@ type LookupPublicDnsNamespaceResult struct {
 }
 
 func LookupPublicDnsNamespaceOutput(ctx *pulumi.Context, args LookupPublicDnsNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupPublicDnsNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPublicDnsNamespaceResultOutput, error) {
-			args := v.(LookupPublicDnsNamespaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicediscovery:getPublicDnsNamespace", args, LookupPublicDnsNamespaceResultOutput{}, options).(LookupPublicDnsNamespaceResultOutput), nil
-		}).(LookupPublicDnsNamespaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicediscovery:getPublicDnsNamespace", args, LookupPublicDnsNamespaceResultOutput{}, options).(LookupPublicDnsNamespaceResultOutput)
 }
 
 type LookupPublicDnsNamespaceOutputArgs struct {

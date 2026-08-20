@@ -34,12 +34,8 @@ type LookupMultiRegionEndpointResult struct {
 }
 
 func LookupMultiRegionEndpointOutput(ctx *pulumi.Context, args LookupMultiRegionEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMultiRegionEndpointResultOutput, error) {
-			args := v.(LookupMultiRegionEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getMultiRegionEndpoint", args, LookupMultiRegionEndpointResultOutput{}, options).(LookupMultiRegionEndpointResultOutput), nil
-		}).(LookupMultiRegionEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getMultiRegionEndpoint", args, LookupMultiRegionEndpointResultOutput{}, options).(LookupMultiRegionEndpointResultOutput)
 }
 
 type LookupMultiRegionEndpointOutputArgs struct {

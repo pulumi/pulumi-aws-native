@@ -48,12 +48,8 @@ type LookupMailManagerTrafficPolicyResult struct {
 }
 
 func LookupMailManagerTrafficPolicyOutput(ctx *pulumi.Context, args LookupMailManagerTrafficPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerTrafficPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMailManagerTrafficPolicyResultOutput, error) {
-			args := v.(LookupMailManagerTrafficPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getMailManagerTrafficPolicy", args, LookupMailManagerTrafficPolicyResultOutput{}, options).(LookupMailManagerTrafficPolicyResultOutput), nil
-		}).(LookupMailManagerTrafficPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getMailManagerTrafficPolicy", args, LookupMailManagerTrafficPolicyResultOutput{}, options).(LookupMailManagerTrafficPolicyResultOutput)
 }
 
 type LookupMailManagerTrafficPolicyOutputArgs struct {

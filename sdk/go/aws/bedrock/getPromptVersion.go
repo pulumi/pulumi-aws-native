@@ -49,12 +49,8 @@ type LookupPromptVersionResult struct {
 }
 
 func LookupPromptVersionOutput(ctx *pulumi.Context, args LookupPromptVersionOutputArgs, opts ...pulumi.InvokeOption) LookupPromptVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPromptVersionResultOutput, error) {
-			args := v.(LookupPromptVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getPromptVersion", args, LookupPromptVersionResultOutput{}, options).(LookupPromptVersionResultOutput), nil
-		}).(LookupPromptVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getPromptVersion", args, LookupPromptVersionResultOutput{}, options).(LookupPromptVersionResultOutput)
 }
 
 type LookupPromptVersionOutputArgs struct {

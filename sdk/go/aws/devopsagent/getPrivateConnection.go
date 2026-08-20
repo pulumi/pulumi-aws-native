@@ -40,12 +40,8 @@ type LookupPrivateConnectionResult struct {
 }
 
 func LookupPrivateConnectionOutput(ctx *pulumi.Context, args LookupPrivateConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrivateConnectionResultOutput, error) {
-			args := v.(LookupPrivateConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devopsagent:getPrivateConnection", args, LookupPrivateConnectionResultOutput{}, options).(LookupPrivateConnectionResultOutput), nil
-		}).(LookupPrivateConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devopsagent:getPrivateConnection", args, LookupPrivateConnectionResultOutput{}, options).(LookupPrivateConnectionResultOutput)
 }
 
 type LookupPrivateConnectionOutputArgs struct {

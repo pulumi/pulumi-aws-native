@@ -35,12 +35,8 @@ type LookupUserPoolUiCustomizationAttachmentResult struct {
 }
 
 func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args LookupUserPoolUiCustomizationAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolUiCustomizationAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserPoolUiCustomizationAttachmentResultOutput, error) {
-			args := v.(LookupUserPoolUiCustomizationAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getUserPoolUiCustomizationAttachment", args, LookupUserPoolUiCustomizationAttachmentResultOutput{}, options).(LookupUserPoolUiCustomizationAttachmentResultOutput), nil
-		}).(LookupUserPoolUiCustomizationAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getUserPoolUiCustomizationAttachment", args, LookupUserPoolUiCustomizationAttachmentResultOutput{}, options).(LookupUserPoolUiCustomizationAttachmentResultOutput)
 }
 
 type LookupUserPoolUiCustomizationAttachmentOutputArgs struct {

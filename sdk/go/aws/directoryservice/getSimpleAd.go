@@ -41,12 +41,8 @@ type LookupSimpleAdResult struct {
 }
 
 func LookupSimpleAdOutput(ctx *pulumi.Context, args LookupSimpleAdOutputArgs, opts ...pulumi.InvokeOption) LookupSimpleAdResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSimpleAdResultOutput, error) {
-			args := v.(LookupSimpleAdArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:directoryservice:getSimpleAd", args, LookupSimpleAdResultOutput{}, options).(LookupSimpleAdResultOutput), nil
-		}).(LookupSimpleAdResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:directoryservice:getSimpleAd", args, LookupSimpleAdResultOutput{}, options).(LookupSimpleAdResultOutput)
 }
 
 type LookupSimpleAdOutputArgs struct {

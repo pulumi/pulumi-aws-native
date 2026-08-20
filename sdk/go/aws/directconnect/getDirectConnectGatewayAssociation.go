@@ -35,12 +35,8 @@ type LookupDirectConnectGatewayAssociationResult struct {
 }
 
 func LookupDirectConnectGatewayAssociationOutput(ctx *pulumi.Context, args LookupDirectConnectGatewayAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDirectConnectGatewayAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDirectConnectGatewayAssociationResultOutput, error) {
-			args := v.(LookupDirectConnectGatewayAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:directconnect:getDirectConnectGatewayAssociation", args, LookupDirectConnectGatewayAssociationResultOutput{}, options).(LookupDirectConnectGatewayAssociationResultOutput), nil
-		}).(LookupDirectConnectGatewayAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:directconnect:getDirectConnectGatewayAssociation", args, LookupDirectConnectGatewayAssociationResultOutput{}, options).(LookupDirectConnectGatewayAssociationResultOutput)
 }
 
 type LookupDirectConnectGatewayAssociationOutputArgs struct {

@@ -89,12 +89,8 @@ type LookupBrokerResult struct {
 }
 
 func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts ...pulumi.InvokeOption) LookupBrokerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBrokerResultOutput, error) {
-			args := v.(LookupBrokerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:amazonmq:getBroker", args, LookupBrokerResultOutput{}, options).(LookupBrokerResultOutput), nil
-		}).(LookupBrokerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:amazonmq:getBroker", args, LookupBrokerResultOutput{}, options).(LookupBrokerResultOutput)
 }
 
 type LookupBrokerOutputArgs struct {

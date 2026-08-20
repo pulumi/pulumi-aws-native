@@ -37,12 +37,8 @@ type LookupCidrCollectionResult struct {
 }
 
 func LookupCidrCollectionOutput(ctx *pulumi.Context, args LookupCidrCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupCidrCollectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCidrCollectionResultOutput, error) {
-			args := v.(LookupCidrCollectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53:getCidrCollection", args, LookupCidrCollectionResultOutput{}, options).(LookupCidrCollectionResultOutput), nil
-		}).(LookupCidrCollectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53:getCidrCollection", args, LookupCidrCollectionResultOutput{}, options).(LookupCidrCollectionResultOutput)
 }
 
 type LookupCidrCollectionOutputArgs struct {

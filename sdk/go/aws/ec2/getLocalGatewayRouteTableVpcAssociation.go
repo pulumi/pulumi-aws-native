@@ -40,12 +40,8 @@ type LookupLocalGatewayRouteTableVpcAssociationResult struct {
 }
 
 func LookupLocalGatewayRouteTableVpcAssociationOutput(ctx *pulumi.Context, args LookupLocalGatewayRouteTableVpcAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayRouteTableVpcAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalGatewayRouteTableVpcAssociationResultOutput, error) {
-			args := v.(LookupLocalGatewayRouteTableVpcAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getLocalGatewayRouteTableVpcAssociation", args, LookupLocalGatewayRouteTableVpcAssociationResultOutput{}, options).(LookupLocalGatewayRouteTableVpcAssociationResultOutput), nil
-		}).(LookupLocalGatewayRouteTableVpcAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getLocalGatewayRouteTableVpcAssociation", args, LookupLocalGatewayRouteTableVpcAssociationResultOutput{}, options).(LookupLocalGatewayRouteTableVpcAssociationResultOutput)
 }
 
 type LookupLocalGatewayRouteTableVpcAssociationOutputArgs struct {

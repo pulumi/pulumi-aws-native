@@ -35,12 +35,8 @@ type LookupCertificateAuthorityActivationResult struct {
 }
 
 func LookupCertificateAuthorityActivationOutput(ctx *pulumi.Context, args LookupCertificateAuthorityActivationOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityActivationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCertificateAuthorityActivationResultOutput, error) {
-			args := v.(LookupCertificateAuthorityActivationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:acmpca:getCertificateAuthorityActivation", args, LookupCertificateAuthorityActivationResultOutput{}, options).(LookupCertificateAuthorityActivationResultOutput), nil
-		}).(LookupCertificateAuthorityActivationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:acmpca:getCertificateAuthorityActivation", args, LookupCertificateAuthorityActivationResultOutput{}, options).(LookupCertificateAuthorityActivationResultOutput)
 }
 
 type LookupCertificateAuthorityActivationOutputArgs struct {

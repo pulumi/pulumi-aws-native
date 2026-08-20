@@ -48,12 +48,8 @@ type LookupDomainNameV2Result struct {
 }
 
 func LookupDomainNameV2Output(ctx *pulumi.Context, args LookupDomainNameV2OutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameV2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainNameV2ResultOutput, error) {
-			args := v.(LookupDomainNameV2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigateway:getDomainNameV2", args, LookupDomainNameV2ResultOutput{}, options).(LookupDomainNameV2ResultOutput), nil
-		}).(LookupDomainNameV2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigateway:getDomainNameV2", args, LookupDomainNameV2ResultOutput{}, options).(LookupDomainNameV2ResultOutput)
 }
 
 type LookupDomainNameV2OutputArgs struct {

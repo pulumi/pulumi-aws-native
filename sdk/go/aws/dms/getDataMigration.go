@@ -50,12 +50,8 @@ type LookupDataMigrationResult struct {
 }
 
 func LookupDataMigrationOutput(ctx *pulumi.Context, args LookupDataMigrationOutputArgs, opts ...pulumi.InvokeOption) LookupDataMigrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataMigrationResultOutput, error) {
-			args := v.(LookupDataMigrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:dms:getDataMigration", args, LookupDataMigrationResultOutput{}, options).(LookupDataMigrationResultOutput), nil
-		}).(LookupDataMigrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:dms:getDataMigration", args, LookupDataMigrationResultOutput{}, options).(LookupDataMigrationResultOutput)
 }
 
 type LookupDataMigrationOutputArgs struct {

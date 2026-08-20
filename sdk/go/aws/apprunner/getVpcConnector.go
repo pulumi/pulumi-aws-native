@@ -35,12 +35,8 @@ type LookupVpcConnectorResult struct {
 }
 
 func LookupVpcConnectorOutput(ctx *pulumi.Context, args LookupVpcConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupVpcConnectorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcConnectorResultOutput, error) {
-			args := v.(LookupVpcConnectorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apprunner:getVpcConnector", args, LookupVpcConnectorResultOutput{}, options).(LookupVpcConnectorResultOutput), nil
-		}).(LookupVpcConnectorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apprunner:getVpcConnector", args, LookupVpcConnectorResultOutput{}, options).(LookupVpcConnectorResultOutput)
 }
 
 type LookupVpcConnectorOutputArgs struct {

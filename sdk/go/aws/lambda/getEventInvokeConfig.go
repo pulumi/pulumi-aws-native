@@ -47,12 +47,8 @@ type LookupEventInvokeConfigResult struct {
 }
 
 func LookupEventInvokeConfigOutput(ctx *pulumi.Context, args LookupEventInvokeConfigOutputArgs, opts ...pulumi.InvokeOption) LookupEventInvokeConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventInvokeConfigResultOutput, error) {
-			args := v.(LookupEventInvokeConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lambda:getEventInvokeConfig", args, LookupEventInvokeConfigResultOutput{}, options).(LookupEventInvokeConfigResultOutput), nil
-		}).(LookupEventInvokeConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lambda:getEventInvokeConfig", args, LookupEventInvokeConfigResultOutput{}, options).(LookupEventInvokeConfigResultOutput)
 }
 
 type LookupEventInvokeConfigOutputArgs struct {

@@ -46,12 +46,8 @@ type LookupTrustAnchorResult struct {
 }
 
 func LookupTrustAnchorOutput(ctx *pulumi.Context, args LookupTrustAnchorOutputArgs, opts ...pulumi.InvokeOption) LookupTrustAnchorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrustAnchorResultOutput, error) {
-			args := v.(LookupTrustAnchorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rolesanywhere:getTrustAnchor", args, LookupTrustAnchorResultOutput{}, options).(LookupTrustAnchorResultOutput), nil
-		}).(LookupTrustAnchorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rolesanywhere:getTrustAnchor", args, LookupTrustAnchorResultOutput{}, options).(LookupTrustAnchorResultOutput)
 }
 
 type LookupTrustAnchorOutputArgs struct {

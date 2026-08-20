@@ -38,12 +38,8 @@ type LookupMailManagerAddressListResult struct {
 }
 
 func LookupMailManagerAddressListOutput(ctx *pulumi.Context, args LookupMailManagerAddressListOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerAddressListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMailManagerAddressListResultOutput, error) {
-			args := v.(LookupMailManagerAddressListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getMailManagerAddressList", args, LookupMailManagerAddressListResultOutput{}, options).(LookupMailManagerAddressListResultOutput), nil
-		}).(LookupMailManagerAddressListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getMailManagerAddressList", args, LookupMailManagerAddressListResultOutput{}, options).(LookupMailManagerAddressListResultOutput)
 }
 
 type LookupMailManagerAddressListOutputArgs struct {

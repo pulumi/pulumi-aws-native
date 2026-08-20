@@ -41,12 +41,8 @@ type LookupServiceActionResult struct {
 }
 
 func LookupServiceActionOutput(ctx *pulumi.Context, args LookupServiceActionOutputArgs, opts ...pulumi.InvokeOption) LookupServiceActionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceActionResultOutput, error) {
-			args := v.(LookupServiceActionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getServiceAction", args, LookupServiceActionResultOutput{}, options).(LookupServiceActionResultOutput), nil
-		}).(LookupServiceActionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getServiceAction", args, LookupServiceActionResultOutput{}, options).(LookupServiceActionResultOutput)
 }
 
 type LookupServiceActionOutputArgs struct {

@@ -78,12 +78,8 @@ type LookupCloudFormationProvisionedProductResult struct {
 }
 
 func LookupCloudFormationProvisionedProductOutput(ctx *pulumi.Context, args LookupCloudFormationProvisionedProductOutputArgs, opts ...pulumi.InvokeOption) LookupCloudFormationProvisionedProductResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCloudFormationProvisionedProductResultOutput, error) {
-			args := v.(LookupCloudFormationProvisionedProductArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args, LookupCloudFormationProvisionedProductResultOutput{}, options).(LookupCloudFormationProvisionedProductResultOutput), nil
-		}).(LookupCloudFormationProvisionedProductResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args, LookupCloudFormationProvisionedProductResultOutput{}, options).(LookupCloudFormationProvisionedProductResultOutput)
 }
 
 type LookupCloudFormationProvisionedProductOutputArgs struct {

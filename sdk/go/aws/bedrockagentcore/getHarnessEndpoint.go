@@ -47,12 +47,8 @@ type LookupHarnessEndpointResult struct {
 }
 
 func LookupHarnessEndpointOutput(ctx *pulumi.Context, args LookupHarnessEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupHarnessEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHarnessEndpointResultOutput, error) {
-			args := v.(LookupHarnessEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getHarnessEndpoint", args, LookupHarnessEndpointResultOutput{}, options).(LookupHarnessEndpointResultOutput), nil
-		}).(LookupHarnessEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getHarnessEndpoint", args, LookupHarnessEndpointResultOutput{}, options).(LookupHarnessEndpointResultOutput)
 }
 
 type LookupHarnessEndpointOutputArgs struct {

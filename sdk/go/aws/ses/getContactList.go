@@ -38,12 +38,8 @@ type LookupContactListResult struct {
 }
 
 func LookupContactListOutput(ctx *pulumi.Context, args LookupContactListOutputArgs, opts ...pulumi.InvokeOption) LookupContactListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContactListResultOutput, error) {
-			args := v.(LookupContactListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getContactList", args, LookupContactListResultOutput{}, options).(LookupContactListResultOutput), nil
-		}).(LookupContactListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getContactList", args, LookupContactListResultOutput{}, options).(LookupContactListResultOutput)
 }
 
 type LookupContactListOutputArgs struct {

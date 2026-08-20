@@ -37,12 +37,8 @@ type LookupDaemonResult struct {
 }
 
 func LookupDaemonOutput(ctx *pulumi.Context, args LookupDaemonOutputArgs, opts ...pulumi.InvokeOption) LookupDaemonResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDaemonResultOutput, error) {
-			args := v.(LookupDaemonArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecs:getDaemon", args, LookupDaemonResultOutput{}, options).(LookupDaemonResultOutput), nil
-		}).(LookupDaemonResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecs:getDaemon", args, LookupDaemonResultOutput{}, options).(LookupDaemonResultOutput)
 }
 
 type LookupDaemonOutputArgs struct {

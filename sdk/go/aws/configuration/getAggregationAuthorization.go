@@ -38,12 +38,8 @@ type LookupAggregationAuthorizationResult struct {
 }
 
 func LookupAggregationAuthorizationOutput(ctx *pulumi.Context, args LookupAggregationAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupAggregationAuthorizationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAggregationAuthorizationResultOutput, error) {
-			args := v.(LookupAggregationAuthorizationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:configuration:getAggregationAuthorization", args, LookupAggregationAuthorizationResultOutput{}, options).(LookupAggregationAuthorizationResultOutput), nil
-		}).(LookupAggregationAuthorizationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:configuration:getAggregationAuthorization", args, LookupAggregationAuthorizationResultOutput{}, options).(LookupAggregationAuthorizationResultOutput)
 }
 
 type LookupAggregationAuthorizationOutputArgs struct {

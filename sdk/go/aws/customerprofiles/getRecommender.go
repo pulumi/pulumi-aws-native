@@ -47,12 +47,8 @@ type LookupRecommenderResult struct {
 }
 
 func LookupRecommenderOutput(ctx *pulumi.Context, args LookupRecommenderOutputArgs, opts ...pulumi.InvokeOption) LookupRecommenderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRecommenderResultOutput, error) {
-			args := v.(LookupRecommenderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:customerprofiles:getRecommender", args, LookupRecommenderResultOutput{}, options).(LookupRecommenderResultOutput), nil
-		}).(LookupRecommenderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:customerprofiles:getRecommender", args, LookupRecommenderResultOutput{}, options).(LookupRecommenderResultOutput)
 }
 
 type LookupRecommenderOutputArgs struct {

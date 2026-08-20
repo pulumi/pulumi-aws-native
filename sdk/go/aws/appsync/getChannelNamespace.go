@@ -44,12 +44,8 @@ type LookupChannelNamespaceResult struct {
 }
 
 func LookupChannelNamespaceOutput(ctx *pulumi.Context, args LookupChannelNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupChannelNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupChannelNamespaceResultOutput, error) {
-			args := v.(LookupChannelNamespaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appsync:getChannelNamespace", args, LookupChannelNamespaceResultOutput{}, options).(LookupChannelNamespaceResultOutput), nil
-		}).(LookupChannelNamespaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appsync:getChannelNamespace", args, LookupChannelNamespaceResultOutput{}, options).(LookupChannelNamespaceResultOutput)
 }
 
 type LookupChannelNamespaceOutputArgs struct {

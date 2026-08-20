@@ -48,12 +48,8 @@ type LookupVpcOriginResult struct {
 }
 
 func LookupVpcOriginOutput(ctx *pulumi.Context, args LookupVpcOriginOutputArgs, opts ...pulumi.InvokeOption) LookupVpcOriginResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcOriginResultOutput, error) {
-			args := v.(LookupVpcOriginArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getVpcOrigin", args, LookupVpcOriginResultOutput{}, options).(LookupVpcOriginResultOutput), nil
-		}).(LookupVpcOriginResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getVpcOrigin", args, LookupVpcOriginResultOutput{}, options).(LookupVpcOriginResultOutput)
 }
 
 type LookupVpcOriginOutputArgs struct {

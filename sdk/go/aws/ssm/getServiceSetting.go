@@ -41,12 +41,8 @@ type LookupServiceSettingResult struct {
 }
 
 func LookupServiceSettingOutput(ctx *pulumi.Context, args LookupServiceSettingOutputArgs, opts ...pulumi.InvokeOption) LookupServiceSettingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceSettingResultOutput, error) {
-			args := v.(LookupServiceSettingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssm:getServiceSetting", args, LookupServiceSettingResultOutput{}, options).(LookupServiceSettingResultOutput), nil
-		}).(LookupServiceSettingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssm:getServiceSetting", args, LookupServiceSettingResultOutput{}, options).(LookupServiceSettingResultOutput)
 }
 
 type LookupServiceSettingOutputArgs struct {

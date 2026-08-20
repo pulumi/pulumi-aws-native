@@ -39,12 +39,8 @@ type LookupTagSyncTaskResult struct {
 }
 
 func LookupTagSyncTaskOutput(ctx *pulumi.Context, args LookupTagSyncTaskOutputArgs, opts ...pulumi.InvokeOption) LookupTagSyncTaskResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTagSyncTaskResultOutput, error) {
-			args := v.(LookupTagSyncTaskArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:resourcegroups:getTagSyncTask", args, LookupTagSyncTaskResultOutput{}, options).(LookupTagSyncTaskResultOutput), nil
-		}).(LookupTagSyncTaskResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:resourcegroups:getTagSyncTask", args, LookupTagSyncTaskResultOutput{}, options).(LookupTagSyncTaskResultOutput)
 }
 
 type LookupTagSyncTaskOutputArgs struct {

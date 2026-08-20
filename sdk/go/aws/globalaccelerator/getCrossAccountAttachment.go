@@ -44,12 +44,8 @@ type LookupCrossAccountAttachmentResult struct {
 }
 
 func LookupCrossAccountAttachmentOutput(ctx *pulumi.Context, args LookupCrossAccountAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupCrossAccountAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCrossAccountAttachmentResultOutput, error) {
-			args := v.(LookupCrossAccountAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:globalaccelerator:getCrossAccountAttachment", args, LookupCrossAccountAttachmentResultOutput{}, options).(LookupCrossAccountAttachmentResultOutput), nil
-		}).(LookupCrossAccountAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:globalaccelerator:getCrossAccountAttachment", args, LookupCrossAccountAttachmentResultOutput{}, options).(LookupCrossAccountAttachmentResultOutput)
 }
 
 type LookupCrossAccountAttachmentOutputArgs struct {

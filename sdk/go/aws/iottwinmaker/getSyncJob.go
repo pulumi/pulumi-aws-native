@@ -41,12 +41,8 @@ type LookupSyncJobResult struct {
 }
 
 func LookupSyncJobOutput(ctx *pulumi.Context, args LookupSyncJobOutputArgs, opts ...pulumi.InvokeOption) LookupSyncJobResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSyncJobResultOutput, error) {
-			args := v.(LookupSyncJobArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iottwinmaker:getSyncJob", args, LookupSyncJobResultOutput{}, options).(LookupSyncJobResultOutput), nil
-		}).(LookupSyncJobResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iottwinmaker:getSyncJob", args, LookupSyncJobResultOutput{}, options).(LookupSyncJobResultOutput)
 }
 
 type LookupSyncJobOutputArgs struct {

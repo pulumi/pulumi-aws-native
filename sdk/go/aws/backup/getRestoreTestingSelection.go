@@ -49,12 +49,8 @@ type LookupRestoreTestingSelectionResult struct {
 }
 
 func LookupRestoreTestingSelectionOutput(ctx *pulumi.Context, args LookupRestoreTestingSelectionOutputArgs, opts ...pulumi.InvokeOption) LookupRestoreTestingSelectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRestoreTestingSelectionResultOutput, error) {
-			args := v.(LookupRestoreTestingSelectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:backup:getRestoreTestingSelection", args, LookupRestoreTestingSelectionResultOutput{}, options).(LookupRestoreTestingSelectionResultOutput), nil
-		}).(LookupRestoreTestingSelectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:backup:getRestoreTestingSelection", args, LookupRestoreTestingSelectionResultOutput{}, options).(LookupRestoreTestingSelectionResultOutput)
 }
 
 type LookupRestoreTestingSelectionOutputArgs struct {

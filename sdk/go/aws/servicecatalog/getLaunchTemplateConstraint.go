@@ -37,12 +37,8 @@ type LookupLaunchTemplateConstraintResult struct {
 }
 
 func LookupLaunchTemplateConstraintOutput(ctx *pulumi.Context, args LookupLaunchTemplateConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateConstraintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLaunchTemplateConstraintResultOutput, error) {
-			args := v.(LookupLaunchTemplateConstraintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getLaunchTemplateConstraint", args, LookupLaunchTemplateConstraintResultOutput{}, options).(LookupLaunchTemplateConstraintResultOutput), nil
-		}).(LookupLaunchTemplateConstraintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getLaunchTemplateConstraint", args, LookupLaunchTemplateConstraintResultOutput{}, options).(LookupLaunchTemplateConstraintResultOutput)
 }
 
 type LookupLaunchTemplateConstraintOutputArgs struct {

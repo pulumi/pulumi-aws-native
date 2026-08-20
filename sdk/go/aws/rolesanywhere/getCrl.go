@@ -44,12 +44,8 @@ type LookupCrlResult struct {
 }
 
 func LookupCrlOutput(ctx *pulumi.Context, args LookupCrlOutputArgs, opts ...pulumi.InvokeOption) LookupCrlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCrlResultOutput, error) {
-			args := v.(LookupCrlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rolesanywhere:getCrl", args, LookupCrlResultOutput{}, options).(LookupCrlResultOutput), nil
-		}).(LookupCrlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rolesanywhere:getCrl", args, LookupCrlResultOutput{}, options).(LookupCrlResultOutput)
 }
 
 type LookupCrlOutputArgs struct {

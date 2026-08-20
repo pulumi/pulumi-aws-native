@@ -37,12 +37,8 @@ type LookupReplicationConfigurationResult struct {
 }
 
 func LookupReplicationConfigurationOutput(ctx *pulumi.Context, args LookupReplicationConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationConfigurationResultOutput, error) {
-			args := v.(LookupReplicationConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecr:getReplicationConfiguration", args, LookupReplicationConfigurationResultOutput{}, options).(LookupReplicationConfigurationResultOutput), nil
-		}).(LookupReplicationConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecr:getReplicationConfiguration", args, LookupReplicationConfigurationResultOutput{}, options).(LookupReplicationConfigurationResultOutput)
 }
 
 type LookupReplicationConfigurationOutputArgs struct {

@@ -60,12 +60,8 @@ type LookupTransformerResult struct {
 }
 
 func LookupTransformerOutput(ctx *pulumi.Context, args LookupTransformerOutputArgs, opts ...pulumi.InvokeOption) LookupTransformerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransformerResultOutput, error) {
-			args := v.(LookupTransformerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:b2bi:getTransformer", args, LookupTransformerResultOutput{}, options).(LookupTransformerResultOutput), nil
-		}).(LookupTransformerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:b2bi:getTransformer", args, LookupTransformerResultOutput{}, options).(LookupTransformerResultOutput)
 }
 
 type LookupTransformerOutputArgs struct {

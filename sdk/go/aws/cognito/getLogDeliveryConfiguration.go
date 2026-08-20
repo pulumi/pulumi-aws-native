@@ -35,12 +35,8 @@ type LookupLogDeliveryConfigurationResult struct {
 }
 
 func LookupLogDeliveryConfigurationOutput(ctx *pulumi.Context, args LookupLogDeliveryConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLogDeliveryConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLogDeliveryConfigurationResultOutput, error) {
-			args := v.(LookupLogDeliveryConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getLogDeliveryConfiguration", args, LookupLogDeliveryConfigurationResultOutput{}, options).(LookupLogDeliveryConfigurationResultOutput), nil
-		}).(LookupLogDeliveryConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getLogDeliveryConfiguration", args, LookupLogDeliveryConfigurationResultOutput{}, options).(LookupLogDeliveryConfigurationResultOutput)
 }
 
 type LookupLogDeliveryConfigurationOutputArgs struct {

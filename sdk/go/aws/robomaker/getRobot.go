@@ -35,12 +35,8 @@ type LookupRobotResult struct {
 }
 
 func LookupRobotOutput(ctx *pulumi.Context, args LookupRobotOutputArgs, opts ...pulumi.InvokeOption) LookupRobotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRobotResultOutput, error) {
-			args := v.(LookupRobotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:robomaker:getRobot", args, LookupRobotResultOutput{}, options).(LookupRobotResultOutput), nil
-		}).(LookupRobotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:robomaker:getRobot", args, LookupRobotResultOutput{}, options).(LookupRobotResultOutput)
 }
 
 type LookupRobotOutputArgs struct {

@@ -37,12 +37,8 @@ type LookupStudioSessionMappingResult struct {
 }
 
 func LookupStudioSessionMappingOutput(ctx *pulumi.Context, args LookupStudioSessionMappingOutputArgs, opts ...pulumi.InvokeOption) LookupStudioSessionMappingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStudioSessionMappingResultOutput, error) {
-			args := v.(LookupStudioSessionMappingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:emr:getStudioSessionMapping", args, LookupStudioSessionMappingResultOutput{}, options).(LookupStudioSessionMappingResultOutput), nil
-		}).(LookupStudioSessionMappingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:emr:getStudioSessionMapping", args, LookupStudioSessionMappingResultOutput{}, options).(LookupStudioSessionMappingResultOutput)
 }
 
 type LookupStudioSessionMappingOutputArgs struct {

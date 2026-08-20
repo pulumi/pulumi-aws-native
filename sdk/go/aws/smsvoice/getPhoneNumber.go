@@ -52,12 +52,8 @@ type LookupPhoneNumberResult struct {
 }
 
 func LookupPhoneNumberOutput(ctx *pulumi.Context, args LookupPhoneNumberOutputArgs, opts ...pulumi.InvokeOption) LookupPhoneNumberResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPhoneNumberResultOutput, error) {
-			args := v.(LookupPhoneNumberArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:smsvoice:getPhoneNumber", args, LookupPhoneNumberResultOutput{}, options).(LookupPhoneNumberResultOutput), nil
-		}).(LookupPhoneNumberResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:smsvoice:getPhoneNumber", args, LookupPhoneNumberResultOutput{}, options).(LookupPhoneNumberResultOutput)
 }
 
 type LookupPhoneNumberOutputArgs struct {

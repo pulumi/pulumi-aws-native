@@ -35,12 +35,8 @@ type LookupPreferencesResult struct {
 }
 
 func LookupPreferencesOutput(ctx *pulumi.Context, args LookupPreferencesOutputArgs, opts ...pulumi.InvokeOption) LookupPreferencesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPreferencesResultOutput, error) {
-			args := v.(LookupPreferencesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssmguiconnect:getPreferences", args, LookupPreferencesResultOutput{}, options).(LookupPreferencesResultOutput), nil
-		}).(LookupPreferencesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssmguiconnect:getPreferences", args, LookupPreferencesResultOutput{}, options).(LookupPreferencesResultOutput)
 }
 
 type LookupPreferencesOutputArgs struct {

@@ -42,12 +42,8 @@ type LookupWorkloadIdentityResult struct {
 }
 
 func LookupWorkloadIdentityOutput(ctx *pulumi.Context, args LookupWorkloadIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupWorkloadIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkloadIdentityResultOutput, error) {
-			args := v.(LookupWorkloadIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getWorkloadIdentity", args, LookupWorkloadIdentityResultOutput{}, options).(LookupWorkloadIdentityResultOutput), nil
-		}).(LookupWorkloadIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getWorkloadIdentity", args, LookupWorkloadIdentityResultOutput{}, options).(LookupWorkloadIdentityResultOutput)
 }
 
 type LookupWorkloadIdentityOutputArgs struct {

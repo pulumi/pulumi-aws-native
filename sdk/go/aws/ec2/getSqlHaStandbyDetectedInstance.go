@@ -34,12 +34,8 @@ type LookupSqlHaStandbyDetectedInstanceResult struct {
 }
 
 func LookupSqlHaStandbyDetectedInstanceOutput(ctx *pulumi.Context, args LookupSqlHaStandbyDetectedInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupSqlHaStandbyDetectedInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSqlHaStandbyDetectedInstanceResultOutput, error) {
-			args := v.(LookupSqlHaStandbyDetectedInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getSqlHaStandbyDetectedInstance", args, LookupSqlHaStandbyDetectedInstanceResultOutput{}, options).(LookupSqlHaStandbyDetectedInstanceResultOutput), nil
-		}).(LookupSqlHaStandbyDetectedInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getSqlHaStandbyDetectedInstance", args, LookupSqlHaStandbyDetectedInstanceResultOutput{}, options).(LookupSqlHaStandbyDetectedInstanceResultOutput)
 }
 
 type LookupSqlHaStandbyDetectedInstanceOutputArgs struct {

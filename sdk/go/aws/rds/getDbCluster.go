@@ -306,12 +306,8 @@ type LookupDbClusterResult struct {
 }
 
 func LookupDbClusterOutput(ctx *pulumi.Context, args LookupDbClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDbClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDbClusterResultOutput, error) {
-			args := v.(LookupDbClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rds:getDbCluster", args, LookupDbClusterResultOutput{}, options).(LookupDbClusterResultOutput), nil
-		}).(LookupDbClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rds:getDbCluster", args, LookupDbClusterResultOutput{}, options).(LookupDbClusterResultOutput)
 }
 
 type LookupDbClusterOutputArgs struct {

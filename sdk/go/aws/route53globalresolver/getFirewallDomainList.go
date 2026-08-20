@@ -39,12 +39,8 @@ type LookupFirewallDomainListResult struct {
 }
 
 func LookupFirewallDomainListOutput(ctx *pulumi.Context, args LookupFirewallDomainListOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallDomainListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFirewallDomainListResultOutput, error) {
-			args := v.(LookupFirewallDomainListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53globalresolver:getFirewallDomainList", args, LookupFirewallDomainListResultOutput{}, options).(LookupFirewallDomainListResultOutput), nil
-		}).(LookupFirewallDomainListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53globalresolver:getFirewallDomainList", args, LookupFirewallDomainListResultOutput{}, options).(LookupFirewallDomainListResultOutput)
 }
 
 type LookupFirewallDomainListOutputArgs struct {

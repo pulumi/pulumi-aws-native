@@ -78,12 +78,8 @@ type LookupAssociationResult struct {
 }
 
 func LookupAssociationOutput(ctx *pulumi.Context, args LookupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAssociationResultOutput, error) {
-			args := v.(LookupAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssm:getAssociation", args, LookupAssociationResultOutput{}, options).(LookupAssociationResultOutput), nil
-		}).(LookupAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssm:getAssociation", args, LookupAssociationResultOutput{}, options).(LookupAssociationResultOutput)
 }
 
 type LookupAssociationOutputArgs struct {

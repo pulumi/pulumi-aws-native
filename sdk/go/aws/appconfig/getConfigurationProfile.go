@@ -50,12 +50,8 @@ type LookupConfigurationProfileResult struct {
 }
 
 func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurationProfileOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationProfileResultOutput, error) {
-			args := v.(LookupConfigurationProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appconfig:getConfigurationProfile", args, LookupConfigurationProfileResultOutput{}, options).(LookupConfigurationProfileResultOutput), nil
-		}).(LookupConfigurationProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appconfig:getConfigurationProfile", args, LookupConfigurationProfileResultOutput{}, options).(LookupConfigurationProfileResultOutput)
 }
 
 type LookupConfigurationProfileOutputArgs struct {

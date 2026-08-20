@@ -56,12 +56,8 @@ type LookupAiGuardrailResult struct {
 }
 
 func LookupAiGuardrailOutput(ctx *pulumi.Context, args LookupAiGuardrailOutputArgs, opts ...pulumi.InvokeOption) LookupAiGuardrailResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAiGuardrailResultOutput, error) {
-			args := v.(LookupAiGuardrailArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wisdom:getAiGuardrail", args, LookupAiGuardrailResultOutput{}, options).(LookupAiGuardrailResultOutput), nil
-		}).(LookupAiGuardrailResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wisdom:getAiGuardrail", args, LookupAiGuardrailResultOutput{}, options).(LookupAiGuardrailResultOutput)
 }
 
 type LookupAiGuardrailOutputArgs struct {

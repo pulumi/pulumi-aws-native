@@ -42,12 +42,8 @@ type LookupProtectConfigurationResult struct {
 }
 
 func LookupProtectConfigurationOutput(ctx *pulumi.Context, args LookupProtectConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupProtectConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProtectConfigurationResultOutput, error) {
-			args := v.(LookupProtectConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:smsvoice:getProtectConfiguration", args, LookupProtectConfigurationResultOutput{}, options).(LookupProtectConfigurationResultOutput), nil
-		}).(LookupProtectConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:smsvoice:getProtectConfiguration", args, LookupProtectConfigurationResultOutput{}, options).(LookupProtectConfigurationResultOutput)
 }
 
 type LookupProtectConfigurationOutputArgs struct {

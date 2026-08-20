@@ -58,12 +58,8 @@ type LookupGatewayTargetResult struct {
 }
 
 func LookupGatewayTargetOutput(ctx *pulumi.Context, args LookupGatewayTargetOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGatewayTargetResultOutput, error) {
-			args := v.(LookupGatewayTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getGatewayTarget", args, LookupGatewayTargetResultOutput{}, options).(LookupGatewayTargetResultOutput), nil
-		}).(LookupGatewayTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getGatewayTarget", args, LookupGatewayTargetResultOutput{}, options).(LookupGatewayTargetResultOutput)
 }
 
 type LookupGatewayTargetOutputArgs struct {

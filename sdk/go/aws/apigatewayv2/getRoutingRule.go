@@ -41,12 +41,8 @@ type LookupRoutingRuleResult struct {
 }
 
 func LookupRoutingRuleOutput(ctx *pulumi.Context, args LookupRoutingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRoutingRuleResultOutput, error) {
-			args := v.(LookupRoutingRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigatewayv2:getRoutingRule", args, LookupRoutingRuleResultOutput{}, options).(LookupRoutingRuleResultOutput), nil
-		}).(LookupRoutingRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigatewayv2:getRoutingRule", args, LookupRoutingRuleResultOutput{}, options).(LookupRoutingRuleResultOutput)
 }
 
 type LookupRoutingRuleOutputArgs struct {

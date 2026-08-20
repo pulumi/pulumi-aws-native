@@ -54,12 +54,8 @@ type LookupTestCaseResult struct {
 }
 
 func LookupTestCaseOutput(ctx *pulumi.Context, args LookupTestCaseOutputArgs, opts ...pulumi.InvokeOption) LookupTestCaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTestCaseResultOutput, error) {
-			args := v.(LookupTestCaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getTestCase", args, LookupTestCaseResultOutput{}, options).(LookupTestCaseResultOutput), nil
-		}).(LookupTestCaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getTestCase", args, LookupTestCaseResultOutput{}, options).(LookupTestCaseResultOutput)
 }
 
 type LookupTestCaseOutputArgs struct {

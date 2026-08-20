@@ -68,12 +68,8 @@ type LookupCacheClusterResult struct {
 }
 
 func LookupCacheClusterOutput(ctx *pulumi.Context, args LookupCacheClusterOutputArgs, opts ...pulumi.InvokeOption) LookupCacheClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCacheClusterResultOutput, error) {
-			args := v.(LookupCacheClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:elasticache:getCacheCluster", args, LookupCacheClusterResultOutput{}, options).(LookupCacheClusterResultOutput), nil
-		}).(LookupCacheClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:elasticache:getCacheCluster", args, LookupCacheClusterResultOutput{}, options).(LookupCacheClusterResultOutput)
 }
 
 type LookupCacheClusterOutputArgs struct {

@@ -44,12 +44,8 @@ type LookupApiKeyCredentialProviderResult struct {
 }
 
 func LookupApiKeyCredentialProviderOutput(ctx *pulumi.Context, args LookupApiKeyCredentialProviderOutputArgs, opts ...pulumi.InvokeOption) LookupApiKeyCredentialProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApiKeyCredentialProviderResultOutput, error) {
-			args := v.(LookupApiKeyCredentialProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getApiKeyCredentialProvider", args, LookupApiKeyCredentialProviderResultOutput{}, options).(LookupApiKeyCredentialProviderResultOutput), nil
-		}).(LookupApiKeyCredentialProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getApiKeyCredentialProvider", args, LookupApiKeyCredentialProviderResultOutput{}, options).(LookupApiKeyCredentialProviderResultOutput)
 }
 
 type LookupApiKeyCredentialProviderOutputArgs struct {

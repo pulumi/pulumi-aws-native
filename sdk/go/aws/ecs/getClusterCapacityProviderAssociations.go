@@ -35,12 +35,8 @@ type LookupClusterCapacityProviderAssociationsResult struct {
 }
 
 func LookupClusterCapacityProviderAssociationsOutput(ctx *pulumi.Context, args LookupClusterCapacityProviderAssociationsOutputArgs, opts ...pulumi.InvokeOption) LookupClusterCapacityProviderAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClusterCapacityProviderAssociationsResultOutput, error) {
-			args := v.(LookupClusterCapacityProviderAssociationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecs:getClusterCapacityProviderAssociations", args, LookupClusterCapacityProviderAssociationsResultOutput{}, options).(LookupClusterCapacityProviderAssociationsResultOutput), nil
-		}).(LookupClusterCapacityProviderAssociationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecs:getClusterCapacityProviderAssociations", args, LookupClusterCapacityProviderAssociationsResultOutput{}, options).(LookupClusterCapacityProviderAssociationsResultOutput)
 }
 
 type LookupClusterCapacityProviderAssociationsOutputArgs struct {

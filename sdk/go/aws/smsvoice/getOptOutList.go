@@ -36,12 +36,8 @@ type LookupOptOutListResult struct {
 }
 
 func LookupOptOutListOutput(ctx *pulumi.Context, args LookupOptOutListOutputArgs, opts ...pulumi.InvokeOption) LookupOptOutListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOptOutListResultOutput, error) {
-			args := v.(LookupOptOutListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:smsvoice:getOptOutList", args, LookupOptOutListResultOutput{}, options).(LookupOptOutListResultOutput), nil
-		}).(LookupOptOutListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:smsvoice:getOptOutList", args, LookupOptOutListResultOutput{}, options).(LookupOptOutListResultOutput)
 }
 
 type LookupOptOutListOutputArgs struct {

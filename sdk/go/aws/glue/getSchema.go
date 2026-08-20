@@ -44,12 +44,8 @@ type LookupSchemaResult struct {
 }
 
 func LookupSchemaOutput(ctx *pulumi.Context, args LookupSchemaOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSchemaResultOutput, error) {
-			args := v.(LookupSchemaArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getSchema", args, LookupSchemaResultOutput{}, options).(LookupSchemaResultOutput), nil
-		}).(LookupSchemaResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getSchema", args, LookupSchemaResultOutput{}, options).(LookupSchemaResultOutput)
 }
 
 type LookupSchemaOutputArgs struct {

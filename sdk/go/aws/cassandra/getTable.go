@@ -61,12 +61,8 @@ type LookupTableResult struct {
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTableResultOutput, error) {
-			args := v.(LookupTableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cassandra:getTable", args, LookupTableResultOutput{}, options).(LookupTableResultOutput), nil
-		}).(LookupTableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cassandra:getTable", args, LookupTableResultOutput{}, options).(LookupTableResultOutput)
 }
 
 type LookupTableOutputArgs struct {

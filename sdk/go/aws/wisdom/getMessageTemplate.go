@@ -54,12 +54,8 @@ type LookupMessageTemplateResult struct {
 }
 
 func LookupMessageTemplateOutput(ctx *pulumi.Context, args LookupMessageTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupMessageTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMessageTemplateResultOutput, error) {
-			args := v.(LookupMessageTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wisdom:getMessageTemplate", args, LookupMessageTemplateResultOutput{}, options).(LookupMessageTemplateResultOutput), nil
-		}).(LookupMessageTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wisdom:getMessageTemplate", args, LookupMessageTemplateResultOutput{}, options).(LookupMessageTemplateResultOutput)
 }
 
 type LookupMessageTemplateOutputArgs struct {

@@ -35,12 +35,8 @@ type LookupPortfolioShareResult struct {
 }
 
 func LookupPortfolioShareOutput(ctx *pulumi.Context, args LookupPortfolioShareOutputArgs, opts ...pulumi.InvokeOption) LookupPortfolioShareResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPortfolioShareResultOutput, error) {
-			args := v.(LookupPortfolioShareArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getPortfolioShare", args, LookupPortfolioShareResultOutput{}, options).(LookupPortfolioShareResultOutput), nil
-		}).(LookupPortfolioShareResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getPortfolioShare", args, LookupPortfolioShareResultOutput{}, options).(LookupPortfolioShareResultOutput)
 }
 
 type LookupPortfolioShareOutputArgs struct {

@@ -48,12 +48,8 @@ type LookupReviewTemplateResult struct {
 }
 
 func LookupReviewTemplateOutput(ctx *pulumi.Context, args LookupReviewTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupReviewTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReviewTemplateResultOutput, error) {
-			args := v.(LookupReviewTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wellarchitected:getReviewTemplate", args, LookupReviewTemplateResultOutput{}, options).(LookupReviewTemplateResultOutput), nil
-		}).(LookupReviewTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wellarchitected:getReviewTemplate", args, LookupReviewTemplateResultOutput{}, options).(LookupReviewTemplateResultOutput)
 }
 
 type LookupReviewTemplateOutputArgs struct {

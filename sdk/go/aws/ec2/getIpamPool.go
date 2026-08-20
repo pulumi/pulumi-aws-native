@@ -64,12 +64,8 @@ type LookupIpamPoolResult struct {
 }
 
 func LookupIpamPoolOutput(ctx *pulumi.Context, args LookupIpamPoolOutputArgs, opts ...pulumi.InvokeOption) LookupIpamPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpamPoolResultOutput, error) {
-			args := v.(LookupIpamPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getIpamPool", args, LookupIpamPoolResultOutput{}, options).(LookupIpamPoolResultOutput), nil
-		}).(LookupIpamPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getIpamPool", args, LookupIpamPoolResultOutput{}, options).(LookupIpamPoolResultOutput)
 }
 
 type LookupIpamPoolOutputArgs struct {

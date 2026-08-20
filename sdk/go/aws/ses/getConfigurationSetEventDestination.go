@@ -35,12 +35,8 @@ type LookupConfigurationSetEventDestinationResult struct {
 }
 
 func LookupConfigurationSetEventDestinationOutput(ctx *pulumi.Context, args LookupConfigurationSetEventDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetEventDestinationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationSetEventDestinationResultOutput, error) {
-			args := v.(LookupConfigurationSetEventDestinationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getConfigurationSetEventDestination", args, LookupConfigurationSetEventDestinationResultOutput{}, options).(LookupConfigurationSetEventDestinationResultOutput), nil
-		}).(LookupConfigurationSetEventDestinationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getConfigurationSetEventDestination", args, LookupConfigurationSetEventDestinationResultOutput{}, options).(LookupConfigurationSetEventDestinationResultOutput)
 }
 
 type LookupConfigurationSetEventDestinationOutputArgs struct {

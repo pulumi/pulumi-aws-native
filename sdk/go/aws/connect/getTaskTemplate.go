@@ -56,12 +56,8 @@ type LookupTaskTemplateResult struct {
 }
 
 func LookupTaskTemplateOutput(ctx *pulumi.Context, args LookupTaskTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupTaskTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTaskTemplateResultOutput, error) {
-			args := v.(LookupTaskTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getTaskTemplate", args, LookupTaskTemplateResultOutput{}, options).(LookupTaskTemplateResultOutput), nil
-		}).(LookupTaskTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getTaskTemplate", args, LookupTaskTemplateResultOutput{}, options).(LookupTaskTemplateResultOutput)
 }
 
 type LookupTaskTemplateOutputArgs struct {

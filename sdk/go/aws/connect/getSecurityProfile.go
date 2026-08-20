@@ -58,12 +58,8 @@ type LookupSecurityProfileResult struct {
 }
 
 func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecurityProfileResultOutput, error) {
-			args := v.(LookupSecurityProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getSecurityProfile", args, LookupSecurityProfileResultOutput{}, options).(LookupSecurityProfileResultOutput), nil
-		}).(LookupSecurityProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getSecurityProfile", args, LookupSecurityProfileResultOutput{}, options).(LookupSecurityProfileResultOutput)
 }
 
 type LookupSecurityProfileOutputArgs struct {

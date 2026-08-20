@@ -42,12 +42,8 @@ type LookupSchemaMappingResult struct {
 }
 
 func LookupSchemaMappingOutput(ctx *pulumi.Context, args LookupSchemaMappingOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaMappingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSchemaMappingResultOutput, error) {
-			args := v.(LookupSchemaMappingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:entityresolution:getSchemaMapping", args, LookupSchemaMappingResultOutput{}, options).(LookupSchemaMappingResultOutput), nil
-		}).(LookupSchemaMappingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:entityresolution:getSchemaMapping", args, LookupSchemaMappingResultOutput{}, options).(LookupSchemaMappingResultOutput)
 }
 
 type LookupSchemaMappingOutputArgs struct {

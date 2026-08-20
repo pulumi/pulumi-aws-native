@@ -35,12 +35,8 @@ type LookupDefaultViewAssociationResult struct {
 }
 
 func LookupDefaultViewAssociationOutput(ctx *pulumi.Context, args LookupDefaultViewAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDefaultViewAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDefaultViewAssociationResultOutput, error) {
-			args := v.(LookupDefaultViewAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:resourceexplorer2:getDefaultViewAssociation", args, LookupDefaultViewAssociationResultOutput{}, options).(LookupDefaultViewAssociationResultOutput), nil
-		}).(LookupDefaultViewAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:resourceexplorer2:getDefaultViewAssociation", args, LookupDefaultViewAssociationResultOutput{}, options).(LookupDefaultViewAssociationResultOutput)
 }
 
 type LookupDefaultViewAssociationOutputArgs struct {

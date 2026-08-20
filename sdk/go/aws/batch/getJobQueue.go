@@ -49,12 +49,8 @@ type LookupJobQueueResult struct {
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupJobQueueResultOutput, error) {
-			args := v.(LookupJobQueueArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:batch:getJobQueue", args, LookupJobQueueResultOutput{}, options).(LookupJobQueueResultOutput), nil
-		}).(LookupJobQueueResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:batch:getJobQueue", args, LookupJobQueueResultOutput{}, options).(LookupJobQueueResultOutput)
 }
 
 type LookupJobQueueOutputArgs struct {

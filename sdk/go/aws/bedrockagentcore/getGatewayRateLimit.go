@@ -40,12 +40,8 @@ type LookupGatewayRateLimitResult struct {
 }
 
 func LookupGatewayRateLimitOutput(ctx *pulumi.Context, args LookupGatewayRateLimitOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRateLimitResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGatewayRateLimitResultOutput, error) {
-			args := v.(LookupGatewayRateLimitArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getGatewayRateLimit", args, LookupGatewayRateLimitResultOutput{}, options).(LookupGatewayRateLimitResultOutput), nil
-		}).(LookupGatewayRateLimitResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getGatewayRateLimit", args, LookupGatewayRateLimitResultOutput{}, options).(LookupGatewayRateLimitResultOutput)
 }
 
 type LookupGatewayRateLimitOutputArgs struct {

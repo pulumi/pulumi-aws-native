@@ -49,12 +49,8 @@ type LookupServiceNetworkResult struct {
 }
 
 func LookupServiceNetworkOutput(ctx *pulumi.Context, args LookupServiceNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceNetworkResultOutput, error) {
-			args := v.(LookupServiceNetworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:vpclattice:getServiceNetwork", args, LookupServiceNetworkResultOutput{}, options).(LookupServiceNetworkResultOutput), nil
-		}).(LookupServiceNetworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:vpclattice:getServiceNetwork", args, LookupServiceNetworkResultOutput{}, options).(LookupServiceNetworkResultOutput)
 }
 
 type LookupServiceNetworkOutputArgs struct {

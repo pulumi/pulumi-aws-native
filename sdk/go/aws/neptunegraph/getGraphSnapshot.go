@@ -44,12 +44,8 @@ type LookupGraphSnapshotResult struct {
 }
 
 func LookupGraphSnapshotOutput(ctx *pulumi.Context, args LookupGraphSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupGraphSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGraphSnapshotResultOutput, error) {
-			args := v.(LookupGraphSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:neptunegraph:getGraphSnapshot", args, LookupGraphSnapshotResultOutput{}, options).(LookupGraphSnapshotResultOutput), nil
-		}).(LookupGraphSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:neptunegraph:getGraphSnapshot", args, LookupGraphSnapshotResultOutput{}, options).(LookupGraphSnapshotResultOutput)
 }
 
 type LookupGraphSnapshotOutputArgs struct {

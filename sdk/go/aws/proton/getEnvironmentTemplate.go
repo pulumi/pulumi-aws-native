@@ -42,12 +42,8 @@ type LookupEnvironmentTemplateResult struct {
 }
 
 func LookupEnvironmentTemplateOutput(ctx *pulumi.Context, args LookupEnvironmentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentTemplateResultOutput, error) {
-			args := v.(LookupEnvironmentTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:proton:getEnvironmentTemplate", args, LookupEnvironmentTemplateResultOutput{}, options).(LookupEnvironmentTemplateResultOutput), nil
-		}).(LookupEnvironmentTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:proton:getEnvironmentTemplate", args, LookupEnvironmentTemplateResultOutput{}, options).(LookupEnvironmentTemplateResultOutput)
 }
 
 type LookupEnvironmentTemplateOutputArgs struct {

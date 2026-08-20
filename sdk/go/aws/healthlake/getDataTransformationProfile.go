@@ -40,12 +40,8 @@ type LookupDataTransformationProfileResult struct {
 }
 
 func LookupDataTransformationProfileOutput(ctx *pulumi.Context, args LookupDataTransformationProfileOutputArgs, opts ...pulumi.InvokeOption) LookupDataTransformationProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataTransformationProfileResultOutput, error) {
-			args := v.(LookupDataTransformationProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:healthlake:getDataTransformationProfile", args, LookupDataTransformationProfileResultOutput{}, options).(LookupDataTransformationProfileResultOutput), nil
-		}).(LookupDataTransformationProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:healthlake:getDataTransformationProfile", args, LookupDataTransformationProfileResultOutput{}, options).(LookupDataTransformationProfileResultOutput)
 }
 
 type LookupDataTransformationProfileOutputArgs struct {

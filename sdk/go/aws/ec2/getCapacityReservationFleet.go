@@ -39,12 +39,8 @@ type LookupCapacityReservationFleetResult struct {
 }
 
 func LookupCapacityReservationFleetOutput(ctx *pulumi.Context, args LookupCapacityReservationFleetOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityReservationFleetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCapacityReservationFleetResultOutput, error) {
-			args := v.(LookupCapacityReservationFleetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getCapacityReservationFleet", args, LookupCapacityReservationFleetResultOutput{}, options).(LookupCapacityReservationFleetResultOutput), nil
-		}).(LookupCapacityReservationFleetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getCapacityReservationFleet", args, LookupCapacityReservationFleetResultOutput{}, options).(LookupCapacityReservationFleetResultOutput)
 }
 
 type LookupCapacityReservationFleetOutputArgs struct {

@@ -46,12 +46,8 @@ type LookupSessionLoggerResult struct {
 }
 
 func LookupSessionLoggerOutput(ctx *pulumi.Context, args LookupSessionLoggerOutputArgs, opts ...pulumi.InvokeOption) LookupSessionLoggerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSessionLoggerResultOutput, error) {
-			args := v.(LookupSessionLoggerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:workspacesweb:getSessionLogger", args, LookupSessionLoggerResultOutput{}, options).(LookupSessionLoggerResultOutput), nil
-		}).(LookupSessionLoggerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:workspacesweb:getSessionLogger", args, LookupSessionLoggerResultOutput{}, options).(LookupSessionLoggerResultOutput)
 }
 
 type LookupSessionLoggerOutputArgs struct {

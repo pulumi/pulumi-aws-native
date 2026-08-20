@@ -128,12 +128,8 @@ type LookupVolumeResult struct {
 }
 
 func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVolumeResultOutput, error) {
-			args := v.(LookupVolumeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVolume", args, LookupVolumeResultOutput{}, options).(LookupVolumeResultOutput), nil
-		}).(LookupVolumeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVolume", args, LookupVolumeResultOutput{}, options).(LookupVolumeResultOutput)
 }
 
 type LookupVolumeOutputArgs struct {

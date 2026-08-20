@@ -38,12 +38,8 @@ type LookupGlobalClusterResult struct {
 }
 
 func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGlobalClusterResultOutput, error) {
-			args := v.(LookupGlobalClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:neptune:getGlobalCluster", args, LookupGlobalClusterResultOutput{}, options).(LookupGlobalClusterResultOutput), nil
-		}).(LookupGlobalClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:neptune:getGlobalCluster", args, LookupGlobalClusterResultOutput{}, options).(LookupGlobalClusterResultOutput)
 }
 
 type LookupGlobalClusterOutputArgs struct {

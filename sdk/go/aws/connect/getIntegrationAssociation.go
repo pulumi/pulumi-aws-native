@@ -50,12 +50,8 @@ type LookupIntegrationAssociationResult struct {
 }
 
 func LookupIntegrationAssociationOutput(ctx *pulumi.Context, args LookupIntegrationAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIntegrationAssociationResultOutput, error) {
-			args := v.(LookupIntegrationAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getIntegrationAssociation", args, LookupIntegrationAssociationResultOutput{}, options).(LookupIntegrationAssociationResultOutput), nil
-		}).(LookupIntegrationAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getIntegrationAssociation", args, LookupIntegrationAssociationResultOutput{}, options).(LookupIntegrationAssociationResultOutput)
 }
 
 type LookupIntegrationAssociationOutputArgs struct {

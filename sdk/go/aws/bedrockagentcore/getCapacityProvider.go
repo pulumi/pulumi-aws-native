@@ -46,12 +46,8 @@ type LookupCapacityProviderResult struct {
 }
 
 func LookupCapacityProviderOutput(ctx *pulumi.Context, args LookupCapacityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCapacityProviderResultOutput, error) {
-			args := v.(LookupCapacityProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getCapacityProvider", args, LookupCapacityProviderResultOutput{}, options).(LookupCapacityProviderResultOutput), nil
-		}).(LookupCapacityProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getCapacityProvider", args, LookupCapacityProviderResultOutput{}, options).(LookupCapacityProviderResultOutput)
 }
 
 type LookupCapacityProviderOutputArgs struct {

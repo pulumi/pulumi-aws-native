@@ -61,12 +61,8 @@ type LookupResponderGatewayResult struct {
 }
 
 func LookupResponderGatewayOutput(ctx *pulumi.Context, args LookupResponderGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupResponderGatewayResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResponderGatewayResultOutput, error) {
-			args := v.(LookupResponderGatewayArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rtbfabric:getResponderGateway", args, LookupResponderGatewayResultOutput{}, options).(LookupResponderGatewayResultOutput), nil
-		}).(LookupResponderGatewayResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rtbfabric:getResponderGateway", args, LookupResponderGatewayResultOutput{}, options).(LookupResponderGatewayResultOutput)
 }
 
 type LookupResponderGatewayOutputArgs struct {

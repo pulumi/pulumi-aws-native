@@ -62,12 +62,8 @@ type LookupOriginEndpointResult struct {
 }
 
 func LookupOriginEndpointOutput(ctx *pulumi.Context, args LookupOriginEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupOriginEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOriginEndpointResultOutput, error) {
-			args := v.(LookupOriginEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediapackage:getOriginEndpoint", args, LookupOriginEndpointResultOutput{}, options).(LookupOriginEndpointResultOutput), nil
-		}).(LookupOriginEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediapackage:getOriginEndpoint", args, LookupOriginEndpointResultOutput{}, options).(LookupOriginEndpointResultOutput)
 }
 
 type LookupOriginEndpointOutputArgs struct {

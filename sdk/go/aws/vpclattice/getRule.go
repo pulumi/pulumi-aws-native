@@ -44,12 +44,8 @@ type LookupRuleResult struct {
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRuleResultOutput, error) {
-			args := v.(LookupRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:vpclattice:getRule", args, LookupRuleResultOutput{}, options).(LookupRuleResultOutput), nil
-		}).(LookupRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:vpclattice:getRule", args, LookupRuleResultOutput{}, options).(LookupRuleResultOutput)
 }
 
 type LookupRuleOutputArgs struct {

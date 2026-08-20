@@ -40,12 +40,8 @@ type LookupSenderIdResult struct {
 }
 
 func LookupSenderIdOutput(ctx *pulumi.Context, args LookupSenderIdOutputArgs, opts ...pulumi.InvokeOption) LookupSenderIdResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSenderIdResultOutput, error) {
-			args := v.(LookupSenderIdArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:smsvoice:getSenderId", args, LookupSenderIdResultOutput{}, options).(LookupSenderIdResultOutput), nil
-		}).(LookupSenderIdResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:smsvoice:getSenderId", args, LookupSenderIdResultOutput{}, options).(LookupSenderIdResultOutput)
 }
 
 type LookupSenderIdOutputArgs struct {

@@ -41,12 +41,8 @@ type LookupDeliveryChannelResult struct {
 }
 
 func LookupDeliveryChannelOutput(ctx *pulumi.Context, args LookupDeliveryChannelOutputArgs, opts ...pulumi.InvokeOption) LookupDeliveryChannelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDeliveryChannelResultOutput, error) {
-			args := v.(LookupDeliveryChannelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:configuration:getDeliveryChannel", args, LookupDeliveryChannelResultOutput{}, options).(LookupDeliveryChannelResultOutput), nil
-		}).(LookupDeliveryChannelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:configuration:getDeliveryChannel", args, LookupDeliveryChannelResultOutput{}, options).(LookupDeliveryChannelResultOutput)
 }
 
 type LookupDeliveryChannelOutputArgs struct {

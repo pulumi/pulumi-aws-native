@@ -42,12 +42,8 @@ type LookupNotificationResult struct {
 }
 
 func LookupNotificationOutput(ctx *pulumi.Context, args LookupNotificationOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNotificationResultOutput, error) {
-			args := v.(LookupNotificationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getNotification", args, LookupNotificationResultOutput{}, options).(LookupNotificationResultOutput), nil
-		}).(LookupNotificationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getNotification", args, LookupNotificationResultOutput{}, options).(LookupNotificationResultOutput)
 }
 
 type LookupNotificationOutputArgs struct {

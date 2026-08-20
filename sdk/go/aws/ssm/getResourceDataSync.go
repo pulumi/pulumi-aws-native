@@ -33,12 +33,8 @@ type LookupResourceDataSyncResult struct {
 }
 
 func LookupResourceDataSyncOutput(ctx *pulumi.Context, args LookupResourceDataSyncOutputArgs, opts ...pulumi.InvokeOption) LookupResourceDataSyncResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceDataSyncResultOutput, error) {
-			args := v.(LookupResourceDataSyncArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssm:getResourceDataSync", args, LookupResourceDataSyncResultOutput{}, options).(LookupResourceDataSyncResultOutput), nil
-		}).(LookupResourceDataSyncResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssm:getResourceDataSync", args, LookupResourceDataSyncResultOutput{}, options).(LookupResourceDataSyncResultOutput)
 }
 
 type LookupResourceDataSyncOutputArgs struct {

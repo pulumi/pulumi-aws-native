@@ -57,12 +57,8 @@ type LookupConnectorV2Result struct {
 }
 
 func LookupConnectorV2Output(ctx *pulumi.Context, args LookupConnectorV2OutputArgs, opts ...pulumi.InvokeOption) LookupConnectorV2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectorV2ResultOutput, error) {
-			args := v.(LookupConnectorV2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securityhub:getConnectorV2", args, LookupConnectorV2ResultOutput{}, options).(LookupConnectorV2ResultOutput), nil
-		}).(LookupConnectorV2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securityhub:getConnectorV2", args, LookupConnectorV2ResultOutput{}, options).(LookupConnectorV2ResultOutput)
 }
 
 type LookupConnectorV2OutputArgs struct {

@@ -52,12 +52,8 @@ type LookupDataTableAttributeResult struct {
 }
 
 func LookupDataTableAttributeOutput(ctx *pulumi.Context, args LookupDataTableAttributeOutputArgs, opts ...pulumi.InvokeOption) LookupDataTableAttributeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataTableAttributeResultOutput, error) {
-			args := v.(LookupDataTableAttributeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getDataTableAttribute", args, LookupDataTableAttributeResultOutput{}, options).(LookupDataTableAttributeResultOutput), nil
-		}).(LookupDataTableAttributeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getDataTableAttribute", args, LookupDataTableAttributeResultOutput{}, options).(LookupDataTableAttributeResultOutput)
 }
 
 type LookupDataTableAttributeOutputArgs struct {

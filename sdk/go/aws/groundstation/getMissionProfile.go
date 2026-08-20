@@ -60,12 +60,8 @@ type LookupMissionProfileResult struct {
 }
 
 func LookupMissionProfileOutput(ctx *pulumi.Context, args LookupMissionProfileOutputArgs, opts ...pulumi.InvokeOption) LookupMissionProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMissionProfileResultOutput, error) {
-			args := v.(LookupMissionProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:groundstation:getMissionProfile", args, LookupMissionProfileResultOutput{}, options).(LookupMissionProfileResultOutput), nil
-		}).(LookupMissionProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:groundstation:getMissionProfile", args, LookupMissionProfileResultOutput{}, options).(LookupMissionProfileResultOutput)
 }
 
 type LookupMissionProfileOutputArgs struct {

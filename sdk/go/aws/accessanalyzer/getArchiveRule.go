@@ -39,12 +39,8 @@ type LookupArchiveRuleResult struct {
 }
 
 func LookupArchiveRuleOutput(ctx *pulumi.Context, args LookupArchiveRuleOutputArgs, opts ...pulumi.InvokeOption) LookupArchiveRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupArchiveRuleResultOutput, error) {
-			args := v.(LookupArchiveRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:accessanalyzer:getArchiveRule", args, LookupArchiveRuleResultOutput{}, options).(LookupArchiveRuleResultOutput), nil
-		}).(LookupArchiveRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:accessanalyzer:getArchiveRule", args, LookupArchiveRuleResultOutput{}, options).(LookupArchiveRuleResultOutput)
 }
 
 type LookupArchiveRuleOutputArgs struct {

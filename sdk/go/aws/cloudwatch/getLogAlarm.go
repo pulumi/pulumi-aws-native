@@ -62,12 +62,8 @@ type LookupLogAlarmResult struct {
 }
 
 func LookupLogAlarmOutput(ctx *pulumi.Context, args LookupLogAlarmOutputArgs, opts ...pulumi.InvokeOption) LookupLogAlarmResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLogAlarmResultOutput, error) {
-			args := v.(LookupLogAlarmArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudwatch:getLogAlarm", args, LookupLogAlarmResultOutput{}, options).(LookupLogAlarmResultOutput), nil
-		}).(LookupLogAlarmResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudwatch:getLogAlarm", args, LookupLogAlarmResultOutput{}, options).(LookupLogAlarmResultOutput)
 }
 
 type LookupLogAlarmOutputArgs struct {

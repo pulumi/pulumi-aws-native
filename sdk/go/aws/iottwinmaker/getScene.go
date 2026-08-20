@@ -51,12 +51,8 @@ type LookupSceneResult struct {
 }
 
 func LookupSceneOutput(ctx *pulumi.Context, args LookupSceneOutputArgs, opts ...pulumi.InvokeOption) LookupSceneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSceneResultOutput, error) {
-			args := v.(LookupSceneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iottwinmaker:getScene", args, LookupSceneResultOutput{}, options).(LookupSceneResultOutput), nil
-		}).(LookupSceneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iottwinmaker:getScene", args, LookupSceneResultOutput{}, options).(LookupSceneResultOutput)
 }
 
 type LookupSceneOutputArgs struct {

@@ -45,12 +45,8 @@ type LookupPaymentConnectorResult struct {
 }
 
 func LookupPaymentConnectorOutput(ctx *pulumi.Context, args LookupPaymentConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupPaymentConnectorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPaymentConnectorResultOutput, error) {
-			args := v.(LookupPaymentConnectorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getPaymentConnector", args, LookupPaymentConnectorResultOutput{}, options).(LookupPaymentConnectorResultOutput), nil
-		}).(LookupPaymentConnectorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getPaymentConnector", args, LookupPaymentConnectorResultOutput{}, options).(LookupPaymentConnectorResultOutput)
 }
 
 type LookupPaymentConnectorOutputArgs struct {

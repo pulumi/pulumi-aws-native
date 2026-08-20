@@ -39,12 +39,8 @@ type LookupIdentityPoolPrincipalTagResult struct {
 }
 
 func LookupIdentityPoolPrincipalTagOutput(ctx *pulumi.Context, args LookupIdentityPoolPrincipalTagOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolPrincipalTagResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIdentityPoolPrincipalTagResultOutput, error) {
-			args := v.(LookupIdentityPoolPrincipalTagArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getIdentityPoolPrincipalTag", args, LookupIdentityPoolPrincipalTagResultOutput{}, options).(LookupIdentityPoolPrincipalTagResultOutput), nil
-		}).(LookupIdentityPoolPrincipalTagResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getIdentityPoolPrincipalTag", args, LookupIdentityPoolPrincipalTagResultOutput{}, options).(LookupIdentityPoolPrincipalTagResultOutput)
 }
 
 type LookupIdentityPoolPrincipalTagOutputArgs struct {

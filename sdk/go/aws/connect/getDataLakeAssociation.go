@@ -39,12 +39,8 @@ type LookupDataLakeAssociationResult struct {
 }
 
 func LookupDataLakeAssociationOutput(ctx *pulumi.Context, args LookupDataLakeAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataLakeAssociationResultOutput, error) {
-			args := v.(LookupDataLakeAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getDataLakeAssociation", args, LookupDataLakeAssociationResultOutput{}, options).(LookupDataLakeAssociationResultOutput), nil
-		}).(LookupDataLakeAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getDataLakeAssociation", args, LookupDataLakeAssociationResultOutput{}, options).(LookupDataLakeAssociationResultOutput)
 }
 
 type LookupDataLakeAssociationOutputArgs struct {

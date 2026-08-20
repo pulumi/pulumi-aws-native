@@ -40,12 +40,8 @@ type LookupClusterSubnetGroupResult struct {
 }
 
 func LookupClusterSubnetGroupOutput(ctx *pulumi.Context, args LookupClusterSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClusterSubnetGroupResultOutput, error) {
-			args := v.(LookupClusterSubnetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:redshift:getClusterSubnetGroup", args, LookupClusterSubnetGroupResultOutput{}, options).(LookupClusterSubnetGroupResultOutput), nil
-		}).(LookupClusterSubnetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:redshift:getClusterSubnetGroup", args, LookupClusterSubnetGroupResultOutput{}, options).(LookupClusterSubnetGroupResultOutput)
 }
 
 type LookupClusterSubnetGroupOutputArgs struct {

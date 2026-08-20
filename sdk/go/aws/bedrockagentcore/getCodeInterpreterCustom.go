@@ -45,12 +45,8 @@ type LookupCodeInterpreterCustomResult struct {
 }
 
 func LookupCodeInterpreterCustomOutput(ctx *pulumi.Context, args LookupCodeInterpreterCustomOutputArgs, opts ...pulumi.InvokeOption) LookupCodeInterpreterCustomResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCodeInterpreterCustomResultOutput, error) {
-			args := v.(LookupCodeInterpreterCustomArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getCodeInterpreterCustom", args, LookupCodeInterpreterCustomResultOutput{}, options).(LookupCodeInterpreterCustomResultOutput), nil
-		}).(LookupCodeInterpreterCustomResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getCodeInterpreterCustom", args, LookupCodeInterpreterCustomResultOutput{}, options).(LookupCodeInterpreterCustomResultOutput)
 }
 
 type LookupCodeInterpreterCustomOutputArgs struct {

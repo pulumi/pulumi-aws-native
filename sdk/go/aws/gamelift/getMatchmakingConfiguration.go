@@ -66,12 +66,8 @@ type LookupMatchmakingConfigurationResult struct {
 }
 
 func LookupMatchmakingConfigurationOutput(ctx *pulumi.Context, args LookupMatchmakingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupMatchmakingConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMatchmakingConfigurationResultOutput, error) {
-			args := v.(LookupMatchmakingConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:gamelift:getMatchmakingConfiguration", args, LookupMatchmakingConfigurationResultOutput{}, options).(LookupMatchmakingConfigurationResultOutput), nil
-		}).(LookupMatchmakingConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:gamelift:getMatchmakingConfiguration", args, LookupMatchmakingConfigurationResultOutput{}, options).(LookupMatchmakingConfigurationResultOutput)
 }
 
 type LookupMatchmakingConfigurationOutputArgs struct {

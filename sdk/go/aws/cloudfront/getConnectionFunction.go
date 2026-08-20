@@ -52,12 +52,8 @@ type LookupConnectionFunctionResult struct {
 }
 
 func LookupConnectionFunctionOutput(ctx *pulumi.Context, args LookupConnectionFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionFunctionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectionFunctionResultOutput, error) {
-			args := v.(LookupConnectionFunctionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getConnectionFunction", args, LookupConnectionFunctionResultOutput{}, options).(LookupConnectionFunctionResultOutput), nil
-		}).(LookupConnectionFunctionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getConnectionFunction", args, LookupConnectionFunctionResultOutput{}, options).(LookupConnectionFunctionResultOutput)
 }
 
 type LookupConnectionFunctionOutputArgs struct {

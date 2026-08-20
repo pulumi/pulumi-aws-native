@@ -55,12 +55,8 @@ type LookupEntityResult struct {
 }
 
 func LookupEntityOutput(ctx *pulumi.Context, args LookupEntityOutputArgs, opts ...pulumi.InvokeOption) LookupEntityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEntityResultOutput, error) {
-			args := v.(LookupEntityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iottwinmaker:getEntity", args, LookupEntityResultOutput{}, options).(LookupEntityResultOutput), nil
-		}).(LookupEntityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iottwinmaker:getEntity", args, LookupEntityResultOutput{}, options).(LookupEntityResultOutput)
 }
 
 type LookupEntityOutputArgs struct {

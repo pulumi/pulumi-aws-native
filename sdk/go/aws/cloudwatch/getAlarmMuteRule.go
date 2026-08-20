@@ -52,12 +52,8 @@ type LookupAlarmMuteRuleResult struct {
 }
 
 func LookupAlarmMuteRuleOutput(ctx *pulumi.Context, args LookupAlarmMuteRuleOutputArgs, opts ...pulumi.InvokeOption) LookupAlarmMuteRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAlarmMuteRuleResultOutput, error) {
-			args := v.(LookupAlarmMuteRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudwatch:getAlarmMuteRule", args, LookupAlarmMuteRuleResultOutput{}, options).(LookupAlarmMuteRuleResultOutput), nil
-		}).(LookupAlarmMuteRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudwatch:getAlarmMuteRule", args, LookupAlarmMuteRuleResultOutput{}, options).(LookupAlarmMuteRuleResultOutput)
 }
 
 type LookupAlarmMuteRuleOutputArgs struct {

@@ -36,12 +36,8 @@ type LookupDhcpOptionsResult struct {
 }
 
 func LookupDhcpOptionsOutput(ctx *pulumi.Context, args LookupDhcpOptionsOutputArgs, opts ...pulumi.InvokeOption) LookupDhcpOptionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDhcpOptionsResultOutput, error) {
-			args := v.(LookupDhcpOptionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getDhcpOptions", args, LookupDhcpOptionsResultOutput{}, options).(LookupDhcpOptionsResultOutput), nil
-		}).(LookupDhcpOptionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getDhcpOptions", args, LookupDhcpOptionsResultOutput{}, options).(LookupDhcpOptionsResultOutput)
 }
 
 type LookupDhcpOptionsOutputArgs struct {

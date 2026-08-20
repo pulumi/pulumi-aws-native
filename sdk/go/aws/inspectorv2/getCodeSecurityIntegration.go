@@ -49,12 +49,8 @@ type LookupCodeSecurityIntegrationResult struct {
 }
 
 func LookupCodeSecurityIntegrationOutput(ctx *pulumi.Context, args LookupCodeSecurityIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSecurityIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCodeSecurityIntegrationResultOutput, error) {
-			args := v.(LookupCodeSecurityIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:inspectorv2:getCodeSecurityIntegration", args, LookupCodeSecurityIntegrationResultOutput{}, options).(LookupCodeSecurityIntegrationResultOutput), nil
-		}).(LookupCodeSecurityIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:inspectorv2:getCodeSecurityIntegration", args, LookupCodeSecurityIntegrationResultOutput{}, options).(LookupCodeSecurityIntegrationResultOutput)
 }
 
 type LookupCodeSecurityIntegrationOutputArgs struct {

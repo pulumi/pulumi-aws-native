@@ -54,12 +54,8 @@ type LookupFrameworkResult struct {
 }
 
 func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, opts ...pulumi.InvokeOption) LookupFrameworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFrameworkResultOutput, error) {
-			args := v.(LookupFrameworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:backup:getFramework", args, LookupFrameworkResultOutput{}, options).(LookupFrameworkResultOutput), nil
-		}).(LookupFrameworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:backup:getFramework", args, LookupFrameworkResultOutput{}, options).(LookupFrameworkResultOutput)
 }
 
 type LookupFrameworkOutputArgs struct {

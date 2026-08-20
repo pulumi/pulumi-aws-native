@@ -33,12 +33,8 @@ type LookupLogAnomalyDetectionIntegrationResult struct {
 }
 
 func LookupLogAnomalyDetectionIntegrationOutput(ctx *pulumi.Context, args LookupLogAnomalyDetectionIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupLogAnomalyDetectionIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLogAnomalyDetectionIntegrationResultOutput, error) {
-			args := v.(LookupLogAnomalyDetectionIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args, LookupLogAnomalyDetectionIntegrationResultOutput{}, options).(LookupLogAnomalyDetectionIntegrationResultOutput), nil
-		}).(LookupLogAnomalyDetectionIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args, LookupLogAnomalyDetectionIntegrationResultOutput{}, options).(LookupLogAnomalyDetectionIntegrationResultOutput)
 }
 
 type LookupLogAnomalyDetectionIntegrationOutputArgs struct {

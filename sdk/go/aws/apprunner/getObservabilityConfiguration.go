@@ -37,12 +37,8 @@ type LookupObservabilityConfigurationResult struct {
 }
 
 func LookupObservabilityConfigurationOutput(ctx *pulumi.Context, args LookupObservabilityConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupObservabilityConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupObservabilityConfigurationResultOutput, error) {
-			args := v.(LookupObservabilityConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apprunner:getObservabilityConfiguration", args, LookupObservabilityConfigurationResultOutput{}, options).(LookupObservabilityConfigurationResultOutput), nil
-		}).(LookupObservabilityConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apprunner:getObservabilityConfiguration", args, LookupObservabilityConfigurationResultOutput{}, options).(LookupObservabilityConfigurationResultOutput)
 }
 
 type LookupObservabilityConfigurationOutputArgs struct {

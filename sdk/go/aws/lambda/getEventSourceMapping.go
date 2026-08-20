@@ -115,12 +115,8 @@ type LookupEventSourceMappingResult struct {
 }
 
 func LookupEventSourceMappingOutput(ctx *pulumi.Context, args LookupEventSourceMappingOutputArgs, opts ...pulumi.InvokeOption) LookupEventSourceMappingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventSourceMappingResultOutput, error) {
-			args := v.(LookupEventSourceMappingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lambda:getEventSourceMapping", args, LookupEventSourceMappingResultOutput{}, options).(LookupEventSourceMappingResultOutput), nil
-		}).(LookupEventSourceMappingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lambda:getEventSourceMapping", args, LookupEventSourceMappingResultOutput{}, options).(LookupEventSourceMappingResultOutput)
 }
 
 type LookupEventSourceMappingOutputArgs struct {

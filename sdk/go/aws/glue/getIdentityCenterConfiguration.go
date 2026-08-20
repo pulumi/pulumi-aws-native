@@ -39,12 +39,8 @@ type LookupIdentityCenterConfigurationResult struct {
 }
 
 func LookupIdentityCenterConfigurationOutput(ctx *pulumi.Context, args LookupIdentityCenterConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityCenterConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIdentityCenterConfigurationResultOutput, error) {
-			args := v.(LookupIdentityCenterConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getIdentityCenterConfiguration", args, LookupIdentityCenterConfigurationResultOutput{}, options).(LookupIdentityCenterConfigurationResultOutput), nil
-		}).(LookupIdentityCenterConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getIdentityCenterConfiguration", args, LookupIdentityCenterConfigurationResultOutput{}, options).(LookupIdentityCenterConfigurationResultOutput)
 }
 
 type LookupIdentityCenterConfigurationOutputArgs struct {

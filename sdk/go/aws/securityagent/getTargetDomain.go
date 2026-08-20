@@ -47,12 +47,8 @@ type LookupTargetDomainResult struct {
 }
 
 func LookupTargetDomainOutput(ctx *pulumi.Context, args LookupTargetDomainOutputArgs, opts ...pulumi.InvokeOption) LookupTargetDomainResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTargetDomainResultOutput, error) {
-			args := v.(LookupTargetDomainArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securityagent:getTargetDomain", args, LookupTargetDomainResultOutput{}, options).(LookupTargetDomainResultOutput), nil
-		}).(LookupTargetDomainResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securityagent:getTargetDomain", args, LookupTargetDomainResultOutput{}, options).(LookupTargetDomainResultOutput)
 }
 
 type LookupTargetDomainOutputArgs struct {
