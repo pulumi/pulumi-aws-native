@@ -22,6 +22,8 @@ env:
   PYTHONVERSION: "3.11.15"
   DOTNETVERSION: "8.0.x"
   JAVAVERSION: "11"
+  MISE_ENV: test
+  GO_TEST_EXEC: "gotestsum --format github-actions --"
   AWS_REGION: us-west-2
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
@@ -373,16 +375,11 @@ jobs:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
       with:
         environment: logins/pulumi-ci
-    - name: Install gotestfmt
-      uses: GoTestTools/gotestfmt-action@v2
-      with:
-        version: v2.5.0
-        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Run tests
       run: >-
         set -euo pipefail
 
-        cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 .
+        cd examples && $GO_TEST_EXEC -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 .
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - if: failure() && github.event_name == 'push'
