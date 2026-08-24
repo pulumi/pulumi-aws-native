@@ -2,6 +2,45 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ChangeSetCapabilitiesItem = {
+    CapabilityIam: "CAPABILITY_IAM",
+    CapabilityNamedIam: "CAPABILITY_NAMED_IAM",
+    CapabilityAutoExpand: "CAPABILITY_AUTO_EXPAND",
+} as const;
+
+export type ChangeSetCapabilitiesItem = (typeof ChangeSetCapabilitiesItem)[keyof typeof ChangeSetCapabilitiesItem];
+
+export const ChangeSetDeploymentMode = {
+    RevertDrift: "REVERT_DRIFT",
+} as const;
+
+/**
+ * Determines how CloudFormation handles configuration drift during deployment.
+ */
+export type ChangeSetDeploymentMode = (typeof ChangeSetDeploymentMode)[keyof typeof ChangeSetDeploymentMode];
+
+export const ChangeSetOnStackFailure = {
+    DoNothing: "DO_NOTHING",
+    Rollback: "ROLLBACK",
+    Delete: "DELETE",
+} as const;
+
+/**
+ * Determines what action will be taken if stack creation fails.
+ */
+export type ChangeSetOnStackFailure = (typeof ChangeSetOnStackFailure)[keyof typeof ChangeSetOnStackFailure];
+
+export const ChangeSetType = {
+    Create: "CREATE",
+    Update: "UPDATE",
+    Import: "IMPORT",
+} as const;
+
+/**
+ * The type of change set operation.
+ */
+export type ChangeSetType = (typeof ChangeSetType)[keyof typeof ChangeSetType];
+
 export const GeneratedTemplateStatus = {
     CreatePending: "CREATE_PENDING",
     UpdatePending: "UPDATE_PENDING",

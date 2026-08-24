@@ -43,6 +43,7 @@ from .get_scheduled_audit import *
 from .get_security_profile import *
 from .get_software_package import *
 from .get_software_package_version import *
+from .get_stream import *
 from .get_thing import *
 from .get_thing_group import *
 from .get_thing_type import *
@@ -60,6 +61,7 @@ from .scheduled_audit import *
 from .security_profile import *
 from .software_package import *
 from .software_package_version import *
+from .stream import *
 from .thing import *
 from .thing_group import *
 from .thing_type import *

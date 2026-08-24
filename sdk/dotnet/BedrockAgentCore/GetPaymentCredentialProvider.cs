@@ -71,7 +71,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The Amazon Resource Name (ARN) of the payment credential provider
         /// </summary>
         public readonly string? CredentialProviderArn;
-        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderVendorType? CredentialProviderVendor;
         /// <summary>
         /// The timestamp when the credential provider was last updated
         /// </summary>
@@ -88,8 +87,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? credentialProviderArn,
 
-            Pulumi.AwsNative.BedrockAgentCore.PaymentCredentialProviderVendorType? credentialProviderVendor,
-
             string? lastUpdatedTime,
 
             Outputs.PaymentCredentialProviderPaymentProviderConfigurationOutput? providerConfigurationOutput,
@@ -98,7 +95,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         {
             CreatedTime = createdTime;
             CredentialProviderArn = credentialProviderArn;
-            CredentialProviderVendor = credentialProviderVendor;
             LastUpdatedTime = lastUpdatedTime;
             ProviderConfigurationOutput = providerConfigurationOutput;
             Tags = tags;

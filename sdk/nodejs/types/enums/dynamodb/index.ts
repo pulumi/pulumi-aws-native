@@ -2,6 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BackupStatus = {
+    Creating: "CREATING",
+    Deleted: "DELETED",
+    Available: "AVAILABLE",
+} as const;
+
+/**
+ * The current state of the backup.
+ */
+export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
+
+export const BackupType = {
+    User: "USER",
+    System: "SYSTEM",
+    AwsBackup: "AWS_BACKUP",
+} as const;
+
+/**
+ * The type of backup (USER, SYSTEM, or AWS_BACKUP).
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
 export const GlobalTableContributorInsightsSpecificationMode = {
     AccessedAndThrottledKeys: "ACCESSED_AND_THROTTLED_KEYS",
     ThrottledKeys: "THROTTLED_KEYS",

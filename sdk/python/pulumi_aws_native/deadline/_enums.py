@@ -7,6 +7,8 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BudgetActionToAddType',
+    'BudgetStatus',
     'FleetAcceleratorSelectionName',
     'FleetAcceleratorType',
     'FleetAutoScalingMode',
@@ -22,7 +24,26 @@ __all__ = [
     'QueueRunAs',
     'StorageProfileFileSystemLocationType',
     'StorageProfileOperatingSystemFamily',
+    'WorkerStatus',
 ]
+
+
+@pulumi.type_token("aws-native:deadline:BudgetActionToAddType")
+class BudgetActionToAddType(_builtins.str, Enum):
+    """
+    The type of budget action.
+    """
+    STOP_SCHEDULING_AND_COMPLETE_TASKS = "STOP_SCHEDULING_AND_COMPLETE_TASKS"
+    STOP_SCHEDULING_AND_CANCEL_TASKS = "STOP_SCHEDULING_AND_CANCEL_TASKS"
+
+
+@pulumi.type_token("aws-native:deadline:BudgetStatus")
+class BudgetStatus(_builtins.str, Enum):
+    """
+    The status of the budget.
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
 
 
 @pulumi.type_token("aws-native:deadline:FleetAcceleratorSelectionName")
@@ -125,3 +146,18 @@ class StorageProfileOperatingSystemFamily(_builtins.str, Enum):
     WINDOWS = "WINDOWS"
     LINUX = "LINUX"
     MACOS = "MACOS"
+
+
+@pulumi.type_token("aws-native:deadline:WorkerStatus")
+class WorkerStatus(_builtins.str, Enum):
+    """
+    The status of the worker.
+    """
+    CREATED = "CREATED"
+    STARTED = "STARTED"
+    STOPPING = "STOPPING"
+    STOPPED = "STOPPED"
+    NOT_RESPONDING = "NOT_RESPONDING"
+    NOT_COMPATIBLE = "NOT_COMPATIBLE"
+    RUNNING = "RUNNING"
+    IDLE = "IDLE"

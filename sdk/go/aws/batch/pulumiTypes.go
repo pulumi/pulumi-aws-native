@@ -1345,6 +1345,141 @@ func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) Index(i pulumi.IntI
 	}).(ComputeEnvironmentEc2ConfigurationObjectOutput)
 }
 
+type ComputeEnvironmentEcsSettings struct {
+	ContainerInsights *ComputeEnvironmentEcsSettingsContainerInsights `pulumi:"containerInsights"`
+}
+
+// ComputeEnvironmentEcsSettingsInput is an input type that accepts ComputeEnvironmentEcsSettingsArgs and ComputeEnvironmentEcsSettingsOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEcsSettingsInput` via:
+//
+//	ComputeEnvironmentEcsSettingsArgs{...}
+type ComputeEnvironmentEcsSettingsInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEcsSettingsOutput() ComputeEnvironmentEcsSettingsOutput
+	ToComputeEnvironmentEcsSettingsOutputWithContext(context.Context) ComputeEnvironmentEcsSettingsOutput
+}
+
+type ComputeEnvironmentEcsSettingsArgs struct {
+	ContainerInsights ComputeEnvironmentEcsSettingsContainerInsightsPtrInput `pulumi:"containerInsights"`
+}
+
+func (ComputeEnvironmentEcsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEcsSettings)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentEcsSettingsArgs) ToComputeEnvironmentEcsSettingsOutput() ComputeEnvironmentEcsSettingsOutput {
+	return i.ToComputeEnvironmentEcsSettingsOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEcsSettingsArgs) ToComputeEnvironmentEcsSettingsOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEcsSettingsOutput)
+}
+
+func (i ComputeEnvironmentEcsSettingsArgs) ToComputeEnvironmentEcsSettingsPtrOutput() ComputeEnvironmentEcsSettingsPtrOutput {
+	return i.ToComputeEnvironmentEcsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEcsSettingsArgs) ToComputeEnvironmentEcsSettingsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEcsSettingsOutput).ToComputeEnvironmentEcsSettingsPtrOutputWithContext(ctx)
+}
+
+// ComputeEnvironmentEcsSettingsPtrInput is an input type that accepts ComputeEnvironmentEcsSettingsArgs, ComputeEnvironmentEcsSettingsPtr and ComputeEnvironmentEcsSettingsPtrOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEcsSettingsPtrInput` via:
+//
+//	        ComputeEnvironmentEcsSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeEnvironmentEcsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEcsSettingsPtrOutput() ComputeEnvironmentEcsSettingsPtrOutput
+	ToComputeEnvironmentEcsSettingsPtrOutputWithContext(context.Context) ComputeEnvironmentEcsSettingsPtrOutput
+}
+
+type computeEnvironmentEcsSettingsPtrType ComputeEnvironmentEcsSettingsArgs
+
+func ComputeEnvironmentEcsSettingsPtr(v *ComputeEnvironmentEcsSettingsArgs) ComputeEnvironmentEcsSettingsPtrInput {
+	return (*computeEnvironmentEcsSettingsPtrType)(v)
+}
+
+func (*computeEnvironmentEcsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEcsSettings)(nil)).Elem()
+}
+
+func (i *computeEnvironmentEcsSettingsPtrType) ToComputeEnvironmentEcsSettingsPtrOutput() ComputeEnvironmentEcsSettingsPtrOutput {
+	return i.ToComputeEnvironmentEcsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *computeEnvironmentEcsSettingsPtrType) ToComputeEnvironmentEcsSettingsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEcsSettingsPtrOutput)
+}
+
+type ComputeEnvironmentEcsSettingsOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEcsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEcsSettings)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEcsSettingsOutput) ToComputeEnvironmentEcsSettingsOutput() ComputeEnvironmentEcsSettingsOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsOutput) ToComputeEnvironmentEcsSettingsOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsOutput) ToComputeEnvironmentEcsSettingsPtrOutput() ComputeEnvironmentEcsSettingsPtrOutput {
+	return o.ToComputeEnvironmentEcsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEcsSettingsOutput) ToComputeEnvironmentEcsSettingsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentEcsSettings) *ComputeEnvironmentEcsSettings {
+		return &v
+	}).(ComputeEnvironmentEcsSettingsPtrOutput)
+}
+
+func (o ComputeEnvironmentEcsSettingsOutput) ContainerInsights() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEcsSettings) *ComputeEnvironmentEcsSettingsContainerInsights {
+		return v.ContainerInsights
+	}).(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput)
+}
+
+type ComputeEnvironmentEcsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEcsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEcsSettings)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEcsSettingsPtrOutput) ToComputeEnvironmentEcsSettingsPtrOutput() ComputeEnvironmentEcsSettingsPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsPtrOutput) ToComputeEnvironmentEcsSettingsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsPtrOutput) Elem() ComputeEnvironmentEcsSettingsOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEcsSettings) ComputeEnvironmentEcsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentEcsSettings
+		return ret
+	}).(ComputeEnvironmentEcsSettingsOutput)
+}
+
+func (o ComputeEnvironmentEcsSettingsPtrOutput) ContainerInsights() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEcsSettings) *ComputeEnvironmentEcsSettingsContainerInsights {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerInsights
+	}).(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput)
+}
+
 type ComputeEnvironmentEksConfiguration struct {
 	// The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
 	EksClusterArn string `pulumi:"eksClusterArn"`
@@ -13749,6 +13884,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeScalingPolicyPtrInput)(nil)).Elem(), ComputeEnvironmentComputeScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObjectInput)(nil)).Elem(), ComputeEnvironmentEc2ConfigurationObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObjectArrayInput)(nil)).Elem(), ComputeEnvironmentEc2ConfigurationObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsPtrInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationPtrInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInfrastructureOptimizationInput)(nil)).Elem(), ComputeEnvironmentInfrastructureOptimizationArgs{})
@@ -13897,6 +14034,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectArrayOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentInfrastructureOptimizationOutput{})

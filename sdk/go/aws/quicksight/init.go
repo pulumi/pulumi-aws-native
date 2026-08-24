@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Folder{}
 	case "aws-native:quicksight:KnowledgeBase":
 		r = &KnowledgeBase{}
+	case "aws-native:quicksight:LimitsProfile":
+		r = &LimitsProfile{}
 	case "aws-native:quicksight:OAuthClientApplication":
 		r = &OAuthClientApplication{}
 	case "aws-native:quicksight:RefreshSchedule":

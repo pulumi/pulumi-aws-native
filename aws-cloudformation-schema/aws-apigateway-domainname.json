@@ -124,7 +124,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "apigateway:PUT", "apigateway:DELETE", "apigateway:GET" ]
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/DomainName" ],
@@ -138,7 +139,7 @@
       "permissions" : [ "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH" ]
+      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH", "apigateway:DELETE" ]
     },
     "delete" : {
       "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]

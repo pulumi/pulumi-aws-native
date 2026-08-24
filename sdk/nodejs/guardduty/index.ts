@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomDetectionRuleAssociationArgs } from "./customDetectionRuleAssociation";
+export type CustomDetectionRuleAssociation = import("./customDetectionRuleAssociation").CustomDetectionRuleAssociation;
+export const CustomDetectionRuleAssociation: typeof import("./customDetectionRuleAssociation").CustomDetectionRuleAssociation = null as any;
+utilities.lazyLoad(exports, ["CustomDetectionRuleAssociation"], () => require("./customDetectionRuleAssociation"));
+
 export { DetectorArgs } from "./detector";
 export type Detector = import("./detector").Detector;
 export const Detector: typeof import("./detector").Detector = null as any;
@@ -14,6 +19,11 @@ export { FilterArgs } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
 utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
+
+export { GetCustomDetectionRuleAssociationArgs, GetCustomDetectionRuleAssociationResult, GetCustomDetectionRuleAssociationOutputArgs } from "./getCustomDetectionRuleAssociation";
+export const getCustomDetectionRuleAssociation: typeof import("./getCustomDetectionRuleAssociation").getCustomDetectionRuleAssociation = null as any;
+export const getCustomDetectionRuleAssociationOutput: typeof import("./getCustomDetectionRuleAssociation").getCustomDetectionRuleAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDetectionRuleAssociation","getCustomDetectionRuleAssociationOutput"], () => require("./getCustomDetectionRuleAssociation"));
 
 export { GetDetectorArgs, GetDetectorResult, GetDetectorOutputArgs } from "./getDetector";
 export const getDetector: typeof import("./getDetector").getDetector = null as any;
@@ -108,6 +118,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:guardduty:CustomDetectionRuleAssociation":
+                return new CustomDetectionRuleAssociation(name, <any>undefined, { urn })
             case "aws-native:guardduty:Detector":
                 return new Detector(name, <any>undefined, { urn })
             case "aws-native:guardduty:Filter":

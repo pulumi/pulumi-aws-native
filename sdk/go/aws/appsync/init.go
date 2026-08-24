@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Resolver{}
 	case "aws-native:appsync:SourceApiAssociation":
 		r = &SourceApiAssociation{}
+	case "aws-native:appsync:Type":
+		r = &Type{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

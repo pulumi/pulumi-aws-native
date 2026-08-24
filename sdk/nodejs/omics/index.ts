@@ -30,6 +30,11 @@ export const getReferenceStore: typeof import("./getReferenceStore").getReferenc
 export const getReferenceStoreOutput: typeof import("./getReferenceStore").getReferenceStoreOutput = null as any;
 utilities.lazyLoad(exports, ["getReferenceStore","getReferenceStoreOutput"], () => require("./getReferenceStore"));
 
+export { GetRunCacheArgs, GetRunCacheResult, GetRunCacheOutputArgs } from "./getRunCache";
+export const getRunCache: typeof import("./getRunCache").getRunCache = null as any;
+export const getRunCacheOutput: typeof import("./getRunCache").getRunCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getRunCache","getRunCacheOutput"], () => require("./getRunCache"));
+
 export { GetRunGroupArgs, GetRunGroupResult, GetRunGroupOutputArgs } from "./getRunGroup";
 export const getRunGroup: typeof import("./getRunGroup").getRunGroup = null as any;
 export const getRunGroupOutput: typeof import("./getRunGroup").getRunGroupOutput = null as any;
@@ -59,6 +64,11 @@ export { ReferenceStoreArgs } from "./referenceStore";
 export type ReferenceStore = import("./referenceStore").ReferenceStore;
 export const ReferenceStore: typeof import("./referenceStore").ReferenceStore = null as any;
 utilities.lazyLoad(exports, ["ReferenceStore"], () => require("./referenceStore"));
+
+export { RunCacheArgs } from "./runCache";
+export type RunCache = import("./runCache").RunCache;
+export const RunCache: typeof import("./runCache").RunCache = null as any;
+utilities.lazyLoad(exports, ["RunCache"], () => require("./runCache"));
 
 export { RunGroupArgs } from "./runGroup";
 export type RunGroup = import("./runGroup").RunGroup;
@@ -99,6 +109,8 @@ const _module = {
                 return new Configuration(name, <any>undefined, { urn })
             case "aws-native:omics:ReferenceStore":
                 return new ReferenceStore(name, <any>undefined, { urn })
+            case "aws-native:omics:RunCache":
+                return new RunCache(name, <any>undefined, { urn })
             case "aws-native:omics:RunGroup":
                 return new RunGroup(name, <any>undefined, { urn })
             case "aws-native:omics:SequenceStore":

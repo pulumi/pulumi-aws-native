@@ -80,6 +80,14 @@ __all__ = [
     'InstanceStorageConfigKinesisVideoStreamConfig',
     'InstanceStorageConfigS3Config',
     'LockVersionProperties',
+    'MetricAvailableFilter',
+    'MetricCalculationComponent',
+    'MetricCalculationProperties',
+    'MetricCreatedByInfo',
+    'MetricFilter',
+    'MetricFilterBooleanCondition',
+    'MetricFilterNumberCondition',
+    'MetricFilterStringCondition',
     'NotificationContent',
     'QueueEmailAddress',
     'QueueOutboundCallerConfig',
@@ -3722,6 +3730,306 @@ class LockVersionProperties(dict):
     @pulumi.getter(name="dataTable")
     def data_table(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "data_table")
+
+
+@pulumi.output_type
+class MetricAvailableFilter(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: 'MetricAvailableFilterType'):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'MetricAvailableFilterType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MetricCalculationComponent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricFilters":
+            suggest = "metric_filters"
+        elif key == "metricId":
+            suggest = "metric_id"
+        elif key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricCalculationComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricCalculationComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricCalculationComponent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias: _builtins.str,
+                 metric_filters: Optional[Sequence['outputs.MetricFilter']] = None,
+                 metric_id: Optional[_builtins.str] = None,
+                 metric_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str alias: Metric calculation component alias for use within a calculation
+        """
+        pulumi.set(__self__, "alias", alias)
+        if metric_filters is not None:
+            pulumi.set(__self__, "metric_filters", metric_filters)
+        if metric_id is not None:
+            pulumi.set(__self__, "metric_id", metric_id)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> _builtins.str:
+        """
+        Metric calculation component alias for use within a calculation
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter(name="metricFilters")
+    def metric_filters(self) -> Optional[Sequence['outputs.MetricFilter']]:
+        return pulumi.get(self, "metric_filters")
+
+    @_builtins.property
+    @pulumi.getter(name="metricId")
+    def metric_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "metric_id")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "metric_name")
+
+
+@pulumi.output_type
+class MetricCalculationProperties(dict):
+    """
+    The calculation configuration for the metric
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "calculationComponents":
+            suggest = "calculation_components"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricCalculationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricCalculationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricCalculationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 calculation: _builtins.str,
+                 calculation_components: Sequence['outputs.MetricCalculationComponent']):
+        """
+        The calculation configuration for the metric
+
+        :param _builtins.str calculation: The calculation formula
+        :param Sequence['MetricCalculationComponent'] calculation_components: The calculation components for the metric
+        """
+        pulumi.set(__self__, "calculation", calculation)
+        pulumi.set(__self__, "calculation_components", calculation_components)
+
+    @_builtins.property
+    @pulumi.getter
+    def calculation(self) -> _builtins.str:
+        """
+        The calculation formula
+        """
+        return pulumi.get(self, "calculation")
+
+    @_builtins.property
+    @pulumi.getter(name="calculationComponents")
+    def calculation_components(self) -> Sequence['outputs.MetricCalculationComponent']:
+        """
+        The calculation components for the metric
+        """
+        return pulumi.get(self, "calculation_components")
+
+
+@pulumi.output_type
+class MetricCreatedByInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIdentityArn":
+            suggest = "aws_identity_arn"
+        elif key == "connectUserArn":
+            suggest = "connect_user_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricCreatedByInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricCreatedByInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricCreatedByInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_identity_arn: Optional[_builtins.str] = None,
+                 connect_user_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str aws_identity_arn: STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and this value is calculated automatically if ConnectUserArn is not provided.
+        :param _builtins.str connect_user_arn: An agent ARN representing a connect user.
+        """
+        if aws_identity_arn is not None:
+            pulumi.set(__self__, "aws_identity_arn", aws_identity_arn)
+        if connect_user_arn is not None:
+            pulumi.set(__self__, "connect_user_arn", connect_user_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIdentityArn")
+    def aws_identity_arn(self) -> Optional[_builtins.str]:
+        """
+        STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and this value is calculated automatically if ConnectUserArn is not provided.
+        """
+        return pulumi.get(self, "aws_identity_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="connectUserArn")
+    def connect_user_arn(self) -> Optional[_builtins.str]:
+        """
+        An agent ARN representing a connect user.
+        """
+        return pulumi.get(self, "connect_user_arn")
+
+
+@pulumi.output_type
+class MetricFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricFilterKey":
+            suggest = "metric_filter_key"
+        elif key == "booleanCondition":
+            suggest = "boolean_condition"
+        elif key == "numberCondition":
+            suggest = "number_condition"
+        elif key == "stringCondition":
+            suggest = "string_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_filter_key: _builtins.str,
+                 boolean_condition: Optional['outputs.MetricFilterBooleanCondition'] = None,
+                 negate: Optional[_builtins.bool] = None,
+                 number_condition: Optional['outputs.MetricFilterNumberCondition'] = None,
+                 string_condition: Optional['outputs.MetricFilterStringCondition'] = None):
+        pulumi.set(__self__, "metric_filter_key", metric_filter_key)
+        if boolean_condition is not None:
+            pulumi.set(__self__, "boolean_condition", boolean_condition)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+        if number_condition is not None:
+            pulumi.set(__self__, "number_condition", number_condition)
+        if string_condition is not None:
+            pulumi.set(__self__, "string_condition", string_condition)
+
+    @_builtins.property
+    @pulumi.getter(name="metricFilterKey")
+    def metric_filter_key(self) -> _builtins.str:
+        return pulumi.get(self, "metric_filter_key")
+
+    @_builtins.property
+    @pulumi.getter(name="booleanCondition")
+    def boolean_condition(self) -> Optional['outputs.MetricFilterBooleanCondition']:
+        return pulumi.get(self, "boolean_condition")
+
+    @_builtins.property
+    @pulumi.getter
+    def negate(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "negate")
+
+    @_builtins.property
+    @pulumi.getter(name="numberCondition")
+    def number_condition(self) -> Optional['outputs.MetricFilterNumberCondition']:
+        return pulumi.get(self, "number_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="stringCondition")
+    def string_condition(self) -> Optional['outputs.MetricFilterStringCondition']:
+        return pulumi.get(self, "string_condition")
+
+
+@pulumi.output_type
+class MetricFilterBooleanCondition(dict):
+    def __init__(__self__, *,
+                 comparison: 'MetricFilterBooleanConditionComparison'):
+        pulumi.set(__self__, "comparison", comparison)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> 'MetricFilterBooleanConditionComparison':
+        return pulumi.get(self, "comparison")
+
+
+@pulumi.output_type
+class MetricFilterNumberCondition(dict):
+    def __init__(__self__, *,
+                 comparison: 'MetricFilterNumberConditionComparison',
+                 values: Sequence[_builtins.float]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> 'MetricFilterNumberConditionComparison':
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.float]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MetricFilterStringCondition(dict):
+    def __init__(__self__, *,
+                 comparison: 'MetricFilterStringConditionComparison',
+                 values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> 'MetricFilterStringConditionComparison':
+        return pulumi.get(self, "comparison")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

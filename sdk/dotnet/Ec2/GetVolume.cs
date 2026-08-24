@@ -154,11 +154,6 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly bool? MultiAttachEnabled;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
-        ///  If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
-        /// </summary>
-        public readonly string? OutpostArn;
-        /// <summary>
         /// The size of the volume, in GiBs.
         ///   +  Required for new empty volumes.
         ///   +  Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
@@ -236,8 +231,6 @@ namespace Pulumi.AwsNative.Ec2
 
             bool? multiAttachEnabled,
 
-            string? outpostArn,
-
             int? size,
 
             string? snapshotId,
@@ -261,7 +254,6 @@ namespace Pulumi.AwsNative.Ec2
             Iops = iops;
             KmsKeyId = kmsKeyId;
             MultiAttachEnabled = multiAttachEnabled;
-            OutpostArn = outpostArn;
             Size = size;
             SnapshotId = snapshotId;
             SourceVolumeId = sourceVolumeId;

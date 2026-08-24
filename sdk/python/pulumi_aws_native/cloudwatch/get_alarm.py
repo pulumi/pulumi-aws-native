@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAlarmResult:
-    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_criteria=None, evaluation_interval=None, evaluation_periods=None, evaluation_window=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
+    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_criteria=None, evaluation_interval=None, evaluation_periods=None, evaluation_window=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None, warm_up_configuration=None):
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -101,6 +101,9 @@ class GetAlarmResult:
         if unit and not isinstance(unit, str):
             raise TypeError("Expected argument 'unit' to be a str")
         pulumi.set(__self__, "unit", unit)
+        if warm_up_configuration and not isinstance(warm_up_configuration, dict):
+            raise TypeError("Expected argument 'warm_up_configuration' to be a dict")
+        pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -195,6 +198,9 @@ class GetAlarmResult:
     @_builtins.property
     @pulumi.getter(name="evaluationWindow")
     def evaluation_window(self) -> Optional['outputs.AlarmEvaluationWindow']:
+        """
+        The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+        """
         return pulumi.get(self, "evaluation_window")
 
     @_builtins.property
@@ -312,6 +318,11 @@ class GetAlarmResult:
         """
         return pulumi.get(self, "unit")
 
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> Optional['outputs.AlarmWarmUpConfiguration']:
+        return pulumi.get(self, "warm_up_configuration")
+
 
 class AwaitableGetAlarmResult(GetAlarmResult):
     # pylint: disable=using-constant-test
@@ -343,7 +354,8 @@ class AwaitableGetAlarmResult(GetAlarmResult):
             threshold=self.threshold,
             threshold_metric_id=self.threshold_metric_id,
             treat_missing_data=self.treat_missing_data,
-            unit=self.unit)
+            unit=self.unit,
+            warm_up_configuration=self.warm_up_configuration)
 
 
 def get_alarm(alarm_name: Optional[_builtins.str] = None,
@@ -386,7 +398,8 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
         threshold=pulumi.get(__ret__, 'threshold'),
         threshold_metric_id=pulumi.get(__ret__, 'threshold_metric_id'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'),
-        unit=pulumi.get(__ret__, 'unit'))
+        unit=pulumi.get(__ret__, 'unit'),
+        warm_up_configuration=pulumi.get(__ret__, 'warm_up_configuration'))
 def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmResult]:
     """
@@ -426,4 +439,5 @@ def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
         threshold=pulumi.get(__response__, 'threshold'),
         threshold_metric_id=pulumi.get(__response__, 'threshold_metric_id'),
         treat_missing_data=pulumi.get(__response__, 'treat_missing_data'),
-        unit=pulumi.get(__response__, 'unit')))
+        unit=pulumi.get(__response__, 'unit'),
+        warm_up_configuration=pulumi.get(__response__, 'warm_up_configuration')))

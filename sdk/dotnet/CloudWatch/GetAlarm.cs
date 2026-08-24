@@ -117,6 +117,9 @@ namespace Pulumi.AwsNative.CloudWatch
         ///  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         /// </summary>
         public readonly int? EvaluationPeriods;
+        /// <summary>
+        /// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+        /// </summary>
         public readonly Outputs.AlarmEvaluationWindow? EvaluationWindow;
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -181,6 +184,7 @@ namespace Pulumi.AwsNative.CloudWatch
         ///   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         /// </summary>
         public readonly string? Unit;
+        public readonly Outputs.AlarmWarmUpConfiguration? WarmUpConfiguration;
 
         [OutputConstructor]
         private GetAlarmResult(
@@ -232,7 +236,9 @@ namespace Pulumi.AwsNative.CloudWatch
 
             string? treatMissingData,
 
-            string? unit)
+            string? unit,
+
+            Outputs.AlarmWarmUpConfiguration? warmUpConfiguration)
         {
             ActionsEnabled = actionsEnabled;
             AlarmActions = alarmActions;
@@ -259,6 +265,7 @@ namespace Pulumi.AwsNative.CloudWatch
             ThresholdMetricId = thresholdMetricId;
             TreatMissingData = treatMissingData;
             Unit = unit;
+            WarmUpConfiguration = warmUpConfiguration;
         }
     }
 }

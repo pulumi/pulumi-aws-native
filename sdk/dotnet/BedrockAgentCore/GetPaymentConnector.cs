@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public sealed class GetPaymentConnectorResult
     {
         /// <summary>
+        /// The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+        /// </summary>
+        public readonly string? AuthorizationUrl;
+        /// <summary>
         /// The timestamp when the connector was created
         /// </summary>
         public readonly string? ConnectorCreatedAt;
@@ -72,9 +76,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? ConnectorLastUpdatedAt;
         public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorStatus? ConnectorStatus;
-        public readonly Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorType? ConnectorType;
         /// <summary>
-        /// The credential provider configurations for the connector
+        /// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         /// </summary>
         public readonly ImmutableArray<Outputs.PaymentConnectorCredentialsProviderConfiguration> CredentialProviderConfigurations;
         /// <summary>
@@ -92,13 +95,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         [OutputConstructor]
         private GetPaymentConnectorResult(
+            string? authorizationUrl,
+
             string? connectorCreatedAt,
 
             string? connectorLastUpdatedAt,
 
             Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorStatus? connectorStatus,
-
-            Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorType? connectorType,
 
             ImmutableArray<Outputs.PaymentConnectorCredentialsProviderConfiguration> credentialProviderConfigurations,
 
@@ -108,10 +111,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? paymentConnectorId)
         {
+            AuthorizationUrl = authorizationUrl;
             ConnectorCreatedAt = connectorCreatedAt;
             ConnectorLastUpdatedAt = connectorLastUpdatedAt;
             ConnectorStatus = connectorStatus;
-            ConnectorType = connectorType;
             CredentialProviderConfigurations = credentialProviderConfigurations;
             Description = description;
             PaymentConnectorArn = paymentConnectorArn;

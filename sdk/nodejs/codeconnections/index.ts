@@ -15,6 +15,19 @@ export const getConnection: typeof import("./getConnection").getConnection = nul
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
 
+export { GetHostArgs, GetHostResult, GetHostOutputArgs } from "./getHost";
+export const getHost: typeof import("./getHost").getHost = null as any;
+export const getHostOutput: typeof import("./getHost").getHostOutput = null as any;
+utilities.lazyLoad(exports, ["getHost","getHostOutput"], () => require("./getHost"));
+
+export { HostArgs } from "./host";
+export type Host = import("./host").Host;
+export const Host: typeof import("./host").Host = null as any;
+utilities.lazyLoad(exports, ["Host"], () => require("./host"));
+
+
+// Export enums:
+export * from "../types/enums/codeconnections";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:codeconnections:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "aws-native:codeconnections:Host":
+                return new Host(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

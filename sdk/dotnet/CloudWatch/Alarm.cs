@@ -92,6 +92,9 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("evaluationPeriods")]
         public Output<int?> EvaluationPeriods { get; private set; } = null!;
 
+        /// <summary>
+        /// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+        /// </summary>
         [Output("evaluationWindow")]
         public Output<Outputs.AlarmEvaluationWindow?> EvaluationWindow { get; private set; } = null!;
 
@@ -183,6 +186,9 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
+
+        [Output("warmUpConfiguration")]
+        public Output<Outputs.AlarmWarmUpConfiguration?> WarmUpConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -314,6 +320,9 @@ namespace Pulumi.AwsNative.CloudWatch
         [Input("evaluationPeriods")]
         public Input<int>? EvaluationPeriods { get; set; }
 
+        /// <summary>
+        /// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+        /// </summary>
         [Input("evaluationWindow")]
         public Input<Inputs.AlarmEvaluationWindowArgs>? EvaluationWindow { get; set; }
 
@@ -429,6 +438,9 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
+
+        [Input("warmUpConfiguration")]
+        public Input<Inputs.AlarmWarmUpConfigurationArgs>? WarmUpConfiguration { get; set; }
 
         public AlarmArgs()
         {

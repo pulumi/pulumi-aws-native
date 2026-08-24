@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.GuardDuty
 {
     /// <summary>
+    /// Whether the rule runs in LIVE mode (generates findings) or DRY_RUN mode (evaluates without generating findings).
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomDetectionRuleAssociationMode : IEquatable<CustomDetectionRuleAssociationMode>
+    {
+        private readonly string _value;
+
+        private CustomDetectionRuleAssociationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomDetectionRuleAssociationMode Live { get; } = new CustomDetectionRuleAssociationMode("LIVE");
+        public static CustomDetectionRuleAssociationMode DryRun { get; } = new CustomDetectionRuleAssociationMode("DRY_RUN");
+
+        public static bool operator ==(CustomDetectionRuleAssociationMode left, CustomDetectionRuleAssociationMode right) => left.Equals(right);
+        public static bool operator !=(CustomDetectionRuleAssociationMode left, CustomDetectionRuleAssociationMode right) => !left.Equals(right);
+
+        public static explicit operator string(CustomDetectionRuleAssociationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomDetectionRuleAssociationMode other && Equals(other);
+        public bool Equals(CustomDetectionRuleAssociationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the feature configuration.
     /// </summary>
     [EnumType]

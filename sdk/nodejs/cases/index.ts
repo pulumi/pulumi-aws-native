@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CaseArgs } from "./case";
+export type Case = import("./case").Case;
+export const Case: typeof import("./case").Case = null as any;
+utilities.lazyLoad(exports, ["Case"], () => require("./case"));
+
 export { CaseRuleArgs } from "./caseRule";
 export type CaseRule = import("./caseRule").CaseRule;
 export const CaseRule: typeof import("./caseRule").CaseRule = null as any;
@@ -19,6 +24,11 @@ export { FieldArgs } from "./field";
 export type Field = import("./field").Field;
 export const Field: typeof import("./field").Field = null as any;
 utilities.lazyLoad(exports, ["Field"], () => require("./field"));
+
+export { GetCaseArgs, GetCaseResult, GetCaseOutputArgs } from "./getCase";
+export const getCase: typeof import("./getCase").getCase = null as any;
+export const getCaseOutput: typeof import("./getCase").getCaseOutput = null as any;
+utilities.lazyLoad(exports, ["getCase","getCaseOutput"], () => require("./getCase"));
 
 export { GetCaseRuleArgs, GetCaseRuleResult, GetCaseRuleOutputArgs } from "./getCaseRule";
 export const getCaseRule: typeof import("./getCaseRule").getCaseRule = null as any;
@@ -63,6 +73,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cases:Case":
+                return new Case(name, <any>undefined, { urn })
             case "aws-native:cases:CaseRule":
                 return new CaseRule(name, <any>undefined, { urn })
             case "aws-native:cases:Domain":

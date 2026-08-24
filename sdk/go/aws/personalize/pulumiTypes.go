@@ -13,6 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DatasetGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Initial DatasetImportJob for the created dataset
 type DatasetImportJob struct {
 	// The Amazon S3 bucket that contains the training data to import.
@@ -369,11 +374,404 @@ func (o DatasetImportJobDataSourcePropertiesPtrOutput) DataLocation() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type DatasetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type EventTrackerTag struct {
 	// The key name of the tag.
 	Key string `pulumi:"key"`
 	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// A metric attribute for the metric attribution.
+type MetricAttributionMetricAttribute struct {
+	// The metric's event type.
+	EventType string `pulumi:"eventType"`
+	// The attribute's expression.
+	Expression string `pulumi:"expression"`
+	// The metric's name.
+	MetricName string `pulumi:"metricName"`
+}
+
+// MetricAttributionMetricAttributeInput is an input type that accepts MetricAttributionMetricAttributeArgs and MetricAttributionMetricAttributeOutput values.
+// You can construct a concrete instance of `MetricAttributionMetricAttributeInput` via:
+//
+//	MetricAttributionMetricAttributeArgs{...}
+type MetricAttributionMetricAttributeInput interface {
+	pulumi.Input
+
+	ToMetricAttributionMetricAttributeOutput() MetricAttributionMetricAttributeOutput
+	ToMetricAttributionMetricAttributeOutputWithContext(context.Context) MetricAttributionMetricAttributeOutput
+}
+
+// A metric attribute for the metric attribution.
+type MetricAttributionMetricAttributeArgs struct {
+	// The metric's event type.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// The attribute's expression.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The metric's name.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+}
+
+func (MetricAttributionMetricAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAttributionMetricAttribute)(nil)).Elem()
+}
+
+func (i MetricAttributionMetricAttributeArgs) ToMetricAttributionMetricAttributeOutput() MetricAttributionMetricAttributeOutput {
+	return i.ToMetricAttributionMetricAttributeOutputWithContext(context.Background())
+}
+
+func (i MetricAttributionMetricAttributeArgs) ToMetricAttributionMetricAttributeOutputWithContext(ctx context.Context) MetricAttributionMetricAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAttributionMetricAttributeOutput)
+}
+
+// MetricAttributionMetricAttributeArrayInput is an input type that accepts MetricAttributionMetricAttributeArray and MetricAttributionMetricAttributeArrayOutput values.
+// You can construct a concrete instance of `MetricAttributionMetricAttributeArrayInput` via:
+//
+//	MetricAttributionMetricAttributeArray{ MetricAttributionMetricAttributeArgs{...} }
+type MetricAttributionMetricAttributeArrayInput interface {
+	pulumi.Input
+
+	ToMetricAttributionMetricAttributeArrayOutput() MetricAttributionMetricAttributeArrayOutput
+	ToMetricAttributionMetricAttributeArrayOutputWithContext(context.Context) MetricAttributionMetricAttributeArrayOutput
+}
+
+type MetricAttributionMetricAttributeArray []MetricAttributionMetricAttributeInput
+
+func (MetricAttributionMetricAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricAttributionMetricAttribute)(nil)).Elem()
+}
+
+func (i MetricAttributionMetricAttributeArray) ToMetricAttributionMetricAttributeArrayOutput() MetricAttributionMetricAttributeArrayOutput {
+	return i.ToMetricAttributionMetricAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i MetricAttributionMetricAttributeArray) ToMetricAttributionMetricAttributeArrayOutputWithContext(ctx context.Context) MetricAttributionMetricAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAttributionMetricAttributeArrayOutput)
+}
+
+// A metric attribute for the metric attribution.
+type MetricAttributionMetricAttributeOutput struct{ *pulumi.OutputState }
+
+func (MetricAttributionMetricAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAttributionMetricAttribute)(nil)).Elem()
+}
+
+func (o MetricAttributionMetricAttributeOutput) ToMetricAttributionMetricAttributeOutput() MetricAttributionMetricAttributeOutput {
+	return o
+}
+
+func (o MetricAttributionMetricAttributeOutput) ToMetricAttributionMetricAttributeOutputWithContext(ctx context.Context) MetricAttributionMetricAttributeOutput {
+	return o
+}
+
+// The metric's event type.
+func (o MetricAttributionMetricAttributeOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAttributionMetricAttribute) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// The attribute's expression.
+func (o MetricAttributionMetricAttributeOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAttributionMetricAttribute) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The metric's name.
+func (o MetricAttributionMetricAttributeOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAttributionMetricAttribute) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+type MetricAttributionMetricAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricAttributionMetricAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricAttributionMetricAttribute)(nil)).Elem()
+}
+
+func (o MetricAttributionMetricAttributeArrayOutput) ToMetricAttributionMetricAttributeArrayOutput() MetricAttributionMetricAttributeArrayOutput {
+	return o
+}
+
+func (o MetricAttributionMetricAttributeArrayOutput) ToMetricAttributionMetricAttributeArrayOutputWithContext(ctx context.Context) MetricAttributionMetricAttributeArrayOutput {
+	return o
+}
+
+func (o MetricAttributionMetricAttributeArrayOutput) Index(i pulumi.IntInput) MetricAttributionMetricAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAttributionMetricAttribute {
+		return vs[0].([]MetricAttributionMetricAttribute)[vs[1].(int)]
+	}).(MetricAttributionMetricAttributeOutput)
+}
+
+// The output configuration details for the metric attribution.
+type MetricAttributionMetricsOutputConfig struct {
+	// The ARN of the IAM role for the metric attribution.
+	RoleArn           string                              `pulumi:"roleArn"`
+	S3DataDestination *MetricAttributionS3DataDestination `pulumi:"s3DataDestination"`
+}
+
+// MetricAttributionMetricsOutputConfigInput is an input type that accepts MetricAttributionMetricsOutputConfigArgs and MetricAttributionMetricsOutputConfigOutput values.
+// You can construct a concrete instance of `MetricAttributionMetricsOutputConfigInput` via:
+//
+//	MetricAttributionMetricsOutputConfigArgs{...}
+type MetricAttributionMetricsOutputConfigInput interface {
+	pulumi.Input
+
+	ToMetricAttributionMetricsOutputConfigOutput() MetricAttributionMetricsOutputConfigOutput
+	ToMetricAttributionMetricsOutputConfigOutputWithContext(context.Context) MetricAttributionMetricsOutputConfigOutput
+}
+
+// The output configuration details for the metric attribution.
+type MetricAttributionMetricsOutputConfigArgs struct {
+	// The ARN of the IAM role for the metric attribution.
+	RoleArn           pulumi.StringInput                         `pulumi:"roleArn"`
+	S3DataDestination MetricAttributionS3DataDestinationPtrInput `pulumi:"s3DataDestination"`
+}
+
+func (MetricAttributionMetricsOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAttributionMetricsOutputConfig)(nil)).Elem()
+}
+
+func (i MetricAttributionMetricsOutputConfigArgs) ToMetricAttributionMetricsOutputConfigOutput() MetricAttributionMetricsOutputConfigOutput {
+	return i.ToMetricAttributionMetricsOutputConfigOutputWithContext(context.Background())
+}
+
+func (i MetricAttributionMetricsOutputConfigArgs) ToMetricAttributionMetricsOutputConfigOutputWithContext(ctx context.Context) MetricAttributionMetricsOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAttributionMetricsOutputConfigOutput)
+}
+
+// The output configuration details for the metric attribution.
+type MetricAttributionMetricsOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (MetricAttributionMetricsOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAttributionMetricsOutputConfig)(nil)).Elem()
+}
+
+func (o MetricAttributionMetricsOutputConfigOutput) ToMetricAttributionMetricsOutputConfigOutput() MetricAttributionMetricsOutputConfigOutput {
+	return o
+}
+
+func (o MetricAttributionMetricsOutputConfigOutput) ToMetricAttributionMetricsOutputConfigOutputWithContext(ctx context.Context) MetricAttributionMetricsOutputConfigOutput {
+	return o
+}
+
+// The ARN of the IAM role for the metric attribution.
+func (o MetricAttributionMetricsOutputConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAttributionMetricsOutputConfig) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o MetricAttributionMetricsOutputConfigOutput) S3DataDestination() MetricAttributionS3DataDestinationPtrOutput {
+	return o.ApplyT(func(v MetricAttributionMetricsOutputConfig) *MetricAttributionS3DataDestination {
+		return v.S3DataDestination
+	}).(MetricAttributionS3DataDestinationPtrOutput)
+}
+
+type MetricAttributionMetricsOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAttributionMetricsOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAttributionMetricsOutputConfig)(nil)).Elem()
+}
+
+func (o MetricAttributionMetricsOutputConfigPtrOutput) ToMetricAttributionMetricsOutputConfigPtrOutput() MetricAttributionMetricsOutputConfigPtrOutput {
+	return o
+}
+
+func (o MetricAttributionMetricsOutputConfigPtrOutput) ToMetricAttributionMetricsOutputConfigPtrOutputWithContext(ctx context.Context) MetricAttributionMetricsOutputConfigPtrOutput {
+	return o
+}
+
+func (o MetricAttributionMetricsOutputConfigPtrOutput) Elem() MetricAttributionMetricsOutputConfigOutput {
+	return o.ApplyT(func(v *MetricAttributionMetricsOutputConfig) MetricAttributionMetricsOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAttributionMetricsOutputConfig
+		return ret
+	}).(MetricAttributionMetricsOutputConfigOutput)
+}
+
+// The ARN of the IAM role for the metric attribution.
+func (o MetricAttributionMetricsOutputConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAttributionMetricsOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MetricAttributionMetricsOutputConfigPtrOutput) S3DataDestination() MetricAttributionS3DataDestinationPtrOutput {
+	return o.ApplyT(func(v *MetricAttributionMetricsOutputConfig) *MetricAttributionS3DataDestination {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDestination
+	}).(MetricAttributionS3DataDestinationPtrOutput)
+}
+
+// The configuration details of an Amazon S3 output bucket.
+type MetricAttributionS3DataDestination struct {
+	// The ARN of the KMS key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The file path of the Amazon S3 bucket.
+	Path string `pulumi:"path"`
+}
+
+// MetricAttributionS3DataDestinationInput is an input type that accepts MetricAttributionS3DataDestinationArgs and MetricAttributionS3DataDestinationOutput values.
+// You can construct a concrete instance of `MetricAttributionS3DataDestinationInput` via:
+//
+//	MetricAttributionS3DataDestinationArgs{...}
+type MetricAttributionS3DataDestinationInput interface {
+	pulumi.Input
+
+	ToMetricAttributionS3DataDestinationOutput() MetricAttributionS3DataDestinationOutput
+	ToMetricAttributionS3DataDestinationOutputWithContext(context.Context) MetricAttributionS3DataDestinationOutput
+}
+
+// The configuration details of an Amazon S3 output bucket.
+type MetricAttributionS3DataDestinationArgs struct {
+	// The ARN of the KMS key.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The file path of the Amazon S3 bucket.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (MetricAttributionS3DataDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAttributionS3DataDestination)(nil)).Elem()
+}
+
+func (i MetricAttributionS3DataDestinationArgs) ToMetricAttributionS3DataDestinationOutput() MetricAttributionS3DataDestinationOutput {
+	return i.ToMetricAttributionS3DataDestinationOutputWithContext(context.Background())
+}
+
+func (i MetricAttributionS3DataDestinationArgs) ToMetricAttributionS3DataDestinationOutputWithContext(ctx context.Context) MetricAttributionS3DataDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAttributionS3DataDestinationOutput)
+}
+
+func (i MetricAttributionS3DataDestinationArgs) ToMetricAttributionS3DataDestinationPtrOutput() MetricAttributionS3DataDestinationPtrOutput {
+	return i.ToMetricAttributionS3DataDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAttributionS3DataDestinationArgs) ToMetricAttributionS3DataDestinationPtrOutputWithContext(ctx context.Context) MetricAttributionS3DataDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAttributionS3DataDestinationOutput).ToMetricAttributionS3DataDestinationPtrOutputWithContext(ctx)
+}
+
+// MetricAttributionS3DataDestinationPtrInput is an input type that accepts MetricAttributionS3DataDestinationArgs, MetricAttributionS3DataDestinationPtr and MetricAttributionS3DataDestinationPtrOutput values.
+// You can construct a concrete instance of `MetricAttributionS3DataDestinationPtrInput` via:
+//
+//	        MetricAttributionS3DataDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricAttributionS3DataDestinationPtrInput interface {
+	pulumi.Input
+
+	ToMetricAttributionS3DataDestinationPtrOutput() MetricAttributionS3DataDestinationPtrOutput
+	ToMetricAttributionS3DataDestinationPtrOutputWithContext(context.Context) MetricAttributionS3DataDestinationPtrOutput
+}
+
+type metricAttributionS3DataDestinationPtrType MetricAttributionS3DataDestinationArgs
+
+func MetricAttributionS3DataDestinationPtr(v *MetricAttributionS3DataDestinationArgs) MetricAttributionS3DataDestinationPtrInput {
+	return (*metricAttributionS3DataDestinationPtrType)(v)
+}
+
+func (*metricAttributionS3DataDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAttributionS3DataDestination)(nil)).Elem()
+}
+
+func (i *metricAttributionS3DataDestinationPtrType) ToMetricAttributionS3DataDestinationPtrOutput() MetricAttributionS3DataDestinationPtrOutput {
+	return i.ToMetricAttributionS3DataDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAttributionS3DataDestinationPtrType) ToMetricAttributionS3DataDestinationPtrOutputWithContext(ctx context.Context) MetricAttributionS3DataDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAttributionS3DataDestinationPtrOutput)
+}
+
+// The configuration details of an Amazon S3 output bucket.
+type MetricAttributionS3DataDestinationOutput struct{ *pulumi.OutputState }
+
+func (MetricAttributionS3DataDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAttributionS3DataDestination)(nil)).Elem()
+}
+
+func (o MetricAttributionS3DataDestinationOutput) ToMetricAttributionS3DataDestinationOutput() MetricAttributionS3DataDestinationOutput {
+	return o
+}
+
+func (o MetricAttributionS3DataDestinationOutput) ToMetricAttributionS3DataDestinationOutputWithContext(ctx context.Context) MetricAttributionS3DataDestinationOutput {
+	return o
+}
+
+func (o MetricAttributionS3DataDestinationOutput) ToMetricAttributionS3DataDestinationPtrOutput() MetricAttributionS3DataDestinationPtrOutput {
+	return o.ToMetricAttributionS3DataDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAttributionS3DataDestinationOutput) ToMetricAttributionS3DataDestinationPtrOutputWithContext(ctx context.Context) MetricAttributionS3DataDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAttributionS3DataDestination) *MetricAttributionS3DataDestination {
+		return &v
+	}).(MetricAttributionS3DataDestinationPtrOutput)
+}
+
+// The ARN of the KMS key.
+func (o MetricAttributionS3DataDestinationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricAttributionS3DataDestination) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The file path of the Amazon S3 bucket.
+func (o MetricAttributionS3DataDestinationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAttributionS3DataDestination) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type MetricAttributionS3DataDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAttributionS3DataDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAttributionS3DataDestination)(nil)).Elem()
+}
+
+func (o MetricAttributionS3DataDestinationPtrOutput) ToMetricAttributionS3DataDestinationPtrOutput() MetricAttributionS3DataDestinationPtrOutput {
+	return o
+}
+
+func (o MetricAttributionS3DataDestinationPtrOutput) ToMetricAttributionS3DataDestinationPtrOutputWithContext(ctx context.Context) MetricAttributionS3DataDestinationPtrOutput {
+	return o
+}
+
+func (o MetricAttributionS3DataDestinationPtrOutput) Elem() MetricAttributionS3DataDestinationOutput {
+	return o.ApplyT(func(v *MetricAttributionS3DataDestination) MetricAttributionS3DataDestination {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAttributionS3DataDestination
+		return ret
+	}).(MetricAttributionS3DataDestinationOutput)
+}
+
+// The ARN of the KMS key.
+func (o MetricAttributionS3DataDestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAttributionS3DataDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The file path of the Amazon S3 bucket.
+func (o MetricAttributionS3DataDestinationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAttributionS3DataDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type SchemaTag struct {
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -1808,11 +2206,21 @@ func (o SolutionIntegerHyperParameterRangeArrayOutput) Index(i pulumi.IntInput) 
 	}).(SolutionIntegerHyperParameterRangeOutput)
 }
 
+type SolutionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetImportJobInput)(nil)).Elem(), DatasetImportJobArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetImportJobPtrInput)(nil)).Elem(), DatasetImportJobArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetImportJobDataSourcePropertiesInput)(nil)).Elem(), DatasetImportJobDataSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetImportJobDataSourcePropertiesPtrInput)(nil)).Elem(), DatasetImportJobDataSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionMetricAttributeInput)(nil)).Elem(), MetricAttributionMetricAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionMetricAttributeArrayInput)(nil)).Elem(), MetricAttributionMetricAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionMetricsOutputConfigInput)(nil)).Elem(), MetricAttributionMetricsOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionS3DataDestinationInput)(nil)).Elem(), MetricAttributionS3DataDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAttributionS3DataDestinationPtrInput)(nil)).Elem(), MetricAttributionS3DataDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionCategoricalHyperParameterRangeInput)(nil)).Elem(), SolutionCategoricalHyperParameterRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionCategoricalHyperParameterRangeArrayInput)(nil)).Elem(), SolutionCategoricalHyperParameterRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionConfigInput)(nil)).Elem(), SolutionConfigArgs{})
@@ -1835,6 +2243,12 @@ func init() {
 	pulumi.RegisterOutputType(DatasetImportJobPtrOutput{})
 	pulumi.RegisterOutputType(DatasetImportJobDataSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(DatasetImportJobDataSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MetricAttributionMetricAttributeOutput{})
+	pulumi.RegisterOutputType(MetricAttributionMetricAttributeArrayOutput{})
+	pulumi.RegisterOutputType(MetricAttributionMetricsOutputConfigOutput{})
+	pulumi.RegisterOutputType(MetricAttributionMetricsOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(MetricAttributionS3DataDestinationOutput{})
+	pulumi.RegisterOutputType(MetricAttributionS3DataDestinationPtrOutput{})
 	pulumi.RegisterOutputType(SolutionCategoricalHyperParameterRangeOutput{})
 	pulumi.RegisterOutputType(SolutionCategoricalHyperParameterRangeArrayOutput{})
 	pulumi.RegisterOutputType(SolutionConfigOutput{})

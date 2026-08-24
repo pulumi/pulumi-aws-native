@@ -67,6 +67,8 @@ __all__ = [
     'SecurityConfigurationEncryptionConfiguration',
     'SecurityConfigurationJobBookmarksEncryption',
     'SecurityConfigurationS3Encryption',
+    'SessionCommand',
+    'SessionConnectionsList',
     'SourceProcessingPropertiesProperties',
     'TableOptimizerCompactionConfiguration',
     'TableOptimizerConfiguration',
@@ -3284,6 +3286,83 @@ class SecurityConfigurationS3Encryption(dict):
         The encryption mode to use for Amazon S3 data.
         """
         return pulumi.get(self, "s3_encryption_mode")
+
+
+@pulumi.output_type
+class SessionCommand(dict):
+    """
+    The SessionCommand that runs the job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pythonVersion":
+            suggest = "python_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionCommand. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionCommand.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionCommand.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 python_version: Optional[_builtins.str] = None):
+        """
+        The SessionCommand that runs the job.
+
+        :param _builtins.str name: Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+        :param _builtins.str python_version: Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[_builtins.str]:
+        """
+        Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+        """
+        return pulumi.get(self, "python_version")
+
+
+@pulumi.output_type
+class SessionConnectionsList(dict):
+    """
+    Specifies the connections used by the session.
+    """
+    def __init__(__self__, *,
+                 connections: Optional[Sequence[_builtins.str]] = None):
+        """
+        Specifies the connections used by the session.
+
+        :param Sequence[_builtins.str] connections: A list of connection names used by the session.
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+
+    @_builtins.property
+    @pulumi.getter
+    def connections(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of connection names used by the session.
+        """
+        return pulumi.get(self, "connections")
 
 
 @pulumi.output_type

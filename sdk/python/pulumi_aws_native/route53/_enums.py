@@ -10,6 +10,7 @@ __all__ = [
     'HealthCheckConfigPropertiesInsufficientDataHealthStatus',
     'HealthCheckConfigPropertiesType',
     'KeySigningKeyStatus',
+    'RecordSetFailover',
 ]
 
 
@@ -70,3 +71,9 @@ class KeySigningKeyStatus(_builtins.str, Enum):
     """
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
+
+
+@pulumi.type_token("aws-native:route53:RecordSetFailover")
+class RecordSetFailover(_builtins.str, Enum):
+    PRIMARY = "PRIMARY"
+    SECONDARY = "SECONDARY"

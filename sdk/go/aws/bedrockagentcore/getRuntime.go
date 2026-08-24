@@ -38,6 +38,8 @@ type LookupRuntimeResult struct {
 	AgentRuntimeVersion *string `pulumi:"agentRuntimeVersion"`
 	// Authorizer configuration for the agent runtime
 	AuthorizerConfiguration *RuntimeAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
+	// Capacity provider configuration for the agent runtime
+	CapacityProviderConfiguration *RuntimeCapacityProviderConfiguration `pulumi:"capacityProviderConfiguration"`
 	// Timestamp when the Agent was created
 	CreatedAt *string `pulumi:"createdAt"`
 	// Description of the resource
@@ -123,6 +125,13 @@ func (o LookupRuntimeResultOutput) AgentRuntimeVersion() pulumi.StringPtrOutput 
 // Authorizer configuration for the agent runtime
 func (o LookupRuntimeResultOutput) AuthorizerConfiguration() RuntimeAuthorizerConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeAuthorizerConfiguration { return v.AuthorizerConfiguration }).(RuntimeAuthorizerConfigurationPtrOutput)
+}
+
+// Capacity provider configuration for the agent runtime
+func (o LookupRuntimeResultOutput) CapacityProviderConfiguration() RuntimeCapacityProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeCapacityProviderConfiguration {
+		return v.CapacityProviderConfiguration
+	}).(RuntimeCapacityProviderConfigurationPtrOutput)
 }
 
 // Timestamp when the Agent was created

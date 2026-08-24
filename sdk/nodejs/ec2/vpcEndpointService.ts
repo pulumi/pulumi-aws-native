@@ -57,6 +57,8 @@ export class VpcEndpointService extends pulumi.CustomResource {
      * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
      */
     declare public readonly payerResponsibility: pulumi.Output<string | undefined>;
+    declare public readonly privateDnsName: pulumi.Output<string | undefined>;
+    declare public readonly privateDnsNameConfiguration: pulumi.Output<outputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration | undefined>;
     /**
      * The ID of the endpoint service.
      */
@@ -90,6 +92,8 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["gatewayLoadBalancerArns"] = args?.gatewayLoadBalancerArns;
             resourceInputs["networkLoadBalancerArns"] = args?.networkLoadBalancerArns;
             resourceInputs["payerResponsibility"] = args?.payerResponsibility;
+            resourceInputs["privateDnsName"] = args?.privateDnsName;
+            resourceInputs["privateDnsNameConfiguration"] = args?.privateDnsNameConfiguration;
             resourceInputs["supportedIpAddressTypes"] = args?.supportedIpAddressTypes;
             resourceInputs["supportedRegions"] = args?.supportedRegions;
             resourceInputs["tags"] = args?.tags;
@@ -100,6 +104,8 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["gatewayLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["networkLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["payerResponsibility"] = undefined /*out*/;
+            resourceInputs["privateDnsName"] = undefined /*out*/;
+            resourceInputs["privateDnsNameConfiguration"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
             resourceInputs["supportedIpAddressTypes"] = undefined /*out*/;
             resourceInputs["supportedRegions"] = undefined /*out*/;
@@ -134,6 +140,8 @@ export interface VpcEndpointServiceArgs {
      * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
      */
     payerResponsibility?: pulumi.Input<string | undefined>;
+    privateDnsName?: pulumi.Input<string | undefined>;
+    privateDnsNameConfiguration?: pulumi.Input<inputs.ec2.VpcEndpointServicePrivateDnsNameConfigurationArgs | undefined>;
     /**
      * Specify which Ip Address types are supported for VPC endpoint service.
      */

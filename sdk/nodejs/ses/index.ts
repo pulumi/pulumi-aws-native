@@ -110,6 +110,11 @@ export const getMultiRegionEndpoint: typeof import("./getMultiRegionEndpoint").g
 export const getMultiRegionEndpointOutput: typeof import("./getMultiRegionEndpoint").getMultiRegionEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getMultiRegionEndpoint","getMultiRegionEndpointOutput"], () => require("./getMultiRegionEndpoint"));
 
+export { GetReceiptFilterArgs, GetReceiptFilterResult, GetReceiptFilterOutputArgs } from "./getReceiptFilter";
+export const getReceiptFilter: typeof import("./getReceiptFilter").getReceiptFilter = null as any;
+export const getReceiptFilterOutput: typeof import("./getReceiptFilter").getReceiptFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getReceiptFilter","getReceiptFilterOutput"], () => require("./getReceiptFilter"));
+
 export { GetReceiptRuleArgs, GetReceiptRuleResult, GetReceiptRuleOutputArgs } from "./getReceiptRule";
 export const getReceiptRule: typeof import("./getReceiptRule").getReceiptRule = null as any;
 export const getReceiptRuleOutput: typeof import("./getReceiptRule").getReceiptRuleOutput = null as any;
@@ -175,6 +180,11 @@ export type MultiRegionEndpoint = import("./multiRegionEndpoint").MultiRegionEnd
 export const MultiRegionEndpoint: typeof import("./multiRegionEndpoint").MultiRegionEndpoint = null as any;
 utilities.lazyLoad(exports, ["MultiRegionEndpoint"], () => require("./multiRegionEndpoint"));
 
+export { ReceiptFilterArgs } from "./receiptFilter";
+export type ReceiptFilter = import("./receiptFilter").ReceiptFilter;
+export const ReceiptFilter: typeof import("./receiptFilter").ReceiptFilter = null as any;
+utilities.lazyLoad(exports, ["ReceiptFilter"], () => require("./receiptFilter"));
+
 export { ReceiptRuleArgs } from "./receiptRule";
 export type ReceiptRule = import("./receiptRule").ReceiptRule;
 export const ReceiptRule: typeof import("./receiptRule").ReceiptRule = null as any;
@@ -238,6 +248,8 @@ const _module = {
                 return new MailManagerTrafficPolicy(name, <any>undefined, { urn })
             case "aws-native:ses:MultiRegionEndpoint":
                 return new MultiRegionEndpoint(name, <any>undefined, { urn })
+            case "aws-native:ses:ReceiptFilter":
+                return new ReceiptFilter(name, <any>undefined, { urn })
             case "aws-native:ses:ReceiptRule":
                 return new ReceiptRule(name, <any>undefined, { urn })
             case "aws-native:ses:ReceiptRuleSet":

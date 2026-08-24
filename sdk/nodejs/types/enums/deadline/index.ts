@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BudgetActionToAddType = {
+    StopSchedulingAndCompleteTasks: "STOP_SCHEDULING_AND_COMPLETE_TASKS",
+    StopSchedulingAndCancelTasks: "STOP_SCHEDULING_AND_CANCEL_TASKS",
+} as const;
+
+/**
+ * The type of budget action.
+ */
+export type BudgetActionToAddType = (typeof BudgetActionToAddType)[keyof typeof BudgetActionToAddType];
+
+export const BudgetStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The status of the budget.
+ */
+export type BudgetStatus = (typeof BudgetStatus)[keyof typeof BudgetStatus];
+
 export const FleetAcceleratorSelectionName = {
     T4: "t4",
     A10g: "a10g",
@@ -118,3 +138,19 @@ export const StorageProfileOperatingSystemFamily = {
 } as const;
 
 export type StorageProfileOperatingSystemFamily = (typeof StorageProfileOperatingSystemFamily)[keyof typeof StorageProfileOperatingSystemFamily];
+
+export const WorkerStatus = {
+    Created: "CREATED",
+    Started: "STARTED",
+    Stopping: "STOPPING",
+    Stopped: "STOPPED",
+    NotResponding: "NOT_RESPONDING",
+    NotCompatible: "NOT_COMPATIBLE",
+    Running: "RUNNING",
+    Idle: "IDLE",
+} as const;
+
+/**
+ * The status of the worker.
+ */
+export type WorkerStatus = (typeof WorkerStatus)[keyof typeof WorkerStatus];

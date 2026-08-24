@@ -85,4 +85,129 @@ namespace Pulumi.AwsNative.DeviceFarm
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The upload's category.
+    /// </summary>
+    [EnumType]
+    public readonly struct UploadCategory : IEquatable<UploadCategory>
+    {
+        private readonly string _value;
+
+        private UploadCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UploadCategory Curated { get; } = new UploadCategory("CURATED");
+        public static UploadCategory Private { get; } = new UploadCategory("PRIVATE");
+
+        public static bool operator ==(UploadCategory left, UploadCategory right) => left.Equals(right);
+        public static bool operator !=(UploadCategory left, UploadCategory right) => !left.Equals(right);
+
+        public static explicit operator string(UploadCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UploadCategory other && Equals(other);
+        public bool Equals(UploadCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The upload's status.
+    /// </summary>
+    [EnumType]
+    public readonly struct UploadStatus : IEquatable<UploadStatus>
+    {
+        private readonly string _value;
+
+        private UploadStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UploadStatus Initialized { get; } = new UploadStatus("INITIALIZED");
+        public static UploadStatus Processing { get; } = new UploadStatus("PROCESSING");
+        public static UploadStatus Succeeded { get; } = new UploadStatus("SUCCEEDED");
+        public static UploadStatus Failed { get; } = new UploadStatus("FAILED");
+
+        public static bool operator ==(UploadStatus left, UploadStatus right) => left.Equals(right);
+        public static bool operator !=(UploadStatus left, UploadStatus right) => !left.Equals(right);
+
+        public static explicit operator string(UploadStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UploadStatus other && Equals(other);
+        public bool Equals(UploadStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The upload's type.
+    /// </summary>
+    [EnumType]
+    public readonly struct UploadType : IEquatable<UploadType>
+    {
+        private readonly string _value;
+
+        private UploadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UploadType AndroidApp { get; } = new UploadType("ANDROID_APP");
+        public static UploadType IosApp { get; } = new UploadType("IOS_APP");
+        public static UploadType WebApp { get; } = new UploadType("WEB_APP");
+        public static UploadType ExternalData { get; } = new UploadType("EXTERNAL_DATA");
+        public static UploadType AppiumJavaJunitTestPackage { get; } = new UploadType("APPIUM_JAVA_JUNIT_TEST_PACKAGE");
+        public static UploadType AppiumJavaTestngTestPackage { get; } = new UploadType("APPIUM_JAVA_TESTNG_TEST_PACKAGE");
+        public static UploadType AppiumPythonTestPackage { get; } = new UploadType("APPIUM_PYTHON_TEST_PACKAGE");
+        public static UploadType AppiumNodeTestPackage { get; } = new UploadType("APPIUM_NODE_TEST_PACKAGE");
+        public static UploadType AppiumRubyTestPackage { get; } = new UploadType("APPIUM_RUBY_TEST_PACKAGE");
+        public static UploadType AppiumWebJavaJunitTestPackage { get; } = new UploadType("APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE");
+        public static UploadType AppiumWebJavaTestngTestPackage { get; } = new UploadType("APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE");
+        public static UploadType AppiumWebPythonTestPackage { get; } = new UploadType("APPIUM_WEB_PYTHON_TEST_PACKAGE");
+        public static UploadType AppiumWebNodeTestPackage { get; } = new UploadType("APPIUM_WEB_NODE_TEST_PACKAGE");
+        public static UploadType AppiumWebRubyTestPackage { get; } = new UploadType("APPIUM_WEB_RUBY_TEST_PACKAGE");
+        public static UploadType CalabashTestPackage { get; } = new UploadType("CALABASH_TEST_PACKAGE");
+        public static UploadType InstrumentationTestPackage { get; } = new UploadType("INSTRUMENTATION_TEST_PACKAGE");
+        public static UploadType UiautomationTestPackage { get; } = new UploadType("UIAUTOMATION_TEST_PACKAGE");
+        public static UploadType UiautomatorTestPackage { get; } = new UploadType("UIAUTOMATOR_TEST_PACKAGE");
+        public static UploadType XctestTestPackage { get; } = new UploadType("XCTEST_TEST_PACKAGE");
+        public static UploadType XctestUiTestPackage { get; } = new UploadType("XCTEST_UI_TEST_PACKAGE");
+        public static UploadType AppiumJavaJunitTestSpec { get; } = new UploadType("APPIUM_JAVA_JUNIT_TEST_SPEC");
+        public static UploadType AppiumJavaTestngTestSpec { get; } = new UploadType("APPIUM_JAVA_TESTNG_TEST_SPEC");
+        public static UploadType AppiumPythonTestSpec { get; } = new UploadType("APPIUM_PYTHON_TEST_SPEC");
+        public static UploadType AppiumNodeTestSpec { get; } = new UploadType("APPIUM_NODE_TEST_SPEC");
+        public static UploadType AppiumRubyTestSpec { get; } = new UploadType("APPIUM_RUBY_TEST_SPEC");
+        public static UploadType AppiumWebJavaJunitTestSpec { get; } = new UploadType("APPIUM_WEB_JAVA_JUNIT_TEST_SPEC");
+        public static UploadType AppiumWebJavaTestngTestSpec { get; } = new UploadType("APPIUM_WEB_JAVA_TESTNG_TEST_SPEC");
+        public static UploadType AppiumWebPythonTestSpec { get; } = new UploadType("APPIUM_WEB_PYTHON_TEST_SPEC");
+        public static UploadType AppiumWebNodeTestSpec { get; } = new UploadType("APPIUM_WEB_NODE_TEST_SPEC");
+        public static UploadType AppiumWebRubyTestSpec { get; } = new UploadType("APPIUM_WEB_RUBY_TEST_SPEC");
+        public static UploadType InstrumentationTestSpec { get; } = new UploadType("INSTRUMENTATION_TEST_SPEC");
+        public static UploadType XctestUiTestSpec { get; } = new UploadType("XCTEST_UI_TEST_SPEC");
+
+        public static bool operator ==(UploadType left, UploadType right) => left.Equals(right);
+        public static bool operator !=(UploadType left, UploadType right) => !left.Equals(right);
+
+        public static explicit operator string(UploadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UploadType other && Equals(other);
+        public bool Equals(UploadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

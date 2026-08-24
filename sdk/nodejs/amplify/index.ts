@@ -35,6 +35,16 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
+export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
+export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
+export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
+utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
+
+export { WebhookArgs } from "./webhook";
+export type Webhook = import("./webhook").Webhook;
+export const Webhook: typeof import("./webhook").Webhook = null as any;
+utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
+
 
 // Export enums:
 export * from "../types/enums/amplify";
@@ -49,6 +59,8 @@ const _module = {
                 return new Branch(name, <any>undefined, { urn })
             case "aws-native:amplify:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws-native:amplify:Webhook":
+                return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

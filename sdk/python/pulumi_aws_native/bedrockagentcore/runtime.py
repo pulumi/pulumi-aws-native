@@ -24,13 +24,14 @@ class RuntimeArgs:
     def __init__(__self__, *,
                  agent_runtime_artifact: pulumi.Input['RuntimeAgentRuntimeArtifactArgs'],
                  agent_runtime_name: pulumi.Input[_builtins.str],
-                 network_configuration: pulumi.Input['RuntimeNetworkConfigurationArgs'],
                  role_arn: pulumi.Input[_builtins.str],
                  authorizer_configuration: pulumi.Input[Optional['RuntimeAuthorizerConfigurationArgs']] = None,
+                 capacity_provider_configuration: pulumi.Input[Optional['RuntimeCapacityProviderConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]]] = None,
                  lifecycle_configuration: pulumi.Input[Optional['RuntimeLifecycleConfigurationArgs']] = None,
+                 network_configuration: pulumi.Input[Optional['RuntimeNetworkConfigurationArgs']] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: pulumi.Input[Optional['RuntimeRequestHeaderConfigurationArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -39,23 +40,25 @@ class RuntimeArgs:
 
         :param pulumi.Input['RuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: The artifact of the agent
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name for a resource
-        :param pulumi.Input['RuntimeNetworkConfigurationArgs'] network_configuration: Network access configuration for the Agent
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of an IAM role
         :param pulumi.Input['RuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorizer configuration for the agent runtime
+        :param pulumi.Input['RuntimeCapacityProviderConfigurationArgs'] capacity_provider_configuration: Capacity provider configuration for the agent runtime
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
         :param pulumi.Input[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations for the agent runtime
         :param pulumi.Input['RuntimeLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
+        :param pulumi.Input['RuntimeNetworkConfigurationArgs'] network_configuration: Network access configuration for the Agent
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
         :param pulumi.Input['RuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the agent.
         """
         pulumi.set(__self__, "agent_runtime_artifact", agent_runtime_artifact)
         pulumi.set(__self__, "agent_runtime_name", agent_runtime_name)
-        pulumi.set(__self__, "network_configuration", network_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
         if authorizer_configuration is not None:
             pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
+        if capacity_provider_configuration is not None:
+            pulumi.set(__self__, "capacity_provider_configuration", capacity_provider_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if environment_variables is not None:
@@ -64,6 +67,8 @@ class RuntimeArgs:
             pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
         if lifecycle_configuration is not None:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
         if request_header_configuration is not None:
@@ -96,18 +101,6 @@ class RuntimeArgs:
         pulumi.set(self, "agent_runtime_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> pulumi.Input['RuntimeNetworkConfigurationArgs']:
-        """
-        Network access configuration for the Agent
-        """
-        return pulumi.get(self, "network_configuration")
-
-    @network_configuration.setter
-    def network_configuration(self, value: pulumi.Input['RuntimeNetworkConfigurationArgs']):
-        pulumi.set(self, "network_configuration", value)
-
-    @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
@@ -130,6 +123,18 @@ class RuntimeArgs:
     @authorizer_configuration.setter
     def authorizer_configuration(self, value: pulumi.Input[Optional['RuntimeAuthorizerConfigurationArgs']]):
         pulumi.set(self, "authorizer_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderConfiguration")
+    def capacity_provider_configuration(self) -> pulumi.Input[Optional['RuntimeCapacityProviderConfigurationArgs']]:
+        """
+        Capacity provider configuration for the agent runtime
+        """
+        return pulumi.get(self, "capacity_provider_configuration")
+
+    @capacity_provider_configuration.setter
+    def capacity_provider_configuration(self, value: pulumi.Input[Optional['RuntimeCapacityProviderConfigurationArgs']]):
+        pulumi.set(self, "capacity_provider_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -180,6 +185,18 @@ class RuntimeArgs:
         pulumi.set(self, "lifecycle_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Input[Optional['RuntimeNetworkConfigurationArgs']]:
+        """
+        Network access configuration for the Agent
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: pulumi.Input[Optional['RuntimeNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> pulumi.Input[Optional['RuntimeProtocolConfiguration']]:
         """
@@ -225,6 +242,7 @@ class Runtime(pulumi.CustomResource):
                  agent_runtime_artifact: pulumi.Input[Optional[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict']]] = None,
                  agent_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  authorizer_configuration: pulumi.Input[Optional[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
+                 capacity_provider_configuration: pulumi.Input[Optional[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
@@ -243,6 +261,7 @@ class Runtime(pulumi.CustomResource):
         :param pulumi.Input[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict']] agent_runtime_artifact: The artifact of the agent
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name for a resource
         :param pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the agent runtime
+        :param pulumi.Input[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict']] capacity_provider_configuration: Capacity provider configuration for the agent runtime
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]] filesystem_configurations: Filesystem configurations for the agent runtime
@@ -280,6 +299,7 @@ class Runtime(pulumi.CustomResource):
                  agent_runtime_artifact: pulumi.Input[Optional[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict']]] = None,
                  agent_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  authorizer_configuration: pulumi.Input[Optional[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
+                 capacity_provider_configuration: pulumi.Input[Optional[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
@@ -305,12 +325,11 @@ class Runtime(pulumi.CustomResource):
                 raise TypeError("Missing required property 'agent_runtime_name'")
             __props__.__dict__["agent_runtime_name"] = agent_runtime_name
             __props__.__dict__["authorizer_configuration"] = authorizer_configuration
+            __props__.__dict__["capacity_provider_configuration"] = capacity_provider_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["filesystem_configurations"] = filesystem_configurations
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
-            if network_configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["protocol_configuration"] = protocol_configuration
             __props__.__dict__["request_header_configuration"] = request_header_configuration
@@ -356,6 +375,7 @@ class Runtime(pulumi.CustomResource):
         __props__.__dict__["agent_runtime_name"] = None
         __props__.__dict__["agent_runtime_version"] = None
         __props__.__dict__["authorizer_configuration"] = None
+        __props__.__dict__["capacity_provider_configuration"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["environment_variables"] = None
@@ -421,6 +441,14 @@ class Runtime(pulumi.CustomResource):
         return pulumi.get(self, "authorizer_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="capacityProviderConfiguration")
+    def capacity_provider_configuration(self) -> pulumi.Output[Optional['outputs.RuntimeCapacityProviderConfiguration']]:
+        """
+        Capacity provider configuration for the agent runtime
+        """
+        return pulumi.get(self, "capacity_provider_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
@@ -478,7 +506,7 @@ class Runtime(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> pulumi.Output['outputs.RuntimeNetworkConfiguration']:
+    def network_configuration(self) -> pulumi.Output[Optional['outputs.RuntimeNetworkConfiguration']]:
         """
         Network access configuration for the Agent
         """

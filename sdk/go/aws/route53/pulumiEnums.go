@@ -547,6 +547,171 @@ func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(KeySigningKeyStatusPtrOutput)
 }
 
+type RecordSetFailover string
+
+const (
+	RecordSetFailoverPrimary   = RecordSetFailover("PRIMARY")
+	RecordSetFailoverSecondary = RecordSetFailover("SECONDARY")
+)
+
+func (RecordSetFailover) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetFailover)(nil)).Elem()
+}
+
+func (e RecordSetFailover) ToRecordSetFailoverOutput() RecordSetFailoverOutput {
+	return pulumi.ToOutput(e).(RecordSetFailoverOutput)
+}
+
+func (e RecordSetFailover) ToRecordSetFailoverOutputWithContext(ctx context.Context) RecordSetFailoverOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecordSetFailoverOutput)
+}
+
+func (e RecordSetFailover) ToRecordSetFailoverPtrOutput() RecordSetFailoverPtrOutput {
+	return e.ToRecordSetFailoverPtrOutputWithContext(context.Background())
+}
+
+func (e RecordSetFailover) ToRecordSetFailoverPtrOutputWithContext(ctx context.Context) RecordSetFailoverPtrOutput {
+	return RecordSetFailover(e).ToRecordSetFailoverOutputWithContext(ctx).ToRecordSetFailoverPtrOutputWithContext(ctx)
+}
+
+func (e RecordSetFailover) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordSetFailover) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecordSetFailover) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecordSetFailover) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecordSetFailoverOutput struct{ *pulumi.OutputState }
+
+func (RecordSetFailoverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetFailover)(nil)).Elem()
+}
+
+func (o RecordSetFailoverOutput) ToRecordSetFailoverOutput() RecordSetFailoverOutput {
+	return o
+}
+
+func (o RecordSetFailoverOutput) ToRecordSetFailoverOutputWithContext(ctx context.Context) RecordSetFailoverOutput {
+	return o
+}
+
+func (o RecordSetFailoverOutput) ToRecordSetFailoverPtrOutput() RecordSetFailoverPtrOutput {
+	return o.ToRecordSetFailoverPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetFailoverOutput) ToRecordSetFailoverPtrOutputWithContext(ctx context.Context) RecordSetFailoverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetFailover) *RecordSetFailover {
+		return &v
+	}).(RecordSetFailoverPtrOutput)
+}
+
+func (o RecordSetFailoverOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecordSetFailoverOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordSetFailover) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecordSetFailoverOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetFailoverOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordSetFailover) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordSetFailoverPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetFailoverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetFailover)(nil)).Elem()
+}
+
+func (o RecordSetFailoverPtrOutput) ToRecordSetFailoverPtrOutput() RecordSetFailoverPtrOutput {
+	return o
+}
+
+func (o RecordSetFailoverPtrOutput) ToRecordSetFailoverPtrOutputWithContext(ctx context.Context) RecordSetFailoverPtrOutput {
+	return o
+}
+
+func (o RecordSetFailoverPtrOutput) Elem() RecordSetFailoverOutput {
+	return o.ApplyT(func(v *RecordSetFailover) RecordSetFailover {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetFailover
+		return ret
+	}).(RecordSetFailoverOutput)
+}
+
+func (o RecordSetFailoverPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetFailoverPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecordSetFailover) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecordSetFailoverInput is an input type that accepts values of the RecordSetFailover enum
+// A concrete instance of `RecordSetFailoverInput` can be one of the following:
+//
+//	RecordSetFailoverPrimary
+//	RecordSetFailoverSecondary
+type RecordSetFailoverInput interface {
+	pulumi.Input
+
+	ToRecordSetFailoverOutput() RecordSetFailoverOutput
+	ToRecordSetFailoverOutputWithContext(context.Context) RecordSetFailoverOutput
+}
+
+var recordSetFailoverPtrType = reflect.TypeOf((**RecordSetFailover)(nil)).Elem()
+
+type RecordSetFailoverPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetFailoverPtrOutput() RecordSetFailoverPtrOutput
+	ToRecordSetFailoverPtrOutputWithContext(context.Context) RecordSetFailoverPtrOutput
+}
+
+type recordSetFailoverPtr string
+
+func RecordSetFailoverPtr(v string) RecordSetFailoverPtrInput {
+	return (*recordSetFailoverPtr)(&v)
+}
+
+func (*recordSetFailoverPtr) ElementType() reflect.Type {
+	return recordSetFailoverPtrType
+}
+
+func (in *recordSetFailoverPtr) ToRecordSetFailoverPtrOutput() RecordSetFailoverPtrOutput {
+	return pulumi.ToOutput(in).(RecordSetFailoverPtrOutput)
+}
+
+func (in *recordSetFailoverPtr) ToRecordSetFailoverPtrOutputWithContext(ctx context.Context) RecordSetFailoverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecordSetFailoverPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
@@ -554,10 +719,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesTypePtrInput)(nil)).Elem(), HealthCheckConfigPropertiesType("CALCULATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyStatusInput)(nil)).Elem(), KeySigningKeyStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyStatusPtrInput)(nil)).Elem(), KeySigningKeyStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetFailoverInput)(nil)).Elem(), RecordSetFailover("PRIMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetFailoverPtrInput)(nil)).Elem(), RecordSetFailover("PRIMARY"))
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypeOutput{})
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyStatusPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetFailoverOutput{})
+	pulumi.RegisterOutputType(RecordSetFailoverPtrOutput{})
 }

@@ -26,6 +26,10 @@ export interface GetPaymentConnectorArgs {
 
 export interface GetPaymentConnectorResult {
     /**
+     * The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+     */
+    readonly authorizationUrl?: string;
+    /**
      * The timestamp when the connector was created
      */
     readonly connectorCreatedAt?: string;
@@ -34,9 +38,8 @@ export interface GetPaymentConnectorResult {
      */
     readonly connectorLastUpdatedAt?: string;
     readonly connectorStatus?: enums.bedrockagentcore.PaymentConnectorStatus;
-    readonly connectorType?: enums.bedrockagentcore.PaymentConnectorType;
     /**
-     * The credential provider configurations for the connector
+     * The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
      */
     readonly credentialProviderConfigurations?: outputs.bedrockagentcore.PaymentConnectorCredentialsProviderConfiguration[];
     /**

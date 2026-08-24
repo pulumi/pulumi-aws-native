@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EmrContainers
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The auth proxy URL for Spark Connect connections.
+        /// </summary>
+        [Output("authProxyUrl")]
+        public Output<string> AuthProxyUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the managed endpoint.
         /// </summary>
         [Output("awsId")]
@@ -82,6 +88,12 @@ namespace Pulumi.AwsNative.EmrContainers
         public Output<string> ServerUrl { get; private set; } = null!;
 
         /// <summary>
+        /// The idle timeout in minutes for sessions on the managed endpoint.
+        /// </summary>
+        [Output("sessionIdleTimeoutInMinutes")]
+        public Output<int?> SessionIdleTimeoutInMinutes { get; private set; } = null!;
+
+        /// <summary>
         /// The state of the managed endpoint.
         /// </summary>
         [Output("state")]
@@ -140,6 +152,7 @@ namespace Pulumi.AwsNative.EmrContainers
                     "executionRoleArn",
                     "name",
                     "releaseLabel",
+                    "sessionIdleTimeoutInMinutes",
                     "type",
                     "virtualClusterId",
                 },
@@ -188,6 +201,12 @@ namespace Pulumi.AwsNative.EmrContainers
         /// </summary>
         [Input("releaseLabel", required: true)]
         public Input<string> ReleaseLabel { get; set; } = null!;
+
+        /// <summary>
+        /// The idle timeout in minutes for sessions on the managed endpoint.
+        /// </summary>
+        [Input("sessionIdleTimeoutInMinutes")]
+        public Input<int>? SessionIdleTimeoutInMinutes { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

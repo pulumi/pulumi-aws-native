@@ -122,6 +122,45 @@ export const PlaybackConfigurationStreamingMediaFileConditioning = {
 
 export type PlaybackConfigurationStreamingMediaFileConditioning = (typeof PlaybackConfigurationStreamingMediaFileConditioning)[keyof typeof PlaybackConfigurationStreamingMediaFileConditioning];
 
+export const PrefetchScheduleAvailMatchingCriteriaOperator = {
+    Equals: "EQUALS",
+} as const;
+
+/**
+ * For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+ */
+export type PrefetchScheduleAvailMatchingCriteriaOperator = (typeof PrefetchScheduleAvailMatchingCriteriaOperator)[keyof typeof PrefetchScheduleAvailMatchingCriteriaOperator];
+
+export const PrefetchSchedulePrefetchRetrievalTrafficShapingType = {
+    RetrievalWindow: "RETRIEVAL_WINDOW",
+    Tps: "TPS",
+} as const;
+
+/**
+ * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+ */
+export type PrefetchSchedulePrefetchRetrievalTrafficShapingType = (typeof PrefetchSchedulePrefetchRetrievalTrafficShapingType)[keyof typeof PrefetchSchedulePrefetchRetrievalTrafficShapingType];
+
+export const PrefetchScheduleRecurringRetrievalTrafficShapingType = {
+    RetrievalWindow: "RETRIEVAL_WINDOW",
+    Tps: "TPS",
+} as const;
+
+/**
+ * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+ */
+export type PrefetchScheduleRecurringRetrievalTrafficShapingType = (typeof PrefetchScheduleRecurringRetrievalTrafficShapingType)[keyof typeof PrefetchScheduleRecurringRetrievalTrafficShapingType];
+
+export const PrefetchScheduleScheduleType = {
+    Single: "SINGLE",
+    Recurring: "RECURRING",
+} as const;
+
+/**
+ * The frequency that MediaTailor creates prefetch schedules.
+ */
+export type PrefetchScheduleScheduleType = (typeof PrefetchScheduleScheduleType)[keyof typeof PrefetchScheduleScheduleType];
+
 export const SourceLocationAccessType = {
     S3Sigv4: "S3_SIGV4",
     SecretsManagerAccessToken: "SECRETS_MANAGER_ACCESS_TOKEN",

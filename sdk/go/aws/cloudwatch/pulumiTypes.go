@@ -262,10 +262,13 @@ func (o AlarmEvaluationCriteriaPtrOutput) PromQlCriteria() AlarmPromQlCriteriaPt
 	}).(AlarmPromQlCriteriaPtrOutput)
 }
 
+// The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs. This is a union type. Set exactly one of its members, “SlidingWindow“ or “WallClockWindow“. If you don't set “EvaluationWindow“, the alarm uses a “SlidingWindow“ by default.
+//
+//	For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
 type AlarmEvaluationWindow struct {
-	// Configuration for sliding evaluation window (default behavior).
+	// A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
 	SlidingWindow interface{} `pulumi:"slidingWindow"`
-	// Configuration for wall clock based evaluation window.
+	// A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
 	WallClockWindow *AlarmWallClockWindow `pulumi:"wallClockWindow"`
 }
 
@@ -280,10 +283,13 @@ type AlarmEvaluationWindowInput interface {
 	ToAlarmEvaluationWindowOutputWithContext(context.Context) AlarmEvaluationWindowOutput
 }
 
+// The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs. This is a union type. Set exactly one of its members, “SlidingWindow“ or “WallClockWindow“. If you don't set “EvaluationWindow“, the alarm uses a “SlidingWindow“ by default.
+//
+//	For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
 type AlarmEvaluationWindowArgs struct {
-	// Configuration for sliding evaluation window (default behavior).
+	// A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
 	SlidingWindow pulumi.Input `pulumi:"slidingWindow"`
-	// Configuration for wall clock based evaluation window.
+	// A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
 	WallClockWindow AlarmWallClockWindowPtrInput `pulumi:"wallClockWindow"`
 }
 
@@ -340,6 +346,9 @@ func (i *alarmEvaluationWindowPtrType) ToAlarmEvaluationWindowPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmEvaluationWindowPtrOutput)
 }
 
+// The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs. This is a union type. Set exactly one of its members, “SlidingWindow“ or “WallClockWindow“. If you don't set “EvaluationWindow“, the alarm uses a “SlidingWindow“ by default.
+//
+//	For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
 type AlarmEvaluationWindowOutput struct{ *pulumi.OutputState }
 
 func (AlarmEvaluationWindowOutput) ElementType() reflect.Type {
@@ -364,12 +373,12 @@ func (o AlarmEvaluationWindowOutput) ToAlarmEvaluationWindowPtrOutputWithContext
 	}).(AlarmEvaluationWindowPtrOutput)
 }
 
-// Configuration for sliding evaluation window (default behavior).
+// A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
 func (o AlarmEvaluationWindowOutput) SlidingWindow() pulumi.AnyOutput {
 	return o.ApplyT(func(v AlarmEvaluationWindow) interface{} { return v.SlidingWindow }).(pulumi.AnyOutput)
 }
 
-// Configuration for wall clock based evaluation window.
+// A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
 func (o AlarmEvaluationWindowOutput) WallClockWindow() AlarmWallClockWindowPtrOutput {
 	return o.ApplyT(func(v AlarmEvaluationWindow) *AlarmWallClockWindow { return v.WallClockWindow }).(AlarmWallClockWindowPtrOutput)
 }
@@ -398,7 +407,7 @@ func (o AlarmEvaluationWindowPtrOutput) Elem() AlarmEvaluationWindowOutput {
 	}).(AlarmEvaluationWindowOutput)
 }
 
-// Configuration for sliding evaluation window (default behavior).
+// A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
 func (o AlarmEvaluationWindowPtrOutput) SlidingWindow() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AlarmEvaluationWindow) interface{} {
 		if v == nil {
@@ -408,7 +417,7 @@ func (o AlarmEvaluationWindowPtrOutput) SlidingWindow() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Configuration for wall clock based evaluation window.
+// A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
 func (o AlarmEvaluationWindowPtrOutput) WallClockWindow() AlarmWallClockWindowPtrOutput {
 	return o.ApplyT(func(v *AlarmEvaluationWindow) *AlarmWallClockWindow {
 		if v == nil {
@@ -1192,8 +1201,13 @@ type AlarmTag struct {
 	Value string `pulumi:"value"`
 }
 
+// An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
+//
+//	When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
+//	Choose a wall clock window when your monitoring is tied to a business or calendar period, such as daily reports, batch jobs, or backups, or when you want alarm evaluations to match the periods shown on a metric dashboard.
 type AlarmWallClockWindow struct {
-	// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+	// The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, ``America/New_York``), a fixed UTC offset (for example, ``+05:30``), or an offset-prefixed identifier (for example, ``UTC+05:30``). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses ``UTC``.
+	//  The time zone affects window alignment for all periods, including periods of one hour or shorter.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -1208,8 +1222,13 @@ type AlarmWallClockWindowInput interface {
 	ToAlarmWallClockWindowOutputWithContext(context.Context) AlarmWallClockWindowOutput
 }
 
+// An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
+//
+//	When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
+//	Choose a wall clock window when your monitoring is tied to a business or calendar period, such as daily reports, batch jobs, or backups, or when you want alarm evaluations to match the periods shown on a metric dashboard.
 type AlarmWallClockWindowArgs struct {
-	// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+	// The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, ``America/New_York``), a fixed UTC offset (for example, ``+05:30``), or an offset-prefixed identifier (for example, ``UTC+05:30``). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses ``UTC``.
+	//  The time zone affects window alignment for all periods, including periods of one hour or shorter.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -1266,6 +1285,10 @@ func (i *alarmWallClockWindowPtrType) ToAlarmWallClockWindowPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmWallClockWindowPtrOutput)
 }
 
+// An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
+//
+//	When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
+//	Choose a wall clock window when your monitoring is tied to a business or calendar period, such as daily reports, batch jobs, or backups, or when you want alarm evaluations to match the periods shown on a metric dashboard.
 type AlarmWallClockWindowOutput struct{ *pulumi.OutputState }
 
 func (AlarmWallClockWindowOutput) ElementType() reflect.Type {
@@ -1290,7 +1313,9 @@ func (o AlarmWallClockWindowOutput) ToAlarmWallClockWindowPtrOutputWithContext(c
 	}).(AlarmWallClockWindowPtrOutput)
 }
 
-// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+// The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, “America/New_York“), a fixed UTC offset (for example, “+05:30“), or an offset-prefixed identifier (for example, “UTC+05:30“). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses “UTC“.
+//
+//	The time zone affects window alignment for all periods, including periods of one hour or shorter.
 func (o AlarmWallClockWindowOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmWallClockWindow) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -1319,7 +1344,9 @@ func (o AlarmWallClockWindowPtrOutput) Elem() AlarmWallClockWindowOutput {
 	}).(AlarmWallClockWindowOutput)
 }
 
-// The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+// The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, “America/New_York“), a fixed UTC offset (for example, “+05:30“), or an offset-prefixed identifier (for example, “UTC+05:30“). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses “UTC“.
+//
+//	The time zone affects window alignment for all periods, including periods of one hour or shorter.
 func (o AlarmWallClockWindowPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmWallClockWindow) *string {
 		if v == nil {
@@ -1327,6 +1354,162 @@ func (o AlarmWallClockWindowPtrOutput) Timezone() pulumi.StringPtrOutput {
 		}
 		return v.Timezone
 	}).(pulumi.StringPtrOutput)
+}
+
+type AlarmWarmUpConfiguration struct {
+	// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+	OnlyStartEvaluatingAfterWarmUpPeriodEnds *bool `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
+	// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+	WarmUpPeriodDurationInMinutes *int `pulumi:"warmUpPeriodDurationInMinutes"`
+}
+
+// AlarmWarmUpConfigurationInput is an input type that accepts AlarmWarmUpConfigurationArgs and AlarmWarmUpConfigurationOutput values.
+// You can construct a concrete instance of `AlarmWarmUpConfigurationInput` via:
+//
+//	AlarmWarmUpConfigurationArgs{...}
+type AlarmWarmUpConfigurationInput interface {
+	pulumi.Input
+
+	ToAlarmWarmUpConfigurationOutput() AlarmWarmUpConfigurationOutput
+	ToAlarmWarmUpConfigurationOutputWithContext(context.Context) AlarmWarmUpConfigurationOutput
+}
+
+type AlarmWarmUpConfigurationArgs struct {
+	// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+	OnlyStartEvaluatingAfterWarmUpPeriodEnds pulumi.BoolPtrInput `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
+	// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+	WarmUpPeriodDurationInMinutes pulumi.IntPtrInput `pulumi:"warmUpPeriodDurationInMinutes"`
+}
+
+func (AlarmWarmUpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (i AlarmWarmUpConfigurationArgs) ToAlarmWarmUpConfigurationOutput() AlarmWarmUpConfigurationOutput {
+	return i.ToAlarmWarmUpConfigurationOutputWithContext(context.Background())
+}
+
+func (i AlarmWarmUpConfigurationArgs) ToAlarmWarmUpConfigurationOutputWithContext(ctx context.Context) AlarmWarmUpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmWarmUpConfigurationOutput)
+}
+
+func (i AlarmWarmUpConfigurationArgs) ToAlarmWarmUpConfigurationPtrOutput() AlarmWarmUpConfigurationPtrOutput {
+	return i.ToAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AlarmWarmUpConfigurationArgs) ToAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) AlarmWarmUpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmWarmUpConfigurationOutput).ToAlarmWarmUpConfigurationPtrOutputWithContext(ctx)
+}
+
+// AlarmWarmUpConfigurationPtrInput is an input type that accepts AlarmWarmUpConfigurationArgs, AlarmWarmUpConfigurationPtr and AlarmWarmUpConfigurationPtrOutput values.
+// You can construct a concrete instance of `AlarmWarmUpConfigurationPtrInput` via:
+//
+//	        AlarmWarmUpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlarmWarmUpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAlarmWarmUpConfigurationPtrOutput() AlarmWarmUpConfigurationPtrOutput
+	ToAlarmWarmUpConfigurationPtrOutputWithContext(context.Context) AlarmWarmUpConfigurationPtrOutput
+}
+
+type alarmWarmUpConfigurationPtrType AlarmWarmUpConfigurationArgs
+
+func AlarmWarmUpConfigurationPtr(v *AlarmWarmUpConfigurationArgs) AlarmWarmUpConfigurationPtrInput {
+	return (*alarmWarmUpConfigurationPtrType)(v)
+}
+
+func (*alarmWarmUpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (i *alarmWarmUpConfigurationPtrType) ToAlarmWarmUpConfigurationPtrOutput() AlarmWarmUpConfigurationPtrOutput {
+	return i.ToAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *alarmWarmUpConfigurationPtrType) ToAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) AlarmWarmUpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlarmWarmUpConfigurationPtrOutput)
+}
+
+type AlarmWarmUpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AlarmWarmUpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (o AlarmWarmUpConfigurationOutput) ToAlarmWarmUpConfigurationOutput() AlarmWarmUpConfigurationOutput {
+	return o
+}
+
+func (o AlarmWarmUpConfigurationOutput) ToAlarmWarmUpConfigurationOutputWithContext(ctx context.Context) AlarmWarmUpConfigurationOutput {
+	return o
+}
+
+func (o AlarmWarmUpConfigurationOutput) ToAlarmWarmUpConfigurationPtrOutput() AlarmWarmUpConfigurationPtrOutput {
+	return o.ToAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AlarmWarmUpConfigurationOutput) ToAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) AlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmWarmUpConfiguration) *AlarmWarmUpConfiguration {
+		return &v
+	}).(AlarmWarmUpConfigurationPtrOutput)
+}
+
+// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+func (o AlarmWarmUpConfigurationOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlarmWarmUpConfiguration) *bool { return v.OnlyStartEvaluatingAfterWarmUpPeriodEnds }).(pulumi.BoolPtrOutput)
+}
+
+// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+func (o AlarmWarmUpConfigurationOutput) WarmUpPeriodDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AlarmWarmUpConfiguration) *int { return v.WarmUpPeriodDurationInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type AlarmWarmUpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlarmWarmUpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (o AlarmWarmUpConfigurationPtrOutput) ToAlarmWarmUpConfigurationPtrOutput() AlarmWarmUpConfigurationPtrOutput {
+	return o
+}
+
+func (o AlarmWarmUpConfigurationPtrOutput) ToAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) AlarmWarmUpConfigurationPtrOutput {
+	return o
+}
+
+func (o AlarmWarmUpConfigurationPtrOutput) Elem() AlarmWarmUpConfigurationOutput {
+	return o.ApplyT(func(v *AlarmWarmUpConfiguration) AlarmWarmUpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AlarmWarmUpConfiguration
+		return ret
+	}).(AlarmWarmUpConfigurationOutput)
+}
+
+// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+func (o AlarmWarmUpConfigurationPtrOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlarmWarmUpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyStartEvaluatingAfterWarmUpPeriodEnds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+func (o AlarmWarmUpConfigurationPtrOutput) WarmUpPeriodDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlarmWarmUpConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarmUpPeriodDurationInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Metadata that you can assign to a composite alarm, Tags can help you organize and categorize your resources.
@@ -1770,6 +1953,165 @@ func (o LogAlarmTagArrayOutput) Index(i pulumi.IntInput) LogAlarmTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogAlarmTag {
 		return vs[0].([]LogAlarmTag)[vs[1].(int)]
 	}).(LogAlarmTagOutput)
+}
+
+// The warm-up configuration for an alarm. A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+type LogAlarmWarmUpConfiguration struct {
+	// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+	OnlyStartEvaluatingAfterWarmUpPeriodEnds *bool `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
+	// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+	WarmUpPeriodDurationInMinutes *int `pulumi:"warmUpPeriodDurationInMinutes"`
+}
+
+// LogAlarmWarmUpConfigurationInput is an input type that accepts LogAlarmWarmUpConfigurationArgs and LogAlarmWarmUpConfigurationOutput values.
+// You can construct a concrete instance of `LogAlarmWarmUpConfigurationInput` via:
+//
+//	LogAlarmWarmUpConfigurationArgs{...}
+type LogAlarmWarmUpConfigurationInput interface {
+	pulumi.Input
+
+	ToLogAlarmWarmUpConfigurationOutput() LogAlarmWarmUpConfigurationOutput
+	ToLogAlarmWarmUpConfigurationOutputWithContext(context.Context) LogAlarmWarmUpConfigurationOutput
+}
+
+// The warm-up configuration for an alarm. A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+type LogAlarmWarmUpConfigurationArgs struct {
+	// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+	OnlyStartEvaluatingAfterWarmUpPeriodEnds pulumi.BoolPtrInput `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
+	// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+	WarmUpPeriodDurationInMinutes pulumi.IntPtrInput `pulumi:"warmUpPeriodDurationInMinutes"`
+}
+
+func (LogAlarmWarmUpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (i LogAlarmWarmUpConfigurationArgs) ToLogAlarmWarmUpConfigurationOutput() LogAlarmWarmUpConfigurationOutput {
+	return i.ToLogAlarmWarmUpConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogAlarmWarmUpConfigurationArgs) ToLogAlarmWarmUpConfigurationOutputWithContext(ctx context.Context) LogAlarmWarmUpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmWarmUpConfigurationOutput)
+}
+
+func (i LogAlarmWarmUpConfigurationArgs) ToLogAlarmWarmUpConfigurationPtrOutput() LogAlarmWarmUpConfigurationPtrOutput {
+	return i.ToLogAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogAlarmWarmUpConfigurationArgs) ToLogAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmWarmUpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmWarmUpConfigurationOutput).ToLogAlarmWarmUpConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogAlarmWarmUpConfigurationPtrInput is an input type that accepts LogAlarmWarmUpConfigurationArgs, LogAlarmWarmUpConfigurationPtr and LogAlarmWarmUpConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogAlarmWarmUpConfigurationPtrInput` via:
+//
+//	        LogAlarmWarmUpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogAlarmWarmUpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogAlarmWarmUpConfigurationPtrOutput() LogAlarmWarmUpConfigurationPtrOutput
+	ToLogAlarmWarmUpConfigurationPtrOutputWithContext(context.Context) LogAlarmWarmUpConfigurationPtrOutput
+}
+
+type logAlarmWarmUpConfigurationPtrType LogAlarmWarmUpConfigurationArgs
+
+func LogAlarmWarmUpConfigurationPtr(v *LogAlarmWarmUpConfigurationArgs) LogAlarmWarmUpConfigurationPtrInput {
+	return (*logAlarmWarmUpConfigurationPtrType)(v)
+}
+
+func (*logAlarmWarmUpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (i *logAlarmWarmUpConfigurationPtrType) ToLogAlarmWarmUpConfigurationPtrOutput() LogAlarmWarmUpConfigurationPtrOutput {
+	return i.ToLogAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logAlarmWarmUpConfigurationPtrType) ToLogAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmWarmUpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAlarmWarmUpConfigurationPtrOutput)
+}
+
+// The warm-up configuration for an alarm. A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+type LogAlarmWarmUpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmWarmUpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmWarmUpConfigurationOutput) ToLogAlarmWarmUpConfigurationOutput() LogAlarmWarmUpConfigurationOutput {
+	return o
+}
+
+func (o LogAlarmWarmUpConfigurationOutput) ToLogAlarmWarmUpConfigurationOutputWithContext(ctx context.Context) LogAlarmWarmUpConfigurationOutput {
+	return o
+}
+
+func (o LogAlarmWarmUpConfigurationOutput) ToLogAlarmWarmUpConfigurationPtrOutput() LogAlarmWarmUpConfigurationPtrOutput {
+	return o.ToLogAlarmWarmUpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogAlarmWarmUpConfigurationOutput) ToLogAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAlarmWarmUpConfiguration) *LogAlarmWarmUpConfiguration {
+		return &v
+	}).(LogAlarmWarmUpConfigurationPtrOutput)
+}
+
+// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+func (o LogAlarmWarmUpConfigurationOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogAlarmWarmUpConfiguration) *bool { return v.OnlyStartEvaluatingAfterWarmUpPeriodEnds }).(pulumi.BoolPtrOutput)
+}
+
+// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+func (o LogAlarmWarmUpConfigurationOutput) WarmUpPeriodDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LogAlarmWarmUpConfiguration) *int { return v.WarmUpPeriodDurationInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type LogAlarmWarmUpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogAlarmWarmUpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAlarmWarmUpConfiguration)(nil)).Elem()
+}
+
+func (o LogAlarmWarmUpConfigurationPtrOutput) ToLogAlarmWarmUpConfigurationPtrOutput() LogAlarmWarmUpConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmWarmUpConfigurationPtrOutput) ToLogAlarmWarmUpConfigurationPtrOutputWithContext(ctx context.Context) LogAlarmWarmUpConfigurationPtrOutput {
+	return o
+}
+
+func (o LogAlarmWarmUpConfigurationPtrOutput) Elem() LogAlarmWarmUpConfigurationOutput {
+	return o.ApplyT(func(v *LogAlarmWarmUpConfiguration) LogAlarmWarmUpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogAlarmWarmUpConfiguration
+		return ret
+	}).(LogAlarmWarmUpConfigurationOutput)
+}
+
+// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+func (o LogAlarmWarmUpConfigurationPtrOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogAlarmWarmUpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyStartEvaluatingAfterWarmUpPeriodEnds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+func (o LogAlarmWarmUpConfigurationPtrOutput) WarmUpPeriodDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LogAlarmWarmUpConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarmUpPeriodDurationInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // This structure defines the metrics that will be streamed.
@@ -2480,10 +2822,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmPromQlCriteriaPtrInput)(nil)).Elem(), AlarmPromQlCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWallClockWindowInput)(nil)).Elem(), AlarmWallClockWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWallClockWindowPtrInput)(nil)).Elem(), AlarmWallClockWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWarmUpConfigurationInput)(nil)).Elem(), AlarmWarmUpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlarmWarmUpConfigurationPtrInput)(nil)).Elem(), AlarmWarmUpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduleConfigurationInput)(nil)).Elem(), LogAlarmScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmScheduledQueryConfigurationInput)(nil)).Elem(), LogAlarmScheduledQueryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmTagInput)(nil)).Elem(), LogAlarmTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmTagArrayInput)(nil)).Elem(), LogAlarmTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmWarmUpConfigurationInput)(nil)).Elem(), LogAlarmWarmUpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAlarmWarmUpConfigurationPtrInput)(nil)).Elem(), LogAlarmWarmUpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterInput)(nil)).Elem(), MetricStreamFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamFilterArrayInput)(nil)).Elem(), MetricStreamFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArgs{})
@@ -2510,12 +2856,16 @@ func init() {
 	pulumi.RegisterOutputType(AlarmPromQlCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(AlarmWallClockWindowOutput{})
 	pulumi.RegisterOutputType(AlarmWallClockWindowPtrOutput{})
+	pulumi.RegisterOutputType(AlarmWarmUpConfigurationOutput{})
+	pulumi.RegisterOutputType(AlarmWarmUpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduledQueryConfigurationOutput{})
 	pulumi.RegisterOutputType(LogAlarmScheduledQueryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogAlarmTagOutput{})
 	pulumi.RegisterOutputType(LogAlarmTagArrayOutput{})
+	pulumi.RegisterOutputType(LogAlarmWarmUpConfigurationOutput{})
+	pulumi.RegisterOutputType(LogAlarmWarmUpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterOutput{})
 	pulumi.RegisterOutputType(MetricStreamFilterArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationOutput{})

@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "aws-native:devicefarm:TestGridProject":
 		r = &TestGridProject{}
+	case "aws-native:devicefarm:Upload":
+		r = &Upload{}
 	case "aws-native:devicefarm:VpceConfiguration":
 		r = &VpceConfiguration{}
 	default:

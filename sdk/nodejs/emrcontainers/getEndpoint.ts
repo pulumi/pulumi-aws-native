@@ -30,6 +30,10 @@ export interface GetEndpointResult {
      */
     readonly arn?: string;
     /**
+     * The auth proxy URL for Spark Connect connections.
+     */
+    readonly authProxyUrl?: string;
+    /**
      * The certificate authority for the managed endpoint.
      */
     readonly certificateAuthority?: outputs.emrcontainers.EndpointCertificate;

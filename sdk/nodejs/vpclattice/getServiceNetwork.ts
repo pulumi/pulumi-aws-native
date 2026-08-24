@@ -49,10 +49,6 @@ export interface GetServiceNetworkResult {
      */
     readonly lastUpdatedAt?: string;
     /**
-     * Specify if the service network should be enabled for sharing.
-     */
-    readonly sharingConfig?: outputs.vpclattice.ServiceNetworkSharingConfig;
-    /**
      * The tags for the service network.
      */
     readonly tags?: outputs.Tag[];

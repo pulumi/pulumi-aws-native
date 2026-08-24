@@ -16,6 +16,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BudgetActionToAddArgs',
+    'BudgetActionToAddArgsDict',
+    'BudgetFixedBudgetScheduleArgs',
+    'BudgetFixedBudgetScheduleArgsDict',
+    'BudgetScheduleArgs',
+    'BudgetScheduleArgsDict',
+    'BudgetUsageTrackingResourceArgs',
+    'BudgetUsageTrackingResourceArgsDict',
     'FleetAcceleratorCapabilitiesArgs',
     'FleetAcceleratorCapabilitiesArgsDict',
     'FleetAcceleratorCountRangeArgs',
@@ -84,7 +92,193 @@ __all__ = [
     'QueueWindowsUserArgsDict',
     'StorageProfileFileSystemLocationArgs',
     'StorageProfileFileSystemLocationArgsDict',
+    'WorkerHostPropertiesRequestArgs',
+    'WorkerHostPropertiesRequestArgsDict',
+    'WorkerIpAddressesArgs',
+    'WorkerIpAddressesArgsDict',
 ]
+
+class BudgetActionToAddArgsDict(TypedDict):
+    """
+    The budget action to add.
+    """
+    threshold_percentage: pulumi.Input[_builtins.float]
+    """
+    The percentage threshold for the budget action.
+    """
+    type: pulumi.Input['BudgetActionToAddType']
+    """
+    The type of budget action.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A description for the budget action.
+    """
+
+@pulumi.input_type
+class BudgetActionToAddArgs:
+    def __init__(__self__, *,
+                 threshold_percentage: pulumi.Input[_builtins.float],
+                 type: pulumi.Input['BudgetActionToAddType'],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The budget action to add.
+
+        :param pulumi.Input[_builtins.float] threshold_percentage: The percentage threshold for the budget action.
+        :param pulumi.Input['BudgetActionToAddType'] type: The type of budget action.
+        :param pulumi.Input[_builtins.str] description: A description for the budget action.
+        """
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> pulumi.Input[_builtins.float]:
+        """
+        The percentage threshold for the budget action.
+        """
+        return pulumi.get(self, "threshold_percentage")
+
+    @threshold_percentage.setter
+    def threshold_percentage(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "threshold_percentage", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['BudgetActionToAddType']:
+        """
+        The type of budget action.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['BudgetActionToAddType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description for the budget action.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class BudgetFixedBudgetScheduleArgsDict(TypedDict):
+    """
+    The details of a fixed budget schedule.
+    """
+    end_time: pulumi.Input[_builtins.str]
+    """
+    When the budget ends.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    When the budget starts.
+    """
+
+@pulumi.input_type
+class BudgetFixedBudgetScheduleArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[_builtins.str],
+                 start_time: pulumi.Input[_builtins.str]):
+        """
+        The details of a fixed budget schedule.
+
+        :param pulumi.Input[_builtins.str] end_time: When the budget ends.
+        :param pulumi.Input[_builtins.str] start_time: When the budget starts.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        When the budget ends.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        When the budget starts.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "start_time", value)
+
+
+class BudgetScheduleArgsDict(TypedDict):
+    """
+    The start and end time of the budget.
+    """
+    fixed: pulumi.Input['BudgetFixedBudgetScheduleArgsDict']
+
+@pulumi.input_type
+class BudgetScheduleArgs:
+    def __init__(__self__, *,
+                 fixed: pulumi.Input['BudgetFixedBudgetScheduleArgs']):
+        """
+        The start and end time of the budget.
+        """
+        pulumi.set(__self__, "fixed", fixed)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> pulumi.Input['BudgetFixedBudgetScheduleArgs']:
+        return pulumi.get(self, "fixed")
+
+    @fixed.setter
+    def fixed(self, value: pulumi.Input['BudgetFixedBudgetScheduleArgs']):
+        pulumi.set(self, "fixed", value)
+
+
+class BudgetUsageTrackingResourceArgsDict(TypedDict):
+    """
+    The usage details of the allotted budget.
+    """
+    queue_id: pulumi.Input[_builtins.str]
+    """
+    The queue ID.
+    """
+
+@pulumi.input_type
+class BudgetUsageTrackingResourceArgs:
+    def __init__(__self__, *,
+                 queue_id: pulumi.Input[_builtins.str]):
+        """
+        The usage details of the allotted budget.
+
+        :param pulumi.Input[_builtins.str] queue_id: The queue ID.
+        """
+        pulumi.set(__self__, "queue_id", queue_id)
+
+    @_builtins.property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The queue ID.
+        """
+        return pulumi.get(self, "queue_id")
+
+    @queue_id.setter
+    def queue_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "queue_id", value)
+
 
 class FleetAcceleratorCapabilitiesArgsDict(TypedDict):
     selections: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgsDict']]]
@@ -1658,5 +1852,106 @@ class StorageProfileFileSystemLocationArgs:
     @type.setter
     def type(self, value: pulumi.Input['StorageProfileFileSystemLocationType']):
         pulumi.set(self, "type", value)
+
+
+class WorkerHostPropertiesRequestArgsDict(TypedDict):
+    """
+    The host property details.
+    """
+    host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The host name.
+    """
+    ip_addresses: NotRequired[pulumi.Input[Optional['WorkerIpAddressesArgsDict']]]
+
+@pulumi.input_type
+class WorkerHostPropertiesRequestArgs:
+    def __init__(__self__, *,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_addresses: pulumi.Input[Optional['WorkerIpAddressesArgs']] = None):
+        """
+        The host property details.
+
+        :param pulumi.Input[_builtins.str] host_name: The host name.
+        """
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @_builtins.property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The host name.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "host_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> pulumi.Input[Optional['WorkerIpAddressesArgs']]:
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: pulumi.Input[Optional['WorkerIpAddressesArgs']]):
+        pulumi.set(self, "ip_addresses", value)
+
+
+class WorkerIpAddressesArgsDict(TypedDict):
+    """
+    The IP addresses for a host.
+    """
+    ip_v4_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The IpV4 address of the network.
+    """
+    ip_v6_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The IpV6 address for the network and node component.
+    """
+
+@pulumi.input_type
+class WorkerIpAddressesArgs:
+    def __init__(__self__, *,
+                 ip_v4_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_v6_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The IP addresses for a host.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_v4_addresses: The IpV4 address of the network.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_v6_addresses: The IpV6 address for the network and node component.
+        """
+        if ip_v4_addresses is not None:
+            pulumi.set(__self__, "ip_v4_addresses", ip_v4_addresses)
+        if ip_v6_addresses is not None:
+            pulumi.set(__self__, "ip_v6_addresses", ip_v6_addresses)
+
+    @_builtins.property
+    @pulumi.getter(name="ipV4Addresses")
+    def ip_v4_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The IpV4 address of the network.
+        """
+        return pulumi.get(self, "ip_v4_addresses")
+
+    @ip_v4_addresses.setter
+    def ip_v4_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ip_v4_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipV6Addresses")
+    def ip_v6_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The IpV6 address for the network and node component.
+        """
+        return pulumi.get(self, "ip_v6_addresses")
+
+    @ip_v6_addresses.setter
+    def ip_v6_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ip_v6_addresses", value)
 
 

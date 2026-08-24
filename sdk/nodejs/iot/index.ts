@@ -185,6 +185,11 @@ export const getSoftwarePackageVersion: typeof import("./getSoftwarePackageVersi
 export const getSoftwarePackageVersionOutput: typeof import("./getSoftwarePackageVersion").getSoftwarePackageVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getSoftwarePackageVersion","getSoftwarePackageVersionOutput"], () => require("./getSoftwarePackageVersion"));
 
+export { GetStreamArgs, GetStreamResult, GetStreamOutputArgs } from "./getStream";
+export const getStream: typeof import("./getStream").getStream = null as any;
+export const getStreamOutput: typeof import("./getStream").getStreamOutput = null as any;
+utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
+
 export { GetThingArgs, GetThingResult, GetThingOutputArgs } from "./getThing";
 export const getThing: typeof import("./getThing").getThing = null as any;
 export const getThingOutput: typeof import("./getThing").getThingOutput = null as any;
@@ -270,6 +275,11 @@ export type SoftwarePackageVersion = import("./softwarePackageVersion").Software
 export const SoftwarePackageVersion: typeof import("./softwarePackageVersion").SoftwarePackageVersion = null as any;
 utilities.lazyLoad(exports, ["SoftwarePackageVersion"], () => require("./softwarePackageVersion"));
 
+export { StreamArgs } from "./stream";
+export type Stream = import("./stream").Stream;
+export const Stream: typeof import("./stream").Stream = null as any;
+utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+
 export { ThingArgs } from "./thing";
 export type Thing = import("./thing").Thing;
 export const Thing: typeof import("./thing").Thing = null as any;
@@ -351,6 +361,8 @@ const _module = {
                 return new SoftwarePackage(name, <any>undefined, { urn })
             case "aws-native:iot:SoftwarePackageVersion":
                 return new SoftwarePackageVersion(name, <any>undefined, { urn })
+            case "aws-native:iot:Stream":
+                return new Stream(name, <any>undefined, { urn })
             case "aws-native:iot:Thing":
                 return new Thing(name, <any>undefined, { urn })
             case "aws-native:iot:ThingGroup":

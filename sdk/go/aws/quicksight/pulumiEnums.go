@@ -50974,6 +50974,175 @@ func (in *knowledgeBaseVideoExtractionTypePtr) ToKnowledgeBaseVideoExtractionTyp
 	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseVideoExtractionTypePtrOutput)
 }
 
+type LimitsProfileLimitUnit string
+
+const (
+	LimitsProfileLimitUnitMb    = LimitsProfileLimitUnit("MB")
+	LimitsProfileLimitUnitGb    = LimitsProfileLimitUnit("GB")
+	LimitsProfileLimitUnitHours = LimitsProfileLimitUnit("HOURS")
+	LimitsProfileLimitUnitDays  = LimitsProfileLimitUnit("DAYS")
+)
+
+func (LimitsProfileLimitUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*LimitsProfileLimitUnit)(nil)).Elem()
+}
+
+func (e LimitsProfileLimitUnit) ToLimitsProfileLimitUnitOutput() LimitsProfileLimitUnitOutput {
+	return pulumi.ToOutput(e).(LimitsProfileLimitUnitOutput)
+}
+
+func (e LimitsProfileLimitUnit) ToLimitsProfileLimitUnitOutputWithContext(ctx context.Context) LimitsProfileLimitUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LimitsProfileLimitUnitOutput)
+}
+
+func (e LimitsProfileLimitUnit) ToLimitsProfileLimitUnitPtrOutput() LimitsProfileLimitUnitPtrOutput {
+	return e.ToLimitsProfileLimitUnitPtrOutputWithContext(context.Background())
+}
+
+func (e LimitsProfileLimitUnit) ToLimitsProfileLimitUnitPtrOutputWithContext(ctx context.Context) LimitsProfileLimitUnitPtrOutput {
+	return LimitsProfileLimitUnit(e).ToLimitsProfileLimitUnitOutputWithContext(ctx).ToLimitsProfileLimitUnitPtrOutputWithContext(ctx)
+}
+
+func (e LimitsProfileLimitUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LimitsProfileLimitUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LimitsProfileLimitUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LimitsProfileLimitUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LimitsProfileLimitUnitOutput struct{ *pulumi.OutputState }
+
+func (LimitsProfileLimitUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LimitsProfileLimitUnit)(nil)).Elem()
+}
+
+func (o LimitsProfileLimitUnitOutput) ToLimitsProfileLimitUnitOutput() LimitsProfileLimitUnitOutput {
+	return o
+}
+
+func (o LimitsProfileLimitUnitOutput) ToLimitsProfileLimitUnitOutputWithContext(ctx context.Context) LimitsProfileLimitUnitOutput {
+	return o
+}
+
+func (o LimitsProfileLimitUnitOutput) ToLimitsProfileLimitUnitPtrOutput() LimitsProfileLimitUnitPtrOutput {
+	return o.ToLimitsProfileLimitUnitPtrOutputWithContext(context.Background())
+}
+
+func (o LimitsProfileLimitUnitOutput) ToLimitsProfileLimitUnitPtrOutputWithContext(ctx context.Context) LimitsProfileLimitUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LimitsProfileLimitUnit) *LimitsProfileLimitUnit {
+		return &v
+	}).(LimitsProfileLimitUnitPtrOutput)
+}
+
+func (o LimitsProfileLimitUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LimitsProfileLimitUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LimitsProfileLimitUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LimitsProfileLimitUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LimitsProfileLimitUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LimitsProfileLimitUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LimitsProfileLimitUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (LimitsProfileLimitUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LimitsProfileLimitUnit)(nil)).Elem()
+}
+
+func (o LimitsProfileLimitUnitPtrOutput) ToLimitsProfileLimitUnitPtrOutput() LimitsProfileLimitUnitPtrOutput {
+	return o
+}
+
+func (o LimitsProfileLimitUnitPtrOutput) ToLimitsProfileLimitUnitPtrOutputWithContext(ctx context.Context) LimitsProfileLimitUnitPtrOutput {
+	return o
+}
+
+func (o LimitsProfileLimitUnitPtrOutput) Elem() LimitsProfileLimitUnitOutput {
+	return o.ApplyT(func(v *LimitsProfileLimitUnit) LimitsProfileLimitUnit {
+		if v != nil {
+			return *v
+		}
+		var ret LimitsProfileLimitUnit
+		return ret
+	}).(LimitsProfileLimitUnitOutput)
+}
+
+func (o LimitsProfileLimitUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LimitsProfileLimitUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LimitsProfileLimitUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LimitsProfileLimitUnitInput is an input type that accepts values of the LimitsProfileLimitUnit enum
+// A concrete instance of `LimitsProfileLimitUnitInput` can be one of the following:
+//
+//	LimitsProfileLimitUnitMb
+//	LimitsProfileLimitUnitGb
+//	LimitsProfileLimitUnitHours
+//	LimitsProfileLimitUnitDays
+type LimitsProfileLimitUnitInput interface {
+	pulumi.Input
+
+	ToLimitsProfileLimitUnitOutput() LimitsProfileLimitUnitOutput
+	ToLimitsProfileLimitUnitOutputWithContext(context.Context) LimitsProfileLimitUnitOutput
+}
+
+var limitsProfileLimitUnitPtrType = reflect.TypeOf((**LimitsProfileLimitUnit)(nil)).Elem()
+
+type LimitsProfileLimitUnitPtrInput interface {
+	pulumi.Input
+
+	ToLimitsProfileLimitUnitPtrOutput() LimitsProfileLimitUnitPtrOutput
+	ToLimitsProfileLimitUnitPtrOutputWithContext(context.Context) LimitsProfileLimitUnitPtrOutput
+}
+
+type limitsProfileLimitUnitPtr string
+
+func LimitsProfileLimitUnitPtr(v string) LimitsProfileLimitUnitPtrInput {
+	return (*limitsProfileLimitUnitPtr)(&v)
+}
+
+func (*limitsProfileLimitUnitPtr) ElementType() reflect.Type {
+	return limitsProfileLimitUnitPtrType
+}
+
+func (in *limitsProfileLimitUnitPtr) ToLimitsProfileLimitUnitPtrOutput() LimitsProfileLimitUnitPtrOutput {
+	return pulumi.ToOutput(in).(LimitsProfileLimitUnitPtrOutput)
+}
+
+func (in *limitsProfileLimitUnitPtr) ToLimitsProfileLimitUnitPtrOutputWithContext(ctx context.Context) LimitsProfileLimitUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LimitsProfileLimitUnitPtrOutput)
+}
+
 type OAuthClientApplicationDataSourceType string
 
 const (
@@ -77529,6 +77698,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionStatusPtrInput)(nil)).Elem(), KnowledgeBaseVideoExtractionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionTypeInput)(nil)).Elem(), KnowledgeBaseVideoExtractionType("AUDIO_TRANSCRIPTION_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionTypePtrInput)(nil)).Elem(), KnowledgeBaseVideoExtractionType("AUDIO_TRANSCRIPTION_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LimitsProfileLimitUnitInput)(nil)).Elem(), LimitsProfileLimitUnit("MB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LimitsProfileLimitUnitPtrInput)(nil)).Elem(), LimitsProfileLimitUnit("MB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationDataSourceTypeInput)(nil)).Elem(), OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationDataSourceTypePtrInput)(nil)).Elem(), OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationOAuthClientAuthenticationTypeInput)(nil)).Elem(), OAuthClientApplicationOAuthClientAuthenticationType("TOKEN"))
@@ -78445,6 +78616,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionStatusPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionTypePtrOutput{})
+	pulumi.RegisterOutputType(LimitsProfileLimitUnitOutput{})
+	pulumi.RegisterOutputType(LimitsProfileLimitUnitPtrOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationDataSourceTypeOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationDataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationOAuthClientAuthenticationTypeOutput{})

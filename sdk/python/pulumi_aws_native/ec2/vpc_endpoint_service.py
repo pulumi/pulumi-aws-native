@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['VpcEndpointServiceArgs', 'VpcEndpointService']
 
@@ -27,6 +29,8 @@ class VpcEndpointServiceArgs:
                  gateway_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name_configuration: pulumi.Input[Optional['VpcEndpointServicePrivateDnsNameConfigurationArgs']] = None,
                  supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
                  supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -52,6 +56,10 @@ class VpcEndpointServiceArgs:
             pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
         if payer_responsibility is not None:
             pulumi.set(__self__, "payer_responsibility", payer_responsibility)
+        if private_dns_name is not None:
+            pulumi.set(__self__, "private_dns_name", private_dns_name)
+        if private_dns_name_configuration is not None:
+            pulumi.set(__self__, "private_dns_name_configuration", private_dns_name_configuration)
         if supported_ip_address_types is not None:
             pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
         if supported_regions is not None:
@@ -120,6 +128,24 @@ class VpcEndpointServiceArgs:
         pulumi.set(self, "payer_responsibility", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateDnsName")
+    def private_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "private_dns_name")
+
+    @private_dns_name.setter
+    def private_dns_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_dns_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsNameConfiguration")
+    def private_dns_name_configuration(self) -> pulumi.Input[Optional['VpcEndpointServicePrivateDnsNameConfigurationArgs']]:
+        return pulumi.get(self, "private_dns_name_configuration")
+
+    @private_dns_name_configuration.setter
+    def private_dns_name_configuration(self, value: pulumi.Input[Optional['VpcEndpointServicePrivateDnsNameConfigurationArgs']]):
+        pulumi.set(self, "private_dns_name_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]]:
         """
@@ -167,6 +193,8 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name_configuration: pulumi.Input[Optional[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]] = None,
                  supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
                  supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -214,6 +242,8 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_load_balancer_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  payer_responsibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_name_configuration: pulumi.Input[Optional[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]] = None,
                  supported_ip_address_types: pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointServiceIpAddressType']]]] = None,
                  supported_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -231,6 +261,8 @@ class VpcEndpointService(pulumi.CustomResource):
             __props__.__dict__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["payer_responsibility"] = payer_responsibility
+            __props__.__dict__["private_dns_name"] = private_dns_name
+            __props__.__dict__["private_dns_name_configuration"] = private_dns_name_configuration
             __props__.__dict__["supported_ip_address_types"] = supported_ip_address_types
             __props__.__dict__["supported_regions"] = supported_regions
             __props__.__dict__["tags"] = tags
@@ -262,6 +294,8 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__.__dict__["gateway_load_balancer_arns"] = None
         __props__.__dict__["network_load_balancer_arns"] = None
         __props__.__dict__["payer_responsibility"] = None
+        __props__.__dict__["private_dns_name"] = None
+        __props__.__dict__["private_dns_name_configuration"] = None
         __props__.__dict__["service_id"] = None
         __props__.__dict__["supported_ip_address_types"] = None
         __props__.__dict__["supported_regions"] = None
@@ -307,6 +341,16 @@ class VpcEndpointService(pulumi.CustomResource):
         The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
         """
         return pulumi.get(self, "payer_responsibility")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsName")
+    def private_dns_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "private_dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsNameConfiguration")
+    def private_dns_name_configuration(self) -> pulumi.Output[Optional['outputs.VpcEndpointServicePrivateDnsNameConfiguration']]:
+        return pulumi.get(self, "private_dns_name_configuration")
 
     @_builtins.property
     @pulumi.getter(name="serviceId")

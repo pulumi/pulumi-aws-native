@@ -1233,6 +1233,278 @@ namespace Pulumi.AwsNative.Connect
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct MetricAvailableFilterType : IEquatable<MetricAvailableFilterType>
+    {
+        private readonly string _value;
+
+        private MetricAvailableFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricAvailableFilterType MetricLevel { get; } = new MetricAvailableFilterType("METRIC_LEVEL");
+        public static MetricAvailableFilterType ResourceLevel { get; } = new MetricAvailableFilterType("RESOURCE_LEVEL");
+
+        public static bool operator ==(MetricAvailableFilterType left, MetricAvailableFilterType right) => left.Equals(right);
+        public static bool operator !=(MetricAvailableFilterType left, MetricAvailableFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(MetricAvailableFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricAvailableFilterType other && Equals(other);
+        public bool Equals(MetricAvailableFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the metric was built with the guided Service Level (SL) experience, or with the free-form metric builder
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricCreationMethod : IEquatable<MetricCreationMethod>
+    {
+        private readonly string _value;
+
+        private MetricCreationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricCreationMethod ServiceLevelBuilder { get; } = new MetricCreationMethod("SERVICE_LEVEL_BUILDER");
+        public static MetricCreationMethod MetricBuilder { get; } = new MetricCreationMethod("METRIC_BUILDER");
+
+        public static bool operator ==(MetricCreationMethod left, MetricCreationMethod right) => left.Equals(right);
+        public static bool operator !=(MetricCreationMethod left, MetricCreationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(MetricCreationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricCreationMethod other && Equals(other);
+        public bool Equals(MetricCreationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MetricFilterBooleanConditionComparison : IEquatable<MetricFilterBooleanConditionComparison>
+    {
+        private readonly string _value;
+
+        private MetricFilterBooleanConditionComparison(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricFilterBooleanConditionComparison IsTrue { get; } = new MetricFilterBooleanConditionComparison("IS_TRUE");
+        public static MetricFilterBooleanConditionComparison IsFalse { get; } = new MetricFilterBooleanConditionComparison("IS_FALSE");
+
+        public static bool operator ==(MetricFilterBooleanConditionComparison left, MetricFilterBooleanConditionComparison right) => left.Equals(right);
+        public static bool operator !=(MetricFilterBooleanConditionComparison left, MetricFilterBooleanConditionComparison right) => !left.Equals(right);
+
+        public static explicit operator string(MetricFilterBooleanConditionComparison value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricFilterBooleanConditionComparison other && Equals(other);
+        public bool Equals(MetricFilterBooleanConditionComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MetricFilterNumberConditionComparison : IEquatable<MetricFilterNumberConditionComparison>
+    {
+        private readonly string _value;
+
+        private MetricFilterNumberConditionComparison(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricFilterNumberConditionComparison Lesser { get; } = new MetricFilterNumberConditionComparison("LESSER");
+        public static MetricFilterNumberConditionComparison LesserOrEqual { get; } = new MetricFilterNumberConditionComparison("LESSER_OR_EQUAL");
+        public static MetricFilterNumberConditionComparison Greater { get; } = new MetricFilterNumberConditionComparison("GREATER");
+        public static MetricFilterNumberConditionComparison GreaterOrEqual { get; } = new MetricFilterNumberConditionComparison("GREATER_OR_EQUAL");
+
+        public static bool operator ==(MetricFilterNumberConditionComparison left, MetricFilterNumberConditionComparison right) => left.Equals(right);
+        public static bool operator !=(MetricFilterNumberConditionComparison left, MetricFilterNumberConditionComparison right) => !left.Equals(right);
+
+        public static explicit operator string(MetricFilterNumberConditionComparison value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricFilterNumberConditionComparison other && Equals(other);
+        public bool Equals(MetricFilterNumberConditionComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MetricFilterStringConditionComparison : IEquatable<MetricFilterStringConditionComparison>
+    {
+        private readonly string _value;
+
+        private MetricFilterStringConditionComparison(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricFilterStringConditionComparison MatchesAny { get; } = new MetricFilterStringConditionComparison("MATCHES_ANY");
+        public static MetricFilterStringConditionComparison MatchesNone { get; } = new MetricFilterStringConditionComparison("MATCHES_NONE");
+
+        public static bool operator ==(MetricFilterStringConditionComparison left, MetricFilterStringConditionComparison right) => left.Equals(right);
+        public static bool operator !=(MetricFilterStringConditionComparison left, MetricFilterStringConditionComparison right) => !left.Equals(right);
+
+        public static explicit operator string(MetricFilterStringConditionComparison value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricFilterStringConditionComparison other && Equals(other);
+        public bool Equals(MetricFilterStringConditionComparison other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates how to classify a positive trend in metric data on the UI
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricPositiveTrendIndicator : IEquatable<MetricPositiveTrendIndicator>
+    {
+        private readonly string _value;
+
+        private MetricPositiveTrendIndicator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricPositiveTrendIndicator Positive { get; } = new MetricPositiveTrendIndicator("POSITIVE");
+        public static MetricPositiveTrendIndicator Negative { get; } = new MetricPositiveTrendIndicator("NEGATIVE");
+        public static MetricPositiveTrendIndicator Neutral { get; } = new MetricPositiveTrendIndicator("NEUTRAL");
+
+        public static bool operator ==(MetricPositiveTrendIndicator left, MetricPositiveTrendIndicator right) => left.Equals(right);
+        public static bool operator !=(MetricPositiveTrendIndicator left, MetricPositiveTrendIndicator right) => !left.Equals(right);
+
+        public static explicit operator string(MetricPositiveTrendIndicator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricPositiveTrendIndicator other && Equals(other);
+        public bool Equals(MetricPositiveTrendIndicator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the custom metric
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricStatus : IEquatable<MetricStatus>
+    {
+        private readonly string _value;
+
+        private MetricStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricStatus Saved { get; } = new MetricStatus("SAVED");
+        public static MetricStatus Published { get; } = new MetricStatus("PUBLISHED");
+
+        public static bool operator ==(MetricStatus left, MetricStatus right) => left.Equals(right);
+        public static bool operator !=(MetricStatus left, MetricStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MetricStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricStatus other && Equals(other);
+        public bool Equals(MetricStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the metric is provided out-of-the-box or created by each customer
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricType : IEquatable<MetricType>
+    {
+        private readonly string _value;
+
+        private MetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricType AwsManaged { get; } = new MetricType("AWS_MANAGED");
+        public static MetricType CustomerManaged { get; } = new MetricType("CUSTOMER_MANAGED");
+
+        public static bool operator ==(MetricType left, MetricType right) => left.Equals(right);
+        public static bool operator !=(MetricType left, MetricType right) => !left.Equals(right);
+
+        public static explicit operator string(MetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricType other && Equals(other);
+        public bool Equals(MetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Display unit for the metric data
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricUnit : IEquatable<MetricUnit>
+    {
+        private readonly string _value;
+
+        private MetricUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricUnit Integer { get; } = new MetricUnit("INTEGER");
+        public static MetricUnit Double { get; } = new MetricUnit("DOUBLE");
+        public static MetricUnit Percent { get; } = new MetricUnit("PERCENT");
+        public static MetricUnit Seconds { get; } = new MetricUnit("SECONDS");
+
+        public static bool operator ==(MetricUnit left, MetricUnit right) => left.Equals(right);
+        public static bool operator !=(MetricUnit left, MetricUnit right) => !left.Equals(right);
+
+        public static explicit operator string(MetricUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricUnit other && Equals(other);
+        public bool Equals(MetricUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The priority of notification. In the Amazon Connect console, when you create a notification, you are prompted to assign one of the following priorities: High (HIGH) or LOW (LOW)
     /// </summary>

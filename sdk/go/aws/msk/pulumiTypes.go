@@ -9079,6 +9079,8 @@ func (o ReplicatorKafkaClusterArrayOutput) Index(i pulumi.IntInput) ReplicatorKa
 type ReplicatorKafkaClusterClientAuthentication struct {
 	// Details for mTLS client authentication.
 	Mtls *ReplicatorKafkaClusterMtlsAuthentication `pulumi:"mtls"`
+	// Details for client authentication using SASL/OAUTHBEARER.
+	SaslOAuthBearer *ReplicatorKafkaClusterSaslOAuthBearerAuthentication `pulumi:"saslOAuthBearer"`
 	// Details for SASL/SCRAM client authentication.
 	SaslScram *ReplicatorKafkaClusterSaslScramAuthentication `pulumi:"saslScram"`
 }
@@ -9098,6 +9100,8 @@ type ReplicatorKafkaClusterClientAuthenticationInput interface {
 type ReplicatorKafkaClusterClientAuthenticationArgs struct {
 	// Details for mTLS client authentication.
 	Mtls ReplicatorKafkaClusterMtlsAuthenticationPtrInput `pulumi:"mtls"`
+	// Details for client authentication using SASL/OAUTHBEARER.
+	SaslOAuthBearer ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrInput `pulumi:"saslOAuthBearer"`
 	// Details for SASL/SCRAM client authentication.
 	SaslScram ReplicatorKafkaClusterSaslScramAuthenticationPtrInput `pulumi:"saslScram"`
 }
@@ -9187,6 +9191,13 @@ func (o ReplicatorKafkaClusterClientAuthenticationOutput) Mtls() ReplicatorKafka
 	}).(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput)
 }
 
+// Details for client authentication using SASL/OAUTHBEARER.
+func (o ReplicatorKafkaClusterClientAuthenticationOutput) SaslOAuthBearer() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterSaslOAuthBearerAuthentication {
+		return v.SaslOAuthBearer
+	}).(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput)
+}
+
 // Details for SASL/SCRAM client authentication.
 func (o ReplicatorKafkaClusterClientAuthenticationOutput) SaslScram() ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput {
 	return o.ApplyT(func(v ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterSaslScramAuthentication {
@@ -9226,6 +9237,16 @@ func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) Mtls() ReplicatorKa
 		}
 		return v.Mtls
 	}).(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput)
+}
+
+// Details for client authentication using SASL/OAUTHBEARER.
+func (o ReplicatorKafkaClusterClientAuthenticationPtrOutput) SaslOAuthBearer() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterClientAuthentication) *ReplicatorKafkaClusterSaslOAuthBearerAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.SaslOAuthBearer
+	}).(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput)
 }
 
 // Details for SASL/SCRAM client authentication.
@@ -9695,6 +9716,770 @@ func (o ReplicatorKafkaClusterMtlsAuthenticationPtrOutput) SecretArn() pulumi.St
 			return nil
 		}
 		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using the standard client_credentials grant. The referenced secret must contain client_id and client_secret.
+type ReplicatorKafkaClusterOAuthClientCredentials struct {
+	// Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+	TokenRequestSecretArn string `pulumi:"tokenRequestSecretArn"`
+}
+
+// ReplicatorKafkaClusterOAuthClientCredentialsInput is an input type that accepts ReplicatorKafkaClusterOAuthClientCredentialsArgs and ReplicatorKafkaClusterOAuthClientCredentialsOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterOAuthClientCredentialsInput` via:
+//
+//	ReplicatorKafkaClusterOAuthClientCredentialsArgs{...}
+type ReplicatorKafkaClusterOAuthClientCredentialsInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterOAuthClientCredentialsOutput() ReplicatorKafkaClusterOAuthClientCredentialsOutput
+	ToReplicatorKafkaClusterOAuthClientCredentialsOutputWithContext(context.Context) ReplicatorKafkaClusterOAuthClientCredentialsOutput
+}
+
+// Details for SASL/OAUTHBEARER using the standard client_credentials grant. The referenced secret must contain client_id and client_secret.
+type ReplicatorKafkaClusterOAuthClientCredentialsArgs struct {
+	// Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+	TokenRequestSecretArn pulumi.StringInput `pulumi:"tokenRequestSecretArn"`
+}
+
+func (ReplicatorKafkaClusterOAuthClientCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentials)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsArgs) ToReplicatorKafkaClusterOAuthClientCredentialsOutput() ReplicatorKafkaClusterOAuthClientCredentialsOutput {
+	return i.ToReplicatorKafkaClusterOAuthClientCredentialsOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsArgs) ToReplicatorKafkaClusterOAuthClientCredentialsOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthClientCredentialsOutput)
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsArgs) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return i.ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsArgs) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthClientCredentialsOutput).ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterOAuthClientCredentialsPtrInput is an input type that accepts ReplicatorKafkaClusterOAuthClientCredentialsArgs, ReplicatorKafkaClusterOAuthClientCredentialsPtr and ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterOAuthClientCredentialsPtrInput` via:
+//
+//	        ReplicatorKafkaClusterOAuthClientCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterOAuthClientCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput
+	ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(context.Context) ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput
+}
+
+type replicatorKafkaClusterOAuthClientCredentialsPtrType ReplicatorKafkaClusterOAuthClientCredentialsArgs
+
+func ReplicatorKafkaClusterOAuthClientCredentialsPtr(v *ReplicatorKafkaClusterOAuthClientCredentialsArgs) ReplicatorKafkaClusterOAuthClientCredentialsPtrInput {
+	return (*replicatorKafkaClusterOAuthClientCredentialsPtrType)(v)
+}
+
+func (*replicatorKafkaClusterOAuthClientCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterOAuthClientCredentials)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterOAuthClientCredentialsPtrType) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return i.ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterOAuthClientCredentialsPtrType) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using the standard client_credentials grant. The referenced secret must contain client_id and client_secret.
+type ReplicatorKafkaClusterOAuthClientCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterOAuthClientCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentials)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsOutput) ToReplicatorKafkaClusterOAuthClientCredentialsOutput() ReplicatorKafkaClusterOAuthClientCredentialsOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsOutput) ToReplicatorKafkaClusterOAuthClientCredentialsOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsOutput) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return o.ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsOutput) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterOAuthClientCredentials) *ReplicatorKafkaClusterOAuthClientCredentials {
+		return &v
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput)
+}
+
+// Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsOutput) TokenRequestSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterOAuthClientCredentials) string { return v.TokenRequestSecretArn }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterOAuthClientCredentials)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput) ToReplicatorKafkaClusterOAuthClientCredentialsPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput) Elem() ReplicatorKafkaClusterOAuthClientCredentialsOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthClientCredentials) ReplicatorKafkaClusterOAuthClientCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterOAuthClientCredentials
+		return ret
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsOutput)
+}
+
+// Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput) TokenRequestSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthClientCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenRequestSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using the client credentials grant with a JWT client assertion (RFC 7521/7523 Section 2.2). An STS-vended JWT is used as the client_assertion.
+type ReplicatorKafkaClusterOAuthClientCredentialsAssertion struct {
+	// The audience (aud claim) set in the STS JWT client assertion.
+	Audience string `pulumi:"audience"`
+	// The algorithm used to sign the JWT client assertion.
+	SigningAlgorithm ReplicatorJwtSigningAlgorithm `pulumi:"signingAlgorithm"`
+	// Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+	TokenRequestSecretArn *string `pulumi:"tokenRequestSecretArn"`
+}
+
+// ReplicatorKafkaClusterOAuthClientCredentialsAssertionInput is an input type that accepts ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs and ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterOAuthClientCredentialsAssertionInput` via:
+//
+//	ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs{...}
+type ReplicatorKafkaClusterOAuthClientCredentialsAssertionInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput
+	ToReplicatorKafkaClusterOAuthClientCredentialsAssertionOutputWithContext(context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput
+}
+
+// Details for SASL/OAUTHBEARER using the client credentials grant with a JWT client assertion (RFC 7521/7523 Section 2.2). An STS-vended JWT is used as the client_assertion.
+type ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs struct {
+	// The audience (aud claim) set in the STS JWT client assertion.
+	Audience pulumi.StringInput `pulumi:"audience"`
+	// The algorithm used to sign the JWT client assertion.
+	SigningAlgorithm ReplicatorJwtSigningAlgorithmInput `pulumi:"signingAlgorithm"`
+	// Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+	TokenRequestSecretArn pulumi.StringPtrInput `pulumi:"tokenRequestSecretArn"`
+}
+
+func (ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentialsAssertion)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput {
+	return i.ToReplicatorKafkaClusterOAuthClientCredentialsAssertionOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput)
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return i.ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput).ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrInput is an input type that accepts ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs, ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtr and ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrInput` via:
+//
+//	        ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput
+	ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput
+}
+
+type replicatorKafkaClusterOAuthClientCredentialsAssertionPtrType ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs
+
+func ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtr(v *ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs) ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrInput {
+	return (*replicatorKafkaClusterOAuthClientCredentialsAssertionPtrType)(v)
+}
+
+func (*replicatorKafkaClusterOAuthClientCredentialsAssertionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterOAuthClientCredentialsAssertion)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterOAuthClientCredentialsAssertionPtrType) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return i.ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterOAuthClientCredentialsAssertionPtrType) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using the client credentials grant with a JWT client assertion (RFC 7521/7523 Section 2.2). An STS-vended JWT is used as the client_assertion.
+type ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentialsAssertion)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return o.ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterOAuthClientCredentialsAssertion) *ReplicatorKafkaClusterOAuthClientCredentialsAssertion {
+		return &v
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput)
+}
+
+// The audience (aud claim) set in the STS JWT client assertion.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterOAuthClientCredentialsAssertion) string { return v.Audience }).(pulumi.StringOutput)
+}
+
+// The algorithm used to sign the JWT client assertion.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) SigningAlgorithm() ReplicatorJwtSigningAlgorithmOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterOAuthClientCredentialsAssertion) ReplicatorJwtSigningAlgorithm {
+		return v.SigningAlgorithm
+	}).(ReplicatorJwtSigningAlgorithmOutput)
+}
+
+// Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput) TokenRequestSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterOAuthClientCredentialsAssertion) *string { return v.TokenRequestSecretArn }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterOAuthClientCredentialsAssertion)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput() ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput) ToReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput) Elem() ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthClientCredentialsAssertion) ReplicatorKafkaClusterOAuthClientCredentialsAssertion {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterOAuthClientCredentialsAssertion
+		return ret
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput)
+}
+
+// The audience (aud claim) set in the STS JWT client assertion.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthClientCredentialsAssertion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The algorithm used to sign the JWT client assertion.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput) SigningAlgorithm() ReplicatorJwtSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthClientCredentialsAssertion) *ReplicatorJwtSigningAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return &v.SigningAlgorithm
+	}).(ReplicatorJwtSigningAlgorithmPtrOutput)
+}
+
+// Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+func (o ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput) TokenRequestSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthClientCredentialsAssertion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenRequestSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using the JWT Bearer assertion grant (RFC 7523). An STS-vended JWT is used as the assertion.
+type ReplicatorKafkaClusterOAuthIamJwtBearer struct {
+	// The audience (aud claim) set in the STS JWT assertion.
+	Audience string `pulumi:"audience"`
+	// The algorithm used to sign the JWT assertion.
+	SigningAlgorithm ReplicatorJwtSigningAlgorithm `pulumi:"signingAlgorithm"`
+	// Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+	TokenRequestSecretArn *string `pulumi:"tokenRequestSecretArn"`
+}
+
+// ReplicatorKafkaClusterOAuthIamJwtBearerInput is an input type that accepts ReplicatorKafkaClusterOAuthIamJwtBearerArgs and ReplicatorKafkaClusterOAuthIamJwtBearerOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterOAuthIamJwtBearerInput` via:
+//
+//	ReplicatorKafkaClusterOAuthIamJwtBearerArgs{...}
+type ReplicatorKafkaClusterOAuthIamJwtBearerInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterOAuthIamJwtBearerOutput() ReplicatorKafkaClusterOAuthIamJwtBearerOutput
+	ToReplicatorKafkaClusterOAuthIamJwtBearerOutputWithContext(context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerOutput
+}
+
+// Details for SASL/OAUTHBEARER using the JWT Bearer assertion grant (RFC 7523). An STS-vended JWT is used as the assertion.
+type ReplicatorKafkaClusterOAuthIamJwtBearerArgs struct {
+	// The audience (aud claim) set in the STS JWT assertion.
+	Audience pulumi.StringInput `pulumi:"audience"`
+	// The algorithm used to sign the JWT assertion.
+	SigningAlgorithm ReplicatorJwtSigningAlgorithmInput `pulumi:"signingAlgorithm"`
+	// Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+	TokenRequestSecretArn pulumi.StringPtrInput `pulumi:"tokenRequestSecretArn"`
+}
+
+func (ReplicatorKafkaClusterOAuthIamJwtBearerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterOAuthIamJwtBearer)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterOAuthIamJwtBearerArgs) ToReplicatorKafkaClusterOAuthIamJwtBearerOutput() ReplicatorKafkaClusterOAuthIamJwtBearerOutput {
+	return i.ToReplicatorKafkaClusterOAuthIamJwtBearerOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterOAuthIamJwtBearerArgs) ToReplicatorKafkaClusterOAuthIamJwtBearerOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthIamJwtBearerOutput)
+}
+
+func (i ReplicatorKafkaClusterOAuthIamJwtBearerArgs) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput() ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return i.ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterOAuthIamJwtBearerArgs) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthIamJwtBearerOutput).ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterOAuthIamJwtBearerPtrInput is an input type that accepts ReplicatorKafkaClusterOAuthIamJwtBearerArgs, ReplicatorKafkaClusterOAuthIamJwtBearerPtr and ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterOAuthIamJwtBearerPtrInput` via:
+//
+//	        ReplicatorKafkaClusterOAuthIamJwtBearerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterOAuthIamJwtBearerPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput() ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput
+	ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput
+}
+
+type replicatorKafkaClusterOAuthIamJwtBearerPtrType ReplicatorKafkaClusterOAuthIamJwtBearerArgs
+
+func ReplicatorKafkaClusterOAuthIamJwtBearerPtr(v *ReplicatorKafkaClusterOAuthIamJwtBearerArgs) ReplicatorKafkaClusterOAuthIamJwtBearerPtrInput {
+	return (*replicatorKafkaClusterOAuthIamJwtBearerPtrType)(v)
+}
+
+func (*replicatorKafkaClusterOAuthIamJwtBearerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterOAuthIamJwtBearer)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterOAuthIamJwtBearerPtrType) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput() ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return i.ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterOAuthIamJwtBearerPtrType) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using the JWT Bearer assertion grant (RFC 7523). An STS-vended JWT is used as the assertion.
+type ReplicatorKafkaClusterOAuthIamJwtBearerOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterOAuthIamJwtBearerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterOAuthIamJwtBearer)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerOutput) ToReplicatorKafkaClusterOAuthIamJwtBearerOutput() ReplicatorKafkaClusterOAuthIamJwtBearerOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerOutput) ToReplicatorKafkaClusterOAuthIamJwtBearerOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerOutput) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput() ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return o.ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerOutput) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterOAuthIamJwtBearer) *ReplicatorKafkaClusterOAuthIamJwtBearer {
+		return &v
+	}).(ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput)
+}
+
+// The audience (aud claim) set in the STS JWT assertion.
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterOAuthIamJwtBearer) string { return v.Audience }).(pulumi.StringOutput)
+}
+
+// The algorithm used to sign the JWT assertion.
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerOutput) SigningAlgorithm() ReplicatorJwtSigningAlgorithmOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterOAuthIamJwtBearer) ReplicatorJwtSigningAlgorithm {
+		return v.SigningAlgorithm
+	}).(ReplicatorJwtSigningAlgorithmOutput)
+}
+
+// Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerOutput) TokenRequestSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterOAuthIamJwtBearer) *string { return v.TokenRequestSecretArn }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterOAuthIamJwtBearer)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput() ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput) ToReplicatorKafkaClusterOAuthIamJwtBearerPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput) Elem() ReplicatorKafkaClusterOAuthIamJwtBearerOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthIamJwtBearer) ReplicatorKafkaClusterOAuthIamJwtBearer {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterOAuthIamJwtBearer
+		return ret
+	}).(ReplicatorKafkaClusterOAuthIamJwtBearerOutput)
+}
+
+// The audience (aud claim) set in the STS JWT assertion.
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthIamJwtBearer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The algorithm used to sign the JWT assertion.
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput) SigningAlgorithm() ReplicatorJwtSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthIamJwtBearer) *ReplicatorJwtSigningAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return &v.SigningAlgorithm
+	}).(ReplicatorJwtSigningAlgorithmPtrOutput)
+}
+
+// Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+func (o ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput) TokenRequestSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterOAuthIamJwtBearer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenRequestSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for client authentication using SASL/OAUTHBEARER.
+type ReplicatorKafkaClusterSaslOAuthBearerAuthentication struct {
+	// Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+	ClientCredentials *ReplicatorKafkaClusterOAuthClientCredentials `pulumi:"clientCredentials"`
+	// Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+	ClientCredentialsAssertion *ReplicatorKafkaClusterOAuthClientCredentialsAssertion `pulumi:"clientCredentialsAssertion"`
+	// Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+	IamJwtBearer *ReplicatorKafkaClusterOAuthIamJwtBearer `pulumi:"iamJwtBearer"`
+	// OAuth scope to request. Included in the token request if provided.
+	Scope *string `pulumi:"scope"`
+	// How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+	TokenEndpointAuthenticationMethod ReplicatorTokenEndpointAuthenticationMethod `pulumi:"tokenEndpointAuthenticationMethod"`
+	// Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+	TokenEndpointTlsCertificateArn *string `pulumi:"tokenEndpointTlsCertificateArn"`
+	// The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+	TokenEndpointUrl string `pulumi:"tokenEndpointUrl"`
+}
+
+// ReplicatorKafkaClusterSaslOAuthBearerAuthenticationInput is an input type that accepts ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs and ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterSaslOAuthBearerAuthenticationInput` via:
+//
+//	ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs{...}
+type ReplicatorKafkaClusterSaslOAuthBearerAuthenticationInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput
+	ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutputWithContext(context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput
+}
+
+// Details for client authentication using SASL/OAUTHBEARER.
+type ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs struct {
+	// Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+	ClientCredentials ReplicatorKafkaClusterOAuthClientCredentialsPtrInput `pulumi:"clientCredentials"`
+	// Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+	ClientCredentialsAssertion ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrInput `pulumi:"clientCredentialsAssertion"`
+	// Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+	IamJwtBearer ReplicatorKafkaClusterOAuthIamJwtBearerPtrInput `pulumi:"iamJwtBearer"`
+	// OAuth scope to request. Included in the token request if provided.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+	TokenEndpointAuthenticationMethod ReplicatorTokenEndpointAuthenticationMethodInput `pulumi:"tokenEndpointAuthenticationMethod"`
+	// Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+	TokenEndpointTlsCertificateArn pulumi.StringPtrInput `pulumi:"tokenEndpointTlsCertificateArn"`
+	// The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+	TokenEndpointUrl pulumi.StringInput `pulumi:"tokenEndpointUrl"`
+}
+
+func (ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterSaslOAuthBearerAuthentication)(nil)).Elem()
+}
+
+func (i ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput {
+	return i.ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput)
+}
+
+func (i ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput).ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrInput is an input type that accepts ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs, ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtr and ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrInput` via:
+//
+//	        ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput
+	ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput
+}
+
+type replicatorKafkaClusterSaslOAuthBearerAuthenticationPtrType ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs
+
+func ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtr(v *ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrInput {
+	return (*replicatorKafkaClusterSaslOAuthBearerAuthenticationPtrType)(v)
+}
+
+func (*replicatorKafkaClusterSaslOAuthBearerAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterSaslOAuthBearerAuthentication)(nil)).Elem()
+}
+
+func (i *replicatorKafkaClusterSaslOAuthBearerAuthenticationPtrType) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return i.ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorKafkaClusterSaslOAuthBearerAuthenticationPtrType) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput)
+}
+
+// Details for client authentication using SASL/OAUTHBEARER.
+type ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorKafkaClusterSaslOAuthBearerAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return o.ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorKafkaClusterSaslOAuthBearerAuthentication {
+		return &v
+	}).(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) ClientCredentials() ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorKafkaClusterOAuthClientCredentials {
+		return v.ClientCredentials
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) ClientCredentialsAssertion() ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorKafkaClusterOAuthClientCredentialsAssertion {
+		return v.ClientCredentialsAssertion
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) IamJwtBearer() ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorKafkaClusterOAuthIamJwtBearer {
+		return v.IamJwtBearer
+	}).(ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput)
+}
+
+// OAuth scope to request. Included in the token request if provided.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) TokenEndpointAuthenticationMethod() ReplicatorTokenEndpointAuthenticationMethodOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) ReplicatorTokenEndpointAuthenticationMethod {
+		return v.TokenEndpointAuthenticationMethod
+	}).(ReplicatorTokenEndpointAuthenticationMethodOutput)
+}
+
+// Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) TokenEndpointTlsCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *string {
+		return v.TokenEndpointTlsCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput) TokenEndpointUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatorKafkaClusterSaslOAuthBearerAuthentication) string { return v.TokenEndpointUrl }).(pulumi.StringOutput)
+}
+
+type ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorKafkaClusterSaslOAuthBearerAuthentication)(nil)).Elem()
+}
+
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) ToReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutputWithContext(ctx context.Context) ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput {
+	return o
+}
+
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) Elem() ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) ReplicatorKafkaClusterSaslOAuthBearerAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorKafkaClusterSaslOAuthBearerAuthentication
+		return ret
+	}).(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput)
+}
+
+// Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) ClientCredentials() ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorKafkaClusterOAuthClientCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentials
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) ClientCredentialsAssertion() ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorKafkaClusterOAuthClientCredentialsAssertion {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsAssertion
+	}).(ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput)
+}
+
+// Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) IamJwtBearer() ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorKafkaClusterOAuthIamJwtBearer {
+		if v == nil {
+			return nil
+		}
+		return v.IamJwtBearer
+	}).(ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput)
+}
+
+// OAuth scope to request. Included in the token request if provided.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) TokenEndpointAuthenticationMethod() ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *ReplicatorTokenEndpointAuthenticationMethod {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenEndpointAuthenticationMethod
+	}).(ReplicatorTokenEndpointAuthenticationMethodPtrOutput)
+}
+
+// Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) TokenEndpointTlsCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenEndpointTlsCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+func (o ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput) TokenEndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorKafkaClusterSaslOAuthBearerAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenEndpointUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11150,6 +11935,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitPtrInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterMtlsAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterMtlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterMtlsAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterMtlsAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentialsInput)(nil)).Elem(), ReplicatorKafkaClusterOAuthClientCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentialsPtrInput)(nil)).Elem(), ReplicatorKafkaClusterOAuthClientCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentialsAssertionInput)(nil)).Elem(), ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrInput)(nil)).Elem(), ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterOAuthIamJwtBearerInput)(nil)).Elem(), ReplicatorKafkaClusterOAuthIamJwtBearerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterOAuthIamJwtBearerPtrInput)(nil)).Elem(), ReplicatorKafkaClusterOAuthIamJwtBearerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslOAuthBearerAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthenticationInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramAuthenticationPtrInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
@@ -11294,6 +12087,14 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterMtlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterMtlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterOAuthClientCredentialsOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterOAuthClientCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterOAuthClientCredentialsAssertionOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterOAuthClientCredentialsAssertionPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterOAuthIamJwtBearerOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterOAuthIamJwtBearerPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationOutput{})
+	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslOAuthBearerAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramAuthenticationOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorLogDeliveryOutput{})

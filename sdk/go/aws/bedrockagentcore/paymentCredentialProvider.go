@@ -43,6 +43,7 @@ func NewPaymentCredentialProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CredentialProviderVendor'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"credentialProviderVendor",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)

@@ -2580,6 +2580,668 @@ func (in *playbackConfigurationStreamingMediaFileConditioningPtr) ToPlaybackConf
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput)
 }
 
+// For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+type PrefetchScheduleAvailMatchingCriteriaOperator string
+
+const (
+	PrefetchScheduleAvailMatchingCriteriaOperatorEquals = PrefetchScheduleAvailMatchingCriteriaOperator("EQUALS")
+)
+
+func (PrefetchScheduleAvailMatchingCriteriaOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaOperator)(nil)).Elem()
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToPrefetchScheduleAvailMatchingCriteriaOperatorOutput() PrefetchScheduleAvailMatchingCriteriaOperatorOutput {
+	return pulumi.ToOutput(e).(PrefetchScheduleAvailMatchingCriteriaOperatorOutput)
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToPrefetchScheduleAvailMatchingCriteriaOperatorOutputWithContext(ctx context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrefetchScheduleAvailMatchingCriteriaOperatorOutput)
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput() PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return e.ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(ctx context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return PrefetchScheduleAvailMatchingCriteriaOperator(e).ToPrefetchScheduleAvailMatchingCriteriaOperatorOutputWithContext(ctx).ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(ctx)
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchScheduleAvailMatchingCriteriaOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrefetchScheduleAvailMatchingCriteriaOperatorOutput struct{ *pulumi.OutputState }
+
+func (PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaOperator)(nil)).Elem()
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToPrefetchScheduleAvailMatchingCriteriaOperatorOutput() PrefetchScheduleAvailMatchingCriteriaOperatorOutput {
+	return o
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToPrefetchScheduleAvailMatchingCriteriaOperatorOutputWithContext(ctx context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorOutput {
+	return o
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput() PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return o.ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(ctx context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrefetchScheduleAvailMatchingCriteriaOperator) *PrefetchScheduleAvailMatchingCriteriaOperator {
+		return &v
+	}).(PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput)
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchScheduleAvailMatchingCriteriaOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchScheduleAvailMatchingCriteriaOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefetchScheduleAvailMatchingCriteriaOperator)(nil)).Elem()
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput() PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return o
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(ctx context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return o
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput) Elem() PrefetchScheduleAvailMatchingCriteriaOperatorOutput {
+	return o.ApplyT(func(v *PrefetchScheduleAvailMatchingCriteriaOperator) PrefetchScheduleAvailMatchingCriteriaOperator {
+		if v != nil {
+			return *v
+		}
+		var ret PrefetchScheduleAvailMatchingCriteriaOperator
+		return ret
+	}).(PrefetchScheduleAvailMatchingCriteriaOperatorOutput)
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrefetchScheduleAvailMatchingCriteriaOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrefetchScheduleAvailMatchingCriteriaOperatorInput is an input type that accepts values of the PrefetchScheduleAvailMatchingCriteriaOperator enum
+// A concrete instance of `PrefetchScheduleAvailMatchingCriteriaOperatorInput` can be one of the following:
+//
+//	PrefetchScheduleAvailMatchingCriteriaOperatorEquals
+type PrefetchScheduleAvailMatchingCriteriaOperatorInput interface {
+	pulumi.Input
+
+	ToPrefetchScheduleAvailMatchingCriteriaOperatorOutput() PrefetchScheduleAvailMatchingCriteriaOperatorOutput
+	ToPrefetchScheduleAvailMatchingCriteriaOperatorOutputWithContext(context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorOutput
+}
+
+var prefetchScheduleAvailMatchingCriteriaOperatorPtrType = reflect.TypeOf((**PrefetchScheduleAvailMatchingCriteriaOperator)(nil)).Elem()
+
+type PrefetchScheduleAvailMatchingCriteriaOperatorPtrInput interface {
+	pulumi.Input
+
+	ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput() PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput
+	ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput
+}
+
+type prefetchScheduleAvailMatchingCriteriaOperatorPtr string
+
+func PrefetchScheduleAvailMatchingCriteriaOperatorPtr(v string) PrefetchScheduleAvailMatchingCriteriaOperatorPtrInput {
+	return (*prefetchScheduleAvailMatchingCriteriaOperatorPtr)(&v)
+}
+
+func (*prefetchScheduleAvailMatchingCriteriaOperatorPtr) ElementType() reflect.Type {
+	return prefetchScheduleAvailMatchingCriteriaOperatorPtrType
+}
+
+func (in *prefetchScheduleAvailMatchingCriteriaOperatorPtr) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput() PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return pulumi.ToOutput(in).(PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput)
+}
+
+func (in *prefetchScheduleAvailMatchingCriteriaOperatorPtr) ToPrefetchScheduleAvailMatchingCriteriaOperatorPtrOutputWithContext(ctx context.Context) PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput)
+}
+
+// Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+type PrefetchSchedulePrefetchRetrievalTrafficShapingType string
+
+const (
+	PrefetchSchedulePrefetchRetrievalTrafficShapingTypeRetrievalWindow = PrefetchSchedulePrefetchRetrievalTrafficShapingType("RETRIEVAL_WINDOW")
+	PrefetchSchedulePrefetchRetrievalTrafficShapingTypeTps             = PrefetchSchedulePrefetchRetrievalTrafficShapingType("TPS")
+)
+
+func (PrefetchSchedulePrefetchRetrievalTrafficShapingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchSchedulePrefetchRetrievalTrafficShapingType)(nil)).Elem()
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput {
+	return pulumi.ToOutput(e).(PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput)
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutputWithContext(ctx context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput)
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return e.ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return PrefetchSchedulePrefetchRetrievalTrafficShapingType(e).ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutputWithContext(ctx).ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(ctx)
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchSchedulePrefetchRetrievalTrafficShapingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput struct{ *pulumi.OutputState }
+
+func (PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchSchedulePrefetchRetrievalTrafficShapingType)(nil)).Elem()
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput {
+	return o
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutputWithContext(ctx context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput {
+	return o
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return o.ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrefetchSchedulePrefetchRetrievalTrafficShapingType) *PrefetchSchedulePrefetchRetrievalTrafficShapingType {
+		return &v
+	}).(PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput)
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchSchedulePrefetchRetrievalTrafficShapingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchSchedulePrefetchRetrievalTrafficShapingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefetchSchedulePrefetchRetrievalTrafficShapingType)(nil)).Elem()
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return o
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return o
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput) Elem() PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput {
+	return o.ApplyT(func(v *PrefetchSchedulePrefetchRetrievalTrafficShapingType) PrefetchSchedulePrefetchRetrievalTrafficShapingType {
+		if v != nil {
+			return *v
+		}
+		var ret PrefetchSchedulePrefetchRetrievalTrafficShapingType
+		return ret
+	}).(PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput)
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrefetchSchedulePrefetchRetrievalTrafficShapingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrefetchSchedulePrefetchRetrievalTrafficShapingTypeInput is an input type that accepts values of the PrefetchSchedulePrefetchRetrievalTrafficShapingType enum
+// A concrete instance of `PrefetchSchedulePrefetchRetrievalTrafficShapingTypeInput` can be one of the following:
+//
+//	PrefetchSchedulePrefetchRetrievalTrafficShapingTypeRetrievalWindow
+//	PrefetchSchedulePrefetchRetrievalTrafficShapingTypeTps
+type PrefetchSchedulePrefetchRetrievalTrafficShapingTypeInput interface {
+	pulumi.Input
+
+	ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput
+	ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutputWithContext(context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput
+}
+
+var prefetchSchedulePrefetchRetrievalTrafficShapingTypePtrType = reflect.TypeOf((**PrefetchSchedulePrefetchRetrievalTrafficShapingType)(nil)).Elem()
+
+type PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrInput interface {
+	pulumi.Input
+
+	ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput
+	ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput
+}
+
+type prefetchSchedulePrefetchRetrievalTrafficShapingTypePtr string
+
+func PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtr(v string) PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrInput {
+	return (*prefetchSchedulePrefetchRetrievalTrafficShapingTypePtr)(&v)
+}
+
+func (*prefetchSchedulePrefetchRetrievalTrafficShapingTypePtr) ElementType() reflect.Type {
+	return prefetchSchedulePrefetchRetrievalTrafficShapingTypePtrType
+}
+
+func (in *prefetchSchedulePrefetchRetrievalTrafficShapingTypePtr) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput() PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return pulumi.ToOutput(in).(PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput)
+}
+
+func (in *prefetchSchedulePrefetchRetrievalTrafficShapingTypePtr) ToPrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput)
+}
+
+// Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+type PrefetchScheduleRecurringRetrievalTrafficShapingType string
+
+const (
+	PrefetchScheduleRecurringRetrievalTrafficShapingTypeRetrievalWindow = PrefetchScheduleRecurringRetrievalTrafficShapingType("RETRIEVAL_WINDOW")
+	PrefetchScheduleRecurringRetrievalTrafficShapingTypeTps             = PrefetchScheduleRecurringRetrievalTrafficShapingType("TPS")
+)
+
+func (PrefetchScheduleRecurringRetrievalTrafficShapingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchScheduleRecurringRetrievalTrafficShapingType)(nil)).Elem()
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput {
+	return pulumi.ToOutput(e).(PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput)
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypeOutputWithContext(ctx context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput)
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return e.ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return PrefetchScheduleRecurringRetrievalTrafficShapingType(e).ToPrefetchScheduleRecurringRetrievalTrafficShapingTypeOutputWithContext(ctx).ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(ctx)
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchScheduleRecurringRetrievalTrafficShapingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput struct{ *pulumi.OutputState }
+
+func (PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchScheduleRecurringRetrievalTrafficShapingType)(nil)).Elem()
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput {
+	return o
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypeOutputWithContext(ctx context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput {
+	return o
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return o.ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrefetchScheduleRecurringRetrievalTrafficShapingType) *PrefetchScheduleRecurringRetrievalTrafficShapingType {
+		return &v
+	}).(PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput)
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchScheduleRecurringRetrievalTrafficShapingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchScheduleRecurringRetrievalTrafficShapingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefetchScheduleRecurringRetrievalTrafficShapingType)(nil)).Elem()
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return o
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return o
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput) Elem() PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput {
+	return o.ApplyT(func(v *PrefetchScheduleRecurringRetrievalTrafficShapingType) PrefetchScheduleRecurringRetrievalTrafficShapingType {
+		if v != nil {
+			return *v
+		}
+		var ret PrefetchScheduleRecurringRetrievalTrafficShapingType
+		return ret
+	}).(PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput)
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrefetchScheduleRecurringRetrievalTrafficShapingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrefetchScheduleRecurringRetrievalTrafficShapingTypeInput is an input type that accepts values of the PrefetchScheduleRecurringRetrievalTrafficShapingType enum
+// A concrete instance of `PrefetchScheduleRecurringRetrievalTrafficShapingTypeInput` can be one of the following:
+//
+//	PrefetchScheduleRecurringRetrievalTrafficShapingTypeRetrievalWindow
+//	PrefetchScheduleRecurringRetrievalTrafficShapingTypeTps
+type PrefetchScheduleRecurringRetrievalTrafficShapingTypeInput interface {
+	pulumi.Input
+
+	ToPrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput
+	ToPrefetchScheduleRecurringRetrievalTrafficShapingTypeOutputWithContext(context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput
+}
+
+var prefetchScheduleRecurringRetrievalTrafficShapingTypePtrType = reflect.TypeOf((**PrefetchScheduleRecurringRetrievalTrafficShapingType)(nil)).Elem()
+
+type PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrInput interface {
+	pulumi.Input
+
+	ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput
+	ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput
+}
+
+type prefetchScheduleRecurringRetrievalTrafficShapingTypePtr string
+
+func PrefetchScheduleRecurringRetrievalTrafficShapingTypePtr(v string) PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrInput {
+	return (*prefetchScheduleRecurringRetrievalTrafficShapingTypePtr)(&v)
+}
+
+func (*prefetchScheduleRecurringRetrievalTrafficShapingTypePtr) ElementType() reflect.Type {
+	return prefetchScheduleRecurringRetrievalTrafficShapingTypePtrType
+}
+
+func (in *prefetchScheduleRecurringRetrievalTrafficShapingTypePtr) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput() PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return pulumi.ToOutput(in).(PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput)
+}
+
+func (in *prefetchScheduleRecurringRetrievalTrafficShapingTypePtr) ToPrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput)
+}
+
+// The frequency that MediaTailor creates prefetch schedules.
+type PrefetchScheduleScheduleType string
+
+const (
+	PrefetchScheduleScheduleTypeSingle    = PrefetchScheduleScheduleType("SINGLE")
+	PrefetchScheduleScheduleTypeRecurring = PrefetchScheduleScheduleType("RECURRING")
+)
+
+func (PrefetchScheduleScheduleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchScheduleScheduleType)(nil)).Elem()
+}
+
+func (e PrefetchScheduleScheduleType) ToPrefetchScheduleScheduleTypeOutput() PrefetchScheduleScheduleTypeOutput {
+	return pulumi.ToOutput(e).(PrefetchScheduleScheduleTypeOutput)
+}
+
+func (e PrefetchScheduleScheduleType) ToPrefetchScheduleScheduleTypeOutputWithContext(ctx context.Context) PrefetchScheduleScheduleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrefetchScheduleScheduleTypeOutput)
+}
+
+func (e PrefetchScheduleScheduleType) ToPrefetchScheduleScheduleTypePtrOutput() PrefetchScheduleScheduleTypePtrOutput {
+	return e.ToPrefetchScheduleScheduleTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchScheduleScheduleType) ToPrefetchScheduleScheduleTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleScheduleTypePtrOutput {
+	return PrefetchScheduleScheduleType(e).ToPrefetchScheduleScheduleTypeOutputWithContext(ctx).ToPrefetchScheduleScheduleTypePtrOutputWithContext(ctx)
+}
+
+func (e PrefetchScheduleScheduleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchScheduleScheduleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrefetchScheduleScheduleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrefetchScheduleScheduleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrefetchScheduleScheduleTypeOutput struct{ *pulumi.OutputState }
+
+func (PrefetchScheduleScheduleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrefetchScheduleScheduleType)(nil)).Elem()
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToPrefetchScheduleScheduleTypeOutput() PrefetchScheduleScheduleTypeOutput {
+	return o
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToPrefetchScheduleScheduleTypeOutputWithContext(ctx context.Context) PrefetchScheduleScheduleTypeOutput {
+	return o
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToPrefetchScheduleScheduleTypePtrOutput() PrefetchScheduleScheduleTypePtrOutput {
+	return o.ToPrefetchScheduleScheduleTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToPrefetchScheduleScheduleTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleScheduleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrefetchScheduleScheduleType) *PrefetchScheduleScheduleType {
+		return &v
+	}).(PrefetchScheduleScheduleTypePtrOutput)
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchScheduleScheduleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleScheduleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrefetchScheduleScheduleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrefetchScheduleScheduleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrefetchScheduleScheduleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrefetchScheduleScheduleType)(nil)).Elem()
+}
+
+func (o PrefetchScheduleScheduleTypePtrOutput) ToPrefetchScheduleScheduleTypePtrOutput() PrefetchScheduleScheduleTypePtrOutput {
+	return o
+}
+
+func (o PrefetchScheduleScheduleTypePtrOutput) ToPrefetchScheduleScheduleTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleScheduleTypePtrOutput {
+	return o
+}
+
+func (o PrefetchScheduleScheduleTypePtrOutput) Elem() PrefetchScheduleScheduleTypeOutput {
+	return o.ApplyT(func(v *PrefetchScheduleScheduleType) PrefetchScheduleScheduleType {
+		if v != nil {
+			return *v
+		}
+		var ret PrefetchScheduleScheduleType
+		return ret
+	}).(PrefetchScheduleScheduleTypeOutput)
+}
+
+func (o PrefetchScheduleScheduleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrefetchScheduleScheduleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrefetchScheduleScheduleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrefetchScheduleScheduleTypeInput is an input type that accepts values of the PrefetchScheduleScheduleType enum
+// A concrete instance of `PrefetchScheduleScheduleTypeInput` can be one of the following:
+//
+//	PrefetchScheduleScheduleTypeSingle
+//	PrefetchScheduleScheduleTypeRecurring
+type PrefetchScheduleScheduleTypeInput interface {
+	pulumi.Input
+
+	ToPrefetchScheduleScheduleTypeOutput() PrefetchScheduleScheduleTypeOutput
+	ToPrefetchScheduleScheduleTypeOutputWithContext(context.Context) PrefetchScheduleScheduleTypeOutput
+}
+
+var prefetchScheduleScheduleTypePtrType = reflect.TypeOf((**PrefetchScheduleScheduleType)(nil)).Elem()
+
+type PrefetchScheduleScheduleTypePtrInput interface {
+	pulumi.Input
+
+	ToPrefetchScheduleScheduleTypePtrOutput() PrefetchScheduleScheduleTypePtrOutput
+	ToPrefetchScheduleScheduleTypePtrOutputWithContext(context.Context) PrefetchScheduleScheduleTypePtrOutput
+}
+
+type prefetchScheduleScheduleTypePtr string
+
+func PrefetchScheduleScheduleTypePtr(v string) PrefetchScheduleScheduleTypePtrInput {
+	return (*prefetchScheduleScheduleTypePtr)(&v)
+}
+
+func (*prefetchScheduleScheduleTypePtr) ElementType() reflect.Type {
+	return prefetchScheduleScheduleTypePtrType
+}
+
+func (in *prefetchScheduleScheduleTypePtr) ToPrefetchScheduleScheduleTypePtrOutput() PrefetchScheduleScheduleTypePtrOutput {
+	return pulumi.ToOutput(in).(PrefetchScheduleScheduleTypePtrOutput)
+}
+
+func (in *prefetchScheduleScheduleTypePtr) ToPrefetchScheduleScheduleTypePtrOutputWithContext(ctx context.Context) PrefetchScheduleScheduleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrefetchScheduleScheduleTypePtrOutput)
+}
+
 type SourceLocationAccessType string
 
 const (
@@ -2945,6 +3607,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInsertionModePtrInput)(nil)).Elem(), PlaybackConfigurationInsertionMode("STITCHED_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningPtrInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaOperatorInput)(nil)).Elem(), PrefetchScheduleAvailMatchingCriteriaOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaOperatorPtrInput)(nil)).Elem(), PrefetchScheduleAvailMatchingCriteriaOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchSchedulePrefetchRetrievalTrafficShapingTypeInput)(nil)).Elem(), PrefetchSchedulePrefetchRetrievalTrafficShapingType("RETRIEVAL_WINDOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrInput)(nil)).Elem(), PrefetchSchedulePrefetchRetrievalTrafficShapingType("RETRIEVAL_WINDOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleRecurringRetrievalTrafficShapingTypeInput)(nil)).Elem(), PrefetchScheduleRecurringRetrievalTrafficShapingType("RETRIEVAL_WINDOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrInput)(nil)).Elem(), PrefetchScheduleRecurringRetrievalTrafficShapingType("RETRIEVAL_WINDOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleScheduleTypeInput)(nil)).Elem(), PrefetchScheduleScheduleType("SINGLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleScheduleTypePtrInput)(nil)).Elem(), PrefetchScheduleScheduleType("SINGLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypeInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypePtrInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTypeInput)(nil)).Elem(), VodSourceType("DASH"))
@@ -2981,6 +3651,14 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationInsertionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput{})
+	pulumi.RegisterOutputType(PrefetchScheduleAvailMatchingCriteriaOperatorOutput{})
+	pulumi.RegisterOutputType(PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput{})
+	pulumi.RegisterOutputType(PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput{})
+	pulumi.RegisterOutputType(PrefetchSchedulePrefetchRetrievalTrafficShapingTypePtrOutput{})
+	pulumi.RegisterOutputType(PrefetchScheduleRecurringRetrievalTrafficShapingTypeOutput{})
+	pulumi.RegisterOutputType(PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput{})
+	pulumi.RegisterOutputType(PrefetchScheduleScheduleTypeOutput{})
+	pulumi.RegisterOutputType(PrefetchScheduleScheduleTypePtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessTypeOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(VodSourceTypeOutput{})

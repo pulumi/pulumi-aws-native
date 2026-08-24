@@ -140,6 +140,18 @@ __all__ = [
     'InstanceStorageConfigKinesisVideoStreamConfigArgsDict',
     'InstanceStorageConfigS3ConfigArgs',
     'InstanceStorageConfigS3ConfigArgsDict',
+    'MetricCalculationComponentArgs',
+    'MetricCalculationComponentArgsDict',
+    'MetricCalculationPropertiesArgs',
+    'MetricCalculationPropertiesArgsDict',
+    'MetricFilterArgs',
+    'MetricFilterArgsDict',
+    'MetricFilterBooleanConditionArgs',
+    'MetricFilterBooleanConditionArgsDict',
+    'MetricFilterNumberConditionArgs',
+    'MetricFilterNumberConditionArgsDict',
+    'MetricFilterStringConditionArgs',
+    'MetricFilterStringConditionArgsDict',
     'NotificationContentArgs',
     'NotificationContentArgsDict',
     'QueueEmailAddressArgs',
@@ -4298,6 +4310,277 @@ class InstanceStorageConfigS3ConfigArgs:
     @encryption_config.setter
     def encryption_config(self, value: pulumi.Input[Optional['InstanceStorageConfigEncryptionConfigArgs']]):
         pulumi.set(self, "encryption_config", value)
+
+
+class MetricCalculationComponentArgsDict(TypedDict):
+    alias: pulumi.Input[_builtins.str]
+    """
+    Metric calculation component alias for use within a calculation
+    """
+    metric_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterArgsDict']]]]]
+    metric_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    metric_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class MetricCalculationComponentArgs:
+    def __init__(__self__, *,
+                 alias: pulumi.Input[_builtins.str],
+                 metric_filters: pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterArgs']]]] = None,
+                 metric_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] alias: Metric calculation component alias for use within a calculation
+        """
+        pulumi.set(__self__, "alias", alias)
+        if metric_filters is not None:
+            pulumi.set(__self__, "metric_filters", metric_filters)
+        if metric_id is not None:
+            pulumi.set(__self__, "metric_id", metric_id)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> pulumi.Input[_builtins.str]:
+        """
+        Metric calculation component alias for use within a calculation
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricFilters")
+    def metric_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterArgs']]]]:
+        return pulumi.get(self, "metric_filters")
+
+    @metric_filters.setter
+    def metric_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricFilterArgs']]]]):
+        pulumi.set(self, "metric_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricId")
+    def metric_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "metric_id")
+
+    @metric_id.setter
+    def metric_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metric_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metric_name", value)
+
+
+class MetricCalculationPropertiesArgsDict(TypedDict):
+    """
+    The calculation configuration for the metric
+    """
+    calculation: pulumi.Input[_builtins.str]
+    """
+    The calculation formula
+    """
+    calculation_components: pulumi.Input[Sequence[pulumi.Input['MetricCalculationComponentArgsDict']]]
+    """
+    The calculation components for the metric
+    """
+
+@pulumi.input_type
+class MetricCalculationPropertiesArgs:
+    def __init__(__self__, *,
+                 calculation: pulumi.Input[_builtins.str],
+                 calculation_components: pulumi.Input[Sequence[pulumi.Input['MetricCalculationComponentArgs']]]):
+        """
+        The calculation configuration for the metric
+
+        :param pulumi.Input[_builtins.str] calculation: The calculation formula
+        :param pulumi.Input[Sequence[pulumi.Input['MetricCalculationComponentArgs']]] calculation_components: The calculation components for the metric
+        """
+        pulumi.set(__self__, "calculation", calculation)
+        pulumi.set(__self__, "calculation_components", calculation_components)
+
+    @_builtins.property
+    @pulumi.getter
+    def calculation(self) -> pulumi.Input[_builtins.str]:
+        """
+        The calculation formula
+        """
+        return pulumi.get(self, "calculation")
+
+    @calculation.setter
+    def calculation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "calculation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="calculationComponents")
+    def calculation_components(self) -> pulumi.Input[Sequence[pulumi.Input['MetricCalculationComponentArgs']]]:
+        """
+        The calculation components for the metric
+        """
+        return pulumi.get(self, "calculation_components")
+
+    @calculation_components.setter
+    def calculation_components(self, value: pulumi.Input[Sequence[pulumi.Input['MetricCalculationComponentArgs']]]):
+        pulumi.set(self, "calculation_components", value)
+
+
+class MetricFilterArgsDict(TypedDict):
+    metric_filter_key: pulumi.Input[_builtins.str]
+    boolean_condition: NotRequired[pulumi.Input[Optional['MetricFilterBooleanConditionArgsDict']]]
+    negate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    number_condition: NotRequired[pulumi.Input[Optional['MetricFilterNumberConditionArgsDict']]]
+    string_condition: NotRequired[pulumi.Input[Optional['MetricFilterStringConditionArgsDict']]]
+
+@pulumi.input_type
+class MetricFilterArgs:
+    def __init__(__self__, *,
+                 metric_filter_key: pulumi.Input[_builtins.str],
+                 boolean_condition: pulumi.Input[Optional['MetricFilterBooleanConditionArgs']] = None,
+                 negate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number_condition: pulumi.Input[Optional['MetricFilterNumberConditionArgs']] = None,
+                 string_condition: pulumi.Input[Optional['MetricFilterStringConditionArgs']] = None):
+        pulumi.set(__self__, "metric_filter_key", metric_filter_key)
+        if boolean_condition is not None:
+            pulumi.set(__self__, "boolean_condition", boolean_condition)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+        if number_condition is not None:
+            pulumi.set(__self__, "number_condition", number_condition)
+        if string_condition is not None:
+            pulumi.set(__self__, "string_condition", string_condition)
+
+    @_builtins.property
+    @pulumi.getter(name="metricFilterKey")
+    def metric_filter_key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "metric_filter_key")
+
+    @metric_filter_key.setter
+    def metric_filter_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metric_filter_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanCondition")
+    def boolean_condition(self) -> pulumi.Input[Optional['MetricFilterBooleanConditionArgs']]:
+        return pulumi.get(self, "boolean_condition")
+
+    @boolean_condition.setter
+    def boolean_condition(self, value: pulumi.Input[Optional['MetricFilterBooleanConditionArgs']]):
+        pulumi.set(self, "boolean_condition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def negate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "negate")
+
+    @negate.setter
+    def negate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "negate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberCondition")
+    def number_condition(self) -> pulumi.Input[Optional['MetricFilterNumberConditionArgs']]:
+        return pulumi.get(self, "number_condition")
+
+    @number_condition.setter
+    def number_condition(self, value: pulumi.Input[Optional['MetricFilterNumberConditionArgs']]):
+        pulumi.set(self, "number_condition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringCondition")
+    def string_condition(self) -> pulumi.Input[Optional['MetricFilterStringConditionArgs']]:
+        return pulumi.get(self, "string_condition")
+
+    @string_condition.setter
+    def string_condition(self, value: pulumi.Input[Optional['MetricFilterStringConditionArgs']]):
+        pulumi.set(self, "string_condition", value)
+
+
+class MetricFilterBooleanConditionArgsDict(TypedDict):
+    comparison: pulumi.Input['MetricFilterBooleanConditionComparison']
+
+@pulumi.input_type
+class MetricFilterBooleanConditionArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input['MetricFilterBooleanConditionComparison']):
+        pulumi.set(__self__, "comparison", comparison)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input['MetricFilterBooleanConditionComparison']:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input['MetricFilterBooleanConditionComparison']):
+        pulumi.set(self, "comparison", value)
+
+
+class MetricFilterNumberConditionArgsDict(TypedDict):
+    comparison: pulumi.Input['MetricFilterNumberConditionComparison']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]
+
+@pulumi.input_type
+class MetricFilterNumberConditionArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input['MetricFilterNumberConditionComparison'],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input['MetricFilterNumberConditionComparison']:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input['MetricFilterNumberConditionComparison']):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]):
+        pulumi.set(self, "values", value)
+
+
+class MetricFilterStringConditionArgsDict(TypedDict):
+    comparison: pulumi.Input['MetricFilterStringConditionComparison']
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class MetricFilterStringConditionArgs:
+    def __init__(__self__, *,
+                 comparison: pulumi.Input['MetricFilterStringConditionComparison'],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def comparison(self) -> pulumi.Input['MetricFilterStringConditionComparison']:
+        return pulumi.get(self, "comparison")
+
+    @comparison.setter
+    def comparison(self, value: pulumi.Input['MetricFilterStringConditionComparison']):
+        pulumi.set(self, "comparison", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
 
 
 class NotificationContentArgsDict(TypedDict):

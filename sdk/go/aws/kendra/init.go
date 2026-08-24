@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Faq{}
 	case "aws-native:kendra:Index":
 		r = &Index{}
+	case "aws-native:kendra:QuerySuggestionsBlockList":
+		r = &QuerySuggestionsBlockList{}
+	case "aws-native:kendra:Thesaurus":
+		r = &Thesaurus{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

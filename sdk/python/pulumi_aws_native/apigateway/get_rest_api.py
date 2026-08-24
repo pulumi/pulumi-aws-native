@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRestApiResult:
-    def __init__(__self__, api_key_source_type=None, binary_media_types=None, description=None, disable_execute_api_endpoint=None, endpoint_access_mode=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, rest_api_id=None, root_resource_id=None, security_policy=None, tags=None):
+    def __init__(__self__, api_key_source_type=None, binary_media_types=None, description=None, disable_execute_api_endpoint=None, endpoint_access_mode=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, rest_api_id=None, root_resource_id=None, security_policy=None, tags=None, version=None):
         if api_key_source_type and not isinstance(api_key_source_type, str):
             raise TypeError("Expected argument 'api_key_source_type' to be a str")
         pulumi.set(__self__, "api_key_source_type", api_key_source_type)
@@ -65,6 +65,9 @@ class GetRestApiResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="apiKeySourceType")
@@ -172,6 +175,11 @@ class GetRestApiResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "version")
+
 
 class AwaitableGetRestApiResult(GetRestApiResult):
     # pylint: disable=using-constant-test
@@ -191,7 +199,8 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             rest_api_id=self.rest_api_id,
             root_resource_id=self.root_resource_id,
             security_policy=self.security_policy,
-            tags=self.tags)
+            tags=self.tags,
+            version=self.version)
 
 
 def get_rest_api(rest_api_id: Optional[_builtins.str] = None,
@@ -220,7 +229,8 @@ def get_rest_api(rest_api_id: Optional[_builtins.str] = None,
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
         security_policy=pulumi.get(__ret__, 'security_policy'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 def get_rest_api_output(rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
     """
@@ -246,4 +256,5 @@ def get_rest_api_output(rest_api_id: pulumi.Input[Optional[_builtins.str]] = Non
         rest_api_id=pulumi.get(__response__, 'rest_api_id'),
         root_resource_id=pulumi.get(__response__, 'root_resource_id'),
         security_policy=pulumi.get(__response__, 'security_policy'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

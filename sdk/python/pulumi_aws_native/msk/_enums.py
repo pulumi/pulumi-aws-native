@@ -19,11 +19,13 @@ __all__ = [
     'ClusterRebalancingStatus',
     'ClusterStorageMode',
     'ReplicatorConsumerGroupOffsetSyncMode',
+    'ReplicatorJwtSigningAlgorithm',
     'ReplicatorKafkaClusterEncryptionInTransitType',
     'ReplicatorKafkaClusterSaslScramMechanism',
     'ReplicatorReplicationInfoTargetCompressionType',
     'ReplicatorReplicationStartingPositionType',
     'ReplicatorReplicationTopicNameConfigurationType',
+    'ReplicatorTokenEndpointAuthenticationMethod',
     'VpcConnectionAuthentication',
 ]
 
@@ -147,6 +149,15 @@ class ReplicatorConsumerGroupOffsetSyncMode(_builtins.str, Enum):
     ENHANCED = "ENHANCED"
 
 
+@pulumi.type_token("aws-native:msk:ReplicatorJwtSigningAlgorithm")
+class ReplicatorJwtSigningAlgorithm(_builtins.str, Enum):
+    """
+    The algorithm used to sign the STS JWT assertion.
+    """
+    RS256 = "RS256"
+    ES384 = "ES384"
+
+
 @pulumi.type_token("aws-native:msk:ReplicatorKafkaClusterEncryptionInTransitType")
 class ReplicatorKafkaClusterEncryptionInTransitType(_builtins.str, Enum):
     """
@@ -192,6 +203,16 @@ class ReplicatorReplicationTopicNameConfigurationType(_builtins.str, Enum):
     """
     PREFIXED_WITH_SOURCE_CLUSTER_ALIAS = "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"
     IDENTICAL = "IDENTICAL"
+
+
+@pulumi.type_token("aws-native:msk:ReplicatorTokenEndpointAuthenticationMethod")
+class ReplicatorTokenEndpointAuthenticationMethod(_builtins.str, Enum):
+    """
+    How client credentials are sent to the identity provider's token endpoint.
+    """
+    POST = "POST"
+    BASIC = "BASIC"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:msk:VpcConnectionAuthentication")

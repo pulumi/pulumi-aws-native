@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, control_plane_scaling_config=None, deletion_protection=None, encryption_config_key_arn=None, endpoint=None, id=None, kube_api_server_config=None, kube_controller_manager_config=None, kube_scheduler_config=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, remote_network_config=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, control_plane_scaling_config=None, deletion_protection=None, encryption_config_key_arn=None, endpoint=None, id=None, kube_api_server_config=None, kube_controller_manager_config=None, kube_scheduler_config=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, remote_network_config=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if certificate_authority and not isinstance(certificate_authority, dict):
+            raise TypeError("Expected argument 'certificate_authority' to be a dict")
+        pulumi.set(__self__, "certificate_authority", certificate_authority)
         if certificate_authority_data and not isinstance(certificate_authority_data, str):
             raise TypeError("Expected argument 'certificate_authority_data' to be a str")
         pulumi.set(__self__, "certificate_authority_data", certificate_authority_data)
@@ -112,6 +115,11 @@ class GetClusterResult:
         The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> Optional['outputs.ClusterCertificateAuthority']:
+        return pulumi.get(self, "certificate_authority")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityData")
@@ -283,6 +291,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             access_config=self.access_config,
             arn=self.arn,
+            certificate_authority=self.certificate_authority,
             certificate_authority_data=self.certificate_authority_data,
             cluster_security_group_id=self.cluster_security_group_id,
             compute_config=self.compute_config,
@@ -321,6 +330,7 @@ def get_cluster(name: Optional[_builtins.str] = None,
     return AwaitableGetClusterResult(
         access_config=pulumi.get(__ret__, 'access_config'),
         arn=pulumi.get(__ret__, 'arn'),
+        certificate_authority=pulumi.get(__ret__, 'certificate_authority'),
         certificate_authority_data=pulumi.get(__ret__, 'certificate_authority_data'),
         cluster_security_group_id=pulumi.get(__ret__, 'cluster_security_group_id'),
         compute_config=pulumi.get(__ret__, 'compute_config'),
@@ -356,6 +366,7 @@ def get_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetClusterResult(
         access_config=pulumi.get(__response__, 'access_config'),
         arn=pulumi.get(__response__, 'arn'),
+        certificate_authority=pulumi.get(__response__, 'certificate_authority'),
         certificate_authority_data=pulumi.get(__response__, 'certificate_authority_data'),
         cluster_security_group_id=pulumi.get(__response__, 'cluster_security_group_id'),
         compute_config=pulumi.get(__response__, 'compute_config'),

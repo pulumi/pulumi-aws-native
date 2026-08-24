@@ -77,6 +77,10 @@ export class DatasetGroup extends pulumi.CustomResource {
      * The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a DatasetGroup resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class DatasetGroup extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
@@ -100,9 +105,10 @@ export class DatasetGroup extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domain", "kmsKeyArn", "name", "roleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["domain", "kmsKeyArn", "name", "roleArn", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DatasetGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -128,4 +134,8 @@ export interface DatasetGroupArgs {
      * The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
      */
     roleArn?: pulumi.Input<string | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

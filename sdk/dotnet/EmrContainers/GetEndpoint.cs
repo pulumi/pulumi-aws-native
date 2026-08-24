@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.EmrContainers
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The auth proxy URL for Spark Connect connections.
+        /// </summary>
+        public readonly string? AuthProxyUrl;
+        /// <summary>
         /// The certificate authority for the managed endpoint.
         /// </summary>
         public readonly Outputs.EndpointCertificate? CertificateAuthority;
@@ -108,6 +112,8 @@ namespace Pulumi.AwsNative.EmrContainers
         private GetEndpointResult(
             string? arn,
 
+            string? authProxyUrl,
+
             Outputs.EndpointCertificate? certificateAuthority,
 
             string? createdAt,
@@ -127,6 +133,7 @@ namespace Pulumi.AwsNative.EmrContainers
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            AuthProxyUrl = authProxyUrl;
             CertificateAuthority = certificateAuthority;
             CreatedAt = createdAt;
             FailureReason = failureReason;

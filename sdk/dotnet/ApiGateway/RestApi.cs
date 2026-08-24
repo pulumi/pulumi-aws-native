@@ -753,6 +753,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a RestApi resource with the given unique name, arguments, and options.
@@ -926,6 +929,9 @@ namespace Pulumi.AwsNative.ApiGateway
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public RestApiArgs()
         {

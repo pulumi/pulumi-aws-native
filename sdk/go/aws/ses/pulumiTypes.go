@@ -9469,6 +9469,134 @@ type MultiRegionEndpointTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+type ReceiptFilterFilter struct {
+	// A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+	IpFilter ReceiptFilterIpFilter `pulumi:"ipFilter"`
+	// The name of the IP address filter.
+	Name *string `pulumi:"name"`
+}
+
+// ReceiptFilterFilterInput is an input type that accepts ReceiptFilterFilterArgs and ReceiptFilterFilterOutput values.
+// You can construct a concrete instance of `ReceiptFilterFilterInput` via:
+//
+//	ReceiptFilterFilterArgs{...}
+type ReceiptFilterFilterInput interface {
+	pulumi.Input
+
+	ToReceiptFilterFilterOutput() ReceiptFilterFilterOutput
+	ToReceiptFilterFilterOutputWithContext(context.Context) ReceiptFilterFilterOutput
+}
+
+// A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+type ReceiptFilterFilterArgs struct {
+	// A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+	IpFilter ReceiptFilterIpFilterInput `pulumi:"ipFilter"`
+	// The name of the IP address filter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ReceiptFilterFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterFilter)(nil)).Elem()
+}
+
+func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterOutput() ReceiptFilterFilterOutput {
+	return i.ToReceiptFilterFilterOutputWithContext(context.Background())
+}
+
+func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterOutputWithContext(ctx context.Context) ReceiptFilterFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterFilterOutput)
+}
+
+// A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+type ReceiptFilterFilterOutput struct{ *pulumi.OutputState }
+
+func (ReceiptFilterFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterFilter)(nil)).Elem()
+}
+
+func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterOutput() ReceiptFilterFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterOutputWithContext(ctx context.Context) ReceiptFilterFilterOutput {
+	return o
+}
+
+// A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+func (o ReceiptFilterFilterOutput) IpFilter() ReceiptFilterIpFilterOutput {
+	return o.ApplyT(func(v ReceiptFilterFilter) ReceiptFilterIpFilter { return v.IpFilter }).(ReceiptFilterIpFilterOutput)
+}
+
+// The name of the IP address filter.
+func (o ReceiptFilterFilterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptFilterFilter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+type ReceiptFilterIpFilter struct {
+	// A single IP address or a range of IP addresses to block or allow, specified in CIDR notation.
+	Cidr string `pulumi:"cidr"`
+	// Indicates whether to block or allow incoming mail from the specified IP addresses.
+	Policy string `pulumi:"policy"`
+}
+
+// ReceiptFilterIpFilterInput is an input type that accepts ReceiptFilterIpFilterArgs and ReceiptFilterIpFilterOutput values.
+// You can construct a concrete instance of `ReceiptFilterIpFilterInput` via:
+//
+//	ReceiptFilterIpFilterArgs{...}
+type ReceiptFilterIpFilterInput interface {
+	pulumi.Input
+
+	ToReceiptFilterIpFilterOutput() ReceiptFilterIpFilterOutput
+	ToReceiptFilterIpFilterOutputWithContext(context.Context) ReceiptFilterIpFilterOutput
+}
+
+// A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+type ReceiptFilterIpFilterArgs struct {
+	// A single IP address or a range of IP addresses to block or allow, specified in CIDR notation.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// Indicates whether to block or allow incoming mail from the specified IP addresses.
+	Policy pulumi.StringInput `pulumi:"policy"`
+}
+
+func (ReceiptFilterIpFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterIpFilter)(nil)).Elem()
+}
+
+func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterOutput() ReceiptFilterIpFilterOutput {
+	return i.ToReceiptFilterIpFilterOutputWithContext(context.Background())
+}
+
+func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterOutputWithContext(ctx context.Context) ReceiptFilterIpFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterIpFilterOutput)
+}
+
+// A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+type ReceiptFilterIpFilterOutput struct{ *pulumi.OutputState }
+
+func (ReceiptFilterIpFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterIpFilter)(nil)).Elem()
+}
+
+func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterOutput() ReceiptFilterIpFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterOutputWithContext(ctx context.Context) ReceiptFilterIpFilterOutput {
+	return o
+}
+
+// A single IP address or a range of IP addresses to block or allow, specified in CIDR notation.
+func (o ReceiptFilterIpFilterOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptFilterIpFilter) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+// Indicates whether to block or allow incoming mail from the specified IP addresses.
+func (o ReceiptFilterIpFilterOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptFilterIpFilter) string { return v.Policy }).(pulumi.StringOutput)
+}
+
 // An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
 type ReceiptRuleAction struct {
 	// Adds a header to the received email.
@@ -11957,6 +12085,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointDetailsInput)(nil)).Elem(), MultiRegionEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemPropertiesInput)(nil)).Elem(), MultiRegionEndpointRouteDetailsItemPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemPropertiesArrayInput)(nil)).Elem(), MultiRegionEndpointRouteDetailsItemPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterFilterInput)(nil)).Elem(), ReceiptFilterFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterIpFilterInput)(nil)).Elem(), ReceiptFilterIpFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleActionInput)(nil)).Elem(), ReceiptRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleActionArrayInput)(nil)).Elem(), ReceiptRuleActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleAddHeaderActionInput)(nil)).Elem(), ReceiptRuleAddHeaderActionArgs{})
@@ -12133,6 +12263,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiRegionEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(MultiRegionEndpointRouteDetailsItemPropertiesOutput{})
 	pulumi.RegisterOutputType(MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(ReceiptFilterFilterOutput{})
+	pulumi.RegisterOutputType(ReceiptFilterIpFilterOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionOutput{})

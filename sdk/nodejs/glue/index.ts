@@ -130,6 +130,11 @@ export const getSecurityConfiguration: typeof import("./getSecurityConfiguration
 export const getSecurityConfigurationOutput: typeof import("./getSecurityConfiguration").getSecurityConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityConfiguration","getSecurityConfigurationOutput"], () => require("./getSecurityConfiguration"));
 
+export { GetSessionArgs, GetSessionResult, GetSessionOutputArgs } from "./getSession";
+export const getSession: typeof import("./getSession").getSession = null as any;
+export const getSessionOutput: typeof import("./getSession").getSessionOutput = null as any;
+utilities.lazyLoad(exports, ["getSession","getSessionOutput"], () => require("./getSession"));
+
 export { GetTableOptimizerArgs, GetTableOptimizerResult, GetTableOptimizerOutputArgs } from "./getTableOptimizer";
 export const getTableOptimizer: typeof import("./getTableOptimizer").getTableOptimizer = null as any;
 export const getTableOptimizerOutput: typeof import("./getTableOptimizer").getTableOptimizerOutput = null as any;
@@ -205,6 +210,11 @@ export type SecurityConfiguration = import("./securityConfiguration").SecurityCo
 export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
 utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
 
+export { SessionArgs } from "./session";
+export type Session = import("./session").Session;
+export const Session: typeof import("./session").Session = null as any;
+utilities.lazyLoad(exports, ["Session"], () => require("./session"));
+
 export { TableOptimizerArgs } from "./tableOptimizer";
 export type TableOptimizer = import("./tableOptimizer").TableOptimizer;
 export const TableOptimizer: typeof import("./tableOptimizer").TableOptimizer = null as any;
@@ -274,6 +284,8 @@ const _module = {
                 return new SchemaVersionMetadata(name, <any>undefined, { urn })
             case "aws-native:glue:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
+            case "aws-native:glue:Session":
+                return new Session(name, <any>undefined, { urn })
             case "aws-native:glue:TableOptimizer":
                 return new TableOptimizer(name, <any>undefined, { urn })
             case "aws-native:glue:Trigger":

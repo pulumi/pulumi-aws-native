@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("context")]
         public Output<string?> Context { get; private set; } = null!;
 
+        [Output("ecsSettings")]
+        public Output<Outputs.ComputeEnvironmentEcsSettings?> EcsSettings { get; private set; } = null!;
+
         /// <summary>
         /// The details for the Amazon EKS cluster that supports the compute environment.
         /// 
@@ -181,6 +184,9 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
+
+        [Input("ecsSettings")]
+        public Input<Inputs.ComputeEnvironmentEcsSettingsArgs>? EcsSettings { get; set; }
 
         /// <summary>
         /// The details for the Amazon EKS cluster that supports the compute environment.

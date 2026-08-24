@@ -2,6 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ComputeEnvironmentEcsSettingsContainerInsights = {
+    Enabled: "ENABLED",
+    Enhanced: "ENHANCED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ComputeEnvironmentEcsSettingsContainerInsights = (typeof ComputeEnvironmentEcsSettingsContainerInsights)[keyof typeof ComputeEnvironmentEcsSettingsContainerInsights];
+
 export const ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType = {
     OnDemand: "ON_DEMAND",
     Spot: "SPOT",

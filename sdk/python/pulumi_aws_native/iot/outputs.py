@@ -83,6 +83,8 @@ __all__ = [
     'SoftwarePackageVersionPackageVersionArtifact',
     'SoftwarePackageVersionS3Location',
     'SoftwarePackageVersionSbom',
+    'StreamFile',
+    'StreamS3Location',
     'ThingAttributePayload',
     'ThingGroupAttributePayload',
     'ThingGroupPropertiesProperties',
@@ -3747,6 +3749,105 @@ class SoftwarePackageVersionSbom(dict):
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> 'outputs.SoftwarePackageVersionS3Location':
         return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class StreamFile(dict):
+    """
+    Represents a file to stream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileId":
+            suggest = "file_id"
+        elif key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_id: Optional[_builtins.int] = None,
+                 s3_location: Optional['outputs.StreamS3Location'] = None):
+        """
+        Represents a file to stream.
+
+        :param _builtins.int file_id: The file ID.
+        """
+        if file_id is not None:
+            pulumi.set(__self__, "file_id", file_id)
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="fileId")
+    def file_id(self) -> Optional[_builtins.int]:
+        """
+        The file ID.
+        """
+        return pulumi.get(self, "file_id")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional['outputs.StreamS3Location']:
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class StreamS3Location(dict):
+    """
+    The location of the file in S3.
+    """
+    def __init__(__self__, *,
+                 bucket: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 version: Optional[_builtins.str] = None):
+        """
+        The location of the file in S3.
+
+        :param _builtins.str bucket: The S3 bucket.
+        :param _builtins.str key: The S3 key.
+        :param _builtins.str version: The S3 bucket version.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[_builtins.str]:
+        """
+        The S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        The S3 key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The S3 bucket version.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

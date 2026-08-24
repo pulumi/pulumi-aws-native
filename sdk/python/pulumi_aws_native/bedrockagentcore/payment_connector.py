@@ -23,25 +23,30 @@ __all__ = ['PaymentConnectorArgs', 'PaymentConnector']
 class PaymentConnectorArgs:
     def __init__(__self__, *,
                  connector_type: pulumi.Input['PaymentConnectorType'],
-                 credential_provider_configurations: pulumi.Input[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]],
                  payment_manager_id: pulumi.Input[_builtins.str],
                  connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_mode: pulumi.Input[Optional['PaymentConnectorProvisionMode']] = None):
         """
         The set of arguments for constructing a PaymentConnector resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]] credential_provider_configurations: The credential provider configurations for the connector
         :param pulumi.Input[_builtins.str] payment_manager_id: The identifier of the parent payment manager
         :param pulumi.Input[_builtins.str] connector_name: The name of the payment connector
+        :param pulumi.Input[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]] credential_provider_configurations: The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         :param pulumi.Input[_builtins.str] description: A description of the payment connector
+        :param pulumi.Input['PaymentConnectorProvisionMode'] provision_mode: The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
         """
         pulumi.set(__self__, "connector_type", connector_type)
-        pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
         pulumi.set(__self__, "payment_manager_id", payment_manager_id)
         if connector_name is not None:
             pulumi.set(__self__, "connector_name", connector_name)
+        if credential_provider_configurations is not None:
+            pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if provision_mode is not None:
+            pulumi.set(__self__, "provision_mode", provision_mode)
 
     @_builtins.property
     @pulumi.getter(name="connectorType")
@@ -51,18 +56,6 @@ class PaymentConnectorArgs:
     @connector_type.setter
     def connector_type(self, value: pulumi.Input['PaymentConnectorType']):
         pulumi.set(self, "connector_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="credentialProviderConfigurations")
-    def credential_provider_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]]:
-        """
-        The credential provider configurations for the connector
-        """
-        return pulumi.get(self, "credential_provider_configurations")
-
-    @credential_provider_configurations.setter
-    def credential_provider_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]]):
-        pulumi.set(self, "credential_provider_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="paymentManagerId")
@@ -89,6 +82,18 @@ class PaymentConnectorArgs:
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="credentialProviderConfigurations")
+    def credential_provider_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]]]:
+        """
+        The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
+        """
+        return pulumi.get(self, "credential_provider_configurations")
+
+    @credential_provider_configurations.setter
+    def credential_provider_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PaymentConnectorCredentialsProviderConfigurationArgs']]]]):
+        pulumi.set(self, "credential_provider_configurations", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -99,6 +104,18 @@ class PaymentConnectorArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="provisionMode")
+    def provision_mode(self) -> pulumi.Input[Optional['PaymentConnectorProvisionMode']]:
+        """
+        The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+        """
+        return pulumi.get(self, "provision_mode")
+
+    @provision_mode.setter
+    def provision_mode(self, value: pulumi.Input[Optional['PaymentConnectorProvisionMode']]):
+        pulumi.set(self, "provision_mode", value)
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentConnector")
@@ -112,6 +129,7 @@ class PaymentConnector(pulumi.CustomResource):
                  credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  payment_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_mode: pulumi.Input[Optional['PaymentConnectorProvisionMode']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::PaymentConnector
@@ -119,9 +137,10 @@ class PaymentConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_name: The name of the payment connector
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]] credential_provider_configurations: The credential provider configurations for the connector
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]] credential_provider_configurations: The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         :param pulumi.Input[_builtins.str] description: A description of the payment connector
         :param pulumi.Input[_builtins.str] payment_manager_id: The identifier of the parent payment manager
+        :param pulumi.Input['PaymentConnectorProvisionMode'] provision_mode: The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
         """
         ...
     @overload
@@ -152,6 +171,7 @@ class PaymentConnector(pulumi.CustomResource):
                  credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  payment_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provision_mode: pulumi.Input[Optional['PaymentConnectorProvisionMode']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -165,19 +185,19 @@ class PaymentConnector(pulumi.CustomResource):
             if connector_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_type'")
             __props__.__dict__["connector_type"] = connector_type
-            if credential_provider_configurations is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_provider_configurations'")
             __props__.__dict__["credential_provider_configurations"] = credential_provider_configurations
             __props__.__dict__["description"] = description
             if payment_manager_id is None and not opts.urn:
                 raise TypeError("Missing required property 'payment_manager_id'")
             __props__.__dict__["payment_manager_id"] = payment_manager_id
+            __props__.__dict__["provision_mode"] = provision_mode
+            __props__.__dict__["authorization_url"] = None
             __props__.__dict__["connector_created_at"] = None
             __props__.__dict__["connector_last_updated_at"] = None
             __props__.__dict__["connector_status"] = None
             __props__.__dict__["payment_connector_arn"] = None
             __props__.__dict__["payment_connector_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorName", "paymentManagerId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorName", "connectorType", "paymentManagerId", "provisionMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PaymentConnector, __self__).__init__(
             'aws-native:bedrockagentcore:PaymentConnector',
@@ -201,6 +221,7 @@ class PaymentConnector(pulumi.CustomResource):
 
         __props__ = PaymentConnectorArgs.__new__(PaymentConnectorArgs)
 
+        __props__.__dict__["authorization_url"] = None
         __props__.__dict__["connector_created_at"] = None
         __props__.__dict__["connector_last_updated_at"] = None
         __props__.__dict__["connector_name"] = None
@@ -211,7 +232,16 @@ class PaymentConnector(pulumi.CustomResource):
         __props__.__dict__["payment_connector_arn"] = None
         __props__.__dict__["payment_connector_id"] = None
         __props__.__dict__["payment_manager_id"] = None
+        __props__.__dict__["provision_mode"] = None
         return PaymentConnector(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+        """
+        return pulumi.get(self, "authorization_url")
 
     @_builtins.property
     @pulumi.getter(name="connectorCreatedAt")
@@ -249,9 +279,9 @@ class PaymentConnector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderConfigurations")
-    def credential_provider_configurations(self) -> pulumi.Output[Sequence['outputs.PaymentConnectorCredentialsProviderConfiguration']]:
+    def credential_provider_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.PaymentConnectorCredentialsProviderConfiguration']]]:
         """
-        The credential provider configurations for the connector
+        The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         """
         return pulumi.get(self, "credential_provider_configurations")
 
@@ -286,4 +316,12 @@ class PaymentConnector(pulumi.CustomResource):
         The identifier of the parent payment manager
         """
         return pulumi.get(self, "payment_manager_id")
+
+    @_builtins.property
+    @pulumi.getter(name="provisionMode")
+    def provision_mode(self) -> pulumi.Output[Optional['PaymentConnectorProvisionMode']]:
+        """
+        The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+        """
+        return pulumi.get(self, "provision_mode")
 

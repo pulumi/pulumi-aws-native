@@ -22,6 +22,10 @@ __all__ = [
     'PlaybackConfigurationHttpRequestHttpMethod',
     'PlaybackConfigurationInsertionMode',
     'PlaybackConfigurationStreamingMediaFileConditioning',
+    'PrefetchScheduleAvailMatchingCriteriaOperator',
+    'PrefetchSchedulePrefetchRetrievalTrafficShapingType',
+    'PrefetchScheduleRecurringRetrievalTrafficShapingType',
+    'PrefetchScheduleScheduleType',
     'SourceLocationAccessType',
     'VodSourceType',
 ]
@@ -130,6 +134,41 @@ class PlaybackConfigurationInsertionMode(_builtins.str, Enum):
 class PlaybackConfigurationStreamingMediaFileConditioning(_builtins.str, Enum):
     TRANSCODE = "TRANSCODE"
     NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:mediatailor:PrefetchScheduleAvailMatchingCriteriaOperator")
+class PrefetchScheduleAvailMatchingCriteriaOperator(_builtins.str, Enum):
+    """
+    For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+    """
+    EQUALS = "EQUALS"
+
+
+@pulumi.type_token("aws-native:mediatailor:PrefetchSchedulePrefetchRetrievalTrafficShapingType")
+class PrefetchSchedulePrefetchRetrievalTrafficShapingType(_builtins.str, Enum):
+    """
+    Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+    """
+    RETRIEVAL_WINDOW = "RETRIEVAL_WINDOW"
+    TPS = "TPS"
+
+
+@pulumi.type_token("aws-native:mediatailor:PrefetchScheduleRecurringRetrievalTrafficShapingType")
+class PrefetchScheduleRecurringRetrievalTrafficShapingType(_builtins.str, Enum):
+    """
+    Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+    """
+    RETRIEVAL_WINDOW = "RETRIEVAL_WINDOW"
+    TPS = "TPS"
+
+
+@pulumi.type_token("aws-native:mediatailor:PrefetchScheduleScheduleType")
+class PrefetchScheduleScheduleType(_builtins.str, Enum):
+    """
+    The frequency that MediaTailor creates prefetch schedules.
+    """
+    SINGLE = "SINGLE"
+    RECURRING = "RECURRING"
 
 
 @pulumi.type_token("aws-native:mediatailor:SourceLocationAccessType")

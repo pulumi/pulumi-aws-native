@@ -10,6 +10,263 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of budget action.
+type BudgetActionToAddType string
+
+const (
+	BudgetActionToAddTypeStopSchedulingAndCompleteTasks = BudgetActionToAddType("STOP_SCHEDULING_AND_COMPLETE_TASKS")
+	BudgetActionToAddTypeStopSchedulingAndCancelTasks   = BudgetActionToAddType("STOP_SCHEDULING_AND_CANCEL_TASKS")
+)
+
+func (BudgetActionToAddType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetActionToAddType)(nil)).Elem()
+}
+
+func (e BudgetActionToAddType) ToBudgetActionToAddTypeOutput() BudgetActionToAddTypeOutput {
+	return pulumi.ToOutput(e).(BudgetActionToAddTypeOutput)
+}
+
+func (e BudgetActionToAddType) ToBudgetActionToAddTypeOutputWithContext(ctx context.Context) BudgetActionToAddTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BudgetActionToAddTypeOutput)
+}
+
+func (e BudgetActionToAddType) ToBudgetActionToAddTypePtrOutput() BudgetActionToAddTypePtrOutput {
+	return e.ToBudgetActionToAddTypePtrOutputWithContext(context.Background())
+}
+
+func (e BudgetActionToAddType) ToBudgetActionToAddTypePtrOutputWithContext(ctx context.Context) BudgetActionToAddTypePtrOutput {
+	return BudgetActionToAddType(e).ToBudgetActionToAddTypeOutputWithContext(ctx).ToBudgetActionToAddTypePtrOutputWithContext(ctx)
+}
+
+func (e BudgetActionToAddType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BudgetActionToAddType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BudgetActionToAddType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BudgetActionToAddType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BudgetActionToAddTypeOutput struct{ *pulumi.OutputState }
+
+func (BudgetActionToAddTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetActionToAddType)(nil)).Elem()
+}
+
+func (o BudgetActionToAddTypeOutput) ToBudgetActionToAddTypeOutput() BudgetActionToAddTypeOutput {
+	return o
+}
+
+func (o BudgetActionToAddTypeOutput) ToBudgetActionToAddTypeOutputWithContext(ctx context.Context) BudgetActionToAddTypeOutput {
+	return o
+}
+
+func (o BudgetActionToAddTypeOutput) ToBudgetActionToAddTypePtrOutput() BudgetActionToAddTypePtrOutput {
+	return o.ToBudgetActionToAddTypePtrOutputWithContext(context.Background())
+}
+
+func (o BudgetActionToAddTypeOutput) ToBudgetActionToAddTypePtrOutputWithContext(ctx context.Context) BudgetActionToAddTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionToAddType) *BudgetActionToAddType {
+		return &v
+	}).(BudgetActionToAddTypePtrOutput)
+}
+
+func (o BudgetActionToAddTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BudgetActionToAddTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BudgetActionToAddType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BudgetActionToAddTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetActionToAddTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BudgetActionToAddType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BudgetActionToAddTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetActionToAddTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetActionToAddType)(nil)).Elem()
+}
+
+func (o BudgetActionToAddTypePtrOutput) ToBudgetActionToAddTypePtrOutput() BudgetActionToAddTypePtrOutput {
+	return o
+}
+
+func (o BudgetActionToAddTypePtrOutput) ToBudgetActionToAddTypePtrOutputWithContext(ctx context.Context) BudgetActionToAddTypePtrOutput {
+	return o
+}
+
+func (o BudgetActionToAddTypePtrOutput) Elem() BudgetActionToAddTypeOutput {
+	return o.ApplyT(func(v *BudgetActionToAddType) BudgetActionToAddType {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetActionToAddType
+		return ret
+	}).(BudgetActionToAddTypeOutput)
+}
+
+func (o BudgetActionToAddTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetActionToAddTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BudgetActionToAddType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BudgetActionToAddTypeInput is an input type that accepts values of the BudgetActionToAddType enum
+// A concrete instance of `BudgetActionToAddTypeInput` can be one of the following:
+//
+//	BudgetActionToAddTypeStopSchedulingAndCompleteTasks
+//	BudgetActionToAddTypeStopSchedulingAndCancelTasks
+type BudgetActionToAddTypeInput interface {
+	pulumi.Input
+
+	ToBudgetActionToAddTypeOutput() BudgetActionToAddTypeOutput
+	ToBudgetActionToAddTypeOutputWithContext(context.Context) BudgetActionToAddTypeOutput
+}
+
+var budgetActionToAddTypePtrType = reflect.TypeOf((**BudgetActionToAddType)(nil)).Elem()
+
+type BudgetActionToAddTypePtrInput interface {
+	pulumi.Input
+
+	ToBudgetActionToAddTypePtrOutput() BudgetActionToAddTypePtrOutput
+	ToBudgetActionToAddTypePtrOutputWithContext(context.Context) BudgetActionToAddTypePtrOutput
+}
+
+type budgetActionToAddTypePtr string
+
+func BudgetActionToAddTypePtr(v string) BudgetActionToAddTypePtrInput {
+	return (*budgetActionToAddTypePtr)(&v)
+}
+
+func (*budgetActionToAddTypePtr) ElementType() reflect.Type {
+	return budgetActionToAddTypePtrType
+}
+
+func (in *budgetActionToAddTypePtr) ToBudgetActionToAddTypePtrOutput() BudgetActionToAddTypePtrOutput {
+	return pulumi.ToOutput(in).(BudgetActionToAddTypePtrOutput)
+}
+
+func (in *budgetActionToAddTypePtr) ToBudgetActionToAddTypePtrOutputWithContext(ctx context.Context) BudgetActionToAddTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BudgetActionToAddTypePtrOutput)
+}
+
+// The status of the budget.
+type BudgetStatus string
+
+const (
+	BudgetStatusActive   = BudgetStatus("ACTIVE")
+	BudgetStatusInactive = BudgetStatus("INACTIVE")
+)
+
+type BudgetStatusOutput struct{ *pulumi.OutputState }
+
+func (BudgetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetStatus)(nil)).Elem()
+}
+
+func (o BudgetStatusOutput) ToBudgetStatusOutput() BudgetStatusOutput {
+	return o
+}
+
+func (o BudgetStatusOutput) ToBudgetStatusOutputWithContext(ctx context.Context) BudgetStatusOutput {
+	return o
+}
+
+func (o BudgetStatusOutput) ToBudgetStatusPtrOutput() BudgetStatusPtrOutput {
+	return o.ToBudgetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetStatusOutput) ToBudgetStatusPtrOutputWithContext(ctx context.Context) BudgetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetStatus) *BudgetStatus {
+		return &v
+	}).(BudgetStatusPtrOutput)
+}
+
+func (o BudgetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BudgetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BudgetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BudgetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BudgetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BudgetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetStatus)(nil)).Elem()
+}
+
+func (o BudgetStatusPtrOutput) ToBudgetStatusPtrOutput() BudgetStatusPtrOutput {
+	return o
+}
+
+func (o BudgetStatusPtrOutput) ToBudgetStatusPtrOutputWithContext(ctx context.Context) BudgetStatusPtrOutput {
+	return o
+}
+
+func (o BudgetStatusPtrOutput) Elem() BudgetStatusOutput {
+	return o.ApplyT(func(v *BudgetStatus) BudgetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetStatus
+		return ret
+	}).(BudgetStatusOutput)
+}
+
+func (o BudgetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BudgetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type FleetAcceleratorSelectionName string
 
 const (
@@ -2398,7 +2655,106 @@ func (in *storageProfileOperatingSystemFamilyPtr) ToStorageProfileOperatingSyste
 	return pulumi.ToOutputWithContext(ctx, in).(StorageProfileOperatingSystemFamilyPtrOutput)
 }
 
+// The status of the worker.
+type WorkerStatus string
+
+const (
+	WorkerStatusCreated       = WorkerStatus("CREATED")
+	WorkerStatusStarted       = WorkerStatus("STARTED")
+	WorkerStatusStopping      = WorkerStatus("STOPPING")
+	WorkerStatusStopped       = WorkerStatus("STOPPED")
+	WorkerStatusNotResponding = WorkerStatus("NOT_RESPONDING")
+	WorkerStatusNotCompatible = WorkerStatus("NOT_COMPATIBLE")
+	WorkerStatusRunning       = WorkerStatus("RUNNING")
+	WorkerStatusIdle          = WorkerStatus("IDLE")
+)
+
+type WorkerStatusOutput struct{ *pulumi.OutputState }
+
+func (WorkerStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerStatus)(nil)).Elem()
+}
+
+func (o WorkerStatusOutput) ToWorkerStatusOutput() WorkerStatusOutput {
+	return o
+}
+
+func (o WorkerStatusOutput) ToWorkerStatusOutputWithContext(ctx context.Context) WorkerStatusOutput {
+	return o
+}
+
+func (o WorkerStatusOutput) ToWorkerStatusPtrOutput() WorkerStatusPtrOutput {
+	return o.ToWorkerStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WorkerStatusOutput) ToWorkerStatusPtrOutputWithContext(ctx context.Context) WorkerStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkerStatus) *WorkerStatus {
+		return &v
+	}).(WorkerStatusPtrOutput)
+}
+
+func (o WorkerStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkerStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkerStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkerStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkerStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkerStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkerStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkerStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkerStatus)(nil)).Elem()
+}
+
+func (o WorkerStatusPtrOutput) ToWorkerStatusPtrOutput() WorkerStatusPtrOutput {
+	return o
+}
+
+func (o WorkerStatusPtrOutput) ToWorkerStatusPtrOutputWithContext(ctx context.Context) WorkerStatusPtrOutput {
+	return o
+}
+
+func (o WorkerStatusPtrOutput) Elem() WorkerStatusOutput {
+	return o.ApplyT(func(v *WorkerStatus) WorkerStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WorkerStatus
+		return ret
+	}).(WorkerStatusOutput)
+}
+
+func (o WorkerStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkerStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkerStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionToAddTypeInput)(nil)).Elem(), BudgetActionToAddType("STOP_SCHEDULING_AND_COMPLETE_TASKS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionToAddTypePtrInput)(nil)).Elem(), BudgetActionToAddType("STOP_SCHEDULING_AND_COMPLETE_TASKS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorSelectionNameInput)(nil)).Elem(), FleetAcceleratorSelectionName("t4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorSelectionNamePtrInput)(nil)).Elem(), FleetAcceleratorSelectionName("t4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorTypeInput)(nil)).Elem(), FleetAcceleratorType("gpu"))
@@ -2426,6 +2782,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationTypePtrInput)(nil)).Elem(), StorageProfileFileSystemLocationType("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileOperatingSystemFamilyInput)(nil)).Elem(), StorageProfileOperatingSystemFamily("WINDOWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileOperatingSystemFamilyPtrInput)(nil)).Elem(), StorageProfileOperatingSystemFamily("WINDOWS"))
+	pulumi.RegisterOutputType(BudgetActionToAddTypeOutput{})
+	pulumi.RegisterOutputType(BudgetActionToAddTypePtrOutput{})
+	pulumi.RegisterOutputType(BudgetStatusOutput{})
+	pulumi.RegisterOutputType(BudgetStatusPtrOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorSelectionNameOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorSelectionNamePtrOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorTypeOutput{})
@@ -2457,4 +2817,6 @@ func init() {
 	pulumi.RegisterOutputType(StorageProfileFileSystemLocationTypePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileOperatingSystemFamilyOutput{})
 	pulumi.RegisterOutputType(StorageProfileOperatingSystemFamilyPtrOutput{})
+	pulumi.RegisterOutputType(WorkerStatusOutput{})
+	pulumi.RegisterOutputType(WorkerStatusPtrOutput{})
 }

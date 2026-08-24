@@ -58,7 +58,8 @@ type LookupRestApiResult struct {
 	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags    []aws.Tag `pulumi:"tags"`
+	Version *string   `pulumi:"version"`
 }
 
 func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts ...pulumi.InvokeOption) LookupRestApiResultOutput {
@@ -158,6 +159,10 @@ func (o LookupRestApiResultOutput) SecurityPolicy() pulumi.StringPtrOutput {
 // The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 func (o LookupRestApiResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRestApiResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupRestApiResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -1084,6 +1084,264 @@ func (in *referenceStoreEncryptionTypePtr) ToReferenceStoreEncryptionTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ReferenceStoreEncryptionTypePtrOutput)
 }
 
+// The default cache behavior for runs using this cache.
+type RunCacheCacheBehavior string
+
+const (
+	RunCacheCacheBehaviorCacheOnFailure = RunCacheCacheBehavior("CACHE_ON_FAILURE")
+	RunCacheCacheBehaviorCacheAlways    = RunCacheCacheBehavior("CACHE_ALWAYS")
+)
+
+func (RunCacheCacheBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCacheCacheBehavior)(nil)).Elem()
+}
+
+func (e RunCacheCacheBehavior) ToRunCacheCacheBehaviorOutput() RunCacheCacheBehaviorOutput {
+	return pulumi.ToOutput(e).(RunCacheCacheBehaviorOutput)
+}
+
+func (e RunCacheCacheBehavior) ToRunCacheCacheBehaviorOutputWithContext(ctx context.Context) RunCacheCacheBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RunCacheCacheBehaviorOutput)
+}
+
+func (e RunCacheCacheBehavior) ToRunCacheCacheBehaviorPtrOutput() RunCacheCacheBehaviorPtrOutput {
+	return e.ToRunCacheCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e RunCacheCacheBehavior) ToRunCacheCacheBehaviorPtrOutputWithContext(ctx context.Context) RunCacheCacheBehaviorPtrOutput {
+	return RunCacheCacheBehavior(e).ToRunCacheCacheBehaviorOutputWithContext(ctx).ToRunCacheCacheBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e RunCacheCacheBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RunCacheCacheBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RunCacheCacheBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RunCacheCacheBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RunCacheCacheBehaviorOutput struct{ *pulumi.OutputState }
+
+func (RunCacheCacheBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCacheCacheBehavior)(nil)).Elem()
+}
+
+func (o RunCacheCacheBehaviorOutput) ToRunCacheCacheBehaviorOutput() RunCacheCacheBehaviorOutput {
+	return o
+}
+
+func (o RunCacheCacheBehaviorOutput) ToRunCacheCacheBehaviorOutputWithContext(ctx context.Context) RunCacheCacheBehaviorOutput {
+	return o
+}
+
+func (o RunCacheCacheBehaviorOutput) ToRunCacheCacheBehaviorPtrOutput() RunCacheCacheBehaviorPtrOutput {
+	return o.ToRunCacheCacheBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o RunCacheCacheBehaviorOutput) ToRunCacheCacheBehaviorPtrOutputWithContext(ctx context.Context) RunCacheCacheBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunCacheCacheBehavior) *RunCacheCacheBehavior {
+		return &v
+	}).(RunCacheCacheBehaviorPtrOutput)
+}
+
+func (o RunCacheCacheBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RunCacheCacheBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RunCacheCacheBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RunCacheCacheBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RunCacheCacheBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RunCacheCacheBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RunCacheCacheBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (RunCacheCacheBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCacheCacheBehavior)(nil)).Elem()
+}
+
+func (o RunCacheCacheBehaviorPtrOutput) ToRunCacheCacheBehaviorPtrOutput() RunCacheCacheBehaviorPtrOutput {
+	return o
+}
+
+func (o RunCacheCacheBehaviorPtrOutput) ToRunCacheCacheBehaviorPtrOutputWithContext(ctx context.Context) RunCacheCacheBehaviorPtrOutput {
+	return o
+}
+
+func (o RunCacheCacheBehaviorPtrOutput) Elem() RunCacheCacheBehaviorOutput {
+	return o.ApplyT(func(v *RunCacheCacheBehavior) RunCacheCacheBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret RunCacheCacheBehavior
+		return ret
+	}).(RunCacheCacheBehaviorOutput)
+}
+
+func (o RunCacheCacheBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RunCacheCacheBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RunCacheCacheBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RunCacheCacheBehaviorInput is an input type that accepts values of the RunCacheCacheBehavior enum
+// A concrete instance of `RunCacheCacheBehaviorInput` can be one of the following:
+//
+//	RunCacheCacheBehaviorCacheOnFailure
+//	RunCacheCacheBehaviorCacheAlways
+type RunCacheCacheBehaviorInput interface {
+	pulumi.Input
+
+	ToRunCacheCacheBehaviorOutput() RunCacheCacheBehaviorOutput
+	ToRunCacheCacheBehaviorOutputWithContext(context.Context) RunCacheCacheBehaviorOutput
+}
+
+var runCacheCacheBehaviorPtrType = reflect.TypeOf((**RunCacheCacheBehavior)(nil)).Elem()
+
+type RunCacheCacheBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToRunCacheCacheBehaviorPtrOutput() RunCacheCacheBehaviorPtrOutput
+	ToRunCacheCacheBehaviorPtrOutputWithContext(context.Context) RunCacheCacheBehaviorPtrOutput
+}
+
+type runCacheCacheBehaviorPtr string
+
+func RunCacheCacheBehaviorPtr(v string) RunCacheCacheBehaviorPtrInput {
+	return (*runCacheCacheBehaviorPtr)(&v)
+}
+
+func (*runCacheCacheBehaviorPtr) ElementType() reflect.Type {
+	return runCacheCacheBehaviorPtrType
+}
+
+func (in *runCacheCacheBehaviorPtr) ToRunCacheCacheBehaviorPtrOutput() RunCacheCacheBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(RunCacheCacheBehaviorPtrOutput)
+}
+
+func (in *runCacheCacheBehaviorPtr) ToRunCacheCacheBehaviorPtrOutputWithContext(ctx context.Context) RunCacheCacheBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RunCacheCacheBehaviorPtrOutput)
+}
+
+// The run cache status.
+type RunCacheStatus string
+
+const (
+	RunCacheStatusActive  = RunCacheStatus("ACTIVE")
+	RunCacheStatusDeleted = RunCacheStatus("DELETED")
+	RunCacheStatusFailed  = RunCacheStatus("FAILED")
+)
+
+type RunCacheStatusOutput struct{ *pulumi.OutputState }
+
+func (RunCacheStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCacheStatus)(nil)).Elem()
+}
+
+func (o RunCacheStatusOutput) ToRunCacheStatusOutput() RunCacheStatusOutput {
+	return o
+}
+
+func (o RunCacheStatusOutput) ToRunCacheStatusOutputWithContext(ctx context.Context) RunCacheStatusOutput {
+	return o
+}
+
+func (o RunCacheStatusOutput) ToRunCacheStatusPtrOutput() RunCacheStatusPtrOutput {
+	return o.ToRunCacheStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RunCacheStatusOutput) ToRunCacheStatusPtrOutputWithContext(ctx context.Context) RunCacheStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunCacheStatus) *RunCacheStatus {
+		return &v
+	}).(RunCacheStatusPtrOutput)
+}
+
+func (o RunCacheStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RunCacheStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RunCacheStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RunCacheStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RunCacheStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RunCacheStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RunCacheStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RunCacheStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCacheStatus)(nil)).Elem()
+}
+
+func (o RunCacheStatusPtrOutput) ToRunCacheStatusPtrOutput() RunCacheStatusPtrOutput {
+	return o
+}
+
+func (o RunCacheStatusPtrOutput) ToRunCacheStatusPtrOutputWithContext(ctx context.Context) RunCacheStatusPtrOutput {
+	return o
+}
+
+func (o RunCacheStatusPtrOutput) Elem() RunCacheStatusOutput {
+	return o.ApplyT(func(v *RunCacheStatus) RunCacheStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RunCacheStatus
+		return ret
+	}).(RunCacheStatusOutput)
+}
+
+func (o RunCacheStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RunCacheStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RunCacheStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type SequenceStoreETagAlgorithmFamily string
 
 const (
@@ -3467,6 +3725,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreFormatPtrInput)(nil)).Elem(), AnnotationStoreStoreFormat("GFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreEncryptionTypeInput)(nil)).Elem(), ReferenceStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreEncryptionTypePtrInput)(nil)).Elem(), ReferenceStoreEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCacheCacheBehaviorInput)(nil)).Elem(), RunCacheCacheBehavior("CACHE_ON_FAILURE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCacheCacheBehaviorPtrInput)(nil)).Elem(), RunCacheCacheBehavior("CACHE_ON_FAILURE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreETagAlgorithmFamilyInput)(nil)).Elem(), SequenceStoreETagAlgorithmFamily("MD5up"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreETagAlgorithmFamilyPtrInput)(nil)).Elem(), SequenceStoreETagAlgorithmFamily("MD5up"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreEncryptionTypeInput)(nil)).Elem(), SequenceStoreEncryptionType("KMS"))
@@ -3504,6 +3764,10 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(RunCacheCacheBehaviorOutput{})
+	pulumi.RegisterOutputType(RunCacheCacheBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RunCacheStatusOutput{})
+	pulumi.RegisterOutputType(RunCacheStatusPtrOutput{})
 	pulumi.RegisterOutputType(SequenceStoreETagAlgorithmFamilyOutput{})
 	pulumi.RegisterOutputType(SequenceStoreETagAlgorithmFamilyPtrOutput{})
 	pulumi.RegisterOutputType(SequenceStoreEncryptionTypeOutput{})

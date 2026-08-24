@@ -451,6 +451,89 @@ export const IntegrationAssociationIntegrationType = {
  */
 export type IntegrationAssociationIntegrationType = (typeof IntegrationAssociationIntegrationType)[keyof typeof IntegrationAssociationIntegrationType];
 
+export const MetricAvailableFilterType = {
+    MetricLevel: "METRIC_LEVEL",
+    ResourceLevel: "RESOURCE_LEVEL",
+} as const;
+
+export type MetricAvailableFilterType = (typeof MetricAvailableFilterType)[keyof typeof MetricAvailableFilterType];
+
+export const MetricCreationMethod = {
+    ServiceLevelBuilder: "SERVICE_LEVEL_BUILDER",
+    MetricBuilder: "METRIC_BUILDER",
+} as const;
+
+/**
+ * Whether the metric was built with the guided Service Level (SL) experience, or with the free-form metric builder
+ */
+export type MetricCreationMethod = (typeof MetricCreationMethod)[keyof typeof MetricCreationMethod];
+
+export const MetricFilterBooleanConditionComparison = {
+    IsTrue: "IS_TRUE",
+    IsFalse: "IS_FALSE",
+} as const;
+
+export type MetricFilterBooleanConditionComparison = (typeof MetricFilterBooleanConditionComparison)[keyof typeof MetricFilterBooleanConditionComparison];
+
+export const MetricFilterNumberConditionComparison = {
+    Lesser: "LESSER",
+    LesserOrEqual: "LESSER_OR_EQUAL",
+    Greater: "GREATER",
+    GreaterOrEqual: "GREATER_OR_EQUAL",
+} as const;
+
+export type MetricFilterNumberConditionComparison = (typeof MetricFilterNumberConditionComparison)[keyof typeof MetricFilterNumberConditionComparison];
+
+export const MetricFilterStringConditionComparison = {
+    MatchesAny: "MATCHES_ANY",
+    MatchesNone: "MATCHES_NONE",
+} as const;
+
+export type MetricFilterStringConditionComparison = (typeof MetricFilterStringConditionComparison)[keyof typeof MetricFilterStringConditionComparison];
+
+export const MetricPositiveTrendIndicator = {
+    Positive: "POSITIVE",
+    Negative: "NEGATIVE",
+    Neutral: "NEUTRAL",
+} as const;
+
+/**
+ * Indicates how to classify a positive trend in metric data on the UI
+ */
+export type MetricPositiveTrendIndicator = (typeof MetricPositiveTrendIndicator)[keyof typeof MetricPositiveTrendIndicator];
+
+export const MetricStatus = {
+    Saved: "SAVED",
+    Published: "PUBLISHED",
+} as const;
+
+/**
+ * The status of the custom metric
+ */
+export type MetricStatus = (typeof MetricStatus)[keyof typeof MetricStatus];
+
+export const MetricType = {
+    AwsManaged: "AWS_MANAGED",
+    CustomerManaged: "CUSTOMER_MANAGED",
+} as const;
+
+/**
+ * Whether the metric is provided out-of-the-box or created by each customer
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
+
+export const MetricUnit = {
+    Integer: "INTEGER",
+    Double: "DOUBLE",
+    Percent: "PERCENT",
+    Seconds: "SECONDS",
+} as const;
+
+/**
+ * Display unit for the metric data
+ */
+export type MetricUnit = (typeof MetricUnit)[keyof typeof MetricUnit];
+
 export const NotificationPriority = {
     High: "HIGH",
     Low: "LOW",

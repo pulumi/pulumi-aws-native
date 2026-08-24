@@ -49,6 +49,8 @@ type LogAlarm struct {
 	Threshold pulumi.Float64Output `pulumi:"threshold"`
 	// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
 	TreatMissingData pulumi.StringPtrOutput `pulumi:"treatMissingData"`
+	// The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+	WarmUpConfiguration LogAlarmWarmUpConfigurationPtrOutput `pulumi:"warmUpConfiguration"`
 }
 
 // NewLogAlarm registers a new resource with the given unique name, arguments, and options.
@@ -140,6 +142,8 @@ type logAlarmArgs struct {
 	Threshold float64 `pulumi:"threshold"`
 	// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
 	TreatMissingData *string `pulumi:"treatMissingData"`
+	// The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+	WarmUpConfiguration *LogAlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
 // The set of arguments for constructing a LogAlarm resource.
@@ -174,6 +178,8 @@ type LogAlarmArgs struct {
 	Threshold pulumi.Float64Input
 	// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
 	TreatMissingData pulumi.StringPtrInput
+	// The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+	WarmUpConfiguration LogAlarmWarmUpConfigurationPtrInput
 }
 
 func (LogAlarmArgs) ElementType() reflect.Type {
@@ -291,6 +297,11 @@ func (o LogAlarmOutput) Threshold() pulumi.Float64Output {
 // Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
 func (o LogAlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogAlarm) pulumi.StringPtrOutput { return v.TreatMissingData }).(pulumi.StringPtrOutput)
+}
+
+// The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+func (o LogAlarmOutput) WarmUpConfiguration() LogAlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyT(func(v *LogAlarm) LogAlarmWarmUpConfigurationPtrOutput { return v.WarmUpConfiguration }).(LogAlarmWarmUpConfigurationPtrOutput)
 }
 
 func init() {

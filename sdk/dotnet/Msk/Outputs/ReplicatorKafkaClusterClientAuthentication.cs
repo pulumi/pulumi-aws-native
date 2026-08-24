@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// </summary>
         public readonly Outputs.ReplicatorKafkaClusterMtlsAuthentication? Mtls;
         /// <summary>
+        /// Details for client authentication using SASL/OAUTHBEARER.
+        /// </summary>
+        public readonly Outputs.ReplicatorKafkaClusterSaslOAuthBearerAuthentication? SaslOAuthBearer;
+        /// <summary>
         /// Details for SASL/SCRAM client authentication.
         /// </summary>
         public readonly Outputs.ReplicatorKafkaClusterSaslScramAuthentication? SaslScram;
@@ -29,9 +33,12 @@ namespace Pulumi.AwsNative.Msk.Outputs
         private ReplicatorKafkaClusterClientAuthentication(
             Outputs.ReplicatorKafkaClusterMtlsAuthentication? mtls,
 
+            Outputs.ReplicatorKafkaClusterSaslOAuthBearerAuthentication? saslOAuthBearer,
+
             Outputs.ReplicatorKafkaClusterSaslScramAuthentication? saslScram)
         {
             Mtls = mtls;
+            SaslOAuthBearer = saslOAuthBearer;
             SaslScram = saslScram;
         }
     }

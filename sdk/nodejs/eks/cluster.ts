@@ -42,6 +42,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly accessConfig: pulumi.Output<outputs.eks.ClusterAccessConfig | undefined>;
     /**
+     * The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+     */
+    declare public readonly activeCertificateAuthorityId: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -53,6 +57,7 @@ export class Cluster extends pulumi.CustomResource {
      * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
      */
     declare public readonly bootstrapSelfManagedAddons: pulumi.Output<boolean | undefined>;
+    declare public readonly certificateAuthority: pulumi.Output<outputs.eks.ClusterCertificateAuthority | undefined>;
     /**
      * The certificate-authority-data for your cluster.
      */
@@ -166,7 +171,9 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["accessConfig"] = args?.accessConfig;
+            resourceInputs["activeCertificateAuthorityId"] = args?.activeCertificateAuthorityId;
             resourceInputs["bootstrapSelfManagedAddons"] = args?.bootstrapSelfManagedAddons;
+            resourceInputs["certificateAuthority"] = args?.certificateAuthority;
             resourceInputs["computeConfig"] = args?.computeConfig;
             resourceInputs["controlPlaneScalingConfig"] = args?.controlPlaneScalingConfig;
             resourceInputs["deletionProtection"] = args?.deletionProtection;
@@ -197,9 +204,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["openIdConnectIssuerUrl"] = undefined /*out*/;
         } else {
             resourceInputs["accessConfig"] = undefined /*out*/;
+            resourceInputs["activeCertificateAuthorityId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["bootstrapSelfManagedAddons"] = undefined /*out*/;
+            resourceInputs["certificateAuthority"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
             resourceInputs["computeConfig"] = undefined /*out*/;
@@ -243,9 +252,14 @@ export interface ClusterArgs {
      */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfigArgs | undefined>;
     /**
+     * The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+     */
+    activeCertificateAuthorityId?: pulumi.Input<string | undefined>;
+    /**
      * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
      */
     bootstrapSelfManagedAddons?: pulumi.Input<boolean | undefined>;
+    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthorityArgs | undefined>;
     /**
      * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
      */

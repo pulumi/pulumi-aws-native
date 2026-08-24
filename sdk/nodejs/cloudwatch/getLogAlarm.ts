@@ -85,6 +85,10 @@ export interface GetLogAlarmResult {
      * Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
      */
     readonly treatMissingData?: string;
+    /**
+     * The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+     */
+    readonly warmUpConfiguration?: outputs.cloudwatch.LogAlarmWarmUpConfiguration;
 }
 /**
  * Resource Type definition for AWS::CloudWatch::LogAlarm. A LogAlarm evaluates scheduled query results from CloudWatch Logs and triggers actions when thresholds are breached.

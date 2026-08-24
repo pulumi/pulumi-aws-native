@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BackupArgs } from "./backup";
+export type Backup = import("./backup").Backup;
+export const Backup: typeof import("./backup").Backup = null as any;
+utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
+
+export { GetBackupArgs, GetBackupResult, GetBackupOutputArgs } from "./getBackup";
+export const getBackup: typeof import("./getBackup").getBackup = null as any;
+export const getBackupOutput: typeof import("./getBackup").getBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getBackup","getBackupOutput"], () => require("./getBackup"));
+
 export { GetGlobalTableArgs, GetGlobalTableResult, GetGlobalTableOutputArgs } from "./getGlobalTable";
 export const getGlobalTable: typeof import("./getGlobalTable").getGlobalTable = null as any;
 export const getGlobalTableOutput: typeof import("./getGlobalTable").getGlobalTableOutput = null as any;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:dynamodb:Backup":
+                return new Backup(name, <any>undefined, { urn })
             case "aws-native:dynamodb:GlobalTable":
                 return new GlobalTable(name, <any>undefined, { urn })
             case "aws-native:dynamodb:Table":

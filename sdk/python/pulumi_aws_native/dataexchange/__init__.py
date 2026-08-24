@@ -8,4 +8,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .data_set import *
+from .event_action import *
 from .get_data_set import *
+from .get_event_action import *
+from ._inputs import *
+from . import outputs

@@ -7,10 +7,20 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CustomDetectionRuleAssociationMode',
     'DetectorCfnFeatureConfigurationStatus',
     'ThreatEntitySetStatus',
     'TrustedEntitySetStatus',
 ]
+
+
+@pulumi.type_token("aws-native:guardduty:CustomDetectionRuleAssociationMode")
+class CustomDetectionRuleAssociationMode(_builtins.str, Enum):
+    """
+    Whether the rule runs in LIVE mode (generates findings) or DRY_RUN mode (evaluates without generating findings).
+    """
+    LIVE = "LIVE"
+    DRY_RUN = "DRY_RUN"
 
 
 @pulumi.type_token("aws-native:guardduty:DetectorCfnFeatureConfigurationStatus")

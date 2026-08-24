@@ -96,7 +96,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeTags" ]
   },
@@ -136,5 +136,6 @@
     "description" : "Create a volume by copying from an existing volume"
   } ],
   "primaryIdentifier" : [ "/properties/VolumeId" ],
+  "writeOnlyProperties" : [ "/properties/OutpostArn" ],
   "readOnlyProperties" : [ "/properties/VolumeId" ]
 }

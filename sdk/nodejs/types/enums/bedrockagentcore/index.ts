@@ -931,6 +931,13 @@ export const OnlineEvaluationConfigStatus = {
 
 export type OnlineEvaluationConfigStatus = (typeof OnlineEvaluationConfigStatus)[keyof typeof OnlineEvaluationConfigStatus];
 
+export const PaymentConnectorProvisionMode = {
+    Manual: "MANUAL",
+    QuickCreate: "QUICK_CREATE",
+} as const;
+
+export type PaymentConnectorProvisionMode = (typeof PaymentConnectorProvisionMode)[keyof typeof PaymentConnectorProvisionMode];
+
 export const PaymentConnectorStatus = {
     Creating: "CREATING",
     Updating: "UPDATING",
@@ -939,6 +946,11 @@ export const PaymentConnectorStatus = {
     CreateFailed: "CREATE_FAILED",
     UpdateFailed: "UPDATE_FAILED",
     DeleteFailed: "DELETE_FAILED",
+    AwsMarketplaceSubscriptionRequired: "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED",
+    PendingAuthentication: "PENDING_AUTHENTICATION",
+    Provisioning: "PROVISIONING",
+    AuthenticationExpired: "AUTHENTICATION_EXPIRED",
+    AuthenticationFailed: "AUTHENTICATION_FAILED",
 } as const;
 
 export type PaymentConnectorStatus = (typeof PaymentConnectorStatus)[keyof typeof PaymentConnectorStatus];

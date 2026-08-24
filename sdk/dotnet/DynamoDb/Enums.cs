@@ -8,6 +8,70 @@ using Pulumi;
 namespace Pulumi.AwsNative.DynamoDb
 {
     /// <summary>
+    /// The current state of the backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupStatus : IEquatable<BackupStatus>
+    {
+        private readonly string _value;
+
+        private BackupStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupStatus Creating { get; } = new BackupStatus("CREATING");
+        public static BackupStatus Deleted { get; } = new BackupStatus("DELETED");
+        public static BackupStatus Available { get; } = new BackupStatus("AVAILABLE");
+
+        public static bool operator ==(BackupStatus left, BackupStatus right) => left.Equals(right);
+        public static bool operator !=(BackupStatus left, BackupStatus right) => !left.Equals(right);
+
+        public static explicit operator string(BackupStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupStatus other && Equals(other);
+        public bool Equals(BackupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of backup (USER, SYSTEM, or AWS_BACKUP).
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupType : IEquatable<BackupType>
+    {
+        private readonly string _value;
+
+        private BackupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupType User { get; } = new BackupType("USER");
+        public static BackupType System { get; } = new BackupType("SYSTEM");
+        public static BackupType AwsBackup { get; } = new BackupType("AWS_BACKUP");
+
+        public static bool operator ==(BackupType left, BackupType right) => left.Equals(right);
+        public static bool operator !=(BackupType left, BackupType right) => !left.Equals(right);
+
+        public static explicit operator string(BackupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupType other && Equals(other);
+        public bool Equals(BackupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
     /// </summary>
     [EnumType]

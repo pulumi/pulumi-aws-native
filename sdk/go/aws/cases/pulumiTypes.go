@@ -901,6 +901,14 @@ type CaseRuleTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a resource.
+type CaseTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type DomainTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`

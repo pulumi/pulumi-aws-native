@@ -33,7 +33,7 @@ export interface GetGlobalResolverResult {
     readonly name?: string;
     readonly observabilityRegion?: string;
     /**
-     * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+     * The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
      */
     readonly regions?: string[];
     readonly status?: enums.route53globalresolver.GlobalResolverCrResourceStatus;

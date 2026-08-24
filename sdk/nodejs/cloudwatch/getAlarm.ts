@@ -74,6 +74,9 @@ export interface GetAlarmResult {
      *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     readonly evaluationPeriods?: number;
+    /**
+     * The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+     */
     readonly evaluationWindow?: outputs.cloudwatch.AlarmEvaluationWindow;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -138,6 +141,7 @@ export interface GetAlarmResult {
      *   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
      */
     readonly unit?: string;
+    readonly warmUpConfiguration?: outputs.cloudwatch.AlarmWarmUpConfiguration;
 }
 /**
  * The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.

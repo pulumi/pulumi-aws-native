@@ -53,6 +53,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      * Reserved.
      */
     declare public readonly context: pulumi.Output<string | undefined>;
+    declare public readonly ecsSettings: pulumi.Output<outputs.batch.ComputeEnvironmentEcsSettings | undefined>;
     /**
      * The details for the Amazon EKS cluster that supports the compute environment.
      *
@@ -125,6 +126,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["computeEnvironmentName"] = args?.computeEnvironmentName;
             resourceInputs["computeResources"] = args?.computeResources;
             resourceInputs["context"] = args?.context;
+            resourceInputs["ecsSettings"] = args?.ecsSettings;
             resourceInputs["eksConfiguration"] = args?.eksConfiguration;
             resourceInputs["replaceComputeEnvironment"] = args?.replaceComputeEnvironment;
             resourceInputs["serviceRole"] = args?.serviceRole;
@@ -139,6 +141,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["computeEnvironmentName"] = undefined /*out*/;
             resourceInputs["computeResources"] = undefined /*out*/;
             resourceInputs["context"] = undefined /*out*/;
+            resourceInputs["ecsSettings"] = undefined /*out*/;
             resourceInputs["eksConfiguration"] = undefined /*out*/;
             resourceInputs["replaceComputeEnvironment"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
@@ -171,6 +174,7 @@ export interface ComputeEnvironmentArgs {
      * Reserved.
      */
     context?: pulumi.Input<string | undefined>;
+    ecsSettings?: pulumi.Input<inputs.batch.ComputeEnvironmentEcsSettingsArgs | undefined>;
     /**
      * The details for the Amazon EKS cluster that supports the compute environment.
      *

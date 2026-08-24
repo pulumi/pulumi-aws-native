@@ -26,8 +26,12 @@ __all__ = [
     'CapabilityConfiguration',
     'CapabilityNetworkAccess',
     'CapabilitySsoIdentity',
+    'CertificateAuthorityScheduledEvents',
+    'CertificateAuthorityValidity',
     'ClusterAccessConfig',
+    'ClusterActiveCertificateAuthority',
     'ClusterBlockStorage',
+    'ClusterCertificateAuthority',
     'ClusterComputeConfig',
     'ClusterControlPlanePlacement',
     'ClusterControlPlaneScalingConfig',
@@ -520,6 +524,116 @@ class CapabilitySsoIdentity(dict):
 
 
 @pulumi.output_type
+class CertificateAuthorityScheduledEvents(dict):
+    """
+    The scheduled auto-activation events for the certificate authority, computed from its validity window.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "finalAutoActivation":
+            suggest = "final_auto_activation"
+        elif key == "firstAutoActivation":
+            suggest = "first_auto_activation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityScheduledEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityScheduledEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityScheduledEvents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 final_auto_activation: Optional[_builtins.str] = None,
+                 first_auto_activation: Optional[_builtins.str] = None):
+        """
+        The scheduled auto-activation events for the certificate authority, computed from its validity window.
+
+        :param _builtins.str final_auto_activation: The deadline by which EKS will auto-activate this certificate authority (notAfter minus 45 days).
+        :param _builtins.str first_auto_activation: The earliest date EKS may auto-activate this certificate authority (notAfter minus 6 months).
+        """
+        if final_auto_activation is not None:
+            pulumi.set(__self__, "final_auto_activation", final_auto_activation)
+        if first_auto_activation is not None:
+            pulumi.set(__self__, "first_auto_activation", first_auto_activation)
+
+    @_builtins.property
+    @pulumi.getter(name="finalAutoActivation")
+    def final_auto_activation(self) -> Optional[_builtins.str]:
+        """
+        The deadline by which EKS will auto-activate this certificate authority (notAfter minus 45 days).
+        """
+        return pulumi.get(self, "final_auto_activation")
+
+    @_builtins.property
+    @pulumi.getter(name="firstAutoActivation")
+    def first_auto_activation(self) -> Optional[_builtins.str]:
+        """
+        The earliest date EKS may auto-activate this certificate authority (notAfter minus 6 months).
+        """
+        return pulumi.get(self, "first_auto_activation")
+
+
+@pulumi.output_type
+class CertificateAuthorityValidity(dict):
+    """
+    The validity period of the certificate authority.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notAfter":
+            suggest = "not_after"
+        elif key == "notBefore":
+            suggest = "not_before"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityValidity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityValidity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityValidity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 not_after: Optional[_builtins.str] = None,
+                 not_before: Optional[_builtins.str] = None):
+        """
+        The validity period of the certificate authority.
+
+        :param _builtins.str not_after: The end of the validity period for the certificate authority.
+        :param _builtins.str not_before: The start of the validity period for the certificate authority.
+        """
+        if not_after is not None:
+            pulumi.set(__self__, "not_after", not_after)
+        if not_before is not None:
+            pulumi.set(__self__, "not_before", not_before)
+
+    @_builtins.property
+    @pulumi.getter(name="notAfter")
+    def not_after(self) -> Optional[_builtins.str]:
+        """
+        The end of the validity period for the certificate authority.
+        """
+        return pulumi.get(self, "not_after")
+
+    @_builtins.property
+    @pulumi.getter(name="notBefore")
+    def not_before(self) -> Optional[_builtins.str]:
+        """
+        The start of the validity period for the certificate authority.
+        """
+        return pulumi.get(self, "not_before")
+
+
+@pulumi.output_type
 class ClusterAccessConfig(dict):
     """
     An object representing the Access Config to use for the cluster.
@@ -575,6 +689,59 @@ class ClusterAccessConfig(dict):
 
 
 @pulumi.output_type
+class ClusterActiveCertificateAuthority(dict):
+    """
+    Identifies the certificate authority currently signing certificates for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activatedBy":
+            suggest = "activated_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterActiveCertificateAuthority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterActiveCertificateAuthority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterActiveCertificateAuthority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 activated_by: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None):
+        """
+        Identifies the certificate authority currently signing certificates for the cluster.
+
+        :param _builtins.str activated_by: Indicates whether the active certificate authority was activated by EKS or by the customer.
+        :param _builtins.str id: The ID of the active (signing) certificate authority.
+        """
+        if activated_by is not None:
+            pulumi.set(__self__, "activated_by", activated_by)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter(name="activatedBy")
+    def activated_by(self) -> Optional[_builtins.str]:
+        """
+        Indicates whether the active certificate authority was activated by EKS or by the customer.
+        """
+        return pulumi.get(self, "activated_by")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the active (signing) certificate authority.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class ClusterBlockStorage(dict):
     """
     Todo: add description
@@ -596,6 +763,38 @@ class ClusterBlockStorage(dict):
         Todo: add description
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterCertificateAuthority(dict):
+    """
+    The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+    """
+    def __init__(__self__, *,
+                 active: Optional['outputs.ClusterActiveCertificateAuthority'] = None,
+                 data: Optional[_builtins.str] = None):
+        """
+        The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+
+        :param _builtins.str data: The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @_builtins.property
+    @pulumi.getter
+    def active(self) -> Optional['outputs.ClusterActiveCertificateAuthority']:
+        return pulumi.get(self, "active")
+
+    @_builtins.property
+    @pulumi.getter
+    def data(self) -> Optional[_builtins.str]:
+        """
+        The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+        """
+        return pulumi.get(self, "data")
 
 
 @pulumi.output_type

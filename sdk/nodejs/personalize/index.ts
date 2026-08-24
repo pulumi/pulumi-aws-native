@@ -35,6 +35,11 @@ export const getEventTracker: typeof import("./getEventTracker").getEventTracker
 export const getEventTrackerOutput: typeof import("./getEventTracker").getEventTrackerOutput = null as any;
 utilities.lazyLoad(exports, ["getEventTracker","getEventTrackerOutput"], () => require("./getEventTracker"));
 
+export { GetMetricAttributionArgs, GetMetricAttributionResult, GetMetricAttributionOutputArgs } from "./getMetricAttribution";
+export const getMetricAttribution: typeof import("./getMetricAttribution").getMetricAttribution = null as any;
+export const getMetricAttributionOutput: typeof import("./getMetricAttribution").getMetricAttributionOutput = null as any;
+utilities.lazyLoad(exports, ["getMetricAttribution","getMetricAttributionOutput"], () => require("./getMetricAttribution"));
+
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
@@ -44,6 +49,11 @@ export { GetSolutionArgs, GetSolutionResult, GetSolutionOutputArgs } from "./get
 export const getSolution: typeof import("./getSolution").getSolution = null as any;
 export const getSolutionOutput: typeof import("./getSolution").getSolutionOutput = null as any;
 utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
+
+export { MetricAttributionArgs } from "./metricAttribution";
+export type MetricAttribution = import("./metricAttribution").MetricAttribution;
+export const MetricAttribution: typeof import("./metricAttribution").MetricAttribution = null as any;
+utilities.lazyLoad(exports, ["MetricAttribution"], () => require("./metricAttribution"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
@@ -69,6 +79,8 @@ const _module = {
                 return new DatasetGroup(name, <any>undefined, { urn })
             case "aws-native:personalize:EventTracker":
                 return new EventTracker(name, <any>undefined, { urn })
+            case "aws-native:personalize:MetricAttribution":
+                return new MetricAttribution(name, <any>undefined, { urn })
             case "aws-native:personalize:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "aws-native:personalize:Solution":

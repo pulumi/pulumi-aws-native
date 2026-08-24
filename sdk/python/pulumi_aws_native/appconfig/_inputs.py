@@ -22,6 +22,10 @@ __all__ = [
     'DeploymentDynamicExtensionParametersArgsDict',
     'EnvironmentMonitorArgs',
     'EnvironmentMonitorArgsDict',
+    'ExperimentDefinitionAttributeValueArgs',
+    'ExperimentDefinitionAttributeValueArgsDict',
+    'ExperimentDefinitionTreatmentArgs',
+    'ExperimentDefinitionTreatmentArgsDict',
     'ExtensionActionArgs',
     'ExtensionActionArgsDict',
     'ExtensionParameterArgs',
@@ -202,6 +206,225 @@ class EnvironmentMonitorArgs:
     @alarm_role_arn.setter
     def alarm_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alarm_role_arn", value)
+
+
+class ExperimentDefinitionAttributeValueArgsDict(TypedDict):
+    """
+    A typed attribute value for a treatment flag.
+    """
+    boolean_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A boolean value.
+    """
+    number_array: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]]
+    """
+    An array of numeric values.
+    """
+    number_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    A numeric value.
+    """
+    string_array: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    An array of string values.
+    """
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string value.
+    """
+
+@pulumi.input_type
+class ExperimentDefinitionAttributeValueArgs:
+    def __init__(__self__, *,
+                 boolean_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 number_array: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]] = None,
+                 number_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 string_array: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A typed attribute value for a treatment flag.
+
+        :param pulumi.Input[_builtins.bool] boolean_value: A boolean value.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.float]]] number_array: An array of numeric values.
+        :param pulumi.Input[_builtins.float] number_value: A numeric value.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] string_array: An array of string values.
+        :param pulumi.Input[_builtins.str] string_value: A string value.
+        """
+        if boolean_value is not None:
+            pulumi.set(__self__, "boolean_value", boolean_value)
+        if number_array is not None:
+            pulumi.set(__self__, "number_array", number_array)
+        if number_value is not None:
+            pulumi.set(__self__, "number_value", number_value)
+        if string_array is not None:
+            pulumi.set(__self__, "string_array", string_array)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanValue")
+    def boolean_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A boolean value.
+        """
+        return pulumi.get(self, "boolean_value")
+
+    @boolean_value.setter
+    def boolean_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "boolean_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberArray")
+    def number_array(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]:
+        """
+        An array of numeric values.
+        """
+        return pulumi.get(self, "number_array")
+
+    @number_array.setter
+    def number_array(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]]):
+        pulumi.set(self, "number_array", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberValue")
+    def number_value(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        A numeric value.
+        """
+        return pulumi.get(self, "number_value")
+
+    @number_value.setter
+    def number_value(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "number_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringArray")
+    def string_array(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An array of string values.
+        """
+        return pulumi.get(self, "string_array")
+
+    @string_array.setter
+    def string_array(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "string_array", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string value.
+        """
+        return pulumi.get(self, "string_value")
+
+    @string_value.setter
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "string_value", value)
+
+
+class ExperimentDefinitionTreatmentArgsDict(TypedDict):
+    """
+    A treatment variant with weight and flag value. The Key is auto-generated by the service.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the flag is enabled for this variant.
+    """
+    weight: pulumi.Input[_builtins.float]
+    """
+    Traffic weight percentage.
+    """
+    attribute_values: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ExperimentDefinitionAttributeValueArgsDict']]]]]
+    """
+    Map of attribute name to attribute value.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The treatment key (read-only, auto-generated by service).
+    """
+
+@pulumi.input_type
+class ExperimentDefinitionTreatmentArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 weight: pulumi.Input[_builtins.float],
+                 attribute_values: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExperimentDefinitionAttributeValueArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A treatment variant with weight and flag value. The Key is auto-generated by the service.
+
+        :param pulumi.Input[_builtins.bool] enabled: Whether the flag is enabled for this variant.
+        :param pulumi.Input[_builtins.float] weight: Traffic weight percentage.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ExperimentDefinitionAttributeValueArgs']]] attribute_values: Map of attribute name to attribute value.
+        :param pulumi.Input[_builtins.str] key: The treatment key (read-only, auto-generated by service).
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "weight", weight)
+        if attribute_values is not None:
+            pulumi.set(__self__, "attribute_values", attribute_values)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the flag is enabled for this variant.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[_builtins.float]:
+        """
+        Traffic weight percentage.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "weight", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeValues")
+    def attribute_values(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ExperimentDefinitionAttributeValueArgs']]]]:
+        """
+        Map of attribute name to attribute value.
+        """
+        return pulumi.get(self, "attribute_values")
+
+    @attribute_values.setter
+    def attribute_values(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExperimentDefinitionAttributeValueArgs']]]]):
+        pulumi.set(self, "attribute_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The treatment key (read-only, auto-generated by service).
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
 
 
 class ExtensionActionArgsDict(TypedDict):

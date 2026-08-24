@@ -63,3 +63,10 @@ export const KeySigningKeyStatus = {
  * A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
  */
 export type KeySigningKeyStatus = (typeof KeySigningKeyStatus)[keyof typeof KeySigningKeyStatus];
+
+export const RecordSetFailover = {
+    Primary: "PRIMARY",
+    Secondary: "SECONDARY",
+} as const;
+
+export type RecordSetFailover = (typeof RecordSetFailover)[keyof typeof RecordSetFailover];

@@ -76,7 +76,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/LastUpdatedAt" ],
-  "createOnlyProperties" : [ "/properties/Name" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/SharingConfig" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/Name" ] ],
   "handlers" : {

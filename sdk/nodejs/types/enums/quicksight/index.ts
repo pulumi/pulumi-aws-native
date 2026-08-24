@@ -2609,6 +2609,15 @@ export const KnowledgeBaseVideoExtractionType = {
 
 export type KnowledgeBaseVideoExtractionType = (typeof KnowledgeBaseVideoExtractionType)[keyof typeof KnowledgeBaseVideoExtractionType];
 
+export const LimitsProfileLimitUnit = {
+    Mb: "MB",
+    Gb: "GB",
+    Hours: "HOURS",
+    Days: "DAYS",
+} as const;
+
+export type LimitsProfileLimitUnit = (typeof LimitsProfileLimitUnit)[keyof typeof LimitsProfileLimitUnit];
+
 export const OAuthClientApplicationDataSourceType = {
     AdobeAnalytics: "ADOBE_ANALYTICS",
     AmazonElasticsearch: "AMAZON_ELASTICSEARCH",

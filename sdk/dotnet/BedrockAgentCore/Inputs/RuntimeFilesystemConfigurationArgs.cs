@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class RuntimeFilesystemConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("capacityProviderVolume")]
+        public Input<Inputs.RuntimeCapacityProviderVolumeConfigurationArgs>? CapacityProviderVolume { get; set; }
+
         [Input("efsAccessPoint")]
         public Input<Inputs.RuntimeEfsAccessPointConfigurationArgs>? EfsAccessPoint { get; set; }
 

@@ -70,6 +70,22 @@ __all__ = [
     'PlaybackConfigurationManifestProcessingRulesArgsDict',
     'PlaybackConfigurationManifestServiceInteractionLogArgs',
     'PlaybackConfigurationManifestServiceInteractionLogArgsDict',
+    'PrefetchScheduleAvailMatchingCriteriaArgs',
+    'PrefetchScheduleAvailMatchingCriteriaArgsDict',
+    'PrefetchSchedulePrefetchConsumptionArgs',
+    'PrefetchSchedulePrefetchConsumptionArgsDict',
+    'PrefetchSchedulePrefetchRetrievalArgs',
+    'PrefetchSchedulePrefetchRetrievalArgsDict',
+    'PrefetchScheduleRecurringConsumptionArgs',
+    'PrefetchScheduleRecurringConsumptionArgsDict',
+    'PrefetchScheduleRecurringPrefetchConfigurationArgs',
+    'PrefetchScheduleRecurringPrefetchConfigurationArgsDict',
+    'PrefetchScheduleRecurringRetrievalArgs',
+    'PrefetchScheduleRecurringRetrievalArgsDict',
+    'PrefetchScheduleTrafficShapingRetrievalWindowArgs',
+    'PrefetchScheduleTrafficShapingRetrievalWindowArgsDict',
+    'PrefetchScheduleTrafficShapingTpsConfigurationArgs',
+    'PrefetchScheduleTrafficShapingTpsConfigurationArgsDict',
     'SourceLocationAccessConfigurationArgs',
     'SourceLocationAccessConfigurationArgsDict',
     'SourceLocationDefaultSegmentDeliveryConfigurationArgs',
@@ -1748,6 +1764,529 @@ class PlaybackConfigurationManifestServiceInteractionLogArgs:
     @exclude_event_types.setter
     def exclude_event_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_event_types", value)
+
+
+class PrefetchScheduleAvailMatchingCriteriaArgsDict(TypedDict):
+    dynamic_variable: pulumi.Input[_builtins.str]
+    """
+    The dynamic variable(s) that MediaTailor should use as avail matching criteria.
+    """
+    operator: pulumi.Input['PrefetchScheduleAvailMatchingCriteriaOperator']
+    """
+    For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+    """
+
+@pulumi.input_type
+class PrefetchScheduleAvailMatchingCriteriaArgs:
+    def __init__(__self__, *,
+                 dynamic_variable: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input['PrefetchScheduleAvailMatchingCriteriaOperator']):
+        """
+        :param pulumi.Input[_builtins.str] dynamic_variable: The dynamic variable(s) that MediaTailor should use as avail matching criteria.
+        :param pulumi.Input['PrefetchScheduleAvailMatchingCriteriaOperator'] operator: For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+        """
+        pulumi.set(__self__, "dynamic_variable", dynamic_variable)
+        pulumi.set(__self__, "operator", operator)
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicVariable")
+    def dynamic_variable(self) -> pulumi.Input[_builtins.str]:
+        """
+        The dynamic variable(s) that MediaTailor should use as avail matching criteria.
+        """
+        return pulumi.get(self, "dynamic_variable")
+
+    @dynamic_variable.setter
+    def dynamic_variable(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dynamic_variable", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input['PrefetchScheduleAvailMatchingCriteriaOperator']:
+        """
+        For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input['PrefetchScheduleAvailMatchingCriteriaOperator']):
+        pulumi.set(self, "operator", value)
+
+
+class PrefetchSchedulePrefetchConsumptionArgsDict(TypedDict):
+    end_time: pulumi.Input[_builtins.str]
+    """
+    The time when MediaTailor no longer considers the prefetched ads for use in an ad break, as an ISO 8601 date-time.
+    """
+    avail_matching_criteria: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgsDict']]]]]
+    """
+    If you only want MediaTailor to insert prefetched ads into avails that match specific dynamic variables, set the avail matching criteria.
+    """
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time when prefetched ads are considered for use in an ad break, as an ISO 8601 date-time.
+    """
+
+@pulumi.input_type
+class PrefetchSchedulePrefetchConsumptionArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[_builtins.str],
+                 avail_matching_criteria: pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] end_time: The time when MediaTailor no longer considers the prefetched ads for use in an ad break, as an ISO 8601 date-time.
+        :param pulumi.Input[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]] avail_matching_criteria: If you only want MediaTailor to insert prefetched ads into avails that match specific dynamic variables, set the avail matching criteria.
+        :param pulumi.Input[_builtins.str] start_time: The time when prefetched ads are considered for use in an ad break, as an ISO 8601 date-time.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        if avail_matching_criteria is not None:
+            pulumi.set(__self__, "avail_matching_criteria", avail_matching_criteria)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time when MediaTailor no longer considers the prefetched ads for use in an ad break, as an ISO 8601 date-time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availMatchingCriteria")
+    def avail_matching_criteria(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]]]:
+        """
+        If you only want MediaTailor to insert prefetched ads into avails that match specific dynamic variables, set the avail matching criteria.
+        """
+        return pulumi.get(self, "avail_matching_criteria")
+
+    @avail_matching_criteria.setter
+    def avail_matching_criteria(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]]]):
+        pulumi.set(self, "avail_matching_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time when prefetched ads are considered for use in an ad break, as an ISO 8601 date-time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_time", value)
+
+
+class PrefetchSchedulePrefetchRetrievalArgsDict(TypedDict):
+    end_time: pulumi.Input[_builtins.str]
+    """
+    The time when prefetch retrieval ends for the ad break, as an ISO 8601 date-time.
+    """
+    dynamic_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).
+    """
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time when prefetch retrievals can start for this break, as an ISO 8601 date-time.
+    """
+    traffic_shaping_retrieval_window: NotRequired[pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgsDict']]]
+    traffic_shaping_tps_configuration: NotRequired[pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgsDict']]]
+    traffic_shaping_type: NotRequired[pulumi.Input[Optional['PrefetchSchedulePrefetchRetrievalTrafficShapingType']]]
+    """
+    Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+    """
+
+@pulumi.input_type
+class PrefetchSchedulePrefetchRetrievalArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[_builtins.str],
+                 dynamic_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_shaping_retrieval_window: pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgs']] = None,
+                 traffic_shaping_tps_configuration: pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgs']] = None,
+                 traffic_shaping_type: pulumi.Input[Optional['PrefetchSchedulePrefetchRetrievalTrafficShapingType']] = None):
+        """
+        :param pulumi.Input[_builtins.str] end_time: The time when prefetch retrieval ends for the ad break, as an ISO 8601 date-time.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dynamic_variables: The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).
+        :param pulumi.Input[_builtins.str] start_time: The time when prefetch retrievals can start for this break, as an ISO 8601 date-time.
+        :param pulumi.Input['PrefetchSchedulePrefetchRetrievalTrafficShapingType'] traffic_shaping_type: Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        if dynamic_variables is not None:
+            pulumi.set(__self__, "dynamic_variables", dynamic_variables)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if traffic_shaping_retrieval_window is not None:
+            pulumi.set(__self__, "traffic_shaping_retrieval_window", traffic_shaping_retrieval_window)
+        if traffic_shaping_tps_configuration is not None:
+            pulumi.set(__self__, "traffic_shaping_tps_configuration", traffic_shaping_tps_configuration)
+        if traffic_shaping_type is not None:
+            pulumi.set(__self__, "traffic_shaping_type", traffic_shaping_type)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time when prefetch retrieval ends for the ad break, as an ISO 8601 date-time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicVariables")
+    def dynamic_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).
+        """
+        return pulumi.get(self, "dynamic_variables")
+
+    @dynamic_variables.setter
+    def dynamic_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "dynamic_variables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time when prefetch retrievals can start for this break, as an ISO 8601 date-time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficShapingRetrievalWindow")
+    def traffic_shaping_retrieval_window(self) -> pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgs']]:
+        return pulumi.get(self, "traffic_shaping_retrieval_window")
+
+    @traffic_shaping_retrieval_window.setter
+    def traffic_shaping_retrieval_window(self, value: pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgs']]):
+        pulumi.set(self, "traffic_shaping_retrieval_window", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficShapingTpsConfiguration")
+    def traffic_shaping_tps_configuration(self) -> pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgs']]:
+        return pulumi.get(self, "traffic_shaping_tps_configuration")
+
+    @traffic_shaping_tps_configuration.setter
+    def traffic_shaping_tps_configuration(self, value: pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgs']]):
+        pulumi.set(self, "traffic_shaping_tps_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficShapingType")
+    def traffic_shaping_type(self) -> pulumi.Input[Optional['PrefetchSchedulePrefetchRetrievalTrafficShapingType']]:
+        """
+        Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+        """
+        return pulumi.get(self, "traffic_shaping_type")
+
+    @traffic_shaping_type.setter
+    def traffic_shaping_type(self, value: pulumi.Input[Optional['PrefetchSchedulePrefetchRetrievalTrafficShapingType']]):
+        pulumi.set(self, "traffic_shaping_type", value)
+
+
+class PrefetchScheduleRecurringConsumptionArgsDict(TypedDict):
+    avail_matching_criteria: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgsDict']]]]]
+    """
+    The configuration for the dynamic variables that determine which ad breaks that MediaTailor inserts prefetched ads in.
+    """
+    retrieved_ad_expiration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of seconds that an ad is available for insertion after it was prefetched.
+    """
+
+@pulumi.input_type
+class PrefetchScheduleRecurringConsumptionArgs:
+    def __init__(__self__, *,
+                 avail_matching_criteria: pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]]] = None,
+                 retrieved_ad_expiration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]] avail_matching_criteria: The configuration for the dynamic variables that determine which ad breaks that MediaTailor inserts prefetched ads in.
+        :param pulumi.Input[_builtins.int] retrieved_ad_expiration_seconds: The number of seconds that an ad is available for insertion after it was prefetched.
+        """
+        if avail_matching_criteria is not None:
+            pulumi.set(__self__, "avail_matching_criteria", avail_matching_criteria)
+        if retrieved_ad_expiration_seconds is not None:
+            pulumi.set(__self__, "retrieved_ad_expiration_seconds", retrieved_ad_expiration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="availMatchingCriteria")
+    def avail_matching_criteria(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]]]:
+        """
+        The configuration for the dynamic variables that determine which ad breaks that MediaTailor inserts prefetched ads in.
+        """
+        return pulumi.get(self, "avail_matching_criteria")
+
+    @avail_matching_criteria.setter
+    def avail_matching_criteria(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrefetchScheduleAvailMatchingCriteriaArgs']]]]):
+        pulumi.set(self, "avail_matching_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrievedAdExpirationSeconds")
+    def retrieved_ad_expiration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of seconds that an ad is available for insertion after it was prefetched.
+        """
+        return pulumi.get(self, "retrieved_ad_expiration_seconds")
+
+    @retrieved_ad_expiration_seconds.setter
+    def retrieved_ad_expiration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "retrieved_ad_expiration_seconds", value)
+
+
+class PrefetchScheduleRecurringPrefetchConfigurationArgsDict(TypedDict):
+    end_time: pulumi.Input[_builtins.str]
+    """
+    The end time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+    """
+    recurring_consumption: pulumi.Input['PrefetchScheduleRecurringConsumptionArgsDict']
+    recurring_retrieval: pulumi.Input['PrefetchScheduleRecurringRetrievalArgsDict']
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The start time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+    """
+
+@pulumi.input_type
+class PrefetchScheduleRecurringPrefetchConfigurationArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[_builtins.str],
+                 recurring_consumption: pulumi.Input['PrefetchScheduleRecurringConsumptionArgs'],
+                 recurring_retrieval: pulumi.Input['PrefetchScheduleRecurringRetrievalArgs'],
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] end_time: The end time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+        :param pulumi.Input[_builtins.str] start_time: The start time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "recurring_consumption", recurring_consumption)
+        pulumi.set(__self__, "recurring_retrieval", recurring_retrieval)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The end time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recurringConsumption")
+    def recurring_consumption(self) -> pulumi.Input['PrefetchScheduleRecurringConsumptionArgs']:
+        return pulumi.get(self, "recurring_consumption")
+
+    @recurring_consumption.setter
+    def recurring_consumption(self, value: pulumi.Input['PrefetchScheduleRecurringConsumptionArgs']):
+        pulumi.set(self, "recurring_consumption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recurringRetrieval")
+    def recurring_retrieval(self) -> pulumi.Input['PrefetchScheduleRecurringRetrievalArgs']:
+        return pulumi.get(self, "recurring_retrieval")
+
+    @recurring_retrieval.setter
+    def recurring_retrieval(self, value: pulumi.Input['PrefetchScheduleRecurringRetrievalArgs']):
+        pulumi.set(self, "recurring_retrieval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The start time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_time", value)
+
+
+class PrefetchScheduleRecurringRetrievalArgsDict(TypedDict):
+    delay_after_avail_end_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of seconds that MediaTailor waits after an ad avail before prefetching ads for the next avail.
+    """
+    dynamic_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    The dynamic variables to use for substitution during prefetch requests to the ADS.
+    """
+    traffic_shaping_retrieval_window: NotRequired[pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgsDict']]]
+    traffic_shaping_tps_configuration: NotRequired[pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgsDict']]]
+    traffic_shaping_type: NotRequired[pulumi.Input[Optional['PrefetchScheduleRecurringRetrievalTrafficShapingType']]]
+    """
+    Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+    """
+
+@pulumi.input_type
+class PrefetchScheduleRecurringRetrievalArgs:
+    def __init__(__self__, *,
+                 delay_after_avail_end_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 dynamic_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_shaping_retrieval_window: pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgs']] = None,
+                 traffic_shaping_tps_configuration: pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgs']] = None,
+                 traffic_shaping_type: pulumi.Input[Optional['PrefetchScheduleRecurringRetrievalTrafficShapingType']] = None):
+        """
+        :param pulumi.Input[_builtins.int] delay_after_avail_end_seconds: The number of seconds that MediaTailor waits after an ad avail before prefetching ads for the next avail.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dynamic_variables: The dynamic variables to use for substitution during prefetch requests to the ADS.
+        :param pulumi.Input['PrefetchScheduleRecurringRetrievalTrafficShapingType'] traffic_shaping_type: Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+        """
+        if delay_after_avail_end_seconds is not None:
+            pulumi.set(__self__, "delay_after_avail_end_seconds", delay_after_avail_end_seconds)
+        if dynamic_variables is not None:
+            pulumi.set(__self__, "dynamic_variables", dynamic_variables)
+        if traffic_shaping_retrieval_window is not None:
+            pulumi.set(__self__, "traffic_shaping_retrieval_window", traffic_shaping_retrieval_window)
+        if traffic_shaping_tps_configuration is not None:
+            pulumi.set(__self__, "traffic_shaping_tps_configuration", traffic_shaping_tps_configuration)
+        if traffic_shaping_type is not None:
+            pulumi.set(__self__, "traffic_shaping_type", traffic_shaping_type)
+
+    @_builtins.property
+    @pulumi.getter(name="delayAfterAvailEndSeconds")
+    def delay_after_avail_end_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of seconds that MediaTailor waits after an ad avail before prefetching ads for the next avail.
+        """
+        return pulumi.get(self, "delay_after_avail_end_seconds")
+
+    @delay_after_avail_end_seconds.setter
+    def delay_after_avail_end_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "delay_after_avail_end_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicVariables")
+    def dynamic_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The dynamic variables to use for substitution during prefetch requests to the ADS.
+        """
+        return pulumi.get(self, "dynamic_variables")
+
+    @dynamic_variables.setter
+    def dynamic_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "dynamic_variables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficShapingRetrievalWindow")
+    def traffic_shaping_retrieval_window(self) -> pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgs']]:
+        return pulumi.get(self, "traffic_shaping_retrieval_window")
+
+    @traffic_shaping_retrieval_window.setter
+    def traffic_shaping_retrieval_window(self, value: pulumi.Input[Optional['PrefetchScheduleTrafficShapingRetrievalWindowArgs']]):
+        pulumi.set(self, "traffic_shaping_retrieval_window", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficShapingTpsConfiguration")
+    def traffic_shaping_tps_configuration(self) -> pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgs']]:
+        return pulumi.get(self, "traffic_shaping_tps_configuration")
+
+    @traffic_shaping_tps_configuration.setter
+    def traffic_shaping_tps_configuration(self, value: pulumi.Input[Optional['PrefetchScheduleTrafficShapingTpsConfigurationArgs']]):
+        pulumi.set(self, "traffic_shaping_tps_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficShapingType")
+    def traffic_shaping_type(self) -> pulumi.Input[Optional['PrefetchScheduleRecurringRetrievalTrafficShapingType']]:
+        """
+        Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+        """
+        return pulumi.get(self, "traffic_shaping_type")
+
+    @traffic_shaping_type.setter
+    def traffic_shaping_type(self, value: pulumi.Input[Optional['PrefetchScheduleRecurringRetrievalTrafficShapingType']]):
+        pulumi.set(self, "traffic_shaping_type", value)
+
+
+class PrefetchScheduleTrafficShapingRetrievalWindowArgsDict(TypedDict):
+    retrieval_window_duration_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The amount of time, in seconds, that MediaTailor spreads prefetch requests to the ADS.
+    """
+
+@pulumi.input_type
+class PrefetchScheduleTrafficShapingRetrievalWindowArgs:
+    def __init__(__self__, *,
+                 retrieval_window_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] retrieval_window_duration_seconds: The amount of time, in seconds, that MediaTailor spreads prefetch requests to the ADS.
+        """
+        if retrieval_window_duration_seconds is not None:
+            pulumi.set(__self__, "retrieval_window_duration_seconds", retrieval_window_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalWindowDurationSeconds")
+    def retrieval_window_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The amount of time, in seconds, that MediaTailor spreads prefetch requests to the ADS.
+        """
+        return pulumi.get(self, "retrieval_window_duration_seconds")
+
+    @retrieval_window_duration_seconds.setter
+    def retrieval_window_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "retrieval_window_duration_seconds", value)
+
+
+class PrefetchScheduleTrafficShapingTpsConfigurationArgsDict(TypedDict):
+    peak_concurrent_users: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The expected peak number of concurrent viewers for your content.
+    """
+    peak_tps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle.
+    """
+
+@pulumi.input_type
+class PrefetchScheduleTrafficShapingTpsConfigurationArgs:
+    def __init__(__self__, *,
+                 peak_concurrent_users: pulumi.Input[Optional[_builtins.int]] = None,
+                 peak_tps: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] peak_concurrent_users: The expected peak number of concurrent viewers for your content.
+        :param pulumi.Input[_builtins.int] peak_tps: The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle.
+        """
+        if peak_concurrent_users is not None:
+            pulumi.set(__self__, "peak_concurrent_users", peak_concurrent_users)
+        if peak_tps is not None:
+            pulumi.set(__self__, "peak_tps", peak_tps)
+
+    @_builtins.property
+    @pulumi.getter(name="peakConcurrentUsers")
+    def peak_concurrent_users(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The expected peak number of concurrent viewers for your content.
+        """
+        return pulumi.get(self, "peak_concurrent_users")
+
+    @peak_concurrent_users.setter
+    def peak_concurrent_users(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "peak_concurrent_users", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peakTps")
+    def peak_tps(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle.
+        """
+        return pulumi.get(self, "peak_tps")
+
+    @peak_tps.setter
+    def peak_tps(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "peak_tps", value)
 
 
 class SourceLocationAccessConfigurationArgsDict(TypedDict):

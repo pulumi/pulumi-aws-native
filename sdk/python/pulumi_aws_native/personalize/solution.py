@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -28,7 +30,8 @@ class SolutionArgs:
                  perform_auto_ml: pulumi.Input[Optional[_builtins.bool]] = None,
                  perform_hpo: pulumi.Input[Optional[_builtins.bool]] = None,
                  recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 solution_config: pulumi.Input[Optional['SolutionConfigArgs']] = None):
+                 solution_config: pulumi.Input[Optional['SolutionConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Solution resource.
 
@@ -39,6 +42,7 @@ class SolutionArgs:
         :param pulumi.Input[_builtins.bool] perform_hpo: Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         :param pulumi.Input[_builtins.str] recipe_arn: The ARN of the recipe to use for model training. Only specified when performAutoML is false.
         :param pulumi.Input['SolutionConfigArgs'] solution_config: Describes the configuration properties for the solution.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "dataset_group_arn", dataset_group_arn)
         if event_type is not None:
@@ -53,6 +57,8 @@ class SolutionArgs:
             pulumi.set(__self__, "recipe_arn", recipe_arn)
         if solution_config is not None:
             pulumi.set(__self__, "solution_config", solution_config)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="datasetGroupArn")
@@ -138,6 +144,18 @@ class SolutionArgs:
     def solution_config(self, value: pulumi.Input[Optional['SolutionConfigArgs']]):
         pulumi.set(self, "solution_config", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:personalize:Solution")
 class Solution(pulumi.CustomResource):
@@ -152,6 +170,7 @@ class Solution(pulumi.CustomResource):
                  perform_hpo: pulumi.Input[Optional[_builtins.bool]] = None,
                  recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  solution_config: pulumi.Input[Optional[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Personalize::Solution.
@@ -198,6 +217,7 @@ class Solution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] perform_hpo: Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         :param pulumi.Input[_builtins.str] recipe_arn: The ARN of the recipe to use for model training. Only specified when performAutoML is false.
         :param pulumi.Input[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']] solution_config: Describes the configuration properties for the solution.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -263,6 +283,7 @@ class Solution(pulumi.CustomResource):
                  perform_hpo: pulumi.Input[Optional[_builtins.bool]] = None,
                  recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  solution_config: pulumi.Input[Optional[Union['SolutionConfigArgs', 'SolutionConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,8 +302,9 @@ class Solution(pulumi.CustomResource):
             __props__.__dict__["perform_hpo"] = perform_hpo
             __props__.__dict__["recipe_arn"] = recipe_arn
             __props__.__dict__["solution_config"] = solution_config
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["solution_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetGroupArn", "eventType", "name", "performAutoMl", "performHpo", "recipeArn", "solutionConfig"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetGroupArn", "eventType", "name", "performAutoMl", "performHpo", "recipeArn", "solutionConfig", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Solution, __self__).__init__(
             'aws-native:personalize:Solution',
@@ -314,6 +336,7 @@ class Solution(pulumi.CustomResource):
         __props__.__dict__["recipe_arn"] = None
         __props__.__dict__["solution_arn"] = None
         __props__.__dict__["solution_config"] = None
+        __props__.__dict__["tags"] = None
         return Solution(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -379,4 +402,12 @@ class Solution(pulumi.CustomResource):
         Describes the configuration properties for the solution.
         """
         return pulumi.get(self, "solution_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
 

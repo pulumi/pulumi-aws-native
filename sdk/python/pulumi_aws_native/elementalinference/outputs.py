@@ -20,6 +20,7 @@ __all__ = [
     'FeedAspectRatio',
     'FeedClippingConfig',
     'FeedCroppingConfig',
+    'FeedDataSourceConfiguration',
     'FeedGetOutput',
     'FeedOutputConfig0Properties',
     'FeedOutputConfig1Properties',
@@ -53,6 +54,8 @@ class FeedClippingConfig(dict):
         suggest = None
         if key == "callbackMetadata":
             suggest = "callback_metadata"
+        elif key == "dataSourceConfiguration":
+            suggest = "data_source_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FeedClippingConfig. Access the value via the '{suggest}' property getter instead.")
@@ -66,20 +69,57 @@ class FeedClippingConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 callback_metadata: Optional[_builtins.str] = None):
+                 callback_metadata: Optional[_builtins.str] = None,
+                 data_source_configuration: Optional['outputs.FeedDataSourceConfiguration'] = None):
         if callback_metadata is not None:
             pulumi.set(__self__, "callback_metadata", callback_metadata)
+        if data_source_configuration is not None:
+            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
 
     @_builtins.property
     @pulumi.getter(name="callbackMetadata")
     def callback_metadata(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "callback_metadata")
 
+    @_builtins.property
+    @pulumi.getter(name="dataSourceConfiguration")
+    def data_source_configuration(self) -> Optional['outputs.FeedDataSourceConfiguration']:
+        return pulumi.get(self, "data_source_configuration")
+
 
 @pulumi.output_type
 class FeedCroppingConfig(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class FeedDataSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixtureId":
+            suggest = "fixture_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeedDataSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeedDataSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeedDataSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixture_id: _builtins.str):
+        pulumi.set(__self__, "fixture_id", fixture_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fixtureId")
+    def fixture_id(self) -> _builtins.str:
+        return pulumi.get(self, "fixture_id")
 
 
 @pulumi.output_type

@@ -90,6 +90,9 @@ export class Alarm extends pulumi.CustomResource {
      *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     declare public readonly evaluationPeriods: pulumi.Output<number | undefined>;
+    /**
+     * The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+     */
     declare public readonly evaluationWindow: pulumi.Output<outputs.cloudwatch.AlarmEvaluationWindow | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -154,6 +157,7 @@ export class Alarm extends pulumi.CustomResource {
      *   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
      */
     declare public readonly unit: pulumi.Output<string | undefined>;
+    declare public readonly warmUpConfiguration: pulumi.Output<outputs.cloudwatch.AlarmWarmUpConfiguration | undefined>;
 
     /**
      * Create a Alarm resource with the given unique name, arguments, and options.
@@ -191,6 +195,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["thresholdMetricId"] = args?.thresholdMetricId;
             resourceInputs["treatMissingData"] = args?.treatMissingData;
             resourceInputs["unit"] = args?.unit;
+            resourceInputs["warmUpConfiguration"] = args?.warmUpConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionsEnabled"] = undefined /*out*/;
@@ -219,6 +224,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["thresholdMetricId"] = undefined /*out*/;
             resourceInputs["treatMissingData"] = undefined /*out*/;
             resourceInputs["unit"] = undefined /*out*/;
+            resourceInputs["warmUpConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["alarmName"] };
@@ -278,6 +284,9 @@ export interface AlarmArgs {
      *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     evaluationPeriods?: pulumi.Input<number | undefined>;
+    /**
+     * The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+     */
     evaluationWindow?: pulumi.Input<inputs.cloudwatch.AlarmEvaluationWindowArgs | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -342,4 +351,5 @@ export interface AlarmArgs {
      *   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
      */
     unit?: pulumi.Input<string | undefined>;
+    warmUpConfiguration?: pulumi.Input<inputs.cloudwatch.AlarmWarmUpConfigurationArgs | undefined>;
 }

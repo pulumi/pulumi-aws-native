@@ -1359,6 +1359,277 @@ func (in *schemaDataFormatPtr) ToSchemaDataFormatPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaDataFormatPtrOutput)
 }
 
+// The session status.
+type SessionStatus string
+
+const (
+	SessionStatusProvisioning = SessionStatus("PROVISIONING")
+	SessionStatusReady        = SessionStatus("READY")
+	SessionStatusFailed       = SessionStatus("FAILED")
+	SessionStatusTimeout      = SessionStatus("TIMEOUT")
+	SessionStatusStopping     = SessionStatus("STOPPING")
+	SessionStatusStopped      = SessionStatus("STOPPED")
+)
+
+type SessionStatusOutput struct{ *pulumi.OutputState }
+
+func (SessionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionStatus)(nil)).Elem()
+}
+
+func (o SessionStatusOutput) ToSessionStatusOutput() SessionStatusOutput {
+	return o
+}
+
+func (o SessionStatusOutput) ToSessionStatusOutputWithContext(ctx context.Context) SessionStatusOutput {
+	return o
+}
+
+func (o SessionStatusOutput) ToSessionStatusPtrOutput() SessionStatusPtrOutput {
+	return o.ToSessionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SessionStatusOutput) ToSessionStatusPtrOutputWithContext(ctx context.Context) SessionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionStatus) *SessionStatus {
+		return &v
+	}).(SessionStatusPtrOutput)
+}
+
+func (o SessionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionStatus)(nil)).Elem()
+}
+
+func (o SessionStatusPtrOutput) ToSessionStatusPtrOutput() SessionStatusPtrOutput {
+	return o
+}
+
+func (o SessionStatusPtrOutput) ToSessionStatusPtrOutputWithContext(ctx context.Context) SessionStatusPtrOutput {
+	return o
+}
+
+func (o SessionStatusPtrOutput) Elem() SessionStatusOutput {
+	return o.ApplyT(func(v *SessionStatus) SessionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SessionStatus
+		return ret
+	}).(SessionStatusOutput)
+}
+
+func (o SessionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of predefined worker that is allocated when a session runs.
+type SessionWorkerType string
+
+const (
+	SessionWorkerTypeStandard = SessionWorkerType("Standard")
+	SessionWorkerTypeG1x      = SessionWorkerType("G.1X")
+	SessionWorkerTypeG2x      = SessionWorkerType("G.2X")
+	SessionWorkerTypeG025x    = SessionWorkerType("G.025X")
+	SessionWorkerTypeG4x      = SessionWorkerType("G.4X")
+	SessionWorkerTypeG8x      = SessionWorkerType("G.8X")
+	SessionWorkerTypeZ2x      = SessionWorkerType("Z.2X")
+)
+
+func (SessionWorkerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionWorkerType)(nil)).Elem()
+}
+
+func (e SessionWorkerType) ToSessionWorkerTypeOutput() SessionWorkerTypeOutput {
+	return pulumi.ToOutput(e).(SessionWorkerTypeOutput)
+}
+
+func (e SessionWorkerType) ToSessionWorkerTypeOutputWithContext(ctx context.Context) SessionWorkerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SessionWorkerTypeOutput)
+}
+
+func (e SessionWorkerType) ToSessionWorkerTypePtrOutput() SessionWorkerTypePtrOutput {
+	return e.ToSessionWorkerTypePtrOutputWithContext(context.Background())
+}
+
+func (e SessionWorkerType) ToSessionWorkerTypePtrOutputWithContext(ctx context.Context) SessionWorkerTypePtrOutput {
+	return SessionWorkerType(e).ToSessionWorkerTypeOutputWithContext(ctx).ToSessionWorkerTypePtrOutputWithContext(ctx)
+}
+
+func (e SessionWorkerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionWorkerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SessionWorkerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SessionWorkerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SessionWorkerTypeOutput struct{ *pulumi.OutputState }
+
+func (SessionWorkerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionWorkerType)(nil)).Elem()
+}
+
+func (o SessionWorkerTypeOutput) ToSessionWorkerTypeOutput() SessionWorkerTypeOutput {
+	return o
+}
+
+func (o SessionWorkerTypeOutput) ToSessionWorkerTypeOutputWithContext(ctx context.Context) SessionWorkerTypeOutput {
+	return o
+}
+
+func (o SessionWorkerTypeOutput) ToSessionWorkerTypePtrOutput() SessionWorkerTypePtrOutput {
+	return o.ToSessionWorkerTypePtrOutputWithContext(context.Background())
+}
+
+func (o SessionWorkerTypeOutput) ToSessionWorkerTypePtrOutputWithContext(ctx context.Context) SessionWorkerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionWorkerType) *SessionWorkerType {
+		return &v
+	}).(SessionWorkerTypePtrOutput)
+}
+
+func (o SessionWorkerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SessionWorkerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionWorkerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SessionWorkerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionWorkerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SessionWorkerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SessionWorkerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SessionWorkerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionWorkerType)(nil)).Elem()
+}
+
+func (o SessionWorkerTypePtrOutput) ToSessionWorkerTypePtrOutput() SessionWorkerTypePtrOutput {
+	return o
+}
+
+func (o SessionWorkerTypePtrOutput) ToSessionWorkerTypePtrOutputWithContext(ctx context.Context) SessionWorkerTypePtrOutput {
+	return o
+}
+
+func (o SessionWorkerTypePtrOutput) Elem() SessionWorkerTypeOutput {
+	return o.ApplyT(func(v *SessionWorkerType) SessionWorkerType {
+		if v != nil {
+			return *v
+		}
+		var ret SessionWorkerType
+		return ret
+	}).(SessionWorkerTypeOutput)
+}
+
+func (o SessionWorkerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SessionWorkerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SessionWorkerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SessionWorkerTypeInput is an input type that accepts values of the SessionWorkerType enum
+// A concrete instance of `SessionWorkerTypeInput` can be one of the following:
+//
+//	SessionWorkerTypeStandard
+//	SessionWorkerTypeG1x
+//	SessionWorkerTypeG2x
+//	SessionWorkerTypeG025x
+//	SessionWorkerTypeG4x
+//	SessionWorkerTypeG8x
+//	SessionWorkerTypeZ2x
+type SessionWorkerTypeInput interface {
+	pulumi.Input
+
+	ToSessionWorkerTypeOutput() SessionWorkerTypeOutput
+	ToSessionWorkerTypeOutputWithContext(context.Context) SessionWorkerTypeOutput
+}
+
+var sessionWorkerTypePtrType = reflect.TypeOf((**SessionWorkerType)(nil)).Elem()
+
+type SessionWorkerTypePtrInput interface {
+	pulumi.Input
+
+	ToSessionWorkerTypePtrOutput() SessionWorkerTypePtrOutput
+	ToSessionWorkerTypePtrOutputWithContext(context.Context) SessionWorkerTypePtrOutput
+}
+
+type sessionWorkerTypePtr string
+
+func SessionWorkerTypePtr(v string) SessionWorkerTypePtrInput {
+	return (*sessionWorkerTypePtr)(&v)
+}
+
+func (*sessionWorkerTypePtr) ElementType() reflect.Type {
+	return sessionWorkerTypePtrType
+}
+
+func (in *sessionWorkerTypePtr) ToSessionWorkerTypePtrOutput() SessionWorkerTypePtrOutput {
+	return pulumi.ToOutput(in).(SessionWorkerTypePtrOutput)
+}
+
+func (in *sessionWorkerTypePtr) ToSessionWorkerTypePtrOutputWithContext(ctx context.Context) SessionWorkerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SessionWorkerTypePtrOutput)
+}
+
 // The type of the function.
 type UserDefinedFunctionFunctionType string
 
@@ -1879,6 +2150,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityPtrInput)(nil)).Elem(), SchemaCompatibility("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDataFormatPtrInput)(nil)).Elem(), SchemaDataFormat("AVRO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionWorkerTypeInput)(nil)).Elem(), SessionWorkerType("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionWorkerTypePtrInput)(nil)).Elem(), SessionWorkerType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionFunctionTypeInput)(nil)).Elem(), UserDefinedFunctionFunctionType("REGULAR_FUNCTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionFunctionTypePtrInput)(nil)).Elem(), UserDefinedFunctionFunctionType("REGULAR_FUNCTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionOwnerTypeInput)(nil)).Elem(), UserDefinedFunctionOwnerType("USER"))
@@ -1902,6 +2175,10 @@ func init() {
 	pulumi.RegisterOutputType(SchemaCompatibilityPtrOutput{})
 	pulumi.RegisterOutputType(SchemaDataFormatOutput{})
 	pulumi.RegisterOutputType(SchemaDataFormatPtrOutput{})
+	pulumi.RegisterOutputType(SessionStatusOutput{})
+	pulumi.RegisterOutputType(SessionStatusPtrOutput{})
+	pulumi.RegisterOutputType(SessionWorkerTypeOutput{})
+	pulumi.RegisterOutputType(SessionWorkerTypePtrOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionFunctionTypeOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionFunctionTypePtrOutput{})
 	pulumi.RegisterOutputType(UserDefinedFunctionOwnerTypeOutput{})

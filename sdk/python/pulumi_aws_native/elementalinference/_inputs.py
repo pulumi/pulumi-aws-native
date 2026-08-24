@@ -22,6 +22,8 @@ __all__ = [
     'FeedClippingConfigArgsDict',
     'FeedCroppingConfigArgs',
     'FeedCroppingConfigArgsDict',
+    'FeedDataSourceConfigurationArgs',
+    'FeedDataSourceConfigurationArgsDict',
     'FeedGetOutputArgs',
     'FeedGetOutputArgsDict',
     'FeedOutputConfig0PropertiesArgs',
@@ -67,13 +69,17 @@ class FeedAspectRatioArgs:
 
 class FeedClippingConfigArgsDict(TypedDict):
     callback_metadata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    data_source_configuration: NotRequired[pulumi.Input[Optional['FeedDataSourceConfigurationArgsDict']]]
 
 @pulumi.input_type
 class FeedClippingConfigArgs:
     def __init__(__self__, *,
-                 callback_metadata: pulumi.Input[Optional[_builtins.str]] = None):
+                 callback_metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_configuration: pulumi.Input[Optional['FeedDataSourceConfigurationArgs']] = None):
         if callback_metadata is not None:
             pulumi.set(__self__, "callback_metadata", callback_metadata)
+        if data_source_configuration is not None:
+            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
 
     @_builtins.property
     @pulumi.getter(name="callbackMetadata")
@@ -84,6 +90,15 @@ class FeedClippingConfigArgs:
     def callback_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "callback_metadata", value)
 
+    @_builtins.property
+    @pulumi.getter(name="dataSourceConfiguration")
+    def data_source_configuration(self) -> pulumi.Input[Optional['FeedDataSourceConfigurationArgs']]:
+        return pulumi.get(self, "data_source_configuration")
+
+    @data_source_configuration.setter
+    def data_source_configuration(self, value: pulumi.Input[Optional['FeedDataSourceConfigurationArgs']]):
+        pulumi.set(self, "data_source_configuration", value)
+
 
 class FeedCroppingConfigArgsDict(TypedDict):
     pass
@@ -92,6 +107,25 @@ class FeedCroppingConfigArgsDict(TypedDict):
 class FeedCroppingConfigArgs:
     def __init__(__self__):
         pass
+
+
+class FeedDataSourceConfigurationArgsDict(TypedDict):
+    fixture_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class FeedDataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 fixture_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "fixture_id", fixture_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fixtureId")
+    def fixture_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "fixture_id")
+
+    @fixture_id.setter
+    def fixture_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "fixture_id", value)
 
 
 class FeedGetOutputArgsDict(TypedDict):

@@ -44,6 +44,15 @@ __all__ = [
     'InstanceStorageConfigInstanceStorageResourceType',
     'InstanceStorageConfigStorageType',
     'IntegrationAssociationIntegrationType',
+    'MetricAvailableFilterType',
+    'MetricCreationMethod',
+    'MetricFilterBooleanConditionComparison',
+    'MetricFilterNumberConditionComparison',
+    'MetricFilterStringConditionComparison',
+    'MetricPositiveTrendIndicator',
+    'MetricStatus',
+    'MetricType',
+    'MetricUnit',
     'NotificationPriority',
     'QueueStatus',
     'QueueType',
@@ -485,6 +494,80 @@ class IntegrationAssociationIntegrationType(_builtins.str, Enum):
     MESSAGE_PROCESSOR = "MESSAGE_PROCESSOR"
     Q_MESSAGE_TEMPLATES = "Q_MESSAGE_TEMPLATES"
     SES_IDENTITY = "SES_IDENTITY"
+
+
+@pulumi.type_token("aws-native:connect:MetricAvailableFilterType")
+class MetricAvailableFilterType(_builtins.str, Enum):
+    METRIC_LEVEL = "METRIC_LEVEL"
+    RESOURCE_LEVEL = "RESOURCE_LEVEL"
+
+
+@pulumi.type_token("aws-native:connect:MetricCreationMethod")
+class MetricCreationMethod(_builtins.str, Enum):
+    """
+    Whether the metric was built with the guided Service Level (SL) experience, or with the free-form metric builder
+    """
+    SERVICE_LEVEL_BUILDER = "SERVICE_LEVEL_BUILDER"
+    METRIC_BUILDER = "METRIC_BUILDER"
+
+
+@pulumi.type_token("aws-native:connect:MetricFilterBooleanConditionComparison")
+class MetricFilterBooleanConditionComparison(_builtins.str, Enum):
+    IS_TRUE = "IS_TRUE"
+    IS_FALSE = "IS_FALSE"
+
+
+@pulumi.type_token("aws-native:connect:MetricFilterNumberConditionComparison")
+class MetricFilterNumberConditionComparison(_builtins.str, Enum):
+    LESSER = "LESSER"
+    LESSER_OR_EQUAL = "LESSER_OR_EQUAL"
+    GREATER = "GREATER"
+    GREATER_OR_EQUAL = "GREATER_OR_EQUAL"
+
+
+@pulumi.type_token("aws-native:connect:MetricFilterStringConditionComparison")
+class MetricFilterStringConditionComparison(_builtins.str, Enum):
+    MATCHES_ANY = "MATCHES_ANY"
+    MATCHES_NONE = "MATCHES_NONE"
+
+
+@pulumi.type_token("aws-native:connect:MetricPositiveTrendIndicator")
+class MetricPositiveTrendIndicator(_builtins.str, Enum):
+    """
+    Indicates how to classify a positive trend in metric data on the UI
+    """
+    POSITIVE = "POSITIVE"
+    NEGATIVE = "NEGATIVE"
+    NEUTRAL = "NEUTRAL"
+
+
+@pulumi.type_token("aws-native:connect:MetricStatus")
+class MetricStatus(_builtins.str, Enum):
+    """
+    The status of the custom metric
+    """
+    SAVED = "SAVED"
+    PUBLISHED = "PUBLISHED"
+
+
+@pulumi.type_token("aws-native:connect:MetricType")
+class MetricType(_builtins.str, Enum):
+    """
+    Whether the metric is provided out-of-the-box or created by each customer
+    """
+    AWS_MANAGED = "AWS_MANAGED"
+    CUSTOMER_MANAGED = "CUSTOMER_MANAGED"
+
+
+@pulumi.type_token("aws-native:connect:MetricUnit")
+class MetricUnit(_builtins.str, Enum):
+    """
+    Display unit for the metric data
+    """
+    INTEGER = "INTEGER"
+    DOUBLE = "DOUBLE"
+    PERCENT = "PERCENT"
+    SECONDS = "SECONDS"
 
 
 @pulumi.type_token("aws-native:connect:NotificationPriority")

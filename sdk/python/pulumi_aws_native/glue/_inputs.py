@@ -116,6 +116,10 @@ __all__ = [
     'SecurityConfigurationJobBookmarksEncryptionArgsDict',
     'SecurityConfigurationS3EncryptionArgs',
     'SecurityConfigurationS3EncryptionArgsDict',
+    'SessionCommandArgs',
+    'SessionCommandArgsDict',
+    'SessionConnectionsListArgs',
+    'SessionConnectionsListArgsDict',
     'SourceProcessingPropertiesPropertiesArgs',
     'SourceProcessingPropertiesPropertiesArgsDict',
     'TableOptimizerCompactionConfigurationArgs',
@@ -3697,6 +3701,94 @@ class SecurityConfigurationS3EncryptionArgs:
     @s3_encryption_mode.setter
     def s3_encryption_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_encryption_mode", value)
+
+
+class SessionCommandArgsDict(TypedDict):
+    """
+    The SessionCommand that runs the job.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+    """
+    python_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+    """
+
+@pulumi.input_type
+class SessionCommandArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 python_version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The SessionCommand that runs the job.
+
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+        :param pulumi.Input[_builtins.str] python_version: Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "python_version", value)
+
+
+class SessionConnectionsListArgsDict(TypedDict):
+    """
+    Specifies the connections used by the session.
+    """
+    connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of connection names used by the session.
+    """
+
+@pulumi.input_type
+class SessionConnectionsListArgs:
+    def __init__(__self__, *,
+                 connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Specifies the connections used by the session.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connections: A list of connection names used by the session.
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+
+    @_builtins.property
+    @pulumi.getter
+    def connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of connection names used by the session.
+        """
+        return pulumi.get(self, "connections")
+
+    @connections.setter
+    def connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "connections", value)
 
 
 class SourceProcessingPropertiesPropertiesArgsDict(TypedDict):

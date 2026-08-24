@@ -69,6 +69,27 @@ export const ReferenceStoreEncryptionType = {
 
 export type ReferenceStoreEncryptionType = (typeof ReferenceStoreEncryptionType)[keyof typeof ReferenceStoreEncryptionType];
 
+export const RunCacheCacheBehavior = {
+    CacheOnFailure: "CACHE_ON_FAILURE",
+    CacheAlways: "CACHE_ALWAYS",
+} as const;
+
+/**
+ * The default cache behavior for runs using this cache.
+ */
+export type RunCacheCacheBehavior = (typeof RunCacheCacheBehavior)[keyof typeof RunCacheCacheBehavior];
+
+export const RunCacheStatus = {
+    Active: "ACTIVE",
+    Deleted: "DELETED",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The run cache status.
+ */
+export type RunCacheStatus = (typeof RunCacheStatus)[keyof typeof RunCacheStatus];
+
 export const SequenceStoreETagAlgorithmFamily = {
     Md5up: "MD5up",
     Sha256up: "SHA256up",

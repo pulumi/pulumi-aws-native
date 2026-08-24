@@ -26,6 +26,7 @@ class VirtualClusterArgs:
                  container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
@@ -33,6 +34,7 @@ class VirtualClusterArgs:
         :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Container provider of the virtual cluster.
         :param pulumi.Input[_builtins.str] name: Name of the virtual cluster.
         :param pulumi.Input[_builtins.str] security_configuration_id: The ID of the security configuration.
+        :param pulumi.Input[_builtins.bool] session_enabled: Whether the virtual cluster is session-enabled for Spark Connect.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         pulumi.set(__self__, "container_provider", container_provider)
@@ -40,6 +42,8 @@ class VirtualClusterArgs:
             pulumi.set(__self__, "name", name)
         if security_configuration_id is not None:
             pulumi.set(__self__, "security_configuration_id", security_configuration_id)
+        if session_enabled is not None:
+            pulumi.set(__self__, "session_enabled", session_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -80,6 +84,18 @@ class VirtualClusterArgs:
         pulumi.set(self, "security_configuration_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="sessionEnabled")
+    def session_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the virtual cluster is session-enabled for Spark Connect.
+        """
+        return pulumi.get(self, "session_enabled")
+
+    @session_enabled.setter
+    def session_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "session_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -101,6 +117,7 @@ class VirtualCluster(pulumi.CustomResource):
                  container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -162,6 +179,7 @@ class VirtualCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Container provider of the virtual cluster.
         :param pulumi.Input[_builtins.str] name: Name of the virtual cluster.
         :param pulumi.Input[_builtins.str] security_configuration_id: The ID of the security configuration.
+        :param pulumi.Input[_builtins.bool] session_enabled: Whether the virtual cluster is session-enabled for Spark Connect.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         ...
@@ -242,6 +260,7 @@ class VirtualCluster(pulumi.CustomResource):
                  container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -257,10 +276,11 @@ class VirtualCluster(pulumi.CustomResource):
             __props__.__dict__["container_provider"] = container_provider
             __props__.__dict__["name"] = name
             __props__.__dict__["security_configuration_id"] = security_configuration_id
+            __props__.__dict__["session_enabled"] = session_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerProvider", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerProvider", "name", "securityConfigurationId", "sessionEnabled"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VirtualCluster, __self__).__init__(
             'aws-native:emrcontainers:VirtualCluster',
@@ -289,6 +309,7 @@ class VirtualCluster(pulumi.CustomResource):
         __props__.__dict__["container_provider"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["security_configuration_id"] = None
+        __props__.__dict__["session_enabled"] = None
         __props__.__dict__["tags"] = None
         return VirtualCluster(resource_name, opts=opts, __props__=__props__)
 
@@ -331,6 +352,14 @@ class VirtualCluster(pulumi.CustomResource):
         The ID of the security configuration.
         """
         return pulumi.get(self, "security_configuration_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionEnabled")
+    def session_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the virtual cluster is session-enabled for Spark Connect.
+        """
+        return pulumi.get(self, "session_enabled")
 
     @_builtins.property
     @pulumi.getter

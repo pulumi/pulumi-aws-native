@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::EMR::WALWorkspace Type
+// Resource Type definition for AWS::EMR::WALWorkspace
 func LookupWalWorkspace(ctx *pulumi.Context, args *LookupWalWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWalWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWalWorkspaceResult

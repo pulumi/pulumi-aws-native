@@ -3,6 +3,28 @@
   "description" : "Resource Type definition for AWS::SageMaker::EndpointConfig",
   "additionalProperties" : false,
   "properties" : {
+    "ProductionVariants" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/ProductionVariant"
+      }
+    },
+    "KmsKeyId" : {
+      "type" : "string"
+    },
+    "VpcConfig" : {
+      "$ref" : "#/definitions/VpcConfig"
+    },
+    "EndpointConfigName" : {
+      "type" : "string"
+    },
+    "ExplainerConfig" : {
+      "$ref" : "#/definitions/ExplainerConfig"
+    },
+    "MetricsConfig" : {
+      "$ref" : "#/definitions/MetricsConfig"
+    },
     "ShadowProductionVariants" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -19,27 +41,8 @@
     "EnableNetworkIsolation" : {
       "type" : "boolean"
     },
-    "ProductionVariants" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/ProductionVariant"
-      }
-    },
-    "KmsKeyId" : {
-      "type" : "string"
-    },
     "AsyncInferenceConfig" : {
       "$ref" : "#/definitions/AsyncInferenceConfig"
-    },
-    "VpcConfig" : {
-      "$ref" : "#/definitions/VpcConfig"
-    },
-    "EndpointConfigName" : {
-      "type" : "string"
-    },
-    "ExplainerConfig" : {
-      "$ref" : "#/definitions/ExplainerConfig"
     },
     "Id" : {
       "type" : "string"
@@ -53,21 +56,6 @@
     }
   },
   "definitions" : {
-    "ManagedInstanceScaling" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Status" : {
-          "type" : "string"
-        },
-        "MaxInstanceCount" : {
-          "type" : "integer"
-        },
-        "MinInstanceCount" : {
-          "type" : "integer"
-        }
-      }
-    },
     "InstancePools" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -103,10 +91,6 @@
         }
       }
     },
-    "ClarifyHeader" : {
-      "type" : "object",
-      "additionalProperties" : false
-    },
     "ProductionVariant" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -141,6 +125,9 @@
         },
         "RoutingConfig" : {
           "$ref" : "#/definitions/RoutingConfig"
+        },
+        "CoreDumpConfig" : {
+          "$ref" : "#/definitions/CoreDumpConfig"
         },
         "InitialVariantWeight" : {
           "type" : "number"
@@ -238,14 +225,21 @@
         }
       }
     },
-    "ExplainerConfig" : {
+    "ScaleInPolicy" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ClarifyExplainerConfig" : {
-          "$ref" : "#/definitions/ClarifyExplainerConfig"
+        "Strategy" : {
+          "type" : "string"
+        },
+        "CooldownInMinutes" : {
+          "type" : "integer"
+        },
+        "MaximumStepSize" : {
+          "type" : "integer"
         }
-      }
+      },
+      "required" : [ "Strategy" ]
     },
     "ClarifyFeatureType" : {
       "type" : "object",
@@ -271,12 +265,31 @@
         }
       }
     },
-    "RoutingConfig" : {
+    "CoreDumpConfig" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "RoutingStrategy" : {
+        "KmsKeyId" : {
           "type" : "string"
+        },
+        "DestinationS3Uri" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "DestinationS3Uri" ]
+    },
+    "MetricsConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EnableEnhancedMetrics" : {
+          "type" : "boolean"
+        },
+        "EnableDetailedObservability" : {
+          "type" : "boolean"
+        },
+        "MetricPublishFrequencyInSeconds" : {
+          "type" : "integer"
         }
       }
     },
@@ -292,6 +305,121 @@
         }
       },
       "required" : [ "Language", "Granularity" ]
+    },
+    "AsyncInferenceConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ClientConfig" : {
+          "$ref" : "#/definitions/AsyncInferenceClientConfig"
+        },
+        "OutputConfig" : {
+          "$ref" : "#/definitions/AsyncInferenceOutputConfig"
+        }
+      },
+      "required" : [ "OutputConfig" ]
+    },
+    "AsyncInferenceClientConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MaxConcurrentInvocationsPerInstance" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "ClarifyShapConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TextConfig" : {
+          "$ref" : "#/definitions/ClarifyTextConfig"
+        },
+        "UseLogit" : {
+          "type" : "boolean"
+        },
+        "Seed" : {
+          "type" : "integer"
+        },
+        "ShapBaselineConfig" : {
+          "$ref" : "#/definitions/ClarifyShapBaselineConfig"
+        },
+        "NumberOfSamples" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "ShapBaselineConfig" ]
+    },
+    "ClarifyExplainerConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EnableExplanations" : {
+          "type" : "string"
+        },
+        "ShapConfig" : {
+          "$ref" : "#/definitions/ClarifyShapConfig"
+        },
+        "InferenceConfig" : {
+          "$ref" : "#/definitions/ClarifyInferenceConfig"
+        }
+      },
+      "required" : [ "ShapConfig" ]
+    },
+    "PrefixAwareRoutingConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ConcurrencyThreshold" : {
+          "type" : "integer"
+        },
+        "PrefixLength" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "ManagedInstanceScaling" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Status" : {
+          "type" : "string"
+        },
+        "MaxInstanceCount" : {
+          "type" : "integer"
+        },
+        "ScaleInPolicy" : {
+          "$ref" : "#/definitions/ScaleInPolicy"
+        },
+        "MinInstanceCount" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "ClarifyHeader" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "ExplainerConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ClarifyExplainerConfig" : {
+          "$ref" : "#/definitions/ClarifyExplainerConfig"
+        }
+      }
+    },
+    "RoutingConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RoutingStrategy" : {
+          "type" : "string"
+        },
+        "PrefixAwareRoutingConfig" : {
+          "$ref" : "#/definitions/PrefixAwareRoutingConfig"
+        }
+      }
     },
     "DataCaptureConfig" : {
       "type" : "object",
@@ -321,28 +449,6 @@
         }
       },
       "required" : [ "CaptureOptions", "DestinationS3Uri", "InitialSamplingPercentage" ]
-    },
-    "AsyncInferenceConfig" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ClientConfig" : {
-          "$ref" : "#/definitions/AsyncInferenceClientConfig"
-        },
-        "OutputConfig" : {
-          "$ref" : "#/definitions/AsyncInferenceOutputConfig"
-        }
-      },
-      "required" : [ "OutputConfig" ]
-    },
-    "AsyncInferenceClientConfig" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MaxConcurrentInvocationsPerInstance" : {
-          "type" : "integer"
-        }
-      }
     },
     "CapacityReservationConfig" : {
       "type" : "object",
@@ -387,44 +493,6 @@
       },
       "required" : [ "MaxConcurrency", "MemorySizeInMB" ]
     },
-    "ClarifyShapConfig" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "TextConfig" : {
-          "$ref" : "#/definitions/ClarifyTextConfig"
-        },
-        "UseLogit" : {
-          "type" : "boolean"
-        },
-        "Seed" : {
-          "type" : "integer"
-        },
-        "ShapBaselineConfig" : {
-          "$ref" : "#/definitions/ClarifyShapBaselineConfig"
-        },
-        "NumberOfSamples" : {
-          "type" : "integer"
-        }
-      },
-      "required" : [ "ShapBaselineConfig" ]
-    },
-    "ClarifyExplainerConfig" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "EnableExplanations" : {
-          "type" : "string"
-        },
-        "ShapConfig" : {
-          "$ref" : "#/definitions/ClarifyShapConfig"
-        },
-        "InferenceConfig" : {
-          "$ref" : "#/definitions/ClarifyInferenceConfig"
-        }
-      },
-      "required" : [ "ShapConfig" ]
-    },
     "CaptureOption" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -468,7 +536,7 @@
     }
   },
   "required" : [ "ProductionVariants" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/AsyncInferenceConfig", "/properties/ExecutionRoleArn", "/properties/ShadowProductionVariants", "/properties/EnableNetworkIsolation", "/properties/ProductionVariants", "/properties/DataCaptureConfig", "/properties/ExplainerConfig", "/properties/EndpointConfigName", "/properties/VpcConfig" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/AsyncInferenceConfig", "/properties/ExecutionRoleArn", "/properties/ShadowProductionVariants", "/properties/MetricsConfig", "/properties/EnableNetworkIsolation", "/properties/ProductionVariants", "/properties/DataCaptureConfig", "/properties/ExplainerConfig", "/properties/EndpointConfigName", "/properties/VpcConfig" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

@@ -74,7 +74,6 @@ func NewTransitGatewayRouteTableAttachment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"peeringId",
-		"routingPolicyLabel",
 		"transitGatewayRouteTableArn",
 	})
 	opts = append(opts, replaceOnChanges)

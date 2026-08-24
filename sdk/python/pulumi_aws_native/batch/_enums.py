@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ComputeEnvironmentEcsSettingsContainerInsights',
     'ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType',
     'ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType',
     'ComputeEnvironmentLaunchTemplateSpecificationUserdataType',
@@ -20,6 +21,13 @@ __all__ = [
     'QuotaShareState',
     'SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy',
 ]
+
+
+@pulumi.type_token("aws-native:batch:ComputeEnvironmentEcsSettingsContainerInsights")
+class ComputeEnvironmentEcsSettingsContainerInsights(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    ENHANCED = "ENHANCED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:batch:ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType")

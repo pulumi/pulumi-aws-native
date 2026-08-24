@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -100,6 +101,8 @@ type Dataset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
 	SchemaArn pulumi.StringOutput `pulumi:"schemaArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -123,6 +126,7 @@ func NewDataset(ctx *pulumi.Context,
 		"datasetType",
 		"name",
 		"schemaArn",
+		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -168,6 +172,8 @@ type datasetArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
 	SchemaArn string `pulumi:"schemaArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dataset resource.
@@ -182,6 +188,8 @@ type DatasetArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
 	SchemaArn pulumi.StringInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (DatasetArgs) ElementType() reflect.Type {
@@ -249,6 +257,11 @@ func (o DatasetOutput) Name() pulumi.StringOutput {
 // The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
 func (o DatasetOutput) SchemaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.SchemaArn }).(pulumi.StringOutput)
+}
+
+// The tags used to organize, track, or control access for this resource.
+func (o DatasetOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Dataset) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

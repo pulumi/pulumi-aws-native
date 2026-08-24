@@ -32,7 +32,7 @@ class GlobalResolverArgs:
         """
         The set of arguments for constructing a GlobalResolver resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
         """
         pulumi.set(__self__, "regions", regions)
         if client_token is not None:
@@ -52,7 +52,7 @@ class GlobalResolverArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
         """
         return pulumi.get(self, "regions")
 
@@ -134,7 +134,7 @@ class GlobalResolver(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
         """
         ...
     @overload
@@ -293,7 +293,7 @@ class GlobalResolver(pulumi.CustomResource):
     @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
         """
         return pulumi.get(self, "regions")
 

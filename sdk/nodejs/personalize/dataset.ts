@@ -105,6 +105,10 @@ export class Dataset extends pulumi.CustomResource {
      * The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
      */
     declare public readonly schemaArn: pulumi.Output<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -131,6 +135,7 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["datasetType"] = args?.datasetType;
             resourceInputs["name"] = args?.name;
             resourceInputs["schemaArn"] = args?.schemaArn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["datasetArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetArn"] = undefined /*out*/;
@@ -139,9 +144,10 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["datasetType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["datasetGroupArn", "datasetType", "name", "schemaArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["datasetGroupArn", "datasetType", "name", "schemaArn", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Dataset.__pulumiType, name, resourceInputs, opts);
     }
@@ -171,4 +177,8 @@ export interface DatasetArgs {
      * The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
      */
     schemaArn: pulumi.Input<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

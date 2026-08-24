@@ -132,6 +132,12 @@ namespace Pulumi.AwsNative.EmrContainers
         public Output<string?> SecurityConfigurationId { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the virtual cluster is session-enabled for Spark Connect.
+        /// </summary>
+        [Output("sessionEnabled")]
+        public Output<bool?> SessionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this virtual cluster.
         /// </summary>
         [Output("tags")]
@@ -164,6 +170,8 @@ namespace Pulumi.AwsNative.EmrContainers
                 {
                     "containerProvider",
                     "name",
+                    "securityConfigurationId",
+                    "sessionEnabled",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -204,6 +212,12 @@ namespace Pulumi.AwsNative.EmrContainers
         /// </summary>
         [Input("securityConfigurationId")]
         public Input<string>? SecurityConfigurationId { get; set; }
+
+        /// <summary>
+        /// Whether the virtual cluster is session-enabled for Spark Connect.
+        /// </summary>
+        [Input("sessionEnabled")]
+        public Input<bool>? SessionEnabled { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

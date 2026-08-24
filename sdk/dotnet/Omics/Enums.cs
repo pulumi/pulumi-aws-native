@@ -221,6 +221,69 @@ namespace Pulumi.AwsNative.Omics
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The default cache behavior for runs using this cache.
+    /// </summary>
+    [EnumType]
+    public readonly struct RunCacheCacheBehavior : IEquatable<RunCacheCacheBehavior>
+    {
+        private readonly string _value;
+
+        private RunCacheCacheBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RunCacheCacheBehavior CacheOnFailure { get; } = new RunCacheCacheBehavior("CACHE_ON_FAILURE");
+        public static RunCacheCacheBehavior CacheAlways { get; } = new RunCacheCacheBehavior("CACHE_ALWAYS");
+
+        public static bool operator ==(RunCacheCacheBehavior left, RunCacheCacheBehavior right) => left.Equals(right);
+        public static bool operator !=(RunCacheCacheBehavior left, RunCacheCacheBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(RunCacheCacheBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RunCacheCacheBehavior other && Equals(other);
+        public bool Equals(RunCacheCacheBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The run cache status.
+    /// </summary>
+    [EnumType]
+    public readonly struct RunCacheStatus : IEquatable<RunCacheStatus>
+    {
+        private readonly string _value;
+
+        private RunCacheStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RunCacheStatus Active { get; } = new RunCacheStatus("ACTIVE");
+        public static RunCacheStatus Deleted { get; } = new RunCacheStatus("DELETED");
+        public static RunCacheStatus Failed { get; } = new RunCacheStatus("FAILED");
+
+        public static bool operator ==(RunCacheStatus left, RunCacheStatus right) => left.Equals(right);
+        public static bool operator !=(RunCacheStatus left, RunCacheStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RunCacheStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RunCacheStatus other && Equals(other);
+        public bool Equals(RunCacheStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct SequenceStoreETagAlgorithmFamily : IEquatable<SequenceStoreETagAlgorithmFamily>
     {

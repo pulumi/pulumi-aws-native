@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Addon{}
 	case "aws-native:eks:Capability":
 		r = &Capability{}
+	case "aws-native:eks:CertificateAuthority":
+		r = &CertificateAuthority{}
 	case "aws-native:eks:Cluster":
 		r = &Cluster{}
 	case "aws-native:eks:FargateProfile":

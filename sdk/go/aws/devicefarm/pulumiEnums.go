@@ -376,13 +376,431 @@ func (in *devicePoolRuleOperatorPtr) ToDevicePoolRuleOperatorPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(DevicePoolRuleOperatorPtrOutput)
 }
 
+// The upload's category.
+type UploadCategory string
+
+const (
+	UploadCategoryCurated = UploadCategory("CURATED")
+	UploadCategoryPrivate = UploadCategory("PRIVATE")
+)
+
+type UploadCategoryOutput struct{ *pulumi.OutputState }
+
+func (UploadCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UploadCategory)(nil)).Elem()
+}
+
+func (o UploadCategoryOutput) ToUploadCategoryOutput() UploadCategoryOutput {
+	return o
+}
+
+func (o UploadCategoryOutput) ToUploadCategoryOutputWithContext(ctx context.Context) UploadCategoryOutput {
+	return o
+}
+
+func (o UploadCategoryOutput) ToUploadCategoryPtrOutput() UploadCategoryPtrOutput {
+	return o.ToUploadCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o UploadCategoryOutput) ToUploadCategoryPtrOutputWithContext(ctx context.Context) UploadCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadCategory) *UploadCategory {
+		return &v
+	}).(UploadCategoryPtrOutput)
+}
+
+func (o UploadCategoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UploadCategoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UploadCategory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UploadCategoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UploadCategoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UploadCategory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UploadCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (UploadCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UploadCategory)(nil)).Elem()
+}
+
+func (o UploadCategoryPtrOutput) ToUploadCategoryPtrOutput() UploadCategoryPtrOutput {
+	return o
+}
+
+func (o UploadCategoryPtrOutput) ToUploadCategoryPtrOutputWithContext(ctx context.Context) UploadCategoryPtrOutput {
+	return o
+}
+
+func (o UploadCategoryPtrOutput) Elem() UploadCategoryOutput {
+	return o.ApplyT(func(v *UploadCategory) UploadCategory {
+		if v != nil {
+			return *v
+		}
+		var ret UploadCategory
+		return ret
+	}).(UploadCategoryOutput)
+}
+
+func (o UploadCategoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UploadCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UploadCategory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The upload's status.
+type UploadStatus string
+
+const (
+	UploadStatusInitialized = UploadStatus("INITIALIZED")
+	UploadStatusProcessing  = UploadStatus("PROCESSING")
+	UploadStatusSucceeded   = UploadStatus("SUCCEEDED")
+	UploadStatusFailed      = UploadStatus("FAILED")
+)
+
+type UploadStatusOutput struct{ *pulumi.OutputState }
+
+func (UploadStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UploadStatus)(nil)).Elem()
+}
+
+func (o UploadStatusOutput) ToUploadStatusOutput() UploadStatusOutput {
+	return o
+}
+
+func (o UploadStatusOutput) ToUploadStatusOutputWithContext(ctx context.Context) UploadStatusOutput {
+	return o
+}
+
+func (o UploadStatusOutput) ToUploadStatusPtrOutput() UploadStatusPtrOutput {
+	return o.ToUploadStatusPtrOutputWithContext(context.Background())
+}
+
+func (o UploadStatusOutput) ToUploadStatusPtrOutputWithContext(ctx context.Context) UploadStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadStatus) *UploadStatus {
+		return &v
+	}).(UploadStatusPtrOutput)
+}
+
+func (o UploadStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UploadStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UploadStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UploadStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UploadStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UploadStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UploadStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (UploadStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UploadStatus)(nil)).Elem()
+}
+
+func (o UploadStatusPtrOutput) ToUploadStatusPtrOutput() UploadStatusPtrOutput {
+	return o
+}
+
+func (o UploadStatusPtrOutput) ToUploadStatusPtrOutputWithContext(ctx context.Context) UploadStatusPtrOutput {
+	return o
+}
+
+func (o UploadStatusPtrOutput) Elem() UploadStatusOutput {
+	return o.ApplyT(func(v *UploadStatus) UploadStatus {
+		if v != nil {
+			return *v
+		}
+		var ret UploadStatus
+		return ret
+	}).(UploadStatusOutput)
+}
+
+func (o UploadStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UploadStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UploadStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The upload's type.
+type UploadType string
+
+const (
+	UploadTypeAndroidApp                     = UploadType("ANDROID_APP")
+	UploadTypeIosApp                         = UploadType("IOS_APP")
+	UploadTypeWebApp                         = UploadType("WEB_APP")
+	UploadTypeExternalData                   = UploadType("EXTERNAL_DATA")
+	UploadTypeAppiumJavaJunitTestPackage     = UploadType("APPIUM_JAVA_JUNIT_TEST_PACKAGE")
+	UploadTypeAppiumJavaTestngTestPackage    = UploadType("APPIUM_JAVA_TESTNG_TEST_PACKAGE")
+	UploadTypeAppiumPythonTestPackage        = UploadType("APPIUM_PYTHON_TEST_PACKAGE")
+	UploadTypeAppiumNodeTestPackage          = UploadType("APPIUM_NODE_TEST_PACKAGE")
+	UploadTypeAppiumRubyTestPackage          = UploadType("APPIUM_RUBY_TEST_PACKAGE")
+	UploadTypeAppiumWebJavaJunitTestPackage  = UploadType("APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE")
+	UploadTypeAppiumWebJavaTestngTestPackage = UploadType("APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE")
+	UploadTypeAppiumWebPythonTestPackage     = UploadType("APPIUM_WEB_PYTHON_TEST_PACKAGE")
+	UploadTypeAppiumWebNodeTestPackage       = UploadType("APPIUM_WEB_NODE_TEST_PACKAGE")
+	UploadTypeAppiumWebRubyTestPackage       = UploadType("APPIUM_WEB_RUBY_TEST_PACKAGE")
+	UploadTypeCalabashTestPackage            = UploadType("CALABASH_TEST_PACKAGE")
+	UploadTypeInstrumentationTestPackage     = UploadType("INSTRUMENTATION_TEST_PACKAGE")
+	UploadTypeUiautomationTestPackage        = UploadType("UIAUTOMATION_TEST_PACKAGE")
+	UploadTypeUiautomatorTestPackage         = UploadType("UIAUTOMATOR_TEST_PACKAGE")
+	UploadTypeXctestTestPackage              = UploadType("XCTEST_TEST_PACKAGE")
+	UploadTypeXctestUiTestPackage            = UploadType("XCTEST_UI_TEST_PACKAGE")
+	UploadTypeAppiumJavaJunitTestSpec        = UploadType("APPIUM_JAVA_JUNIT_TEST_SPEC")
+	UploadTypeAppiumJavaTestngTestSpec       = UploadType("APPIUM_JAVA_TESTNG_TEST_SPEC")
+	UploadTypeAppiumPythonTestSpec           = UploadType("APPIUM_PYTHON_TEST_SPEC")
+	UploadTypeAppiumNodeTestSpec             = UploadType("APPIUM_NODE_TEST_SPEC")
+	UploadTypeAppiumRubyTestSpec             = UploadType("APPIUM_RUBY_TEST_SPEC")
+	UploadTypeAppiumWebJavaJunitTestSpec     = UploadType("APPIUM_WEB_JAVA_JUNIT_TEST_SPEC")
+	UploadTypeAppiumWebJavaTestngTestSpec    = UploadType("APPIUM_WEB_JAVA_TESTNG_TEST_SPEC")
+	UploadTypeAppiumWebPythonTestSpec        = UploadType("APPIUM_WEB_PYTHON_TEST_SPEC")
+	UploadTypeAppiumWebNodeTestSpec          = UploadType("APPIUM_WEB_NODE_TEST_SPEC")
+	UploadTypeAppiumWebRubyTestSpec          = UploadType("APPIUM_WEB_RUBY_TEST_SPEC")
+	UploadTypeInstrumentationTestSpec        = UploadType("INSTRUMENTATION_TEST_SPEC")
+	UploadTypeXctestUiTestSpec               = UploadType("XCTEST_UI_TEST_SPEC")
+)
+
+func (UploadType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UploadType)(nil)).Elem()
+}
+
+func (e UploadType) ToUploadTypeOutput() UploadTypeOutput {
+	return pulumi.ToOutput(e).(UploadTypeOutput)
+}
+
+func (e UploadType) ToUploadTypeOutputWithContext(ctx context.Context) UploadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UploadTypeOutput)
+}
+
+func (e UploadType) ToUploadTypePtrOutput() UploadTypePtrOutput {
+	return e.ToUploadTypePtrOutputWithContext(context.Background())
+}
+
+func (e UploadType) ToUploadTypePtrOutputWithContext(ctx context.Context) UploadTypePtrOutput {
+	return UploadType(e).ToUploadTypeOutputWithContext(ctx).ToUploadTypePtrOutputWithContext(ctx)
+}
+
+func (e UploadType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UploadType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UploadType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UploadType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UploadTypeOutput struct{ *pulumi.OutputState }
+
+func (UploadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UploadType)(nil)).Elem()
+}
+
+func (o UploadTypeOutput) ToUploadTypeOutput() UploadTypeOutput {
+	return o
+}
+
+func (o UploadTypeOutput) ToUploadTypeOutputWithContext(ctx context.Context) UploadTypeOutput {
+	return o
+}
+
+func (o UploadTypeOutput) ToUploadTypePtrOutput() UploadTypePtrOutput {
+	return o.ToUploadTypePtrOutputWithContext(context.Background())
+}
+
+func (o UploadTypeOutput) ToUploadTypePtrOutputWithContext(ctx context.Context) UploadTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadType) *UploadType {
+		return &v
+	}).(UploadTypePtrOutput)
+}
+
+func (o UploadTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UploadTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UploadType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UploadTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UploadTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UploadType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UploadTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UploadTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UploadType)(nil)).Elem()
+}
+
+func (o UploadTypePtrOutput) ToUploadTypePtrOutput() UploadTypePtrOutput {
+	return o
+}
+
+func (o UploadTypePtrOutput) ToUploadTypePtrOutputWithContext(ctx context.Context) UploadTypePtrOutput {
+	return o
+}
+
+func (o UploadTypePtrOutput) Elem() UploadTypeOutput {
+	return o.ApplyT(func(v *UploadType) UploadType {
+		if v != nil {
+			return *v
+		}
+		var ret UploadType
+		return ret
+	}).(UploadTypeOutput)
+}
+
+func (o UploadTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UploadTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UploadType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UploadTypeInput is an input type that accepts values of the UploadType enum
+// A concrete instance of `UploadTypeInput` can be one of the following:
+//
+//	UploadTypeAndroidApp
+//	UploadTypeIosApp
+//	UploadTypeWebApp
+//	UploadTypeExternalData
+//	UploadTypeAppiumJavaJunitTestPackage
+//	UploadTypeAppiumJavaTestngTestPackage
+//	UploadTypeAppiumPythonTestPackage
+//	UploadTypeAppiumNodeTestPackage
+//	UploadTypeAppiumRubyTestPackage
+//	UploadTypeAppiumWebJavaJunitTestPackage
+//	UploadTypeAppiumWebJavaTestngTestPackage
+//	UploadTypeAppiumWebPythonTestPackage
+//	UploadTypeAppiumWebNodeTestPackage
+//	UploadTypeAppiumWebRubyTestPackage
+//	UploadTypeCalabashTestPackage
+//	UploadTypeInstrumentationTestPackage
+//	UploadTypeUiautomationTestPackage
+//	UploadTypeUiautomatorTestPackage
+//	UploadTypeXctestTestPackage
+//	UploadTypeXctestUiTestPackage
+//	UploadTypeAppiumJavaJunitTestSpec
+//	UploadTypeAppiumJavaTestngTestSpec
+//	UploadTypeAppiumPythonTestSpec
+//	UploadTypeAppiumNodeTestSpec
+//	UploadTypeAppiumRubyTestSpec
+//	UploadTypeAppiumWebJavaJunitTestSpec
+//	UploadTypeAppiumWebJavaTestngTestSpec
+//	UploadTypeAppiumWebPythonTestSpec
+//	UploadTypeAppiumWebNodeTestSpec
+//	UploadTypeAppiumWebRubyTestSpec
+//	UploadTypeInstrumentationTestSpec
+//	UploadTypeXctestUiTestSpec
+type UploadTypeInput interface {
+	pulumi.Input
+
+	ToUploadTypeOutput() UploadTypeOutput
+	ToUploadTypeOutputWithContext(context.Context) UploadTypeOutput
+}
+
+var uploadTypePtrType = reflect.TypeOf((**UploadType)(nil)).Elem()
+
+type UploadTypePtrInput interface {
+	pulumi.Input
+
+	ToUploadTypePtrOutput() UploadTypePtrOutput
+	ToUploadTypePtrOutputWithContext(context.Context) UploadTypePtrOutput
+}
+
+type uploadTypePtr string
+
+func UploadTypePtr(v string) UploadTypePtrInput {
+	return (*uploadTypePtr)(&v)
+}
+
+func (*uploadTypePtr) ElementType() reflect.Type {
+	return uploadTypePtrType
+}
+
+func (in *uploadTypePtr) ToUploadTypePtrOutput() UploadTypePtrOutput {
+	return pulumi.ToOutput(in).(UploadTypePtrOutput)
+}
+
+func (in *uploadTypePtr) ToUploadTypePtrOutputWithContext(ctx context.Context) UploadTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UploadTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleAttributeInput)(nil)).Elem(), DevicePoolRuleAttribute("ARN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleAttributePtrInput)(nil)).Elem(), DevicePoolRuleAttribute("ARN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleOperatorInput)(nil)).Elem(), DevicePoolRuleOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleOperatorPtrInput)(nil)).Elem(), DevicePoolRuleOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadTypeInput)(nil)).Elem(), UploadType("ANDROID_APP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadTypePtrInput)(nil)).Elem(), UploadType("ANDROID_APP"))
 	pulumi.RegisterOutputType(DevicePoolRuleAttributeOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleAttributePtrOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleOperatorOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleOperatorPtrOutput{})
+	pulumi.RegisterOutputType(UploadCategoryOutput{})
+	pulumi.RegisterOutputType(UploadCategoryPtrOutput{})
+	pulumi.RegisterOutputType(UploadStatusOutput{})
+	pulumi.RegisterOutputType(UploadStatusPtrOutput{})
+	pulumi.RegisterOutputType(UploadTypeOutput{})
+	pulumi.RegisterOutputType(UploadTypePtrOutput{})
 }

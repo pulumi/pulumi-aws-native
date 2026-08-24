@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['SchemaArgs', 'Schema']
@@ -22,19 +24,23 @@ class SchemaArgs:
     def __init__(__self__, *,
                  schema: pulumi.Input[_builtins.str],
                  domain: pulumi.Input[Optional['SchemaDomain']] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
 
         :param pulumi.Input[_builtins.str] schema: A schema in Avro JSON format.
         :param pulumi.Input['SchemaDomain'] domain: The domain of a Domain dataset group.
         :param pulumi.Input[_builtins.str] name: Name for the schema.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "schema", schema)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -72,6 +78,18 @@ class SchemaArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:personalize:Schema")
 class Schema(pulumi.CustomResource):
@@ -82,6 +100,7 @@ class Schema(pulumi.CustomResource):
                  domain: pulumi.Input[Optional['SchemaDomain']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Personalize::Schema.
@@ -116,6 +135,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input['SchemaDomain'] domain: The domain of a Domain dataset group.
         :param pulumi.Input[_builtins.str] name: Name for the schema.
         :param pulumi.Input[_builtins.str] schema: A schema in Avro JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -169,6 +189,7 @@ class Schema(pulumi.CustomResource):
                  domain: pulumi.Input[Optional['SchemaDomain']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,8 +204,9 @@ class Schema(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["schema_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "name", "schema"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "name", "schema", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Schema, __self__).__init__(
             'aws-native:personalize:Schema',
@@ -212,6 +234,7 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["schema"] = None
         __props__.__dict__["schema_arn"] = None
+        __props__.__dict__["tags"] = None
         return Schema(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -245,4 +268,12 @@ class Schema(pulumi.CustomResource):
         Arn for the schema.
         """
         return pulumi.get(self, "schema_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
 

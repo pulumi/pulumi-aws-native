@@ -68,6 +68,7 @@ export * from "./types/enums";
 import * as accessanalyzer from "./accessanalyzer";
 import * as accountaccess from "./accountaccess";
 import * as acmpca from "./acmpca";
+import * as agentregistry from "./agentregistry";
 import * as aiops from "./aiops";
 import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
@@ -117,6 +118,7 @@ import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
+import * as codecommit from "./codecommit";
 import * as codeconnections from "./codeconnections";
 import * as codedeploy from "./codedeploy";
 import * as codeguruprofiler from "./codeguruprofiler";
@@ -150,6 +152,7 @@ import * as directoryservice from "./directoryservice";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
 import * as docdbelastic from "./docdbelastic";
+import * as drs from "./drs";
 import * as dsql from "./dsql";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
@@ -199,6 +202,7 @@ import * as iotanalytics from "./iotanalytics";
 import * as iotcoredeviceadvisor from "./iotcoredeviceadvisor";
 import * as iotevents from "./iotevents";
 import * as iotfleethub from "./iotfleethub";
+import * as iotsecuretunneling from "./iotsecuretunneling";
 import * as iotsitewise from "./iotsitewise";
 import * as iottwinmaker from "./iottwinmaker";
 import * as iotwireless from "./iotwireless";
@@ -230,6 +234,7 @@ import * as mediapackage from "./mediapackage";
 import * as mediapackagev2 from "./mediapackagev2";
 import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
+import * as mgn from "./mgn";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as mwaaserverless from "./mwaaserverless";
@@ -292,6 +297,7 @@ import * as s3tables from "./s3tables";
 import * as s3vectors from "./s3vectors";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
+import * as sdb from "./sdb";
 import * as secretsmanager from "./secretsmanager";
 import * as securityagent from "./securityagent";
 import * as securityhub from "./securityhub";
@@ -318,9 +324,11 @@ import * as storagegateway from "./storagegateway";
 import * as supportapp from "./supportapp";
 import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
+import * as textract from "./textract";
 import * as timestream from "./timestream";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
+import * as translate from "./translate";
 import * as types from "./types";
 import * as uxc from "./uxc";
 import * as verifiedpermissions from "./verifiedpermissions";
@@ -339,6 +347,7 @@ export {
     accessanalyzer,
     accountaccess,
     acmpca,
+    agentregistry,
     aiops,
     amazonmq,
     amplify,
@@ -388,6 +397,7 @@ export {
     cloudwatch,
     codeartifact,
     codebuild,
+    codecommit,
     codeconnections,
     codedeploy,
     codeguruprofiler,
@@ -421,6 +431,7 @@ export {
     dms,
     docdb,
     docdbelastic,
+    drs,
     dsql,
     dynamodb,
     ec2,
@@ -470,6 +481,7 @@ export {
     iotcoredeviceadvisor,
     iotevents,
     iotfleethub,
+    iotsecuretunneling,
     iotsitewise,
     iottwinmaker,
     iotwireless,
@@ -501,6 +513,7 @@ export {
     mediapackagev2,
     mediatailor,
     memorydb,
+    mgn,
     msk,
     mwaa,
     mwaaserverless,
@@ -563,6 +576,7 @@ export {
     s3vectors,
     sagemaker,
     scheduler,
+    sdb,
     secretsmanager,
     securityagent,
     securityhub,
@@ -589,9 +603,11 @@ export {
     supportapp,
     synthetics,
     systemsmanagersap,
+    textract,
     timestream,
     transcribe,
     transfer,
+    translate,
     types,
     uxc,
     verifiedpermissions,

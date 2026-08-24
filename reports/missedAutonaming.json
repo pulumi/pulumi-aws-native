@@ -155,6 +155,30 @@
       }
     }
   },
+  "aws-native:amplify:Webhook": {
+    "cfTypeName": "AWS::Amplify::Webhook",
+    "properties": {
+      "appId": {
+        "type": "string",
+        "description": "The unique ID for an Amplify app."
+      },
+      "branchName": {
+        "type": "string",
+        "description": "The name for a branch that is part of an Amplify app."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description for a webhook."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags for the webhook."
+      }
+    }
+  },
   "aws-native:apigateway:Account": {
     "cfTypeName": "AWS::ApiGateway::Account",
     "properties": {
@@ -1373,6 +1397,23 @@
       }
     }
   },
+  "aws-native:appsync:Type": {
+    "cfTypeName": "AWS::AppSync::Type",
+    "properties": {
+      "apiId": {
+        "type": "string",
+        "description": "The API ID."
+      },
+      "definition": {
+        "type": "string",
+        "description": "The type definition, in GraphQL Schema Definition Language (SDL) format."
+      },
+      "format": {
+        "$ref": "#/types/aws-native:appsync:TypeFormat",
+        "description": "The type format: SDL or JSON."
+      }
+    }
+  },
   "aws-native:aps:AnomalyDetector": {
     "cfTypeName": "AWS::APS::AnomalyDetector",
     "properties": {
@@ -1938,6 +1979,10 @@
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeAuthorizerConfiguration",
         "description": "Authorizer configuration for the agent runtime"
       },
+      "capacityProviderConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeCapacityProviderConfiguration",
+        "description": "Capacity provider configuration for the agent runtime"
+      },
       "description": {
         "type": "string",
         "description": "Description of the resource"
@@ -2057,6 +2102,34 @@
           "$ref": "#/types/aws-native:budgets:BudgetsActionSubscriber"
         },
         "description": "A list of subscribers."
+      }
+    }
+  },
+  "aws-native:cases:Case": {
+    "cfTypeName": "AWS::Cases::Case",
+    "properties": {
+      "customerId": {
+        "type": "string",
+        "description": "The full customer profile ARN for the case."
+      },
+      "domainId": {
+        "type": "string",
+        "description": "The unique identifier of the Cases domain."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tags for the case."
+      },
+      "templateId": {
+        "type": "string",
+        "description": "A unique identifier of a template."
+      },
+      "title": {
+        "type": "string",
+        "description": "The title of the case."
       }
     }
   },
@@ -2794,6 +2867,27 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to the package group."
+      }
+    }
+  },
+  "aws-native:codebuild:SourceCredential": {
+    "cfTypeName": "AWS::CodeBuild::SourceCredential",
+    "properties": {
+      "authType": {
+        "type": "string",
+        "description": "The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, PERSONAL_ACCESS_TOKEN, CODECONNECTIONS, or SECRETS_MANAGER. "
+      },
+      "serverType": {
+        "type": "string",
+        "description": "The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, GITLAB, GITLAB_SELF_MANAGED, or BITBUCKET."
+      },
+      "token": {
+        "type": "string",
+        "description": "For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket, this is either the access token or the app password. For the authType CODECONNECTIONS, this is the connectionArn. For the authType SECRETS_MANAGER, this is the secretArn."
+      },
+      "username": {
+        "type": "string",
+        "description": " The Bitbucket username when the authType is BASIC_AUTH. This parameter is not valid for other types of source providers or connections."
       }
     }
   },
@@ -3755,6 +3849,26 @@
       }
     }
   },
+  "aws-native:dataexchange:EventAction": {
+    "cfTypeName": "AWS::DataExchange::EventAction",
+    "properties": {
+      "action": {
+        "$ref": "#/types/aws-native:dataexchange:EventActionAction",
+        "description": "What occurs after a certain event."
+      },
+      "event": {
+        "$ref": "#/types/aws-native:dataexchange:EventActionEvent",
+        "description": "What occurs to start an action."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the event action."
+      }
+    }
+  },
   "aws-native:datasync:LocationAzureBlob": {
     "cfTypeName": "AWS::DataSync::LocationAzureBlob",
     "properties": {
@@ -4475,6 +4589,47 @@
       }
     }
   },
+  "aws-native:deadline:Budget": {
+    "cfTypeName": "AWS::Deadline::Budget",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:deadline:BudgetActionToAdd"
+        },
+        "description": "The budget actions to specify what happens when the budget runs out."
+      },
+      "approximateDollarLimit": {
+        "type": "number",
+        "description": "The dollar limit based on consumed usage."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the budget."
+      },
+      "displayName": {
+        "type": "string",
+        "description": "The display name of the budget."
+      },
+      "farmId": {
+        "type": "string",
+        "description": "The farm ID."
+      },
+      "schedule": {
+        "$ref": "#/types/aws-native:deadline:BudgetSchedule"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      },
+      "usageTrackingResource": {
+        "$ref": "#/types/aws-native:deadline:BudgetUsageTrackingResource"
+      }
+    }
+  },
   "aws-native:deadline:Farm": {
     "cfTypeName": "AWS::Deadline::Farm",
     "properties": {
@@ -4790,6 +4945,30 @@
       "osFamily": {
         "$ref": "#/types/aws-native:deadline:StorageProfileOperatingSystemFamily",
         "description": "The operating system (OS) family."
+      }
+    }
+  },
+  "aws-native:deadline:Worker": {
+    "cfTypeName": "AWS::Deadline::Worker",
+    "properties": {
+      "farmId": {
+        "type": "string",
+        "description": "The farm ID."
+      },
+      "fleetId": {
+        "type": "string",
+        "description": "The fleet ID."
+      },
+      "hostProperties": {
+        "$ref": "#/types/aws-native:deadline:WorkerHostPropertiesRequest",
+        "description": "The IP address and host name of the worker."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -5258,6 +5437,30 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to be assigned to the Amazon DocumentDB resource."
+      }
+    }
+  },
+  "aws-native:drs:SourceNetwork": {
+    "cfTypeName": "AWS::DRS::SourceNetwork",
+    "properties": {
+      "originAccountId": {
+        "type": "string",
+        "description": "The account ID containing the VPC to protect."
+      },
+      "originRegion": {
+        "type": "string",
+        "description": "The region containing the VPC to protect."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A set of tags associated with the Source Network."
+      },
+      "vpcId": {
+        "type": "string",
+        "description": "The VPC ID to protect."
       }
     }
   },
@@ -8554,6 +8757,12 @@
         "type": "string",
         "description": "The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner."
       },
+      "privateDnsName": {
+        "type": "string"
+      },
+      "privateDnsNameConfiguration": {
+        "$ref": "#/types/aws-native:ec2:VpcEndpointServicePrivateDnsNameConfiguration"
+      },
       "supportedIpAddressTypes": {
         "type": "array",
         "items": {
@@ -9359,6 +9568,15 @@
       "username": {
         "type": "string",
         "description": "The Kubernetes user that the access entry is associated with."
+      }
+    }
+  },
+  "aws-native:eks:CertificateAuthority": {
+    "cfTypeName": "AWS::EKS::CertificateAuthority",
+    "properties": {
+      "clusterName": {
+        "type": "string",
+        "description": "The name of the EKS cluster that the certificate authority belongs to."
       }
     }
   },
@@ -10560,6 +10778,75 @@
       }
     }
   },
+  "aws-native:glue:Session": {
+    "cfTypeName": "AWS::Glue::Session",
+    "properties": {
+      "awsId": {
+        "type": "string",
+        "description": "The ID of the session."
+      },
+      "command": {
+        "$ref": "#/types/aws-native:glue:SessionCommand"
+      },
+      "connections": {
+        "$ref": "#/types/aws-native:glue:SessionConnectionsList"
+      },
+      "defaultArguments": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A map array of key-value pairs. Max is 75 pairs."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the session."
+      },
+      "glueVersion": {
+        "type": "string",
+        "description": "The Glue version determines the versions of Apache Spark and Python that Glue supports. The GlueVersion must be greater than 2.0."
+      },
+      "idleTimeout": {
+        "type": "integer",
+        "description": "The number of minutes when idle before session times out. Default is the value of Timeout."
+      },
+      "maxCapacity": {
+        "type": "number",
+        "description": "The number of Glue data processing units (DPUs) that can be allocated when the job runs."
+      },
+      "numberOfWorkers": {
+        "type": "integer",
+        "description": "The number of workers of a defined WorkerType to use for the session."
+      },
+      "requestOrigin": {
+        "type": "string",
+        "description": "The origin of the request."
+      },
+      "role": {
+        "type": "string",
+        "description": "The IAM Role ARN."
+      },
+      "securityConfiguration": {
+        "type": "string",
+        "description": "The name of the SecurityConfiguration structure to be used with the session."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags belonging to the session."
+      },
+      "timeout": {
+        "type": "integer",
+        "description": "The number of minutes before session times out."
+      },
+      "workerType": {
+        "$ref": "#/types/aws-native:glue:SessionWorkerType",
+        "description": "The type of predefined worker that is allocated when a session runs."
+      }
+    }
+  },
   "aws-native:glue:TableOptimizer": {
     "cfTypeName": "AWS::Glue::TableOptimizer",
     "properties": {
@@ -10656,6 +10943,26 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Tags assigned to a resource."
+      }
+    }
+  },
+  "aws-native:guardduty:CustomDetectionRuleAssociation": {
+    "cfTypeName": "AWS::GuardDuty::CustomDetectionRuleAssociation",
+    "properties": {
+      "mode": {
+        "$ref": "#/types/aws-native:guardduty:CustomDetectionRuleAssociationMode",
+        "description": "Whether the rule runs in LIVE mode (generates findings) or DRY_RUN mode (evaluates without generating findings)."
+      },
+      "ruleId": {
+        "type": "string",
+        "description": "The catalog identifier of the custom detection rule to associate."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags applied to the association."
       }
     }
   },
@@ -11389,6 +11696,37 @@
       }
     }
   },
+  "aws-native:iot:Stream": {
+    "cfTypeName": "AWS::IoT::Stream",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of the stream."
+      },
+      "files": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:iot:StreamFile"
+        },
+        "description": "The files to stream."
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "An IAM role that allows the IoT service principal to access your S3 files."
+      },
+      "streamId": {
+        "type": "string",
+        "description": "The stream ID."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Metadata which can be used to manage streams."
+      }
+    }
+  },
   "aws-native:iot:TopicRuleDestination": {
     "cfTypeName": "AWS::IoT::TopicRuleDestination",
     "properties": {
@@ -11419,6 +11757,30 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:iotsecuretunneling:Tunnel": {
+    "cfTypeName": "AWS::IoTSecureTunneling::Tunnel",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "A short text description of the tunnel."
+      },
+      "destinationConfig": {
+        "$ref": "#/types/aws-native:iotsecuretunneling:TunnelDestinationConfig",
+        "description": "The destination configuration for the tunnel."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A collection of tag metadata."
+      },
+      "timeoutConfig": {
+        "$ref": "#/types/aws-native:iotsecuretunneling:TunnelTimeoutConfig",
+        "description": "Timeout configuration for the tunnel."
       }
     }
   },
@@ -12060,6 +12422,19 @@
       "sourceArn": {
         "type": "string",
         "description": "For AWS-services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.\n Note that Lambda configures the comparison using the ``StringLike`` operator."
+      }
+    }
+  },
+  "aws-native:lambda:ResourcePolicy": {
+    "cfTypeName": "AWS::Lambda::ResourcePolicy",
+    "properties": {
+      "policyDocument": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The resource policy of your Lambda resource\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
+      },
+      "resourceArn": {
+        "type": "string",
+        "description": "The resource arn of your Lambda resource"
       }
     }
   },
@@ -14578,6 +14953,26 @@
       }
     }
   },
+  "aws-native:rds:ClusterSnapshot": {
+    "cfTypeName": "AWS::RDS::ClusterSnapshot",
+    "properties": {
+      "dbClusterIdentifier": {
+        "type": "string",
+        "description": "The identifier of the DB cluster to create a snapshot for."
+      },
+      "dbClusterSnapshotIdentifier": {
+        "type": "string",
+        "description": "The identifier for the DB cluster snapshot. Must contain from 1 to 63 letters, numbers, or hyphens. First character must be a letter. Can't end with a hyphen or contain two consecutive hyphens."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to be assigned to the DB cluster snapshot."
+      }
+    }
+  },
   "aws-native:rds:CustomDbEngineVersion": {
     "cfTypeName": "AWS::RDS::CustomDBEngineVersion",
     "properties": {
@@ -15327,6 +15722,26 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group."
+      }
+    }
+  },
+  "aws-native:rds:DbSnapshot": {
+    "cfTypeName": "AWS::RDS::DBSnapshot",
+    "properties": {
+      "dbInstanceIdentifier": {
+        "type": "string",
+        "description": "The identifier of the DB instance that you want to create the snapshot of."
+      },
+      "dbSnapshotIdentifier": {
+        "type": "string",
+        "description": "The identifier for the DB snapshot. Must contain from 1 to 255 letters, numbers, or hyphens. First character must be a letter. Can't end with a hyphen or contain two consecutive hyphens."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to be assigned to the DB snapshot."
       }
     }
   },
@@ -16510,6 +16925,15 @@
       }
     }
   },
+  "aws-native:sdb:Domain": {
+    "cfTypeName": "AWS::SDB::Domain",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "Information about the SimpleDB domain."
+      }
+    }
+  },
   "aws-native:secretsmanager:ResourcePolicy": {
     "cfTypeName": "AWS::SecretsManager::ResourcePolicy",
     "properties": {
@@ -17397,6 +17821,15 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags used to organize, track, or control access for the resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
+      }
+    }
+  },
+  "aws-native:ses:ReceiptFilter": {
+    "cfTypeName": "AWS::SES::ReceiptFilter",
+    "properties": {
+      "filter": {
+        "$ref": "#/types/aws-native:ses:ReceiptFilterFilter",
+        "description": "A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it."
       }
     }
   },

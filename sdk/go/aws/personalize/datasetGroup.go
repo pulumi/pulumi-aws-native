@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -77,6 +78,8 @@ type DatasetGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDatasetGroup registers a new resource with the given unique name, arguments, and options.
@@ -91,6 +94,7 @@ func NewDatasetGroup(ctx *pulumi.Context,
 		"kmsKeyArn",
 		"name",
 		"roleArn",
+		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -134,6 +138,8 @@ type datasetGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
 	RoleArn *string `pulumi:"roleArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DatasetGroup resource.
@@ -146,6 +152,8 @@ type DatasetGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
 	RoleArn pulumi.StringPtrInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (DatasetGroupArgs) ElementType() reflect.Type {
@@ -208,6 +216,11 @@ func (o DatasetGroupOutput) Name() pulumi.StringOutput {
 // The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
 func (o DatasetGroupOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetGroup) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The tags used to organize, track, or control access for this resource.
+func (o DatasetGroupOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *DatasetGroup) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

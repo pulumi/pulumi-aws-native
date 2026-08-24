@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BudgetArgs } from "./budget";
+export type Budget = import("./budget").Budget;
+export const Budget: typeof import("./budget").Budget = null as any;
+utilities.lazyLoad(exports, ["Budget"], () => require("./budget"));
+
 export { FarmArgs } from "./farm";
 export type Farm = import("./farm").Farm;
 export const Farm: typeof import("./farm").Farm = null as any;
@@ -14,6 +19,11 @@ export { FleetArgs } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
 utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+
+export { GetBudgetArgs, GetBudgetResult, GetBudgetOutputArgs } from "./getBudget";
+export const getBudget: typeof import("./getBudget").getBudget = null as any;
+export const getBudgetOutput: typeof import("./getBudget").getBudgetOutput = null as any;
+utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./getBudget"));
 
 export { GetFarmArgs, GetFarmResult, GetFarmOutputArgs } from "./getFarm";
 export const getFarm: typeof import("./getFarm").getFarm = null as any;
@@ -60,6 +70,11 @@ export const getStorageProfile: typeof import("./getStorageProfile").getStorageP
 export const getStorageProfileOutput: typeof import("./getStorageProfile").getStorageProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageProfile","getStorageProfileOutput"], () => require("./getStorageProfile"));
 
+export { GetWorkerArgs, GetWorkerResult, GetWorkerOutputArgs } from "./getWorker";
+export const getWorker: typeof import("./getWorker").getWorker = null as any;
+export const getWorkerOutput: typeof import("./getWorker").getWorkerOutput = null as any;
+utilities.lazyLoad(exports, ["getWorker","getWorkerOutput"], () => require("./getWorker"));
+
 export { LicenseEndpointArgs } from "./licenseEndpoint";
 export type LicenseEndpoint = import("./licenseEndpoint").LicenseEndpoint;
 export const LicenseEndpoint: typeof import("./licenseEndpoint").LicenseEndpoint = null as any;
@@ -105,6 +120,11 @@ export type StorageProfile = import("./storageProfile").StorageProfile;
 export const StorageProfile: typeof import("./storageProfile").StorageProfile = null as any;
 utilities.lazyLoad(exports, ["StorageProfile"], () => require("./storageProfile"));
 
+export { WorkerArgs } from "./worker";
+export type Worker = import("./worker").Worker;
+export const Worker: typeof import("./worker").Worker = null as any;
+utilities.lazyLoad(exports, ["Worker"], () => require("./worker"));
+
 
 // Export enums:
 export * from "../types/enums/deadline";
@@ -113,6 +133,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:deadline:Budget":
+                return new Budget(name, <any>undefined, { urn })
             case "aws-native:deadline:Farm":
                 return new Farm(name, <any>undefined, { urn })
             case "aws-native:deadline:Fleet":
@@ -135,6 +157,8 @@ const _module = {
                 return new QueueLimitAssociation(name, <any>undefined, { urn })
             case "aws-native:deadline:StorageProfile":
                 return new StorageProfile(name, <any>undefined, { urn })
+            case "aws-native:deadline:Worker":
+                return new Worker(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

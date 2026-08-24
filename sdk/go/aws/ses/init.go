@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MailManagerTrafficPolicy{}
 	case "aws-native:ses:MultiRegionEndpoint":
 		r = &MultiRegionEndpoint{}
+	case "aws-native:ses:ReceiptFilter":
+		r = &ReceiptFilter{}
 	case "aws-native:ses:ReceiptRule":
 		r = &ReceiptRule{}
 	case "aws-native:ses:ReceiptRuleSet":

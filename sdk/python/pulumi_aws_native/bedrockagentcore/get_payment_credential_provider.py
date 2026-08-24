@@ -26,16 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetPaymentCredentialProviderResult:
-    def __init__(__self__, created_time=None, credential_provider_arn=None, credential_provider_vendor=None, last_updated_time=None, provider_configuration_output=None, tags=None):
+    def __init__(__self__, created_time=None, credential_provider_arn=None, last_updated_time=None, provider_configuration_output=None, tags=None):
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
         if credential_provider_arn and not isinstance(credential_provider_arn, str):
             raise TypeError("Expected argument 'credential_provider_arn' to be a str")
         pulumi.set(__self__, "credential_provider_arn", credential_provider_arn)
-        if credential_provider_vendor and not isinstance(credential_provider_vendor, str):
-            raise TypeError("Expected argument 'credential_provider_vendor' to be a str")
-        pulumi.set(__self__, "credential_provider_vendor", credential_provider_vendor)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -61,11 +58,6 @@ class GetPaymentCredentialProviderResult:
         The Amazon Resource Name (ARN) of the payment credential provider
         """
         return pulumi.get(self, "credential_provider_arn")
-
-    @_builtins.property
-    @pulumi.getter(name="credentialProviderVendor")
-    def credential_provider_vendor(self) -> Optional['PaymentCredentialProviderVendorType']:
-        return pulumi.get(self, "credential_provider_vendor")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
@@ -97,7 +89,6 @@ class AwaitableGetPaymentCredentialProviderResult(GetPaymentCredentialProviderRe
         return GetPaymentCredentialProviderResult(
             created_time=self.created_time,
             credential_provider_arn=self.credential_provider_arn,
-            credential_provider_vendor=self.credential_provider_vendor,
             last_updated_time=self.last_updated_time,
             provider_configuration_output=self.provider_configuration_output,
             tags=self.tags)
@@ -118,7 +109,6 @@ def get_payment_credential_provider(credential_provider_arn: Optional[_builtins.
     return AwaitableGetPaymentCredentialProviderResult(
         created_time=pulumi.get(__ret__, 'created_time'),
         credential_provider_arn=pulumi.get(__ret__, 'credential_provider_arn'),
-        credential_provider_vendor=pulumi.get(__ret__, 'credential_provider_vendor'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         provider_configuration_output=pulumi.get(__ret__, 'provider_configuration_output'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -136,7 +126,6 @@ def get_payment_credential_provider_output(credential_provider_arn: pulumi.Input
     return __ret__.apply(lambda __response__: GetPaymentCredentialProviderResult(
         created_time=pulumi.get(__response__, 'created_time'),
         credential_provider_arn=pulumi.get(__response__, 'credential_provider_arn'),
-        credential_provider_vendor=pulumi.get(__response__, 'credential_provider_vendor'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         provider_configuration_output=pulumi.get(__response__, 'provider_configuration_output'),
         tags=pulumi.get(__response__, 'tags')))

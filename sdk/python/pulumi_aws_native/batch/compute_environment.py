@@ -26,6 +26,7 @@ class ComputeEnvironmentArgs:
                  compute_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_resources: pulumi.Input[Optional['ComputeEnvironmentComputeResourcesArgs']] = None,
                  context: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecs_settings: pulumi.Input[Optional['ComputeEnvironmentEcsSettingsArgs']] = None,
                  eks_configuration: pulumi.Input[Optional['ComputeEnvironmentEksConfigurationArgs']] = None,
                  replace_compute_environment: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
@@ -77,6 +78,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "compute_resources", compute_resources)
         if context is not None:
             pulumi.set(__self__, "context", context)
+        if ecs_settings is not None:
+            pulumi.set(__self__, "ecs_settings", ecs_settings)
         if eks_configuration is not None:
             pulumi.set(__self__, "eks_configuration", eks_configuration)
         if replace_compute_environment is not None:
@@ -139,6 +142,15 @@ class ComputeEnvironmentArgs:
     @context.setter
     def context(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "context", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ecsSettings")
+    def ecs_settings(self) -> pulumi.Input[Optional['ComputeEnvironmentEcsSettingsArgs']]:
+        return pulumi.get(self, "ecs_settings")
+
+    @ecs_settings.setter
+    def ecs_settings(self, value: pulumi.Input[Optional['ComputeEnvironmentEcsSettingsArgs']]):
+        pulumi.set(self, "ecs_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="eksConfiguration")
@@ -256,6 +268,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  compute_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
                  context: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecs_settings: pulumi.Input[Optional[Union['ComputeEnvironmentEcsSettingsArgs', 'ComputeEnvironmentEcsSettingsArgsDict']]] = None,
                  eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
                  replace_compute_environment: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
@@ -331,6 +344,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  compute_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
                  context: pulumi.Input[Optional[_builtins.str]] = None,
+                 ecs_settings: pulumi.Input[Optional[Union['ComputeEnvironmentEcsSettingsArgs', 'ComputeEnvironmentEcsSettingsArgsDict']]] = None,
                  eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
                  replace_compute_environment: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_role: pulumi.Input[Optional[_builtins.str]] = None,
@@ -351,6 +365,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             __props__.__dict__["compute_environment_name"] = compute_environment_name
             __props__.__dict__["compute_resources"] = compute_resources
             __props__.__dict__["context"] = context
+            __props__.__dict__["ecs_settings"] = ecs_settings
             __props__.__dict__["eks_configuration"] = eks_configuration
             __props__.__dict__["replace_compute_environment"] = replace_compute_environment
             __props__.__dict__["service_role"] = service_role
@@ -390,6 +405,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["compute_environment_name"] = None
         __props__.__dict__["compute_resources"] = None
         __props__.__dict__["context"] = None
+        __props__.__dict__["ecs_settings"] = None
         __props__.__dict__["eks_configuration"] = None
         __props__.__dict__["replace_compute_environment"] = None
         __props__.__dict__["service_role"] = None
@@ -431,6 +447,11 @@ class ComputeEnvironment(pulumi.CustomResource):
         Reserved.
         """
         return pulumi.get(self, "context")
+
+    @_builtins.property
+    @pulumi.getter(name="ecsSettings")
+    def ecs_settings(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentEcsSettings']]:
+        return pulumi.get(self, "ecs_settings")
 
     @_builtins.property
     @pulumi.getter(name="eksConfiguration")

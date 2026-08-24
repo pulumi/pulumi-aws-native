@@ -45,6 +45,11 @@ export const getPlaybackConfiguration: typeof import("./getPlaybackConfiguration
 export const getPlaybackConfigurationOutput: typeof import("./getPlaybackConfiguration").getPlaybackConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getPlaybackConfiguration","getPlaybackConfigurationOutput"], () => require("./getPlaybackConfiguration"));
 
+export { GetPrefetchScheduleArgs, GetPrefetchScheduleResult, GetPrefetchScheduleOutputArgs } from "./getPrefetchSchedule";
+export const getPrefetchSchedule: typeof import("./getPrefetchSchedule").getPrefetchSchedule = null as any;
+export const getPrefetchScheduleOutput: typeof import("./getPrefetchSchedule").getPrefetchScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getPrefetchSchedule","getPrefetchScheduleOutput"], () => require("./getPrefetchSchedule"));
+
 export { GetSourceLocationArgs, GetSourceLocationResult, GetSourceLocationOutputArgs } from "./getSourceLocation";
 export const getSourceLocation: typeof import("./getSourceLocation").getSourceLocation = null as any;
 export const getSourceLocationOutput: typeof import("./getSourceLocation").getSourceLocationOutput = null as any;
@@ -64,6 +69,11 @@ export { PlaybackConfigurationArgs } from "./playbackConfiguration";
 export type PlaybackConfiguration = import("./playbackConfiguration").PlaybackConfiguration;
 export const PlaybackConfiguration: typeof import("./playbackConfiguration").PlaybackConfiguration = null as any;
 utilities.lazyLoad(exports, ["PlaybackConfiguration"], () => require("./playbackConfiguration"));
+
+export { PrefetchScheduleArgs } from "./prefetchSchedule";
+export type PrefetchSchedule = import("./prefetchSchedule").PrefetchSchedule;
+export const PrefetchSchedule: typeof import("./prefetchSchedule").PrefetchSchedule = null as any;
+utilities.lazyLoad(exports, ["PrefetchSchedule"], () => require("./prefetchSchedule"));
 
 export { SourceLocationArgs } from "./sourceLocation";
 export type SourceLocation = import("./sourceLocation").SourceLocation;
@@ -93,6 +103,8 @@ const _module = {
                 return new LiveSource(name, <any>undefined, { urn })
             case "aws-native:mediatailor:PlaybackConfiguration":
                 return new PlaybackConfiguration(name, <any>undefined, { urn })
+            case "aws-native:mediatailor:PrefetchSchedule":
+                return new PrefetchSchedule(name, <any>undefined, { urn })
             case "aws-native:mediatailor:SourceLocation":
                 return new SourceLocation(name, <any>undefined, { urn })
             case "aws-native:mediatailor:VodSource":

@@ -56,8 +56,9 @@ type LookupAlarmResult struct {
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods *int                   `pulumi:"evaluationPeriods"`
-	EvaluationWindow  *AlarmEvaluationWindow `pulumi:"evaluationWindow"`
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+	EvaluationWindow *AlarmEvaluationWindow `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -94,7 +95,8 @@ type LookupAlarmResult struct {
 	TreatMissingData *string `pulumi:"treatMissingData"`
 	// The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
 	//   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
-	Unit *string `pulumi:"unit"`
+	Unit                *string                   `pulumi:"unit"`
+	WarmUpConfiguration *AlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
 func LookupAlarmOutput(ctx *pulumi.Context, args LookupAlarmOutputArgs, opts ...pulumi.InvokeOption) LookupAlarmResultOutput {
@@ -189,6 +191,7 @@ func (o LookupAlarmResultOutput) EvaluationPeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *int { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
 }
 
+// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
 func (o LookupAlarmResultOutput) EvaluationWindow() AlarmEvaluationWindowPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *AlarmEvaluationWindow { return v.EvaluationWindow }).(AlarmEvaluationWindowPtrOutput)
 }
@@ -275,6 +278,10 @@ func (o LookupAlarmResultOutput) TreatMissingData() pulumi.StringPtrOutput {
 //	You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
 func (o LookupAlarmResultOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAlarmResultOutput) WarmUpConfiguration() AlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupAlarmResult) *AlarmWarmUpConfiguration { return v.WarmUpConfiguration }).(AlarmWarmUpConfigurationPtrOutput)
 }
 
 func init() {

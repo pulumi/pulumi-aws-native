@@ -90,6 +90,11 @@ export const getPermission: typeof import("./getPermission").getPermission = nul
 export const getPermissionOutput: typeof import("./getPermission").getPermissionOutput = null as any;
 utilities.lazyLoad(exports, ["getPermission","getPermissionOutput"], () => require("./getPermission"));
 
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { GetUrlArgs, GetUrlResult, GetUrlOutputArgs } from "./getUrl";
 export const getUrl: typeof import("./getUrl").getUrl = null as any;
 export const getUrlOutput: typeof import("./getUrl").getUrlOutput = null as any;
@@ -124,6 +129,11 @@ export { PermissionArgs } from "./permission";
 export type Permission = import("./permission").Permission;
 export const Permission: typeof import("./permission").Permission = null as any;
 utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { UrlArgs } from "./url";
 export type Url = import("./url").Url;
@@ -165,6 +175,8 @@ const _module = {
                 return new NetworkConnector(name, <any>undefined, { urn })
             case "aws-native:lambda:Permission":
                 return new Permission(name, <any>undefined, { urn })
+            case "aws-native:lambda:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:lambda:Url":
                 return new Url(name, <any>undefined, { urn })
             case "aws-native:lambda:Version":

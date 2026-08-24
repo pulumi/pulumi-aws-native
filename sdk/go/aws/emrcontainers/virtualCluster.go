@@ -113,6 +113,8 @@ type VirtualCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the security configuration.
 	SecurityConfigurationId pulumi.StringPtrOutput `pulumi:"securityConfigurationId"`
+	// Whether the virtual cluster is session-enabled for Spark Connect.
+	SessionEnabled pulumi.BoolPtrOutput `pulumi:"sessionEnabled"`
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -130,6 +132,8 @@ func NewVirtualCluster(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"containerProvider",
 		"name",
+		"securityConfigurationId",
+		"sessionEnabled",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -171,6 +175,8 @@ type virtualClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the security configuration.
 	SecurityConfigurationId *string `pulumi:"securityConfigurationId"`
+	// Whether the virtual cluster is session-enabled for Spark Connect.
+	SessionEnabled *bool `pulumi:"sessionEnabled"`
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -183,6 +189,8 @@ type VirtualClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the security configuration.
 	SecurityConfigurationId pulumi.StringPtrInput
+	// Whether the virtual cluster is session-enabled for Spark Connect.
+	SessionEnabled pulumi.BoolPtrInput
 	// An array of key-value pairs to apply to this virtual cluster.
 	Tags aws.TagArrayInput
 }
@@ -247,6 +255,11 @@ func (o VirtualClusterOutput) Name() pulumi.StringOutput {
 // The ID of the security configuration.
 func (o VirtualClusterOutput) SecurityConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringPtrOutput { return v.SecurityConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// Whether the virtual cluster is session-enabled for Spark Connect.
+func (o VirtualClusterOutput) SessionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualCluster) pulumi.BoolPtrOutput { return v.SessionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An array of key-value pairs to apply to this virtual cluster.

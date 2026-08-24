@@ -314,6 +314,7 @@ __all__ = [
     'KnowledgeBaseImageExtractionStatus',
     'KnowledgeBaseVideoExtractionStatus',
     'KnowledgeBaseVideoExtractionType',
+    'LimitsProfileLimitUnit',
     'OAuthClientApplicationDataSourceType',
     'OAuthClientApplicationOAuthClientAuthenticationType',
     'RefreshScheduleMapRefreshType',
@@ -2772,6 +2773,14 @@ class KnowledgeBaseVideoExtractionStatus(_builtins.str, Enum):
 class KnowledgeBaseVideoExtractionType(_builtins.str, Enum):
     AUDIO_TRANSCRIPTION_ONLY = "AUDIO_TRANSCRIPTION_ONLY"
     VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION = "VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION"
+
+
+@pulumi.type_token("aws-native:quicksight:LimitsProfileLimitUnit")
+class LimitsProfileLimitUnit(_builtins.str, Enum):
+    MB = "MB"
+    GB = "GB"
+    HOURS = "HOURS"
+    DAYS = "DAYS"
 
 
 @pulumi.type_token("aws-native:quicksight:OAuthClientApplicationDataSourceType")

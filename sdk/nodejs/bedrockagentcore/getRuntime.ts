@@ -46,6 +46,10 @@ export interface GetRuntimeResult {
      */
     readonly authorizerConfiguration?: outputs.bedrockagentcore.RuntimeAuthorizerConfiguration;
     /**
+     * Capacity provider configuration for the agent runtime
+     */
+    readonly capacityProviderConfiguration?: outputs.bedrockagentcore.RuntimeCapacityProviderConfiguration;
+    /**
      * Timestamp when the Agent was created
      */
     readonly createdAt?: string;

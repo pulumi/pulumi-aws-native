@@ -101,6 +101,10 @@ export class LogAlarm extends pulumi.CustomResource {
      * Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
      */
     declare public readonly treatMissingData: pulumi.Output<string | undefined>;
+    /**
+     * The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+     */
+    declare public readonly warmUpConfiguration: pulumi.Output<outputs.cloudwatch.LogAlarmWarmUpConfiguration | undefined>;
 
     /**
      * Create a LogAlarm resource with the given unique name, arguments, and options.
@@ -143,6 +147,7 @@ export class LogAlarm extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["threshold"] = args?.threshold;
             resourceInputs["treatMissingData"] = args?.treatMissingData;
+            resourceInputs["warmUpConfiguration"] = args?.warmUpConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionLogLineCount"] = undefined /*out*/;
@@ -161,6 +166,7 @@ export class LogAlarm extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["threshold"] = undefined /*out*/;
             resourceInputs["treatMissingData"] = undefined /*out*/;
+            resourceInputs["warmUpConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["alarmName"] };
@@ -233,4 +239,8 @@ export interface LogAlarmArgs {
      * Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
      */
     treatMissingData?: pulumi.Input<string | undefined>;
+    /**
+     * The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+     */
+    warmUpConfiguration?: pulumi.Input<inputs.cloudwatch.LogAlarmWarmUpConfigurationArgs | undefined>;
 }

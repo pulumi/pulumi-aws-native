@@ -94,6 +94,7 @@ namespace Pulumi.AwsNative.VpcLattice
                 ReplaceOnChanges =
                 {
                     "name",
+                    "sharingConfig",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,6 +7,8 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BackupStatus',
+    'BackupType',
     'GlobalTableContributorInsightsSpecificationMode',
     'GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
     'GlobalTableMultiRegionConsistency',
@@ -14,6 +16,26 @@ __all__ = [
     'TableContributorInsightsSpecificationMode',
     'TableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
 ]
+
+
+@pulumi.type_token("aws-native:dynamodb:BackupStatus")
+class BackupStatus(_builtins.str, Enum):
+    """
+    The current state of the backup.
+    """
+    CREATING = "CREATING"
+    DELETED = "DELETED"
+    AVAILABLE = "AVAILABLE"
+
+
+@pulumi.type_token("aws-native:dynamodb:BackupType")
+class BackupType(_builtins.str, Enum):
+    """
+    The type of backup (USER, SYSTEM, or AWS_BACKUP).
+    """
+    USER = "USER"
+    SYSTEM = "SYSTEM"
+    AWS_BACKUP = "AWS_BACKUP"
 
 
 @pulumi.type_token("aws-native:dynamodb:GlobalTableContributorInsightsSpecificationMode")

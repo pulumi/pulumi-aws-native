@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .budget import *
 from .farm import *
 from .fleet import *
+from .get_budget import *
 from .get_farm import *
 from .get_fleet import *
 from .get_license_endpoint import *
@@ -18,6 +20,7 @@ from .get_monitor import *
 from .get_queue import *
 from .get_queue_environment import *
 from .get_storage_profile import *
+from .get_worker import *
 from .license_endpoint import *
 from .limit import *
 from .metered_product import *
@@ -27,5 +30,6 @@ from .queue_environment import *
 from .queue_fleet_association import *
 from .queue_limit_association import *
 from .storage_profile import *
+from .worker import *
 from ._inputs import *
 from . import outputs

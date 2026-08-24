@@ -79,6 +79,10 @@ export class Schema extends pulumi.CustomResource {
      * Arn for the schema.
      */
     declare public /*out*/ readonly schemaArn: pulumi.Output<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -97,15 +101,17 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["domain"] = args?.domain;
             resourceInputs["name"] = args?.name;
             resourceInputs["schema"] = args?.schema;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["schemaArn"] = undefined /*out*/;
         } else {
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domain", "name", "schema"] };
+        const replaceOnChanges = { replaceOnChanges: ["domain", "name", "schema", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Schema.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,4 +133,8 @@ export interface SchemaArgs {
      * A schema in Avro JSON format.
      */
     schema: pulumi.Input<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

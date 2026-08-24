@@ -235,6 +235,7 @@ __all__ = [
     'VpcEncryptionControlExclusions',
     'VpcEncryptionControlResourceExclusions',
     'VpcEndpointDnsOptionsSpecification',
+    'VpcEndpointServicePrivateDnsNameConfiguration',
     'VpnConnectionCloudwatchLogOptionsSpecification',
     'VpnConnectionIkeVersionsRequestListValue',
     'VpnConnectionPhase1EncryptionAlgorithmsRequestListValue',
@@ -17852,6 +17853,43 @@ class VpcEndpointDnsOptionsSpecification(dict):
         Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.
         """
         return pulumi.get(self, "private_dns_specified_domains")
+
+
+@pulumi.output_type
+class VpcEndpointServicePrivateDnsNameConfiguration(dict):
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 state: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

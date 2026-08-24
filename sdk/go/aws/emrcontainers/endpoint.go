@@ -19,6 +19,8 @@ type Endpoint struct {
 
 	// The ARN of the managed endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The auth proxy URL for Spark Connect connections.
+	AuthProxyUrl pulumi.StringOutput `pulumi:"authProxyUrl"`
 	// The ID of the managed endpoint.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The certificate authority for the managed endpoint.
@@ -39,6 +41,8 @@ type Endpoint struct {
 	SecurityGroup pulumi.StringOutput `pulumi:"securityGroup"`
 	// The server URL of the managed endpoint.
 	ServerUrl pulumi.StringOutput `pulumi:"serverUrl"`
+	// The idle timeout in minutes for sessions on the managed endpoint.
+	SessionIdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"sessionIdleTimeoutInMinutes"`
 	// The state of the managed endpoint.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Additional details about the state of the managed endpoint.
@@ -75,6 +79,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		"executionRoleArn",
 		"name",
 		"releaseLabel",
+		"sessionIdleTimeoutInMinutes",
 		"type",
 		"virtualClusterId",
 	})
@@ -120,6 +125,8 @@ type endpointArgs struct {
 	Name *string `pulumi:"name"`
 	// The Amazon EMR release label.
 	ReleaseLabel string `pulumi:"releaseLabel"`
+	// The idle timeout in minutes for sessions on the managed endpoint.
+	SessionIdleTimeoutInMinutes *int `pulumi:"sessionIdleTimeoutInMinutes"`
 	// An array of key-value pairs to apply to this managed endpoint.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the managed endpoint.
@@ -138,6 +145,8 @@ type EndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// The Amazon EMR release label.
 	ReleaseLabel pulumi.StringInput
+	// The idle timeout in minutes for sessions on the managed endpoint.
+	SessionIdleTimeoutInMinutes pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this managed endpoint.
 	Tags aws.TagArrayInput
 	// The type of the managed endpoint.
@@ -188,6 +197,11 @@ func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The auth proxy URL for Spark Connect connections.
+func (o EndpointOutput) AuthProxyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AuthProxyUrl }).(pulumi.StringOutput)
+}
+
 // The ID of the managed endpoint.
 func (o EndpointOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
@@ -236,6 +250,11 @@ func (o EndpointOutput) SecurityGroup() pulumi.StringOutput {
 // The server URL of the managed endpoint.
 func (o EndpointOutput) ServerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ServerUrl }).(pulumi.StringOutput)
+}
+
+// The idle timeout in minutes for sessions on the managed endpoint.
+func (o EndpointOutput) SessionIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.IntPtrOutput { return v.SessionIdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // The state of the managed endpoint.

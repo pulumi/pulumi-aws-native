@@ -169,7 +169,7 @@
     "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource" ]
   },
   "required" : [ "PeeringId", "TransitGatewayRouteTableArn" ],
-  "createOnlyProperties" : [ "/properties/PeeringId", "/properties/TransitGatewayRouteTableArn", "/properties/RoutingPolicyLabel" ],
+  "createOnlyProperties" : [ "/properties/PeeringId", "/properties/TransitGatewayRouteTableArn" ],
   "writeOnlyProperties" : [ "/properties/RoutingPolicyLabel" ],
   "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CoreNetworkId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
@@ -181,7 +181,7 @@
       "permissions" : [ "networkmanager:GetTransitGatewayRouteTableAttachment" ]
     },
     "update" : {
-      "permissions" : [ "networkmanager:GetTransitGatewayRouteTableAttachment", "networkmanager:ListTagsForResource", "networkmanager:TagResource", "networkmanager:UntagResource", "ec2:DescribeRegions" ]
+      "permissions" : [ "networkmanager:GetTransitGatewayRouteTableAttachment", "networkmanager:ListTagsForResource", "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:PutAttachmentRoutingPolicyLabel", "networkmanager:RemoveAttachmentRoutingPolicyLabel", "networkmanager:ListAttachmentRoutingPolicyAssociations", "ec2:DescribeRegions" ]
     },
     "delete" : {
       "permissions" : [ "networkmanager:GetTransitGatewayRouteTableAttachment", "networkmanager:DeleteAttachment", "ec2:DescribeRegions" ]

@@ -32,12 +32,16 @@ __all__ = [
     'AlarmPromQlCriteriaArgsDict',
     'AlarmWallClockWindowArgs',
     'AlarmWallClockWindowArgsDict',
+    'AlarmWarmUpConfigurationArgs',
+    'AlarmWarmUpConfigurationArgsDict',
     'LogAlarmScheduleConfigurationArgs',
     'LogAlarmScheduleConfigurationArgsDict',
     'LogAlarmScheduledQueryConfigurationArgs',
     'LogAlarmScheduledQueryConfigurationArgsDict',
     'LogAlarmTagArgs',
     'LogAlarmTagArgsDict',
+    'LogAlarmWarmUpConfigurationArgs',
+    'LogAlarmWarmUpConfigurationArgsDict',
     'MetricStreamFilterArgs',
     'MetricStreamFilterArgsDict',
     'MetricStreamStatisticsConfigurationArgs',
@@ -139,13 +143,17 @@ class AlarmEvaluationCriteriaArgs:
 
 
 class AlarmEvaluationWindowArgsDict(TypedDict):
+    """
+    The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs. This is a union type. Set exactly one of its members, ``SlidingWindow`` or ``WallClockWindow``. If you don't set ``EvaluationWindow``, the alarm uses a ``SlidingWindow`` by default.
+     For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+    """
     sliding_window: NotRequired[Any]
     """
-    Configuration for sliding evaluation window (default behavior).
+    A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
     """
     wall_clock_window: NotRequired[pulumi.Input[Optional['AlarmWallClockWindowArgsDict']]]
     """
-    Configuration for wall clock based evaluation window.
+    A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
     """
 
 @pulumi.input_type
@@ -154,8 +162,11 @@ class AlarmEvaluationWindowArgs:
                  sliding_window: Optional[Any] = None,
                  wall_clock_window: pulumi.Input[Optional['AlarmWallClockWindowArgs']] = None):
         """
-        :param Any sliding_window: Configuration for sliding evaluation window (default behavior).
-        :param pulumi.Input['AlarmWallClockWindowArgs'] wall_clock_window: Configuration for wall clock based evaluation window.
+        The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs. This is a union type. Set exactly one of its members, ``SlidingWindow`` or ``WallClockWindow``. If you don't set ``EvaluationWindow``, the alarm uses a ``SlidingWindow`` by default.
+         For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+
+        :param Any sliding_window: A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
+        :param pulumi.Input['AlarmWallClockWindowArgs'] wall_clock_window: A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
         """
         if sliding_window is not None:
             pulumi.set(__self__, "sliding_window", sliding_window)
@@ -166,7 +177,7 @@ class AlarmEvaluationWindowArgs:
     @pulumi.getter(name="slidingWindow")
     def sliding_window(self) -> Optional[Any]:
         """
-        Configuration for sliding evaluation window (default behavior).
+        A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
         """
         return pulumi.get(self, "sliding_window")
 
@@ -178,7 +189,7 @@ class AlarmEvaluationWindowArgs:
     @pulumi.getter(name="wallClockWindow")
     def wall_clock_window(self) -> pulumi.Input[Optional['AlarmWallClockWindowArgs']]:
         """
-        Configuration for wall clock based evaluation window.
+        A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
         """
         return pulumi.get(self, "wall_clock_window")
 
@@ -611,9 +622,15 @@ class AlarmPromQlCriteriaArgs:
 
 
 class AlarmWallClockWindowArgsDict(TypedDict):
+    """
+    An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
+     When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
+     Choose a wall clock window when your monitoring is tied to a business or calendar period, such as daily reports, batch jobs, or backups, or when you want alarm evaluations to match the periods shown on a metric dashboard.
+    """
     timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+    The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, ``America/New_York``), a fixed UTC offset (for example, ``+05:30``), or an offset-prefixed identifier (for example, ``UTC+05:30``). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses ``UTC``.
+     The time zone affects window alignment for all periods, including periods of one hour or shorter.
     """
 
 @pulumi.input_type
@@ -621,7 +638,12 @@ class AlarmWallClockWindowArgs:
     def __init__(__self__, *,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] timezone: The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+        An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
+         When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
+         Choose a wall clock window when your monitoring is tied to a business or calendar period, such as daily reports, batch jobs, or backups, or when you want alarm evaluations to match the periods shown on a metric dashboard.
+
+        :param pulumi.Input[_builtins.str] timezone: The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, ``America/New_York``), a fixed UTC offset (for example, ``+05:30``), or an offset-prefixed identifier (for example, ``UTC+05:30``). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses ``UTC``.
+                The time zone affects window alignment for all periods, including periods of one hour or shorter.
         """
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
@@ -630,13 +652,63 @@ class AlarmWallClockWindowArgs:
     @pulumi.getter
     def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+        The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, ``America/New_York``), a fixed UTC offset (for example, ``+05:30``), or an offset-prefixed identifier (for example, ``UTC+05:30``). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses ``UTC``.
+         The time zone affects window alignment for all periods, including periods of one hour or shorter.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
     def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
+
+
+class AlarmWarmUpConfigurationArgsDict(TypedDict):
+    only_start_evaluating_after_warm_up_period_ends: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+    """
+    warm_up_period_duration_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+    """
+
+@pulumi.input_type
+class AlarmWarmUpConfigurationArgs:
+    def __init__(__self__, *,
+                 only_start_evaluating_after_warm_up_period_ends: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warm_up_period_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] only_start_evaluating_after_warm_up_period_ends: Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+        :param pulumi.Input[_builtins.int] warm_up_period_duration_in_minutes: The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+        """
+        if only_start_evaluating_after_warm_up_period_ends is not None:
+            pulumi.set(__self__, "only_start_evaluating_after_warm_up_period_ends", only_start_evaluating_after_warm_up_period_ends)
+        if warm_up_period_duration_in_minutes is not None:
+            pulumi.set(__self__, "warm_up_period_duration_in_minutes", warm_up_period_duration_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="onlyStartEvaluatingAfterWarmUpPeriodEnds")
+    def only_start_evaluating_after_warm_up_period_ends(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+        """
+        return pulumi.get(self, "only_start_evaluating_after_warm_up_period_ends")
+
+    @only_start_evaluating_after_warm_up_period_ends.setter
+    def only_start_evaluating_after_warm_up_period_ends(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "only_start_evaluating_after_warm_up_period_ends", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warmUpPeriodDurationInMinutes")
+    def warm_up_period_duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+        """
+        return pulumi.get(self, "warm_up_period_duration_in_minutes")
+
+    @warm_up_period_duration_in_minutes.setter
+    def warm_up_period_duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "warm_up_period_duration_in_minutes", value)
 
 
 class LogAlarmScheduleConfigurationArgsDict(TypedDict):
@@ -891,6 +963,60 @@ class LogAlarmTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class LogAlarmWarmUpConfigurationArgsDict(TypedDict):
+    """
+    The warm-up configuration for an alarm. A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+    """
+    only_start_evaluating_after_warm_up_period_ends: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+    """
+    warm_up_period_duration_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+    """
+
+@pulumi.input_type
+class LogAlarmWarmUpConfigurationArgs:
+    def __init__(__self__, *,
+                 only_start_evaluating_after_warm_up_period_ends: pulumi.Input[Optional[_builtins.bool]] = None,
+                 warm_up_period_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The warm-up configuration for an alarm. A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+
+        :param pulumi.Input[_builtins.bool] only_start_evaluating_after_warm_up_period_ends: Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+        :param pulumi.Input[_builtins.int] warm_up_period_duration_in_minutes: The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+        """
+        if only_start_evaluating_after_warm_up_period_ends is not None:
+            pulumi.set(__self__, "only_start_evaluating_after_warm_up_period_ends", only_start_evaluating_after_warm_up_period_ends)
+        if warm_up_period_duration_in_minutes is not None:
+            pulumi.set(__self__, "warm_up_period_duration_in_minutes", warm_up_period_duration_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="onlyStartEvaluatingAfterWarmUpPeriodEnds")
+    def only_start_evaluating_after_warm_up_period_ends(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+        """
+        return pulumi.get(self, "only_start_evaluating_after_warm_up_period_ends")
+
+    @only_start_evaluating_after_warm_up_period_ends.setter
+    def only_start_evaluating_after_warm_up_period_ends(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "only_start_evaluating_after_warm_up_period_ends", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warmUpPeriodDurationInMinutes")
+    def warm_up_period_duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+        """
+        return pulumi.get(self, "warm_up_period_duration_in_minutes")
+
+    @warm_up_period_duration_in_minutes.setter
+    def warm_up_period_duration_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "warm_up_period_duration_in_minutes", value)
 
 
 class MetricStreamFilterArgsDict(TypedDict):

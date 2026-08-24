@@ -2630,6 +2630,8 @@ __all__ = [
     'KnowledgeBaseResourcePermissionArgsDict',
     'KnowledgeBaseVideoExtractionConfigurationArgs',
     'KnowledgeBaseVideoExtractionConfigurationArgsDict',
+    'LimitsProfileProfileLimitValueArgs',
+    'LimitsProfileProfileLimitValueArgsDict',
     'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs',
     'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict',
     'RefreshScheduleMapArgs',
@@ -103351,6 +103353,37 @@ class KnowledgeBaseVideoExtractionConfigurationArgs:
     @video_extraction_type.setter
     def video_extraction_type(self, value: pulumi.Input[Optional['KnowledgeBaseVideoExtractionType']]):
         pulumi.set(self, "video_extraction_type", value)
+
+
+class LimitsProfileProfileLimitValueArgsDict(TypedDict):
+    max_value: pulumi.Input[_builtins.float]
+    unit: pulumi.Input['LimitsProfileLimitUnit']
+
+@pulumi.input_type
+class LimitsProfileProfileLimitValueArgs:
+    def __init__(__self__, *,
+                 max_value: pulumi.Input[_builtins.float],
+                 unit: pulumi.Input['LimitsProfileLimitUnit']):
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "max_value")
+
+    @max_value.setter
+    def max_value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "max_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['LimitsProfileLimitUnit']:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['LimitsProfileLimitUnit']):
+        pulumi.set(self, "unit", value)
 
 
 class OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict(TypedDict):

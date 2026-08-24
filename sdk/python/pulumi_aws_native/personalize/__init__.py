@@ -13,8 +13,10 @@ from .event_tracker import *
 from .get_dataset import *
 from .get_dataset_group import *
 from .get_event_tracker import *
+from .get_metric_attribution import *
 from .get_schema import *
 from .get_solution import *
+from .metric_attribution import *
 from .schema import *
 from .solution import *
 from ._inputs import *

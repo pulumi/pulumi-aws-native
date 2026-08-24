@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Branch{}
 	case "aws-native:amplify:Domain":
 		r = &Domain{}
+	case "aws-native:amplify:Webhook":
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

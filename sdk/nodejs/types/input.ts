@@ -913,6 +913,266 @@ export namespace acmpca {
     }
 }
 
+export namespace agentregistry {
+    /**
+     * Configuration for the registry's record approval workflow.
+     */
+    export interface RegistryApprovalConfigurationArgs {
+        /**
+         * The rules that determine which registry records are automatically approved on submission. When omitted or empty, submitted records require manual review.
+         */
+        autoApprovalRules?: pulumi.Input<pulumi.Input<enums.agentregistry.RegistryAutoApprovalRule>[] | undefined>;
+    }
+
+    /**
+     * The authorizer configuration for the registry. This is a union - specify exactly one member.
+     */
+    export interface RegistryAuthorizerConfigurationArgs {
+        customJwtAuthorizer: pulumi.Input<inputs.agentregistry.RegistryCustomJwtAuthorizerConfigurationArgs>;
+    }
+
+    /**
+     * The value and match operator used to authorize a claim during JWT validation.
+     */
+    export interface RegistryAuthorizingClaimMatchValueTypeArgs {
+        claimMatchOperator: pulumi.Input<enums.agentregistry.RegistryAuthorizingClaimMatchValueTypeClaimMatchOperator>;
+        claimMatchValue: pulumi.Input<inputs.agentregistry.RegistryClaimMatchValueTypeArgs>;
+    }
+
+    /**
+     * The expected value used to match a claim. Exactly one member is set.
+     */
+    export interface RegistryClaimMatchValueTypeArgs {
+        matchValueString?: pulumi.Input<string | undefined>;
+        matchValueStringList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * A validation rule applied to a single claim of an inbound JWT.
+     */
+    export interface RegistryCustomClaimValidationTypeArgs {
+        authorizingClaimMatchValue: pulumi.Input<inputs.agentregistry.RegistryAuthorizingClaimMatchValueTypeArgs>;
+        inboundTokenClaimName: pulumi.Input<string>;
+        inboundTokenClaimValueType: pulumi.Input<enums.agentregistry.RegistryCustomClaimValidationTypeInboundTokenClaimValueType>;
+    }
+
+    /**
+     * Configuration for a custom JWT authorizer that validates inbound bearer tokens against an OpenID Connect identity provider.
+     */
+    export interface RegistryCustomJwtAuthorizerConfigurationArgs {
+        /**
+         * The audience values accepted during JWT validation.
+         */
+        allowedAudience?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The client identifiers accepted during JWT validation.
+         */
+        allowedClients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The scopes accepted during JWT validation.
+         */
+        allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Additional custom claim validations applied to the inbound JWT.
+         */
+        customClaims?: pulumi.Input<pulumi.Input<inputs.agentregistry.RegistryCustomClaimValidationTypeArgs>[] | undefined>;
+        /**
+         * The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         */
+        discoveryUrl: pulumi.Input<string>;
+    }
+
+    /**
+     * Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.
+     */
+    export interface RegistryDiscoveryConfigurationArgs {
+        authorizerConfiguration?: pulumi.Input<inputs.agentregistry.RegistryAuthorizerConfigurationArgs | undefined>;
+    }
+
+    /**
+     * The A2A agent card descriptor, populated when the record type is AGENT.
+     */
+    export interface RegistryRecordA2aAgentCardDescriptorArgs {
+        data?: pulumi.Input<string | undefined>;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: pulumi.Input<string | undefined>;
+        source?: pulumi.Input<inputs.agentregistry.RegistryRecordDescriptorSourceArgs | undefined>;
+    }
+
+    /**
+     * Additional data associated with an agent skills definition descriptor.
+     */
+    export interface RegistryRecordAgentSkillsAdditionalDataArgs {
+        skillMd?: pulumi.Input<inputs.agentregistry.RegistryRecordAgentSkillsMdDescriptorArgs | undefined>;
+    }
+
+    /**
+     * The agent skills definition descriptor, populated when the record type is SKILL.
+     */
+    export interface RegistryRecordAgentSkillsDefinitionDescriptorArgs {
+        additionalData?: pulumi.Input<inputs.agentregistry.RegistryRecordAgentSkillsAdditionalDataArgs | undefined>;
+        data?: pulumi.Input<string | undefined>;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Markdown-format descriptor containing an agent skills document.
+     */
+    export interface RegistryRecordAgentSkillsMdDescriptorArgs {
+        data?: pulumi.Input<string | undefined>;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: pulumi.Input<string | undefined>;
+        source?: pulumi.Input<inputs.agentregistry.RegistryRecordSkillMdSourceArgs | undefined>;
+    }
+
+    /**
+     * A credential provider configuration used for authenticated descriptor retrieval.
+     */
+    export interface RegistryRecordCredentialProviderConfigurationArgs {
+        credentialProvider: pulumi.Input<inputs.agentregistry.RegistryRecordCredentialProviderUnionArgs>;
+        credentialProviderType: pulumi.Input<enums.agentregistry.RegistryRecordCredentialProviderConfigurationCredentialProviderType>;
+    }
+
+    /**
+     * The credential provider details. Specify exactly one member.
+     */
+    export interface RegistryRecordCredentialProviderUnionArgs {
+        iamCredentialProvider?: pulumi.Input<inputs.agentregistry.RegistryRecordIamCredentialProviderArgs | undefined>;
+        oauthCredentialProvider?: pulumi.Input<inputs.agentregistry.RegistryRecordOAuthCredentialProviderArgs | undefined>;
+    }
+
+    /**
+     * The custom descriptor, populated when the record type is CUSTOM.
+     */
+    export interface RegistryRecordCustomDescriptorArgs {
+        data?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The source configuration that defines where descriptor content is retrieved from.
+     */
+    export interface RegistryRecordDescriptorSourceArgs {
+        fromUrl?: pulumi.Input<inputs.agentregistry.RegistryRecordDescriptorSourceFromUrlArgs | undefined>;
+    }
+
+    /**
+     * URL-based descriptor source configuration, with credential provider configurations for authenticated URL retrieval.
+     */
+    export interface RegistryRecordDescriptorSourceFromUrlArgs {
+        /**
+         * The credential providers used to authenticate when fetching descriptor content from the source URL.
+         */
+        credentialProviderConfigurations?: pulumi.Input<pulumi.Input<inputs.agentregistry.RegistryRecordCredentialProviderConfigurationArgs>[] | undefined>;
+        /**
+         * URL source for descriptor content.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    /**
+     * The typed set of descriptors for a registry record. Exactly one descriptor field is populated based on the record type.
+     */
+    export interface RegistryRecordDescriptorsArgs {
+        a2aAgentCard?: pulumi.Input<inputs.agentregistry.RegistryRecordA2aAgentCardDescriptorArgs | undefined>;
+        agentSkillsDefinition?: pulumi.Input<inputs.agentregistry.RegistryRecordAgentSkillsDefinitionDescriptorArgs | undefined>;
+        custom?: pulumi.Input<inputs.agentregistry.RegistryRecordCustomDescriptorArgs | undefined>;
+        mcpServer?: pulumi.Input<inputs.agentregistry.RegistryRecordMcpServerDescriptorArgs | undefined>;
+    }
+
+    /**
+     * IAM credential provider configuration.
+     */
+    export interface RegistryRecordIamCredentialProviderArgs {
+        /**
+         * The SigV4 signing region.
+         */
+        region?: pulumi.Input<string | undefined>;
+        /**
+         * The ARN of the IAM role.
+         */
+        roleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The SigV4 signing service name.
+         */
+        service?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Additional data associated with an MCP server descriptor.
+     */
+    export interface RegistryRecordMcpServerAdditionalDataArgs {
+        tools?: pulumi.Input<inputs.agentregistry.RegistryRecordMcpToolsDescriptorArgs | undefined>;
+    }
+
+    /**
+     * The MCP server descriptor, populated when the record type is MCP.
+     */
+    export interface RegistryRecordMcpServerDescriptorArgs {
+        additionalData?: pulumi.Input<inputs.agentregistry.RegistryRecordMcpServerAdditionalDataArgs | undefined>;
+        data?: pulumi.Input<string | undefined>;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: pulumi.Input<string | undefined>;
+        source?: pulumi.Input<inputs.agentregistry.RegistryRecordDescriptorSourceArgs | undefined>;
+    }
+
+    /**
+     * The MCP tools descriptor.
+     */
+    export interface RegistryRecordMcpToolsDescriptorArgs {
+        data?: pulumi.Input<string | undefined>;
+        /**
+         * Version of the tools descriptor schema.
+         */
+        dataSchemaVersion?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * OAuth credential provider configuration.
+     */
+    export interface RegistryRecordOAuthCredentialProviderArgs {
+        /**
+         * Additional custom parameters for the OAuth flow.
+         */
+        customParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        grantType?: pulumi.Input<enums.agentregistry.RegistryRecordOAuthCredentialProviderGrantType | undefined>;
+        /**
+         * The ARN of the OAuth credential provider.
+         */
+        providerArn: pulumi.Input<string>;
+        /**
+         * OAuth scopes to request.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+     */
+    export interface RegistryRecordSkillMdSourceArgs {
+        fromUrl?: pulumi.Input<inputs.agentregistry.RegistryRecordSkillMdSourceFromUrlArgs | undefined>;
+    }
+
+    /**
+     * URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+     */
+    export interface RegistryRecordSkillMdSourceFromUrlArgs {
+        /**
+         * URL source for the SkillMd document.
+         */
+        url: pulumi.Input<string>;
+    }
+
+}
+
 export namespace aiops {
     export interface InvestigationGroupChatbotNotificationChannelArgs {
         /**
@@ -1244,6 +1504,7 @@ export namespace amplify {
          */
         prefix: pulumi.Input<string>;
     }
+
 }
 
 export namespace amplifyuibuilder {
@@ -2872,6 +3133,55 @@ export namespace appconfig {
          * ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
          */
         alarmRoleArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A typed attribute value for a treatment flag.
+     */
+    export interface ExperimentDefinitionAttributeValueArgs {
+        /**
+         * A boolean value.
+         */
+        booleanValue?: pulumi.Input<boolean | undefined>;
+        /**
+         * An array of numeric values.
+         */
+        numberArray?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+        /**
+         * A numeric value.
+         */
+        numberValue?: pulumi.Input<number | undefined>;
+        /**
+         * An array of string values.
+         */
+        stringArray?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A string value.
+         */
+        stringValue?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A treatment variant with weight and flag value. The Key is auto-generated by the service.
+     */
+    export interface ExperimentDefinitionTreatmentArgs {
+        /**
+         * Map of attribute name to attribute value.
+         */
+        attributeValues?: pulumi.Input<{[key: string]: pulumi.Input<inputs.appconfig.ExperimentDefinitionAttributeValueArgs>} | undefined>;
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * Whether the flag is enabled for this variant.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The treatment key (read-only, auto-generated by service).
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * Traffic weight percentage.
+         */
+        weight: pulumi.Input<number>;
     }
 
     /**
@@ -10469,6 +10779,10 @@ export namespace batch {
          * - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for GPU instance families and can be used for all non AWS Graviton-based instance types.
          */
         imageType: pulumi.Input<string>;
+    }
+
+    export interface ComputeEnvironmentEcsSettingsArgs {
+        containerInsights?: pulumi.Input<enums.batch.ComputeEnvironmentEcsSettingsContainerInsights | undefined>;
     }
 
     export interface ComputeEnvironmentEksConfigurationArgs {
@@ -18338,6 +18652,21 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Configuration for a capacity provider
+     */
+    export interface RuntimeCapacityProviderConfigurationArgs {
+        capacityProviderArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for a CapacityProvider-managed volume to mount into the agent runtime
+     */
+    export interface RuntimeCapacityProviderVolumeConfigurationArgs {
+        mountPath: pulumi.Input<string>;
+        volumeName: pulumi.Input<string>;
+    }
+
+    /**
      * The value or values in the custom claim to match for
      */
     export interface RuntimeClaimMatchValueTypeArgs {
@@ -18412,6 +18741,7 @@ export namespace bedrockagentcore {
      * Filesystem configuration for the runtime
      */
     export interface RuntimeFilesystemConfigurationArgs {
+        capacityProviderVolume?: pulumi.Input<inputs.bedrockagentcore.RuntimeCapacityProviderVolumeConfigurationArgs | undefined>;
         efsAccessPoint?: pulumi.Input<inputs.bedrockagentcore.RuntimeEfsAccessPointConfigurationArgs | undefined>;
         s3FilesAccessPoint?: pulumi.Input<inputs.bedrockagentcore.RuntimeS3FilesAccessPointConfigurationArgs | undefined>;
         sessionStorage?: pulumi.Input<inputs.bedrockagentcore.RuntimeSessionStorageConfigurationArgs | undefined>;
@@ -22884,13 +23214,17 @@ export namespace cloudwatch {
         promQlCriteria?: pulumi.Input<inputs.cloudwatch.AlarmPromQlCriteriaArgs | undefined>;
     }
 
+    /**
+     * The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs. This is a union type. Set exactly one of its members, ``SlidingWindow`` or ``WallClockWindow``. If you don't set ``EvaluationWindow``, the alarm uses a ``SlidingWindow`` by default.
+     *  For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+     */
     export interface AlarmEvaluationWindowArgs {
         /**
-         * Configuration for sliding evaluation window (default behavior).
+         * A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
          */
         slidingWindow?: any | undefined;
         /**
-         * Configuration for wall clock based evaluation window.
+         * A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
          */
         wallClockWindow?: pulumi.Input<inputs.cloudwatch.AlarmWallClockWindowArgs | undefined>;
     }
@@ -22998,11 +23332,28 @@ export namespace cloudwatch {
         recoveryPeriod?: pulumi.Input<number | undefined>;
     }
 
+    /**
+     * An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
+     *  When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
+     *  Choose a wall clock window when your monitoring is tied to a business or calendar period, such as daily reports, batch jobs, or backups, or when you want alarm evaluations to match the periods shown on a metric dashboard.
+     */
     export interface AlarmWallClockWindowArgs {
         /**
-         * The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+         * The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, ``America/New_York``), a fixed UTC offset (for example, ``+05:30``), or an offset-prefixed identifier (for example, ``UTC+05:30``). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses ``UTC``.
+         *  The time zone affects window alignment for all periods, including periods of one hour or shorter.
          */
         timezone?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AlarmWarmUpConfigurationArgs {
+        /**
+         * Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+         */
+        onlyStartEvaluatingAfterWarmUpPeriodEnds?: pulumi.Input<boolean | undefined>;
+        /**
+         * The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+         */
+        warmUpPeriodDurationInMinutes?: pulumi.Input<number | undefined>;
     }
 
     /**
@@ -23065,6 +23416,20 @@ export namespace cloudwatch {
          * The value for the specified tag key.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The warm-up configuration for an alarm. A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+     */
+    export interface LogAlarmWarmUpConfigurationArgs {
+        /**
+         * Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+         */
+        onlyStartEvaluatingAfterWarmUpPeriodEnds?: pulumi.Input<boolean | undefined>;
+        /**
+         * The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+         */
+        warmUpPeriodDurationInMinutes?: pulumi.Input<number | undefined>;
     }
 
     /**
@@ -23270,7 +23635,88 @@ export namespace codebuild {
     }
 }
 
+export namespace codecommit {
+    /**
+     * Information about code to be committed to a repository after it is created in an AWS CloudFormation stack. Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
+     */
+    export interface RepositoryCodeArgs {
+        /**
+         * Optional. Specifies a branch name to be used as the default branch when importing code into a repository on initial creation. If this property is not set, the name main will be used for the default branch for the repository. Changes to this property are ignored after initial resource creation. We recommend using this parameter to set the name to main to align with the default behavior of CodeCommit unless another name is needed.
+         */
+        branchName?: pulumi.Input<string | undefined>;
+        /**
+         * Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository. Changes to this property are ignored after initial resource creation.
+         */
+        s3: pulumi.Input<inputs.codecommit.RepositoryS3Args>;
+    }
+
+    /**
+     * Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository. Changes to this property are ignored after initial resource creation.
+     */
+    export interface RepositoryS3Args {
+        /**
+         * The name of the Amazon S3 bucket that contains the ZIP file with the content that will be committed to the new repository. This can be specified using the name of the bucket in the AWS account. Changes to this property are ignored after initial resource creation.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The key to use for accessing the Amazon S3 bucket. Changes to this property are ignored after initial resource creation.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket. Changes to this property are ignored after initial resource creation.
+         */
+        objectVersion?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Information about a trigger for a repository.
+     */
+    export interface RepositoryTriggerArgs {
+        /**
+         * The branches to be included in the trigger configuration. If you specify an empty array, the trigger applies to all branches.
+         */
+        branches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Any custom data associated with the trigger to be included in the information sent to the target of the trigger.
+         */
+        customData?: pulumi.Input<string | undefined>;
+        /**
+         * The ARN of the resource that is the target for a trigger (for example, the ARN of a topic in Amazon SNS).
+         */
+        destinationArn: pulumi.Input<string>;
+        /**
+         * The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS.
+         */
+        events: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the trigger.
+         */
+        name: pulumi.Input<string>;
+    }
+}
+
 export namespace codeconnections {
+    /**
+     * The VPC configuration provisioned for the host.
+     */
+    export interface HostVpcConfigurationArgs {
+        /**
+         * The ID of the security group or security groups associated with the Amazon VPC.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the subnet or subnets associated with the Amazon VPC.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         */
+        tlsCertificate?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        vpcId: pulumi.Input<string>;
+    }
 }
 
 export namespace codedeploy {
@@ -25490,8 +25936,8 @@ export namespace configuration {
         customPolicyDetails?: pulumi.Input<inputs.configuration.ConfigRuleCustomPolicyDetailsArgs | undefined>;
         /**
          * Indicates whether AWS or the customer owns and manages the CC rule.
-         *   CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
-         *   CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
+         *  CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+         *  CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
          */
         owner: pulumi.Input<string>;
         /**
@@ -25523,10 +25969,10 @@ export namespace configuration {
         maximumExecutionFrequency?: pulumi.Input<string | undefined>;
         /**
          * The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
-         *   +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
-         *   +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-         *   +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
-         *   +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+         *   +  ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+         *   +  ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         *   +  ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+         *   +  ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
          *
          *  If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
          */
@@ -26618,6 +27064,52 @@ export namespace connect {
          * The Amazon S3 encryption configuration.
          */
         encryptionConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigEncryptionConfigArgs | undefined>;
+    }
+
+    export interface MetricCalculationComponentArgs {
+        /**
+         * Metric calculation component alias for use within a calculation
+         */
+        alias: pulumi.Input<string>;
+        metricFilters?: pulumi.Input<pulumi.Input<inputs.connect.MetricFilterArgs>[] | undefined>;
+        metricId?: pulumi.Input<string | undefined>;
+        metricName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The calculation configuration for the metric
+     */
+    export interface MetricCalculationPropertiesArgs {
+        /**
+         * The calculation formula
+         */
+        calculation: pulumi.Input<string>;
+        /**
+         * The calculation components for the metric
+         */
+        calculationComponents: pulumi.Input<pulumi.Input<inputs.connect.MetricCalculationComponentArgs>[]>;
+    }
+
+    export interface MetricFilterArgs {
+        booleanCondition?: pulumi.Input<inputs.connect.MetricFilterBooleanConditionArgs | undefined>;
+        metricFilterKey: pulumi.Input<string>;
+        negate?: pulumi.Input<boolean | undefined>;
+        numberCondition?: pulumi.Input<inputs.connect.MetricFilterNumberConditionArgs | undefined>;
+        stringCondition?: pulumi.Input<inputs.connect.MetricFilterStringConditionArgs | undefined>;
+    }
+
+    export interface MetricFilterBooleanConditionArgs {
+        comparison: pulumi.Input<enums.connect.MetricFilterBooleanConditionComparison>;
+    }
+
+    export interface MetricFilterNumberConditionArgs {
+        comparison: pulumi.Input<enums.connect.MetricFilterNumberConditionComparison>;
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface MetricFilterStringConditionArgs {
+        comparison: pulumi.Input<enums.connect.MetricFilterStringConditionComparison>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -29999,6 +30491,66 @@ export namespace databrew {
 }
 
 export namespace dataexchange {
+    /**
+     * What occurs after a certain event.
+     */
+    export interface EventActionActionArgs {
+        exportRevisionToS3?: pulumi.Input<inputs.dataexchange.EventActionAutoExportRevisionToS3RequestDetailsArgs | undefined>;
+    }
+
+    /**
+     * A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.
+     */
+    export interface EventActionAutoExportRevisionDestinationEntryArgs {
+        /**
+         * The Amazon S3 bucket that is the destination for the event action.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * A string representing the pattern for generated names of the individual assets in the revision.
+         */
+        keyPattern?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Details of the operation to be performed by the job.
+     */
+    export interface EventActionAutoExportRevisionToS3RequestDetailsArgs {
+        encryption?: pulumi.Input<inputs.dataexchange.EventActionExportServerSideEncryptionArgs | undefined>;
+        revisionDestination: pulumi.Input<inputs.dataexchange.EventActionAutoExportRevisionDestinationEntryArgs>;
+    }
+
+    /**
+     * What occurs to start an action.
+     */
+    export interface EventActionEventArgs {
+        revisionPublished?: pulumi.Input<inputs.dataexchange.EventActionRevisionPublishedArgs | undefined>;
+    }
+
+    /**
+     * Encryption configuration of the export job.
+     */
+    export interface EventActionExportServerSideEncryptionArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects.
+         */
+        kmsKeyArn?: pulumi.Input<string | undefined>;
+        /**
+         * The type of server side encryption used for encrypting the objects in Amazon S3.
+         */
+        type: pulumi.Input<enums.dataexchange.EventActionExportServerSideEncryptionType>;
+    }
+
+    /**
+     * Information about the published revision.
+     */
+    export interface EventActionRevisionPublishedArgs {
+        /**
+         * The data set ID of the published revision.
+         */
+        dataSetId: pulumi.Input<string>;
+    }
+
 }
 
 export namespace datapipeline {
@@ -31685,6 +32237,55 @@ export namespace datazone {
 }
 
 export namespace deadline {
+    /**
+     * The budget action to add.
+     */
+    export interface BudgetActionToAddArgs {
+        /**
+         * A description for the budget action.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * The percentage threshold for the budget action.
+         */
+        thresholdPercentage: pulumi.Input<number>;
+        /**
+         * The type of budget action.
+         */
+        type: pulumi.Input<enums.deadline.BudgetActionToAddType>;
+    }
+
+    /**
+     * The details of a fixed budget schedule.
+     */
+    export interface BudgetFixedBudgetScheduleArgs {
+        /**
+         * When the budget ends.
+         */
+        endTime: pulumi.Input<string>;
+        /**
+         * When the budget starts.
+         */
+        startTime: pulumi.Input<string>;
+    }
+
+    /**
+     * The start and end time of the budget.
+     */
+    export interface BudgetScheduleArgs {
+        fixed: pulumi.Input<inputs.deadline.BudgetFixedBudgetScheduleArgs>;
+    }
+
+    /**
+     * The usage details of the allotted budget.
+     */
+    export interface BudgetUsageTrackingResourceArgs {
+        /**
+         * The queue ID.
+         */
+        queueId: pulumi.Input<string>;
+    }
+
     export interface FleetAcceleratorCapabilitiesArgs {
         count?: pulumi.Input<inputs.deadline.FleetAcceleratorCountRangeArgs | undefined>;
         selections: pulumi.Input<pulumi.Input<inputs.deadline.FleetAcceleratorSelectionArgs>[]>;
@@ -31942,6 +32543,31 @@ export namespace deadline {
          * The type of file.
          */
         type: pulumi.Input<enums.deadline.StorageProfileFileSystemLocationType>;
+    }
+
+    /**
+     * The host property details.
+     */
+    export interface WorkerHostPropertiesRequestArgs {
+        /**
+         * The host name.
+         */
+        hostName?: pulumi.Input<string | undefined>;
+        ipAddresses?: pulumi.Input<inputs.deadline.WorkerIpAddressesArgs | undefined>;
+    }
+
+    /**
+     * The IP addresses for a host.
+     */
+    export interface WorkerIpAddressesArgs {
+        /**
+         * The IpV4 address of the network.
+         */
+        ipV4Addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The IpV6 address for the network and node component.
+         */
+        ipV6Addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 }
 
@@ -34373,6 +34999,9 @@ export namespace docdb {
 }
 
 export namespace docdbelastic {
+}
+
+export namespace drs {
 }
 
 export namespace dsql {
@@ -39631,6 +40260,13 @@ export namespace ec2 {
         privateDnsSpecifiedDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
+    export interface VpcEndpointServicePrivateDnsNameConfigurationArgs {
+        name?: pulumi.Input<string | undefined>;
+        state?: pulumi.Input<string | undefined>;
+        type?: pulumi.Input<string | undefined>;
+        value?: pulumi.Input<string | undefined>;
+    }
+
     /**
      * Options for sending VPN tunnel logs to CloudWatch.
      */
@@ -43580,6 +44216,20 @@ export namespace eks {
     }
 
     /**
+     * Identifies the certificate authority currently signing certificates for the cluster.
+     */
+    export interface ClusterActiveCertificateAuthorityArgs {
+        /**
+         * Indicates whether the active certificate authority was activated by EKS or by the customer.
+         */
+        activatedBy?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the active (signing) certificate authority.
+         */
+        id?: pulumi.Input<string | undefined>;
+    }
+
+    /**
      * Todo: add description
      */
     export interface ClusterBlockStorageArgs {
@@ -43587,6 +44237,17 @@ export namespace eks {
          * Todo: add description
          */
         enabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+     */
+    export interface ClusterCertificateAuthorityArgs {
+        active?: pulumi.Input<inputs.eks.ClusterActiveCertificateAuthorityArgs | undefined>;
+        /**
+         * The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+         */
+        data?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -45681,9 +46342,14 @@ export namespace elementalinference {
 
     export interface FeedClippingConfigArgs {
         callbackMetadata?: pulumi.Input<string | undefined>;
+        dataSourceConfiguration?: pulumi.Input<inputs.elementalinference.FeedDataSourceConfigurationArgs | undefined>;
     }
 
     export interface FeedCroppingConfigArgs {
+    }
+
+    export interface FeedDataSourceConfigurationArgs {
+        fixtureId: pulumi.Input<string>;
     }
 
     export interface FeedGetOutputArgs {
@@ -50587,6 +51253,30 @@ export namespace glue {
     }
 
     /**
+     * The SessionCommand that runs the job.
+     */
+    export interface SessionCommandArgs {
+        /**
+         * Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+         */
+        pythonVersion?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Specifies the connections used by the session.
+     */
+    export interface SessionConnectionsListArgs {
+        /**
+         * A list of connection names used by the session.
+         */
+        connections?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
      * The resource properties associated with the integration source.
      */
     export interface SourceProcessingPropertiesPropertiesArgs {
@@ -54536,6 +55226,35 @@ export namespace iot {
         s3Location: pulumi.Input<inputs.iot.SoftwarePackageVersionS3LocationArgs>;
     }
 
+    /**
+     * Represents a file to stream.
+     */
+    export interface StreamFileArgs {
+        /**
+         * The file ID.
+         */
+        fileId?: pulumi.Input<number | undefined>;
+        s3Location?: pulumi.Input<inputs.iot.StreamS3LocationArgs | undefined>;
+    }
+
+    /**
+     * The location of the file in S3.
+     */
+    export interface StreamS3LocationArgs {
+        /**
+         * The S3 bucket.
+         */
+        bucket?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 key.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * The S3 bucket version.
+         */
+        version?: pulumi.Input<string | undefined>;
+    }
+
     export interface ThingAttributePayloadArgs {
         /**
          * A JSON string containing up to three key-value pair in JSON format. For example:
@@ -57150,6 +57869,32 @@ export namespace iotevents {
 }
 
 export namespace iotfleethub {
+}
+
+export namespace iotsecuretunneling {
+    /**
+     * The destination configuration.
+     */
+    export interface TunnelDestinationConfigArgs {
+        /**
+         * A list of service names that identify the target application.
+         */
+        services: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the IoT thing to which you want to connect.
+         */
+        thingName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Tunnel timeout configuration.
+     */
+    export interface TunnelTimeoutConfigArgs {
+        /**
+         * The maximum amount of time (in minutes) a tunnel can remain open.
+         */
+        maxLifetimeTimeoutMinutes?: pulumi.Input<number | undefined>;
+    }
 }
 
 export namespace iotsitewise {
@@ -60170,6 +60915,35 @@ export namespace kendra {
         key?: pulumi.Input<string | undefined>;
         value?: pulumi.Input<number | undefined>;
     }
+
+    /**
+     * Information required to find a specific file in an Amazon S3 bucket.
+     */
+    export interface QuerySuggestionsBlockListS3PathArgs {
+        /**
+         * The name of the S3 bucket that contains the file.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The name of the file.
+         */
+        key: pulumi.Input<string>;
+    }
+
+    /**
+     * Information required to find a specific file in an Amazon S3 bucket.
+     */
+    export interface ThesaurusS3PathArgs {
+        /**
+         * The name of the S3 bucket that contains the file.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The name of the file.
+         */
+        key: pulumi.Input<string>;
+    }
+
 }
 
 export namespace kendraranking {
@@ -69869,6 +70643,112 @@ export namespace mediatailor {
         excludeEventTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
+    export interface PrefetchScheduleAvailMatchingCriteriaArgs {
+        /**
+         * The dynamic variable(s) that MediaTailor should use as avail matching criteria.
+         */
+        dynamicVariable: pulumi.Input<string>;
+        /**
+         * For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+         */
+        operator: pulumi.Input<enums.mediatailor.PrefetchScheduleAvailMatchingCriteriaOperator>;
+    }
+
+    export interface PrefetchSchedulePrefetchConsumptionArgs {
+        /**
+         * If you only want MediaTailor to insert prefetched ads into avails that match specific dynamic variables, set the avail matching criteria.
+         */
+        availMatchingCriteria?: pulumi.Input<pulumi.Input<inputs.mediatailor.PrefetchScheduleAvailMatchingCriteriaArgs>[] | undefined>;
+        /**
+         * The time when MediaTailor no longer considers the prefetched ads for use in an ad break, as an ISO 8601 date-time.
+         */
+        endTime: pulumi.Input<string>;
+        /**
+         * The time when prefetched ads are considered for use in an ad break, as an ISO 8601 date-time.
+         */
+        startTime?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PrefetchSchedulePrefetchRetrievalArgs {
+        /**
+         * The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).
+         */
+        dynamicVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The time when prefetch retrieval ends for the ad break, as an ISO 8601 date-time.
+         */
+        endTime: pulumi.Input<string>;
+        /**
+         * The time when prefetch retrievals can start for this break, as an ISO 8601 date-time.
+         */
+        startTime?: pulumi.Input<string | undefined>;
+        trafficShapingRetrievalWindow?: pulumi.Input<inputs.mediatailor.PrefetchScheduleTrafficShapingRetrievalWindowArgs | undefined>;
+        trafficShapingTpsConfiguration?: pulumi.Input<inputs.mediatailor.PrefetchScheduleTrafficShapingTpsConfigurationArgs | undefined>;
+        /**
+         * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+         */
+        trafficShapingType?: pulumi.Input<enums.mediatailor.PrefetchSchedulePrefetchRetrievalTrafficShapingType | undefined>;
+    }
+
+    export interface PrefetchScheduleRecurringConsumptionArgs {
+        /**
+         * The configuration for the dynamic variables that determine which ad breaks that MediaTailor inserts prefetched ads in.
+         */
+        availMatchingCriteria?: pulumi.Input<pulumi.Input<inputs.mediatailor.PrefetchScheduleAvailMatchingCriteriaArgs>[] | undefined>;
+        /**
+         * The number of seconds that an ad is available for insertion after it was prefetched.
+         */
+        retrievedAdExpirationSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    export interface PrefetchScheduleRecurringPrefetchConfigurationArgs {
+        /**
+         * The end time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+         */
+        endTime: pulumi.Input<string>;
+        recurringConsumption: pulumi.Input<inputs.mediatailor.PrefetchScheduleRecurringConsumptionArgs>;
+        recurringRetrieval: pulumi.Input<inputs.mediatailor.PrefetchScheduleRecurringRetrievalArgs>;
+        /**
+         * The start time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+         */
+        startTime?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PrefetchScheduleRecurringRetrievalArgs {
+        /**
+         * The number of seconds that MediaTailor waits after an ad avail before prefetching ads for the next avail.
+         */
+        delayAfterAvailEndSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * The dynamic variables to use for substitution during prefetch requests to the ADS.
+         */
+        dynamicVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        trafficShapingRetrievalWindow?: pulumi.Input<inputs.mediatailor.PrefetchScheduleTrafficShapingRetrievalWindowArgs | undefined>;
+        trafficShapingTpsConfiguration?: pulumi.Input<inputs.mediatailor.PrefetchScheduleTrafficShapingTpsConfigurationArgs | undefined>;
+        /**
+         * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+         */
+        trafficShapingType?: pulumi.Input<enums.mediatailor.PrefetchScheduleRecurringRetrievalTrafficShapingType | undefined>;
+    }
+
+    export interface PrefetchScheduleTrafficShapingRetrievalWindowArgs {
+        /**
+         * The amount of time, in seconds, that MediaTailor spreads prefetch requests to the ADS.
+         */
+        retrievalWindowDurationSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    export interface PrefetchScheduleTrafficShapingTpsConfigurationArgs {
+        /**
+         * The expected peak number of concurrent viewers for your content.
+         */
+        peakConcurrentUsers?: pulumi.Input<number | undefined>;
+        /**
+         * The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle.
+         */
+        peakTps?: pulumi.Input<number | undefined>;
+    }
+
     /**
      * <p>Access configuration parameters.</p>
      */
@@ -69995,6 +70875,73 @@ export namespace memorydb {
         port?: pulumi.Input<number | undefined>;
     }
 
+}
+
+export namespace mgn {
+    /**
+     * Configuration for a migration source environment.
+     */
+    export interface NetworkMigrationDefinitionSourceConfigurationArgs {
+        /**
+         * The source environment type.
+         */
+        sourceEnvironment: pulumi.Input<enums.mgn.NetworkMigrationDefinitionSourceConfigurationSourceEnvironment>;
+        sourceS3Configuration: pulumi.Input<inputs.mgn.NetworkMigrationDefinitionSourceS3ConfigurationArgs>;
+    }
+
+    /**
+     * S3 configuration for source network data.
+     */
+    export interface NetworkMigrationDefinitionSourceS3ConfigurationArgs {
+        /**
+         * The name of the S3 bucket containing source data.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * The AWS account ID of the S3 bucket owner.
+         */
+        s3BucketOwner: pulumi.Input<string>;
+        /**
+         * The S3 key (path) for the source data.
+         */
+        s3Key: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for the target network topology and addressing.
+     */
+    export interface NetworkMigrationDefinitionTargetNetworkArgs {
+        /**
+         * The CIDR block for inbound traffic in the target network.
+         */
+        inboundCidr?: pulumi.Input<string | undefined>;
+        /**
+         * The CIDR block for inspection traffic in the target network.
+         */
+        inspectionCidr?: pulumi.Input<string | undefined>;
+        /**
+         * The CIDR block for outbound traffic in the target network.
+         */
+        outboundCidr?: pulumi.Input<string | undefined>;
+        /**
+         * The network topology type for the target environment.
+         */
+        topology: pulumi.Input<enums.mgn.NetworkMigrationDefinitionTargetNetworkTopology>;
+    }
+
+    /**
+     * S3 configuration for storing target network artifacts.
+     */
+    export interface NetworkMigrationDefinitionTargetS3ConfigurationArgs {
+        /**
+         * The name of the S3 bucket for target artifacts.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * The AWS account ID of the S3 bucket owner.
+         */
+        s3BucketOwner: pulumi.Input<string>;
+    }
 }
 
 export namespace msk {
@@ -70730,6 +71677,10 @@ export namespace msk {
          */
         mtls?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterMtlsAuthenticationArgs | undefined>;
         /**
+         * Details for client authentication using SASL/OAUTHBEARER.
+         */
+        saslOAuthBearer?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs | undefined>;
+        /**
          * Details for SASL/SCRAM client authentication.
          */
         saslScram?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterSaslScramAuthenticationArgs | undefined>;
@@ -70771,6 +71722,86 @@ export namespace msk {
          * The Amazon Resource Name (ARN) of the Secrets Manager secret.
          */
         secretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Details for SASL/OAUTHBEARER using the standard client_credentials grant. The referenced secret must contain client_id and client_secret.
+     */
+    export interface ReplicatorKafkaClusterOAuthClientCredentialsArgs {
+        /**
+         * Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+         */
+        tokenRequestSecretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Details for SASL/OAUTHBEARER using the client credentials grant with a JWT client assertion (RFC 7521/7523 Section 2.2). An STS-vended JWT is used as the client_assertion.
+     */
+    export interface ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs {
+        /**
+         * The audience (aud claim) set in the STS JWT client assertion.
+         */
+        audience: pulumi.Input<string>;
+        /**
+         * The algorithm used to sign the JWT client assertion.
+         */
+        signingAlgorithm: pulumi.Input<enums.msk.ReplicatorJwtSigningAlgorithm>;
+        /**
+         * Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+         */
+        tokenRequestSecretArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Details for SASL/OAUTHBEARER using the JWT Bearer assertion grant (RFC 7523). An STS-vended JWT is used as the assertion.
+     */
+    export interface ReplicatorKafkaClusterOAuthIamJwtBearerArgs {
+        /**
+         * The audience (aud claim) set in the STS JWT assertion.
+         */
+        audience: pulumi.Input<string>;
+        /**
+         * The algorithm used to sign the JWT assertion.
+         */
+        signingAlgorithm: pulumi.Input<enums.msk.ReplicatorJwtSigningAlgorithm>;
+        /**
+         * Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+         */
+        tokenRequestSecretArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Details for client authentication using SASL/OAUTHBEARER.
+     */
+    export interface ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs {
+        /**
+         * Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+         */
+        clientCredentials?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterOAuthClientCredentialsArgs | undefined>;
+        /**
+         * Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+         */
+        clientCredentialsAssertion?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs | undefined>;
+        /**
+         * Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+         */
+        iamJwtBearer?: pulumi.Input<inputs.msk.ReplicatorKafkaClusterOAuthIamJwtBearerArgs | undefined>;
+        /**
+         * OAuth scope to request. Included in the token request if provided.
+         */
+        scope?: pulumi.Input<string | undefined>;
+        /**
+         * How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+         */
+        tokenEndpointAuthenticationMethod: pulumi.Input<enums.msk.ReplicatorTokenEndpointAuthenticationMethod>;
+        /**
+         * Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+         */
+        tokenEndpointTlsCertificateArn?: pulumi.Input<string | undefined>;
+        /**
+         * The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+         */
+        tokenEndpointUrl: pulumi.Input<string>;
     }
 
     /**
@@ -74948,6 +75979,49 @@ export namespace personalize {
     }
 
     /**
+     * A metric attribute for the metric attribution.
+     */
+    export interface MetricAttributionMetricAttributeArgs {
+        /**
+         * The metric's event type.
+         */
+        eventType: pulumi.Input<string>;
+        /**
+         * The attribute's expression.
+         */
+        expression: pulumi.Input<string>;
+        /**
+         * The metric's name.
+         */
+        metricName: pulumi.Input<string>;
+    }
+
+    /**
+     * The output configuration details for the metric attribution.
+     */
+    export interface MetricAttributionMetricsOutputConfigArgs {
+        /**
+         * The ARN of the IAM role for the metric attribution.
+         */
+        roleArn: pulumi.Input<string>;
+        s3DataDestination?: pulumi.Input<inputs.personalize.MetricAttributionS3DataDestinationArgs | undefined>;
+    }
+
+    /**
+     * The configuration details of an Amazon S3 output bucket.
+     */
+    export interface MetricAttributionS3DataDestinationArgs {
+        /**
+         * The ARN of the KMS key.
+         */
+        kmsKeyArn?: pulumi.Input<string | undefined>;
+        /**
+         * The file path of the Amazon S3 bucket.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    /**
      * Provides the name and values of a Categorical hyperparameter.
      */
     export interface SolutionCategoricalHyperParameterRangeArgs {
@@ -75104,6 +76178,7 @@ export namespace personalize {
          */
         name?: pulumi.Input<string | undefined>;
     }
+
 }
 
 export namespace pinpoint {
@@ -98561,6 +99636,11 @@ export namespace quicksight {
         videoExtractionType?: pulumi.Input<enums.quicksight.KnowledgeBaseVideoExtractionType | undefined>;
     }
 
+    export interface LimitsProfileProfileLimitValueArgs {
+        maxValue: pulumi.Input<number>;
+        unit: pulumi.Input<enums.quicksight.LimitsProfileLimitUnit>;
+    }
+
     export interface OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs {
         vpcConnectionArn: pulumi.Input<string>;
     }
@@ -109846,6 +110926,47 @@ export namespace route53 {
          *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcRegion: pulumi.Input<string>;
+    }
+
+    export interface RecordSetAliasTargetArgs {
+        /**
+         * The value that you specify depends on where you want to route queries.
+         */
+        dnsName: pulumi.Input<string>;
+        /**
+         * When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+         */
+        evaluateTargetHealth?: pulumi.Input<boolean | undefined>;
+        /**
+         * The value used depends on where you want to route traffic.
+         */
+        hostedZoneId: pulumi.Input<string>;
+    }
+
+    export interface RecordSetCidrRoutingConfigArgs {
+        /**
+         * The CIDR collection ID.
+         */
+        collectionId: pulumi.Input<string>;
+        /**
+         * The CIDR collection location name.
+         */
+        locationName: pulumi.Input<string>;
+    }
+
+    export interface RecordSetGeoLocationArgs {
+        /**
+         * For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+         */
+        continentCode?: pulumi.Input<string | undefined>;
+        /**
+         * For geolocation resource record sets, the two-letter code for a country.
+         */
+        countryCode?: pulumi.Input<string | undefined>;
+        /**
+         * For geolocation resource record sets, the two-letter code for a state of the United States.
+         */
+        subdivisionCode?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -122728,6 +123849,34 @@ export namespace ses {
     }
 
     /**
+     * A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+     */
+    export interface ReceiptFilterFilterArgs {
+        /**
+         * A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+         */
+        ipFilter: pulumi.Input<inputs.ses.ReceiptFilterIpFilterArgs>;
+        /**
+         * The name of the IP address filter.
+         */
+        name?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+     */
+    export interface ReceiptFilterIpFilterArgs {
+        /**
+         * A single IP address or a range of IP addresses to block or allow, specified in CIDR notation.
+         */
+        cidr: pulumi.Input<string>;
+        /**
+         * Indicates whether to block or allow incoming mail from the specified IP addresses.
+         */
+        policy: pulumi.Input<string>;
+    }
+
+    /**
      * An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
      */
     export interface ReceiptRuleActionArgs {
@@ -124999,6 +126148,9 @@ export namespace systemsmanagersap {
 
 }
 
+export namespace textract {
+}
+
 export namespace timestream {
     /**
      * The maintenance schedule for the InfluxDB cluster.
@@ -125834,6 +126986,37 @@ export namespace transfer {
          * Array that contains from 1 to 10 key/value pairs.
          */
         tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowS3TagArgs>[] | undefined>;
+    }
+
+}
+
+export namespace translate {
+    /**
+     * The encryption key used to encrypt this object.
+     */
+    export interface EncryptionKeyPropertiesArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the encryption key.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The type of encryption key.
+         */
+        type: pulumi.Input<enums.translate.ParallelDataEncryptionKeyPropertiesType>;
+    }
+
+    /**
+     * Specifies the format and S3 location of the parallel data input file.
+     */
+    export interface ParallelDataConfigPropertiesArgs {
+        /**
+         * The format of the parallel data input file.
+         */
+        format: pulumi.Input<enums.translate.ParallelDataConfigPropertiesFormat>;
+        /**
+         * The URI of the Amazon S3 folder that contains the parallel data input file.
+         */
+        s3Uri: pulumi.Input<string>;
     }
 
 }

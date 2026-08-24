@@ -7,6 +7,10 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ChangeSetCapabilitiesItem',
+    'ChangeSetDeploymentMode',
+    'ChangeSetOnStackFailure',
+    'ChangeSetType',
     'GeneratedTemplateStatus',
     'GeneratedTemplateTemplateConfigurationDeletionPolicy',
     'GeneratedTemplateTemplateConfigurationUpdateReplacePolicy',
@@ -41,6 +45,41 @@ __all__ = [
     'TypeActivationType',
     'TypeActivationVersionBump',
 ]
+
+
+@pulumi.type_token("aws-native:cloudformation:ChangeSetCapabilitiesItem")
+class ChangeSetCapabilitiesItem(_builtins.str, Enum):
+    CAPABILITY_IAM = "CAPABILITY_IAM"
+    CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM"
+    CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND"
+
+
+@pulumi.type_token("aws-native:cloudformation:ChangeSetDeploymentMode")
+class ChangeSetDeploymentMode(_builtins.str, Enum):
+    """
+    Determines how CloudFormation handles configuration drift during deployment.
+    """
+    REVERT_DRIFT = "REVERT_DRIFT"
+
+
+@pulumi.type_token("aws-native:cloudformation:ChangeSetOnStackFailure")
+class ChangeSetOnStackFailure(_builtins.str, Enum):
+    """
+    Determines what action will be taken if stack creation fails.
+    """
+    DO_NOTHING = "DO_NOTHING"
+    ROLLBACK = "ROLLBACK"
+    DELETE = "DELETE"
+
+
+@pulumi.type_token("aws-native:cloudformation:ChangeSetType")
+class ChangeSetType(_builtins.str, Enum):
+    """
+    The type of change set operation.
+    """
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    IMPORT_ = "IMPORT"
 
 
 @pulumi.type_token("aws-native:cloudformation:GeneratedTemplateStatus")

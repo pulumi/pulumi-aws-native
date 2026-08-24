@@ -50,7 +50,7 @@ class AwaitableGetWalWorkspaceResult(GetWalWorkspaceResult):
 def get_wal_workspace(wal_workspace_name: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWalWorkspaceResult:
     """
-    Resource schema for AWS::EMR::WALWorkspace Type
+    Resource Type definition for AWS::EMR::WALWorkspace
 
     :param _builtins.str wal_workspace_name: The name of the emrwal container
     """
@@ -64,7 +64,7 @@ def get_wal_workspace(wal_workspace_name: Optional[_builtins.str] = None,
 def get_wal_workspace_output(wal_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWalWorkspaceResult]:
     """
-    Resource schema for AWS::EMR::WALWorkspace Type
+    Resource Type definition for AWS::EMR::WALWorkspace
 
     :param _builtins.str wal_workspace_name: The name of the emrwal container
     """

@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "credentialProviderVendor",
                     "name",
                 },
             };

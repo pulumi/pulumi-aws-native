@@ -33,6 +33,7 @@ export interface GetClusterResult {
      * The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
      */
     readonly arn?: string;
+    readonly certificateAuthority?: outputs.eks.ClusterCertificateAuthority;
     /**
      * The certificate-authority-data for your cluster.
      */

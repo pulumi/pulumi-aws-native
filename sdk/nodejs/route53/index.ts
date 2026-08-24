@@ -35,6 +35,11 @@ export const getKeySigningKey: typeof import("./getKeySigningKey").getKeySigning
 export const getKeySigningKeyOutput: typeof import("./getKeySigningKey").getKeySigningKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getKeySigningKey","getKeySigningKeyOutput"], () => require("./getKeySigningKey"));
 
+export { GetRecordSetArgs, GetRecordSetResult, GetRecordSetOutputArgs } from "./getRecordSet";
+export const getRecordSet: typeof import("./getRecordSet").getRecordSet = null as any;
+export const getRecordSetOutput: typeof import("./getRecordSet").getRecordSetOutput = null as any;
+utilities.lazyLoad(exports, ["getRecordSet","getRecordSetOutput"], () => require("./getRecordSet"));
+
 export { HealthCheckArgs } from "./healthCheck";
 export type HealthCheck = import("./healthCheck").HealthCheck;
 export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;
@@ -49,6 +54,11 @@ export { KeySigningKeyArgs } from "./keySigningKey";
 export type KeySigningKey = import("./keySigningKey").KeySigningKey;
 export const KeySigningKey: typeof import("./keySigningKey").KeySigningKey = null as any;
 utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
+
+export { RecordSetArgs } from "./recordSet";
+export type RecordSet = import("./recordSet").RecordSet;
+export const RecordSet: typeof import("./recordSet").RecordSet = null as any;
+utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
 
 
 // Export enums:
@@ -68,6 +78,8 @@ const _module = {
                 return new HostedZone(name, <any>undefined, { urn })
             case "aws-native:route53:KeySigningKey":
                 return new KeySigningKey(name, <any>undefined, { urn })
+            case "aws-native:route53:RecordSet":
+                return new RecordSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

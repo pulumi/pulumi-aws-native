@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.Batch
         /// Reserved.
         /// </summary>
         public readonly string? Context;
+        public readonly Outputs.ComputeEnvironmentEcsSettings? EcsSettings;
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
         /// 
@@ -112,6 +113,8 @@ namespace Pulumi.AwsNative.Batch
 
             string? context,
 
+            Outputs.ComputeEnvironmentEcsSettings? ecsSettings,
+
             string? serviceRole,
 
             string? state,
@@ -121,6 +124,7 @@ namespace Pulumi.AwsNative.Batch
             ComputeEnvironmentArn = computeEnvironmentArn;
             ComputeResources = computeResources;
             Context = context;
+            EcsSettings = ecsSettings;
             ServiceRole = serviceRole;
             State = state;
             UnmanagedvCpus = unmanagedvCpus;
